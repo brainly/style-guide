@@ -1,0 +1,32 @@
+.sg-sparks {
+  position: relative;
+  display: var(--sparks-display, inline-block);
+  width: var(--sparks-width, initial);
+  height: var(--sparks-height, initial);
+
+  &__canvas {
+    position: absolute;
+    inset: var(--sparks-inset, -8px 0);
+    pointer-events: none;
+    display: grid;
+    grid-template-columns: repeat(11, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    justify-items: center;
+  }
+
+  &--s {
+    .sg-sparks__canvas {
+      inset: var(--sparks-inset, -4px 0);
+    }
+  }
+
+  &__particle {
+    position: absolute;
+    transform-origin: center;
+    opacity: 0;
+
+    & > svg {
+      display: block;
+    }
+  }
+}

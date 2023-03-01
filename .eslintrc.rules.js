@@ -245,7 +245,8 @@ module.exports = {
     // disallow shadowing of names such as arguments
     'no-shadow-restricted-names': 'off',
     // disallow use of undeclared variables unless mentioned in a /*global */ block
-    'no-undef': 'error',
+    // rule disabled because it's handled by ts, otherwise we cannot use global types
+    //'no-undef': 'error',
     // disallow use of undefined when initializing variables
     'no-undef-init': 'off',
     // disallow use of undefined variable
