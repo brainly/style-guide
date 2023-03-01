@@ -103,19 +103,24 @@
         transform: rotate(-180deg);
       }
 
-      .sg-subject-icon,
-      .sg-icon {
+      @keyframes selectIconFadeIn {
+        from {
+          opacity: 0;
+        }
+        to {
+          opacity: 1;
+        }
+      }
+
+      .sg-select-new__element-label-icon {
         margin-right: 12px;
+        animation: iconFadeIn $durationModerate1 $easingLinear;
       }
     }
 
     &__element-icon {
       position: absolute;
       right: 8px;
-
-      .sg-icon {
-        margin-right: 0;
-      }
 
       &.animate-on-transforms {
         transition: transform $durationGentle1 $easingRegular;

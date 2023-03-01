@@ -326,12 +326,29 @@ const Select = React.forwardRef<HTMLDivElement, SelectPropsType>(
           if (isSubjectIcon) {
             const iconName = name as SubjectIconTypeType;
 
-            displayedIcon = <SubjectIcon size="small" type={iconName} />;
+            // Add an icon name key so only icon different
+            // from the previous one will have opacity animation
+            displayedIcon = (
+              <SubjectIcon
+                key={iconName}
+                className="sg-select-new__element-label-icon"
+                size="small"
+                type={iconName}
+              />
+            );
           } else {
             const iconName = name as IconTypeType;
 
+            // Add an icon name key so only icon different
+            // from the previous one will have opacity animation
             displayedIcon = (
-              <Icon size={24} color="icon-black" type={iconName} />
+              <Icon
+                key={iconName}
+                className="sg-select-new__element-label-icon"
+                size={24}
+                color="icon-black"
+                type={iconName}
+              />
             );
           }
           return (
