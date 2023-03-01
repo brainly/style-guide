@@ -49,25 +49,6 @@ const sparkAnimation: AnimationConfig = {
         composite: 'add',
       },
     },
-    // keeping here for reference and desiger review
-    // {
-    //   keyframes: [
-    //     {transform: `scale(0)`, offset: 0},
-    //     {transform: `scale(1)`, offset: 0.125},
-    //     {transform: `scale(1)`, offset: 0.5},
-    //     {transform: `scale(0)`, offset: 0.625},
-    //     {transform: `scale(0)`, offset: 1},
-    //   ],
-    //   options: {
-    //     easing: 'linear',
-    //     duration: 4000,
-    //     delay: index => index * 1000,
-    //     direction: 'normal',
-    //     iterations: Infinity,
-    //     composite: 'add',
-    //     fill: 'both',
-    //   },
-    // },
   ],
   exit: [
     {

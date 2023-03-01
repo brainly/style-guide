@@ -86,6 +86,41 @@ export interface SparksPropsType {
    * @example <Sparks colors={['var(--indigo-20)', 'var(--indigo-30)', 'var(--indigo-40)', 'var(--indigo-50)']} />
    **/
   colors?: [string, string, string, string];
+
+  /**
+   * Optional string. The placement property is a shorthand property for setting the top, right, bottom, and left properties (inset) of an internal canvas.
+   * Thanks to that you can adjust the position of the canvas thus the position of the sparks to always keep them in line with the edge of the container
+   * no matter what the size of the container and the variant of the sparks is. It is useful when specific variant of the sparks is used in a container
+   * of the size that is not covered perfectly by the default positioning.
+   * @remarks
+   * @example
+   * // This will move the sparks 8px outside the container top and bottom edge and 0px outside the container left and right edge.
+   * <Sparks inset="-8 0" />
+   * @example
+   * // this will move the sparks 16px outside the container top and bottom endge and 0px outside the container left and right edge.
+   * <Sparks inset="-16 0" />
+   **/
+  placement?: React.CSSProperties['inset'];
+
+  /**
+   * Optional string. The display property specifies the display behavior (the type of rendering box) of spark container.
+   * It's exposed directly from the CSS to conveniently change the display behavior of the spark container.
+   */
+  display?: React.CSSProperties['display'];
+
+  /**
+   * Optional string. The width property specifies the width of the spark container.
+   * It's exposed directly from the CSS to conveniently change the width of the spark container.
+   * @example <Sparks width="100%" />
+   */
+  width?: React.CSSProperties['width'];
+
+  /**
+   * Optional string. The height property specifies the height of the spark container.
+   * It's exposed directly from the CSS to conveniently change the height of the spark container.
+   * @example <Sparks height="100%" />
+   */
+  height?: React.CSSProperties['height'];
 }
 
 const Sparks = React.forwardRef<HTMLDivElement, SparksPropsType>(
@@ -102,6 +137,10 @@ const Sparks = React.forwardRef<HTMLDivElement, SparksPropsType>(
       iterationDelay = 500,
       iterationCount = 3,
       colors,
+      placement,
+      display,
+      width,
+      height,
     }: SparksPropsType,
     ref
   ) => {
@@ -166,15 +205,32 @@ const Sparks = React.forwardRef<HTMLDivElement, SparksPropsType>(
 
     const shapeColor = shapeColorMap[shape];
 
+    const componnetCssVariables = {
+      '--sparks-display': display,
+      '--sparks-width': width,
+      '--sparks-height': height,
+    };
+
+    const canvasCssVariables = {
+      '--sparks-inset': placement,
+    } as React.CSSProperties;
+
     return (
       <div
         className={cx('sg-sparks', className, {
           'sg-sparks--s': variant === 's',
         })}
-        style={style}
+        style={{...style, ...componnetCssVariables}}
       >
         {children}
-        <div className="sg-sparks__container" aria-hidden ref={ref}>
+        <div
+          className="sg-sparks__canvas"
+          ref={ref}
+          aria-hidden
+          role="img"
+          aria-label=""
+          style={canvasCssVariables}
+        >
           {variants[variant].map(
             ({style, colorIndex, animation, ...particle}, index) => (
               <Particle

@@ -18,7 +18,7 @@ import Text from '../text/Text';
 ## Overview
 
 <Canvas>
-  <Story name="Default" args={{active: true}}>
+  <Story name="Default" args={{active: true, iterationCount: Infinity}}>
     {args => (
       <div style={{width: 300}}>
         <Sparks {...args} active>
@@ -123,6 +123,8 @@ import Text from '../text/Text';
 
 ### Placement
 
+Use `placement` property to position the sparks canvas relative to the container so that sparks are always nicely placed and don't cover important part of the content.
+
 <Canvas>
   <Story name="Placement">
     {args => (
@@ -138,7 +140,8 @@ import Text from '../text/Text';
           {...args}
           variant="l"
           shape="spark"
-          style={{width: '100%'}}
+          width="100%"
+          placement="-16px 0"
           active
           iterationCount={Infinity}
           delay={500}
@@ -170,7 +173,7 @@ import Text from '../text/Text';
 
 ### Colors
 
-You can change the color of the sparks by changing the `colors` prop.
+Change the color of the sparks by changing the `colors` prop. Make sure the custom colors are accessible and on brand.
 
 <Canvas>
   <Story
