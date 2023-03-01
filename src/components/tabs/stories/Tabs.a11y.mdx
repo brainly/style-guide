@@ -1,8 +1,36 @@
-import rules from './rules.a11y';
+import rules, {
+  tabRules,
+  tabActiveIndicatorRules,
+  tabListRules,
+  tabPanelRules,
+  tabHeaderRules,
+} from './rules.a11y';
 
 ### Rules
 
+#### Tabs
+
 <AccessibilityList rules={rules} />
+
+#### Tab
+
+<AccessibilityList rules={tabRules} />
+
+#### Tab.ActiveIndicator
+
+<AccessibilityList rules={tabActiveIndicatorRules} />
+
+#### Tab.List
+
+<AccessibilityList rules={tabListRules} />
+
+#### Tab.Panel
+
+<AccessibilityList rules={tabPanelRules} />
+
+#### Tab.Header
+
+<AccessibilityList rules={tabHeaderRules} />
 
 ### Usage
 
