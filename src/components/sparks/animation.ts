@@ -23,7 +23,7 @@ export interface RegisterOptions {
   animation?: Record<string, Partial<AnimationWithOptions>>;
 }
 
-export function useAnimation(config: AnimationConfig) {
+function useAnimation(config: AnimationConfig) {
   const refs = React.useRef(new Set<any>());
   const parameters = React.useRef(new WeakMap());
   const entryAnimations = React.useRef(new WeakMap());
@@ -194,3 +194,7 @@ export function useAnimation(config: AnimationConfig) {
 
   return {register, phase, setPhase};
 }
+
+useAnimation.playback = {};
+
+export {useAnimation};
