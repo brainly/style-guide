@@ -430,7 +430,11 @@ const Select = React.forwardRef<HTMLDivElement, SelectPropsType>(
                   position: floatingProps.strategy,
                   top: floatingProps.y ?? 0,
                   left: floatingProps.x ?? 0,
+                  minWidth: 120,
+                  width: 'max-content',
+                  maxWidth: 320,
                 }}
+                {...interactions.getFloatingProps()}
                 data-placement={floatingProps.placement}
               >
                 <div
@@ -439,7 +443,6 @@ const Select = React.forwardRef<HTMLDivElement, SelectPropsType>(
                   data-placement={floatingProps.placement}
                   id={`${id}-listbox`}
                   tabIndex={-1}
-                  {...interactions.getFloatingProps()}
                 >
                   <div className={popupContentClassName}>{optionsElements}</div>
                 </div>

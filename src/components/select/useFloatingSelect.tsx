@@ -10,6 +10,8 @@ import {
   size,
   autoPlacement,
   useTransitionStatus,
+  limitShift,
+  flip,
 } from '@floating-ui/react';
 
 const CONTAINER_MARGIN = 10;
@@ -26,24 +28,18 @@ const useFloatingSelect = (props: UseFloatingSelectPropsType) => {
 
   const {x, y, strategy, refs, context, placement} = useFloating({
     open: isExpanded,
+    placement: 'bottom-start',
     onOpenChange,
     middleware: [
       offset(8),
-      autoPlacement({
-        alignment: 'start',
-        autoAlignment: true,
-        allowedPlacements: [
-          'bottom-start',
-          'bottom-end',
-          'top-start',
-          'top-end',
-        ],
-      }),
+      flip({padding: CONTAINER_MARGIN}),
+      // Apply shift when we want to move component to the side to fit
       shift(),
       size({
-        apply({elements, availableHeight}) {
+        apply({elements, availableHeight, availableWidth}) {
           Object.assign(elements.floating.style, {
             maxHeight: `${availableHeight - CONTAINER_MARGIN}px`,
+            maxWidth: `${availableWidth}px`,
           });
         },
       }),
