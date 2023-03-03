@@ -23,15 +23,20 @@ export interface RegisterOptions {
   animation?: Record<string, Partial<AnimationWithOptions>>;
 }
 
+type AnimationPhases = 'initial' | 'entry' | 'paused' | 'exit' | 'finished';
+
+interface DebugInfo {
+  phase: AnimationPhases | null;
+  time: number;
+}
+
 function useAnimation(config: AnimationConfig) {
   const refs = React.useRef(new Set<any>());
   const parameters = React.useRef(new WeakMap());
   const entryAnimations = React.useRef(new WeakMap());
   const exitAnimations = React.useRef(new WeakMap());
   const isAnimationSupported = React.useRef(true);
-  const [phase, setPhase] = React.useState<
-    'initial' | 'entry' | 'paused' | 'exit' | 'finished'
-  >('initial');
+  const [phase, setPhase] = React.useState<AnimationPhases>('initial');
   const configRef = React.useRef(config);
 
   // We only need the most updated value. Equivalent of using useEffectEvent.
@@ -78,6 +83,10 @@ function useAnimation(config: AnimationConfig) {
     if (!isAnimationSupported.current) {
       console.warn('Web Animation API is not supported on this browser');
       return;
+    }
+
+    if (useAnimation.debug.phase !== null) {
+      setPhase(useAnimation.debug.phase);
     }
 
     switch (phase) {
@@ -190,11 +199,28 @@ function useAnimation(config: AnimationConfig) {
       default:
         break;
     }
+
+    // In debug mode, we need to manually pause all animations at the desired time.
+    if (useAnimation.debug.phase !== null) {
+      const allSnapshot = [...refs.current].flatMap(ref => ref.getAnimations());
+
+      allSnapshot.forEach(animation => {
+        animation.currentTime = useAnimation.debug.time;
+        animation.pause();
+      });
+    }
+
+    console.log('phase', phase);
   }, [phase]);
 
   return {register, phase, setPhase};
 }
 
-useAnimation.playback = {};
+const debug: DebugInfo = {
+  phase: null,
+  time: 0,
+};
+
+useAnimation.debug = debug;
 
 export {useAnimation};
