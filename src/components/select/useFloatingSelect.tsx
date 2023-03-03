@@ -8,9 +8,8 @@ import {
   shift,
   offset,
   size,
-  autoPlacement,
   useTransitionStatus,
-  limitShift,
+  useRole,
   flip,
 } from '@floating-ui/react';
 
@@ -54,16 +53,20 @@ const useFloatingSelect = (props: UseFloatingSelectPropsType) => {
 
   const click = useClick(context, {event: 'mousedown'});
   const dismiss = useDismiss(context);
+  const role = useRole(context, {role: 'listbox'});
+
   const listNav = useListNavigation(context, {
     listRef,
     activeIndex,
-    // selectedIndex,
     onNavigate: setActiveIndex,
+    // This is a large list, allow looping.
+    loop: true,
   });
 
   const {getReferenceProps, getFloatingProps, getItemProps} = useInteractions([
     click,
     dismiss,
+    role,
     listNav,
   ]);
 
@@ -84,6 +87,7 @@ const useFloatingSelect = (props: UseFloatingSelectPropsType) => {
     context,
     isMounted,
     status,
+    activeIndex,
   };
 };
 

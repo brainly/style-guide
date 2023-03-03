@@ -16,6 +16,7 @@ export type SelectOptionElementPropsType = {
   withIcon?: boolean;
   multiSelect?: boolean;
   interactions: Record<string, unknown>;
+  tabIndex: number;
 };
 
 const SelectOption = React.forwardRef<
@@ -29,6 +30,7 @@ const SelectOption = React.forwardRef<
       withIcon = false,
       multiSelect = false,
       interactions,
+      tabIndex,
     }: SelectOptionElementPropsType,
     ref
   ) => {
@@ -87,6 +89,7 @@ const SelectOption = React.forwardRef<
         className={classNames}
         role="option"
         aria-selected={isSelected}
+        tabIndex={tabIndex}
         {...interactions}
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}

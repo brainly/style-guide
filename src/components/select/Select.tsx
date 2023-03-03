@@ -246,11 +246,18 @@ const Select = React.forwardRef<HTMLDivElement, SelectPropsType>(
       onOptionChange,
     });
 
-    const {interactions, floatingProps, refs, listRef, context, isMounted} =
-      useFloatingSelect({
-        isExpanded,
-        onOpenChange,
-      });
+    const {
+      interactions,
+      floatingProps,
+      refs,
+      listRef,
+      context,
+      isMounted,
+      activeIndex,
+    } = useFloatingSelect({
+      isExpanded,
+      onOpenChange,
+    });
 
     const optionsElements = options.map((option, index) => {
       if (option.label || option.value) {
@@ -291,6 +298,7 @@ const Select = React.forwardRef<HTMLDivElement, SelectPropsType>(
             multiSelect={multiSelect}
             withIcon={withIcons}
             interactions={optionInteractions}
+            tabIndex={index === activeIndex ? 0 : -1}
           />
         );
       }
