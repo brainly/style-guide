@@ -40,7 +40,10 @@ const WithTooltip = args => {
 WithTooltip.args = {
   expanded: 'accordion_item_1',
 };
-export const Default = mergeStories({...AccordionStories, WithTooltip});
+export const Default = mergeStories(
+  {...AccordionStories, WithTooltip},
+  'expanded'
+);
 const {includeStories, ...meta} = AccordionStories.default;
 
 export default meta;
