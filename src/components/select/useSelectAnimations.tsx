@@ -140,6 +140,20 @@ const useSelectAnimations = (props: UseSelectAnimationsPropsType) => {
           initialContainerSize.width,
           popupWidth
         )}px`;
+
+        const selectedElement = select.querySelector('[aria-selected=true]');
+
+        // Scroll to selected element if any
+        if (selectedElement) {
+          const elementRect = selectedElement.getBoundingClientRect();
+          const popupRect = popupContent.getBoundingClientRect();
+          const scrollAmount =
+            elementRect.top - popupRect.top - popupRect.height / 2;
+
+          popupContent.scroll({
+            top: scrollAmount,
+          });
+        }
       });
     });
   };
