@@ -31,7 +31,7 @@ const useFloatingSelect = (props: UseFloatingSelectPropsType) => {
     onOpenChange,
     middleware: [
       offset(8),
-      flip({padding: CONTAINER_MARGIN}),
+      flip(),
       // Apply shift when we want to move component to the side to fit
       shift(),
       size({
