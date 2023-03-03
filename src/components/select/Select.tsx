@@ -321,7 +321,11 @@ const Select = React.forwardRef<HTMLDivElement, SelectPropsType>(
         const {label, icon} = selectedOptions[0] || {};
 
         const displayLabel = (
-          <Text size="small" className="sg-select-new__element-label">
+          <Text
+            size="small"
+            className="sg-select-new__element-label"
+            aria-label={label}
+          >
             {label}
           </Text>
         );
@@ -372,7 +376,17 @@ const Select = React.forwardRef<HTMLDivElement, SelectPropsType>(
         const label = [];
 
         selectedOptions.map(option => label.push(option.label));
-        return label.join(', ');
+        const labelString = label.join(', ');
+
+        return (
+          <Text
+            size="small"
+            className="sg-select-new__element-label"
+            aria-label={labelString}
+          >
+            {labelString}
+          </Text>
+        );
       }
     }, [placeholder, withIcons, selectedOptions]);
 
