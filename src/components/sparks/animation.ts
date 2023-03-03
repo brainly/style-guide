@@ -85,6 +85,7 @@ function useAnimation(config: AnimationConfig) {
       return;
     }
 
+    // In debug mode, we override the phase with the one provided.
     if (useAnimation.debug.phase !== null) {
       setPhase(useAnimation.debug.phase);
     }
