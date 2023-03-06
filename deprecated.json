@@ -10,6 +10,7 @@
     {"componentName": "HeaderContent", "className": "sg-header__content"},
     {"componentName": "HeaderLeft", "className": "sg-header__left"},
     {"componentName": "HeaderMiddle", "className": "sg-header__middle"},
-    {"componentName": "HeaderRight", "className": "sg-header__right"}
+    {"componentName": "HeaderRight", "className": "sg-header__right"},
+    {"componentName": "Card", "className": "sg-card"}
   ]
 }
