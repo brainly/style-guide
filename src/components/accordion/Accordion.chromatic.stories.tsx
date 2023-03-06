@@ -1,6 +1,6 @@
 import * as React from 'react';
 import * as AccordionStories from './Accordion.stories.mdx';
-import {mergeStories} from '../../chromatic/utils';
+import {generateChromaticStory} from '../../chromatic/utils';
 import AccordionItem from './AccordionItem';
 import Accordion from './Accordion';
 import Bubble from '../bubble/Bubble';
@@ -40,7 +40,7 @@ const WithTooltip = args => {
 WithTooltip.args = {
   expanded: 'accordion_item_1',
 };
-export const Default = mergeStories(
+export const Default = generateChromaticStory(
   {...AccordionStories, WithTooltip},
   'expanded'
 );

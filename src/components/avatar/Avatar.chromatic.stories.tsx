@@ -1,7 +1,7 @@
 import * as Avatar from './Avatar.stories.mdx';
-import {mergeStories} from '../../chromatic/utils';
+import {generateChromaticStory} from '../../chromatic/utils';
 
-export const Default = mergeStories(Avatar);
+export const Default = generateChromaticStory(Avatar);
 const {includeStories, ...meta} = Avatar.default;
 
 export default meta;

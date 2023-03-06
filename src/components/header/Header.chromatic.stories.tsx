@@ -1,7 +1,7 @@
 import * as Header from './Header.stories.mdx';
-import {mergeStories} from '../../chromatic/utils';
+import {generateChromaticStory} from '../../chromatic/utils';
 
-export const Default = mergeStories(Header);
+export const Default = generateChromaticStory(Header);
 const {includeStories, ...meta} = Header.default;
 
 export default meta;

@@ -1,7 +1,7 @@
 import * as Select from './Select.stories.mdx';
-import {mergeStories} from '../../chromatic/utils';
+import {generateChromaticStory} from '../../chromatic/utils';
 
-export const Default = mergeStories(Select);
+export const Default = generateChromaticStory(Select);
 const {includeStories, ...meta} = Select.default;
 
 export default meta;
