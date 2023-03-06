@@ -3,7 +3,7 @@ import './styles.scss';
 import HoverStyle from './HoverStyle';
 
 // This any type might be improved by looking at storybook types
-export const generateChromaticStory = (
+export const generateChromaticStory: any = (
   module: any,
   storyToHover?: string | React.ReactNode
 ) => {
