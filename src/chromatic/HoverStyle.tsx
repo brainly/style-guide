@@ -60,13 +60,15 @@ const applyHoverStates = (
   // insert "hover" styles to the new stylesheet
   Array.from(stylesheets).forEach(stylesheet => {
     Array.from(stylesheet.cssRules).forEach(rule => {
-      if ((rule as CSSMediaRule).media) {
+      const {conditionText} = rule as CSSMediaRule;
+
+      if (conditionText) {
         Array.from((rule as CSSGroupingRule).cssRules).forEach(r => {
           insertUnhoveredRule(
             generateUnhoveredSelector(
               r as CSSStyleRule,
               hoverContainerId,
-              rule.conditionText
+              conditionText
             )
           );
         });
