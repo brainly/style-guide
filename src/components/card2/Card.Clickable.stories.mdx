@@ -2,7 +2,7 @@ import {ArgsTable, Meta, Story, Canvas} from '@storybook/addon-docs';
 import {StoryVariant} from '../../docs/utils';
 import PageHeader from 'blocks/PageHeader';
 
-import Card from './Card';
+import * as Card from './Card';
 
 <Meta title="Components/Card2/Clickable" component={Card} />
 
@@ -15,11 +15,7 @@ import Card from './Card';
 
 <Canvas>
   <Story name="Default">
-    {args => (
-      <Card {...args} active>
-        Card
-      </Card>
-    )}
+    {args => <Card.Clickable {...args}>Card</Card.Clickable>}
   </Story>
 </Canvas>
 

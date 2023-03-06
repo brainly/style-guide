@@ -1,17 +1,5 @@
-import * as React from 'react';
-import cx from 'classnames';
+import {Clickable} from './Clickable';
 
-export interface CardPropsType {
-  /**
-   * Optional string. Additional class names.
-   */
-  className?: string;
-
-  children?: React.ReactNode;
-}
-
-const Card = ({className, children}: CardPropsType) => {
-  return <div className={cx('card', className)}>{children}</div>;
+export default {
+  Clickable,
 };
-
-export default Card;
