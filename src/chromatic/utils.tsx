@@ -2,7 +2,11 @@ import * as React from 'react';
 import './styles.scss';
 import HoverStory from './HoverStory';
 
-export const generateChromaticStory = (module, storyToHoverName) => {
+// This any type might be improved by looking at storybook types
+export const generateChromaticStory = (
+  module: any,
+  storyToHoverName?: string
+) => {
   const mergedStories = mergeStories(module);
 
   return () => (
@@ -15,7 +19,6 @@ export const generateChromaticStory = (module, storyToHoverName) => {
   );
 };
 
-// This any type might be improved by looking at storybook types
 const mergeStories: any = module => {
   const stories = Object.keys(module)
     .filter(moduleExports => moduleExports !== 'default')
