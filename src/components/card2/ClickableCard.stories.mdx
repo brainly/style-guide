@@ -1,0 +1,34 @@
+import {ArgsTable, Meta, Story, Canvas} from '@storybook/addon-docs';
+import {StoryVariant} from '../../docs/utils';
+import PageHeader from 'blocks/PageHeader';
+
+import Card from './Card';
+import Flex from '../flex/Flex';
+import Text from '../text/Text';
+
+<Meta title="Components/Card2/Clickable" component={Card.Clickable} />
+
+<PageHeader>Card</PageHeader>
+
+- [Stories](#stories)
+- [Accessibility](#accessibility)
+
+## Overview
+
+<Canvas>
+  <Story name="Default">
+    {args => (
+      <Card.Clickable {...args} width="300px" height="100px">
+        <Flex justifyContent="center" alignItems="center" fullHeight>
+          <Text color="text-gray-50" size="xsmall" weight="bold">
+            Clickable Card
+          </Text>
+        </Flex>
+      </Card.Clickable>
+    )}
+  </Story>
+</Canvas>
+
+<ArgsTable story="Default" />
+
+## Stories

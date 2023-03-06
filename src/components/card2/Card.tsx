@@ -1,4 +1,4 @@
-import {Clickable} from './Clickable';
+import Clickable from './ClickableCard';
 
 export default {
   Clickable,
