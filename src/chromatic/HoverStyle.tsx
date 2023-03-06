@@ -71,14 +71,7 @@ const applyHoverStates = (
 };
 
 // This any type might be improved by looking at storybook types
-const HoverStory = ({
-  module,
-  storyToHoverName,
-}: {
-  module: any;
-  storyToHoverName: string;
-}) => {
-  const Component = module[storyToHoverName];
+const HoverStyle: React.FC = ({children}) => {
   const styleheetRef = React.useRef<HTMLLinkElement>(null);
 
   const hoverContainerId = 'hover-container';
@@ -91,9 +84,9 @@ const HoverStory = ({
     <div id={hoverContainerId}>
       <style ref={styleheetRef} />
       <h3 className="component__story-name">hover styles</h3>
-      <Component {...module.default.args} {...Component.args} />
+      {children}
     </div>
   );
 };
 
-export default HoverStory;
+export default HoverStyle;

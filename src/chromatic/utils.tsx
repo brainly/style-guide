@@ -1,19 +1,25 @@
 import * as React from 'react';
 import './styles.scss';
-import HoverStory from './HoverStory';
+import HoverStyle from './HoverStyle';
 
 // This any type might be improved by looking at storybook types
 export const generateChromaticStory = (
   module: any,
-  storyToHoverName?: string
+  storyToHover?: string | React.ReactNode
 ) => {
   const mergedStories = mergeStories(module);
+  const HoverStory =
+    typeof storyToHover === 'string'
+      ? module[storyToHover]
+      : storyToHover || null;
 
   return () => (
     <div>
       {mergedStories}
-      {storyToHoverName && (
-        <HoverStory module={module} storyToHoverName={storyToHoverName} />
+      {HoverStory && (
+        <HoverStyle>
+          <HoverStory {...module.default.args} {...HoverStory.args} />
+        </HoverStyle>
       )}
     </div>
   );
