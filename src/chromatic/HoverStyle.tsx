@@ -2,7 +2,8 @@ import * as React from 'react';
 
 const generateUnhoveredSelector = (
   rule: CSSStyleRule,
-  hoverContainerId: string
+  hoverContainerId: string,
+  conditionText?: string
 ) => {
   const {selectorText} = rule;
 
@@ -24,7 +25,11 @@ const generateUnhoveredSelector = (
     return;
   }
 
-  return `${rule.cssText.replace(selectorText, hoverSelectorText)}`;
+  const newSelectorText = rule.cssText.replace(selectorText, hoverSelectorText);
+
+  return conditionText && !conditionText.includes('hover: hover')
+    ? `@media ${conditionText}) {${newSelectorText}}`
+    : newSelectorText;
 };
 
 const applyHoverStates = (
@@ -55,16 +60,20 @@ const applyHoverStates = (
   // insert "hover" styles to the new stylesheet
   Array.from(stylesheets).forEach(stylesheet => {
     Array.from(stylesheet.cssRules).forEach(rule => {
-      insertUnhoveredRule(
-        generateUnhoveredSelector(rule as CSSStyleRule, hoverContainerId)
-      );
-
       if ((rule as CSSMediaRule).media) {
-        Array.from((rule as CSSGroupingRule).cssRules).forEach(rule => {
+        Array.from((rule as CSSGroupingRule).cssRules).forEach(r => {
           insertUnhoveredRule(
-            generateUnhoveredSelector(rule as CSSStyleRule, hoverContainerId)
+            generateUnhoveredSelector(
+              r as CSSStyleRule,
+              hoverContainerId,
+              rule.conditionText
+            )
           );
         });
+      } else {
+        insertUnhoveredRule(
+          generateUnhoveredSelector(rule as CSSStyleRule, hoverContainerId)
+        );
       }
     });
   });

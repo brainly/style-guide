@@ -3,7 +3,7 @@ import * as CheckboxStories from './Checkbox.stories.mdx';
 import {generateChromaticStory} from '../../../chromatic/utils';
 import Checkbox from './Checkbox';
 
-const Colors = args => {
+const Hovers = args => {
   const types = [
     {name: 'unchecked'},
     {name: 'checked', checked: true},
@@ -29,7 +29,7 @@ const Colors = args => {
   );
 };
 
-export const Default = generateChromaticStory(CheckboxStories, Colors);
+export const Default = generateChromaticStory(CheckboxStories, Hovers);
 const {includeStories, ...meta} = CheckboxStories.default;
 
 export default meta;
