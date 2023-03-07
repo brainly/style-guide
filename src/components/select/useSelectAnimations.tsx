@@ -56,7 +56,8 @@ const useSelectAnimations = (props: UseSelectAnimationsPropsType) => {
 
     popupContainer.classList.add('exit-animation');
     popupContainer.style.height = `0px`;
-    popupContainer.style.width = `${selectRef.current.width}px`;
+    if (selectRef.current)
+      popupContainer.style.width = `${selectRef.current.width}px`;
     popupContainer.style.opacity = `0`;
 
     requestAnimationFrame(() => {
@@ -73,6 +74,8 @@ const useSelectAnimations = (props: UseSelectAnimationsPropsType) => {
     // so we allow the floating container to apply all flip styles
     requestAnimationFrame(() => {
       const select = document.getElementById(selectId);
+
+      if (!select) return;
 
       const floatingContainer = select.getElementsByClassName(
         floatingContainerClassName
@@ -144,7 +147,7 @@ const useSelectAnimations = (props: UseSelectAnimationsPropsType) => {
         const selectedElement = select.querySelector('[aria-selected=true]');
 
         // Scroll to selected element if any
-        if (selectedElement) {
+        if (selectedElement && popupContent) {
           const elementRect = selectedElement.getBoundingClientRect();
           const popupRect = popupContent.getBoundingClientRect();
           const scrollAmount =

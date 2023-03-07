@@ -16,6 +16,10 @@
     &--disabled {
       pointer-events: none;
       opacity: 42%;
+
+      .sg-select-new__element {
+        pointer-events: none;
+      }
     }
 
     &--white {

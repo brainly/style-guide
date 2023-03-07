@@ -239,6 +239,7 @@ const Select = React.forwardRef<HTMLDivElement, SelectPropsType>(
       invalid,
       expanded,
       defaultExpanded,
+      disabled,
       multiSelect,
       onEntry: animateEntry,
       onExit: animateExit,
@@ -421,11 +422,11 @@ const Select = React.forwardRef<HTMLDivElement, SelectPropsType>(
           {...interactions.getReferenceProps({
             // Handle pointer
             onClick() {
-              onOpenChange(isExpanded);
+              if (!disabled) onOpenChange(isExpanded);
             },
             // Handle keyboard
             onKeyDown(event) {
-              if (event.key === 'Enter') {
+              if (event.key === 'Enter' && !disabled) {
                 event.preventDefault();
                 onOpenChange(isExpanded);
               }
@@ -457,16 +458,22 @@ const Select = React.forwardRef<HTMLDivElement, SelectPropsType>(
                   maxWidth: 320,
                 }}
                 {...interactions.getFloatingProps()}
+                role="none"
+                tabIndex={-1}
                 data-placement={floatingProps.placement}
               >
                 <div
-                  role="listbox"
                   className={popupClassName}
-                  data-placement={floatingProps.placement}
-                  id={`${id}-listbox`}
                   tabIndex={-1}
+                  data-placement={floatingProps.placement}
                 >
-                  <div className={popupContentClassName}>{optionsElements}</div>
+                  <div
+                    className={popupContentClassName}
+                    role="listbox"
+                    id={`${id}-listbox`}
+                  >
+                    {optionsElements}
+                  </div>
                 </div>
               </div>
             </FloatingFocusManager>

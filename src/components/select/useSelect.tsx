@@ -9,6 +9,7 @@ type UseSelectPropsType =
       | 'invalid'
       | 'expanded'
       | 'defaultExpanded'
+      | 'disabled'
       | 'multiSelect'
       | 'onToggle'
       | 'onOptionChange'
@@ -25,6 +26,7 @@ const useSelect = (props: UseSelectPropsType) => {
     invalid,
     expanded,
     defaultExpanded,
+    disabled,
     multiSelect,
     onEntry,
     onExit,
@@ -68,6 +70,8 @@ const useSelect = (props: UseSelectPropsType) => {
   };
 
   const onOpenChange = (isOpen: boolean) => {
+    if (disabled) return;
+
     const handleOpenChange = isOpen => {
       if (isExpandedControlled && onToggle) onToggle(isOpen);
       else setIsExpanded(isOpen);
