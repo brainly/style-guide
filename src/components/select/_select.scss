@@ -118,6 +118,7 @@
 
       .sg-select-new__element-label-icon {
         margin-right: 12px;
+        flex: 1 0 auto;
         animation: selectIconFadeIn $durationModerate1 $easingLinear;
       }
     }
@@ -254,6 +255,7 @@
       .sg-subject-icon,
       .sg-icon {
         margin-right: 12px;
+        flex: 1 0 auto;
       }
     }
 
