@@ -5,6 +5,7 @@ import hex from '../src/components/colors/hex';
 
 import {InfoBox} from 'blocks/InfoBox';
 import {AccessibilityList} from 'blocks/accessibility-list/AccessibilityList';
+import PageHeader from 'blocks/PageHeader';
 
 // load all styles
 import '../src/main.scss';
@@ -39,6 +40,7 @@ export const parameters = {
     components: {
       InfoBox,
       AccessibilityList,
+      PageHeader,
     },
   },
   controls: {hideNoControlsWarning: true},
