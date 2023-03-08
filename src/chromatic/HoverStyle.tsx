@@ -82,7 +82,13 @@ const applyHoverStates = (
 };
 
 // This any type might be improved by looking at storybook types
-const HoverStyle: React.FC = ({children}) => {
+const HoverStyle = ({
+  children,
+  storyName,
+}: {
+  children: React.ReactNode;
+  storyName?: string;
+}) => {
   const styleheetRef = React.useRef<HTMLLinkElement>(null);
 
   const hoverContainerId = 'hover-container';
@@ -94,7 +100,7 @@ const HoverStyle: React.FC = ({children}) => {
   return (
     <div id={hoverContainerId}>
       <style ref={styleheetRef} />
-      <h3 className="component__story-name">hover styles</h3>
+      <h3 className="component__story-name">{storyName} - hover styles</h3>
       {children}
     </div>
   );

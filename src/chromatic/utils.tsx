@@ -17,7 +17,9 @@ export const generateChromaticStory: any = (
     <div>
       {mergedStories}
       {HoverStory && (
-        <HoverStyle>
+        <HoverStyle
+          storyName={typeof storyToHover === 'string' && storyToHover}
+        >
           <HoverStory {...module.default.args} {...HoverStory.args} />
         </HoverStyle>
       )}
