@@ -1,0 +1,68 @@
+diff --git a/node_modules/@storybook/react/dist/cjs/client/docs/jsxDecorator.js b/node_modules/@storybook/react/dist/cjs/client/docs/jsxDecorator.js
+index 7fe0a30..43e76ab 100644
+--- a/node_modules/@storybook/react/dist/cjs/client/docs/jsxDecorator.js
++++ b/node_modules/@storybook/react/dist/cjs/client/docs/jsxDecorator.js
+@@ -219,14 +219,8 @@ var skipJsxRender = function skipJsxRender(context) {
+ 
+ exports.skipJsxRender = skipJsxRender;
+ 
+-var isMdx = function isMdx(node) {
+-  var _node$type, _node$props;
+-
+-  return ((_node$type = node.type) === null || _node$type === void 0 ? void 0 : _node$type.displayName) === 'MDXCreateElement' && !!((_node$props = node.props) !== null && _node$props !== void 0 && _node$props.mdxType);
+-};
+-
+ var mdxToJsx = function mdxToJsx(node) {
+-  if (!isMdx(node)) return node;
++  if (!node || !node.props) return node;
+ 
+   var _node$props2 = node.props,
+       mdxType = _node$props2.mdxType,
+@@ -237,11 +231,11 @@ var mdxToJsx = function mdxToJsx(node) {
+   var jsxChildren = [];
+ 
+   if (children) {
+-    var array = Array.isArray(children) ? children : [children];
++    var array = Array.isArray(children) ? children.flat() : [children];
+     jsxChildren = array.map(mdxToJsx);
+   }
+ 
+-  return /*#__PURE__*/_react.createElement.apply(void 0, [originalType, rest].concat(_toConsumableArray(jsxChildren)));
++  return /*#__PURE__*/_react.createElement.apply(void 0, [mdxType ? originalType : node.type, rest].concat(_toConsumableArray(jsxChildren)));
+ };
+ 
+ var jsxDecorator = function jsxDecorator(storyFn, context) {
+diff --git a/node_modules/@storybook/react/dist/esm/client/docs/jsxDecorator.js b/node_modules/@storybook/react/dist/esm/client/docs/jsxDecorator.js
+index 05f5342..5649b90 100644
+--- a/node_modules/@storybook/react/dist/esm/client/docs/jsxDecorator.js
++++ b/node_modules/@storybook/react/dist/esm/client/docs/jsxDecorator.js
+@@ -163,14 +163,8 @@ export var skipJsxRender = function skipJsxRender(context) {
+   return !isArgsStory || (sourceParams === null || sourceParams === void 0 ? void 0 : sourceParams.code) || (sourceParams === null || sourceParams === void 0 ? void 0 : sourceParams.type) === SourceType.CODE;
+ };
+ 
+-var isMdx = function isMdx(node) {
+-  var _node$type, _node$props;
+-
+-  return ((_node$type = node.type) === null || _node$type === void 0 ? void 0 : _node$type.displayName) === 'MDXCreateElement' && !!((_node$props = node.props) !== null && _node$props !== void 0 && _node$props.mdxType);
+-};
+-
+ var mdxToJsx = function mdxToJsx(node) {
+-  if (!isMdx(node)) return node;
++  if (!node || !node.props) return node;
+ 
+   var _node$props2 = node.props,
+       mdxType = _node$props2.mdxType,
+@@ -181,11 +175,11 @@ var mdxToJsx = function mdxToJsx(node) {
+   var jsxChildren = [];
+ 
+   if (children) {
+-    var array = Array.isArray(children) ? children : [children];
++    var array = Array.isArray(children) ? children.flat() : [children];
+     jsxChildren = array.map(mdxToJsx);
+   }
+ 
+-  return /*#__PURE__*/createElement.apply(void 0, [originalType, rest].concat(_toConsumableArray(jsxChildren)));
++  return /*#__PURE__*/createElement.apply(void 0, [mdxType ? originalType : node.type, rest].concat(_toConsumableArray(jsxChildren)));
+ };
+ 
+ export var jsxDecorator = function jsxDecorator(storyFn, context) {
