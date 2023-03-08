@@ -173,7 +173,7 @@ $bodyTextSizeRules: (
       }
 
       @include makeResponsive($variant, 'sg-text--wrap') {
-        white-space: wrap;
+        white-space: normal;
       }
 
       @include makeResponsive($variant, 'sg-text--full') {
