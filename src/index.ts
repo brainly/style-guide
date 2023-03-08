@@ -171,3 +171,5 @@ export {default as SelectNew} from './components/select/Select';
 export type {SelectPropsType as SelectNewPropsType} from './components/select/Select';
 export type {ProgressBarPropsType} from './components/progress-bar/ProgressBar';
 export {default as ProgressBar} from './components/progress-bar/ProgressBar';
+export type {SparksPropsType} from './components/sparks/Sparks';
+export {default as Sparks} from './components/sparks/Sparks';

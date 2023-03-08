@@ -35,7 +35,9 @@
     "inquirer": "^8.2.0",
     "jscodeshift": "^0.13.1",
     "meow": "^5.0.0",
-    "path": "^0.12.7"
+    "patch-package": "^6.5.1",
+    "path": "^0.12.7",
+    "postinstall-postinstall": "^2.1.0"
   },
   "devDependencies": {
     "@babel/cli": "^7.8.3",
@@ -176,7 +178,8 @@
     "scss-unused-variables": "./scripts/find_scss_unused_variables.sh src/",
     "storybook": "./scripts/storybook.sh",
     "storybook-chromatic": "STORYBOOK_ENV=chromatic ./scripts/storybook.sh",
-    "test": "yarn run scss-lint && yarn run scss-unused-variables && yarn run ts-lint && yarn run ts-check && yarn run ts-buildtypes && yarn prettier-check && jest"
+    "test": "yarn run scss-lint && yarn run scss-unused-variables && yarn run ts-lint && yarn run ts-check && yarn run ts-buildtypes && yarn prettier-check && jest",
+    "postinstall": "patch-package"
   },
   "jest": {
     "setupFiles": [

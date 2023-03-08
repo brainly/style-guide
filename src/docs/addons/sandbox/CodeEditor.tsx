@@ -29,8 +29,10 @@ const {options: compilerOptions} = ts.convertCompilerOptionsFromJson(
 );
 
 export const CodeEditor = ({code}: CodeEditorPropsType) => {
+  const codeRef = React.useRef(code);
   const {code: editorCode} = useActiveCode();
   const [tsEnv, setTsEnv] = React.useState<VirtualTypeScriptEnvironment>();
+  const [extensions, setExtensions] = React.useState(null);
 
   React.useEffect(() => {
     const setup = async () => {
@@ -44,7 +46,7 @@ export const CodeEditor = ({code}: CodeEditorPropsType) => {
 
       fsMap.set('/brainly-style-guide-sandbox.d.ts', styleguideTypeDefinitions);
       fsMap.set('/react.d.ts', reactTypes);
-      fsMap.set('index.tsx', code);
+      fsMap.set('index.tsx', codeRef.current);
       const system = createSystem(fsMap);
       const env = createVirtualTypeScriptEnvironment(
         system,
@@ -53,48 +55,52 @@ export const CodeEditor = ({code}: CodeEditorPropsType) => {
         compilerOptions
       );
 
+      const extensions = [
+        autocompletion({
+          override: [
+            context => {
+              const {pos} = context;
+              let completions;
+
+              if (env) {
+                completions = env.languageService.getCompletionsAtPosition(
+                  'index.tsx',
+                  pos,
+                  {}
+                );
+              }
+
+              if (!completions) {
+                return null;
+              }
+
+              return completeFromList(
+                completions.entries.map(c => ({
+                  type: c.kind,
+                  label: c.name,
+                }))
+              )(context);
+            },
+          ],
+        }),
+      ];
+
       setTsEnv(env);
+      setExtensions(extensions);
     };
 
     setup();
-  }, [code]);
+  }, []);
+
   React.useEffect(() => {
     if (tsEnv && editorCode) {
       tsEnv.updateFile('index.tsx', `${editorCode}`);
     }
   }, [tsEnv, editorCode]);
-  const extensions = React.useMemo(
-    () => [
-      autocompletion({
-        override: [
-          context => {
-            const {pos} = context;
-            let completions;
 
-            if (tsEnv) {
-              completions = tsEnv.languageService.getCompletionsAtPosition(
-                'index.tsx',
-                pos,
-                {}
-              );
-            }
-
-            if (!completions) {
-              return null;
-            }
-
-            return completeFromList(
-              completions.entries.map(c => ({
-                type: c.kind,
-                label: c.name,
-              }))
-            )(context);
-          },
-        ],
-      }),
-    ],
-    [tsEnv]
-  );
+  if (!extensions) {
+    return null;
+  }
 
   return (
     <SandpackCodeEditor

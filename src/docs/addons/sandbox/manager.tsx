@@ -2,25 +2,29 @@
 import * as React from 'react';
 import {AddonPanel} from '@storybook/components';
 import {addons, types} from '@storybook/addons';
-import {useChannel} from '@storybook/api';
+import {useChannel, useStorybookState} from '@storybook/api';
 import {Sandbox} from './Sandbox';
 
 addons.register('sandbox', () => {
   addons.add('sandbox/panel', {
     title: 'Live editor',
     type: types.PANEL,
-    render: api => {
+    render: ({active, key}) => {
       /* eslint-disable react-hooks/rules-of-hooks */
       const [code, setCode] = React.useState('');
+      const state = useStorybookState();
 
       useChannel({
         'storybook/docs/snippet-rendered': (id, newSource) => {
           setCode(newSource);
         },
       });
+
       return (
-        <AddonPanel key="panel" active={api.active}>
-          <Sandbox code={code} />
+        <AddonPanel key={key} active={active}>
+          {active && state.layout.showPanel && state.viewMode !== 'docs' ? (
+            <Sandbox code={code} />
+          ) : null}
         </AddonPanel>
       );
     },
