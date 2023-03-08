@@ -249,6 +249,13 @@
       &--multi-select {
         padding-right: 4px;
 
+        input {
+          // Hide checkbox input so it doesn't mess up the layout animation.
+          // The input accessibility isn't needed here,
+          // because the option handles accessibility in this case.
+          display: none;
+        }
+
         .sg-select-new__option-state {
           width: 32px;
         }
