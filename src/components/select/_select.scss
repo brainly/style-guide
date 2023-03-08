@@ -139,7 +139,10 @@
     }
 
     &__options-floating-container {
+      overflow-y: auto; // it has to be auto to allow the scrollbar to take needed place
+
       &.animate-on-transforms {
+        overflow: visible;
         transition: top $durationGentle1 Cubic-Bezier(0.35, 0, 0.2, 1);
       }
 
@@ -212,7 +215,11 @@
       flex-direction: column;
       flex: 1 0 auto;
       gap: 8px;
-      overflow-y: overlay;
+      overflow-y: auto;
+
+      &.hide-scroll::-webkit-scrollbar {
+        opacity: 0 !important;
+      }
     }
 
     &__option {

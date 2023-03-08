@@ -12,6 +12,7 @@ type UseSelectAnimationsPropsType = {
 
 const MIN_POPUP_WIDTH = 120;
 const ANIMATE_CLASSNAME = 'animate-on-transforms';
+const SCROLL_HIDE_CLASSNAME = 'hide-scroll';
 
 /**
  * Move floating container by 8px from the initial top position.
@@ -101,6 +102,7 @@ const useSelectAnimations = (props: UseSelectAnimationsPropsType) => {
 
       popupContent.style.width = `${initialContainerSize.width}px`;
       popupContent.style.height = `${initialContainerSize.height}px`;
+      popupContent.classList.add(SCROLL_HIDE_CLASSNAME);
 
       if (!hasReduceMotion) {
         // Reset the popup height to the pre-appear position
@@ -157,6 +159,21 @@ const useSelectAnimations = (props: UseSelectAnimationsPropsType) => {
             top: scrollAmount,
           });
         }
+
+        function handleTransitionEnd(e) {
+          // Once height finishes transition
+          // we are sure the component is fully visible
+          if (e.propertyName === 'height') {
+            popupContent.classList.remove(SCROLL_HIDE_CLASSNAME);
+
+            popupContainer.removeEventListener(
+              'transitionend',
+              handleTransitionEnd
+            );
+          }
+        }
+
+        popupContainer?.addEventListener('transitionend', handleTransitionEnd);
       });
     });
   };
