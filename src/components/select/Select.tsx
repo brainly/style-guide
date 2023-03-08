@@ -262,11 +262,12 @@ const Select = React.forwardRef<HTMLDivElement, SelectPropsType>(
 
     const optionsElements = options.map((option, index) => {
       if (option.label || option.value) {
-        const isSelected =
+        const isSelected = Boolean(
           selectedOptions.length &&
-          !!selectedOptions.find(
-            selectedOption => selectedOption.value === option.value
-          );
+            !!selectedOptions.find(
+              selectedOption => selectedOption.value === option.value
+            )
+        );
 
         const optionInteractions = interactions.getItemProps({
           // Handle pointer select.
