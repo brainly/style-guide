@@ -42,7 +42,9 @@ WithTooltip.args = {
 };
 export const Default = generateChromaticStory(
   {...AccordionStories, WithTooltip},
-  'expanded'
+  {
+    storiesToHover: ['expanded'],
+  }
 );
 const {includeStories, ...meta} = AccordionStories.default;
 

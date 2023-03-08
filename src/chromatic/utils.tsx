@@ -5,24 +5,29 @@ import HoverStyle from './HoverStyle';
 // This any type might be improved by looking at storybook types
 export const generateChromaticStory: any = (
   module: any,
-  storyToHover?: string | React.ReactNode
+  options: {storiesToHover?: Array<string | React.FC>}
 ) => {
   const mergedStories = mergeStories(module);
-  const HoverStory =
-    typeof storyToHover === 'string'
-      ? module[storyToHover]
-      : storyToHover || null;
+  const {storiesToHover} = options;
 
   return () => (
     <div>
       {mergedStories}
-      {HoverStory && (
-        <HoverStyle
-          storyName={typeof storyToHover === 'string' && storyToHover}
-        >
-          <HoverStory {...module.default.args} {...HoverStory.args} />
-        </HoverStyle>
-      )}
+      {storiesToHover &&
+        storiesToHover.map((storyToHover, i) => {
+          const isNew = typeof storyToHover !== 'string';
+          const HoverStory = isNew
+            ? storyToHover || null
+            : module[storyToHover];
+
+          const storyName = !isNew && storyToHover;
+
+          return (
+            <HoverStyle storyName={storyName} key={storyName || i}>
+              <HoverStory {...module.default.args} {...HoverStory.args} />
+            </HoverStyle>
+          );
+        })}
     </div>
   );
 };

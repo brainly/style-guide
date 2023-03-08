@@ -29,7 +29,9 @@ const Hovers = args => {
   );
 };
 
-export const Default = generateChromaticStory(CheckboxStories, Hovers);
+export const Default = generateChromaticStory(CheckboxStories, {
+  storiesToHover: [Hovers],
+});
 const {includeStories, ...meta} = CheckboxStories.default;
 
 export default meta;

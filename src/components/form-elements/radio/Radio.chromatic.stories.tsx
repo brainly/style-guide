@@ -29,7 +29,9 @@ const Hovers = args => {
   );
 };
 
-export const Default = generateChromaticStory(RadioStories, Hovers);
+export const Default = generateChromaticStory(RadioStories, {
+  storiesToHover: [Hovers],
+});
 const {includeStories, ...meta} = RadioStories.default;
 
 export default meta;
