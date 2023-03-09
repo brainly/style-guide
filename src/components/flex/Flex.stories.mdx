@@ -284,10 +284,10 @@ const indigoBoxStyle = {
   </Story>
 </Canvas>
 
-### Justify and align
+### Justify Content
 
 <Canvas>
-  <Story name="JustifyAndAlign">
+  <Story name="Justify Content">
     {args => (
       <Flex {...args} fullWidth direction="column">
         <Flex marginBottom={FLEX_MARGINS.MEDIUM}>
@@ -338,6 +338,114 @@ const indigoBoxStyle = {
             </Flex>
           </Box>
         </Flex>
+      </Flex>
+    )}
+  </Story>
+</Canvas>
+
+### Align Content
+
+<Canvas>
+  <Story name="Align Content">
+    {args => (
+      <Flex {...args} fullWidth direction="column">
+        <Box {...indigoBoxStyle} style={{height: 400, width: 400}}>
+          <Flex alignContent={FLEX_ALIGNMENT_VALUES.CENTER} wrap fullHeight>
+            <Flex>
+              <Box {...blueBoxStyle}>center</Box>
+            </Flex>
+            <Flex>
+              <Box {...blueBoxStyle}>center</Box>
+            </Flex>
+            <Flex>
+              <Box {...blueBoxStyle}>center</Box>
+            </Flex>
+            <Flex>
+              <Box {...blueBoxStyle}>center</Box>
+            </Flex>
+            <Flex>
+              <Box {...blueBoxStyle}>center</Box>
+            </Flex>
+          </Flex>
+        </Box>
+        <Box {...indigoBoxStyle} style={{height: 400, width: 400}}>
+          <Flex alignContent={FLEX_ALIGNMENT_VALUES.FLEX_START} wrap fullHeight>
+            <Flex>
+              <Box {...blueBoxStyle}>flex-start</Box>
+            </Flex>
+            <Flex>
+              <Box {...blueBoxStyle}>flex-start</Box>
+            </Flex>
+            <Flex>
+              <Box {...blueBoxStyle}>flex-start</Box>
+            </Flex>
+            <Flex>
+              <Box {...blueBoxStyle}>flex-start</Box>
+            </Flex>
+            <Flex>
+              <Box {...blueBoxStyle}>flex-start</Box>
+            </Flex>
+          </Flex>
+        </Box>
+        <Box {...indigoBoxStyle} style={{height: 400, width: 400}}>
+          <Flex alignContent={FLEX_ALIGNMENT_VALUES.FLEX_END} wrap fullHeight>
+            <Flex>
+              <Box {...blueBoxStyle}>flex-end</Box>
+            </Flex>
+            <Flex>
+              <Box {...blueBoxStyle}>flex-end</Box>
+            </Flex>
+            <Flex>
+              <Box {...blueBoxStyle}>flex-end</Box>
+            </Flex>
+            <Flex>
+              <Box {...blueBoxStyle}>flex-end</Box>
+            </Flex>
+            <Flex>
+              <Box {...blueBoxStyle}>flex-end</Box>
+            </Flex>
+          </Flex>
+        </Box>
+        <Box {...indigoBoxStyle} style={{height: 400, width: 400}}>
+          <Flex alignContent={FLEX_ALIGNMENT_VALUES.BASELINE} wrap fullHeight>
+            <Flex>
+              <Box {...blueBoxStyle} style={{height: 100}}>
+                baseline
+              </Box>
+            </Flex>
+            <Flex>
+              <Box {...blueBoxStyle}>baseline</Box>
+            </Flex>
+            <Flex>
+              <Box {...blueBoxStyle}>baseline</Box>
+            </Flex>
+            <Flex>
+              <Box {...blueBoxStyle}>baseline</Box>
+            </Flex>
+            <Flex>
+              <Box {...blueBoxStyle}>baseline</Box>
+            </Flex>
+          </Flex>
+        </Box>
+        <Box {...indigoBoxStyle} style={{height: 400, width: 400}}>
+          <Flex alignContent={FLEX_ALIGNMENT_VALUES.STRETCH} wrap fullHeight>
+            <Flex>
+              <Box {...blueBoxStyle}>stretch</Box>
+            </Flex>
+            <Flex>
+              <Box {...blueBoxStyle}>stretch</Box>
+            </Flex>
+            <Flex>
+              <Box {...blueBoxStyle}>stretch</Box>
+            </Flex>
+            <Flex>
+              <Box {...blueBoxStyle}>stretch</Box>
+            </Flex>
+            <Flex>
+              <Box {...blueBoxStyle}>stretch</Box>
+            </Flex>
+          </Flex>
+        </Box>
       </Flex>
     )}
   </Story>
