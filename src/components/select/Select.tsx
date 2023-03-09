@@ -313,7 +313,7 @@ const Select = React.forwardRef<HTMLDivElement, SelectPropsType>(
           <Text
             className="sg-select-new__placeholder"
             size="small"
-            color="text-gray-50"
+            color="text-gray-60"
           >
             {placeholder}
           </Text>
