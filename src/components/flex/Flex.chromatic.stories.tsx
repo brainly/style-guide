@@ -15,7 +15,7 @@ const indigoBoxStyle = {
   color: COLOR['indigo-20'],
 };
 
-const ResponsivePropsTemplate = args => {
+export const ResponsiveProps = args => {
   return (
     <div>
       <h3 className="component__story-name">direction prop</h3>
@@ -165,31 +165,11 @@ const ResponsivePropsTemplate = args => {
   );
 };
 
-export const ResponsivePropsSmall = ResponsivePropsTemplate.bind({});
-
-ResponsivePropsSmall.parameters = {
-  viewport: {
-    defaultViewport: 'sm',
+ResponsiveProps.parameters = {
+  chromatic: {
+    viewports: [680, 900, 1100, 1500],
   },
 };
-
-export const ResponsivePropsMedium = ResponsivePropsTemplate.bind({});
-
-ResponsivePropsMedium.parameters = {
-  viewport: {
-    defaultViewport: 'md',
-  },
-};
-
-export const ResponsivePropsLarge = ResponsivePropsTemplate.bind({});
-
-ResponsivePropsLarge.parameters = {
-  viewport: {
-    defaultViewport: 'lg',
-  },
-};
-
-export const ResponsivePropsXLarge = ResponsivePropsTemplate.bind({});
 
 export const Default = mergeStories(FlexStories);
 const {includeStories, ...meta} = FlexStories.default;

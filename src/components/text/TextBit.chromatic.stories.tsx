@@ -3,7 +3,7 @@ import {mergeStories} from '../../chromatic/utils';
 import React from 'react';
 import TextBit, {TEXT_BIT_SIZE} from './TextBit';
 
-const ResponsivePropsTemplate = args => {
+export const ResponsiveProps = args => {
   return (
     <div>
       <h3 className="component__story-name">size prop</h3>
@@ -22,31 +22,11 @@ const ResponsivePropsTemplate = args => {
   );
 };
 
-export const ResponsivePropsSmall = ResponsivePropsTemplate.bind({});
-
-ResponsivePropsSmall.parameters = {
-  viewport: {
-    defaultViewport: 'sm',
+ResponsiveProps.parameters = {
+  chromatic: {
+    viewports: [680, 900, 1100, 1500],
   },
 };
-
-export const ResponsivePropsMedium = ResponsivePropsTemplate.bind({});
-
-ResponsivePropsMedium.parameters = {
-  viewport: {
-    defaultViewport: 'md',
-  },
-};
-
-export const ResponsivePropsLarge = ResponsivePropsTemplate.bind({});
-
-ResponsivePropsLarge.parameters = {
-  viewport: {
-    defaultViewport: 'lg',
-  },
-};
-
-export const ResponsivePropsXLarge = ResponsivePropsTemplate.bind({});
 
 export const Default = mergeStories(TextBitStories);
 const {includeStories, ...meta} = TextBitStories.default;

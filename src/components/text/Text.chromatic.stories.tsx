@@ -5,7 +5,7 @@ import Text, {TEXT_ALIGN, TEXT_SIZE, TEXT_TRANSFORM, TEXT_WEIGHT} from './Text';
 import hex from '../colors/hex';
 import Flex from '../flex/Flex';
 
-const ResponsivePropsTemplate = args => {
+export const ResponsiveProps = args => {
   return (
     <div>
       <h3 className="component__story-name">size prop</h3>
@@ -62,31 +62,11 @@ const ResponsivePropsTemplate = args => {
   );
 };
 
-export const ResponsivePropsSmall = ResponsivePropsTemplate.bind({});
-
-ResponsivePropsSmall.parameters = {
-  viewport: {
-    defaultViewport: 'sm',
+ResponsiveProps.parameters = {
+  chromatic: {
+    viewports: [680, 900, 1100, 1500],
   },
 };
-
-export const ResponsivePropsMedium = ResponsivePropsTemplate.bind({});
-
-ResponsivePropsMedium.parameters = {
-  viewport: {
-    defaultViewport: 'md',
-  },
-};
-
-export const ResponsivePropsLarge = ResponsivePropsTemplate.bind({});
-
-ResponsivePropsLarge.parameters = {
-  viewport: {
-    defaultViewport: 'lg',
-  },
-};
-
-export const ResponsivePropsXLarge = ResponsivePropsTemplate.bind({});
 
 export const Default = mergeStories(TextStories);
 const {includeStories, ...meta} = TextStories.default;

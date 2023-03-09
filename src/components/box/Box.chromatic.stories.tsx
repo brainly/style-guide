@@ -3,7 +3,7 @@ import * as BoxStories from './Box.stories.mdx';
 import Box, {COLOR} from './Box';
 import {mergeStories} from '../../chromatic/utils';
 
-const ResponsivePropsTemplate = args => {
+export const ResponsiveProps = args => {
   return (
     <div>
       <h3 className="component__story-name">shadow prop</h3>
@@ -30,31 +30,11 @@ const ResponsivePropsTemplate = args => {
   );
 };
 
-export const ResponsivePropsSmall = ResponsivePropsTemplate.bind({});
-
-ResponsivePropsSmall.parameters = {
-  viewport: {
-    defaultViewport: 'sm',
+ResponsiveProps.parameters = {
+  chromatic: {
+    viewports: [680, 900, 1100, 1500],
   },
 };
-
-export const ResponsivePropsMedium = ResponsivePropsTemplate.bind({});
-
-ResponsivePropsMedium.parameters = {
-  viewport: {
-    defaultViewport: 'md',
-  },
-};
-
-export const ResponsivePropsLarge = ResponsivePropsTemplate.bind({});
-
-ResponsivePropsLarge.parameters = {
-  viewport: {
-    defaultViewport: 'lg',
-  },
-};
-
-export const ResponsivePropsXLarge = ResponsivePropsTemplate.bind({});
 
 export const Default = mergeStories(BoxStories);
 const {includeStories, ...meta} = BoxStories.default;
