@@ -136,7 +136,7 @@ describe('<Select />', () => {
     const select = render(<RenderSelect />);
     const selectElement = select.getByRole('combobox') as HTMLElement;
 
-    await userEvent.tab();
+    selectElement.focus();
     expect(selectElement).toEqual(document.activeElement);
     expect(selectElement.getAttribute('aria-expanded')).toBe('false');
     userEvent.keyboard('[space]');
@@ -162,5 +162,20 @@ describe('<Select />', () => {
     userEvent.click(selectElement);
     expect(selectElement.getAttribute('aria-expanded')).toEqual('false');
     expect(select.queryByRole('listbox')).toBeFalsy();
+  });
+
+  it('has accessible label and description', () => {
+    const label = 'Subject';
+    const description = 'Choose your favorite one';
+    const select = render(
+      <div>
+        <RenderSelect aria-label={label} aria-describedby="description" />
+        <p id="description">{description}</p>
+      </div>
+    );
+
+    expect(
+      select.getByRole('combobox', {name: label, description})
+    ).toBeTruthy();
   });
 });
