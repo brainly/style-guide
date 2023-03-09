@@ -14,6 +14,7 @@ import {
 } from '@floating-ui/react';
 
 const CONTAINER_MARGIN = 10;
+const MAX_POPUP_WIDTH = 320;
 
 type UseFloatingSelectPropsType = {
   isExpanded: boolean;
@@ -38,7 +39,7 @@ const useFloatingSelect = (props: UseFloatingSelectPropsType) => {
         apply({elements, availableHeight, availableWidth}) {
           Object.assign(elements.floating.style, {
             maxHeight: `${availableHeight - CONTAINER_MARGIN}px`,
-            maxWidth: `${availableWidth}px`,
+            maxWidth: `${Math.min(availableWidth, MAX_POPUP_WIDTH)}px`, // the max width cannot be wider than 320px
           });
         },
       }),
