@@ -1,7 +1,7 @@
 import * as ProgressBar from './ProgressBar.stories.mdx';
-import {mergeStories} from '../../chromatic/utils';
+import {generateChromaticStory} from '../../chromatic/utils';
 
-export const Default = mergeStories(ProgressBar);
+export const Default = generateChromaticStory(ProgressBar);
 const {includeStories, ...meta} = ProgressBar.default;
 
 export default meta;

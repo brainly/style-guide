@@ -1,7 +1,7 @@
 import * as List from './List.stories.mdx';
-import {mergeStories} from '../../chromatic/utils';
+import {generateChromaticStory} from '../../chromatic/utils';
 
-export const Default = mergeStories(List);
+export const Default = generateChromaticStory(List);
 const {includeStories, ...meta} = List.default;
 
 export default meta;
