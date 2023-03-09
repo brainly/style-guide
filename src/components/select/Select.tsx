@@ -446,7 +446,11 @@ const Select = React.forwardRef<HTMLDivElement, SelectPropsType>(
         </div>
         {isMounted && (
           <FloatingOverlay lockScroll={!isTouchScreen()} style={{zIndex: 1}}>
-            <FloatingFocusManager context={context} visuallyHiddenDismiss>
+            <FloatingFocusManager
+              context={context}
+              initialFocus={-1} // this is needed as useListNavigation is managing focus
+              visuallyHiddenDismiss
+            >
               <div
                 ref={refs.setFloating}
                 className={floatingContainerClassName}

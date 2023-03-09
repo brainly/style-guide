@@ -62,6 +62,7 @@ const useFloatingSelect = (props: UseFloatingSelectPropsType) => {
     onNavigate: setActiveIndex,
     // This is a large list, allow looping.
     loop: true,
+    focusItemOnHover: false,
   });
 
   const {getReferenceProps, getFloatingProps, getItemProps} = useInteractions([
