@@ -6,7 +6,7 @@ import Card from './Card';
 import Flex from '../flex/Flex';
 import Text from '../text/Text';
 
-<Meta title="Components/Card2/Clickable" component={Card.Clickable} />
+<Meta title="Components/Card2/Button" component={Card.Button} />
 
 <PageHeader>Card</PageHeader>
 
@@ -18,13 +18,13 @@ import Text from '../text/Text';
 <Canvas>
   <Story name="Default">
     {args => (
-      <Card.Clickable {...args} width="150px" height="150px">
+      <Card.Button {...args} width="150px" height="150px">
         <Flex justifyContent="center" alignItems="center" fullHeight>
           <Text color="text-gray-50" size="xsmall" weight="bold">
-            Clickable Card
+            Button Card
           </Text>
         </Flex>
-      </Card.Clickable>
+      </Card.Button>
     )}
   </Story>
 </Canvas>

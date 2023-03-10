@@ -1,7 +1,7 @@
 import * as React from 'react';
 import cx from 'classnames';
 
-export interface ClickableCardPropsType {
+export interface CardButtonPropsType {
   /**
    * Optional string. Additional class names.
    */
@@ -14,13 +14,13 @@ export interface ClickableCardPropsType {
   style?: React.CSSProperties;
 }
 
-const ClickableCard = ({
+const CardButton = ({
   className,
   children,
   width,
   height,
   style,
-}: ClickableCardPropsType) => {
+}: CardButtonPropsType) => {
   const cssVariables = {
     '--card-width': width,
     '--card-height': height,
@@ -28,7 +28,7 @@ const ClickableCard = ({
 
   return (
     <div
-      className={cx('sg-card-clickable', className)}
+      className={cx('sg-card-button', className)}
       style={{...style, ...cssVariables}}
     >
       {children}
@@ -36,4 +36,4 @@ const ClickableCard = ({
   );
 };
 
-export default ClickableCard;
+export default CardButton;

@@ -1,5 +1,4 @@
-import Clickable from './CardClickable';
+import Button from './CardButton';
+import Radio from './CardRadio';
 
-export default {
-  Clickable,
-};
+export default {Button, Radio};

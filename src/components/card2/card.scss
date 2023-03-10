@@ -1,4 +1,5 @@
-.sg-card-clickable {
+.sg-card-button,
+.sg-card-radio {
   width: var(--card-width, auto);
   height: var(--card-height, auto);
   border-radius: 8px;
