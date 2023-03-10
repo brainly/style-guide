@@ -98,6 +98,7 @@ describe('<Select />', () => {
     const selectElement = select.getByRole('combobox') as HTMLElement;
 
     expect(select.getByText('Select...')).toBeTruthy();
+    expect(selectElement.getAttribute('aria-multiselectable')).toBeTruthy();
     userEvent.click(selectElement);
     await waitFor(() => expect(select.queryByRole('listbox')).toBeTruthy());
     fireEvent.click(select.getByText('Physics'));

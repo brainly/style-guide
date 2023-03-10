@@ -420,6 +420,7 @@ const Select = React.forwardRef<HTMLDivElement, SelectPropsType>(
           aria-controls={`${id}-listbox`}
           aria-expanded={isExpanded}
           aria-haspopup="listbox"
+          aria-multiselectable={multiSelect}
           {...interactions.getReferenceProps({
             // Handle pointer
             onClick() {

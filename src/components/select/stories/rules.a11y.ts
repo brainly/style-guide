@@ -80,8 +80,8 @@ const rules = [
   {
     pattern:
       '<b>Should</b> have <code>aria-multiselectable=true</code> when more than one option can be selected',
-    status: 'TO DO',
-    tests: 'TO DO',
+    status: 'DONE',
+    tests: 'DONE',
   },
   {
     pattern: '<b>Can</b> have an accessible description.',
