@@ -1,7 +1,7 @@
 import * as Text from './Text.stories.mdx';
-import {mergeStories} from '../../chromatic/utils';
+import {generateChromaticStory} from '../../chromatic/utils';
 
-export const Default = mergeStories(Text);
+export const Default = generateChromaticStory(Text);
 const {includeStories, ...meta} = Text.default;
 
 export default meta;

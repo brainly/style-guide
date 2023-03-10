@@ -1,7 +1,7 @@
 import * as Headline from './Headline.stories.mdx';
-import {mergeStories} from '../../chromatic/utils';
+import {generateChromaticStory} from '../../chromatic/utils';
 
-export const Default = mergeStories(Headline);
+export const Default = generateChromaticStory(Headline);
 const {includeStories, ...meta} = Headline.default;
 
 export default meta;

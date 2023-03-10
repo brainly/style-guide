@@ -1,7 +1,9 @@
 import * as Button from './Button.stories.mdx';
-import {mergeStories} from '../../chromatic/utils';
+import {generateChromaticStory} from '../../chromatic/utils';
 
-export const Default = mergeStories(Button);
+export const Default = generateChromaticStory(Button, {
+  storiesToHover: ['variants'],
+});
 const {includeStories, ...meta} = Button.default;
 
 export default meta;

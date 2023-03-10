@@ -1,7 +1,7 @@
 import * as MobileIcon from './MobileIcon.stories.mdx';
-import {mergeStories} from '../../chromatic/utils';
+import {generateChromaticStory} from '../../chromatic/utils';
 
-export const Default = mergeStories(MobileIcon);
+export const Default = generateChromaticStory(MobileIcon);
 const {includeStories, ...meta} = MobileIcon.default;
 
 export default meta;
