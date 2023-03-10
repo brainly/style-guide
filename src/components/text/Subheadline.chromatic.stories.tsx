@@ -56,7 +56,7 @@ ResponsiveProps.parameters = {
   },
 };
 
-export const Default = generateChromaticStory(Subheadline);
+export const Default = generateChromaticStory(SubheadlineStories);
 const {includeStories, ...meta} = SubheadlineStories.default;
 
 export default meta;

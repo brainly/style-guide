@@ -73,7 +73,7 @@ ResponsiveProps.parameters = {
 
 const {includeStories, ...meta} = LinkStories.default;
 
-export const Default = generateChromaticStory(Link, {
+export const Default = generateChromaticStory(LinkStories, {
   storiesToHover: ['colors'],
 });
 

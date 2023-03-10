@@ -62,5 +62,5 @@ ResponsiveProps.parameters = {
 
 const {includeStories, ...meta} = HeadlineStories.default;
 
-export const Default = generateChromaticStory(Headline);
+export const Default = generateChromaticStory(HeadlineStories);
 export default meta;

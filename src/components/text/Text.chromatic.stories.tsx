@@ -70,6 +70,6 @@ ResponsiveProps.parameters = {
 
 const {includeStories, ...meta} = TextStories.default;
 
-export const Default = generateChromaticStory(Text);
+export const Default = generateChromaticStory(TextStories);
 
 export default meta;
