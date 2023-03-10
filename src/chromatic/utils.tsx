@@ -5,7 +5,7 @@ import HoverStyle from './HoverStyle';
 // This any type might be improved by looking at storybook types
 export const generateChromaticStory: any = (
   module: any,
-  options: {storiesToHover?: Array<string | React.FC>}
+  options: {storiesToHover?: Array<string | React.FC>} = {}
 ) => {
   const mergedStories = mergeStories(module);
   const {storiesToHover} = options;
