@@ -161,6 +161,35 @@ export const ResponsiveProps = args => {
           <Box {...indigoBoxStyle}>Flex child 2</Box>
         </Flex>
       </Flex>
+      <h3 className="component__story-name">alignContent prop</h3>
+      <Box {...indigoBoxStyle} style={{height: 400, width: 400}}>
+        <Flex
+          alignContent={[
+            FLEX_ALIGNMENT_VALUES.CENTER,
+            FLEX_ALIGNMENT_VALUES.FLEX_END,
+            FLEX_ALIGNMENT_VALUES.FLEX_START,
+            FLEX_ALIGNMENT_VALUES.STRETCH,
+          ]}
+          wrap
+          fullHeight
+        >
+          <Flex>
+            <Box {...indigoBoxStyle}>Flex child</Box>
+          </Flex>
+          <Flex>
+            <Box {...indigoBoxStyle}>Flex child</Box>
+          </Flex>
+          <Flex>
+            <Box {...indigoBoxStyle}>Flex child</Box>
+          </Flex>
+          <Flex>
+            <Box {...indigoBoxStyle}>Flex child</Box>
+          </Flex>
+          <Flex>
+            <Box {...indigoBoxStyle}>Flex child</Box>
+          </Flex>
+        </Flex>
+      </Box>
     </div>
   );
 };
