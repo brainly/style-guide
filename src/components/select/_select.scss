@@ -13,15 +13,6 @@
     max-width: 320px;
     width: 100%;
 
-    &--disabled {
-      pointer-events: none;
-      opacity: 42%;
-
-      .sg-select-new__element {
-        pointer-events: none;
-      }
-    }
-
     &--white {
       --select-background: #{$white};
       --border-color: #{$white};
@@ -40,6 +31,20 @@
       --border-color: #{$red-40};
       --hover-border-color: #{$red-40};
       --active-border-color: #{$red-40};
+    }
+
+    &--disabled {
+      pointer-events: none;
+      opacity: 42%;
+
+      .sg-select-new__element {
+        pointer-events: none;
+      }
+
+      @media (forced-colors: active) {
+        --border-color: GrayText;
+        --active-border-color: GrayText;
+      }
     }
 
     &--s {
@@ -90,17 +95,31 @@
       transition: background-color $durationModerate1 $easingLinear,
         border-color $durationModerate1 $easingLinear;
 
+      @media (forced-colors: active) {
+        color: FieldText;
+      }
+
       &:hover,
       &:focus,
       &:focus-visible {
         border-color: var(--hover-border-color);
         background-color: var(--hover-background-color);
+
+        @media (forced-colors: active) {
+          border-color: FieldText;
+          background-color: Field;
+        }
       }
 
       &[aria-expanded='true'],
       &:active {
         border-color: var(--active-border-color);
         background-color: var(--active-background-color);
+
+        @media (forced-colors: active) {
+          border-color: FieldText;
+          background-color: Field;
+        }
       }
 
       &[aria-expanded='true'] .sg-select-new__element-icon {
@@ -175,6 +194,12 @@
       display: flex;
       flex-direction: column;
       flex: 1 0 auto;
+
+      @media (forced-colors: active) {
+        border: 2px solid FieldText;
+        background-color: Field;
+        color: FieldText;
+      }
     }
 
     &__popup.animate-on-transforms {
