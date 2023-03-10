@@ -67,7 +67,10 @@ describe('<Select />', () => {
 
     userEvent.click(selectElement);
     expect(selectElement.getAttribute('aria-expanded')).toEqual('true');
-    expect(select.queryByRole('listbox')).toBeTruthy();
+    expect(select.getByRole('listbox')).toBeTruthy();
+    expect(select.getByRole('listbox').getAttribute('id')).toBe(
+      select.getByRole('combobox').getAttribute('aria-controls')
+    );
   });
 
   it('can select single option', async () => {

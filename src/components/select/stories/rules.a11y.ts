@@ -60,12 +60,6 @@ const rules = [
     tests: 'DONE',
   },
   {
-    pattern: '<b>Should</b> provide information about active descendant.',
-    comment: `The <code>aria-activedescendant</code> attribute identifies the selected <code>SelectOption</code> by referencing the id value of the option.`,
-    status: 'TO DO',
-    tests: 'TO DO',
-  },
-  {
     pattern: '<b>Should</b> provide information if is expanded.',
     comment: `The <code>aria-expanded</code> should have <code>true</code> value when it is expanded.`,
     status: 'DONE',
@@ -74,8 +68,8 @@ const rules = [
   {
     pattern: '<b>Should</b> provide information about the linked popup.',
     comment: `The <code>aria-haspopup="listbox"</code> and <code>aria-controls</code> attributed should reference element with role <code>listbox</code>.`,
-    status: 'DONE',
-    tests: 'TO DO',
+    status: 'TO DO',
+    tests: 'DONE',
   },
   {
     pattern:
