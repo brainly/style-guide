@@ -22,7 +22,7 @@ export type ResponsivePropType<T> =
       lg?: T;
       xl?: T;
     }>;
-const breakpoints = ['sm', 'md', 'lg', 'xl'];
+export const breakpoints = ['sm', 'md', 'lg', 'xl'];
 const responsivePrefixes = ['', 'md', 'lg', 'xl'];
 
 export function mergeResponsiveProps(

@@ -5,12 +5,22 @@ import Headline, {
   HEADLINE_TRANSFORM,
 } from './Headline';
 import * as React from 'react';
-import {generateChromaticStory} from '../../chromatic/utils';
+import {
+  generateChromaticStory,
+  responsivePropsStoryLabel,
+} from '../../chromatic/utils';
 
 export const ResponsiveProps = args => {
   return (
     <div>
-      <h3 className="component__story-name">size prop</h3>
+      <h3 className="component__story-name">
+        {responsivePropsStoryLabel('size', [
+          HEADLINE_SIZE.SMALL,
+          HEADLINE_SIZE.XXLARGE,
+          null,
+          HEADLINE_SIZE.XXXLARGE,
+        ])}
+      </h3>
       <Headline
         size={[
           HEADLINE_SIZE.SMALL,
@@ -22,7 +32,14 @@ export const ResponsiveProps = args => {
       >
         Test
       </Headline>
-      <h3 className="component__story-name">transform prop</h3>
+      <h3 className="component__story-name">
+        {responsivePropsStoryLabel('transform', [
+          HEADLINE_TRANSFORM.UPPERCASE,
+          HEADLINE_TRANSFORM.LOWERCASE,
+          null,
+          HEADLINE_TRANSFORM.CAPITALIZE,
+        ])}
+      </h3>
       <Headline
         transform={[
           HEADLINE_TRANSFORM.UPPERCASE,
@@ -34,11 +51,20 @@ export const ResponsiveProps = args => {
       >
         Test
       </Headline>
-      <h3 className="component__story-name">extraBold prop</h3>
+      <h3 className="component__story-name">
+        {responsivePropsStoryLabel('extraBold', [true, false, null, true])}
+      </h3>
       <Headline extraBold={[true, false, null, true]} {...args}>
         Test
       </Headline>
-      <h3 className="component__story-name">align prop</h3>
+      <h3 className="component__story-name">
+        {responsivePropsStoryLabel('align', [
+          HEADLINE_ALIGN.LEFT,
+          HEADLINE_ALIGN.RIGHT,
+          null,
+          HEADLINE_ALIGN.LEFT,
+        ])}
+      </h3>
       <Headline
         align={[
           HEADLINE_ALIGN.LEFT,

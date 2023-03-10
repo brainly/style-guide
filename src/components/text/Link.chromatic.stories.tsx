@@ -1,26 +1,50 @@
 import * as LinkStories from './Link.stories.mdx';
-import {generateChromaticStory} from '../../chromatic/utils';
+import {
+  generateChromaticStory,
+  responsivePropsStoryLabel,
+} from '../../chromatic/utils';
 import React from 'react';
 import Link, {LINK_ALIGN, LINK_SIZE, LINK_WEIGHT, LINK_TRANSFORM} from './Link';
 
 export const ResponsiveProps = args => {
   return (
     <div>
-      <h3 className="component__story-name">size prop</h3>
+      <h3 className="component__story-name">
+        {responsivePropsStoryLabel('size', [
+          LINK_SIZE.SMALL,
+          LINK_SIZE.XXLARGE,
+          null,
+          LINK_SIZE.XXXLARGE,
+        ])}
+      </h3>
       <Link
         href="#"
         size={[LINK_SIZE.SMALL, LINK_SIZE.XXLARGE, null, LINK_SIZE.XXXLARGE]}
       >
         Test
       </Link>
-      <h3 className="component__story-name">weight prop</h3>
+      <h3 className="component__story-name">
+        {responsivePropsStoryLabel('weight', [
+          LINK_WEIGHT.BOLD,
+          LINK_WEIGHT.REGULAR,
+          null,
+          LINK_WEIGHT.BOLD,
+        ])}
+      </h3>
       <Link
         weight={[LINK_WEIGHT.BOLD, LINK_WEIGHT.REGULAR, null, LINK_WEIGHT.BOLD]}
         href="#"
       >
         Test
       </Link>
-      <h3 className="component__story-name">transform prop</h3>
+      <h3 className="component__story-name">
+        {responsivePropsStoryLabel('transform', [
+          LINK_TRANSFORM.UPPERCASE,
+          LINK_TRANSFORM.LOWERCASE,
+          null,
+          LINK_TRANSFORM.CAPITALIZE,
+        ])}
+      </h3>
       <Link
         href="#"
         transform={[
@@ -32,7 +56,14 @@ export const ResponsiveProps = args => {
       >
         Test
       </Link>
-      <h3 className="component__story-name">align prop</h3>
+      <h3 className="component__story-name">
+        {responsivePropsStoryLabel('align', [
+          LINK_ALIGN.JUSTIFY,
+          null,
+          LINK_ALIGN.CENTER,
+          LINK_ALIGN.RIGHT,
+        ])}
+      </h3>
       <div style={{width: 400}}>
         <Link
           href="#"
@@ -49,13 +80,17 @@ export const ResponsiveProps = args => {
           aute non.
         </Link>
       </div>
-      <h3 className="component__story-name">noWrap prop</h3>
+      <h3 className="component__story-name">
+        {responsivePropsStoryLabel('noWrap', [true, false, null, true])}
+      </h3>
       <div style={{border: '1px solid gray', width: '400px'}}>
         <Link href="#" noWrap={[true, false, null, true]}>
           Aliquip sit pariatur laboris in aliqua. Enim esse eu est nisi eiusmod.
         </Link>
       </div>
-      <h3 className="component__story-name">breakWords prop</h3>
+      <h3 className="component__story-name">
+        {responsivePropsStoryLabel('breakWords', [true, false, null, true])}
+      </h3>
       <div style={{border: '1px solid gray', width: '400px'}}>
         <Link {...args} breakWords={[true, false, null, true]}>
           very-very-very-very-very-very-very-very-very-very-very-very-very-very-long-word

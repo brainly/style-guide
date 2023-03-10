@@ -16,6 +16,13 @@ export const FLEX_JUSTIFY_VALUES = {
   STRETCH: 'stretch',
 } as const;
 
+export const FLEX_ALIGN_VALUES = {
+  CENTER: 'center',
+  FLEX_START: 'start',
+  FLEX_END: 'end',
+  STRETCH: 'stretch',
+} as const;
+
 export const FLEX_ALIGNMENT_VALUES = {
   CENTER: 'center',
   FLEX_START: 'flex-start',

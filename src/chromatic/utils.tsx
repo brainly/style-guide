@@ -1,6 +1,10 @@
 import * as React from 'react';
 import './styles.scss';
 import HoverStyle from './HoverStyle';
+import {
+  breakpoints,
+  ResponsivePropType,
+} from '../components/utils/responsive-props';
 
 // This any type might be improved by looking at storybook types
 export const generateChromaticStory: any = (
@@ -52,4 +56,32 @@ const mergeStories: any = module => {
       </div>
     );
   });
+};
+
+export const responsivePropsStoryLabel = (
+  prop: string,
+  respValue: ResponsivePropType<any>
+): React.ReactNode => {
+  let formattedValue = '';
+
+  if (Array.isArray(respValue)) {
+    for (let i = 0; i < 4; i++) {
+      formattedValue += `${breakpoints[i]}: ${respValue[i]} ${
+        i < 3 ? ' / ' : ''
+      }`;
+    }
+  } else if (typeof respValue === 'object') {
+    breakpoints.forEach(breakpoint => {
+      formattedValue += `${breakpoint}: ${respValue[breakpoint]} ${
+        breakpoint !== 'xl' ? ' / ' : ''
+      }`;
+    });
+  }
+
+  return (
+    <div>
+      {prop}
+      <div>{formattedValue}</div>
+    </div>
+  );
 };
