@@ -449,7 +449,11 @@ const Select = React.forwardRef<HTMLDivElement, SelectPropsType>(
         </div>
         {isMounted && (
           <FloatingOverlay lockScroll={!isTouchScreen()} style={{zIndex: 1}}>
-            <FloatingFocusManager context={context} visuallyHiddenDismiss>
+            <FloatingFocusManager
+              context={context}
+              modal={false}
+              visuallyHiddenDismiss
+            >
               <div
                 ref={refs.setFloating}
                 className={floatingContainerClassName}
@@ -462,7 +466,6 @@ const Select = React.forwardRef<HTMLDivElement, SelectPropsType>(
                   maxWidth: 320,
                 }}
                 {...interactions.getFloatingProps()}
-                role="none"
                 tabIndex={-1}
                 data-placement={floatingProps.placement}
               >
@@ -470,11 +473,12 @@ const Select = React.forwardRef<HTMLDivElement, SelectPropsType>(
                   className={popupClassName}
                   data-placement={floatingProps.placement}
                   tabIndex={activeIndex === null ? 0 : -1}
+                  role="presentation"
                 >
                   <div
                     className={popupContentClassName}
-                    role="listbox"
                     id={`${id}-listbox`}
+                    role="presentation"
                   >
                     {optionsElements}
                   </div>
