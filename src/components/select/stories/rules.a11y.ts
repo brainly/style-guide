@@ -25,7 +25,7 @@ const rules = [
     pattern: '<b>Should</b> have 4.5:1 contrast ratio against the background.',
     comment:
       '<code>gray-60</code> against white: 7.9:1, <code>black</code> against white: 21:1.',
-    status: 'TO DO',
+    status: 'DONE',
     tests: 'N/A',
   },
   {
@@ -68,7 +68,7 @@ const rules = [
   {
     pattern: '<b>Should</b> provide information about the linked popup.',
     comment: `The <code>aria-haspopup="listbox"</code> and <code>aria-controls</code> attributed should reference element with role <code>listbox</code>.`,
-    status: 'TO DO',
+    status: 'DONE',
     tests: 'DONE',
   },
   {
