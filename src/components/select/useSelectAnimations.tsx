@@ -13,6 +13,7 @@ type UseSelectAnimationsPropsType = {
 const MIN_POPUP_WIDTH = 120;
 const ANIMATE_CLASSNAME = 'animate-on-transforms';
 const SCROLL_HIDE_CLASSNAME = 'hide-scroll';
+const OPEN_CLASSNAME = 'open';
 
 /**
  * Move floating container by 8px from the initial top position.
@@ -54,12 +55,16 @@ const useSelectAnimations = (props: UseSelectAnimationsPropsType) => {
     const floatingContainer = select.getElementsByClassName(
       floatingContainerClassName
     )[0] as HTMLDivElement;
+    const popupContent = select.getElementsByClassName(
+      popupContentClassName
+    )[0] as HTMLDivElement;
 
     popupContainer.classList.add('exit-animation');
     popupContainer.style.height = `0px`;
     if (selectRef.current)
       popupContainer.style.width = `${selectRef.current.width}px`;
     popupContainer.style.opacity = `0`;
+    popupContent.classList.add(SCROLL_HIDE_CLASSNAME);
 
     requestAnimationFrame(() => {
       popupContainer.classList.add('animate-on-transforms');
@@ -124,8 +129,11 @@ const useSelectAnimations = (props: UseSelectAnimationsPropsType) => {
           popupContainer.classList.add(ANIMATE_CLASSNAME);
           selectElementIcon.classList.add(ANIMATE_CLASSNAME);
           floatingContainer.classList.add(ANIMATE_CLASSNAME);
-          popupContainer.style.opacity = `1`;
         }
+
+        floatingContainer.classList.add(OPEN_CLASSNAME);
+
+        popupContainer.style.opacity = `1`;
 
         popupContainer.style.height = `${initialContainerSize.height}px`;
         const popupWidth: number = Math.max(
@@ -160,20 +168,28 @@ const useSelectAnimations = (props: UseSelectAnimationsPropsType) => {
           });
         }
 
-        function handleTransitionEnd(e) {
+        const cleanupAfterTransition = popupContent => {
+          popupContent.classList.remove(SCROLL_HIDE_CLASSNAME);
+        };
+
+        const handleTransitionEnd = e => {
           // Once height finishes transition
           // we are sure the component is fully visible
           if (e.propertyName === 'height') {
-            popupContent.classList.remove(SCROLL_HIDE_CLASSNAME);
+            cleanupAfterTransition(popupContent);
 
             popupContainer.removeEventListener(
               'transitionend',
               handleTransitionEnd
             );
           }
-        }
+        };
 
         popupContainer?.addEventListener('transitionend', handleTransitionEnd);
+
+        if (hasReduceMotion) {
+          cleanupAfterTransition(popupContent);
+        }
       });
     });
   };
