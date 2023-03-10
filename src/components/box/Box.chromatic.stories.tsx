@@ -1,7 +1,7 @@
 import * as React from 'react';
 import * as BoxStories from './Box.stories.mdx';
 import Box, {COLOR} from './Box';
-import {mergeStories} from '../../chromatic/utils';
+import {generateChromaticStory} from '../../chromatic/utils';
 
 export const ResponsiveProps = args => {
   return (
@@ -36,7 +36,7 @@ ResponsiveProps.parameters = {
   },
 };
 
-export const Default = mergeStories(BoxStories);
+export const Default = generateChromaticStory(BoxStories);
 const {includeStories, ...meta} = BoxStories.default;
 
 export default meta;

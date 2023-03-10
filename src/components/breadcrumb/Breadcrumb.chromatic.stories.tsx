@@ -1,7 +1,7 @@
 import * as Breadcrumb from './Breadcrumb.stories.mdx';
-import {mergeStories} from '../../chromatic/utils';
+import {generateChromaticStory} from '../../chromatic/utils';
 
-export const Default = mergeStories(Breadcrumb);
+export const Default = generateChromaticStory(Breadcrumb);
 const {includeStories, ...meta} = Breadcrumb.default;
 
 export default meta;

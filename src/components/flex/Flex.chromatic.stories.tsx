@@ -1,6 +1,5 @@
 import * as React from 'react';
 import * as FlexStories from './Flex.stories.mdx';
-import {mergeStories} from '../../chromatic/utils';
 import Flex, {
   FLEX_DIRECTION,
   FLEX_JUSTIFY_VALUES,
@@ -8,6 +7,7 @@ import Flex, {
   FLEX_MARGINS,
 } from './Flex';
 import Box, {COLOR} from '../box/Box';
+import {generateChromaticStory} from '../../chromatic/utils';
 
 const indigoBoxStyle = {
   border: true,
@@ -171,7 +171,7 @@ ResponsiveProps.parameters = {
   },
 };
 
-export const Default = mergeStories(FlexStories);
+export const Default = generateChromaticStory(FlexStories);
 const {includeStories, ...meta} = FlexStories.default;
 
 export default meta;

@@ -1,7 +1,7 @@
 import * as Bubble from './Bubble.stories.mdx';
-import {mergeStories} from '../../chromatic/utils';
+import {generateChromaticStory} from '../../chromatic/utils';
 
-export const Default = mergeStories(Bubble);
+export const Default = generateChromaticStory(Bubble);
 const {includeStories, ...meta} = Bubble.default;
 
 export default meta;

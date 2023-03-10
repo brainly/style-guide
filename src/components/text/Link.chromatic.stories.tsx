@@ -1,5 +1,5 @@
 import * as LinkStories from './Link.stories.mdx';
-import {mergeStories} from '../../chromatic/utils';
+import {generateChromaticStory} from '../../chromatic/utils';
 import React from 'react';
 import Link, {LINK_ALIGN, LINK_SIZE, LINK_WEIGHT, LINK_TRANSFORM} from './Link';
 
@@ -71,7 +71,10 @@ ResponsiveProps.parameters = {
   },
 };
 
-export const Default = mergeStories(LinkStories);
 const {includeStories, ...meta} = LinkStories.default;
+
+export const Default = generateChromaticStory(Link, {
+  storiesToHover: ['colors'],
+});
 
 export default meta;

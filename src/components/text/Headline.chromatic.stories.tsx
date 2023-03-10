@@ -1,11 +1,11 @@
 import * as HeadlineStories from './Headline.stories.mdx';
-import {mergeStories} from '../../chromatic/utils';
 import Headline, {
   HEADLINE_ALIGN,
   HEADLINE_SIZE,
   HEADLINE_TRANSFORM,
 } from './Headline';
 import * as React from 'react';
+import {generateChromaticStory} from '../../chromatic/utils';
 
 export const ResponsiveProps = args => {
   return (
@@ -60,7 +60,7 @@ ResponsiveProps.parameters = {
   },
 };
 
-export const Default = mergeStories(HeadlineStories);
 const {includeStories, ...meta} = HeadlineStories.default;
 
+export const Default = generateChromaticStory(Headline);
 export default meta;

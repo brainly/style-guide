@@ -1,5 +1,5 @@
 import * as TextBitStories from './TextBit.stories.mdx';
-import {mergeStories} from '../../chromatic/utils';
+import {generateChromaticStory} from '../../chromatic/utils';
 import React from 'react';
 import TextBit, {TEXT_BIT_SIZE} from './TextBit';
 
@@ -28,7 +28,7 @@ ResponsiveProps.parameters = {
   },
 };
 
-export const Default = mergeStories(TextBitStories);
 const {includeStories, ...meta} = TextBitStories.default;
 
+export const Default = generateChromaticStory(TextBitStories);
 export default meta;

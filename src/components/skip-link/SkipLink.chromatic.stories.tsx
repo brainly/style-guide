@@ -1,5 +1,5 @@
 import * as SkipLink from './SkipLink.stories.mdx';
-import {mergeStories} from '../../chromatic/utils';
+import {generateChromaticStory} from '../../chromatic/utils';
 import {within} from '@storybook/testing-library';
 
 const play = async ({canvasElement}) => {
@@ -13,7 +13,7 @@ const play = async ({canvasElement}) => {
   link.focus();
 };
 
-export const Default = mergeStories(SkipLink);
+export const Default = generateChromaticStory(SkipLink);
 Default.play = play;
 const {includeStories, ...meta} = SkipLink.default;
 

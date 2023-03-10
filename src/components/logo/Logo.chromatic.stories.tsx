@@ -1,7 +1,7 @@
 import * as Logo from './Logo.stories.mdx';
-import {mergeStories} from '../../chromatic/utils';
+import {generateChromaticStory} from '../../chromatic/utils';
 
-export const Default = mergeStories(Logo);
+export const Default = generateChromaticStory(Logo);
 const {includeStories, ...meta} = Logo.default;
 
 export default meta;

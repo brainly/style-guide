@@ -1,5 +1,5 @@
 import * as SubheadlineStories from './Subheadline.stories.mdx';
-import {mergeStories} from '../../chromatic/utils';
+import {generateChromaticStory} from '../../chromatic/utils';
 import Subheadline, {
   SUBHEADLINE_ALIGN,
   SUBHEADLINE_SIZE,
@@ -56,7 +56,7 @@ ResponsiveProps.parameters = {
   },
 };
 
-export const Default = mergeStories(SubheadlineStories);
+export const Default = generateChromaticStory(Subheadline);
 const {includeStories, ...meta} = SubheadlineStories.default;
 
 export default meta;

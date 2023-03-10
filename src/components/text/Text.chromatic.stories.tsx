@@ -1,5 +1,5 @@
 import * as TextStories from './Text.stories.mdx';
-import {mergeStories} from '../../chromatic/utils';
+import {generateChromaticStory} from '../../chromatic/utils';
 import React from 'react';
 import Text, {TEXT_ALIGN, TEXT_SIZE, TEXT_TRANSFORM, TEXT_WEIGHT} from './Text';
 import hex from '../colors/hex';
@@ -68,7 +68,8 @@ ResponsiveProps.parameters = {
   },
 };
 
-export const Default = mergeStories(TextStories);
 const {includeStories, ...meta} = TextStories.default;
+
+export const Default = generateChromaticStory(Text);
 
 export default meta;

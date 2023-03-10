@@ -1,7 +1,7 @@
 import * as SeparatorVertical from './SeparatorVertical.stories.mdx';
-import {mergeStories} from '../../chromatic/utils';
+import {generateChromaticStory} from '../../chromatic/utils';
 
-export const Default = mergeStories(SeparatorVertical);
+export const Default = generateChromaticStory(SeparatorVertical);
 const {includeStories, ...meta} = SeparatorVertical.default;
 
 export default meta;
