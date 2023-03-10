@@ -1,12 +1,22 @@
 import * as TextBitStories from './TextBit.stories.mdx';
-import {generateChromaticStory} from '../../chromatic/utils';
+import {
+  generateChromaticStory,
+  responsivePropsStoryLabel,
+} from '../../chromatic/utils';
 import React from 'react';
 import TextBit, {TEXT_BIT_SIZE} from './TextBit';
 
 export const ResponsiveProps = args => {
   return (
     <div>
-      <h3 className="component__story-name">size prop</h3>
+      <h3 className="component__story-name">
+        {responsivePropsStoryLabel('size', [
+          TEXT_BIT_SIZE.MEDIUM,
+          null,
+          TEXT_BIT_SIZE.LARGE,
+          TEXT_BIT_SIZE.XLARGE,
+        ])}
+      </h3>
       <TextBit
         size={[
           TEXT_BIT_SIZE.MEDIUM,

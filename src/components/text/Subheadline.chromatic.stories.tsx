@@ -1,5 +1,8 @@
 import * as SubheadlineStories from './Subheadline.stories.mdx';
-import {generateChromaticStory} from '../../chromatic/utils';
+import {
+  generateChromaticStory,
+  responsivePropsStoryLabel,
+} from '../../chromatic/utils';
 import Subheadline, {
   SUBHEADLINE_ALIGN,
   SUBHEADLINE_SIZE,
@@ -10,7 +13,14 @@ import React from 'react';
 export const ResponsiveProps = args => {
   return (
     <div>
-      <h3 className="component__story-name">size prop</h3>
+      <h3 className="component__story-name">
+        {responsivePropsStoryLabel('size', [
+          SUBHEADLINE_SIZE.SMALL,
+          SUBHEADLINE_SIZE.XXLARGE,
+          null,
+          SUBHEADLINE_SIZE.XXXLARGE,
+        ])}
+      </h3>
       <Subheadline
         size={[
           SUBHEADLINE_SIZE.SMALL,
@@ -22,7 +32,14 @@ export const ResponsiveProps = args => {
       >
         Test
       </Subheadline>
-      <h3 className="component__story-name">transform prop</h3>
+      <h3 className="component__story-name">
+        {responsivePropsStoryLabel('transform', [
+          SUBHEADLINE_TRANSFORM.UPPERCASE,
+          SUBHEADLINE_TRANSFORM.LOWERCASE,
+          null,
+          SUBHEADLINE_TRANSFORM.CAPITALIZE,
+        ])}
+      </h3>
       <Subheadline
         transform={[
           SUBHEADLINE_TRANSFORM.UPPERCASE,
@@ -34,7 +51,14 @@ export const ResponsiveProps = args => {
       >
         Test
       </Subheadline>
-      <h3 className="component__story-name">align prop</h3>
+      <h3 className="component__story-name">
+        {responsivePropsStoryLabel('align', [
+          SUBHEADLINE_ALIGN.LEFT,
+          SUBHEADLINE_ALIGN.RIGHT,
+          null,
+          SUBHEADLINE_ALIGN.LEFT,
+        ])}
+      </h3>
       <Subheadline
         align={[
           SUBHEADLINE_ALIGN.LEFT,
