@@ -142,7 +142,7 @@ describe('<Select />', () => {
     selectElement.focus();
     expect(selectElement).toEqual(document.activeElement);
     expect(selectElement.getAttribute('aria-expanded')).toBe('false');
-    userEvent.keyboard('[space]');
+    userEvent.keyboard('{space}');
 
     await waitFor(() =>
       expect(selectElement.getAttribute('aria-expanded')).toEqual('true')
@@ -151,9 +151,15 @@ describe('<Select />', () => {
 
     expect(selectedOption1).toHaveFocus();
     expect(selectedOption1).toEqual(document.activeElement);
-    userEvent.keyboard('[space]');
+    userEvent.keyboard('{space}');
     await waitFor(() => expect(select.queryByRole('listbox')).toBeFalsy());
     expect(select.getByText('Physics')).toBeTruthy();
+
+    expect(selectElement).toHaveFocus();
+    userEvent.keyboard('{enter}');
+    await waitFor(() =>
+      expect(selectElement.getAttribute('aria-expanded')).toEqual('true')
+    );
   });
 
   it('cannon be interacted with when disabled', async () => {

@@ -74,8 +74,8 @@ const rules = [
   {
     pattern:
       '<b>Should</b> open listbox by pressing <code>Space</code>/<code>Enter</code> and mouse click.',
-    status: 'DONE',
-    tests: 'TO DO',
+    status: 'TO DO', // Enter does not work
+    tests: 'DONE',
   },
   {
     pattern:

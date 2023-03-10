@@ -427,10 +427,7 @@ const Select = React.forwardRef<HTMLDivElement, SelectPropsType>(
             },
             // Handle keyboard
             onKeyDown(event) {
-              if (
-                (event.key === 'Enter' || event.key === 'Space') &&
-                !disabled
-              ) {
+              if (event.key === 'Enter' && !disabled) {
                 event.preventDefault();
                 onOpenChange(isExpanded);
               }
