@@ -28,7 +28,7 @@ const ClickableCard = ({
 
   return (
     <div
-      className={cx('sg-clickable-card', className)}
+      className={cx('sg-card-clickable', className)}
       style={{...style, ...cssVariables}}
     >
       {children}
