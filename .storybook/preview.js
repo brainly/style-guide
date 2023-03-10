@@ -59,4 +59,32 @@ export const parameters = {
       hidden: process.env.STORYBOOK_ENV === 'chromatic',
     },
   },
+  viewport: {
+    viewports: {
+      sm: {
+        name: 'sm',
+        styles: {
+          width: '680px',
+          height: '100%',
+        },
+        type: 'sm',
+      },
+      md: {
+        name: 'md',
+        styles: {
+          width: '900px',
+          height: '100%',
+        },
+        type: 'md',
+      },
+      lg: {
+        name: 'lg',
+        styles: {
+          height: '100%',
+          width: '1100px',
+        },
+        type: 'lg',
+      },
+    },
+  },
 };

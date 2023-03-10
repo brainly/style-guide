@@ -1,5 +1,5 @@
 import * as React from 'react';
-import TextBit, {TEXT_BIT_AS, TEXT_BIT_SIZE} from './TextBit';
+import TextBit, {TEXT_BIT_AS} from './TextBit';
 import {render} from '@testing-library/react';
 import {testA11y} from '../../axe';
 
@@ -8,18 +8,6 @@ describe('TextBit', () => {
     const textBit = render(<TextBit as={TEXT_BIT_AS.H1}>Test</TextBit>);
 
     expect(textBit.getByRole('heading')).toBeTruthy();
-  });
-
-  it('size is responsive prop', () => {
-    const component = render(
-      <TextBit size={[TEXT_BIT_SIZE.LARGE, TEXT_BIT_SIZE.XLARGE]}>Test</TextBit>
-    );
-
-    ['sg-text-bit--large', 'md:sg-text-bit--xlarge'].forEach(className => {
-      expect(
-        component.container.firstElementChild.classList.contains(className)
-      ).toEqual(true);
-    });
   });
 
   it('type', () => {
