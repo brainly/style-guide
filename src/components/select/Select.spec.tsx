@@ -170,6 +170,11 @@ describe('<Select />', () => {
     await waitFor(() =>
       expect(selectElement.getAttribute('aria-expanded')).toEqual('true')
     );
+
+    select.getByRole('option', {name: 'History'}).focus();
+    userEvent.keyboard('{enter}');
+    await waitFor(() => expect(select.queryByRole('listbox')).toBeFalsy());
+    expect(select.getByText('History')).toBeTruthy();
   });
 
   it('cannon be interacted with when disabled', async () => {

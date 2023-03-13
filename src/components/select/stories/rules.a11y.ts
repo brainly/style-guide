@@ -122,7 +122,7 @@ export const selectOptionRules = [
     pattern:
       '<b>Should</b> be selected by pressing <code>Space</code>/<code>Enter</code> and mouse click.',
     status: 'DONE',
-    tests: 'TO DO',
+    tests: 'DONE',
   },
   {
     pattern:
