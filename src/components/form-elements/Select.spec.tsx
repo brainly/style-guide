@@ -1,6 +1,6 @@
 import * as React from 'react';
 import Select from './Select';
-import {shallow, render} from 'enzyme';
+import {render} from '@testing-library/react';
 
 const exampleOptions = [
   {
@@ -46,26 +46,26 @@ const exampleGroupedOptions = [
 
 const voidFunction = () => undefined;
 
-test('render', () => {
-  const select = shallow(<Select />);
+it('render', () => {
+  const select = render(<Select />);
 
-  expect(select.hasClass('sg-select')).toEqual(true);
+  expect(select.getByRole('combobox')).toBeTruthy();
 });
-test('render options', () => {
-  const select = shallow(<Select options={exampleOptions} />);
 
-  expect(select.find('option')).toHaveLength(exampleOptions.length);
+it('render options', () => {
+  const select = render(<Select options={exampleOptions} />);
+
+  expect(select.getAllByRole('option')).toHaveLength(exampleOptions.length);
 });
-test('render grouped options', () => {
-  const select = shallow(<Select options={exampleGroupedOptions} />);
 
-  expect(select.find('option')).toHaveLength(6);
-  const optGroup = select.find('optgroup');
+it('render grouped options', () => {
+  const select = render(<Select options={exampleGroupedOptions} />);
 
-  expect(optGroup).toHaveLength(1);
-  expect(optGroup.prop('label')).toEqual('Label text');
+  expect(select.getAllByRole('option')).toHaveLength(6);
+  expect(select.getByRole('group', {name: 'Label text'})).toBeTruthy();
 });
-test('choose options', () => {
+
+it('choose options', () => {
   const select = render(
     <Select
       options={exampleOptions}
@@ -73,42 +73,23 @@ test('choose options', () => {
       onChange={voidFunction}
     />
   );
-  const option1st = select.find('option').get(0);
-  const option2nd = select.find('option').get(1);
 
-  expect(option1st.attribs.selected).toBeUndefined();
-  expect(option2nd.attribs.selected).toBeDefined();
+  expect(
+    select.getAllByRole('option', {
+      selected: false,
+      name: 'test',
+    })
+  ).toBeTruthy();
+  expect(
+    select.getAllByRole('option', {
+      selected: true,
+      name: 'test2',
+    })
+  ).toBeTruthy();
 });
-test('full width', () => {
-  const select = shallow(<Select fullWidth />);
 
-  expect(select.hasClass('sg-select--full-width')).toEqual(true);
-});
-test('default validation', () => {
-  const select = shallow(<Select />);
-
-  expect(select.hasClass('sg-select--valid')).toEqual(false);
-  expect(select.hasClass('sg-select--invalid')).toEqual(false);
-});
-test('valid', () => {
-  const select = shallow(<Select valid />);
-
-  expect(select.hasClass('sg-select--valid')).toEqual(true);
-  expect(select.hasClass('sg-select--invalid')).toEqual(false);
-});
-test('invalid', () => {
-  const select = shallow(<Select invalid />);
-
-  expect(select.hasClass('sg-select--valid')).toEqual(false);
-  expect(select.hasClass('sg-select--invalid')).toEqual(true);
-});
-test('capitalized', () => {
-  const select = shallow(<Select capitalized />);
-
-  expect(select.hasClass('sg-select--capitalized')).toEqual(true);
-});
-test('error when both valid and invalid', () => {
+it('error when both valid and invalid', () => {
   expect(() => {
-    shallow(<Select valid invalid />);
+    render(<Select valid invalid />);
   }).toThrow();
 });

@@ -1,6 +1,6 @@
 {
   "name": "brainly-style-guide",
-  "version": "222.1.0",
+  "version": "223.1.0",
   "description": "Brainly Front-End Style Guide",
   "repository": "https://github.com/brainly/style-guide.git",
   "author": "Brainly Team",
@@ -34,8 +34,10 @@
     "inquirer": "^8.2.0",
     "jscodeshift": "^0.13.1",
     "meow": "^5.0.0",
+    "react-hook-form": "^7.43.1",
+    "patch-package": "^6.5.1",
     "path": "^0.12.7",
-    "react-hook-form": "^7.43.1"
+    "postinstall-postinstall": "^2.1.0"
   },
   "devDependencies": {
     "@babel/cli": "^7.8.3",
@@ -66,7 +68,6 @@
     "@testing-library/react": "^12.1.2",
     "@testing-library/react-hooks": "^8.0.0",
     "@testing-library/user-event": "^13.5.0",
-    "@types/enzyme": "^3.10.12",
     "@types/react-dom": "^16.2.0",
     "@typescript-eslint/eslint-plugin": "^5.48.0",
     "@typescript-eslint/parser": "^5.48.0",
@@ -79,8 +80,6 @@
     "concurrently": "^5.0.2",
     "css-loader": "^3.1.0",
     "del": "^2.2.0",
-    "enzyme": "^3.1.0",
-    "enzyme-adapter-react-16": "^1.0.1",
     "eslint": "^7.18.0",
     "eslint-config-brainly-react": "^2.7.0",
     "eslint-config-prettier": "^7.2.0",
@@ -179,7 +178,8 @@
     "scss-unused-variables": "./scripts/find_scss_unused_variables.sh src/",
     "storybook": "./scripts/storybook.sh",
     "storybook-chromatic": "STORYBOOK_ENV=chromatic ./scripts/storybook.sh",
-    "test": "yarn run scss-lint && yarn run scss-unused-variables && yarn run ts-lint && yarn run ts-check && yarn run ts-buildtypes && yarn prettier-check && jest"
+    "test": "yarn run scss-lint && yarn run scss-unused-variables && yarn run ts-lint && yarn run ts-check && yarn run ts-buildtypes && yarn prettier-check && jest",
+    "postinstall": "patch-package"
   },
   "jest": {
     "setupFiles": [

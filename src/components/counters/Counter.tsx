@@ -137,7 +137,7 @@ const Counter = ({
 
         <Flex alignItems="center">
           <Text
-            type="span"
+            as="span"
             weight="bold"
             size={
               size !== undefined && size !== null && size === 'xxs'

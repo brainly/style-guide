@@ -15,7 +15,6 @@ const Container = Story => (
       boxSizing: 'border-box',
       background: hex['gray-50'],
       padding: 15,
-      display: 'flex',
     }}
   >
     <Story />
@@ -43,7 +42,16 @@ const Container = Story => (
     },
   }}
   args={{
-    children: 'Mollit in eu excepteur occaecat nisi incididunt culpa officia.',
+    children: (
+      <>
+        <span>
+          Mollit in eu excepteur occaecat nisi incididunt culpa officia
+        </span>
+        <span>
+          Mollit in eu excepteur occaecat nisi incididunt culpa officia
+        </span>
+      </>
+    ),
   }}
   decorators={[Container]}
 />

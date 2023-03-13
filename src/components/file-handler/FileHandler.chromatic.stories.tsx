@@ -1,7 +1,7 @@
 import * as FileHandler from './FileHandler.stories.mdx';
-import {mergeStories} from '../../chromatic/utils';
+import {generateChromaticStory} from '../../chromatic/utils';
 
-export const Default = mergeStories(FileHandler);
+export const Default = generateChromaticStory(FileHandler);
 const {includeStories, ...meta} = FileHandler.default;
 
 export default meta;

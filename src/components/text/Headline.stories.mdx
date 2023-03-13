@@ -6,10 +6,12 @@ import {
   HEADLINE_ALIGN,
   HEADLINE_SIZE,
   HEADLINE_TRANSFORM,
-  HEADLINE_TYPE,
+  HEADLINE_AS,
 } from './headlineConsts';
 import HeadlineA11y from './stories/Headline.a11y.mdx';
 import PageHeader from 'blocks/PageHeader';
+import Flex from '../flex/Flex';
+import {StoryVariant} from '../../docs/utils';
 
 <Meta
   title="Components/Headline"
@@ -19,7 +21,7 @@ import PageHeader from 'blocks/PageHeader';
   }}
   argTypes={{
     children: {control: 'text'},
-    type: {table: {defaultValue: {summary: HEADLINE_TYPE.H1}}},
+    type: {table: {defaultValue: {summary: HEADLINE_AS.H1}}},
     size: {
       description: '(Responsive)',
       table: {
@@ -102,12 +104,102 @@ import PageHeader from 'blocks/PageHeader';
 <Canvas>
   <Story name="Nested">
     {args => (
-      <Headline {...args} type="h2" color={TEXT_COLOR['text-red-60']}>
+      <Headline {...args} as="h2" color={TEXT_COLOR['text-red-60']}>
         Outer headline{' '}
-        <Headline inherited type="span">
+        <Headline inherited as="span">
           nested Headline with inherited styles
         </Headline>
       </Headline>
+    )}
+  </Story>
+</Canvas>
+
+### Sizes
+
+<Canvas>
+  <Story name="Sizes">
+    {args => (
+      <Flex direction="column">
+        {Object.values(HEADLINE_SIZE).map(size => (
+          <StoryVariant label={`size - ${size}`} key={size}>
+            <Headline {...args} size={size}>
+              Some text
+            </Headline>
+          </StoryVariant>
+        ))}
+      </Flex>
+    )}
+  </Story>
+</Canvas>
+
+### Colors
+
+<Canvas>
+  <Story name="Colors">
+    {args => (
+      <Flex direction="column">
+        {Object.values(TEXT_COLOR).map(color => (
+          <StoryVariant label={`color - ${color}`} key={color}>
+            <div
+              style={{backgroundColor: color === 'text-white' ? '#c3d1dd' : ''}}
+            >
+              <Headline {...args} color={color}>
+                Some text
+              </Headline>
+            </div>
+          </StoryVariant>
+        ))}
+      </Flex>
+    )}
+  </Story>
+</Canvas>
+
+### Transforms
+
+<Canvas>
+  <Story name="Transforms">
+    {args => (
+      <Flex direction="column">
+        {Object.values(HEADLINE_TRANSFORM).map(transform => (
+          <StoryVariant label={`transform - ${transform}`} key={transform}>
+            <Headline {...args} color={transform}>
+              Some text
+            </Headline>
+          </StoryVariant>
+        ))}
+      </Flex>
+    )}
+  </Story>
+</Canvas>
+
+### Extrabold
+
+<Canvas>
+  <Story name="Extrabold">
+    {args => (
+      <Headline {...args} extraBold>
+        Some text
+      </Headline>
+    )}
+  </Story>
+</Canvas>
+
+### Align
+
+<Canvas>
+  <Story name="Align">
+    {args => (
+      <Flex direction="column">
+        {Object.values(HEADLINE_ALIGN).map(align => (
+          <StoryVariant label={`align - ${align}`} key={align} width={400}>
+            <Headline {...args} color={align}>
+              Aliquip sit pariatur laboris in aliqua. Enim esse eu est nisi
+              eiusmod minim deserunt ut cupidatat dolore velit deserunt nisi.
+              Enim in anim aute non.
+            </Headline>
+          </StoryVariant>
+        ))}
+      </Flex>
     )}
   </Story>
 </Canvas>

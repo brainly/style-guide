@@ -1,0 +1,211 @@
+import {ArgsTable, Meta, Story, Canvas} from '@storybook/addon-docs';
+import {StoryVariant} from '../../docs/utils';
+import PageHeader from 'blocks/PageHeader';
+import SparksA11y from './stories/Sparks.a11y.mdx';
+
+import Sparks from './Sparks';
+import Button from '../buttons/Button';
+import Counter from '../counters/Counter';
+import Text from '../text/Text';
+
+<Meta title="Components/Sparks" component={Sparks} />
+
+<PageHeader>Sparks</PageHeader>
+
+- [Stories](#stories)
+- [Accessibility](#accessibility)
+
+## Overview
+
+<Canvas>
+  <Story name="Default" args={{active: true, iterationCount: Infinity}}>
+    {args => (
+      <div style={{width: 300}}>
+        <Sparks {...args} active>
+          <Button variant="solid-indigo" size={args.size || 'l'}>
+            Button
+          </Button>
+        </Sparks>
+      </div>
+    )}
+  </Story>
+</Canvas>
+
+<ArgsTable story="Default" />
+
+## Stories
+
+### Animation on Hover
+
+<Canvas>
+  <Story name="Hover" parameters={{backgrounds: {default: 'facebook'}}}>
+    {args => {
+      // active animation on button hover
+      const [active, setActive] = React.useState(false);
+      return (
+        <div style={{width: 300}}>
+          <Sparks
+            {...args}
+            variant="l"
+            shape="spark"
+            delay={0}
+            iterationCount={5}
+            active={active}
+          >
+            <Button
+              variant="solid-inverted"
+              size="l"
+              onMouseEnter={() => setActive(true)}
+              onMouseLeave={() => setActive(false)}
+            >
+              Button
+            </Button>
+          </Sparks>
+        </div>
+      );
+    }}
+  </Story>
+</Canvas>
+
+### Sizes
+
+<Canvas>
+  <Story name="Sizes">
+    {args => (
+      <div style={{width: 300}}>
+        {['l', 'm', 's'].map(size => (
+          <StoryVariant label={`size - ${size}`} key={size}>
+            <Sparks
+              {...args}
+              variant={size}
+              shape="spark"
+              active
+              iterationCount={Infinity}
+              delay={500}
+            >
+              <Button variant="solid-indigo" size={size}>
+                Button
+              </Button>
+            </Sparks>
+          </StoryVariant>
+        ))}
+      </div>
+    )}
+  </Story>
+</Canvas>
+
+### Shapes
+
+<Canvas>
+  <Story name="Shapes">
+    {args => (
+      <div>
+        {['spark', 'heart'].map(shape => (
+          <StoryVariant label={`shape - ${shape}`} key={shape}>
+            <Sparks
+              {...args}
+              variant="l"
+              shape={shape}
+              active
+              iterationCount={Infinity}
+              delay={500}
+            >
+              <Button variant="solid-light" size="l">
+                {shape}
+              </Button>
+            </Sparks>
+          </StoryVariant>
+        ))}
+      </div>
+    )}
+  </Story>
+</Canvas>
+
+### Placement
+
+Use `placement` property to position the sparks canvas relative to the container so that sparks are always nicely placed and don't cover important part of the content.
+
+<Canvas>
+  <Story name="Placement">
+    {args => (
+      <div
+        style={{
+          background: 'var(--blue-30)',
+          borderRadius: '24px',
+          padding: '4px',
+          width: '300px',
+        }}
+      >
+        <Sparks
+          {...args}
+          variant="l"
+          shape="spark"
+          width="100%"
+          placement="-16px 0"
+          active
+          iterationCount={Infinity}
+          delay={500}
+        >
+          <Button variant="solid-indigo" size="m" fullWidth>
+            Join for free
+          </Button>
+        </Sparks>
+        <Text
+          size="xsmall"
+          weight="bold"
+          style={{
+            display: 'flex',
+            alignItems: 'center',
+            width: '100%',
+            justifyContent: 'center',
+            padding: '2px',
+          }}
+        >
+          and claim your reward &nbsp;
+          <Counter icon="points" size="xxs">
+            +10
+          </Counter>
+        </Text>
+      </div>
+    )}
+  </Story>
+</Canvas>
+
+### Colors
+
+Change the color of the sparks by changing the `colors` prop. Make sure the custom colors are accessible and on brand.
+
+<Canvas>
+  <Story
+    name="Colors"
+    args={{
+      colors: [
+        'var(--indigo-20)',
+        'var(--indigo-30)',
+        'var(--indigo-40)',
+        'var(--indigo-50)',
+      ],
+    }}
+  >
+    {args => (
+      <div>
+        <Sparks
+          {...args}
+          variant="l"
+          shape="spark"
+          active
+          iterationCount={Infinity}
+          delay={500}
+        >
+          <Button variant="transparent" size="l">
+            show more
+          </Button>
+        </Sparks>
+      </div>
+    )}
+  </Story>
+</Canvas>
+
+## Accessibility
+
+<SparksA11y />

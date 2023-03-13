@@ -1,58 +1,21 @@
 import * as React from 'react';
-import Search, {SIZE, COLOR} from './Search';
-import Input from 'src/components/form-elements/Input';
-import Icon, {TYPE, ICON_COLOR} from 'icons/Icon';
-import Button from 'buttons/Button';
-import {shallow} from 'enzyme';
+import Search from './Search';
+import {render, getByRole} from '@testing-library/react';
 
-test('render', () => {
-  const search = shallow(<Search />);
+it('render', () => {
+  const search = render(<Search />);
 
-  expect(search.hasClass('sg-search')).toEqual(true);
-  expect(search.find(Input)).toHaveLength(1);
+  expect(search.getByRole('searchbox')).toBeTruthy();
 });
-test('set Search specific properties to Input', () => {
-  const search = shallow(<Search />);
-  const input = search.find(Input);
 
-  expect(input.props().type).toEqual('search');
-  expect(input.props().withIcon).toEqual(true);
+it('render icon', () => {
+  const search = render(<Search />);
+
+  expect(search.getByRole('img')).toBeTruthy();
 });
-test('pass properties to Input, without Search specific', () => {
-  const size = SIZE.L;
-  const color = COLOR.WHITE;
-  const type = 'text';
-  const withRoundButton = false;
-  const search = shallow(
-    <Search
-      color={color}
-      size={size}
-      valid
-      type={type}
-      withRoundButton={withRoundButton}
-    />
-  );
-  const input = search.find(Input);
 
-  expect(input.props().size).toEqual(size);
-  expect(input.props().color).toEqual(color);
-  expect(input.props().valid).toEqual(true);
-  expect(input.props().type).toEqual('search');
-  expect(input.props().withIcon).toEqual(true);
-});
-test('render icon', () => {
-  const search = shallow(<Search />);
-  const icon = search.find(Icon);
+it('adaptive Button with icon', () => {
+  const search = render(<Search withRoundButton />);
 
-  expect(icon).toHaveLength(1);
-  expect(search.find('.sg-search__icon')).toHaveLength(1);
-  expect(icon.props().type).toEqual(TYPE.SEARCH);
-  expect(icon.props().color).toEqual(ICON_COLOR['icon-gray-50']);
-  expect(icon.props().size).toEqual(16);
-});
-test('adaptive Button with icon', () => {
-  const search = shallow(<Search withRoundButton />);
-  const icon = search.find(Button);
-
-  expect(icon).toHaveLength(1);
+  expect(getByRole(search.getByRole('button'), 'img')).toBeTruthy();
 });

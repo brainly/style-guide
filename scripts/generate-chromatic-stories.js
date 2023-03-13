@@ -27,12 +27,12 @@ if (filePath) {
   fs.writeFileSync(
     chromaticFilePath,
     `import * as ${componentName} from './${parsedPath.base}';
-import {mergeStories} from '${path.relative(
+import {generateChromaticStory} from '${path.relative(
       parsedPath.dir,
       'src/chromatic/utils'
     )}';
 
-export const Default = mergeStories(${componentName});
+export const Default = generateChromaticStory(${componentName});
 
 export default ${componentName}.default;
 `
@@ -60,12 +60,12 @@ export default ${componentName}.default;
           `${componentName}.chromatic.stories.jsx`
         ),
         `import * as ${componentName} from './${parsedPath.base}';
-import {mergeStories} from '${path.relative(
+import {generateChromaticStory} from '${path.relative(
           parsedPath.dir,
           'src/chromatic/utils'
         )}';
 
-export const Default = mergeStories(${componentName});
+export const Default = generateChromaticStory(${componentName});
 
 export default ${componentName}.default;
 `
@@ -94,12 +94,12 @@ export default ${componentName}.default;
 //         `${componentName}.chromatic.stories.jsx`
 //       ),
 //       `import * as ${componentName} from './${parsedPath.base}';
-// import {mergeStories} from '${path.relative(
+// import {generateChromaticStory} from '${path.relative(
 //         parsedPath.dir,
 //         'src/chromatic/utils'
 //       )}';
 
-// export const Default = mergeStories(${componentName});
+// export const Default = generateChromaticStory(${componentName});
 
 // export default ${componentName}.default;
 // `

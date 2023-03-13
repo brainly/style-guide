@@ -1,33 +1,24 @@
 import * as React from 'react';
-import TextBit, {TEXT_BIT_TYPE, TEXT_BIT_SIZE} from './TextBit';
-import {shallow, mount} from 'enzyme';
+import TextBit, {TEXT_BIT_AS} from './TextBit';
+import {render} from '@testing-library/react';
+import {testA11y} from '../../axe';
 
-test('render', () => {
-  const textBit = shallow(<TextBit type={TEXT_BIT_TYPE.H1}>Test</TextBit>);
+describe('TextBit', () => {
+  it('render', () => {
+    const textBit = render(<TextBit as={TEXT_BIT_AS.H1}>Test</TextBit>);
 
-  expect(textBit.hasClass('sg-text-bit')).toBeTruthy();
-});
-test('size', () => {
-  const textBit = shallow(<TextBit size={TEXT_BIT_SIZE.XLARGE}>Test</TextBit>);
+    expect(textBit.getByRole('heading')).toBeTruthy();
+  });
 
-  expect(textBit.hasClass('sg-text-bit--xlarge')).toBeTruthy();
-});
-test('size is responsive prop', () => {
-  const component = shallow(
-    <TextBit size={[TEXT_BIT_SIZE.LARGE, TEXT_BIT_SIZE.XLARGE]}>Test</TextBit>
-  );
+  it('type', () => {
+    const textBit = render(<TextBit as={TEXT_BIT_AS.H3}>Test</TextBit>);
 
-  expect(
-    component.hasClass('sg-text-bit--large md:sg-text-bit--xlarge')
-  ).toEqual(true);
-});
-test('type', () => {
-  const textBit = mount(<TextBit type={TEXT_BIT_TYPE.H3}>Test</TextBit>);
+    expect(textBit.getByRole('heading').tagName).toEqual('H3');
+  });
 
-  expect(textBit.props().type).toEqual(TEXT_BIT_TYPE.H3);
-});
-test('color', () => {
-  const textBit = shallow(<TextBit color="text-blue-40">Test</TextBit>);
-
-  expect(textBit.hasClass('sg-text-bit--text-blue-40')).toBeTruthy();
+  describe('a11y', () => {
+    it('should have no a11y violations', async () => {
+      await testA11y(<TextBit>Read more</TextBit>);
+    });
+  });
 });

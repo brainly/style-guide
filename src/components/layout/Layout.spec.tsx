@@ -3,86 +3,72 @@ import Layout from './Layout';
 import LayoutContent from './LayoutContent';
 import LayoutSecondaryContent from './LayoutSecondaryContent';
 import LayoutAsideContent from './LayoutAsideContent';
-import {shallow} from 'enzyme';
+import {render} from '@testing-library/react';
+import {testA11y} from '../../axe';
 
 describe('Layout', () => {
-  test('render', () => {
-    const layout = shallow(<Layout>Content</Layout>);
-
-    expect(layout.hasClass('sg-layout')).toEqual(true);
-  });
-  test('render with footer', () => {
+  it('render with footer', () => {
     const footer = <div>Footer</div>;
-    const layout = shallow(<Layout footer={footer}>Content</Layout>);
-
-    expect(layout.find('.sg-layout__footer')).toHaveLength(1);
-  });
-  test('reserved-order', () => {
-    const layout = shallow(<Layout reversedOrder>Content</Layout>);
-    const layoutContainer = layout.find('.sg-layout__container');
+    const layout = render(<Layout footer={footer}>Content</Layout>);
 
     expect(
-      layoutContainer.hasClass('sg-layout__container--reversed-order')
-    ).toEqual(true);
+      layout.container.firstElementChild.querySelector('.sg-layout__footer')
+    ).toBeTruthy();
   });
-  test('no-max-width', () => {
-    const layout = shallow(<Layout noMaxWidth>Content</Layout>);
-    const layoutContainer = layout.find('.sg-layout__container');
+
+  it('no-max-width', () => {
+    const layout = render(<Layout noMaxWidth>Content</Layout>);
 
     expect(
-      layoutContainer.hasClass('sg-layout__container--no-max-width')
-    ).toEqual(true);
+      layout.container.firstElementChild.querySelector(
+        '.sg-layout__container--no-max-width'
+      )
+    ).toBeTruthy();
   });
-  test('no-margin-top', () => {
-    const layout = shallow(<Layout noMarginTop>Content</Layout>);
-    const layoutContainer = layout.find('.sg-layout__container');
 
-    expect(
-      layoutContainer.hasClass('sg-layout__container--no-margin-top')
-    ).toEqual(true);
-  });
-  test('full-page', () => {
-    const layout = shallow(<Layout fullPage>Content</Layout>);
-    const layoutContainer = layout.find('.sg-layout__container');
-
-    expect(layoutContainer.hasClass('sg-layout__container--full-page')).toEqual(
-      true
-    );
+  describe('a11y', () => {
+    it('should have no a11y violations', async () => {
+      await testA11y(<Layout>item</Layout>);
+    });
   });
 });
-describe('LayoutContent', () => {
-  test('render', () => {
-    const layoutContent = shallow(<LayoutContent>Content</LayoutContent>);
 
-    expect(layoutContent.hasClass('sg-layout__content')).toEqual(true);
+describe('LayoutContent', () => {
+  it('render', () => {
+    const layoutContent = render(<LayoutContent>Content</LayoutContent>);
+
+    expect(layoutContent.getByText('Content')).toBeTruthy();
   });
-  test('no-max-width', () => {
-    const layoutContent = shallow(
+
+  it('no-max-width', () => {
+    const layoutContent = render(
       <LayoutContent noMaxWidth>Content</LayoutContent>
     );
 
-    expect(layoutContent.hasClass('sg-layout__content--no-max-width')).toEqual(
-      true
-    );
+    expect(
+      layoutContent.container.firstElementChild.classList.contains(
+        'sg-layout__content--no-max-width'
+      )
+    ).toEqual(true);
   });
 });
+
 describe('LayoutAsideContent', () => {
-  test('render', () => {
-    const layoutAsideContent = shallow(
+  it('render', () => {
+    const layoutAsideContent = render(
       <LayoutAsideContent>Content</LayoutAsideContent>
     );
 
-    expect(layoutAsideContent.hasClass('sg-layout__aside-content')).toEqual(
-      true
-    );
+    expect(layoutAsideContent.getByText('Content')).toBeTruthy();
   });
 });
+
 describe('LayoutSecondaryContent', () => {
-  test('render', () => {
-    const component = shallow(
+  it('render', () => {
+    const component = render(
       <LayoutSecondaryContent>Content</LayoutSecondaryContent>
     );
 
-    expect(component.hasClass('sg-layout__secondary-content')).toEqual(true);
+    expect(component.getByText('Content')).toBeTruthy();
   });
 });

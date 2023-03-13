@@ -14,7 +14,7 @@
     "skipLibCheck": true,
     "allowJs": false,
     "downlevelIteration": true,
-    "lib": ["dom", "es5", "es2015.collection", "es2015.iterable"],
+    "lib": ["dom", "es5", "es2015.collection", "es2015.iterable", "es2020"],
     "baseUrl": ".",
     "paths": {
       "*": ["*", "./src/components/*", "./src/docs/*"]

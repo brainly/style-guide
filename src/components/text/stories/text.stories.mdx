@@ -3,7 +3,7 @@ import {Typeset, TypeSpecimen, Label} from 'blocks/Typeset';
 import Text from '../Text';
 import Link, {LINK_WEIGHT, LINK_SIZE, LINK_COLOR} from '../Link';
 import {
-  TEXT_TYPE,
+  TEXT_AS,
   TEXT_SIZE,
   TEXT_COLOR,
   TEXT_WEIGHT,
@@ -11,12 +11,12 @@ import {
   TEXT_ALIGN,
 } from '../textConsts';
 import Headline, {
-  HEADLINE_TYPE,
+  HEADLINE_AS,
   HEADLINE_SIZE,
   HEADLINE_TRANSFORM,
   HEADLINE_ALIGN,
 } from '../Headline';
-import Subheadline, {SUBHEADLINE_TYPE, SUBHEADLINE_SIZE} from '../Subheadline';
+import Subheadline, {SUBHEADLINE_ASs, SUBHEADLINE_SIZE} from '../Subheadline';
 import TextBit, {TEXT_BIT_SIZE, TEXT_BIT_COLOR} from '../TextBit';
 import PageHeader from 'blocks/PageHeader';
 
@@ -153,7 +153,7 @@ export const HeadlineExamples = extraBold => {
           <Label>{size}</Label>
           <Headline
             key={size}
-            type={HEADLINE_TYPE.H2}
+            as={HEADLINE_AS.H2}
             size={size}
             extraBold={extraBold}
           >
@@ -230,7 +230,7 @@ export const SubheadlineExamples = () => {
       sizeVariant.push(
         <TypeSpecimen key={size}>
           <Label>{size}</Label>
-          <Subheadline key={size} type={SUBHEADLINE_TYPE.H2} size={size}>
+          <Subheadline key={size} as={SUBHEADLINE_AS.H2} size={size}>
             Headline
           </Subheadline>
         </TypeSpecimen>
@@ -302,7 +302,7 @@ export const TextExamples = weight => {
         <TypeSpecimen key={size}>
           <Label>{size}</Label>
           <Text
-            type={TEXT_TYPE.H2}
+            as={TEXT_AS.H2}
             size={size}
             color="text-gray-70"
             weight={weight}

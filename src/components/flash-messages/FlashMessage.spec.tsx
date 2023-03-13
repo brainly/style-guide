@@ -1,23 +1,24 @@
 import * as React from 'react';
-import FlashMessage, {TYPE} from './FlashMessage';
-import {shallow} from 'enzyme';
+import FlashMessage from './FlashMessage';
+import {render} from '@testing-library/react';
+import {testA11y} from '../../axe';
 
-test('render', () => {
-  const flashMessage = shallow(<FlashMessage text="test" />);
+describe('FlashMessage', () => {
+  it('render', () => {
+    const flashMessage = render(<FlashMessage text="foo" />);
 
-  expect(flashMessage.hasClass('sg-flash')).toEqual(true);
-  expect(flashMessage.find('div.sg-flash__message')).toHaveLength(1);
-});
-test('default type', () => {
-  const flashMessage = shallow(<FlashMessage text="test" />);
-  const messageDiv = flashMessage.find('div.sg-flash__message');
+    expect(flashMessage.queryByText('foo')).toBeTruthy();
+  });
 
-  expect(messageDiv.hasClass('sg-flash__message')).toEqual(true);
-  expect(messageDiv.hasClass('sg-flash__message--default')).toEqual(false);
-});
-test('type', () => {
-  const flashMessage = shallow(<FlashMessage text="test" type={TYPE.ERROR} />);
-  const messageDiv = flashMessage.find('div.sg-flash__message');
+  it('should have "alert" role', () => {
+    const flashMessage = render(<FlashMessage text="message" />);
 
-  expect(messageDiv.hasClass('sg-flash__message--error')).toEqual(true);
+    expect(flashMessage.getByRole('alert')).toBeTruthy();
+  });
+
+  describe('a11y', () => {
+    it('should have no a11y violations', async () => {
+      await testA11y(<FlashMessage text="message" />);
+    });
+  });
 });

@@ -3,6 +3,7 @@ import {formatTags} from '../../docs/utils';
 import TextBit, {TEXT_BIT_SIZE, TEXT_COLOR} from './TextBit';
 import TextBitA11y from './stories/TextBit.a11y.mdx';
 import PageHeader from 'blocks/PageHeader';
+import {StoryVariant} from '../../docs/utils';
 
 <Meta
   title="Components/TextBit"
@@ -59,13 +60,53 @@ import PageHeader from 'blocks/PageHeader';
 <Canvas>
   <Story name="Nested">
     {args => (
-      <TextBit {...args} type="h2">
+      <TextBit {...args} as="h2">
         SEARCH{' '}
-        <TextBit inherited type="span" color="text-green-60">
+        <TextBit inherited as="span" color="text-green-60">
           QUESTIONS{' '}
         </TextBit>
         OR ASK YOUR OWN
       </TextBit>
+    )}
+  </Story>
+</Canvas>
+
+### Sizes
+
+<Canvas>
+  <Story name="Sizes">
+    {args => (
+      <Flex direction="column">
+        {Object.values(TEXT_BIT_SIZE).map(size => (
+          <StoryVariant label={`size - ${size}`} key={size}>
+            <TextBit {...args} size={size}>
+              Some text
+            </TextBit>
+          </StoryVariant>
+        ))}
+      </Flex>
+    )}
+  </Story>
+</Canvas>
+
+### Colors
+
+<Canvas>
+  <Story name="Colors">
+    {args => (
+      <Flex direction="column">
+        {Object.values(TEXT_COLOR).map(color => (
+          <StoryVariant label={`color - ${color}`} key={color}>
+            <div
+              style={{backgroundColor: color === 'text-white' ? '#c3d1dd' : ''}}
+            >
+              <TextBit {...args} color={color}>
+                Some text
+              </TextBit>
+            </div>
+          </StoryVariant>
+        ))}
+      </Flex>
     )}
   </Story>
 </Canvas>

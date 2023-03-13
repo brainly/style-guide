@@ -1,18 +1,18 @@
 import {ArgsTable, Meta, Story, Canvas} from '@storybook/addon-docs';
 import {formatTags} from '../../docs/utils';
 import {TEXT_COLOR} from './textConsts';
-import classnames from 'classnames';
 import Subheadline from './Subheadline';
 import {
   SUBHEADLINE_ALIGN,
   SUBHEADLINE_SIZE,
   SUBHEADLINE_TRANSFORM,
-  SUBHEADLINE_TYPE,
+  SUBHEADLINE_AS,
 } from './subheadlineConsts';
 import Box from '../box/Box';
 import Flex from '../flex/Flex';
 import SubheadlineA11y from './stories/Subheadline.a11y.mdx';
 import PageHeader from 'blocks/PageHeader';
+import {StoryVariant} from '../../docs/utils';
 
 <Meta
   title="Components/Subheadline"
@@ -24,7 +24,7 @@ import PageHeader from 'blocks/PageHeader';
     children: {
       control: 'text',
     },
-    type: {table: {defaultValue: {summary: SUBHEADLINE_TYPE.H2}}},
+    type: {table: {defaultValue: {summary: SUBHEADLINE_AS.H2}}},
     size: {
       description: '(Responsive)',
       table: {
@@ -155,6 +155,24 @@ import PageHeader from 'blocks/PageHeader';
   </Story>
 </Canvas>
 
+### Transforms
+
+<Canvas>
+  <Story name="Transforms">
+    {args => (
+      <Flex direction="column">
+        {Object.values(SUBHEADLINE_TRANSFORM).map(transform => (
+          <StoryVariant label={`transform - ${transform}`} key={transform}>
+            <Subheadline {...args} color={transform}>
+              Some text
+            </Subheadline>
+          </StoryVariant>
+        ))}
+      </Flex>
+    )}
+  </Story>
+</Canvas>
+
 ### Inherited styles
 
 Using prop `inherited` makes Subheadline inherits styles from parent e.g. size. We can still use other props to change appearance.
@@ -162,9 +180,9 @@ Using prop `inherited` makes Subheadline inherits styles from parent e.g. size. 
 <Canvas>
   <Story name="Inherited Styles">
     {args => (
-      <Subheadline {...args} type="h2" size="large">
+      <Subheadline {...args} as="h2" size="large">
         The Brainly community is constantly{' '}
-        <Subheadline inherited type="span" color={TEXT_COLOR['text-indigo-60']}>
+        <Subheadline inherited as="span" color={TEXT_COLOR['text-indigo-60']}>
           buzzing
         </Subheadline>{' '}
         with the excitement of endless collaboration.

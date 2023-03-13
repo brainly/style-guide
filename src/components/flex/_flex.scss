@@ -89,6 +89,12 @@ $flexAlignmentValues: (center flex-start flex-end baseline stretch);
       }
     }
 
+    @each $value in (center, flex-start, flex-end, baseline, stretch) {
+      @include makeResponsive($variant, 'sg-flex--align-content-#{$value}') {
+        align-content: #{$value};
+      }
+    }
+
     @each $propName in $flexProps {
       @each $propValue in $flexAlignmentValues {
         @include makeResponsive(

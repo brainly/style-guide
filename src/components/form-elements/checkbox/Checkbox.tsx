@@ -297,7 +297,7 @@ const Checkbox = ({
         {!ariaLabelledBy && hasLabel && (
           <Text
             htmlFor={checkboxId}
-            type="label"
+            as="label"
             size={labelSize}
             weight="bold"
             className={labelClass}
@@ -314,7 +314,7 @@ const Checkbox = ({
               id={descriptionId}
               className="sg-checkbox__description"
               size="small"
-              type="span"
+              as="span"
               breakWords
             >
               {description}
