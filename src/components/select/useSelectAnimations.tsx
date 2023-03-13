@@ -7,7 +7,6 @@ type UseSelectAnimationsPropsType = {
   popupContentClassName: string;
   floatingContainerClassName: string;
   selectElementClassName: string;
-  selectElementIconClassName: string;
 };
 
 const MIN_POPUP_WIDTH = 120;
@@ -43,7 +42,6 @@ const useSelectAnimations = (props: UseSelectAnimationsPropsType) => {
     popupContentClassName,
     floatingContainerClassName,
     selectElementClassName,
-    selectElementIconClassName,
   } = props;
   const lastRef = React.useRef<DOMRect>();
   const selectRef = React.useRef<DOMRect>();
@@ -97,9 +95,6 @@ const useSelectAnimations = (props: UseSelectAnimationsPropsType) => {
       const selectElement = select.getElementsByClassName(
         selectElementClassName
       )[0] as HTMLDivElement;
-      const selectElementIcon = select.getElementsByClassName(
-        selectElementIconClassName
-      )[0] as HTMLDivElement;
 
       // Register desired position
       lastRef.current = floatingContainer.getBoundingClientRect();
@@ -129,7 +124,6 @@ const useSelectAnimations = (props: UseSelectAnimationsPropsType) => {
       requestAnimationFrame(() => {
         if (!hasReduceMotion) {
           popupContainer.classList.add(ANIMATE_CLASSNAME);
-          selectElementIcon.classList.add(ANIMATE_CLASSNAME);
           floatingContainer.classList.add(ANIMATE_CLASSNAME);
         }
 

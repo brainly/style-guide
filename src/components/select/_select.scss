@@ -145,9 +145,10 @@
     &__element-icon {
       position: absolute;
       right: 8px;
+      transition: transform $durationGentle1 $easingRegular;
 
-      &.animate-on-transforms {
-        transition: transform $durationGentle1 $easingRegular;
+      @media (prefers-reduced-motion) {
+        transition-duration: 0s;
       }
     }
 

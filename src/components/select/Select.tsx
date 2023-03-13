@@ -220,7 +220,6 @@ const Select = React.forwardRef<HTMLDivElement, SelectPropsType>(
     const popupClassName = 'sg-select-new__popup';
     const popupContentClassName = 'sg-select-new__options-wrapper';
     const selectElementClassName = 'sg-select-new__element';
-    const selectElementIconClassName = 'sg-select-new__element-icon';
     const floatingContainerClassName =
       'sg-select-new__options-floating-container';
 
@@ -230,7 +229,6 @@ const Select = React.forwardRef<HTMLDivElement, SelectPropsType>(
       popupClassName,
       popupContentClassName,
       selectElementClassName,
-      selectElementIconClassName,
     });
 
     const {isExpanded, onOpenChange, handleOptionSelect} = useSelect({
@@ -434,7 +432,7 @@ const Select = React.forwardRef<HTMLDivElement, SelectPropsType>(
           {...additionalProps}
         >
           {selectDisplayValue}
-          <div className={selectElementIconClassName}>
+          <div className="sg-select-new__element-icon">
             <Icon
               type="caret_down"
               size={ICON_SIZE_MAP[size]}
