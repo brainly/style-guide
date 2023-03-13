@@ -160,6 +160,7 @@ describe('<Select />', () => {
     expect(selectedOption1).toHaveFocus();
     expect(selectedOption1).toEqual(document.activeElement);
     userEvent.keyboard('{space}');
+    expect(selectedOption1.getAttribute('aria-selected')).toEqual('true');
     await waitFor(() => expect(select.queryByRole('listbox')).toBeFalsy());
     expect(select.getByText('Physics')).toBeTruthy();
 
@@ -174,6 +175,21 @@ describe('<Select />', () => {
     userEvent.keyboard('{enter}');
     await waitFor(() => expect(select.queryByRole('listbox')).toBeFalsy());
     expect(select.getByText('History')).toBeTruthy();
+
+    userEvent.keyboard('{space}');
+    await waitFor(() =>
+      expect(selectElement.getAttribute('aria-expanded')).toEqual('true')
+    );
+
+    const prevSelectedOption = select.getByRole('option', {name: 'Physics'});
+    const currentlySelectedOption = select.getByRole('option', {
+      name: 'History check',
+    });
+
+    expect(prevSelectedOption.getAttribute('aria-selected')).toEqual('false');
+    expect(currentlySelectedOption.getAttribute('aria-selected')).toEqual(
+      'true'
+    );
   });
 
   it('cannot be interacted with when disabled', async () => {
