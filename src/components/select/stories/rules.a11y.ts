@@ -102,21 +102,21 @@ export const selectOptionRules = [
     pattern:
       '<b>Should</b> be contained in, or owned by, an element with role <code>listbox</code>.',
     status: 'DONE',
-    tests: 'TO DO',
+    tests: 'DONE',
   },
   {
     pattern: '<b>Should</b> indicate selection.',
     comment:
       '<code>aria-selected</code> should be <code>true</code> when option is selected. Selected option has a visual indicator.',
     status: 'DONE',
-    tests: 'TO DO',
+    tests: 'DONE',
   },
   {
     pattern: '<b>Should not</b> contain interactive elements.',
     comment:
       'Checkbox for multiselectable variant is removed from the accessibility tree.',
-    status: 'TO DO',
-    tests: 'TO DO',
+    status: 'DONE',
+    tests: 'N/A',
   },
   {
     pattern:
@@ -130,7 +130,7 @@ export const selectOptionRules = [
     comment:
       '<code>Arrow Down</code> focuses the next option, <code>Arrow Up</code> focuses the previous one.',
     status: 'DONE',
-    tests: 'TO DO',
+    tests: 'N/A',
   },
 ];
 

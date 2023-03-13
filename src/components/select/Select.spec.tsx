@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {render, waitFor, fireEvent} from '@testing-library/react';
+import {render, waitFor, fireEvent, within} from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import Select from './Select';
 
@@ -71,6 +71,9 @@ describe('<Select />', () => {
     expect(select.getByRole('listbox').getAttribute('id')).toBe(
       select.getByRole('combobox').getAttribute('aria-controls')
     );
+    expect(
+      within(select.getByRole('listbox')).getAllByRole('option').length
+    ).toBeTruthy();
   });
 
   it('can select single option', async () => {
@@ -91,6 +94,12 @@ describe('<Select />', () => {
     fireEvent.click(select.getByText('History'));
     await waitFor(() => expect(select.queryByRole('listbox')).toBeFalsy());
     expect(select.getByText('History')).toBeTruthy();
+
+    userEvent.click(selectElement);
+    await waitFor(() => expect(select.queryByRole('listbox')).toBeTruthy());
+    expect(
+      within(select.getByRole('option', {selected: true})).getByText('History')
+    ).toBeTruthy();
   });
 
   it('can select multiple options in multi select Select', async () => {
