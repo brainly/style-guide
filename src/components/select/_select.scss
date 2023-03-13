@@ -28,9 +28,9 @@
     }
 
     &--invalid {
-      --border-color: #{$red-40};
-      --hover-border-color: #{$red-40};
-      --active-border-color: #{$red-40};
+      --border-color: #{$red-60};
+      --hover-border-color: #{$red-60};
+      --active-border-color: #{$red-60};
     }
 
     &--disabled {
