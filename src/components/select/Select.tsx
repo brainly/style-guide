@@ -424,13 +424,13 @@ const Select = React.forwardRef<HTMLDivElement, SelectPropsType>(
           {...interactions.getReferenceProps({
             // Handle pointer
             onClick() {
-              if (!disabled) onOpenChange(isExpanded);
+              if (!disabled) onOpenChange(!isExpanded);
             },
             // Handle keyboard
             onKeyDown(event) {
               if (event.key === 'Enter' && !disabled) {
                 event.preventDefault();
-                onOpenChange(isExpanded);
+                onOpenChange(!isExpanded);
               }
             },
           })}

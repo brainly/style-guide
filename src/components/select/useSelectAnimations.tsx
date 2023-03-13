@@ -29,6 +29,8 @@ const resetFloatingContainerTopPosition = (
     transformTopAmount = 8;
   }
 
+  if (!originalElementRef.current) return;
+
   floatingContainerElement.style.top = `${
     originalElementRef.current.top + transformTopAmount
   }px`;

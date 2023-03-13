@@ -51,14 +51,14 @@ export function RenderSelect(props: {
 window.HTMLElement.prototype.scroll = jest.fn();
 
 describe('<Select />', () => {
-  it('renders Select', () => {
+  it('renders Select in the default state', () => {
     const select = render(<RenderSelect />);
     const selectElement = select.getByRole('combobox') as HTMLElement;
 
     expect(select.getByText('Select...')).toBeTruthy();
+    expect(selectElement.getAttribute('aria-expanded')).toBe('false');
     expect(selectElement.getAttribute('aria-disabled')).toBeFalsy();
     expect(selectElement.getAttribute('aria-invalid')).toBeFalsy();
-    expect(selectElement.getAttribute('aria-expanded')).toBe('false');
   });
 
   it('opens options popup when select element is clicked', async () => {
@@ -67,7 +67,7 @@ describe('<Select />', () => {
 
     userEvent.click(selectElement);
     expect(selectElement.getAttribute('aria-expanded')).toEqual('true');
-    expect(select.getByRole('listbox')).toBeTruthy();
+    select.findByRole('listbox');
     expect(select.getByRole('listbox').getAttribute('id')).toBe(
       select.getByRole('combobox').getAttribute('aria-controls')
     );
@@ -80,9 +80,8 @@ describe('<Select />', () => {
     const select = render(<RenderSelect />);
     const selectElement = select.getByRole('combobox') as HTMLElement;
 
-    expect(select.getByText('Select...')).toBeTruthy();
     userEvent.click(selectElement);
-    await waitFor(() => expect(select.queryByRole('listbox')).toBeTruthy());
+    await select.findByRole('listbox');
     fireEvent.click(select.getByText('Physics'));
 
     await waitFor(() => expect(select.queryByRole('listbox')).toBeFalsy());
@@ -90,7 +89,7 @@ describe('<Select />', () => {
     expect(select.getByText('Physics')).toBeTruthy();
 
     userEvent.click(selectElement);
-    await waitFor(() => expect(select.queryByRole('listbox')).toBeTruthy());
+    await select.findByRole('listbox');
     fireEvent.click(select.getByText('History'));
     await waitFor(() => expect(select.queryByRole('listbox')).toBeFalsy());
     expect(select.getByText('History')).toBeTruthy();
@@ -106,10 +105,9 @@ describe('<Select />', () => {
     const select = render(<RenderSelect multiSelect />);
     const selectElement = select.getByRole('combobox') as HTMLElement;
 
-    expect(select.getByText('Select...')).toBeTruthy();
     expect(selectElement.getAttribute('aria-multiselectable')).toBeTruthy();
     userEvent.click(selectElement);
-    await waitFor(() => expect(select.queryByRole('listbox')).toBeTruthy());
+    await select.findByRole('listbox');
     fireEvent.click(select.getByText('Physics'));
     fireEvent.click(select.getByText('Science'));
     userEvent.click(document.body);
@@ -124,7 +122,7 @@ describe('<Select />', () => {
     const selectElement = select.getByRole('combobox') as HTMLElement;
 
     userEvent.click(selectElement);
-    expect(select.queryByRole('listbox')).toBeTruthy();
+    select.findByRole('listbox');
     userEvent.click(document.body);
     await waitFor(() =>
       expect(selectElement.getAttribute('aria-expanded')).toEqual('false')
@@ -135,7 +133,7 @@ describe('<Select />', () => {
   it('renders with options popup open when select is set as default expanded', async () => {
     const select = render(<RenderSelect defaultExpanded />);
 
-    expect(select.queryByRole('listbox')).toBeTruthy();
+    select.findByRole('listbox');
   });
 
   it('can close default expanded select', async () => {
@@ -166,7 +164,8 @@ describe('<Select />', () => {
     expect(select.getByText('Physics')).toBeTruthy();
 
     expect(selectElement).toHaveFocus();
-    userEvent.keyboard('{enter}');
+    await waitFor(() => expect(select.queryByRole('listbox')).toBeFalsy());
+    userEvent.keyboard('{Enter}');
     await waitFor(() =>
       expect(selectElement.getAttribute('aria-expanded')).toEqual('true')
     );
@@ -177,7 +176,7 @@ describe('<Select />', () => {
     expect(select.getByText('History')).toBeTruthy();
   });
 
-  it('cannon be interacted with when disabled', async () => {
+  it('cannot be interacted with when disabled', async () => {
     const select = render(<RenderSelect disabled />);
     const selectElement = select.getByRole('combobox') as HTMLElement;
 
