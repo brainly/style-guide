@@ -22,7 +22,7 @@ const Container = (Story, options) => {
         overflow: 'hidden',
       }}
     >
-      <Story />
+      {Story()}
     </div>
   );
 };
@@ -68,6 +68,23 @@ const Container = (Story, options) => {
 <PageHeader>SelectMenu</PageHeader>
 
 This component is a controlled component, so you have to handle selecting options.
+
+```jsx
+const [selectedOptions, setSelectedOptions] = React.useState([]);
+
+return (
+  <SelectMenu
+    options={[
+      {value: 'history', label: 'History'},
+      {value: 'science', label: 'Science'},
+    ]}
+    selectedOptions={selectedOptions}
+    onOptionChange={option => {
+      setSelectedOptions([option]);
+    }}
+  />
+);
+```
 
 - [Stories](#stories)
 - [Accessibility](#accessibility)
