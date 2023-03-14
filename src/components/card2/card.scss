@@ -1,9 +1,17 @@
 .sg-card-button,
-.sg-card-radio {
+.sg-card-radio,
+.sg-card-checkbox {
+  display: block;
   width: var(--card-width, auto);
   height: var(--card-height, auto);
   border-radius: 8px;
   border: 2px solid #e1eaf1;
+
+  transition: transform $durationModerate2 $easingRegular;
+
+  &:active:not([disabled]) {
+    transform: scale(0.98);
+  }
 
   &:hover {
     border-color: #46535f;

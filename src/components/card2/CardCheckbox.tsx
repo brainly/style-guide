@@ -1,5 +1,6 @@
 import * as React from 'react';
 import cx from 'classnames';
+import Checkbox from '../form-elements/checkbox/Checkbox';
 
 export interface CardCheckboxPropsType {
   /**
@@ -27,12 +28,13 @@ const CardCheckbox = ({
   };
 
   return (
-    <div
+    <label
       className={cx('sg-card-radio', className)}
       style={{...style, ...cssVariables}}
     >
+      <Checkbox />
       {children}
-    </div>
+    </label>
   );
 };
 
