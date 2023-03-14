@@ -60,12 +60,14 @@ import {StoryVariant, StoryVariantTable} from '../../docs/utils';
 
 ## Stories
 
-### With option select
+### Controlled
 
 <Canvas>
-  <Story name="With option select">
+  <Story name="Controlled">
     {args => {
-      const [selectedOptions, setSelectedOptions] = React.useState([]);
+      const [selectedOptions, setSelectedOptions] = React.useState([
+        args.options[1],
+      ]);
       return (
         <div style={{width: '200px'}}>
           <Select
