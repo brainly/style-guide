@@ -1,9 +1,9 @@
 import * as TopLayer from './TopLayer.stories.mdx';
-import {mergeStories} from '../../chromatic/utils';
+import {generateChromaticStory} from '../../chromatic/utils';
 
 const {fill, ...restStories} = TopLayer;
 
-export const Default = mergeStories(restStories);
+export const Default = generateChromaticStory(restStories);
 const {includeStories, ...meta} = TopLayer.default;
 
 export default meta;

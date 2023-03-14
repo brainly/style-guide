@@ -1,7 +1,7 @@
 import * as Card from './Card.stories.mdx';
-import {mergeStories} from '../../chromatic/utils';
+import {generateChromaticStory} from '../../chromatic/utils';
 
-export const Default = mergeStories(Card);
+export const Default = generateChromaticStory(Card);
 const {includeStories, ...meta} = Card.default;
 
 export default meta;

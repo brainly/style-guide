@@ -1,7 +1,7 @@
 import * as RadioGroup from './RadioGroup.stories.mdx';
-import {mergeStories} from '../../../chromatic/utils';
+import {generateChromaticStory} from '../../../chromatic/utils';
 
-export const Default = mergeStories(RadioGroup);
+export const Default = generateChromaticStory(RadioGroup);
 const {includeStories, ...meta} = RadioGroup.default;
 
 export default meta;
