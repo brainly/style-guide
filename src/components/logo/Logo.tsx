@@ -3,6 +3,7 @@ import classnames from 'classnames';
 import {getLogoUrl} from '../../logo-url';
 
 export type LogoTypeType =
+  | 'brainly2'
   | 'brainly'
   | 'brainly-mobile'
   | 'eodev'
