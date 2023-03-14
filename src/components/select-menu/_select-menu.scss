@@ -1,5 +1,5 @@
 @if ($includeHtml) {
-  .sg-select-new {
+  .sg-select-menu {
     --select-background: #{$gray-20};
     --border-color: #{$gray-20};
     --active-border-color: #{mix($gray-50, $gray-20, 12%)};
@@ -37,7 +37,7 @@
       pointer-events: none;
       opacity: 42%;
 
-      .sg-select-new__element {
+      .sg-select-menu__element {
         pointer-events: none;
       }
 
@@ -48,38 +48,38 @@
     }
 
     &--s {
-      .sg-select-new__element {
+      .sg-select-menu__element {
         padding: 0 32px 0 12px;
         height: $formElementSizeS;
       }
 
-      .sg-select-new__option-label .sg-text,
-      .sg-select-new__element-label,
-      .sg-select-new__placeholder {
+      .sg-select-menu__option-label .sg-text,
+      .sg-select-menu__element-label,
+      .sg-select-menu__placeholder {
         font-size: $formElementSmallFontSize;
       }
     }
 
     &--l {
-      .sg-select-new__element-icon {
+      .sg-select-menu__element-icon {
         right: 12px;
       }
 
-      .sg-select-new__element {
+      .sg-select-menu__element {
         border-radius: $formElementLargeBorderRadius;
         padding: 0 60px 0 (spacing(m));
         height: $formElementSizeL;
       }
 
-      .sg-select-new__option-label .sg-text,
-      .sg-select-new__element-label,
-      .sg-select-new__placeholder {
+      .sg-select-menu__option-label .sg-text,
+      .sg-select-menu__element-label,
+      .sg-select-menu__placeholder {
         font-size: $formElementLargeFontSize;
       }
     }
 
     &:focus-within {
-      .sg-select-new__element:not(:hover) {
+      .sg-select-menu__element:not(:hover) {
         border-color: var(--active-border-color);
         background-color: var(--active-background-color);
 
@@ -134,7 +134,7 @@
         }
       }
 
-      &[data-status='open'] .sg-select-new__element-icon {
+      &[data-status='open'] .sg-select-menu__element-icon {
         transform: rotate(-180deg);
       }
 
@@ -147,7 +147,7 @@
         }
       }
 
-      .sg-select-new__element-label-icon {
+      .sg-select-menu__element-label-icon {
         margin-right: 12px;
         flex: 0 0 auto;
         animation: selectIconFadeIn $durationModerate1 $easingLinear;
@@ -297,7 +297,7 @@
           display: none;
         }
 
-        .sg-select-new__option-state {
+        .sg-select-menu__option-state {
           width: 32px;
         }
       }

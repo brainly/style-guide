@@ -1,9 +1,9 @@
 import * as React from 'react';
 import {render, waitFor, fireEvent, within} from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import Select from './Select';
+import SelectMenu from './SelectMenu';
 
-export function RenderSelect(props: {
+export function RenderSelectMenu(props: {
   multiSelect?: boolean;
   defaultExpanded?: boolean;
   disabled?: boolean;
@@ -28,7 +28,7 @@ export function RenderSelect(props: {
   };
 
   return (
-    <Select
+    <SelectMenu
       options={[
         {
           value: 'physics',
@@ -50,9 +50,9 @@ export function RenderSelect(props: {
 
 window.HTMLElement.prototype.scroll = jest.fn();
 
-describe('<Select />', () => {
-  it('renders Select in the default state', () => {
-    const select = render(<RenderSelect />);
+describe('<SelectMenu />', () => {
+  it('renders SelectMenu in the default state', () => {
+    const select = render(<RenderSelectMenu />);
     const selectElement = select.getByRole('combobox') as HTMLElement;
 
     expect(select.getByText('Select...')).toBeTruthy();
@@ -62,7 +62,7 @@ describe('<Select />', () => {
   });
 
   it('opens options popup when select element is clicked', async () => {
-    const select = render(<RenderSelect />);
+    const select = render(<RenderSelectMenu />);
     const selectElement = select.getByRole('combobox') as HTMLElement;
 
     userEvent.click(selectElement);
@@ -77,7 +77,7 @@ describe('<Select />', () => {
   });
 
   it('can select single option', async () => {
-    const select = render(<RenderSelect />);
+    const select = render(<RenderSelectMenu />);
     const selectElement = select.getByRole('combobox') as HTMLElement;
 
     userEvent.click(selectElement);
@@ -102,7 +102,7 @@ describe('<Select />', () => {
   });
 
   it('can select multiple options in multi select Select', async () => {
-    const select = render(<RenderSelect multiSelect />);
+    const select = render(<RenderSelectMenu multiSelect />);
     const selectElement = select.getByRole('combobox') as HTMLElement;
 
     expect(selectElement.getAttribute('aria-multiselectable')).toBeTruthy();
@@ -118,7 +118,7 @@ describe('<Select />', () => {
   });
 
   it('closes options popup when user clicks outside of it', async () => {
-    const select = render(<RenderSelect />);
+    const select = render(<RenderSelectMenu />);
     const selectElement = select.getByRole('combobox') as HTMLElement;
 
     userEvent.click(selectElement);
@@ -131,20 +131,20 @@ describe('<Select />', () => {
   });
 
   it('renders with options popup open when select is set as default expanded', async () => {
-    const select = render(<RenderSelect defaultExpanded />);
+    const select = render(<RenderSelectMenu defaultExpanded />);
 
     select.findByRole('listbox');
   });
 
   it('can close default expanded select', async () => {
-    const select = render(<RenderSelect defaultExpanded />);
+    const select = render(<RenderSelectMenu defaultExpanded />);
 
     userEvent.click(document.body);
     await waitFor(() => expect(select.queryByRole('listbox')).toBeFalsy());
   });
 
   it('can be navigated with a keyboard', async () => {
-    const select = render(<RenderSelect />);
+    const select = render(<RenderSelectMenu />);
     const selectElement = select.getByRole('combobox') as HTMLElement;
 
     selectElement.focus();
@@ -193,7 +193,7 @@ describe('<Select />', () => {
   });
 
   it('cannot be interacted with when disabled', async () => {
-    const select = render(<RenderSelect disabled />);
+    const select = render(<RenderSelectMenu disabled />);
     const selectElement = select.getByRole('combobox') as HTMLElement;
 
     expect(selectElement.getAttribute('aria-disabled')).toEqual('true');
@@ -208,7 +208,7 @@ describe('<Select />', () => {
     const description = 'Choose your favorite one';
     const select = render(
       <div>
-        <RenderSelect aria-label={label} aria-describedby="description" />
+        <RenderSelectMenu aria-label={label} aria-describedby="description" />
         <p id="description">{description}</p>
       </div>
     );

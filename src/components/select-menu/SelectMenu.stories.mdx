@@ -1,10 +1,13 @@
 import {ArgsTable, Meta, Story, Canvas} from '@storybook/addon-docs';
-import Select, {SIZE as SELECT_SIZE, COLOR as SELECT_COLOR} from './Select';
+import SelectMenu, {
+  SIZE as SELECT_SIZE,
+  COLOR as SELECT_COLOR,
+} from './SelectMenu';
 import PageHeader from 'blocks/PageHeader';
 import Button from '../buttons/Button';
 import Text from '../text/Text';
 import Flex from '../flex/Flex';
-import SelectA11y from './stories/Select.a11y.mdx';
+import SelectMenuA11y from './stories/SelectMenu.a11y.mdx';
 import Headline from '../text/Headline';
 import {StoryVariant, StoryVariantTable} from '../../docs/utils';
 const Container = (Story, options) => {
@@ -25,8 +28,8 @@ const Container = (Story, options) => {
 };
 
 <Meta
-  title="Components/SelectNew"
-  component={Select}
+  title="Components/SelectMenu"
+  component={SelectMenu}
   argTypes={{
     defaultExpanded: {
       control: {
@@ -62,7 +65,9 @@ const Container = (Story, options) => {
   decorators={[Container]}
 />
 
-<PageHeader>Select</PageHeader>
+<PageHeader>SelectMenu</PageHeader>
+
+This component is a controlled component, so you have to handle selecting options.
 
 - [Stories](#stories)
 - [Accessibility](#accessibility)
@@ -70,7 +75,7 @@ const Container = (Story, options) => {
 ## Overview
 
 <Canvas>
-  <Story name="Default">{args => <Select {...args} />}</Story>
+  <Story name="Default">{args => <SelectMenu {...args} />}</Story>
 </Canvas>
 
 <ArgsTable story="Default" />
@@ -87,7 +92,7 @@ const Container = (Story, options) => {
       ]);
       return (
         <div style={{width: '200px'}}>
-          <Select
+          <SelectMenu
             {...args}
             selectedOptions={selectedOptions}
             onOptionChange={option => {
@@ -107,7 +112,7 @@ const Container = (Story, options) => {
     {args => {
       return (
         <div style={{width: '200px'}}>
-          <Select {...args} defaultExpanded />
+          <SelectMenu {...args} defaultExpanded />
         </div>
       );
     }}
@@ -155,7 +160,7 @@ const Container = (Story, options) => {
       return (
         <Flex direction="column" style={{gap: '20px', width: '200px'}}>
           With subject icons
-          <Select
+          <SelectMenu
             {...args}
             selectedOptions={selectedOptions[0]}
             onOptionChange={option => {
@@ -163,7 +168,7 @@ const Container = (Story, options) => {
             }}
           />
           With icons
-          <Select
+          <SelectMenu
             {...args}
             options={[
               {
@@ -241,7 +246,7 @@ const Container = (Story, options) => {
         <Flex direction="column" style={{gap: '20px'}}>
           <div style={{width: '200px'}}>
             <Text>With wide popup</Text>
-            <Select
+            <SelectMenu
               {...args}
               selectedOptions={selectedOptions[0]}
               onOptionChange={option => {
@@ -251,7 +256,7 @@ const Container = (Story, options) => {
           </div>
           <div style={{width: '400px'}}>
             <Text>With wide input</Text>
-            <Select
+            <SelectMenu
               {...args}
               options={[
                 {
@@ -279,7 +284,7 @@ const Container = (Story, options) => {
                   },
                 },
               ]}
-              placeholder="Select something from the list"
+              placeholder="SelectMenu something from the list"
               selectedOptions={selectedOptions[1]}
               onOptionChange={option => {
                 setSelectedOptions({...selectedOptions, 1: [option]});
@@ -288,7 +293,7 @@ const Container = (Story, options) => {
           </div>
           <div style={{width: '600px'}}>
             <Text>With short popup that stretches to 70% of the input</Text>
-            <Select
+            <SelectMenu
               {...args}
               withIcons={false}
               options={[
@@ -302,7 +307,7 @@ const Container = (Story, options) => {
                   label: '3',
                 },
               ]}
-              placeholder="Select something from the list"
+              placeholder="SelectMenu something from the list"
               selectedOptions={selectedOptions[2]}
               onOptionChange={option => {
                 setSelectedOptions({...selectedOptions, 2: [option]});
@@ -312,7 +317,7 @@ const Container = (Story, options) => {
           <div>
             <Text>With short popup</Text>
             <div style={{width: '120px'}}>
-              <Select
+              <SelectMenu
                 {...args}
                 withIcons={false}
                 options={[
@@ -359,7 +364,7 @@ const Container = (Story, options) => {
       };
       return (
         <div style={{width: '200px'}}>
-          <Select
+          <SelectMenu
             {...args}
             selectedOptions={selectedOptions}
             onOptionChange={option => {
@@ -395,7 +400,7 @@ const Container = (Story, options) => {
       };
       return (
         <div style={{width: '200px'}}>
-          <Select
+          <SelectMenu
             {...args}
             selectedOptions={selectedOptions}
             onOptionChange={option => {
@@ -477,8 +482,8 @@ const Container = (Story, options) => {
       return (
         <div>
           <Text>
-            Scroll the layout vertically and horizontally and see how the Select
-            position affects the popup position
+            Scroll the layout vertically and horizontally and see how the
+            SelectMenu position affects the popup position
           </Text>
           <div
             style={{
@@ -499,7 +504,7 @@ const Container = (Story, options) => {
               justifyContent="center"
             >
               <div style={{width: '200px'}}>
-                <Select
+                <SelectMenu
                   {...args}
                   id="selectId"
                   selectedOptions={selectedOptions}
@@ -561,7 +566,7 @@ const Container = (Story, options) => {
       const [selectedOptions, setSelectedOptions] = React.useState([]);
       return (
         <div style={{width: '200px'}}>
-          <Select
+          <SelectMenu
             {...args}
             selectedOptions={selectedOptions}
             onOptionChange={option => {
@@ -615,7 +620,7 @@ const Container = (Story, options) => {
           {Object.values(SELECT_SIZE).map(size => (
             <Flex direction="column" style={{width: '200px', padding: '10px'}}>
               <Text>{size}</Text>
-              <Select {...args} defaultExpanded size={size} />
+              <SelectMenu {...args} defaultExpanded size={size} />
             </Flex>
           ))}
         </Flex>
@@ -696,22 +701,22 @@ const Container = (Story, options) => {
                 </td>
                 <td>
                   <Flex justifyContent="center">
-                    <Select key={size} {...args} size={size} />
+                    <SelectMenu key={size} {...args} size={size} />
                   </Flex>
                 </td>
                 <td>
                   <Flex justifyContent="center">
-                    <Select key={size} {...args} size={size} disabled />
+                    <SelectMenu key={size} {...args} size={size} disabled />
                   </Flex>
                 </td>
                 <td>
                   <Flex justifyContent="center">
-                    <Select key={size} {...args} size={size} valid />
+                    <SelectMenu key={size} {...args} size={size} valid />
                   </Flex>
                 </td>
                 <td>
                   <Flex justifyContent="center">
-                    <Select key={size} {...args} size={size} invalid />
+                    <SelectMenu key={size} {...args} size={size} invalid />
                   </Flex>
                 </td>
               </tr>
@@ -735,22 +740,22 @@ const Container = (Story, options) => {
               </td>
               <td>
                 <Flex justifyContent="center">
-                  <Select {...args} color="white" />
+                  <SelectMenu {...args} color="white" />
                 </Flex>
               </td>
               <td>
                 <Flex justifyContent="center">
-                  <Select {...args} color="white" disabled />
+                  <SelectMenu {...args} color="white" disabled />
                 </Flex>
               </td>
               <td>
                 <Flex justifyContent="center">
-                  <Select {...args} color="white" valid />
+                  <SelectMenu {...args} color="white" valid />
                 </Flex>
               </td>
               <td>
                 <Flex justifyContent="center">
-                  <Select {...args} color="white" invalid />
+                  <SelectMenu {...args} color="white" invalid />
                 </Flex>
               </td>
             </tr>
@@ -801,7 +806,7 @@ const Container = (Story, options) => {
           >
             {[...Array(3)].map(number => (
               <div style={{width: '320px'}}>
-                <Select
+                <SelectMenu
                   key={`long-${number}`}
                   {...args}
                   fullWidth={number % 2 ? false : true}
@@ -816,7 +821,7 @@ const Container = (Story, options) => {
           >
             {[...Array(3)].map(number => (
               <div style={{width: '120px'}}>
-                <Select
+                <SelectMenu
                   key={`short-${number}`}
                   {...args}
                   fullWidth={number % 2 ? false : true}
@@ -831,7 +836,7 @@ const Container = (Story, options) => {
           >
             {[...Array(3)].map(number => (
               <div style={{width: '120px'}}>
-                <Select
+                <SelectMenu
                   key={`with-padding-${number}`}
                   {...args}
                   fullWidth={number % 2 ? false : true}
@@ -847,4 +852,4 @@ const Container = (Story, options) => {
 
 ## Accessibility
 
-<SelectA11y />
+<SelectMenuA11y />

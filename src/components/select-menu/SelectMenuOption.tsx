@@ -1,7 +1,7 @@
 import * as React from 'react';
 import classnames from 'classnames';
 
-import {SelectOptionType} from './Select';
+import {SelectMenuOptionType} from './SelectMenu';
 import type {IconTypeType as SubjectIconTypeType} from '../subject-icons/SubjectIcon';
 import type {IconTypeType} from '../icons/Icon';
 
@@ -11,7 +11,7 @@ import Checkbox from '../form-elements/checkbox/Checkbox';
 import Text from '../text/Text';
 
 export type SelectOptionElementPropsType = {
-  option: SelectOptionType;
+  option: SelectMenuOptionType;
   isSelected?: boolean;
   withIcon?: boolean;
   multiSelect?: boolean;
@@ -19,7 +19,7 @@ export type SelectOptionElementPropsType = {
   tabIndex: number;
 };
 
-const SelectOption = React.forwardRef<
+const SelectMenuOption = React.forwardRef<
   HTMLDivElement,
   SelectOptionElementPropsType
 >(
@@ -37,10 +37,10 @@ const SelectOption = React.forwardRef<
     const [isHovered, setIsHovered] = React.useState(false);
     const {value, label, icon} = option;
 
-    const classNames = classnames('sg-select-new__option', {
-      'sg-select-new__option--selected': isSelected,
-      'sg-select-new__option--with-icon': withIcon,
-      'sg-select-new__option--multi-select': multiSelect,
+    const classNames = classnames('sg-select-menu__option', {
+      'sg-select-menu__option--selected': isSelected,
+      'sg-select-menu__option--with-icon': withIcon,
+      'sg-select-menu__option--multi-select': multiSelect,
     });
 
     const displayedIcon = React.useMemo(() => {
@@ -79,7 +79,7 @@ const SelectOption = React.forwardRef<
         optionState = <Icon type="check" size={24} color="icon-black" />;
       }
 
-      return <div className="sg-select-new__option-state">{optionState}</div>;
+      return <div className="sg-select-menu__option-state">{optionState}</div>;
     }, [isSelected, multiSelect, option.value]);
 
     return (
@@ -94,7 +94,7 @@ const SelectOption = React.forwardRef<
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
       >
-        <div className="sg-select-new__option-label">
+        <div className="sg-select-menu__option-label">
           {displayedIcon}
           <Text size="small" weight="bold" breakWords>
             {label}
@@ -106,4 +106,4 @@ const SelectOption = React.forwardRef<
   }
 );
 
-export default SelectOption;
+export default SelectMenuOption;

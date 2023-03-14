@@ -12,12 +12,12 @@ import SubjectIcon from '../subject-icons/SubjectIcon';
 import type {IconTypeType as SubjectIconTypeType} from '../subject-icons/SubjectIcon';
 import type {IconTypeType} from '../icons/Icon';
 import Text from '../text/Text';
-import useSelect from './useSelect';
-import useFloatingSelect from './useFloatingSelect';
-import useSelectAnimations from './useSelectAnimations';
-import SelectOption from './SelectOption';
+import useSelectMenu from './useSelectMenu';
+import useFloatingSelectMenu from './useFloatingSelectMenu';
+import useSelectMenuAnimations from './useSelectMenuAnimations';
+import SelectMenuOption from './SelectMenuOption';
 
-export type SelectOptionType = {
+export type SelectMenuOptionType = {
   value: string;
   label: string;
   icon?: {
@@ -26,7 +26,7 @@ export type SelectOptionType = {
   };
 };
 
-export type SelectSizeType = 's' | 'm' | 'l';
+export type SelectMenuSizeType = 's' | 'm' | 'l';
 
 export const SIZE = {
   S: 's',
@@ -42,14 +42,14 @@ const ICON_SIZE_MAP = {
   [SIZE.S]: 16,
 } as const;
 
-type SelectColorType = 'default' | 'white';
+type SelectMenuColorType = 'default' | 'white';
 
 export const COLOR = {
   DEFAULT: 'default',
   WHITE: 'white',
 } as const;
 
-export type SelectPropsType = {
+export type SelectMenuPropsType = {
   /**
    * Optional string. Additional class names.
    */
@@ -81,14 +81,14 @@ export type SelectPropsType = {
    * @example <Select options={[{value: 'option1', label: 'Option1'},{value: 'option2', label: 'Select selector'}]} />
    * @default []
    */
-  options?: ReadonlyArray<SelectOptionType>;
+  options?: ReadonlyArray<SelectMenuOptionType>;
 
   /**
    * Optional array. Select selected options.
    * @example <Select options={[{value: 'option1', label: 'Option1'},{value: 'option2', label: 'Select selector'}]} selectedOptions={[{value: 'option1', label: 'Option1'}]} />
    * @default []
    */
-  selectedOptions?: ReadonlyArray<SelectOptionType>;
+  selectedOptions?: ReadonlyArray<SelectMenuOptionType>;
 
   /**
    * Optional boolean. Set to true, if user can select multiple options.
@@ -128,13 +128,13 @@ export type SelectPropsType = {
    * @example <Select size="s" options={[{value: 'option1', text: 'Option1'},{value: 'option2', text: 'Select selector'}]} />
    * @default "m"
    */
-  size?: SelectSizeType;
+  size?: SelectMenuSizeType;
 
   /**
    * There are two color variants, `default` and `white`. The default does not have to be specified.
    * @example <Select color="white" options={[{value: 'option1', label: 'Option1'},{value: 'option2', label: 'Select selector'}]} />
    */
-  color?: SelectColorType | null | undefined;
+  color?: SelectMenuColorType | null | undefined;
 
   /**
    * Optional callback. Called by clicking on the any part of the Select component.
@@ -154,7 +154,7 @@ export type SelectPropsType = {
    *           options={[{value: 'option1', label: 'Option1'},{value: 'option2', label: 'Select selector'}]}
    *          />
    */
-  onOptionChange: (SelectOptionType) => unknown;
+  onOptionChange: (SelectMenuOptionType) => unknown;
 
   /**
    * Callback. Called only when expanded state is controlled, called when component informs the expanded state should change.
@@ -186,8 +186,8 @@ export type SelectPropsType = {
   | 'onToggle'
 >;
 
-const Select = React.forwardRef<HTMLDivElement, SelectPropsType>(
-  (props: SelectPropsType, ref) => {
+const SelectMenu = React.forwardRef<HTMLDivElement, SelectMenuPropsType>(
+  (props: SelectMenuPropsType, ref) => {
     const {
       className,
       valid,
@@ -217,13 +217,13 @@ const Select = React.forwardRef<HTMLDivElement, SelectPropsType>(
       );
     }
     const wrapperId = `${id}-wrapper`;
-    const popupClassName = 'sg-select-new__popup';
-    const popupContentClassName = 'sg-select-new__options-wrapper';
-    const selectElementClassName = 'sg-select-new__element';
+    const popupClassName = 'sg-select-menu__popup';
+    const popupContentClassName = 'sg-select-menu__options-wrapper';
+    const selectElementClassName = 'sg-select-menu__element';
     const floatingContainerClassName =
-      'sg-select-new__options-floating-container';
+      'sg-select-menu__options-floating-container';
 
-    const {animateEntry, animateExit} = useSelectAnimations({
+    const {animateEntry, animateExit} = useSelectMenuAnimations({
       selectId: wrapperId,
       floatingContainerClassName,
       popupClassName,
@@ -231,7 +231,7 @@ const Select = React.forwardRef<HTMLDivElement, SelectPropsType>(
       selectElementClassName,
     });
 
-    const {isExpanded, onOpenChange, handleOptionSelect} = useSelect({
+    const {isExpanded, onOpenChange, handleOptionSelect} = useSelectMenu({
       id,
       valid,
       invalid,
@@ -254,7 +254,7 @@ const Select = React.forwardRef<HTMLDivElement, SelectPropsType>(
       isMounted,
       status,
       activeIndex,
-    } = useFloatingSelect({
+    } = useFloatingSelectMenu({
       isExpanded,
       onOpenChange,
     });
@@ -286,7 +286,7 @@ const Select = React.forwardRef<HTMLDivElement, SelectPropsType>(
         });
 
         return (
-          <SelectOption
+          <SelectMenuOption
             key={option.value}
             ref={node => {
               listRef.current[index] = node;
@@ -307,7 +307,7 @@ const Select = React.forwardRef<HTMLDivElement, SelectPropsType>(
       if (!selectedOptions.length)
         return (
           <Text
-            className="sg-select-new__placeholder"
+            className="sg-select-menu__placeholder"
             size="small"
             color="text-gray-60"
           >
@@ -321,7 +321,7 @@ const Select = React.forwardRef<HTMLDivElement, SelectPropsType>(
         const displayLabel = (
           <Text
             size="small"
-            className="sg-select-new__element-label"
+            className="sg-select-menu__element-label"
             aria-label={label}
           >
             {label}
@@ -341,7 +341,7 @@ const Select = React.forwardRef<HTMLDivElement, SelectPropsType>(
             displayedIcon = (
               <SubjectIcon
                 key={iconName}
-                className="sg-select-new__element-label-icon"
+                className="sg-select-menu__element-label-icon"
                 size="small"
                 type={iconName}
               />
@@ -354,7 +354,7 @@ const Select = React.forwardRef<HTMLDivElement, SelectPropsType>(
             displayedIcon = (
               <Icon
                 key={iconName}
-                className="sg-select-new__element-label-icon"
+                className="sg-select-menu__element-label-icon"
                 size={24}
                 color="icon-black"
                 type={iconName}
@@ -379,7 +379,7 @@ const Select = React.forwardRef<HTMLDivElement, SelectPropsType>(
         return (
           <Text
             size="small"
-            className="sg-select-new__element-label"
+            className="sg-select-menu__element-label"
             aria-label={labelString}
           >
             {labelString}
@@ -389,14 +389,14 @@ const Select = React.forwardRef<HTMLDivElement, SelectPropsType>(
     }, [placeholder, withIcons, selectedOptions]);
 
     const selectClass = classnames(
-      'sg-select-new',
+      'sg-select-menu',
       {
-        'sg-select-new--selected': selectedOptions.length,
-        'sg-select-new--valid': valid,
-        'sg-select-new--invalid': invalid,
-        'sg-select-new--disabled': disabled,
-        [`sg-select-new--${String(size)}`]: size && size !== DEFAULT_SIZE,
-        [`sg-select-new--${String(color)}`]: color,
+        'sg-select-menu--selected': selectedOptions.length,
+        'sg-select-menu--valid': valid,
+        'sg-select-menu--invalid': invalid,
+        'sg-select-menu--disabled': disabled,
+        [`sg-select-menu--${String(size)}`]: size && size !== DEFAULT_SIZE,
+        [`sg-select-menu--${String(color)}`]: color,
       },
       className
     );
@@ -439,7 +439,7 @@ const Select = React.forwardRef<HTMLDivElement, SelectPropsType>(
           {...additionalProps}
         >
           {selectDisplayValue}
-          <div className="sg-select-new__element-icon">
+          <div className="sg-select-menu__element-icon">
             <Icon
               type="caret_down"
               size={ICON_SIZE_MAP[size]}
@@ -499,5 +499,5 @@ const Select = React.forwardRef<HTMLDivElement, SelectPropsType>(
   }
 );
 
-Select.displayName = 'SelectNew';
-export default Select;
+SelectMenu.displayName = 'SelectMenu';
+export default SelectMenu;

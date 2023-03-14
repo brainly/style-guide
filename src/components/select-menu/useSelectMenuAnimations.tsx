@@ -1,7 +1,7 @@
 import * as React from 'react';
 import useReducedMotion from '../utils/useReducedMotion';
 
-type UseSelectAnimationsPropsType = {
+type UseSelectMenuAnimationsPropsType = {
   selectId: string;
   popupClassName: string;
   popupContentClassName: string;
@@ -35,7 +35,7 @@ const resetFloatingContainerTopPosition = (
   }px`;
 };
 
-const useSelectAnimations = (props: UseSelectAnimationsPropsType) => {
+const useSelectMenuAnimations = (props: UseSelectMenuAnimationsPropsType) => {
   const {
     selectId,
     popupClassName,
@@ -196,4 +196,4 @@ const useSelectAnimations = (props: UseSelectAnimationsPropsType) => {
   };
 };
 
-export default useSelectAnimations;
+export default useSelectMenuAnimations;

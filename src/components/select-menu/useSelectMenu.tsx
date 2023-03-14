@@ -1,10 +1,10 @@
 import * as React from 'react';
 
-import type {SelectPropsType, SelectOptionType} from './Select';
+import type {SelectMenuPropsType, SelectMenuOptionType} from './SelectMenu';
 
-type UseSelectPropsType =
+type UseSelectMenuPropsType =
   | Pick<
-      SelectPropsType,
+      SelectMenuPropsType,
       | 'valid'
       | 'invalid'
       | 'expanded'
@@ -19,7 +19,7 @@ type UseSelectPropsType =
       onExit: ({callback}: {callback?: () => unknown}) => unknown;
     };
 
-const useSelect = (props: UseSelectPropsType) => {
+const useSelectMenu = (props: UseSelectMenuPropsType) => {
   const {
     id,
     valid,
@@ -64,7 +64,7 @@ const useSelect = (props: UseSelectPropsType) => {
     };
   }
 
-  const handleOptionSelect = (option: SelectOptionType) => {
+  const handleOptionSelect = (option: SelectMenuOptionType) => {
     onOptionChange(option);
     if (!multiSelect) onOpenChange(false);
   };
@@ -98,4 +98,4 @@ const useSelect = (props: UseSelectPropsType) => {
   };
 };
 
-export default useSelect;
+export default useSelectMenu;

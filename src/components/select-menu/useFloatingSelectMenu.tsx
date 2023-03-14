@@ -16,12 +16,12 @@ import {
 const CONTAINER_MARGIN = 10;
 const MAX_POPUP_WIDTH = 320;
 
-type UseFloatingSelectPropsType = {
+type UseFloatingSelectMenuPropsType = {
   isExpanded: boolean;
   onOpenChange: (string) => void;
 };
 
-const useFloatingSelect = (props: UseFloatingSelectPropsType) => {
+const useFloatingSelectMenu = (props: UseFloatingSelectMenuPropsType) => {
   const {isExpanded, onOpenChange} = props;
   const [activeIndex, setActiveIndex] = React.useState<number | null>(null);
   const listRef = React.useRef<Array<HTMLElement | null>>([]);
@@ -93,4 +93,4 @@ const useFloatingSelect = (props: UseFloatingSelectPropsType) => {
   };
 };
 
-export default useFloatingSelect;
+export default useFloatingSelectMenu;
