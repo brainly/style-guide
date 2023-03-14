@@ -402,6 +402,7 @@ const Select = React.forwardRef<HTMLDivElement, SelectPropsType>(
     );
 
     const selectRef = useMergeRefs([ref, refs.setReference]);
+
     // this is to not block clicking and hovering outside
     // when the exit animation plays
     const overlayPointerEvents =

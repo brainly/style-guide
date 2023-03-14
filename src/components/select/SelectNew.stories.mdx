@@ -7,6 +7,22 @@ import Flex from '../flex/Flex';
 import SelectA11y from './stories/Select.a11y.mdx';
 import Headline from '../text/Headline';
 import {StoryVariant, StoryVariantTable} from '../../docs/utils';
+const Container = (Story, options) => {
+  const {args, parameters} = options;
+  return (
+    <div
+      style={{
+        minHeight: parameters.height || '300px',
+        position: 'relative',
+        width: '100%',
+        boxSizing: 'border-box',
+        overflow: 'hidden',
+      }}
+    >
+      <Story />
+    </div>
+  );
+};
 
 <Meta
   title="Components/SelectNew"
@@ -43,6 +59,7 @@ import {StoryVariant, StoryVariantTable} from '../../docs/utils';
     size: SELECT_SIZE.M,
     color: SELECT_COLOR.DEFAULT,
   }}
+  decorators={[Container]}
 />
 
 <PageHeader>Select</PageHeader>
@@ -102,6 +119,7 @@ import {StoryVariant, StoryVariantTable} from '../../docs/utils';
 <Canvas>
   <Story
     name="With icons"
+    parameters={{height: '400px'}}
     args={{
       withIcons: true,
       options: [
@@ -186,6 +204,7 @@ import {StoryVariant, StoryVariantTable} from '../../docs/utils';
 <Canvas>
   <Story
     name="With different select and popup lengths"
+    parameters={{height: '550px'}}
     args={{
       withIcons: true,
       options: [
@@ -395,7 +414,7 @@ import {StoryVariant, StoryVariantTable} from '../../docs/utils';
 <Canvas>
   <Story
     name="With space constraints"
-    height="100%"
+    parameters={{height: '500px'}}
     args={{
       withIcons: true,
       options: [
@@ -502,7 +521,7 @@ import {StoryVariant, StoryVariantTable} from '../../docs/utils';
 <Canvas>
   <Story
     name="With long list"
-    height="100%"
+    parameters={{height: '500px'}}
     args={{
       options: [
         {value: 'physics', label: 'Physics'},
@@ -560,7 +579,6 @@ import {StoryVariant, StoryVariantTable} from '../../docs/utils';
 <Canvas>
   <Story
     name="Sizes"
-    height="100%"
     args={{
       withIcons: true,
       options: [
@@ -748,7 +766,6 @@ import {StoryVariant, StoryVariantTable} from '../../docs/utils';
 <Canvas>
   <Story
     name="Positioning"
-    height="100%"
     parameters={{
       layout: 'fullscreen',
     }}
