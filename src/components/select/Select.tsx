@@ -252,6 +252,7 @@ const Select = React.forwardRef<HTMLDivElement, SelectPropsType>(
       listRef,
       context,
       isMounted,
+      status,
       activeIndex,
     } = useFloatingSelect({
       isExpanded,
@@ -400,6 +401,10 @@ const Select = React.forwardRef<HTMLDivElement, SelectPropsType>(
       className
     );
 
+    // this is to not block clicking and hovering outside
+    // when the exit animation plays
+    const overlayZIndex = status === 'open' || status === 'initial' ? 1 : -1;
+
     const selectRef = useMergeRefs([ref, refs.setReference]);
 
     return (
@@ -416,6 +421,7 @@ const Select = React.forwardRef<HTMLDivElement, SelectPropsType>(
           aria-expanded={isExpanded}
           aria-haspopup="listbox"
           aria-multiselectable={multiSelect}
+          data-status={status}
           {...interactions.getReferenceProps({
             // Handle pointer
             onClick() {
@@ -441,7 +447,12 @@ const Select = React.forwardRef<HTMLDivElement, SelectPropsType>(
           </div>
         </div>
         {isMounted && (
-          <FloatingOverlay lockScroll={!isTouchScreen()} style={{zIndex: 1}}>
+          <FloatingOverlay
+            lockScroll={!isTouchScreen()}
+            style={{
+              zIndex: overlayZIndex,
+            }}
+          >
             <FloatingFocusManager
               context={context}
               modal={false}
