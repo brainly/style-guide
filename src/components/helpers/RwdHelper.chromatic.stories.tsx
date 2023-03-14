@@ -1,7 +1,7 @@
 import * as RwdHelper from './RwdHelper.stories.mdx';
-import {mergeStories} from '../../chromatic/utils';
+import {generateChromaticStory} from '../../chromatic/utils';
 
-export const Default = mergeStories(RwdHelper);
+export const Default = generateChromaticStory(RwdHelper);
 const {includeStories, ...meta} = RwdHelper.default;
 
 export default meta;

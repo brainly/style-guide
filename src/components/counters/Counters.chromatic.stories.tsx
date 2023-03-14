@@ -1,7 +1,7 @@
 import * as Counters from './Counters.stories.mdx';
-import {mergeStories} from '../../chromatic/utils';
+import {generateChromaticStory} from '../../chromatic/utils';
 
-export const Default = mergeStories(Counters);
+export const Default = generateChromaticStory(Counters);
 const {includeStories, ...meta} = Counters.default;
 
 export default meta;

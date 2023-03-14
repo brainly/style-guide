@@ -1,59 +1,110 @@
 import * as React from 'react';
-import Avatar, {SIZE} from './Avatar';
-import Icon from 'icons/Icon';
-import {shallow, mount} from 'enzyme';
+import Avatar from './Avatar';
+import {render, screen} from '@testing-library/react';
+import {testA11y} from '../../axe';
+import userEvent from '@testing-library/user-event';
 
-test('render default', () => {
-  const avatar = mount(<Avatar />);
+describe('Avatar', () => {
+  it('render default', () => {
+    const avatar = render(<Avatar />);
 
-  expect(avatar.find('.sg-avatar__image')).toHaveLength(1);
-  expect(avatar.find('img')).toHaveLength(0);
-  expect(avatar.find('.sg-avatar__image--icon')).toHaveLength(1);
-  expect(avatar.find(Icon)).toHaveLength(1);
-  expect(avatar.find(Icon).hasClass('sg-avatar__icon')).toEqual(true);
-});
-test('render with image', () => {
-  const imgSrc = 'https://source.unsplash.com/100x100/?man';
-  const avatar = mount(<Avatar imgSrc={imgSrc} />);
+    expect(avatar.getByRole('img', {hidden: true})).toBeTruthy();
+  });
 
-  expect(avatar.find('.sg-avatar__image')).toHaveLength(1);
-  expect(avatar.find('img')).toHaveLength(1);
-  expect(avatar.find(Icon)).toHaveLength(0);
-});
-test('no error when render without image', () => {
-  const spy = jest.spyOn(console, 'error');
+  it('render with image', () => {
+    const imgSrc = 'https://source.unsplash.com/100x100/?man';
+    const avatar = render(<Avatar imgSrc={imgSrc} />);
 
-  mount(<Avatar />);
-  expect(spy).not.toHaveBeenCalled();
-  spy.mockRestore();
-});
-test('default icon profile', () => {
-  const avatar = mount(<Avatar />);
-  const icoProps = avatar.find(Icon).props();
+    const img = avatar.getByRole('img', {hidden: true});
 
-  expect(icoProps.type).toEqual('profile');
-});
-test('SIZE', () => {
-  const size = SIZE.XL;
-  const avatar = shallow(<Avatar size={size} />);
+    expect(img.getAttribute('src')).toBe(
+      'https://source.unsplash.com/100x100/?man'
+    );
+  });
 
-  expect(avatar.hasClass('sg-avatar--xl')).toEqual(true);
-});
-test('border', () => {
-  const avatar = shallow(<Avatar border />);
+  it('link', () => {
+    const avatar = render(<Avatar link="https://brainly.com" />);
 
-  expect(avatar.hasClass('sg-avatar--with-border')).toEqual(true);
-});
-test('spaced', () => {
-  const avatar = shallow(<Avatar spaced />);
+    expect(avatar.getByRole('link')).toBeTruthy();
+  });
 
-  expect(avatar.childAt(0).hasClass('sg-avatar--spaced')).toEqual(true);
-});
-test('link', () => {
-  const avatar = shallow(<Avatar link="https://brainly.com" />);
+  it('renders avatar removed from a11y tree when imgSrc and link are not provided', () => {
+    const alt = 'alt';
+    const avatar = render(<Avatar alt={alt} />);
 
-  expect(avatar.find('a')).toHaveLength(1);
-  const avatar1 = shallow(<Avatar />);
+    expect(avatar.queryByRole('img')).toBeFalsy();
+    expect(avatar.queryByAltText(alt)).toBeFalsy();
+  });
 
-  expect(avatar1.find('a')).toHaveLength(0);
+  it('renders avatar only as an accessible link when imgSrc is not provided', () => {
+    const label = 'link label';
+    const avatar = render(<Avatar link="#" ariaLinkLabel={label} />);
+
+    expect(
+      avatar.getByRole('link', {
+        name: label,
+      })
+    ).toBeTruthy();
+    expect(avatar.queryByRole('img')).toBeFalsy();
+  });
+
+  it('renders avatar with an accessible image', () => {
+    const imgAlt = 'image alt';
+    const avatar = render(<Avatar imgSrc="#" alt={imgAlt} />);
+
+    expect(avatar.getByRole('img')).toBeTruthy();
+    expect(screen.getByAltText(imgAlt)).toBeTruthy();
+  });
+
+  it('renders avatar with an accessible link and an accessible image', () => {
+    const imgAlt = 'image alt';
+    const label = 'link label';
+    const avatar = render(
+      <Avatar imgSrc="#" alt={imgAlt} link="#" ariaLinkLabel={label} />
+    );
+
+    expect(avatar.getByRole('img')).toBeTruthy();
+    expect(screen.getByAltText(imgAlt)).toBeTruthy();
+    expect(
+      avatar.getByRole('link', {
+        name: label,
+      })
+    ).toBeTruthy();
+  });
+
+  it('is focusable if link is provided', () => {
+    const label = 'link label';
+    const avatar = render(<Avatar link="#" imgSrc="#" ariaLinkLabel={label} />);
+
+    userEvent.click(avatar.getByLabelText(label));
+    expect(avatar.getByRole('link')).toEqual(document.activeElement);
+  });
+
+  it('is not focusable if link is not provided', () => {
+    const label = 'link label';
+    const avatar = render(<Avatar imgSrc="#" alt={label} />);
+
+    userEvent.click(avatar.getByAltText(label));
+    expect(document.body).toEqual(document.activeElement);
+  });
+
+  describe('a11y', () => {
+    it('should have no a11y violations when imgSrc and link are not provided', async () => {
+      await testA11y(<Avatar />);
+    });
+
+    it('should have no a11y violations when only link and label are provided', async () => {
+      await testA11y(<Avatar link="#" ariaLinkLabel="label" />);
+    });
+
+    it('should have no a11y violations when imgSrc and alt are provided', async () => {
+      await testA11y(<Avatar imgSrc="#" alt="alt" />);
+    });
+
+    it('should have no a11y violations when link, label, imgSrc and alt are provided', async () => {
+      await testA11y(
+        <Avatar imgSrc="#" alt="alt" link="#" ariaLinkLabel="label" />
+      );
+    });
+  });
 });

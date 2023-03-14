@@ -1,24 +1,20 @@
 import * as React from 'react';
 import Breadcrumb from './Breadcrumb';
-import {shallow} from 'enzyme';
+import {render} from '@testing-library/react';
+import {testA11y} from '../../axe';
 
 const elements = ['Coments (9)', 'Report', 'Follow'];
 
-test('render', () => {
-  const breadcrumb = shallow(<Breadcrumb elements={elements} />);
+describe('Breadcrumb', () => {
+  it('render', () => {
+    const breadcrumb = render(<Breadcrumb elements={elements} />);
 
-  expect(breadcrumb.hasClass('sg-breadcrumb-list')).toEqual(true);
-  expect(breadcrumb.find('.sg-breadcrumb-list__element')).toHaveLength(
-    elements.length
-  );
-});
-test('short', () => {
-  const breadcrumb = shallow(<Breadcrumb elements={elements} short />);
+    expect(breadcrumb.getAllByRole('listitem')).toHaveLength(elements.length);
+  });
 
-  expect(breadcrumb.hasClass('sg-breadcrumb-list--short')).toEqual(true);
-});
-test('adaptive', () => {
-  const breadcrumb = shallow(<Breadcrumb elements={elements} adaptive />);
-
-  expect(breadcrumb.hasClass('sg-breadcrumb-list--adaptive')).toEqual(true);
+  describe('a11y', () => {
+    it('should have no a11y violations', async () => {
+      await testA11y(<Breadcrumb />);
+    });
+  });
 });

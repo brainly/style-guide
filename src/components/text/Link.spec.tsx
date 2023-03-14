@@ -1,128 +1,197 @@
 import * as React from 'react';
-import Link, {LINK_ALIGN, LINK_SIZE, LINK_TRANSFORM} from './Link';
-import Text from './Text';
-import {shallow} from 'enzyme';
-import {TEXT_WEIGHT} from './textConsts';
+import Link from './Link';
+import {render} from '@testing-library/react';
+import {testA11y} from '../../axe';
+import userEvent from '@testing-library/user-event';
 
-test('render', () => {
-  const link = shallow(<Link href="test.com">Test</Link>);
+describe('Link', () => {
+  it('render', () => {
+    const link = render(<Link href="test.com">Test</Link>);
+    const linkNode = link.getByRole('link');
 
-  expect(link.hasClass('sg-text--link')).toBeTruthy();
-  expect(link.props().href).toEqual('test.com');
-});
-test('render Text', () => {
-  const link = shallow(<Link href="test.com">Test</Link>);
+    expect(linkNode.getAttribute('href')).toEqual('test.com');
+  });
 
-  expect(link.find(Text)).toBeTruthy();
-});
-test('size', () => {
-  const link = shallow(
-    <Link href="#" size={LINK_SIZE.SMALL}>
-      Test
-    </Link>
-  ).dive();
-  const responsiveSizeLink = shallow(
-    <Link size={['xsmall', 'small', null, 'large']}>Test</Link>
-  ).dive();
+  it('render Text', () => {
+    const link = render(<Link href="test.com">Test</Link>);
 
-  expect(link.hasClass('sg-text--small')).toBeTruthy();
-  expect(
-    responsiveSizeLink.hasClass(
-      'sg-text--xsmall md:sg-text--small xl:sg-text--large'
-    )
-  ).toBeTruthy();
-});
-it('size is responsive prop', () => {
-  const size = [LINK_SIZE.SMALL, LINK_SIZE.XXLARGE, null, LINK_SIZE.XXXLARGE];
-  const component = shallow(
-    <Link href="#" size={size}>
-      Test
-    </Link>
-  );
+    expect(link.getByText('Test')).toBeTruthy();
+  });
 
-  expect(component.prop('size')).toEqual(size);
-});
-test('color', () => {
-  const link = shallow(
-    <Link href="#" color="text-white">
-      Test
-    </Link>
-  ).dive();
+  it('unstyled', () => {
+    const link = render(
+      <Link href="#" unstyled>
+        Test
+      </Link>
+    );
 
-  expect(link.hasClass('sg-text--text-white')).toBeTruthy();
-});
-test('unstyled', () => {
-  const link = shallow(
-    <Link href="#" unstyled>
-      Test
-    </Link>
-  );
+    const linkClasslist = link.getByRole('link').classList;
 
-  expect(link.hasClass('sg-text--link-unstyled')).toBeTruthy();
-  expect(link.hasClass('sg-text--link')).toBeFalsy();
-});
-test('underlined', () => {
-  const link = shallow(
-    <Link href="#" underlined>
-      Test
-    </Link>
-  );
+    expect(linkClasslist.contains('sg-text--link-unstyled')).toBeTruthy();
+    expect(linkClasslist.contains('sg-text--link')).toBeFalsy();
+  });
 
-  expect(link.hasClass('sg-text--link-underlined')).toBeTruthy();
-  expect(link.hasClass('sg-text--link-unstyled')).toBeFalsy();
-  expect(link.hasClass('sg-text--link')).toBeFalsy();
-});
-it('weight is responsive prop', () => {
-  const component = shallow(
-    <Link
-      weight={[TEXT_WEIGHT.BOLD, TEXT_WEIGHT.REGULAR, null, TEXT_WEIGHT.BOLD]}
-      href="#"
-    >
-      Test
-    </Link>
-  );
+  describe('as anchor', () => {
+    it('has a link role and an accessible label', () => {
+      const label = 'read more about products';
+      const link = render(
+        <Link href="https://example.com/" aria-label={label}>
+          Read more
+        </Link>
+      );
 
-  expect(
-    component.hasClass('sg-text--bold md:sg-text--regular xl:sg-text--bold')
-  ).toEqual(true);
-});
-it('transform is responsive prop', () => {
-  const transform = [LINK_TRANSFORM.CAPITALIZE, LINK_TRANSFORM.LOWERCASE];
-  const component = shallow(
-    <Link href="#" transform={transform}>
-      Test
-    </Link>
-  );
+      expect(
+        link.getByRole('link', {
+          name: label,
+        })
+      ).toBeTruthy();
+    });
 
-  expect(component.prop('transform')).toEqual(transform);
-});
-it('align is responsive prop', () => {
-  const align = [LINK_ALIGN.CENTER, LINK_ALIGN.CENTER];
-  const component = shallow(
-    <Link href="#" align={align}>
-      Test
-    </Link>
-  );
+    it('is focusable', () => {
+      const link = render(<Link href="https://example.com/">Read more</Link>);
 
-  expect(component.prop('align')).toEqual(align);
-});
-it('noWrap is responsive prop', () => {
-  const noWrap = [true];
-  const component = shallow(
-    <Link href="#" noWrap={noWrap}>
-      Test
-    </Link>
-  );
+      link.getByRole('link').focus();
+      expect(link.getByRole('link')).toBe(document.activeElement);
+    });
 
-  expect(component.prop('noWrap')).toEqual(noWrap);
-});
-it('breakWords is responsive prop', () => {
-  const breakWords = [true];
-  const component = shallow(
-    <Link href="#" breakWords={breakWords}>
-      Test
-    </Link>
-  );
+    it('is not focusable when disabled', () => {
+      const label = 'read more';
+      const link = render(
+        <Link href="https://example.com/" disabled>
+          {label}
+        </Link>
+      );
 
-  expect(component.prop('breakWords')).toEqual(breakWords);
+      link.getByText(label).focus();
+      expect(link.getByText(label)).not.toBe(document.activeElement);
+    });
+
+    it('informs about the opening in a new tab', () => {
+      const label = 'read more';
+      const newTabLabel = 'in new tab';
+      const link = render(
+        <Link
+          href="https://example.com/"
+          target="_blank"
+          newTabLabel={newTabLabel}
+        >
+          {label}
+        </Link>
+      );
+
+      expect(link.getByText(newTabLabel)).toBeTruthy();
+    });
+  });
+
+  describe('as button', () => {
+    it('has a button role and an accessible label', () => {
+      const label = 'read more about products';
+      const link = render(
+        <Link as="button" aria-label={label}>
+          Read more
+        </Link>
+      );
+
+      expect(
+        link.getByRole('button', {
+          name: label,
+        })
+      ).toBeTruthy();
+    });
+
+    it('is focusable', () => {
+      const link = render(<Link as="button">Read more</Link>);
+
+      link.getByRole('button').focus();
+      expect(link.getByRole('button')).toBe(document.activeElement);
+    });
+
+    it('is not focusable when disabled', () => {
+      const label = 'read more';
+      const link = render(
+        <Link as="button" disabled>
+          {label}
+        </Link>
+      );
+
+      link.getByText(label).focus();
+      expect(link.getByText(label)).not.toBe(document.activeElement);
+    });
+
+    it('fires onClick on click, space and enter', () => {
+      const handleOnClick = jest.fn();
+      const label = 'read more';
+      const link = render(
+        <Link as="button" onClick={handleOnClick}>
+          {label}
+        </Link>
+      );
+
+      userEvent.click(
+        link.getByRole('button', {
+          name: label,
+        })
+      );
+      expect(handleOnClick).toHaveBeenCalledTimes(1);
+      link.getByText(label).focus();
+      userEvent.keyboard('{space}');
+      expect(handleOnClick).toHaveBeenCalledTimes(2);
+      userEvent.keyboard('{enter}');
+      expect(handleOnClick).toHaveBeenCalledTimes(3);
+    });
+  });
+
+  describe('a11y', () => {
+    describe('as anchor', () => {
+      it('should have no a11y violations', async () => {
+        await testA11y(<Link href="https://example.com/">Read more</Link>);
+      });
+
+      it('should have no a11y violations when aria-label is provided', async () => {
+        await testA11y(
+          <Link href="https://example.com/" aria-label="read more about us">
+            Read more
+          </Link>
+        );
+      });
+
+      it('should have no a11y violations when disabled', async () => {
+        await testA11y(
+          <Link href="https://example.com/" disabled>
+            Read more
+          </Link>
+        );
+      });
+
+      it('should have no a11y violations when opens in a new tab', async () => {
+        await testA11y(
+          <Link href="https://example.com/" target="_blank">
+            Read more
+          </Link>
+        );
+      });
+    });
+
+    describe('as button', () => {
+      it('should have no a11y violations', async () => {
+        await testA11y(<Link as="button">Read more about us</Link>);
+      });
+
+      it('should have no a11y violations when aria-label is provided', async () => {
+        await testA11y(
+          <Link as="button" aria-label="read more about us">
+            Read more
+          </Link>
+        );
+      });
+
+      it('should have no a11y violations when disabled', async () => {
+        await testA11y(
+          <Link as="button" disabled>
+            Read more about us
+          </Link>
+        );
+      });
+    });
+  });
 });

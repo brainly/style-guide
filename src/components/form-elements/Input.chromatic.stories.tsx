@@ -1,7 +1,9 @@
 import * as Input from './Input.stories.mdx';
-import {mergeStories} from '../../chromatic/utils';
+import {generateChromaticStory} from '../../chromatic/utils';
 
-export const Default = mergeStories(Input);
+export const Default = generateChromaticStory(Input, {
+  storiesToHover: ['stylesAndTypes'],
+});
 const {includeStories, ...meta} = Input.default;
 
 export default meta;

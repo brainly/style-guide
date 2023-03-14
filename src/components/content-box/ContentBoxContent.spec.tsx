@@ -1,77 +1,101 @@
 import * as React from 'react';
 import ContentBoxContent from './ContentBoxContent';
 import {SIZE, ALIGNMENT} from './ContentBoxConstants';
-import {shallow} from 'enzyme';
+import {render} from '@testing-library/react';
 
 describe('<ContentBoxContent />', () => {
   it('renders', () => {
-    const testBox = shallow(<ContentBoxContent>test</ContentBoxContent>);
+    const testBox = render(<ContentBoxContent>test</ContentBoxContent>);
 
-    expect(testBox.hasClass('sg-content-box__content')).toEqual(true);
+    expect(
+      testBox.container.firstElementChild.classList.contains(
+        'sg-content-box__content'
+      )
+    ).toEqual(true);
   });
   it('has full class', () => {
-    const testBox = shallow(<ContentBoxContent full>test</ContentBoxContent>);
+    const testBox = render(<ContentBoxContent full>test</ContentBoxContent>);
 
-    expect(testBox.hasClass('sg-content-box__content--full')).toEqual(true);
+    expect(
+      testBox.container.firstElementChild.classList.contains(
+        'sg-content-box__content--full'
+      )
+    ).toEqual(true);
   });
   it('has class that aligns elements to right', () => {
-    const testBox = shallow(
+    const testBox = render(
       <ContentBoxContent align={ALIGNMENT.RIGHT}>test</ContentBoxContent>
     );
 
     expect(
-      testBox.hasClass('sg-content-box__content--with-elements-to-right')
+      testBox.container.firstElementChild.classList.contains(
+        'sg-content-box__content--with-elements-to-right'
+      )
     ).toEqual(false);
   });
   it('has class that aligns elements to center', () => {
-    const testBox = shallow(
+    const testBox = render(
       <ContentBoxContent align={ALIGNMENT.CENTER}>test</ContentBoxContent>
     );
 
     expect(
-      testBox.hasClass('sg-content-box__content--with-centered-text')
+      testBox.container.firstElementChild.classList.contains(
+        'sg-content-box__content--with-centered-text'
+      )
     ).toEqual(true);
   });
   it('has spacedTop proper class', () => {
-    const testBox = shallow(
+    const testBox = render(
       <ContentBoxContent spacedTop={SIZE.NORMAL}>test</ContentBoxContent>
     );
 
     expect(
-      testBox.hasClass('sg-content-box__content--spaced-top')
+      testBox.container.firstElementChild.classList.contains(
+        'sg-content-box__content--spaced-top'
+      )
     ).toBeTruthy();
     expect(
-      testBox.hasClass('sg-content-box__content--spaced-top-normal')
+      testBox.container.firstElementChild.classList.contains(
+        'sg-content-box__content--spaced-top-normal'
+      )
     ).toBeFalsy();
   });
   it('has spacedTop class with proper size', () => {
-    const testBox = shallow(
+    const testBox = render(
       <ContentBoxContent spacedTop={SIZE.XSMALL}>test</ContentBoxContent>
     );
 
     expect(
-      testBox.hasClass('sg-content-box__content--spaced-top-xsmall')
+      testBox.container.firstElementChild.classList.contains(
+        'sg-content-box__content--spaced-top-xsmall'
+      )
     ).toEqual(true);
   });
   it('has spacedBottom proper class', () => {
-    const testBox = shallow(
+    const testBox = render(
       <ContentBoxContent spacedBottom={SIZE.NORMAL}>test</ContentBoxContent>
     );
 
     expect(
-      testBox.hasClass('sg-content-box__content--spaced-bottom')
+      testBox.container.firstElementChild.classList.contains(
+        'sg-content-box__content--spaced-bottom'
+      )
     ).toBeTruthy();
     expect(
-      testBox.hasClass('sg-content-box__content--spaced-bottom-normal')
+      testBox.container.firstElementChild.classList.contains(
+        'sg-content-box__content--spaced-bottom-normal'
+      )
     ).toBeFalsy();
   });
   it('has spacedBottom class with proper size', () => {
-    const testBox = shallow(
+    const testBox = render(
       <ContentBoxContent spacedBottom={SIZE.XSMALL}>test</ContentBoxContent>
     );
 
     expect(
-      testBox.hasClass('sg-content-box__content--spaced-bottom-xsmall')
+      testBox.container.firstElementChild.classList.contains(
+        'sg-content-box__content--spaced-bottom-xsmall'
+      )
     ).toEqual(true);
   });
 });

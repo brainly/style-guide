@@ -130,6 +130,74 @@ import LayoutA11y from './stories/Layout.a11y.mdx';
   </Story>
 </Canvas>
 
+### No Margin Top
+
+<Canvas>
+  <Story name="No Margin Top" args={{noMarginTop: true}}>
+    {args => (
+      <Layout {...args}>
+        <LayoutContent>
+          <Text>Main content has no padding and no background</Text>
+        </LayoutContent>
+        <LayoutAsideContent>
+          <Text>
+            Aside content has no padding and no background (both are given by
+            layout box)
+          </Text>
+        </LayoutAsideContent>
+      </Layout>
+    )}
+  </Story>
+</Canvas>
+
+### Full page
+
+<Canvas>
+  <Story name="Full page" args={{fullPage: true}}>
+    {args => (
+      <Layout {...args}>
+        <LayoutContent>
+          <Text>Main content has no padding and no background</Text>
+        </LayoutContent>
+        <LayoutAsideContent>
+          <Text>
+            Aside content has no padding and no background (both are given by
+            layout box)
+          </Text>
+        </LayoutAsideContent>
+      </Layout>
+    )}
+  </Story>
+</Canvas>
+
+### No Max Width
+
+<Canvas>
+  <Story
+    name="No Max Width"
+    args={{noMaxWidth: true}}
+    params={{
+      chromatic: {viewports: [320, 1200]},
+    }}
+  >
+    {args => (
+      <div>
+        <Layout {...args}>
+          <LayoutContent>
+            <Text>
+              Main content has no padding and no background (both are given by
+              layout box)
+            </Text>
+          </LayoutContent>
+          <LayoutAsideContent>
+            <Text>Aside content has no padding and no background</Text>
+          </LayoutAsideContent>
+        </Layout>
+      </div>
+    )}
+  </Story>
+</Canvas>
+
 ## Accessibility
 
 <LayoutA11y />
