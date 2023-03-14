@@ -2,6 +2,7 @@
 .sg-card-radio,
 .sg-card-checkbox {
   display: block;
+  position: relative;
   width: var(--card-width, auto);
   height: var(--card-height, auto);
   border-radius: 8px;
@@ -16,4 +17,10 @@
   &:hover {
     border-color: #46535f;
   }
+}
+
+.sg-card-checkbox__indicator {
+  position: absolute;
+  top: 0;
+  left: 0;
 }

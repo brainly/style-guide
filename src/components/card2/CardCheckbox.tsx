@@ -32,9 +32,40 @@ const CardCheckbox = ({
       className={cx('sg-card-radio', className)}
       style={{...style, ...cssVariables}}
     >
-      <Checkbox />
+      <CardCheckboxIndicator />
       {children}
     </label>
+  );
+};
+
+export interface CardCheckboxIndicatorPropsType {
+  slot?:
+    | 'top-left'
+    | 'center-left'
+    | 'bottom-left'
+    | 'top-right'
+    | 'center-right'
+    | 'bottom-right';
+  style?: React.CSSProperties;
+  className?: string;
+}
+
+const CardCheckboxIndicator = ({
+  slot = 'top-left',
+  style,
+  className,
+}: CardCheckboxIndicatorPropsType) => {
+  return (
+    <div
+      className={cx(
+        'sg-card-checkbox__indicator',
+        `sg-card-checkbox__indicator--${slot}`,
+        className
+      )}
+      style={style}
+    >
+      <Checkbox />
+    </div>
   );
 };
 
