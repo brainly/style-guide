@@ -19,22 +19,6 @@ import './form.stories.scss';
 
 <Canvas>
   <Story name="Default">
-    {args => (
-      <div style={{height: 500}}>
-        <Form {...args} />
-      </div>
-    )}
-  </Story>
-</Canvas>
-
-<ArgsTable story="Default" />
-
-## Stories
-
-### Types
-
-<Canvas>
-  <Story name="Graphite Dust">
     {args => {
       const nextButtonRef = React.useRef(null);
       return (
@@ -326,6 +310,6 @@ import './form.stories.scss';
   </Story>
 </Canvas>
 
-## Accessibility
+<ArgsTable story="Default" />
 
-<HomeButtonA11y />
+## Stories

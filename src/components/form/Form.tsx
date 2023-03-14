@@ -3,8 +3,40 @@ import Button from '../buttons/Button';
 import Flex from '../flex/Flex';
 import Icon, {TYPE} from '../icons/Icon';
 import cc from 'classnames';
-import {useFollowFocus} from './useFollowFocus';
 import Transition, {TransitionEffectType} from '../transition/Transition';
+
+function focusDescendant(element: HTMLElement, isTabbingForward: boolean) {
+  const descendantFocused = isTabbingForward
+    ? focusFirstDescendant(element)
+    : focusLastDescendant(element);
+
+  return descendantFocused || attemptFocus(element);
+}
+
+// https://www.w3.org/TR/wai-aria-practices-1.1/examples/dialog-modal/js/dialog.js
+function focusFirstDescendant(element: HTMLElement) {
+  for (let i = 0; i < element.children.length; i++) {
+    const child = element.children[i] as HTMLElement;
+
+    if (attemptFocus(child) || focusFirstDescendant(child)) {
+      return true;
+    }
+  }
+
+  return false;
+}
+
+function focusLastDescendant(element: HTMLElement) {
+  for (let i = element.children.length - 1; i >= 0; i--) {
+    const child = element.children[i] as HTMLElement;
+
+    if (attemptFocus(child) || focusLastDescendant(child)) {
+      return true;
+    }
+  }
+
+  return false;
+}
 
 // https://w3c.github.io/aria-practices/examples/js/utils.js
 function isFocusable(element: HTMLElement) {
@@ -45,16 +77,89 @@ function attemptFocus(element: HTMLElement) {
   return document.activeElement === element;
 }
 
-function focusFirstDescendant(element: HTMLElement) {
-  for (let i = 0; i < element.children.length; i++) {
-    const child = element.children[i] as HTMLElement;
-
-    if (attemptFocus(child) || focusFirstDescendant(child)) {
-      return true;
+function useControlTabbing({
+  changeStep,
+  contentRef,
+  stepContentElementsRef,
+  currentStepIndex,
+  stepCount,
+  setShouldFocusFirstElement,
+}: {
+  contentRef: {
+    current: HTMLDivElement | null;
+  };
+  stepContentElementsRef: {
+    current: Array<HTMLDivElement> | null;
+  };
+  currentStepIndex: number;
+  changeStep: (step: number) => void;
+  stepCount: number;
+  setShouldFocusFirstElement: (val: boolean) => void;
+}) {
+  React.useEffect(() => {
+    if (!stepContentElementsRef.current[currentStepIndex]) {
+      return;
     }
-  }
 
-  return false;
+    const currentStepContentElement =
+      stepContentElementsRef.current[currentStepIndex];
+    const contentElement = contentRef.current;
+
+    // Initial focus
+    let isTabbingForward = true;
+
+    function handleKeydown(event: KeyboardEvent) {
+      isTabbingForward = event.key === 'Tab' && !event.shiftKey;
+    }
+
+    function handleKeyup() {
+      isTabbingForward = true;
+    }
+
+    function handleFocusTrap(event: FocusEvent) {
+      if (
+        event.target instanceof Node &&
+        currentStepContentElement.contains(event.target)
+      ) {
+        return;
+      }
+
+      if (isTabbingForward) {
+        if (currentStepIndex < stepCount - 1) {
+          // focus last element to prevent focusing element on incoming step
+          focusDescendant(currentStepContentElement, !isTabbingForward);
+          setShouldFocusFirstElement(true);
+          changeStep(currentStepIndex + 1);
+        } else {
+          focusDescendant(currentStepContentElement, isTabbingForward);
+        }
+      } else if (currentStepIndex > 0) {
+        // focus last element to prevent focusing element on incoming step
+        focusDescendant(currentStepContentElement, isTabbingForward);
+        setShouldFocusFirstElement(false);
+        changeStep(currentStepIndex - 1);
+      } else {
+        focusDescendant(currentStepContentElement, isTabbingForward);
+      }
+    }
+
+    currentStepContentElement.addEventListener('keydown', handleKeydown);
+    currentStepContentElement.addEventListener('keyup', handleKeyup);
+    contentElement.addEventListener('focusin', handleFocusTrap);
+    return () => {
+      currentStepContentElement.removeEventListener('keydown', handleKeydown);
+      currentStepContentElement.removeEventListener('keyup', handleKeyup);
+
+      contentElement.removeEventListener('focusin', handleFocusTrap);
+    };
+  }, [
+    currentStepIndex,
+    stepContentElementsRef,
+    contentRef,
+    changeStep,
+    stepCount,
+    setShouldFocusFirstElement,
+  ]);
 }
 
 type FormContextType = {
@@ -86,14 +191,15 @@ const overlayEffect: TransitionEffectType = {
 export const Form: React.FunctionComponent = ({children}) => {
   // state & refs
   const [currentStepIndex, setCurrentStepIndex] = React.useState(0);
-  const contentRef = React.useRef(null);
-  const stepContainersRef = React.useRef<Array<HTMLDivElement>>([]);
+  const contentRef = React.useRef<HTMLDivElement>(null);
   const stepContentElementsRef = React.useRef<Array<HTMLDivElement>>([]);
   const steps = React.Children.toArray(children);
+  const [shouldFocusFirstElement, setShouldFocusFirstElement] =
+    React.useState(null);
 
   const changeStep = React.useCallback(
     index => {
-      const stepNode: HTMLElement = stepContainersRef.current[index];
+      const stepNode: HTMLElement = stepContentElementsRef.current[index];
 
       if (index < 0 || index > steps.length - 1) {
         return;
@@ -135,13 +241,13 @@ export const Form: React.FunctionComponent = ({children}) => {
     event => {
       switch (event.key) {
         case 'ArrowUp': {
+          setShouldFocusFirstElement(true);
           changeStep(currentStepIndex - 1);
-          focusFirstDescendant(stepContainersRef.current[currentStepIndex - 1]);
           break;
         }
         case 'ArrowDown': {
+          setShouldFocusFirstElement(true);
           changeStep(currentStepIndex + 1);
-          focusFirstDescendant(stepContainersRef.current[currentStepIndex + 1]);
           break;
         }
         default: {
@@ -160,13 +266,38 @@ export const Form: React.FunctionComponent = ({children}) => {
     };
   });
 
-  // change step when focus went outside current step
-  useFollowFocus({
+  // handle tabbing
+  useControlTabbing({
     contentRef,
-    changeStep,
+    stepContentElementsRef,
     currentStepIndex,
-    stepContainersRef,
+    stepCount: steps.length,
+    changeStep,
+    setShouldFocusFirstElement,
   });
+
+  // handle focus on step change animation end
+  React.useEffect(() => {
+    const contentRefLocal = contentRef.current;
+
+    function handleScrollEnd(event) {
+      if (
+        shouldFocusFirstElement !== null &&
+        event.target === event.currentTarget
+      ) {
+        focusDescendant(
+          stepContentElementsRef.current[currentStepIndex],
+          shouldFocusFirstElement
+        );
+      }
+    }
+
+    contentRefLocal.addEventListener('transitionend', handleScrollEnd);
+
+    return () => {
+      contentRefLocal.removeEventListener('transitionend', handleScrollEnd);
+    };
+  }, [contentRef, currentStepIndex, shouldFocusFirstElement]);
 
   return (
     <FormContext.Provider
@@ -178,30 +309,25 @@ export const Form: React.FunctionComponent = ({children}) => {
     >
       <div className="sg-form">
         <div className="sg-form-content" ref={contentRef}>
+          <div tabIndex={0} />
           {steps.map((child, index) => (
             <div
               key={index}
+              className="sg-form-step-area"
               ref={ref => {
-                stepContainersRef.current[index] = ref;
+                stepContentElementsRef.current[index] = ref;
               }}
             >
-              <div
-                className="sg-form-step-area"
-                tabIndex={-1}
-                ref={ref => {
-                  stepContentElementsRef.current[index] = ref;
-                }}
+              {child}
+              <Transition
+                active={currentStepIndex !== index}
+                effect={overlayEffect}
               >
-                {child}
-                <Transition
-                  active={currentStepIndex !== index}
-                  effect={overlayEffect}
-                >
-                  <span className="sg-form-step-area__overlay" />
-                </Transition>
-              </div>
+                <span className="sg-form-step-area__overlay" />
+              </Transition>
             </div>
           ))}
+          <div tabIndex={0} />
         </div>
         <Flex direction="column" className="sg-form-navigation">
           <Button
