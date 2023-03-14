@@ -401,10 +401,6 @@ const Select = React.forwardRef<HTMLDivElement, SelectPropsType>(
       className
     );
 
-    // this is to not block clicking and hovering outside
-    // when the exit animation plays
-    const overlayZIndex = status === 'open' || status === 'initial' ? 1 : -1;
-
     const selectRef = useMergeRefs([ref, refs.setReference]);
 
     return (
@@ -450,7 +446,7 @@ const Select = React.forwardRef<HTMLDivElement, SelectPropsType>(
           <FloatingOverlay
             lockScroll={!isTouchScreen()}
             style={{
-              zIndex: overlayZIndex,
+              zIndex: 1,
             }}
           >
             <FloatingFocusManager
@@ -468,6 +464,7 @@ const Select = React.forwardRef<HTMLDivElement, SelectPropsType>(
                   minWidth: 120,
                   width: 'max-content',
                   maxWidth: 320,
+                  zIndex: 1,
                 }}
                 {...interactions.getFloatingProps()}
                 tabIndex={-1}
