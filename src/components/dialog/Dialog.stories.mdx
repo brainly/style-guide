@@ -12,6 +12,7 @@ import DialogCloseButton from './DialogCloseButton';
 import startSkyImage from './stories/stars_sky.jpg';
 import Text from '../text/Text';
 import PageHeader from 'blocks/PageHeader';
+import {fireEvent, within} from '@testing-library/react';
 
 <Meta
   title="Components/Dialog"
@@ -73,7 +74,13 @@ import PageHeader from 'blocks/PageHeader';
 ## Overview
 
 <Canvas>
-  <Story name="Default">
+  <Story
+    name="Default"
+    play={async ({canvasElement}) => {
+      const canvas = within(canvasElement);
+      fireEvent.click(canvas.getByText('open dialog'));
+    }}
+  >
     {args => {
       const [open, setOpen] = React.useState(false);
       const [anotherOpen, setAnotherOpen] = React.useState(false);
@@ -160,10 +167,16 @@ import PageHeader from 'blocks/PageHeader';
 
 ## Stories
 
-### Long Content
+### Scroll Outside
 
 <Canvas>
-  <Story name="Long Content">
+  <Story
+    name="Scroll Outside"
+    play={async ({canvasElement}) => {
+      const canvas = within(canvasElement);
+      fireEvent.click(canvas.getByText('open dialog'));
+    }}
+  >
     {args => {
       const [open, setOpen] = React.useState(false);
       const [anotherOpen, setAnotherOpen] = React.useState(false);
@@ -181,6 +194,142 @@ import PageHeader from 'blocks/PageHeader';
             open={open}
             onDismiss={handleDismiss}
             labelledBy={headerId}
+          >
+            <DialogCloseButton onClick={handleDismiss} />
+            <DialogHeader id={headerId}>
+              <Flex marginBottom="m">
+                <Headline>
+                  Are you sure you want to stop asking this question?
+                </Headline>
+              </Flex>
+            </DialogHeader>
+            <DialogBody>
+              <Flex marginBottom="m">
+                Information you provide to us directly. We may collect personal
+                information, such as your name, address, telephone number, date
+                of birth, payment information, and e-mail address when you when
+                you register for our Service, sign up for our mailing list,
+                enter a contest or sweepstakes, or otherwise communicate with
+                us. We may also collect any communications between you and
+                Brainly and any other information you provide to Brainly
+                Information you provide to us directly. We may collect personal
+                information, such as your name, address, telephone number, date
+                of birth, payment information, and e-mail address when you when
+                you register for our Service, sign up for our mailing list,
+                enter a contest or sweepstakes, or otherwise communicate with
+                us. We may also collect any communications between you and
+                Brainly and any other information you provide to Brainly
+                Information you provide to us directly. We may collect personal
+                information, such as your name, address, telephone number, date
+                of birth, payment information, and e-mail address when you when
+                you register for our Service, sign up for our mailing list,
+                enter a contest or sweepstakes, or otherwise communicate with
+                us. We may also collect any communications between you and
+                Brainly and any other information you provide to Brainly
+                Information you provide to us directly. We may collect personal
+                information, such as your name, address, telephone number, date
+                of birth, payment information, and e-mail address when you when
+                you register for our Service, sign up for our mailing list,
+                enter a contest or sweepstakes, or otherwise communicate with
+                us. We may also collect any communications between you and
+                Brainly and any other information you provide to Brainly
+                Information you provide to us directly. We may collect personal
+                information, such as your name, address, telephone number, date
+                of birth, payment information, and e-mail address when you when
+                you register for our Service, sign up for our mailing list,
+                enter a contest or sweepstakes, or otherwise communicate with
+                us. We may also collect any communications between you and
+                Brainly and any other information you provide to Brainly
+                Information you provide to us directly. We may collect personal
+                information, such as your name, address, telephone number, date
+                of birth, payment information, and e-mail address when you when
+                you register for our Service, sign up for our mailing list,
+                enter a contest or sweepstakes, or otherwise communicate with
+                us. We may also collect any communications between you and
+                Brainly and any other information you provide to Brainly
+                Information you provide to us directly. We may collect personal
+                information, such as your name, address, telephone number, date
+                of birth, payment information, and e-mail address when you when
+                you register for our Service, sign up for our mailing list,
+                enter a contest or sweepstakes, or otherwise communicate with
+                us. We may also collect any communications between you and
+                Brainly and any other information you provide to Brainly
+              </Flex>
+              <Flex marginBottom="m">
+                <Link
+                  as="button"
+                  onClick={() => setAnotherOpen(true)}
+                  onKeyDown={({key}) => key === 'Enter' && setAnotherOpen(true)}
+                >
+                  Open another dialog
+                </Link>
+              </Flex>
+              <Flex justifyContent="flex-end" className="sg-space-x-s">
+                <Button variant="outline" onClick={handleDismiss}>
+                  cancel
+                </Button>
+                <Button variant="solid">proceed</Button>
+              </Flex>
+            </DialogBody>
+          </Dialog>
+          <Dialog
+            {...args}
+            size="s"
+            open={anotherOpen}
+            onDismiss={handleDismissAnother}
+            labelledBy={anotherHeaderId}
+          >
+            <DialogCloseButton onClick={handleDismissAnother} />
+            <DialogHeader id={anotherHeaderId}>
+              <Flex marginBottom="m">
+                <Headline>
+                  Are you really sure you want to stop asking this question?
+                </Headline>
+              </Flex>
+            </DialogHeader>
+            <DialogBody>
+              <Flex justifyContent="flex-end" className="sg-space-x-s">
+                <Button variant="outline" onClick={handleDismissAnother}>
+                  cancel
+                </Button>
+                <Button variant="solid">proceed</Button>
+              </Flex>
+            </DialogBody>
+          </Dialog>
+        </div>
+      );
+    }}
+  </Story>
+</Canvas>
+
+### Scroll Inside
+
+<Canvas>
+  <Story
+    name="Scroll Inside"
+    play={async ({canvasElement}) => {
+      const canvas = within(canvasElement);
+      fireEvent.click(canvas.getByText('open dialog'));
+    }}
+  >
+    {args => {
+      const [open, setOpen] = React.useState(false);
+      const [anotherOpen, setAnotherOpen] = React.useState(false);
+      const handleDismiss = () => setOpen(false);
+      const handleDismissAnother = () => setAnotherOpen(false);
+      const headerId = 'dialog-header';
+      const anotherHeaderId = 'another-dialog-header';
+      return (
+        <div>
+          <Button variant="solid-indigo" onClick={() => setOpen(true)}>
+            open dialog
+          </Button>
+          <Dialog
+            {...args}
+            open={open}
+            onDismiss={handleDismiss}
+            labelledBy={headerId}
+            scroll="inside"
           >
             <DialogCloseButton onClick={handleDismiss} />
             <DialogHeader id={headerId}>
@@ -292,7 +441,13 @@ import PageHeader from 'blocks/PageHeader';
 ### Without Header
 
 <Canvas>
-  <Story name="Without Header">
+  <Story
+    name="Without Header"
+    play={async ({canvasElement}) => {
+      const canvas = within(canvasElement);
+      fireEvent.click(canvas.getByText('open dialog'));
+    }}
+  >
     {args => {
       const [open, setOpen] = React.useState(false);
       const handleDismiss = () => setOpen(false);
@@ -345,7 +500,15 @@ import PageHeader from 'blocks/PageHeader';
 ### Nested
 
 <Canvas>
-  <Story name="Nested">
+  <Story
+    name="Nested"
+    play={async ({canvasElement}) => {
+      const canvas = within(canvasElement);
+      fireEvent.click(canvas.getByText('open dialog'));
+      const openNestedButton = await canvas.findByText('Open another dialog');
+      fireEvent.click(openNestedButton);
+    }}
+  >
     {args => {
       const [open, setOpen] = React.useState(false);
       const [anotherOpen, setAnotherOpen] = React.useState(false);
@@ -433,7 +596,13 @@ import PageHeader from 'blocks/PageHeader';
 ### With Ads
 
 <Canvas>
-  <Story name="With Ads">
+  <Story
+    name="With Ads"
+    play={async ({canvasElement}) => {
+      const canvas = within(canvasElement);
+      fireEvent.click(canvas.getByText('open dialog'));
+    }}
+  >
     {args => {
       const SlotText = ({children}) => (
         <Text weight="bold" color="text-white">
@@ -637,7 +806,13 @@ import PageHeader from 'blocks/PageHeader';
 ### Switching modals
 
 <Canvas>
-  <Story name="Switching modals">
+  <Story
+    name="Switching modals"
+    play={async ({canvasElement}) => {
+      const canvas = within(canvasElement);
+      fireEvent.click(canvas.getByText('open dialog'));
+    }}
+  >
     {args => {
       const [{opened}, setOpen] = React.useState({opened: null});
       const handleDismiss = () => setOpen({opened: null});
@@ -714,6 +889,261 @@ import PageHeader from 'blocks/PageHeader';
                 <Button variant="outline" onClick={handleDismiss}>
                   cancel
                 </Button>
+              </Flex>
+            </DialogBody>
+          </Dialog>
+        </div>
+      );
+    }}
+  </Story>
+</Canvas>
+
+### Size S
+
+<Canvas>
+  <Story
+    name="Size S"
+    play={async ({canvasElement}) => {
+      const canvas = within(canvasElement);
+      fireEvent.click(canvas.getByText('open dialog'));
+    }}
+  >
+    {args => {
+      const [open, setOpen] = React.useState(false);
+      const [anotherOpen, setAnotherOpen] = React.useState(false);
+      const handleDismiss = () => setOpen(false);
+      const handleDismissAnother = () => setAnotherOpen(false);
+      const anotherHeaderId = 'another-dialog-header';
+      return (
+        <div>
+          <Button variant="solid-indigo" onClick={() => setOpen(true)}>
+            open dialog
+          </Button>
+          <Dialog
+            {...args}
+            size="s"
+            open={open}
+            onDismiss={handleDismiss}
+            labelledBy={anotherHeaderId}
+          >
+            <DialogCloseButton onClick={handleDismiss} />
+            <DialogHeader id={anotherHeaderId}>
+              <Flex marginBottom="m">
+                <Headline>
+                  Are you really sure you want to stop asking this question?
+                </Headline>
+              </Flex>
+            </DialogHeader>
+            <DialogBody>
+              <Flex justifyContent="flex-end" className="sg-space-x-s">
+                <Button variant="outline" onClick={handleDismiss}>
+                  cancel
+                </Button>
+                <Button variant="solid">proceed</Button>
+              </Flex>
+            </DialogBody>
+          </Dialog>
+        </div>
+      );
+    }}
+  </Story>
+</Canvas>
+
+### Size M
+
+<Canvas>
+  <Story
+    name="Size M"
+    play={async ({canvasElement}) => {
+      const canvas = within(canvasElement);
+      fireEvent.click(canvas.getByText('open dialog'));
+    }}
+  >
+    {args => {
+      const [open, setOpen] = React.useState(false);
+      const [anotherOpen, setAnotherOpen] = React.useState(false);
+      const handleDismiss = () => setOpen(false);
+      const handleDismissAnother = () => setAnotherOpen(false);
+      const anotherHeaderId = 'another-dialog-header';
+      return (
+        <div>
+          <Button variant="solid-indigo" onClick={() => setOpen(true)}>
+            open dialog
+          </Button>
+          <Dialog
+            {...args}
+            size="m"
+            open={open}
+            onDismiss={handleDismiss}
+            labelledBy={anotherHeaderId}
+          >
+            <DialogCloseButton onClick={handleDismiss} />
+            <DialogHeader id={anotherHeaderId}>
+              <Flex marginBottom="m">
+                <Headline>
+                  Are you really sure you want to stop asking this question?
+                </Headline>
+              </Flex>
+            </DialogHeader>
+            <DialogBody>
+              <Flex justifyContent="flex-end" className="sg-space-x-s">
+                <Button variant="outline" onClick={handleDismiss}>
+                  cancel
+                </Button>
+                <Button variant="solid">proceed</Button>
+              </Flex>
+            </DialogBody>
+          </Dialog>
+        </div>
+      );
+    }}
+  </Story>
+</Canvas>
+
+### Size L
+
+<Canvas>
+  <Story
+    name="Size L"
+    play={async ({canvasElement}) => {
+      const canvas = within(canvasElement);
+      fireEvent.click(canvas.getByText('open dialog'));
+    }}
+  >
+    {args => {
+      const [open, setOpen] = React.useState(false);
+      const [anotherOpen, setAnotherOpen] = React.useState(false);
+      const handleDismiss = () => setOpen(false);
+      const handleDismissAnother = () => setAnotherOpen(false);
+      const anotherHeaderId = 'another-dialog-header';
+      return (
+        <div>
+          <Button variant="solid-indigo" onClick={() => setOpen(true)}>
+            open dialog
+          </Button>
+          <Dialog
+            {...args}
+            size="l"
+            open={open}
+            onDismiss={handleDismiss}
+            labelledBy={anotherHeaderId}
+          >
+            <DialogCloseButton onClick={handleDismiss} />
+            <DialogHeader id={anotherHeaderId}>
+              <Flex marginBottom="m">
+                <Headline>
+                  Are you really sure you want to stop asking this question?
+                </Headline>
+              </Flex>
+            </DialogHeader>
+            <DialogBody>
+              <Flex justifyContent="flex-end" className="sg-space-x-s">
+                <Button variant="outline" onClick={handleDismiss}>
+                  cancel
+                </Button>
+                <Button variant="solid">proceed</Button>
+              </Flex>
+            </DialogBody>
+          </Dialog>
+        </div>
+      );
+    }}
+  </Story>
+</Canvas>
+
+### Size XL
+
+<Canvas>
+  <Story
+    name="Size XL"
+    play={async ({canvasElement}) => {
+      const canvas = within(canvasElement);
+      fireEvent.click(canvas.getByText('open dialog'));
+    }}
+  >
+    {args => {
+      const [open, setOpen] = React.useState(false);
+      const [anotherOpen, setAnotherOpen] = React.useState(false);
+      const handleDismiss = () => setOpen(false);
+      const handleDismissAnother = () => setAnotherOpen(false);
+      const anotherHeaderId = 'another-dialog-header';
+      return (
+        <div>
+          <Button variant="solid-indigo" onClick={() => setOpen(true)}>
+            open dialog
+          </Button>
+          <Dialog
+            {...args}
+            size="xl"
+            open={open}
+            onDismiss={handleDismiss}
+            labelledBy={anotherHeaderId}
+          >
+            <DialogCloseButton onClick={handleDismiss} />
+            <DialogHeader id={anotherHeaderId}>
+              <Flex marginBottom="m">
+                <Headline>
+                  Are you really sure you want to stop asking this question?
+                </Headline>
+              </Flex>
+            </DialogHeader>
+            <DialogBody>
+              <Flex justifyContent="flex-end" className="sg-space-x-s">
+                <Button variant="outline" onClick={handleDismiss}>
+                  cancel
+                </Button>
+                <Button variant="solid">proceed</Button>
+              </Flex>
+            </DialogBody>
+          </Dialog>
+        </div>
+      );
+    }}
+  </Story>
+</Canvas>
+
+### Size Fullscreen
+
+<Canvas>
+  <Story
+    name="Size Fullscreen"
+    play={async ({canvasElement}) => {
+      const canvas = within(canvasElement);
+      fireEvent.click(canvas.getByText('open dialog'));
+    }}
+  >
+    {args => {
+      const [open, setOpen] = React.useState(false);
+      const [anotherOpen, setAnotherOpen] = React.useState(false);
+      const handleDismiss = () => setOpen(false);
+      const handleDismissAnother = () => setAnotherOpen(false);
+      const anotherHeaderId = 'another-dialog-header';
+      return (
+        <div>
+          <Button variant="solid-indigo" onClick={() => setOpen(true)}>
+            open dialog
+          </Button>
+          <Dialog
+            {...args}
+            size="fullscreen"
+            open={open}
+            onDismiss={handleDismiss}
+            labelledBy={anotherHeaderId}
+          >
+            <DialogCloseButton onClick={handleDismiss} />
+            <DialogHeader id={anotherHeaderId}>
+              <Flex marginBottom="m">
+                <Headline>
+                  Are you really sure you want to stop asking this question?
+                </Headline>
+              </Flex>
+            </DialogHeader>
+            <DialogBody>
+              <Flex justifyContent="flex-end" className="sg-space-x-s">
+                <Button variant="outline" onClick={handleDismiss}>
+                  cancel
+                </Button>
+                <Button variant="solid">proceed</Button>
               </Flex>
             </DialogBody>
           </Dialog>

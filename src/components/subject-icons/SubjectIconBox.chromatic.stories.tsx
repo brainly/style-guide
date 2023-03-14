@@ -1,7 +1,7 @@
 import * as SubjectIconBox from './SubjectIconBox.stories.mdx';
-import {mergeStories} from '../../chromatic/utils';
+import {generateChromaticStory} from '../../chromatic/utils';
 
-export const Default = mergeStories(SubjectIconBox);
+export const Default = generateChromaticStory(SubjectIconBox);
 const {includeStories, ...meta} = SubjectIconBox.default;
 
 export default meta;

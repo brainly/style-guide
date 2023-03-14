@@ -517,6 +517,22 @@ const iconSize = {
   </Story>
 </Canvas>
 
+### Full width
+
+<Canvas>
+  <Story name="Full width">
+    {args => {
+      return (
+        <div style={{width: 400, border: '1px solid black', padding: 3}}>
+          <Button {...args} fullWidth>
+            full width of the box
+          </Button>
+        </div>
+      );
+    }}
+  </Story>
+</Canvas>
+
 ## Accessibility
 
 <ButtonA11y />

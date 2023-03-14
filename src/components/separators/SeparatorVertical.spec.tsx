@@ -1,15 +1,20 @@
 import * as React from 'react';
-import SeparatorVertical, {SIZE} from './SeparatorVertical';
-import {shallow} from 'enzyme';
+import SeparatorVertical from './SeparatorVertical';
+import {render} from '@testing-library/react';
+import {testA11y} from '../../axe';
 
-test('render', () => {
-  const separator = shallow(<SeparatorVertical />);
+describe('SeparatorVertical', () => {
+  it('should have role="separator" and vertical orientation', () => {
+    const separator = render(<SeparatorVertical />);
 
-  expect(separator.hasClass('sg-vertical-separator')).toEqual(true);
-  expect(separator.hasClass('sg-vertical-separator--normal')).toEqual(false);
-});
-test('size', () => {
-  const separator = shallow(<SeparatorVertical size={SIZE.SMALL} />);
+    expect(
+      separator.getByRole('separator').getAttribute('aria-orientation')
+    ).toBe('vertical');
+  });
 
-  expect(separator.hasClass('sg-vertical-separator--small')).toEqual(true);
+  describe('a11y', () => {
+    it('should have no a11y violations', async () => {
+      await testA11y(<SeparatorVertical />);
+    });
+  });
 });
