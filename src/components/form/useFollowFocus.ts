@@ -22,12 +22,6 @@ export const useFollowFocus = ({
       }
     };
 
-    // const handleTab = (event) => {
-    //   if (event.key === 'Tab') {
-
-    //   }
-    // }
-
     contentElement.addEventListener('focusin', handleFocus);
 
     return () => {

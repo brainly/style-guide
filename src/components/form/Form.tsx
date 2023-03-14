@@ -4,7 +4,7 @@ import Flex from '../flex/Flex';
 import Icon, {TYPE} from '../icons/Icon';
 import cc from 'classnames';
 import {useFollowFocus} from './useFollowFocus';
-import {useFocusTrap} from './useFocusTrap';
+import Transition, {TransitionEffectType} from '../transition/Transition';
 
 // https://w3c.github.io/aria-practices/examples/js/utils.js
 function isFocusable(element: HTMLElement) {
@@ -66,6 +66,22 @@ type FormContextType = {
 export const FormContext = React.createContext<FormContextType>(
   {} as FormContextType
 );
+
+const overlayEffect: TransitionEffectType = {
+  initial: {
+    opacity: 0,
+  },
+  animate: {
+    opacity: 1,
+    duration: 'moderate1',
+    easing: 'linear',
+  },
+  exit: {
+    opacity: 0,
+    duration: 'moderate1',
+    easing: 'linear',
+  },
+};
 
 export const Form: React.FunctionComponent = ({children}) => {
   // state & refs
@@ -152,13 +168,6 @@ export const Form: React.FunctionComponent = ({children}) => {
     stepContainersRef,
   });
 
-  // useFocusTrap({
-  //   stepContainersRef,
-  //   stepContentElementsRef,
-  //   currentStepIndex,
-  //   contentRef,
-  // });
-
   return (
     <FormContext.Provider
       value={{
@@ -184,9 +193,12 @@ export const Form: React.FunctionComponent = ({children}) => {
                 }}
               >
                 {child}
-                {currentStepIndex !== index ? (
+                <Transition
+                  active={currentStepIndex !== index}
+                  effect={overlayEffect}
+                >
                   <span className="sg-form-step-area__overlay" />
-                ) : null}
+                </Transition>
               </div>
             </div>
           ))}
