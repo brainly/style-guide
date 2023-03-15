@@ -25,7 +25,7 @@ jobs:
         uses: chromaui/action@v1
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
-          projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
+          projectToken: 5ef54a1fca5c
           exitZeroOnChanges: true
           autoAcceptChanges: 'master'
           buildScriptName: 'build-chromatic'
