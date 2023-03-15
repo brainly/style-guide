@@ -52,7 +52,13 @@ const mergeStories: any = module => {
     return (
       <div key={story.name}>
         <h3 className="component__story-name">{story.name}</h3>
-        <Component {...module.default.args} {...Component.args} />
+        <div>
+          <Component
+            {...module.default.args}
+            {...Component.args}
+            style={Component.style}
+          />
+        </div>
       </div>
     );
   });
