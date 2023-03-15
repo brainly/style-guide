@@ -108,9 +108,11 @@ describe('<SelectMenu />', () => {
     const select = render(<RenderSelectMenu multiSelect />);
     const selectElement = select.getByRole('combobox') as HTMLElement;
 
-    expect(selectElement.getAttribute('aria-multiselectable')).toBeTruthy();
     userEvent.click(selectElement);
     await select.findByRole('listbox');
+    expect(
+      select.getByRole('listbox').getAttribute('aria-multiselectable')
+    ).toBeTruthy();
     fireEvent.click(select.getByText('Physics'));
     fireEvent.click(select.getByText('Science'));
     userEvent.click(document.body);
@@ -186,7 +188,7 @@ describe('<SelectMenu />', () => {
 
     const prevSelectedOption = select.getByRole('option', {name: 'Physics'});
     const currentlySelectedOption = select.getByRole('option', {
-      name: 'History check',
+      name: 'History',
     });
 
     expect(prevSelectedOption.getAttribute('aria-selected')).toEqual('false');
