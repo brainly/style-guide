@@ -13,7 +13,11 @@ const generateUnhoveredSelector = (
 
   const hoverSelectorText = selectorText
     .split(', ')
-    .filter(text => text.includes(':hover') || text.includes('--hover'))
+    .filter(
+      text =>
+        (text.includes(':hover') || text.includes('--hover')) &&
+        !text.includes(':not(:hover)')
+    )
     .map(selector =>
       `#${hoverContainerId} ${selector}`
         .replace(/:hover/i, '')
