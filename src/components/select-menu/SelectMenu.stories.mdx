@@ -596,56 +596,6 @@ return (
   </Story>
 </Canvas>
 
-### Sizes
-
-<Canvas>
-  <Story
-    name="Sizes"
-    args={{
-      withIcons: true,
-      options: [
-        {
-          value: 'art',
-          label: 'Art',
-          icon: {
-            name: 'art',
-            isSubjectIcon: true,
-          },
-        },
-        {
-          value: 'math',
-          label: 'Math',
-          icon: {
-            name: 'mathematics',
-            isSubjectIcon: true,
-          },
-        },
-        {
-          value: 'biology',
-          label: 'Biology',
-          icon: {
-            name: 'biology',
-            isSubjectIcon: true,
-          },
-        },
-      ],
-    }}
-  >
-    {args => {
-      return (
-        <Flex direction="row">
-          {Object.values(SELECT_SIZE).map(size => (
-            <Flex direction="column" style={{width: '200px', padding: '10px'}}>
-              <Text>{size}</Text>
-              <SelectMenu {...args} defaultExpanded size={size} />
-            </Flex>
-          ))}
-        </Flex>
-      );
-    }}
-  </Story>
-</Canvas>
-
 ### Variants
 
 <Canvas>
