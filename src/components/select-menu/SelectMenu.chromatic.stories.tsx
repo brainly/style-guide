@@ -48,10 +48,10 @@ const Hovers = args => {
 };
 
 // Ensure each SelectMenu in chromatic stories is expanded by default and has enough space to display
-Object.entries(SelectMenuStories).forEach(story => {
-  story[1].args = {...story[1].args, defaultExpanded: true};
-  story[1].style = {
-    ...story[1].style,
+Object.entries(SelectMenuStories).forEach((story): any => {
+  (story[1] as any).args = {...(story[1] as any).args, defaultExpanded: true};
+  (story[1] as any).style = {
+    ...(story[1] as any).style,
     marginBottom: '400px',
   };
 });
