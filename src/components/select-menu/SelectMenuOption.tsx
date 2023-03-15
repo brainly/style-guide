@@ -79,7 +79,11 @@ const SelectMenuOption = React.forwardRef<
         optionState = <Icon type="check" size={24} color="icon-black" />;
       }
 
-      return <div className="sg-select-menu__option-state">{optionState}</div>;
+      return (
+        <div className="sg-select-menu__option-state" aria-hidden>
+          {optionState}
+        </div>
+      );
     }, [isSelected, multiSelect, option.value]);
 
     return (
