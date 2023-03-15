@@ -97,6 +97,7 @@ import {fireEvent, within} from '@testing-library/react';
             open={open}
             onDismiss={handleDismiss}
             labelledBy={headerId}
+            aria-modal={!anotherOpen}
           >
             <DialogCloseButton onClick={handleDismiss} />
             <DialogHeader id={headerId}>

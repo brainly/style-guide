@@ -18,6 +18,7 @@ export type DialogPropsType = Readonly<{
   'aria-label'?: string;
   'aria-describedby'?: string;
   'aria-description'?: string;
+  'aria-modal'?: boolean;
 
   /**
    * Specify the dialog scrolling behavior when
@@ -64,6 +65,7 @@ function BaseDialog({
   'aria-label': ariaLabel,
   'aria-describedby': ariaDescribedBy,
   'aria-description': ariaDescription,
+  'aria-modal': ariaModal = true,
   zIndex = 'auto',
   onDismiss,
   onEntryTransitionEnd,
@@ -286,7 +288,7 @@ function BaseDialog({
         data-dialog-container
         className={containerClass}
         onTransitionEnd={hasAnimations ? handleTransitionEnd : undefined}
-        aria-modal="true"
+        aria-modal={ariaModal}
         aria-labelledby={ariaLabelledBy}
         aria-label={ariaLabel}
         aria-describedby={ariaDescribedBy}
