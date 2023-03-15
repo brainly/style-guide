@@ -1,7 +1,8 @@
 import * as React from 'react';
 import {render, waitFor, fireEvent, within} from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import SelectMenu from './SelectMenu';
+import SelectMenu, {SelectMenuOptionType} from './SelectMenu';
+import {testA11y} from '../../axe';
 
 export function RenderSelectMenu(props: {
   multiSelect?: boolean;
@@ -9,8 +10,10 @@ export function RenderSelectMenu(props: {
   disabled?: boolean;
   valid?: boolean;
   invalid?: boolean;
+  selected?: Array<SelectMenuOptionType>;
 }) {
-  const [selectedOptions, setSelectedOptions] = React.useState([]);
+  const {selected, ...restProps} = props;
+  const [selectedOptions, setSelectedOptions] = React.useState(selected || []);
   const handleOptionChange = option => {
     if (props.multiSelect) {
       if (!selectedOptions.find(item => item.value === option.value))
@@ -43,7 +46,7 @@ export function RenderSelectMenu(props: {
       disabled={props.disabled}
       valid={props.valid}
       invalid={props.invalid}
-      {...props}
+      {...restProps}
     />
   );
 }
@@ -216,5 +219,70 @@ describe('<SelectMenu />', () => {
     expect(
       select.getByRole('combobox', {name: label, description})
     ).toBeTruthy();
+  });
+
+  describe('a11y', () => {
+    it('should have no a11y violations when it is collapsed', async () => {
+      await testA11y(<RenderSelectMenu aria-label="Subject" />);
+    });
+
+    it('should have no a11y violations when it is expanded', async () => {
+      await testA11y(
+        <RenderSelectMenu aria-label="Subject" defaultExpanded />,
+        {
+          rules: {'aria-required-children': {enabled: false}}, // option should be a direct child of listbox, but is nested in role="none" (it works for VO & Chrome)
+        }
+      );
+    });
+
+    it('should have no a11y violations when it is collapsed and selected', async () => {
+      await testA11y(
+        <RenderSelectMenu
+          aria-label="Subject"
+          selected={[{value: 'physics', label: 'Physics'}]}
+        />
+      );
+    });
+
+    it('should have no a11y violations when it is expanded', async () => {
+      await testA11y(
+        <RenderSelectMenu
+          aria-label="Subject"
+          defaultExpanded
+          selected={[{value: 'physics', label: 'Physics'}]}
+        />,
+        {
+          rules: {'aria-required-children': {enabled: false}}, // option should be a direct child of listbox, but is nested in role="none" (it works for VO & Chrome)
+        }
+      );
+    });
+
+    it('should have no a11y violations when it is expanded, selected and has mutiselect', async () => {
+      await testA11y(
+        <RenderSelectMenu
+          aria-label="Subject"
+          defaultExpanded
+          multiSelect
+          selected={[
+            {value: 'physics', label: 'Physics'},
+            {value: 'history', label: 'History'},
+          ]}
+        />,
+        {
+          rules: {
+            'aria-required-children': {enabled: false}, // option should be a direct child of listbox, but is nested in role="none" (it works for VO & Chrome)
+            'nested-interactive': {enabled: false}, // checkboxes have display:none
+          },
+        }
+      );
+    });
+
+    it('should have no a11y violations when it is collapsed and invalid', async () => {
+      await testA11y(<RenderSelectMenu aria-label="Subject" invalid />);
+    });
+
+    it('should have no a11y violations when it is collapsed and disabled', async () => {
+      await testA11y(<RenderSelectMenu aria-label="Subject" invalid />);
+    });
   });
 });
