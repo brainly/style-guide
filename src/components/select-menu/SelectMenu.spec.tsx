@@ -137,21 +137,19 @@ describe('<SelectMenu />', () => {
     const select = render(<RenderSelectMenu multiSelect />);
     const selectElement = select.getByRole('combobox') as HTMLElement;
 
-    expect(selectElement.getAttribute('aria-multiselectable')).toEqual('true');
-
     userEvent.click(selectElement);
     expect(selectElement.getAttribute('aria-expanded')).toEqual('true');
     expect(select.queryByRole('listbox')).toBeInTheDocument();
-
+    expect(
+      select.getByRole('listbox').getAttribute('aria-multiselectable')
+    ).toBe(true);
     expect(select.container.getElementsByClassName('sg-checkbox').length).toBe(
       3
     );
-
     userEvent.click(select.getByText('Physics'));
     expect(selectElement.getAttribute('aria-expanded')).toEqual('true');
     userEvent.click(select.getByText('Science'));
     expect(selectElement.getAttribute('aria-expanded')).toEqual('true');
-
     userEvent.click(document.body);
     await waitForElementToBeRemoved(() => select.queryByRole('listbox'));
 
@@ -237,7 +235,7 @@ describe('<SelectMenu />', () => {
 
     const prevSelectedOption = select.getByRole('option', {name: 'Physics'});
     const currentlySelectedOption = select.getByRole('option', {
-      name: 'History check',
+      name: 'History',
     });
 
     expect(prevSelectedOption.getAttribute('aria-selected')).toEqual('false');
