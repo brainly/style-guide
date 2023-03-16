@@ -521,8 +521,12 @@ const Icon = ({
           // @ts-expect-error
           suppressHydrationWarning
         >
-          {/* @ts-expect-error */}
-          <text id={titleId} hidden suppressHydrationWarning>
+          <text
+            id={titleId}
+            visibility="hidden"
+            /* @ts-expect-error */
+            suppressHydrationWarning
+          >
             {title || defaultTitle}
           </text>
           {description && <desc id={descId}>{description}</desc>}
