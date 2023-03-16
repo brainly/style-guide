@@ -18,7 +18,13 @@ export type DialogPropsType = Readonly<{
   'aria-label'?: string;
   'aria-describedby'?: string;
   'aria-description'?: string;
-
+  /**
+   * https://github.com/w3c/aria-practices/issues/1241
+   * Fix for Safari, when multiple nodes with aria-modal="true" exists.
+   * Use this to set aria-modal to "false" when you open another (no need when nesting) dialog.
+   * This will prevent loosing focus on last opened dialog.
+   */
+  'aria-modal'?: boolean;
   /**
    * Specify the dialog scrolling behavior when
    * the content is longer than the viewport.
@@ -64,6 +70,7 @@ function BaseDialog({
   'aria-label': ariaLabel,
   'aria-describedby': ariaDescribedBy,
   'aria-description': ariaDescription,
+  'aria-modal': ariaModal = true,
   zIndex = 'auto',
   onDismiss,
   onEntryTransitionEnd,
@@ -286,7 +293,7 @@ function BaseDialog({
         data-dialog-container
         className={containerClass}
         onTransitionEnd={hasAnimations ? handleTransitionEnd : undefined}
-        aria-modal="true"
+        aria-modal={ariaModal}
         aria-labelledby={ariaLabelledBy}
         aria-label={ariaLabel}
         aria-describedby={ariaDescribedBy}
