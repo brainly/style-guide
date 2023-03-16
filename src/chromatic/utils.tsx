@@ -38,7 +38,11 @@ export const generateChromaticStory: any = (
 
 const mergeStories: any = module => {
   const stories = Object.keys(module)
-    .filter(moduleExports => moduleExports !== 'default')
+    .filter(
+      moduleExports =>
+        moduleExports !== 'default' &&
+        !module[moduleExports].parameters?.chromatic?.disableSnapshot
+    )
     .map(moduleExportName => {
       return {
         name: moduleExportName,
@@ -52,13 +56,7 @@ const mergeStories: any = module => {
     return (
       <div key={story.name}>
         <h3 className="component__story-name">{story.name}</h3>
-        <div>
-          <Component
-            {...module.default.args}
-            {...Component.args}
-            style={Component.style}
-          />
-        </div>
+        <Component {...module.default.args} {...Component.args} />
       </div>
     );
   });
