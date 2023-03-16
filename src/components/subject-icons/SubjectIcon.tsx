@@ -200,8 +200,20 @@ const SubjectIcon = ({
   const defaultTitle = type.replace(/-alt$/g, '').replace(/-/g, ' ');
 
   return (
-    <svg {...props} className={iconClass} aria-labelledby={titleId} role="img">
-      <text id={titleId} visibility="hidden">
+    <svg
+      {...props}
+      className={iconClass}
+      aria-labelledby={titleId}
+      role="img"
+      /* @ts-expect-error */
+      suppressHydrationWarning
+    >
+      <text
+        id={titleId}
+        visibility="hidden"
+        /* @ts-expect-error */
+        suppressHydrationWarning
+      >
         {title || defaultTitle}
       </text>
       <use xlinkHref={iconType} aria-hidden="true" />
