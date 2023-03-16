@@ -9,7 +9,6 @@ export const FLEX_JUSTIFY_VALUES = {
   CENTER: 'center',
   FLEX_START: 'flex-start',
   FLEX_END: 'flex-end',
-  BASELINE: 'baseline',
   SPACE_BETWEEN: 'space-between',
   SPACE_AROUND: 'space-around',
   SPACE_EVENLY: 'space-evenly',
