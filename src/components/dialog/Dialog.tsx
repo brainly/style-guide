@@ -21,7 +21,7 @@ export type DialogPropsType = Readonly<{
   /**
    * https://github.com/w3c/aria-practices/issues/1241
    * Fix for Safari, when multiple nodes with aria-modal="true" exists.
-   * Use this to set aria-modal to "false" when you open another/nested dialog.
+   * Use this to set aria-modal to "false" when you open another (no need when nesting) dialog.
    * This will prevent loosing focus on last opened dialog.
    */
   'aria-modal'?: boolean;
