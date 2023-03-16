@@ -3,35 +3,84 @@ import * as SelectMenuStories from './SelectMenu.stories.mdx';
 import {generateChromaticStory} from '../../chromatic/utils';
 import SelectMenu, {SIZE as SELECT_SIZE} from './SelectMenu';
 
+import Text from '../text/Text';
+import Flex from '../flex/Flex';
+
 export const Sizes = args => {
   return (
-    <div
-      style={{
-        display: 'flex',
-        flexDirection: 'column',
-        gap: '200px',
-        paddingBottom: '200px',
-      }}
-    >
+    <div style={{display: 'flex', flexDirection: 'row'}}>
       {Object.values(SELECT_SIZE).map(size => (
-        <SelectMenu {...args} defaultExpanded size={size} key={size} />
+        <div style={{width: '200px'}} key={size}>
+          <SelectMenu {...args} defaultExpanded size={size} />
+        </div>
       ))}
     </div>
   );
 };
 
+export const DifferentPopupLenghts = args => {
+  return (
+    <Flex direction="row" style={{gap: '40px'}}>
+      <div style={{width: '200px'}}>
+        <Text>Popup with wide content:</Text>
+        <SelectMenu {...args} defaultExpanded />
+      </div>
+      <div style={{width: '400px'}}>
+        <Text>
+          Popup with short content that stretches to 70% of the input:
+        </Text>
+        <SelectMenu
+          {...args}
+          withIcons={false}
+          defaultExpanded
+          options={[
+            {
+              value: 'tv',
+              label: '1',
+            },
+            {value: 'fb', label: '2'},
+            {
+              value: 'search',
+              label: '3',
+            },
+          ]}
+          placeholder="Select something from the list"
+        />
+      </div>
+      <div>
+        <Text>Popup with short content and short input:</Text>
+        <div style={{width: '120px'}}>
+          <SelectMenu
+            {...args}
+            withIcons={false}
+            defaultExpanded
+            options={[
+              {
+                value: 'tv',
+                label: '1',
+              },
+              {value: 'fb', label: '2'},
+              {
+                value: 'search',
+                label: '3',
+              },
+            ]}
+            placeholder="Age"
+          />
+        </div>
+      </div>
+    </Flex>
+  );
+};
+
 const Hovers = args => {
-  const types = [
-    {name: 'default'},
-    {name: 'expanded', defaultExpanded: true},
-    {disabled: true, name: 'disabled'},
-  ];
+  const types = [{name: 'default'}, {disabled: true, name: 'disabled'}];
 
   return (
     <div>
       {types.map(t => (
         <div key={t.name}>
-          Default: {t.name}
+          {t.name}
           <SelectMenu {...args} {...t} />
         </div>
       ))}
@@ -47,19 +96,9 @@ const Hovers = args => {
   );
 };
 
-// Ensure each SelectMenu in chromatic stories is expanded by default and has enough space to display
-Object.entries(SelectMenuStories).forEach((story): any => {
-  (story[1] as any).args = {...(story[1] as any).args, defaultExpanded: true};
-  (story[1] as any).style = {
-    ...(story[1] as any).style,
-    marginBottom: '400px',
-  };
-});
-
 export const Default = generateChromaticStory(
   {
     ...SelectMenuStories,
-    Sizes,
   },
   {
     storiesToHover: [Hovers],

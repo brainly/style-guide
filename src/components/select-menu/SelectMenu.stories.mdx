@@ -22,7 +22,7 @@ const Container = (Story, options) => {
         overflow: 'hidden',
       }}
     >
-      {Story()}
+      <Story {...options} />
     </div>
   );
 };
@@ -92,7 +92,14 @@ return (
 ## Overview
 
 <Canvas>
-  <Story name="Default">{args => <SelectMenu {...args} />}</Story>
+  <Story
+    name="Default"
+    parameters={{
+      chromatic: {disableSnapshot: true},
+    }}
+  >
+    {args => <SelectMenu {...args} />}
+  </Story>
 </Canvas>
 
 <ArgsTable story="Default" />
@@ -102,7 +109,12 @@ return (
 ### Controlled
 
 <Canvas>
-  <Story name="Controlled">
+  <Story
+    name="Controlled"
+    parameters={{
+      chromatic: {disableSnapshot: true},
+    }}
+  >
     {args => {
       const [selectedOptions, setSelectedOptions] = React.useState([
         args.options[1],
@@ -125,7 +137,12 @@ return (
 ### Default expanded
 
 <Canvas>
-  <Story name="Default expanded">
+  <Story
+    name="Default expanded"
+    parameters={{
+      chromatic: {disableSnapshot: true},
+    }}
+  >
     {args => {
       return (
         <div style={{width: '200px'}}>
@@ -141,7 +158,6 @@ return (
 <Canvas>
   <Story
     name="With icons"
-    parameters={{height: '400px'}}
     args={{
       withIcons: true,
       options: [
@@ -170,6 +186,9 @@ return (
           },
         },
       ],
+    }}
+    parameters={{
+      chromatic: {disableSnapshot: true},
     }}
   >
     {args => {
@@ -226,7 +245,7 @@ return (
 <Canvas>
   <Story
     name="With different select and popup lengths"
-    parameters={{height: '550px'}}
+    parameters={{height: '550px', chromatic: {disableSnapshot: true}}}
     args={{
       withIcons: true,
       options: [
@@ -262,7 +281,7 @@ return (
       return (
         <Flex direction="column" style={{gap: '20px'}}>
           <div style={{width: '200px'}}>
-            <Text>With wide popup</Text>
+            <Text>Popup with wide content:</Text>
             <SelectMenu
               {...args}
               selectedOptions={selectedOptions[0]}
@@ -271,45 +290,10 @@ return (
               }}
             />
           </div>
-          <div style={{width: '400px'}}>
-            <Text>With wide input</Text>
-            <SelectMenu
-              {...args}
-              options={[
-                {
-                  value: 'tv',
-                  label: 'Usłyszałem',
-                  icon: {
-                    name: 'physics',
-                    isSubjectIcon: true,
-                  },
-                },
-                {
-                  value: 'fb',
-                  label: 'Media',
-                  icon: {
-                    name: 'history',
-                    isSubjectIcon: true,
-                  },
-                },
-                {
-                  value: 'search',
-                  label: 'Wyszukiwarka',
-                  icon: {
-                    name: 'science',
-                    isSubjectIcon: true,
-                  },
-                },
-              ]}
-              placeholder="Select something from the list"
-              selectedOptions={selectedOptions[1]}
-              onOptionChange={option => {
-                setSelectedOptions({...selectedOptions, 1: [option]});
-              }}
-            />
-          </div>
           <div style={{width: '600px'}}>
-            <Text>With short popup that stretches to 70% of the input</Text>
+            <Text>
+              Popup with short content that stretches to 70% of the input:
+            </Text>
             <SelectMenu
               {...args}
               withIcons={false}
@@ -332,7 +316,7 @@ return (
             />
           </div>
           <div>
-            <Text>With short popup</Text>
+            <Text>Popup with short content and short input:</Text>
             <div style={{width: '120px'}}>
               <SelectMenu
                 {...args}
@@ -365,7 +349,10 @@ return (
 ### With multiple options select
 
 <Canvas>
-  <Story name="With multiple options select">
+  <Story
+    name="With multiple options select"
+    parameters={{chromatic: {disableSnapshot: true}}}
+  >
     {args => {
       const [selectedOptions, setSelectedOptions] = React.useState([]);
       const handleOptionChange = option => {
@@ -398,7 +385,10 @@ return (
 ### With preselected multiple options
 
 <Canvas>
-  <Story name="With preselected multiple options">
+  <Story
+    name="With preselected multiple options"
+    parameters={{chromatic: {disableSnapshot: true}}}
+  >
     {args => {
       const [selectedOptions, setSelectedOptions] = React.useState([
         args.options[1],
@@ -436,7 +426,7 @@ return (
 <Canvas>
   <Story
     name="With space constraints"
-    parameters={{height: '500px'}}
+    parameters={{height: '500px', chromatic: {disableSnapshot: true}}}
     args={{
       withIcons: true,
       options: [
@@ -543,7 +533,7 @@ return (
 <Canvas>
   <Story
     name="With long list"
-    parameters={{height: '500px'}}
+    parameters={{height: '500px', chromatic: {disableSnapshot: true}}}
     args={{
       options: [
         {value: 'physics', label: 'Physics'},
@@ -740,6 +730,7 @@ return (
     name="Positioning"
     parameters={{
       layout: 'fullscreen',
+      chromatic: {disableSnapshot: true},
     }}
     args={{
       withIcons,
