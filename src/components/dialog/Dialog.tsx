@@ -18,8 +18,13 @@ export type DialogPropsType = Readonly<{
   'aria-label'?: string;
   'aria-describedby'?: string;
   'aria-description'?: string;
+  /**
+   * https://github.com/w3c/aria-practices/issues/1241
+   * Fix for Safari, when multiple nodes with aria-modal="true" exists.
+   * Use this to set aria-modal to "false" when you open another/nested dialog.
+   * This will prevent loosing focus on last opened dialog.
+   */
   'aria-modal'?: boolean;
-
   /**
    * Specify the dialog scrolling behavior when
    * the content is longer than the viewport.
