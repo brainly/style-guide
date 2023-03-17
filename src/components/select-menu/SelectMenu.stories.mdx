@@ -422,11 +422,11 @@ return (
   </Story>
 </Canvas>
 
-### With space constraints
+### Positioning
 
 <Canvas>
   <Story
-    name="With space constraints"
+    name="Positioning"
     parameters={{height: '500px', chromatic: {disableSnapshot: true}}}
     args={{
       withIcons: true,
@@ -491,7 +491,8 @@ return (
         <div>
           <Text>
             Scroll the layout vertically and horizontally and see how the
-            SelectMenu position affects the popup position
+            SelectMenu position affects the popup position. You can also resize
+            the container.
           </Text>
           <div
             style={{
@@ -721,91 +722,6 @@ return (
         </StoryVariantTable>
       </div>
     )}
-  </Story>
-</Canvas>
-
-### Positioning
-
-<Canvas>
-  <Story
-    name="Positioning"
-    parameters={{
-      layout: 'fullscreen',
-      chromatic: {disableSnapshot: true},
-    }}
-    args={{
-      withIcons,
-      options: [
-        {
-          value: 'art',
-          label: 'Astronomy is great',
-          icon: {
-            name: 'art',
-            isSubjectIcon: true,
-          },
-        },
-        {
-          value: 'math',
-          label: 'Mathematics is my fav',
-          icon: {
-            name: 'mathematics',
-            isSubjectIcon: true,
-          },
-        },
-      ],
-    }}
-  >
-    {args => {
-      return (
-        <Flex direction="column">
-          <Flex
-            direction="row"
-            justifyContent="space-between"
-            style={{height: '200px'}}
-          >
-            {[...Array(3)].map(number => (
-              <div style={{width: '320px'}}>
-                <SelectMenu
-                  key={`long-${number}`}
-                  {...args}
-                  fullWidth={number % 2 ? false : true}
-                />
-              </div>
-            ))}
-          </Flex>
-          <Flex
-            direction="row"
-            justifyContent="space-between"
-            style={{height: '200px'}}
-          >
-            {[...Array(3)].map(number => (
-              <div style={{width: '120px'}}>
-                <SelectMenu
-                  key={`short-${number}`}
-                  {...args}
-                  fullWidth={number % 2 ? false : true}
-                />
-              </div>
-            ))}
-          </Flex>
-          <Flex
-            direction="row"
-            justifyContent="space-between"
-            style={{padding: '0 30px', height: '300px'}}
-          >
-            {[...Array(3)].map(number => (
-              <div style={{width: '120px'}}>
-                <SelectMenu
-                  key={`with-padding-${number}`}
-                  {...args}
-                  fullWidth={number % 2 ? false : true}
-                />
-              </div>
-            ))}
-          </Flex>
-        </Flex>
-      );
-    }}
   </Story>
 </Canvas>
 
