@@ -182,7 +182,7 @@ const useSelectMenuAnimations = (props: UseSelectMenuAnimationsPropsType) => {
           }
         };
 
-        popupContainer?.addEventListener('transitionend', handleTransitionEnd);
+        popupContainer.addEventListener('transitionend', handleTransitionEnd);
 
         if (hasReduceMotion) {
           cleanupAfterTransition(popupContent);
