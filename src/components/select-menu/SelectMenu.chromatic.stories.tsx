@@ -6,12 +6,19 @@ import SelectMenu, {SIZE as SELECT_SIZE} from './SelectMenu';
 import Text from '../text/Text';
 import Flex from '../flex/Flex';
 
+const onOptionChange = () => null;
+
 export const Sizes = args => {
   return (
     <div style={{display: 'flex', flexDirection: 'row'}}>
       {Object.values(SELECT_SIZE).map(size => (
         <div style={{width: '200px'}} key={size}>
-          <SelectMenu {...args} defaultExpanded size={size} />
+          <SelectMenu
+            {...args}
+            defaultExpanded
+            size={size}
+            onOptionChange={onOptionChange}
+          />
         </div>
       ))}
     </div>
@@ -23,7 +30,36 @@ export const DifferentPopupLenghts = args => {
     <Flex direction="row" style={{gap: '40px'}}>
       <div style={{width: '200px'}}>
         <Text>Popup with wide content:</Text>
-        <SelectMenu {...args} defaultExpanded />
+        <SelectMenu
+          options={[
+            {
+              value: 'tv',
+              label: 'Usłyszałem o Brainly w reklamie telewizyjnej w telewizji',
+              icon: {
+                name: 'physics',
+                isSubjectIcon: true,
+              },
+            },
+            {
+              value: 'fb',
+              label: 'Media społecznościowe',
+              icon: {
+                name: 'history',
+                isSubjectIcon: true,
+              },
+            },
+            {
+              value: 'search',
+              label: 'Wyszukiwarka internetowa',
+              icon: {
+                name: 'science',
+                isSubjectIcon: true,
+              },
+            },
+          ]}
+          defaultExpanded
+          onOptionChange={onOptionChange}
+        />
       </div>
       <div style={{width: '400px'}}>
         <Text>
@@ -45,6 +81,7 @@ export const DifferentPopupLenghts = args => {
             },
           ]}
           placeholder="Select something from the list"
+          onOptionChange={onOptionChange}
         />
       </div>
       <div>
@@ -66,6 +103,7 @@ export const DifferentPopupLenghts = args => {
               },
             ]}
             placeholder="Age"
+            onOptionChange={onOptionChange}
           />
         </div>
       </div>
@@ -81,14 +119,19 @@ const Hovers = args => {
       {types.map(t => (
         <div key={t.name}>
           {t.name}
-          <SelectMenu {...args} {...t} />
+          <SelectMenu {...args} {...t} onOptionChange={onOptionChange} />
         </div>
       ))}
       <div style={{background: 'black'}}>
         {types.map(t => (
           <div key={t.name}>
             <span style={{color: 'white'}}>White: {t.name}</span>
-            <SelectMenu {...args} {...t} color="white" />
+            <SelectMenu
+              {...args}
+              {...t}
+              color="white"
+              onOptionChange={onOptionChange}
+            />
           </div>
         ))}
       </div>
