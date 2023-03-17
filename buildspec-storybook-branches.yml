@@ -14,3 +14,12 @@ artifacts:
   files:
     - '**/*'
   base-directory: 'dist/storybook/branch/$GIT_BRANCH'
+  secondary-artifacts:
+    images:
+      files:
+        - '**/*'
+      base-directory: 'dist/storybook/images'
+    fonts:
+      files:
+        - '**/*'
+      base-directory: 'dist/storybook/fonts'
