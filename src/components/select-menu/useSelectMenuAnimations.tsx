@@ -13,6 +13,7 @@ const MIN_POPUP_WIDTH = 120;
 const ANIMATE_CLASSNAME = 'animate-on-transforms';
 const SCROLL_HIDE_CLASSNAME = 'hide-scroll';
 const OPEN_CLASSNAME = 'open';
+const MINIMAL_POPUP_TO_INPUT_RATIO = 0.7;
 
 /**
  * Move floating container by 8px from the initial top position.
@@ -134,7 +135,7 @@ const useSelectMenuAnimations = (props: UseSelectMenuAnimationsPropsType) => {
         popupContainer.style.height = `${initialContainerSize.height}px`;
         const popupWidth: number = Math.max(
           initialContainerSize.width,
-          selectElementSize.width * 0.7,
+          selectElementSize.width * MINIMAL_POPUP_TO_INPUT_RATIO,
           MIN_POPUP_WIDTH
         );
 
