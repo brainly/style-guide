@@ -108,7 +108,7 @@ const useSelectMenuAnimations = (props: UseSelectMenuAnimationsPropsType) => {
 
       if (!hasReduceMotion) {
         // Reset the popup height to the pre-appear position
-        popupContainer.style.height = `1px`;
+        popupContainer.style.height = `0`;
         popupContainer.style.opacity = `0`;
 
         // Popup width at the start of animation
