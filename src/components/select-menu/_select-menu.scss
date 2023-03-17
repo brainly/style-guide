@@ -12,6 +12,7 @@
     min-width: 120px;
     max-width: 320px;
     width: 100%;
+    user-select: none;
 
     &--white {
       --select-background: #{$white};
