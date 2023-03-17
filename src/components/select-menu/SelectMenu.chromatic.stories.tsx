@@ -34,7 +34,7 @@ export const DifferentPopupLenghts = args => {
           options={[
             {
               value: 'tv',
-              label: 'Usłyszałem o Brainly w reklamie telewizyjnej w telewizji',
+              label: 'I heard about Brainly in a TV commercial',
               icon: {
                 name: 'physics',
                 isSubjectIcon: true,
@@ -42,7 +42,7 @@ export const DifferentPopupLenghts = args => {
             },
             {
               value: 'fb',
-              label: 'Media społecznościowe',
+              label: 'Social media',
               icon: {
                 name: 'history',
                 isSubjectIcon: true,
@@ -50,7 +50,7 @@ export const DifferentPopupLenghts = args => {
             },
             {
               value: 'search',
-              label: 'Wyszukiwarka internetowa',
+              label: 'Search engine',
               icon: {
                 name: 'science',
                 isSubjectIcon: true,
