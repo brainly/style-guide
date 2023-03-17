@@ -10,7 +10,7 @@ type UseSelectMenuAnimationsPropsType = {
 };
 
 const MIN_POPUP_WIDTH = 120;
-const ANIMATE_CLASSNAME = 'animate-on-transforms';
+const ANIMATE_CLASSNAME = 'sg-animate-on-transforms';
 const SCROLL_HIDE_CLASSNAME = 'hide-scroll';
 const OPEN_CLASSNAME = 'open';
 const MINIMAL_POPUP_TO_INPUT_RATIO = 0.7;
@@ -68,8 +68,8 @@ const useSelectMenuAnimations = (props: UseSelectMenuAnimationsPropsType) => {
     popupContent.classList.add(SCROLL_HIDE_CLASSNAME);
 
     requestAnimationFrame(() => {
-      popupContainer.classList.add('animate-on-transforms');
-      floatingContainer.classList.add('animate-on-transforms');
+      popupContainer.classList.add(ANIMATE_CLASSNAME);
+      floatingContainer.classList.add(ANIMATE_CLASSNAME);
       resetFloatingContainerTopPosition(floatingContainer, lastRef);
 
       if (callback) callback();
