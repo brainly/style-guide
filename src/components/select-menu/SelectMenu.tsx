@@ -430,7 +430,7 @@ const SelectMenu = React.forwardRef<HTMLDivElement, SelectMenuPropsType>(
             },
             // Handle keyboard
             onKeyDown(event) {
-              if (event.key === 'Enter' && !disabled) {
+              if ((event.key === 'Enter' || event.key === ' ') && !disabled) {
                 event.preventDefault();
                 onOpenChange(!isExpanded);
               }
