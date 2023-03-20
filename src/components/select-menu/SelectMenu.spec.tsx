@@ -2,7 +2,6 @@ import * as React from 'react';
 import {
   render,
   waitFor,
-  fireEvent,
   within,
   waitForElementToBeRemoved,
 } from '@testing-library/react';
@@ -73,7 +72,8 @@ describe('<SelectMenu />', () => {
 
     userEvent.click(selectElement);
     expect(selectElement.getAttribute('aria-expanded')).toEqual('true');
-    select.findByRole('listbox');
+    expect(select.queryByRole('listbox')).toBeInTheDocument();
+
     expect(select.getByRole('listbox').getAttribute('id')).toBe(
       select.getByRole('combobox').getAttribute('aria-controls')
     );
@@ -87,36 +87,61 @@ describe('<SelectMenu />', () => {
     const selectElement = select.getByRole('combobox') as HTMLElement;
 
     userEvent.click(selectElement);
-    await select.findByRole('listbox');
-    fireEvent.click(select.getByText('Physics'));
+    expect(selectElement.getAttribute('aria-expanded')).toEqual('true');
+    expect(select.queryByRole('listbox')).toBeInTheDocument();
+
+    const option1 = select.getByRole('option', {name: 'Physics'});
+
+    userEvent.click(option1);
+    expect(option1.getAttribute('aria-selected')).toEqual('true');
 
     await waitForElementToBeRemoved(() => select.queryByRole('listbox'));
     expect(select.queryByText('Select...')).toBeFalsy();
     expect(select.getByText('Physics')).toBeTruthy();
 
     userEvent.click(selectElement);
-    await select.findByRole('listbox');
-    fireEvent.click(select.getByText('History'));
+
+    const option2 = select.getByRole('option', {name: 'History'});
+
+    userEvent.click(option2);
+    expect(option2.getAttribute('aria-selected')).toEqual('true');
+    expect(
+      select
+        .getByRole('option', {name: 'Physics'})
+        .getAttribute('aria-selected')
+    ).toEqual('false');
 
     await waitForElementToBeRemoved(() => select.queryByRole('listbox'));
     expect(select.getByText('History')).toBeTruthy();
 
     userEvent.click(selectElement);
-    await waitFor(() => expect(select.queryByRole('listbox')).toBeTruthy());
+    expect(select.queryByRole('listbox')).toBeInTheDocument();
+
     expect(
-      within(select.getByRole('option', {selected: true})).getByText('History')
-    ).toBeTruthy();
+      select
+        .getByRole('option', {name: 'History check'})
+        .getAttribute('aria-selected')
+    ).toEqual('true');
   });
 
   it('can select multiple options in multi select Select', async () => {
     const select = render(<RenderSelectMenu multiSelect />);
     const selectElement = select.getByRole('combobox') as HTMLElement;
 
-    expect(selectElement.getAttribute('aria-multiselectable')).toBeTruthy();
+    expect(selectElement.getAttribute('aria-multiselectable')).toEqual('true');
+
     userEvent.click(selectElement);
-    await select.findByRole('listbox');
-    fireEvent.click(select.getByText('Physics'));
-    fireEvent.click(select.getByText('Science'));
+    expect(selectElement.getAttribute('aria-expanded')).toEqual('true');
+    expect(select.queryByRole('listbox')).toBeInTheDocument();
+
+    expect(select.container.getElementsByClassName('sg-checkbox').length).toBe(
+      3
+    );
+
+    userEvent.click(select.getByText('Physics'));
+    expect(selectElement.getAttribute('aria-expanded')).toEqual('true');
+    userEvent.click(select.getByText('Science'));
+    expect(selectElement.getAttribute('aria-expanded')).toEqual('true');
 
     userEvent.click(document.body);
     await waitForElementToBeRemoved(() => select.queryByRole('listbox'));
@@ -130,7 +155,7 @@ describe('<SelectMenu />', () => {
     const selectElement = select.getByRole('combobox') as HTMLElement;
 
     userEvent.click(selectElement);
-    select.findByRole('listbox');
+    expect(select.getByRole('listbox')).toBeInTheDocument();
 
     userEvent.click(document.body);
     await waitFor(() =>
@@ -142,7 +167,7 @@ describe('<SelectMenu />', () => {
   it('renders with options popup open when select is set as default expanded', async () => {
     const select = render(<RenderSelectMenu defaultExpanded />);
 
-    select.findByRole('listbox');
+    expect(select.getByRole('listbox')).toBeInTheDocument();
   });
 
   it('can close default expanded select', async () => {
@@ -164,27 +189,31 @@ describe('<SelectMenu />', () => {
     await waitFor(() =>
       expect(selectElement.getAttribute('aria-expanded')).toEqual('true')
     );
-    const selectedOption1 = select.getByRole('option', {name: 'Physics'});
+    const option1 = select.getByRole('option', {name: 'Physics'});
 
-    expect(selectedOption1).toHaveFocus();
-    expect(selectedOption1).toEqual(document.activeElement);
+    expect(option1).toHaveFocus();
+    expect(option1).toEqual(document.activeElement);
 
     userEvent.keyboard('{space}');
-    expect(selectedOption1.getAttribute('aria-selected')).toEqual('true');
+    expect(option1.getAttribute('aria-selected')).toEqual('true');
     await waitForElementToBeRemoved(() => select.queryByRole('listbox'));
 
     expect(selectElement).toHaveFocus();
     expect(select.getByText('Physics')).toBeTruthy();
 
-    userEvent.keyboard('{Enter}');
+    userEvent.keyboard('{enter}');
     await waitFor(() =>
       expect(selectElement.getAttribute('aria-expanded')).toEqual('true')
     );
 
-    select.getByRole('option', {name: 'History'}).focus();
-    userEvent.keyboard('{enter}');
+    const option2 = select.getByRole('option', {name: 'History'});
 
+    option2.focus();
+    expect(option2).toHaveFocus();
+
+    userEvent.keyboard('{enter}');
     await waitForElementToBeRemoved(() => select.queryByRole('listbox'));
+
     expect(select.getByText('History')).toBeTruthy();
 
     userEvent.keyboard('{space}');
@@ -211,7 +240,7 @@ describe('<SelectMenu />', () => {
 
     userEvent.click(selectElement);
     expect(selectElement.getAttribute('aria-expanded')).toEqual('false');
-    expect(select.queryByRole('listbox')).toBeFalsy();
+    expect(select.queryByRole('listbox')).not.toBeInTheDocument();
   });
 
   it('has accessible label and description', () => {
