@@ -28,7 +28,7 @@ export const Sizes = args => {
 export const DifferentPopupLenghts = args => {
   return (
     <Flex direction="row" style={{gap: '40px'}}>
-      <div style={{width: '200px'}}>
+      <div style={{width: '250px'}}>
         <Text>Popup with wide content:</Text>
         <SelectMenu
           options={[
@@ -61,7 +61,7 @@ export const DifferentPopupLenghts = args => {
           onOptionChange={onOptionChange}
         />
       </div>
-      <div style={{width: '400px'}}>
+      <div style={{width: '350px'}}>
         <Text>
           Popup with short content that stretches to 70% of the input:
         </Text>
