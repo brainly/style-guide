@@ -1,9 +1,9 @@
 @if ($includeHtml) {
   .sg-select-menu {
-    --select-background: #{$gray-20};
-    --border-color: #{$gray-20};
+    --select-background: var(--gray-20);
+    --border-color: var(--gray-20);
     --active-border-color: #{mix($gray-50, $gray-20, 12%)};
-    --active-background-color: #{$white};
+    --active-background-color: var(--white);
     --hover-background-color: #{mix($gray-50, $gray-20, 12%)};
     --hover-border-color: #{mix($gray-50, $gray-20, 12%)};
 
@@ -15,23 +15,23 @@
     user-select: none;
 
     &--white {
-      --select-background: #{$white};
-      --border-color: #{$white};
-      --active-border-color: #{$gray-40};
-      --hover-background-color: #{$gray-20};
-      --hover-border-color: #{$gray-20};
+      --select-background: var(--white);
+      --border-color: var(--white);
+      --active-border-color: var(--gray-40);
+      --hover-background-color: var(--gray-20);
+      --hover-border-color: var(--gray-20);
     }
 
     &--valid {
-      --border-color: #{$green-40};
-      --hover-border-color: #{$green-40};
-      --active-border-color: #{$green-40};
+      --border-color: var(--green-40);
+      --hover-border-color: var(--green-40);
+      --active-border-color: var(--green-40);
     }
 
     &--invalid {
-      --border-color: #{$red-60};
-      --hover-border-color: #{$red-60};
-      --active-border-color: #{$red-60};
+      --border-color: var(--red-60);
+      --hover-border-color: var(--red-60);
+      --active-border-color: var(--red-60);
     }
 
     &--disabled {
@@ -204,7 +204,7 @@
       max-width: 320px;
       width: max-content;
       max-height: 100%;
-      background-color: $white;
+      background-color: var(--white);
       display: flex;
       flex-direction: column;
       flex: 1 0 auto;
@@ -281,11 +281,11 @@
       }
 
       &:hover {
-        background-color: $gray-10;
+        background-color: var(--gray-10);
       }
 
       &--selected {
-        background-color: $gray-20;
+        background-color: var(--gray-20);
       }
 
       &--multi-select {
