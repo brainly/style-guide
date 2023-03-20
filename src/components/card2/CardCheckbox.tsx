@@ -1,8 +1,8 @@
 import * as React from 'react';
 import cx from 'classnames';
-import Checkbox from '../form-elements/checkbox/Checkbox';
+import Checkbox, {CheckboxPropsType} from '../form-elements/checkbox/Checkbox';
 
-export interface CardCheckboxPropsType {
+export interface CardCheckboxPropsType extends CheckboxPropsType {
   /**
    * Optional string. Additional class names.
    */
@@ -21,24 +21,41 @@ const CardCheckbox = ({
   width,
   height,
   style,
+  ...checkboxProps
 }: CardCheckboxPropsType) => {
+  const [hover, setHover] = React.useState(false);
   const cssVariables = {
     '--card-width': width,
     '--card-height': height,
   };
 
+  const indicator = React.Children.toArray(children).find(
+    child => (child as React.ReactElement).type === CardCheckboxIndicator
+  );
+
+  const defaultIndicator = (
+    <CardCheckboxIndicator
+      {...checkboxProps}
+      className={indicator ? 'visually-hidden' : undefined}
+    />
+  );
+
   return (
     <label
-      className={cx('sg-card-radio', className)}
+      className={cx('sg-card-radio', className, {
+        'sg-card-radio--hover': hover,
+      })}
       style={{...style, ...cssVariables}}
+      onMouseEnter={() => setHover(true)}
+      onMouseLeave={() => setHover(false)}
     >
-      <CardCheckboxIndicator />
+      {indicator || defaultIndicator}
       {children}
     </label>
   );
 };
 
-export interface CardCheckboxIndicatorPropsType {
+export interface CardCheckboxIndicatorPropsType extends CheckboxPropsType {
   slot?:
     | 'top-left'
     | 'center-left'
@@ -54,6 +71,7 @@ const CardCheckboxIndicator = ({
   slot = 'top-left',
   style,
   className,
+  ...checkboxProps
 }: CardCheckboxIndicatorPropsType) => {
   return (
     <div
@@ -64,7 +82,7 @@ const CardCheckboxIndicator = ({
       )}
       style={style}
     >
-      <Checkbox />
+      <Checkbox {...checkboxProps} />
     </div>
   );
 };
