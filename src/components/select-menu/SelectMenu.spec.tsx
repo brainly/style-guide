@@ -60,10 +60,11 @@ describe('<SelectMenu />', () => {
     const select = render(<RenderSelectMenu />);
     const selectElement = select.getByRole('combobox') as HTMLElement;
 
-    expect(select.getByText('Select...')).toBeTruthy();
-    expect(selectElement.getAttribute('aria-expanded')).toBe('false');
-    expect(selectElement.getAttribute('aria-disabled')).toBeFalsy();
-    expect(selectElement.getAttribute('aria-invalid')).toBeFalsy();
+    expect(select.getByText('Select...')).toBeInTheDocument();
+
+    expect(selectElement.getAttribute('aria-expanded')).toEqual('false');
+    expect(selectElement.getAttribute('aria-invalid')).toBeNull();
+    expect(selectElement.getAttribute('aria-disabled')).toBeNull();
   });
 
   it('opens options popup when select element is clicked', async () => {
@@ -79,7 +80,7 @@ describe('<SelectMenu />', () => {
     );
     expect(
       within(select.getByRole('listbox')).getAllByRole('option').length
-    ).toBeTruthy();
+    ).toBe(3);
   });
 
   it('can select single option', async () => {
@@ -96,8 +97,10 @@ describe('<SelectMenu />', () => {
     expect(option1.getAttribute('aria-selected')).toEqual('true');
 
     await waitForElementToBeRemoved(() => select.queryByRole('listbox'));
-    expect(select.queryByText('Select...')).toBeFalsy();
-    expect(select.getByText('Physics')).toBeTruthy();
+    expect(select.queryByText('Select...')).not.toBeInTheDocument();
+    expect(
+      within(select.getByRole('combobox')).getByText('Physics')
+    ).toBeInTheDocument();
 
     userEvent.click(selectElement);
 
@@ -112,7 +115,10 @@ describe('<SelectMenu />', () => {
     ).toEqual('false');
 
     await waitForElementToBeRemoved(() => select.queryByRole('listbox'));
-    expect(select.getByText('History')).toBeTruthy();
+
+    expect(
+      within(select.getByRole('combobox')).getByText('History')
+    ).toBeInTheDocument();
 
     userEvent.click(selectElement);
     expect(select.queryByRole('listbox')).toBeInTheDocument();
@@ -146,8 +152,10 @@ describe('<SelectMenu />', () => {
     userEvent.click(document.body);
     await waitForElementToBeRemoved(() => select.queryByRole('listbox'));
 
-    expect(select.queryByText('Select...')).toBeFalsy();
-    expect(select.getByText('Physics, Science')).toBeTruthy();
+    expect(select.queryByText('Select...')).not.toBeInTheDocument();
+    expect(
+      within(select.getByRole('combobox')).getByText('Physics, Science')
+    ).toBeInTheDocument();
   });
 
   it('closes options popup when user clicks outside of it', async () => {
@@ -199,7 +207,9 @@ describe('<SelectMenu />', () => {
     await waitForElementToBeRemoved(() => select.queryByRole('listbox'));
 
     expect(selectElement).toHaveFocus();
-    expect(select.getByText('Physics')).toBeTruthy();
+    expect(
+      within(select.getByRole('combobox')).getByText('Physics')
+    ).toBeInTheDocument();
 
     userEvent.keyboard('{enter}');
     await waitFor(() =>
@@ -213,8 +223,9 @@ describe('<SelectMenu />', () => {
 
     userEvent.keyboard('{enter}');
     await waitForElementToBeRemoved(() => select.queryByRole('listbox'));
-
-    expect(select.getByText('History')).toBeTruthy();
+    expect(
+      within(select.getByRole('combobox')).getByText('History')
+    ).toBeInTheDocument();
 
     userEvent.keyboard('{space}');
     await waitFor(() =>
@@ -255,6 +266,6 @@ describe('<SelectMenu />', () => {
 
     expect(
       select.getByRole('combobox', {name: label, description})
-    ).toBeTruthy();
+    ).toBeInTheDocument();
   });
 });
