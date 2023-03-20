@@ -1,5 +1,11 @@
 import * as React from 'react';
-import {render, waitFor, fireEvent, within} from '@testing-library/react';
+import {
+  render,
+  waitFor,
+  fireEvent,
+  within,
+  waitForElementToBeRemoved,
+} from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import SelectMenu from './SelectMenu';
 
@@ -84,14 +90,15 @@ describe('<SelectMenu />', () => {
     await select.findByRole('listbox');
     fireEvent.click(select.getByText('Physics'));
 
-    await waitFor(() => expect(select.queryByRole('listbox')).toBeFalsy());
+    await waitForElementToBeRemoved(() => select.queryByRole('listbox'));
     expect(select.queryByText('Select...')).toBeFalsy();
     expect(select.getByText('Physics')).toBeTruthy();
 
     userEvent.click(selectElement);
     await select.findByRole('listbox');
     fireEvent.click(select.getByText('History'));
-    await waitFor(() => expect(select.queryByRole('listbox')).toBeFalsy());
+
+    await waitForElementToBeRemoved(() => select.queryByRole('listbox'));
     expect(select.getByText('History')).toBeTruthy();
 
     userEvent.click(selectElement);
@@ -110,9 +117,10 @@ describe('<SelectMenu />', () => {
     await select.findByRole('listbox');
     fireEvent.click(select.getByText('Physics'));
     fireEvent.click(select.getByText('Science'));
-    userEvent.click(document.body);
 
-    await waitFor(() => expect(select.queryByRole('listbox')).toBeFalsy());
+    userEvent.click(document.body);
+    await waitForElementToBeRemoved(() => select.queryByRole('listbox'));
+
     expect(select.queryByText('Select...')).toBeFalsy();
     expect(select.getByText('Physics, Science')).toBeTruthy();
   });
@@ -123,11 +131,12 @@ describe('<SelectMenu />', () => {
 
     userEvent.click(selectElement);
     select.findByRole('listbox');
+
     userEvent.click(document.body);
     await waitFor(() =>
       expect(selectElement.getAttribute('aria-expanded')).toEqual('false')
     );
-    await waitFor(() => expect(select.queryByRole('listbox')).toBeFalsy());
+    await waitForElementToBeRemoved(() => select.queryByRole('listbox'));
   });
 
   it('renders with options popup open when select is set as default expanded', async () => {
@@ -137,10 +146,10 @@ describe('<SelectMenu />', () => {
   });
 
   it('can close default expanded select', async () => {
-    const select = render(<RenderSelectMenu defaultExpanded />);
+    const {queryByRole} = render(<RenderSelectMenu defaultExpanded />);
 
     userEvent.click(document.body);
-    await waitFor(() => expect(select.queryByRole('listbox')).toBeFalsy());
+    await waitForElementToBeRemoved(() => queryByRole('listbox'));
   });
 
   it('can be navigated with a keyboard', async () => {
@@ -150,8 +159,8 @@ describe('<SelectMenu />', () => {
     selectElement.focus();
     expect(selectElement).toEqual(document.activeElement);
     expect(selectElement.getAttribute('aria-expanded')).toBe('false');
-    userEvent.keyboard('{space}');
 
+    userEvent.keyboard('{space}');
     await waitFor(() =>
       expect(selectElement.getAttribute('aria-expanded')).toEqual('true')
     );
@@ -159,13 +168,14 @@ describe('<SelectMenu />', () => {
 
     expect(selectedOption1).toHaveFocus();
     expect(selectedOption1).toEqual(document.activeElement);
+
     userEvent.keyboard('{space}');
     expect(selectedOption1.getAttribute('aria-selected')).toEqual('true');
-    await waitFor(() => expect(select.queryByRole('listbox')).toBeFalsy());
-    expect(select.getByText('Physics')).toBeTruthy();
+    await waitForElementToBeRemoved(() => select.queryByRole('listbox'));
 
     expect(selectElement).toHaveFocus();
-    await waitFor(() => expect(select.queryByRole('listbox')).toBeFalsy());
+    expect(select.getByText('Physics')).toBeTruthy();
+
     userEvent.keyboard('{Enter}');
     await waitFor(() =>
       expect(selectElement.getAttribute('aria-expanded')).toEqual('true')
@@ -173,7 +183,8 @@ describe('<SelectMenu />', () => {
 
     select.getByRole('option', {name: 'History'}).focus();
     userEvent.keyboard('{enter}');
-    await waitFor(() => expect(select.queryByRole('listbox')).toBeFalsy());
+
+    await waitForElementToBeRemoved(() => select.queryByRole('listbox'));
     expect(select.getByText('History')).toBeTruthy();
 
     userEvent.keyboard('{space}');
