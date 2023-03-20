@@ -39,7 +39,6 @@ type FlexJustifyValuesType =
   | 'center'
   | 'flex-start'
   | 'flex-end'
-  | 'baseline'
   | 'space-between'
   | 'space-around'
   | 'space-evenly'
@@ -131,7 +130,6 @@ export type FlexPropsType = {
    * @see justifyContent=center https://styleguide.brainly.com/latest/docs/interactive.html?justifyContent=center#flexbox
    * @see justifyContent=flex-start https://styleguide.brainly.com/latest/docs/interactive.html?ustifyContent=flex-start#flexbox
    * @see justifyContent=flex-end https://styleguide.brainly.com/latest/docs/interactive.html?justifyContent=flex-end#flexbox
-   * @see justifyContent=baseline https://styleguide.brainly.com/latest/docs/interactive.html?justifyContent=baseline#flexbox
    * @see justifyContent=space-between https://styleguide.brainly.com/latest/docs/interactive.html?justifyContent=space-between#flexbox
    * @see justifyContent=space-around https://styleguide.brainly.com/latest/docs/interactive.html?justifyContent=space-around#flexbox
    * @see justifyContent=space-evenly https://styleguide.brainly.com/latest/docs/interactive.html?justifyContent=space-evenly#flexbox

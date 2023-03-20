@@ -13,8 +13,7 @@ $flexSpacingsMap: (
 
 $marginSides: (top right bottom left);
 
-$flexProps: (justify-content align-items align-self);
-$flexJustifyValues: (space-between space-evenly space-around);
+$flexProps: (align-items align-self);
 $flexAlignmentValues: (center flex-start flex-end baseline stretch);
 
 .sg-flex {
@@ -83,7 +82,17 @@ $flexAlignmentValues: (center flex-start flex-end baseline stretch);
       flex-direction: row-reverse;
     }
 
-    @each $value in $flexJustifyValues {
+    @each $value
+      in (
+        center,
+        flex-start,
+        flex-end,
+        space-between,
+        space-around,
+        space-evenly,
+        stretch
+      )
+    {
       @include makeResponsive($variant, 'sg-flex--justify-content-#{$value}') {
         justify-content: #{$value};
       }
