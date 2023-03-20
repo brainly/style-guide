@@ -28,40 +28,42 @@ export const Sizes = args => {
 export const DifferentPopupLenghts = args => {
   return (
     <Flex direction="row" style={{gap: '40px'}}>
-      <div style={{width: '250px'}}>
-        <Text>Popup with wide content:</Text>
-        <SelectMenu
-          options={[
-            {
-              value: 'tv',
-              label: 'I heard about Brainly in a TV commercial',
-              icon: {
-                name: 'physics',
-                isSubjectIcon: true,
+      <div style={{width: '320px'}}>
+        <div style={{width: '200px'}}>
+          <Text>Popup with wide content:</Text>
+          <SelectMenu
+            options={[
+              {
+                value: 'tv',
+                label: 'I heard about Brainly in a TV commercial',
+                icon: {
+                  name: 'physics',
+                  isSubjectIcon: true,
+                },
               },
-            },
-            {
-              value: 'fb',
-              label: 'Social media',
-              icon: {
-                name: 'history',
-                isSubjectIcon: true,
+              {
+                value: 'fb',
+                label: 'Social media',
+                icon: {
+                  name: 'history',
+                  isSubjectIcon: true,
+                },
               },
-            },
-            {
-              value: 'search',
-              label: 'Search engine',
-              icon: {
-                name: 'science',
-                isSubjectIcon: true,
+              {
+                value: 'search',
+                label: 'Search engine',
+                icon: {
+                  name: 'science',
+                  isSubjectIcon: true,
+                },
               },
-            },
-          ]}
-          defaultExpanded
-          onOptionChange={onOptionChange}
-        />
+            ]}
+            defaultExpanded
+            onOptionChange={onOptionChange}
+          />
+        </div>
       </div>
-      <div style={{width: '350px'}}>
+      <div style={{width: '320px'}}>
         <Text>
           Popup with short content that stretches to 70% of the input:
         </Text>
