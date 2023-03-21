@@ -41,3 +41,15 @@ export const FLEX_MARGINS = {
   XXXLARGE: 'xxxl',
   XXXXLARGE: 'xxxxl',
 } as const;
+
+export const FLEX_GAP_VALUES = {
+  NONE: 'none',
+  XSMALL: 'xs',
+  SMALL: 's',
+  MEDIUM: 'm',
+  LARGE: 'l',
+  XLARGE: 'xl',
+  XXLARGE: 'xxl',
+  XXXLARGE: 'xxxl',
+  XXXXLARGE: 'xxxxl',
+} as const;
