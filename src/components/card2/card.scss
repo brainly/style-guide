@@ -1,6 +1,4 @@
-.sg-card-button,
-.sg-card-radio,
-.sg-card-checkbox {
+.sg-card {
   display: block;
   position: relative;
   width: var(--card-width, auto);
@@ -19,7 +17,14 @@
   }
 }
 
-.sg-card-checkbox__indicator {
+.sg-card__input {
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  left: 0;
+}
+
+.sg-card__indicator {
   position: absolute;
   top: 0;
   left: 0;
