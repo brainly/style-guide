@@ -26,7 +26,6 @@ export interface CardCheckboxPropsType {
   onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
-// create context for CardCheckboxIndicator to use
 export const CardCheckboxContext = React.createContext({
   checked: false,
   disabled: false,
@@ -39,7 +38,7 @@ const CardCheckbox = ({
   height,
   style,
 
-  // list all input typed checkbox related props individually one by one
+  // checkbox related props
   checked,
   defaultChecked = false,
   disabled,
