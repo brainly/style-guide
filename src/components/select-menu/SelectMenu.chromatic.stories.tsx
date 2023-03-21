@@ -117,16 +117,25 @@ const Hovers = args => {
   const types = [{name: 'default'}, {disabled: true, name: 'disabled'}];
 
   return (
-    <div>
+    <Flex direction="column" style={{gap: '10px'}}>
       {types.map(t => (
-        <div key={t.name}>
+        <Flex
+          key={t.name}
+          style={{width: '500px', padding: '10px'}}
+          justifyContent="space-between"
+          alignItems="center"
+        >
           {t.name}
           <SelectMenu {...args} {...t} onOptionChange={onOptionChange} />
-        </div>
+        </Flex>
       ))}
-      <div style={{background: 'black'}}>
-        {types.map(t => (
-          <div key={t.name}>
+      {types.map(t => (
+        <div key={t.name} style={{background: 'black'}}>
+          <Flex
+            style={{width: '500px', padding: '10px'}}
+            justifyContent="space-between"
+            alignItems="center"
+          >
             <span style={{color: 'white'}}>White: {t.name}</span>
             <SelectMenu
               {...args}
@@ -134,10 +143,10 @@ const Hovers = args => {
               color="white"
               onOptionChange={onOptionChange}
             />
-          </div>
-        ))}
-      </div>
-    </div>
+          </Flex>
+        </div>
+      ))}
+    </Flex>
   );
 };
 
