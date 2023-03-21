@@ -1,0 +1,730 @@
+import {ArgsTable, Meta, Story, Canvas} from '@storybook/addon-docs';
+import SelectMenu, {
+  SIZE as SELECT_SIZE,
+  COLOR as SELECT_COLOR,
+} from './SelectMenu';
+import PageHeader from 'blocks/PageHeader';
+import Button from '../buttons/Button';
+import Text from '../text/Text';
+import Flex from '../flex/Flex';
+import SelectMenuA11y from './stories/SelectMenu.a11y.mdx';
+import Headline from '../text/Headline';
+import {StoryVariant, StoryVariantTable} from '../../docs/utils';
+const Container = (Story, options) => {
+  const {args, parameters} = options;
+  return (
+    <div
+      style={{
+        minHeight: parameters.height || '300px',
+        position: 'relative',
+        width: '100%',
+        boxSizing: 'border-box',
+        overflow: 'hidden',
+      }}
+    >
+      <Story {...options} />
+    </div>
+  );
+};
+
+<Meta
+  title="Components/SelectMenu"
+  component={SelectMenu}
+  argTypes={{
+    defaultExpanded: {
+      control: {
+        type: 'boolean',
+      },
+    },
+    size: {
+      control: {
+        type: 'select',
+        options: SELECT_SIZE,
+      },
+    },
+    color: {
+      control: {
+        type: 'select',
+        options: SELECT_COLOR,
+      },
+    },
+  }}
+  args={{
+    options: [
+      {
+        value: 'physics',
+        label: 'Physics',
+      },
+      {value: 'history', label: 'History'},
+      {value: 'science', label: 'Science'},
+    ],
+    disabled: false,
+    size: SELECT_SIZE.M,
+    color: SELECT_COLOR.DEFAULT,
+  }}
+  decorators={[Container]}
+/>
+
+<PageHeader>SelectMenu</PageHeader>
+
+This component is a controlled component, so you have to handle selecting options.
+
+```jsx
+const [selectedOptions, setSelectedOptions] = React.useState([]);
+
+return (
+  <SelectMenu
+    options={[
+      {value: 'history', label: 'History'},
+      {value: 'science', label: 'Science'},
+    ]}
+    selectedOptions={selectedOptions}
+    onOptionChange={option => {
+      setSelectedOptions([option]);
+    }}
+  />
+);
+```
+
+- [Stories](#stories)
+- [Accessibility](#accessibility)
+
+## Overview
+
+<Canvas>
+  <Story
+    name="Default"
+    parameters={{
+      chromatic: {disableSnapshot: true},
+    }}
+  >
+    {args => <SelectMenu {...args} />}
+  </Story>
+</Canvas>
+
+<ArgsTable story="Default" />
+
+## Stories
+
+### Controlled
+
+<Canvas>
+  <Story
+    name="Controlled"
+    parameters={{
+      chromatic: {disableSnapshot: true},
+    }}
+  >
+    {args => {
+      const [selectedOptions, setSelectedOptions] = React.useState([
+        args.options[1],
+      ]);
+      return (
+        <div style={{width: '200px'}}>
+          <SelectMenu
+            {...args}
+            selectedOptions={selectedOptions}
+            onOptionChange={option => {
+              setSelectedOptions([option]);
+            }}
+          />
+        </div>
+      );
+    }}
+  </Story>
+</Canvas>
+
+### Default expanded
+
+<Canvas>
+  <Story
+    name="Default expanded"
+    parameters={{
+      chromatic: {disableSnapshot: true},
+    }}
+  >
+    {args => {
+      return (
+        <div style={{width: '200px'}}>
+          <SelectMenu {...args} defaultExpanded />
+        </div>
+      );
+    }}
+  </Story>
+</Canvas>
+
+### With icons
+
+<Canvas>
+  <Story
+    name="With icons"
+    args={{
+      withIcons: true,
+      options: [
+        {
+          value: 'physics',
+          label: 'Physics',
+          icon: {
+            name: 'physics',
+            isSubjectIcon: true,
+          },
+        },
+        {
+          value: 'history',
+          label: 'History',
+          icon: {
+            name: 'history',
+            isSubjectIcon: true,
+          },
+        },
+        {
+          value: 'science',
+          label: 'Science',
+          icon: {
+            name: 'science',
+            isSubjectIcon: true,
+          },
+        },
+      ],
+    }}
+    parameters={{
+      height: '400px',
+      chromatic: {disableSnapshot: true},
+    }}
+  >
+    {args => {
+      const [selectedOptions, setSelectedOptions] = React.useState({});
+      return (
+        <Flex direction="column" style={{gap: '20px', width: '200px'}}>
+          With subject icons
+          <SelectMenu
+            {...args}
+            selectedOptions={selectedOptions[0]}
+            onOptionChange={option => {
+              setSelectedOptions({...selectedOptions, 0: [option]});
+            }}
+          />
+          With icons
+          <SelectMenu
+            {...args}
+            options={[
+              {
+                value: 'physics',
+                label: 'Physics',
+                icon: {
+                  name: 'points',
+                },
+              },
+              {
+                value: 'history',
+                label: 'History',
+                icon: {
+                  name: 'points',
+                },
+              },
+              {
+                value: 'science',
+                label: 'Science',
+                icon: {
+                  name: 'points',
+                },
+              },
+            ]}
+            selectedOptions={selectedOptions[1]}
+            onOptionChange={option => {
+              setSelectedOptions({...selectedOptions, 1: [option]});
+            }}
+          />
+        </Flex>
+      );
+    }}
+  </Story>
+</Canvas>
+
+### With different select and popup lengths
+
+<Canvas>
+  <Story
+    name="With different select and popup lengths"
+    parameters={{height: '550px', chromatic: {disableSnapshot: true}}}
+    args={{
+      withIcons: true,
+      options: [
+        {
+          value: 'tv',
+          label: 'I heard about Brainly in a TV commercial',
+          icon: {
+            name: 'physics',
+            isSubjectIcon: true,
+          },
+        },
+        {
+          value: 'fb',
+          label: 'Social media',
+          icon: {
+            name: 'history',
+            isSubjectIcon: true,
+          },
+        },
+        {
+          value: 'search',
+          label: 'Search engine',
+          icon: {
+            name: 'science',
+            isSubjectIcon: true,
+          },
+        },
+      ],
+    }}
+  >
+    {args => {
+      const [selectedOptions, setSelectedOptions] = React.useState({});
+      return (
+        <Flex direction="column" style={{gap: '20px'}}>
+          <div style={{width: '200px'}}>
+            <Text>Popup with wide content:</Text>
+            <SelectMenu
+              {...args}
+              selectedOptions={selectedOptions[0]}
+              onOptionChange={option => {
+                setSelectedOptions({...selectedOptions, 0: [option]});
+              }}
+            />
+          </div>
+          <div style={{width: '600px'}}>
+            <Text>
+              Popup with short content that stretches to 70% of the input:
+            </Text>
+            <SelectMenu
+              {...args}
+              withIcons={false}
+              options={[
+                {
+                  value: 'tv',
+                  label: '1',
+                },
+                {value: 'fb', label: '2'},
+                {
+                  value: 'search',
+                  label: '3',
+                },
+              ]}
+              placeholder="Select something from the list"
+              selectedOptions={selectedOptions[2]}
+              onOptionChange={option => {
+                setSelectedOptions({...selectedOptions, 2: [option]});
+              }}
+            />
+          </div>
+          <div>
+            <Text>Popup with short content and short input:</Text>
+            <div style={{width: '120px'}}>
+              <SelectMenu
+                {...args}
+                withIcons={false}
+                options={[
+                  {
+                    value: 'tv',
+                    label: '1',
+                  },
+                  {value: 'fb', label: '2'},
+                  {
+                    value: 'search',
+                    label: '3',
+                  },
+                ]}
+                placeholder="Age"
+                selectedOptions={selectedOptions[3]}
+                onOptionChange={option => {
+                  setSelectedOptions({...selectedOptions, 3: [option]});
+                }}
+              />
+            </div>
+          </div>
+        </Flex>
+      );
+    }}
+  </Story>
+</Canvas>
+
+### With multiple options select
+
+<Canvas>
+  <Story
+    name="With multiple options select"
+    parameters={{chromatic: {disableSnapshot: true}}}
+  >
+    {args => {
+      const [selectedOptions, setSelectedOptions] = React.useState([]);
+      const handleOptionChange = option => {
+        // If it was not present, add it
+        if (!selectedOptions.find(item => item.value === option.value))
+          setSelectedOptions([...selectedOptions, option]);
+        else {
+          // else, remove from array of selected options
+          setSelectedOptions(
+            [...selectedOptions].filter(item => item.value !== option.value)
+          );
+        }
+      };
+      return (
+        <div style={{width: '200px'}}>
+          <SelectMenu
+            {...args}
+            selectedOptions={selectedOptions}
+            onOptionChange={option => {
+              handleOptionChange(option);
+            }}
+            multiSelect
+          />
+        </div>
+      );
+    }}
+  </Story>
+</Canvas>
+
+### With preselected multiple options
+
+<Canvas>
+  <Story
+    name="With preselected multiple options"
+    parameters={{chromatic: {disableSnapshot: true}}}
+  >
+    {args => {
+      const [selectedOptions, setSelectedOptions] = React.useState([
+        args.options[1],
+        args.options[2],
+      ]);
+      const handleOptionChange = option => {
+        // If it was not present, add it
+        if (!selectedOptions.find(item => item.value === option.value))
+          setSelectedOptions([...selectedOptions, option]);
+        else {
+          // else, remove from array of selected options
+          setSelectedOptions(
+            [...selectedOptions].filter(item => item.value !== option.value)
+          );
+        }
+      };
+      return (
+        <div style={{width: '200px'}}>
+          <SelectMenu
+            {...args}
+            selectedOptions={selectedOptions}
+            onOptionChange={option => {
+              handleOptionChange(option);
+            }}
+            multiSelect
+          />
+        </div>
+      );
+    }}
+  </Story>
+</Canvas>
+
+### Positioning
+
+<Canvas>
+  <Story
+    name="Positioning"
+    parameters={{height: '500px', chromatic: {disableSnapshot: true}}}
+    args={{
+      withIcons: true,
+      options: [
+        {
+          value: 'tv',
+          label: 'I heard about Brainly in a TV commercial',
+          icon: {
+            name: 'physics',
+            isSubjectIcon: true,
+          },
+        },
+        {
+          value: 'fb',
+          label: 'Social media',
+          icon: {
+            name: 'history',
+            isSubjectIcon: true,
+          },
+        },
+        {
+          value: 'search',
+          label: 'Search engine',
+          icon: {
+            name: 'science',
+            isSubjectIcon: true,
+          },
+        },
+        {
+          value: 'search1',
+          label: 'Search engine',
+          icon: {
+            name: 'science',
+            isSubjectIcon: true,
+          },
+        },
+        {
+          value: 'search2',
+          label: 'Search engine',
+          icon: {
+            name: 'science',
+            isSubjectIcon: true,
+          },
+        },
+        {
+          value: 'search3',
+          label: 'Search engine',
+          icon: {
+            name: 'science',
+            isSubjectIcon: true,
+          },
+        },
+      ],
+    }}
+  >
+    {args => {
+      const [selectedOptions, setSelectedOptions] = React.useState([]);
+      React.useEffect(() => {
+        document.getElementById('selectId').scrollIntoView();
+      }, []);
+      return (
+        <div>
+          <Text>
+            Scroll the layout vertically and horizontally and see how the
+            SelectMenu position affects the popup position. You can also resize
+            the container.
+          </Text>
+          <div
+            style={{
+              border: '1px solid gray',
+              height: '400px',
+              width: '800px',
+              overflow: 'scroll',
+              resize: 'auto',
+            }}
+          >
+            <Flex
+              style={{
+                height: '1000px',
+                width: '2000px',
+              }}
+              direction="column"
+              alignItems="center"
+              justifyContent="center"
+            >
+              <div style={{width: '200px'}}>
+                <SelectMenu
+                  {...args}
+                  id="selectId"
+                  selectedOptions={selectedOptions}
+                  onOptionChange={option => {
+                    setSelectedOptions([option]);
+                  }}
+                />
+              </div>
+            </Flex>
+          </div>
+        </div>
+      );
+    }}
+  </Story>
+</Canvas>
+
+### With long list
+
+<Canvas>
+  <Story
+    name="With long list"
+    parameters={{height: '500px', chromatic: {disableSnapshot: true}}}
+    args={{
+      options: [
+        {value: 'physics', label: 'Physics'},
+        {value: 'history', label: 'History'},
+        {value: 'science', label: 'Science'},
+        {value: 'physics2', label: 'Physics'},
+        {value: 'history2', label: 'History'},
+        {value: 'science2', label: 'Science'},
+        {value: 'physics3', label: 'Physics'},
+        {value: 'history3', label: 'History'},
+        {value: 'science3', label: 'Science'},
+        {value: 'physics4', label: 'Physics'},
+        {value: 'history4', label: 'History'},
+        {value: 'science4', label: 'Science'},
+        {value: 'physics5', label: 'Physics'},
+        {value: 'history5', label: 'History'},
+        {value: 'science5', label: 'Science'},
+        {value: 'physics6', label: 'Physics'},
+        {value: 'history6', label: 'History'},
+        {value: 'science6', label: 'Science'},
+        {value: 'physics7', label: 'Physics'},
+        {value: 'history7', label: 'History'},
+        {value: 'science7', label: 'Science'},
+        {value: 'physics8', label: 'Physics'},
+        {value: 'history8', label: 'History'},
+        {value: 'science8', label: 'Science'},
+        {value: 'physics9', label: 'Physics'},
+        {value: 'history9', label: 'History'},
+        {value: 'science9', label: 'Science'},
+        {value: 'physics10', label: 'Physics'},
+        {value: 'history10', label: 'History'},
+        {value: 'science10', label: 'Science'},
+      ],
+    }}
+  >
+    {args => {
+      const [selectedOptions, setSelectedOptions] = React.useState([]);
+      return (
+        <div style={{width: '200px'}}>
+          <SelectMenu
+            {...args}
+            selectedOptions={selectedOptions}
+            onOptionChange={option => {
+              setSelectedOptions([option]);
+            }}
+          />
+        </div>
+      );
+    }}
+  </Story>
+</Canvas>
+
+### Variants
+
+<Canvas>
+  <Story name="Variants">
+    {args => (
+      <div>
+        <StoryVariantTable>
+          <thead>
+            <tr>
+              <th />
+              <th>
+                <Headline
+                  extraBold
+                  transform="uppercase"
+                  type="span"
+                  color="text-gray-40"
+                  size="medium"
+                >
+                  default
+                </Headline>
+              </th>
+              <th>
+                <Headline
+                  extraBold
+                  transform="uppercase"
+                  type="span"
+                  color="text-gray-40"
+                  size="medium"
+                >
+                  disabled
+                </Headline>
+              </th>
+              <th>
+                <Headline
+                  extraBold
+                  transform="uppercase"
+                  type="span"
+                  color="text-gray-40"
+                  size="medium"
+                >
+                  valid
+                </Headline>
+              </th>
+              <th>
+                <Headline
+                  extraBold
+                  transform="uppercase"
+                  type="span"
+                  color="text-gray-40"
+                  size="medium"
+                >
+                  invalid
+                </Headline>
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            {Object.values(SELECT_SIZE).map(size => (
+              <tr key={size}>
+                <td>
+                  <Headline
+                    extraBold
+                    transform="uppercase"
+                    type="span"
+                    color="text-gray-40"
+                    size="medium"
+                  >
+                    SIZE="{size}"
+                  </Headline>
+                </td>
+                <td>
+                  <Flex justifyContent="center">
+                    <SelectMenu key={size} {...args} size={size} />
+                  </Flex>
+                </td>
+                <td>
+                  <Flex justifyContent="center">
+                    <SelectMenu key={size} {...args} size={size} disabled />
+                  </Flex>
+                </td>
+                <td>
+                  <Flex justifyContent="center">
+                    <SelectMenu key={size} {...args} size={size} valid />
+                  </Flex>
+                </td>
+                <td>
+                  <Flex justifyContent="center">
+                    <SelectMenu key={size} {...args} size={size} invalid />
+                  </Flex>
+                </td>
+              </tr>
+            ))}
+            <tr
+              key="color"
+              style={{
+                backgroundColor: '#000',
+              }}
+            >
+              <td>
+                <Headline
+                  extraBold
+                  transform="uppercase"
+                  type="span"
+                  color="text-gray-40"
+                  size="medium"
+                >
+                  color="white"
+                </Headline>
+              </td>
+              <td>
+                <Flex justifyContent="center">
+                  <SelectMenu {...args} color="white" />
+                </Flex>
+              </td>
+              <td>
+                <Flex justifyContent="center">
+                  <SelectMenu {...args} color="white" disabled />
+                </Flex>
+              </td>
+              <td>
+                <Flex justifyContent="center">
+                  <SelectMenu {...args} color="white" valid />
+                </Flex>
+              </td>
+              <td>
+                <Flex justifyContent="center">
+                  <SelectMenu {...args} color="white" invalid />
+                </Flex>
+              </td>
+            </tr>
+          </tbody>
+        </StoryVariantTable>
+      </div>
+    )}
+  </Story>
+</Canvas>
+
+## Accessibility
+
+<SelectMenuA11y />
