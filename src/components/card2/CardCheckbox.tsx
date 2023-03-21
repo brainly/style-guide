@@ -2,7 +2,7 @@ import * as React from 'react';
 import cx from 'classnames';
 import Checkbox, {CheckboxPropsType} from '../form-elements/checkbox/Checkbox';
 
-export interface CardCheckboxPropsType extends CheckboxPropsType {
+export interface CardCheckboxPropsType {
   /**
    * Optional string. Additional class names.
    */
@@ -13,6 +13,17 @@ export interface CardCheckboxPropsType extends CheckboxPropsType {
   width?: React.CSSProperties['width'];
   height?: React.CSSProperties['height'];
   style?: React.CSSProperties;
+
+  checked?: boolean;
+  defaultChecked?: boolean;
+  disabled?: boolean;
+  id?: string;
+  indeterminate?: boolean;
+  invalid?: boolean;
+  required?: boolean;
+  value?: string;
+  name?: string;
+  onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
 // create context for CardCheckboxIndicator to use
@@ -99,6 +110,8 @@ const CardCheckbox = ({
   );
 };
 
+CardCheckbox.displayName = 'Card.Checkbox';
+
 export interface CardCheckboxIndicatorPropsType {
   slot?:
     | 'top-left'
@@ -131,5 +144,7 @@ export const CardCheckboxIndicator = ({
     </div>
   );
 };
+
+CardCheckboxIndicator.displayName = 'Card.CheckboxIndicator';
 
 export default CardCheckbox;
