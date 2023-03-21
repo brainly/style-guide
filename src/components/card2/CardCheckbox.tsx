@@ -103,6 +103,7 @@ const CardCheckbox = ({
           aria-invalid={invalid ? true : undefined}
           {...props}
         />
+        {isChecked}
         {children}
       </div>
     </CardCheckboxContext.Provider>
