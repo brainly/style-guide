@@ -261,10 +261,10 @@ export const ResponsiveProps = args => {
       </Box>
       <h3 className="component__story-name">
         {responsivePropsStoryLabel('gap', [
-          FLEX_GAP_VALUES.MEDIUM,
-          null,
           FLEX_GAP_VALUES.SMALL,
-          FLEX_GAP_VALUES.LARGE,
+          null,
+          FLEX_GAP_VALUES.MEDIUM,
+          FLEX_GAP_VALUES.XLARGE,
         ])}
       </h3>
       <Box {...indigoBoxStyle} style={{height: 400, width: 400}}>
