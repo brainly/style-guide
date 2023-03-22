@@ -32,6 +32,9 @@
 .sg-card-new__indicator {
   position: absolute;
 
+  /*
+    The indicator is coming from the real checkbox element so we need to remove its input from the layout
+  */
   & input {
     display: none;
   }
