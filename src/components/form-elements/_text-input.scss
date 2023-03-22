@@ -16,15 +16,21 @@ $includeHtml: false !default;
     appearance: none;
     transition: background 100ms, border 100ms;
 
-    &:focus,
-    &:active,
-    &:focus:hover,
-    &:active:hover {
+    &:focus:not([disabled]),
+    &:active:not([disabled]),
+    &:focus:hover:not([disabled]),
+    &:active:hover:not([disabled]) {
       background-color: $white;
       border: 2px solid $gray-40;
 
       &::placeholder {
         visibility: visible;
+      }
+    }
+
+    &[disabled] {
+      &::placeholder {
+        color: $gray-50;
       }
     }
 
@@ -36,7 +42,7 @@ $includeHtml: false !default;
       opacity: 1;
     }
 
-    &:hover {
+    &:hover:not([disabled]) {
       background-color: mix($formElementDefaultBackgroundColor, $gray-40, 80%);
       border: 2px solid mix($formElementDefaultBackgroundColor, $gray-40, 80%);
     }
@@ -46,20 +52,20 @@ $includeHtml: false !default;
       border: 2px solid $white;
       border-radius: $formElementStandardBorderRadius;
 
-      &:hover {
+      &:hover:not([disabled]) {
         background-color: mix($white, $gray-10, 12%);
         border: 2px solid mix($white, $gray-10, 12%);
       }
 
       &.sg-input--valid {
-        &:hover {
+        &:hover:not([disabled]) {
           background-color: mix($white, $gray-10, 12%);
           border: 2px solid $formElementValidColor;
         }
       }
 
       &.sg-input--invalid {
-        &:hover {
+        &:hover:not([disabled]) {
           background-color: mix($white, $gray-10, 12%);
           border: 2px solid $formElementValidColor;
         }
@@ -67,20 +73,22 @@ $includeHtml: false !default;
     }
 
     &--valid {
-      border: 2px solid $formElementValidColor;
-      color: $black;
-      font-weight: normal;
+      :not([disabled]) {
+        border: 2px solid $formElementValidColor;
+        color: $black;
+        font-weight: normal;
+      }
 
-      &:focus,
-      &:active,
-      &:focus:hover,
-      &:active:hover {
+      &:focus:not([disabled]),
+      &:active:not([disabled]),
+      &:focus:hover:not([disabled]),
+      &:active:hover:not([disabled]) {
         background-color: $white;
         border: 2px solid $formElementValidColor;
         box-shadow: none;
       }
 
-      &:hover {
+      &:hover:not([disabled]) {
         background-color: mix(
           $formElementDefaultBackgroundColor,
           $gray-40,
@@ -91,20 +99,22 @@ $includeHtml: false !default;
     }
 
     &--invalid {
-      border: 2px solid $formElementInvalidColor;
-      color: $black;
-      font-weight: normal;
+      &:not([disabled]) {
+        border: 2px solid $formElementInvalidColor;
+        color: $black;
+        font-weight: normal;
+      }
 
-      &:focus,
-      &:active,
-      &:focus:hover,
-      &:active:hover {
+      &:focus:not([disabled]),
+      &:active:not([disabled]),
+      &:focus:hover:not([disabled]),
+      &:active:hover:not([disabled]) {
         background-color: $white;
         border: 2px solid $formElementInvalidColor;
         box-shadow: none;
       }
 
-      &:hover {
+      &:hover:not([disabled]) {
         background-color: mix(
           $formElementDefaultBackgroundColor,
           $gray-40,
@@ -151,6 +161,10 @@ $includeHtml: false !default;
       &--full-width {
         width: 100%;
         max-width: 100%;
+      }
+
+      &--disabled {
+        opacity: 0.45;
       }
     }
   }

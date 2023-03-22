@@ -1,6 +1,7 @@
 import * as React from 'react';
 import Text from '../components/text/Text';
 import Headline from '../components/text/Headline';
+import cc from 'classnames';
 
 type StoryVariantBorderBoxPropsType = {
   children: React.ReactNode;
@@ -59,11 +60,23 @@ export const StoryVariant = ({
 type StoryVariantTablePropsType = {
   children: React.ReactNode;
   className?: string;
+  alignTop?: boolean;
 };
 export const StoryVariantTable = ({
   children,
   className = '',
+  alignTop,
 }: StoryVariantTablePropsType) => (
-  <table className={`sg-story-variant-table ${className}`}>{children}</table>
+  <table
+    className={cc(
+      'sg-story-variant-table',
+      {
+        'sg-story-variant-table--align-items-top': alignTop,
+      },
+      className
+    )}
+  >
+    {children}
+  </table>
 );
 export const formatTags = (values: Array<string>): string => values.join('|');
