@@ -1,4 +1,4 @@
-.sg-card {
+.sg-card-new {
   display: block;
   position: relative;
   width: var(--card-width, auto);
@@ -17,14 +17,14 @@
   }
 }
 
-.sg-card__input {
+.sg-card-new__input {
   position: absolute;
   opacity: 0;
   top: 0;
   left: 0;
 }
 
-.sg-card__indicator {
+.sg-card-new__indicator {
   position: absolute;
   top: 0;
   left: 0;

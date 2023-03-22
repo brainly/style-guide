@@ -24,6 +24,8 @@ export interface CardCheckboxPropsType {
   value?: string;
   name?: string;
   onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  onMouseEnter?: (e: React.MouseEvent<HTMLDivElement>) => void;
+  onMouseLeave?: (e: React.MouseEvent<HTMLDivElement>) => void;
 }
 
 export const CardCheckboxContext = React.createContext({
@@ -49,6 +51,8 @@ const CardCheckbox = ({
   value,
   name,
   onChange,
+  onMouseEnter,
+  onMouseLeave,
   ...props
 }: CardCheckboxPropsType) => {
   const [hover, setHover] = React.useState(false);
@@ -74,6 +78,23 @@ const CardCheckbox = ({
     [onChange, isControlled]
   );
 
+  // handle onmouseenter and onmouseleave
+  const handleMouseEnter = React.useCallback(
+    e => {
+      onMouseEnter?.(e);
+      setHover(true);
+    },
+    [onMouseEnter]
+  );
+
+  const handleMouseLeave = React.useCallback(
+    e => {
+      onMouseLeave?.(e);
+      setHover(false);
+    },
+    [onMouseLeave]
+  );
+
   return (
     <CardCheckboxContext.Provider
       value={{
@@ -82,16 +103,16 @@ const CardCheckbox = ({
       }}
     >
       <div
-        className={cx('sg-card', className, {
+        className={cx('sg-card-new', className, {
           'sg-card--hover': hover,
         })}
         style={{...style, ...cssVariables}}
-        onMouseEnter={() => setHover(true)}
-        onMouseLeave={() => setHover(false)}
+        onMouseEnter={handleMouseEnter}
+        onMouseLeave={handleMouseLeave}
       >
         <input
           ref={inputRef}
-          className="sg-card__input"
+          className="sg-card-new__input"
           type="checkbox"
           checked={isChecked}
           disabled={disabled}
@@ -134,8 +155,8 @@ export const CardCheckboxIndicator = ({
   return (
     <div
       className={cx(
-        'sg-card__indicator',
-        `sg-card__card__indicator--${slot}`,
+        'sg-card-new__indicator',
+        `sg-card-new__indicator--${slot}`,
         className
       )}
       style={style}
