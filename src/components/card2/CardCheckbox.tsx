@@ -3,6 +3,7 @@ import cx from 'classnames';
 import Checkbox from '../form-elements/checkbox/Checkbox';
 
 export interface CardCheckboxPropsType {
+  variant: 'solid' | 'outline';
   /**
    * Optional string. Additional class names.
    */
@@ -34,6 +35,7 @@ export const CardCheckboxContext = React.createContext({
 });
 
 const CardCheckbox = ({
+  variant = 'outline',
   className,
   children,
   width,
@@ -104,7 +106,8 @@ const CardCheckbox = ({
     >
       <div
         className={cx('sg-card-new', className, {
-          'sg-card--hover': hover,
+          'sg-card-new--hover': hover,
+          [`sg-card-new--variant-${variant}`]: variant,
         })}
         style={{...style, ...cssVariables}}
         onMouseEnter={handleMouseEnter}
