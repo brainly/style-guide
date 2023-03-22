@@ -1,4 +1,9 @@
 .sg-card-new {
+  --sg-card-background-color: rgba(255, 255, 255, 0);
+  --sg-card-border-color: var(--gray-30);
+  --sg-card-border-color-hover: var(--gray-60);
+  --sg-card-border-color-invalid: var(--red-60);
+
   display: block;
   position: relative;
   width: var(--card-width, auto);
