@@ -26,10 +26,35 @@
 
 .sg-card-new__indicator {
   position: absolute;
-  top: 0;
-  left: 0;
 
   & input {
     display: none;
+  }
+
+  &--top-left {
+    top: 0;
+    left: 0;
+  }
+  &--center-left {
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+  }
+  &--bottom-left {
+    bottom: 0;
+    left: 0;
+  }
+  &--top-right {
+    top: 0;
+    right: 0;
+  }
+  &--center-right {
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%);
+  }
+  &--bottom-right {
+    bottom: 0;
+    right: 0;
   }
 }
