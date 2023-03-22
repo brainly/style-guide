@@ -1,5 +1,5 @@
 .sg-card-new {
-  --sg-card-background-color: rgba(255, 255, 255, 0);
+  --sg-card-background-color: transparent;
   --sg-card-border-color: var(--gray-30);
   --sg-card-border-color-hover: var(--gray-60);
   --sg-card-border-color-invalid: var(--red-60);
@@ -9,16 +9,33 @@
   width: var(--card-width, auto);
   height: var(--card-height, auto);
   border-radius: 8px;
-  border: 2px solid #e1eaf1;
+  border: 2px solid transparent;
 
-  transition: transform $durationModerate2 $easingRegular;
+  transition: transform $durationModerate2 $easingRegular,
+    border $durationModerate1 $easingLinear;
+
+  &--variant-outline {
+    border-color: var(--sg-card-border-color);
+  }
+
+  &--variant-solid {
+    border-color: transparent;
+  }
+
+  & .sg-checkbox {
+    --checkboxColor: var(--sg-card-border-color);
+  }
 
   &:active:not([disabled]) {
     transform: scale(0.98);
   }
 
   &:hover {
-    border-color: #46535f;
+    border-color: var(--sg-card-border-color-hover);
+
+    & .sg-checkbox {
+      --checkboxColor: var(--sg-card-border-color-hover);
+    }
   }
 }
 
