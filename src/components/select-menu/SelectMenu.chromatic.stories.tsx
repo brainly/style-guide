@@ -114,7 +114,7 @@ export const DifferentPopupLenghts = args => {
 };
 
 DifferentPopupLenghts.parameters = {
-  chromatic: {delay: 500, diffThreshold: 0.2},
+  chromatic: {delay: 1000, diffThreshold: 0.2},
 };
 
 const Hovers = args => {
