@@ -3,29 +3,106 @@ import cx from 'classnames';
 import Checkbox from '../form-elements/checkbox/Checkbox';
 
 export interface CardCheckboxPropsType {
+  /**
+   * Optional string. Variant of the card. Default is 'outline'.
+   */
   variant: 'solid' | 'outline';
+
   /**
    * Optional string. Additional class names.
    */
   className?: string;
 
+  /**
+   * Optional React.ReactNode. Children of the card.
+   * @example <Card.Checkbox>Card content</Card.Checkbox>
+   */
   children?: React.ReactNode;
 
+  /**
+   * Optional string. Width of the card.
+   * @default auto
+   * @example <Card.Checkbox width="100px" />
+   **/
   width?: React.CSSProperties['width'];
+
+  /**
+   * Optional string. Height of the card.
+   * @default auto
+   * @example <Card.Checkbox height="100px" />
+   */
   height?: React.CSSProperties['height'];
+
+  /**
+   * Optional object. Inline styles.
+   * @example <Card.Checkbox style={--card-background-color: var(--green-20)} />
+   */
   style?: React.CSSProperties;
 
+  /**
+   * Optional boolean. Whether the checkbox is checked.
+   */
   checked?: boolean;
+
+  /**
+   * Optional boolean. Whether the checkbox is checked by default. Only works when `checked` is not defined.
+   */
   defaultChecked?: boolean;
+
+  /**
+   * Optional boolean. Whether the checkbox is disabled.
+   */
   disabled?: boolean;
+
+  /**
+   * Optional string. ID of the checkbox.
+   */
   id?: string;
+
+  /**
+   * Sets whether the checkbox is displayed as indeterminate. Note: this prop doesn't modify the `checked` property.
+   * @example  <Card.Checkbox indeterminate />
+   * @default false
+   */
   indeterminate?: boolean;
+
+  /**
+   * Optional boolean. Whether the checkbox is invalid.
+   * @default <Card.Checkbox invalid />
+   */
   invalid?: boolean;
+
+  /**
+   * Optional boolean. Whether the checkbox is required.
+   * @default <Card.Checkbox required />
+   */
   required?: boolean;
+
+  /**
+   * Value of the Card.Checkbox input.
+   * @example <Checkbox value="1" />
+   */
   value?: string;
+
+  /**
+   * Name of the Card.Checkbox input.
+   * @example <Checkbox name="checkbox" />
+   */
   name?: string;
+
+  /**
+   * Function called whenever the state of the checkbox changes.
+   */
   onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
+
+  /**
+   * Function called whenever the mouse enters the checkbox.
+   */
   onMouseEnter?: (e: React.MouseEvent<HTMLDivElement>) => void;
+
+  /**
+   * Function called whenever the mouse leaves the checkbox.
+   */
   onMouseLeave?: (e: React.MouseEvent<HTMLDivElement>) => void;
 }
 
