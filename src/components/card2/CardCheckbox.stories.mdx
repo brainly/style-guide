@@ -1,7 +1,7 @@
 import {ArgsTable, Meta, Story, Canvas} from '@storybook/addon-docs';
 import {StoryVariantTable} from '../../docs/utils';
 import PageHeader from 'blocks/PageHeader';
-
+import Headline from '../text/Headline';
 import Flex from '../flex/Flex';
 import Text from '../text/Text';
 import SubjectIcon from '../subject-icons/SubjectIcon';
@@ -212,37 +212,19 @@ import Card from './Card';
           <tr>
             <th />
             <th>
-              <Headline
-                extraBold
-                transform="uppercase"
-                as="span"
-                color="text-gray-40"
-                size="medium"
-              >
+              <Text weight="bold" transform="capitalize" size="medium">
                 default
-              </Headline>
+              </Text>
             </th>
             <th>
-              <Headline
-                extraBold
-                transform="uppercase"
-                as="span"
-                color="text-gray-40"
-                size="medium"
-              >
+              <Text weight="bold" transform="capitalize" size="medium">
                 disabled
-              </Headline>
+              </Text>
             </th>
             <th>
-              <Headline
-                extraBold
-                transform="uppercase"
-                as="span"
-                color="text-gray-40"
-                size="medium"
-              >
+              <Text weight="bold" transform="capitalize" size="medium">
                 error
-              </Headline>
+              </Text>
             </th>
           </tr>
         </thead>
@@ -277,12 +259,16 @@ import Card from './Card';
                 return (
                   <tr>
                     <td>
-                      {variant}
-                      <br />
-                      {checked ? 'checked' : 'unchecked'}
-                      <br />
-                      {indicator ? 'with indicator' : 'without indicator'}{' '}
-                      <br />
+                      <Text weight="bold" size="small" transform="capitalize">
+                        {variant}
+                        <br />
+                        {checked ? 'checked' : 'unchecked'}
+                        <br />
+                        {indicator
+                          ? 'with indicator'
+                          : 'without indicator'}{' '}
+                        <br />
+                      </Text>
                     </td>
                     {states}
                   </tr>
