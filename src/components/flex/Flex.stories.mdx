@@ -1,6 +1,11 @@
 import {ArgsTable, Meta, Story, Canvas} from '@storybook/addon-docs';
 import {StoryVariant} from '../../docs/utils';
-import Flex, {FLEX_DIRECTION, FLEX_MARGINS, FLEX_JUSTIFY_VALUES} from './Flex';
+import Flex, {
+  FLEX_DIRECTION,
+  FLEX_MARGINS,
+  FLEX_JUSTIFY_VALUES,
+  FLEX_GAP_VALUES,
+} from './Flex';
 import Text, {TEXT_SIZE} from '../text/Text';
 import SeparatorHorizontal from '../separators/SeparatorHorizontal';
 import Box from '../box/Box';
@@ -218,6 +223,18 @@ const indigoBoxStyle = {
       control: {
         type: 'select',
         options: Object.values(FLEX_MARGINS),
+      },
+    },
+    gap: {
+      description: '(Responsive)',
+      table: {
+        type: {
+          summary: formatTags(Object.values(FLEX_GAP_VALUES)),
+        },
+      },
+      control: {
+        type: 'select',
+        options: Object.values(FLEX_GAP_VALUES),
       },
     },
   }}

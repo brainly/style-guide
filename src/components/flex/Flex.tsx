@@ -5,6 +5,7 @@ import {
   FLEX_JUSTIFY_VALUES,
   FLEX_ALIGNMENT_VALUES,
   FLEX_MARGINS,
+  FLEX_GAP_VALUES,
 } from './FlexConsts';
 import {generateResponsiveClassNames} from '../utils/responsive-props';
 import type {ResponsivePropType} from '../utils/responsive-props';
@@ -60,11 +61,23 @@ type FlexMarginsType =
   | 'xxl'
   | 'xxxl'
   | 'xxxxl';
+type FlexGapValueType =
+  | 'none'
+  | 'xxs'
+  | 'xs'
+  | 's'
+  | 'm'
+  | 'l'
+  | 'xl'
+  | 'xxl'
+  | 'xxxl'
+  | 'xxxxl';
 export {
   FLEX_DIRECTION,
   FLEX_JUSTIFY_VALUES,
   FLEX_ALIGNMENT_VALUES,
   FLEX_MARGINS,
+  FLEX_GAP_VALUES,
 };
 export type FlexPropsType = {
   /**
@@ -239,6 +252,13 @@ export type FlexPropsType = {
    *          </Flex>
    */
   marginLeft?: ResponsivePropType<FlexMarginsType>;
+  /**
+   * Specify gap between flex children: none: 0px, xxs: 4px, xs: 8px, s: 16px, m: 24px, l: 40px, xl: 64px, xxl: 104px, xxxl: 168px, xxxxl: 272px
+   * @example <Flex gap="m">
+   *            component content
+   *          </Flex>
+   */
+  gap?: ResponsivePropType<FlexGapValueType>;
 } & Omit<
   React.AllHTMLAttributes<HTMLElement>,
   | 'children'
@@ -260,6 +280,7 @@ export type FlexPropsType = {
   | 'marginRight'
   | 'marginBottom'
   | 'marginLeft'
+  | 'gap'
 >;
 const Flex = React.forwardRef<HTMLElement, FlexPropsType>(
   (props: FlexPropsType, ref) => {
@@ -281,6 +302,7 @@ const Flex = React.forwardRef<HTMLElement, FlexPropsType>(
       marginBottom,
       marginLeft,
       marginRight,
+      gap,
       children,
       className,
       ...otherProps
@@ -366,6 +388,10 @@ const Flex = React.forwardRef<HTMLElement, FlexPropsType>(
       ...generateResponsiveClassNames(
         propValue => `sg-flex--margin-left-${propValue}`,
         marginLeft
+      ),
+      ...generateResponsiveClassNames(
+        propValue => `sg-flex--gap-${propValue}`,
+        gap
       ),
       className
     );
