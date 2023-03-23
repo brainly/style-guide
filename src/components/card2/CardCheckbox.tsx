@@ -141,8 +141,6 @@ const CardCheckbox = ({
   );
 };
 
-CardCheckbox.displayName = 'Card.Checkbox';
-
 export interface CardCheckboxIndicatorPropsType {
   slot?:
     | 'top-left'
@@ -175,7 +173,5 @@ export const CardCheckboxIndicator = ({
     </div>
   );
 };
-
-CardCheckboxIndicator.displayName = 'Card.CheckboxIndicator';
 
 export default CardCheckbox;

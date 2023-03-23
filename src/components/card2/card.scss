@@ -99,29 +99,29 @@
   }
 
   &--top-left {
-    top: 0;
-    left: 0;
+    top: -2px;
+    left: -2px;
   }
   &--center-left {
     top: 50%;
-    left: 0;
+    left: -2px;
     transform: translateY(-50%);
   }
   &--bottom-left {
-    bottom: 0;
-    left: 0;
+    bottom: -2px;
+    left: -2px;
   }
   &--top-right {
-    top: 0;
-    right: 0;
+    top: -2px;
+    right: -2px;
   }
   &--center-right {
     top: 50%;
-    right: 0;
+    right: -2px;
     transform: translateY(-50%);
   }
   &--bottom-right {
-    bottom: 0;
-    right: 0;
+    bottom: -2px;
+    right: -2px;
   }
 }
