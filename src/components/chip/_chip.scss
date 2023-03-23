@@ -10,8 +10,20 @@
     height: 100%;
     z-index: 1;
 
-    &:checked + .sg-chip__pill {
-      border-color: var(--chipCheckedBorderColor);
+    &:checked {
+      & + .sg-chip__pill {
+        border-color: var(--chipCheckedBorderColor);
+
+        & .sg-chip__check-icon path {
+          &:first-child {
+            display: inline-block;
+          }
+
+          &:last-child {
+            display: none;
+          }
+        }
+      }
     }
 
     &:focus-visible + .sg-chip__pill {
@@ -71,6 +83,10 @@
     fill: var(--icon-black);
     margin-right: 8px;
     margin-left: 6px;
+
+    & path:first-child {
+      display: none;
+    }
   }
 
   &--m {
