@@ -248,8 +248,8 @@ import Card from './Card';
         </thead>
         <tbody>
           {['outline', 'solid'].map(variant => {
-            return [false, true].map(checked => {
-              return [false, true].map(indicator => {
+            return [false, true].map(indicator => {
+              return [false, true].map(checked => {
                 const states = ['default', 'disabled', 'error'].map(states => (
                   <td>
                     <Card.Checkbox

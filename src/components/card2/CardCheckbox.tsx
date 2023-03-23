@@ -32,6 +32,8 @@ export interface CardCheckboxPropsType {
 export const CardCheckboxContext = React.createContext({
   checked: false,
   disabled: false,
+  indeterminate: false,
+  hover: false,
 });
 
 const CardCheckbox = ({
@@ -101,6 +103,8 @@ const CardCheckbox = ({
     <CardCheckboxContext.Provider
       value={{
         checked: isChecked,
+        indeterminate,
+        hover,
         disabled,
       }}
     >
@@ -112,6 +116,8 @@ const CardCheckbox = ({
         style={{...style, ...cssVariables}}
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
+        data-checked={indeterminate ? 'mixed' : isChecked}
+        data-invalid={invalid}
       >
         <input
           ref={inputRef}

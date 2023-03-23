@@ -3,6 +3,7 @@
   --card-border-color: var(--gray-30);
   --card-border-color-hover: var(--gray-60);
   --card-border-color-invalid: var(--red-60);
+  --card-border-color-checked: var(--black);
 
   display: block;
   position: relative;
@@ -24,12 +25,24 @@
     border-color: transparent;
   }
 
-  & .sg-checkbox {
-    --checkboxColor: var(--card-border-color);
-  }
-
   &:active:not([disabled]) {
     transform: scale(0.98);
+  }
+
+  &[data-invalid='true'] {
+    border-color: var(--card-border-color-invalid);
+
+    & .sg-checkbox {
+      --checkboxColor: var(--card-border-color-invalid);
+    }
+  }
+
+  &[data-checked='true'] {
+    border-color: var(--card-border-color-checked);
+
+    & .sg-checkbox {
+      --checkboxColor: var(--card-border-color-checked);
+    }
   }
 
   &:hover {
@@ -38,6 +51,11 @@
     & .sg-checkbox {
       --checkboxColor: var(--card-border-color-hover);
     }
+  }
+
+  /* Indicators */
+  & .sg-checkbox {
+    --checkboxColor: var(--card-border-color);
   }
 }
 
