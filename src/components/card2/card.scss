@@ -3,6 +3,7 @@
   --card-border-color: var(--gray-30);
   --card-border-color-hover: var(--gray-60);
   --card-border-color-invalid: var(--red-60);
+  --card-border-color-invalid-hover: var(--red-50);
   --card-border-color-checked: var(--black);
 
   display: block;
@@ -47,12 +48,21 @@
     }
   }
 
-  &:hover {
+  &:hover:not([data-disabled='true']) {
     border-color: var(--card-border-color-hover);
 
     & .sg-checkbox {
       --checkboxColor: var(--card-border-color-hover);
       --checkboxCheckedColor: var(--card-border-color-hover);
+    }
+
+    &[data-invalid='true'] {
+      border-color: var(--card-border-color-invalid-hover);
+
+      & .sg-checkbox {
+        --checkboxColor: var(--card-border-color-invalid-hover);
+        --checkboxCheckedColor: var(--card-border-color-invalid-hover);
+      }
     }
   }
 
@@ -64,6 +74,10 @@
   & .sg-checkbox {
     --checkboxColor: var(--card-border-color);
     --checkboxCheckedColor: var(--card-border-color-checked);
+  }
+
+  & .sg-checkbox--disabled {
+    opacity: 1;
   }
 }
 
