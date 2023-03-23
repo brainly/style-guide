@@ -263,7 +263,25 @@ import Flex from '../flex/Flex';
             <td>
               <Input {...args} invalid errorMessage="Something went wrong" />
             </td>
-            <td />
+            <td>
+              <Flex direction="column">
+                <Input
+                  {...args}
+                  invalid
+                  disabled
+                  value=""
+                  errorMessage="Something went wrong"
+                />
+                <Flex marginTop="s">
+                  <Input
+                    {...args}
+                    invalid
+                    disabled
+                    errorMessage="Something went wrong"
+                  />
+                </Flex>
+              </Flex>
+            </td>
           </tr>
         </tbody>
       </StoryVariantTable>
