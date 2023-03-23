@@ -25,16 +25,8 @@
     border-color: transparent;
   }
 
-  &:active:not([disabled]) {
+  &:active:not([data-disabled='true']) {
     transform: scale(0.98);
-  }
-
-  &[data-invalid='true'] {
-    border-color: var(--card-border-color-invalid);
-
-    & .sg-checkbox {
-      --checkboxColor: var(--card-border-color-invalid);
-    }
   }
 
   &[data-checked='true'] {
@@ -45,12 +37,24 @@
     }
   }
 
+  &[data-invalid='true'] {
+    border-color: var(--card-border-color-invalid);
+
+    & .sg-checkbox {
+      --checkboxColor: var(--card-border-color-invalid);
+    }
+  }
+
   &:hover {
     border-color: var(--card-border-color-hover);
 
     & .sg-checkbox {
       --checkboxColor: var(--card-border-color-hover);
     }
+  }
+
+  &[data-disabled='true'] {
+    opacity: 0.45;
   }
 
   /* Indicators */

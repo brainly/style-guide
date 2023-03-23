@@ -118,6 +118,7 @@ const CardCheckbox = ({
         onMouseLeave={handleMouseLeave}
         data-checked={indeterminate ? 'mixed' : isChecked}
         data-invalid={invalid}
+        data-disabled={disabled}
       >
         <input
           ref={inputRef}
