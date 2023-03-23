@@ -30,6 +30,10 @@
     transform: scale(0.98);
   }
 
+  &[data-disabled='true'] {
+    opacity: 0.45;
+  }
+
   &[data-checked='true'] {
     border-color: var(--card-border-color-checked);
 
@@ -49,7 +53,9 @@
   }
 
   &:hover:not([data-disabled='true']) {
-    border-color: var(--card-border-color-hover);
+    &:not(:focus-within) {
+      border-color: var(--card-border-color-hover);
+    }
 
     & .sg-checkbox {
       --checkboxColor: var(--card-border-color-hover);
@@ -66,8 +72,11 @@
     }
   }
 
-  &[data-disabled='true'] {
-    opacity: 0.45;
+  &:focus-within {
+    border-color: var(--focusColor);
+    outline-color: var(--focusOuterColor);
+    outline-width: 2px;
+    outline-style: solid;
   }
 
   /* Indicators */
