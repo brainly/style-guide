@@ -159,6 +159,49 @@ import Card from './Card';
   </Story>
 </Canvas>
 
+### Indicator position
+
+<Canvas>
+  <Story
+    name="Indicator position"
+    decorators={[
+      Story => (
+        <div
+          style={{
+            background: 'var(--gray-30)',
+            padding: 64,
+            display: 'flex',
+            justifyContent: 'space-evenly',
+          }}
+        >
+          <Story />
+        </div>
+      ),
+    ]}
+  >
+    {args => (
+      <Card.Checkbox
+        {...args}
+        width="150px"
+        height="150px"
+        defaultChecked={true}
+      >
+        <Card.CheckboxIndicator slot="top-left" />
+        <Card.CheckboxIndicator slot="center-left" />
+        <Card.CheckboxIndicator slot="bottom-left" />
+        <Card.CheckboxIndicator slot="top-right" />
+        <Card.CheckboxIndicator slot="center-right" />
+        <Card.CheckboxIndicator slot="bottom-right" />
+        <Flex justifyContent="center" alignItems="center" fullHeight>
+          <Text color="text-gray-50" size="xsmall" weight="bold">
+            Placeholder
+          </Text>
+        </Flex>
+      </Card.Checkbox>
+    )}
+  </Story>
+</Canvas>
+
 ### States
 
 <Canvas>
