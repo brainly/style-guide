@@ -1,5 +1,5 @@
 .sg-card-new {
-  --sg-card-background-color: transparent;
+  --sg-card-background-color: var(--white);
   --sg-card-border-color: var(--gray-30);
   --sg-card-border-color-hover: var(--gray-60);
   --sg-card-border-color-invalid: var(--red-60);
@@ -10,6 +10,7 @@
   height: var(--card-height, auto);
   border-radius: 8px;
   border: 2px solid transparent;
+  background-color: var(--sg-card-background-color);
 
   transition: transform $durationModerate2 $easingRegular,
     border $durationModerate1 $easingLinear;

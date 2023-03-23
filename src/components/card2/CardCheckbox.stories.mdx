@@ -33,3 +33,100 @@ import Text from '../text/Text';
 <ArgsTable story="Default" />
 
 ## Stories
+
+### Variants
+
+#### Solid
+
+<Canvas>
+  <Story name="Variants">
+    {args => (
+      <div style={{background: 'var(--gray-30)', padding: 32}}>
+        <Card.Checkbox {...args} width="150px" height="150px">
+          <Card.CheckboxIndicator slot="top-left" />
+          <Flex justifyContent="center" alignItems="center" fullHeight>
+            <Text color="text-gray-50" size="xsmall" weight="bold">
+              Placeholder
+            </Text>
+          </Flex>
+        </Card.Checkbox>
+      </div>
+    )}
+  </Story>
+</Canvas>
+
+#### Outline
+
+### States
+
+<Canvas>
+  <Story name="States">
+    {args => (
+      <StoryVariantTable>
+        <thead>
+          <tr>
+            <th />
+            <th>
+              <Headline
+                extraBold
+                transform="uppercase"
+                as="span"
+                color="text-gray-40"
+                size="medium"
+              >
+                default
+              </Headline>
+            </th>
+            <th>
+              <Headline
+                extraBold
+                transform="uppercase"
+                as="span"
+                color="text-gray-40"
+                size="medium"
+              >
+                disabled
+              </Headline>
+            </th>
+            <th>
+              <Headline
+                extraBold
+                transform="uppercase"
+                as="span"
+                color="text-gray-40"
+                size="medium"
+              >
+                error
+              </Headline>
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          {['outline', 'solid'].map(cardVariant => {
+            // generate variants of Card.Checkbox
+            const variants = ['default', 'disabled', 'error'].map(variant => (
+              <td key={variant}>
+                <Card.Checkbox
+                  {...args}
+                  variant={cardVariant}
+                  width="150px"
+                  height="150px"
+                  disabled={variant === 'disabled'}
+                  error={variant === 'error'}
+                >
+                  <Card.CheckboxIndicator slot="top-left" />
+                  <Flex justifyContent="center" alignItems="center" fullHeight>
+                    <Text color="text-gray-50" size="xsmall" weight="bold">
+                      Placeholder
+                    </Text>
+                  </Flex>
+                </Card.Checkbox>
+              </td>
+            ));
+            return variants;
+          })}
+        </tbody>
+      </StoryVariantTable>
+    )}
+  </Story>
+</Canvas>
