@@ -2,13 +2,16 @@ import {ArgsTable, Meta, Story, Canvas} from '@storybook/addon-docs';
 import {StoryVariant} from '../../docs/utils';
 import PageHeader from 'blocks/PageHeader';
 
-import Card from './Card';
 import Flex from '../flex/Flex';
 import Text from '../text/Text';
+import SubjectIcon from '../subject-icons/SubjectIcon';
+import Box from '../box/Box';
+
+import Card from './Card';
 
 <Meta title="Components/Card2/Checkbox" component={Card.Checkbox} />
 
-<PageHeader>Card</PageHeader>
+<PageHeader>Card.Checkbox</PageHeader>
 
 - [Stories](#stories)
 - [Accessibility](#accessibility)
@@ -39,10 +42,31 @@ import Text from '../text/Text';
 #### Solid
 
 <Canvas>
-  <Story name="Variants">
+  <Story
+    name="Solid"
+    decorators={[
+      Story => (
+        <div
+          style={{
+            background: 'var(--gray-30)',
+            padding: 64,
+            display: 'flex',
+            justifyContent: 'space-evenly',
+          }}
+        >
+          <Story />
+        </div>
+      ),
+    ]}
+  >
     {args => (
-      <div style={{background: 'var(--gray-30)', padding: 32}}>
-        <Card.Checkbox {...args} width="150px" height="150px">
+      <>
+        <Card.Checkbox
+          {...args}
+          width="150px"
+          height="150px"
+          defaultChecked={true}
+        >
           <Card.CheckboxIndicator slot="top-left" />
           <Flex justifyContent="center" alignItems="center" fullHeight>
             <Text color="text-gray-50" size="xsmall" weight="bold">
@@ -50,12 +74,91 @@ import Text from '../text/Text';
             </Text>
           </Flex>
         </Card.Checkbox>
-      </div>
+        <Card.Checkbox
+          {...args}
+          width="150px"
+          height="150px"
+          defaultChecked={true}
+          style={{'--card-background-color': 'var(--green-20)'}}
+        >
+          <Card.CheckboxIndicator slot="top-left" />
+          <Flex
+            justifyContent="center"
+            alignItems="center"
+            fullHeight
+            direction="column"
+            gap="s"
+          >
+            <SubjectIcon type="biology" />
+            <Text color="text-text-black" size="small" weight="bold">
+              Biology
+            </Text>
+          </Flex>
+        </Card.Checkbox>
+      </>
     )}
   </Story>
 </Canvas>
 
 #### Outline
+
+<Canvas>
+  <Story
+    name="Outline"
+    decorators={[
+      Story => (
+        <div
+          style={{
+            padding: 64,
+            display: 'flex',
+            justifyContent: 'space-evenly',
+          }}
+        >
+          <Story />
+        </div>
+      ),
+    ]}
+  >
+    {args => (
+      <>
+        <Card.Checkbox
+          {...args}
+          width="150px"
+          height="150px"
+          defaultChecked={true}
+        >
+          <Card.CheckboxIndicator slot="top-left" />
+          <Flex justifyContent="center" alignItems="center" fullHeight>
+            <Text color="text-gray-50" size="xsmall" weight="bold">
+              Placeholder
+            </Text>
+          </Flex>
+        </Card.Checkbox>
+        <Card.Checkbox
+          {...args}
+          variant="outline"
+          width="150px"
+          height="150px"
+          defaultChecked={true}
+        >
+          <Card.CheckboxIndicator slot="top-left" />
+          <Flex
+            justifyContent="center"
+            alignItems="center"
+            fullHeight
+            direction="column"
+            gap="s"
+          >
+            <SubjectIcon type="geometry" />
+            <Text color="text-text-black" size="small" weight="bold">
+              Geometry
+            </Text>
+          </Flex>
+        </Card.Checkbox>
+      </>
+    )}
+  </Story>
+</Canvas>
 
 ### States
 
