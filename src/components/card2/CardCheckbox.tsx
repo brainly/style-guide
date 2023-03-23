@@ -6,7 +6,7 @@ export interface CardCheckboxPropsType {
   /**
    * Optional string. Variant of the card. Default is 'outline'.
    */
-  variant: 'solid' | 'outline';
+  varian?: 'solid' | 'outline';
 
   /**
    * Optional string. Additional class names.
