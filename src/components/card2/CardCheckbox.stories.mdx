@@ -205,31 +205,47 @@ import Card from './Card';
         </thead>
         <tbody>
           {['outline', 'solid'].map(variant => {
-            const states = ['default', 'disabled', 'error'].map(states => (
-              <td key={variant}>
-                <Card.Checkbox
-                  {...args}
-                  variant={variant}
-                  width="120px"
-                  height="64px"
-                  disabled={states === 'disabled'}
-                  invalid={states === 'error'}
-                >
-                  <Card.CheckboxIndicator slot="top-left" />
-                  <Flex justifyContent="center" alignItems="center" fullHeight>
-                    <Text color="text-gray-50" size="xsmall" weight="bold">
-                      Placeholder
-                    </Text>
-                  </Flex>
-                </Card.Checkbox>
-              </td>
-            ));
-            return (
-              <tr>
-                <td>asdsad</td>
-                {states}
-              </tr>
-            );
+            return [false, true].map(checked => {
+              return [false, true].map(indicator => {
+                const states = ['default', 'disabled', 'error'].map(states => (
+                  <td>
+                    <Card.Checkbox
+                      {...args}
+                      variant={variant}
+                      width="120px"
+                      height="64px"
+                      disabled={states === 'disabled'}
+                      invalid={states === 'error'}
+                      defaultChecked={checked}
+                    >
+                      {indicator && <Card.CheckboxIndicator slot="top-left" />}
+                      <Flex
+                        justifyContent="center"
+                        alignItems="center"
+                        fullHeight
+                      >
+                        <Text color="text-gray-50" size="xsmall" weight="bold">
+                          Placeholder
+                        </Text>
+                      </Flex>
+                    </Card.Checkbox>
+                  </td>
+                ));
+                return (
+                  <tr>
+                    <td>
+                      {variant}
+                      <br />
+                      {checked ? 'checked' : 'unchecked'}
+                      <br />
+                      {indicator ? 'with indicator' : 'without indicator'}{' '}
+                      <br />
+                    </td>
+                    {states}
+                  </tr>
+                );
+              });
+            });
           })}
         </tbody>
       </StoryVariantTable>
