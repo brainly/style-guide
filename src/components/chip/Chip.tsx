@@ -88,6 +88,9 @@ export type ChipPropsType = {
    * Function called with an object containing the react synthetic event, whenever the state of the radio changes.
    */
   onChange?: (arg0: React.SyntheticEvent<HTMLLabelElement>) => void;
+
+  'aria-description'?: string;
+  'aria-describedby'?: string;
 } & Omit<
   React.AllHTMLAttributes<HTMLLabelElement>,
   | 'checked'
@@ -112,6 +115,8 @@ const Chip = ({
   checked,
   icon,
   onChange,
+  'aria-description': ariaDescription,
+  'aria-describedby': ariaDescribedBy,
   ...props
 }: ChipPropsType) => {
   const chipClass = classNames('sg-chip', `sg-chip--${size}`, className);
@@ -126,6 +131,7 @@ const Chip = ({
       viewBox="0 0 16 16"
       xmlns="http://www.w3.org/2000/svg"
       className="sg-chip__check-icon"
+      aria-hidden
     >
       <path
         fillRule="evenodd"
@@ -150,6 +156,8 @@ const Chip = ({
         disabled={disabled}
         value={value}
         checked={isChecked}
+        aria-description={ariaDescription}
+        aria-describedby={ariaDescribedBy}
         onChange={onInputChange}
       />
       <div className="sg-chip__pill">

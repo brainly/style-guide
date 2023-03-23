@@ -27,8 +27,12 @@ import Chip from './Chip';
 <Canvas>
   <Story name="Default">
     {args => (
-      <Chip {...args} icon={<Icon type="apple" color="icon-black" />}>
-        label
+      <Chip
+        {...args}
+        icon={<Icon type="apple" color="icon-black" aria-hidden />}
+        aria-description="here is description"
+      >
+        take an apple
       </Chip>
     )}
   </Story>
