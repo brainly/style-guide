@@ -34,6 +34,7 @@
 
     & .sg-checkbox {
       --checkboxColor: var(--card-border-color-checked);
+      --checkboxCheckedColor: var(--card-border-color-checked);
     }
   }
 
@@ -42,6 +43,7 @@
 
     & .sg-checkbox {
       --checkboxColor: var(--card-border-color-invalid);
+      --checkboxCheckedColor: var(--card-border-color-invalid);
     }
   }
 
@@ -50,6 +52,7 @@
 
     & .sg-checkbox {
       --checkboxColor: var(--card-border-color-hover);
+      --checkboxCheckedColor: var(--card-border-color-hover);
     }
   }
 
@@ -60,6 +63,7 @@
   /* Indicators */
   & .sg-checkbox {
     --checkboxColor: var(--card-border-color);
+    --checkboxCheckedColor: var(--card-border-color-checked);
   }
 }
 
