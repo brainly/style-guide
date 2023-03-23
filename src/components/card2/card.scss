@@ -11,6 +11,7 @@
   border-radius: 8px;
   border: 2px solid transparent;
   background-color: var(--card-background-color);
+  user-select: none;
 
   transition: transform $durationModerate2 $easingRegular,
     border $durationModerate1 $easingLinear;

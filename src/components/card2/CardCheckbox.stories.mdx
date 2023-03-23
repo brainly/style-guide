@@ -5,7 +5,6 @@ import PageHeader from 'blocks/PageHeader';
 import Flex from '../flex/Flex';
 import Text from '../text/Text';
 import SubjectIcon from '../subject-icons/SubjectIcon';
-import Box from '../box/Box';
 
 import Card from './Card';
 
@@ -205,17 +204,16 @@ import Card from './Card';
           </tr>
         </thead>
         <tbody>
-          {['outline', 'solid'].map(cardVariant => {
-            // generate variants of Card.Checkbox
-            const variants = ['default', 'disabled', 'error'].map(variant => (
+          {['outline', 'solid'].map(variant => {
+            const states = ['default', 'disabled', 'error'].map(states => (
               <td key={variant}>
                 <Card.Checkbox
                   {...args}
-                  variant={cardVariant}
-                  width="150px"
-                  height="150px"
-                  disabled={variant === 'disabled'}
-                  error={variant === 'error'}
+                  variant={variant}
+                  width="120px"
+                  height="64px"
+                  disabled={states === 'disabled'}
+                  invalid={states === 'error'}
                 >
                   <Card.CheckboxIndicator slot="top-left" />
                   <Flex justifyContent="center" alignItems="center" fullHeight>
@@ -226,7 +224,12 @@ import Card from './Card';
                 </Card.Checkbox>
               </td>
             ));
-            return variants;
+            return (
+              <tr>
+                <td>asdsad</td>
+                {states}
+              </tr>
+            );
           })}
         </tbody>
       </StoryVariantTable>
