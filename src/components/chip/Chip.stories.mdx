@@ -1,0 +1,37 @@
+import {ArgsTable, Meta, Story, Canvas} from '@storybook/addon-docs';
+import PageHeader from 'blocks/PageHeader';
+import Icon from '../icons/Icon';
+
+import Chip from './Chip';
+
+<Meta
+  title="Components/form/Chip"
+  component={Chip}
+  argTypes={{
+    children: {
+      type: 'string',
+    },
+    onChange: {
+      table: {
+        category: 'Events',
+      },
+    },
+  }}
+  args={{}}
+/>
+
+<PageHeader>Chip</PageHeader>
+
+## Overview
+
+<Canvas>
+  <Story name="Default">
+    {args => (
+      <Chip {...args} icon={<Icon type="apple" color="icon-black" />}>
+        label
+      </Chip>
+    )}
+  </Story>
+</Canvas>
+
+<ArgsTable story="Default" />

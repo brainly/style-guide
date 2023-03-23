@@ -1,0 +1,87 @@
+.sg-chip {
+  --chipBorderColor: var(--gray-30);
+  --chipCheckedBorderColor: var(--black);
+
+  display: inline-flex;
+  position: absolute;
+
+  &__input {
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+
+    &:checked + .sg-chip__pill {
+      border-color: var(--chipCheckedBorderColor);
+    }
+
+    &:focus-visible + .sg-chip__pill {
+      @include applyFocusStyle();
+    }
+
+    &:focus + .sg-chip__pill {
+      @include applyFocusStyle();
+    }
+
+    &:focus:not(:focus-visible) + .sg-chip__pill {
+      box-shadow: none;
+      outline: none;
+      animation: none;
+    }
+
+    &:disabled + .sg-chip__pill {
+      opacity: 0.45;
+    }
+
+    &:hover + .sg-chip__pill {
+      background: rgba($gray-40, 0.12);
+    }
+
+    &:active + .sg-chip__pill {
+      background: rgba($gray-40, 0.2);
+    }
+  }
+
+  &__icon {
+    margin-left: 8px;
+  }
+
+  &__pill {
+    border: 2px solid var(--chipBorderColor);
+    display: flex;
+    align-items: center;
+    border-radius: 8px;
+    transition: box-shadow $durationQuick1 $easingExit;
+  }
+
+  &__text {
+    margin-left: 6px;
+
+    &:first-child {
+      margin-left: 12px;
+    }
+
+    &:last-child {
+      margin-right: 12px;
+    }
+  }
+
+  &__check-icon {
+    width: 16px;
+    height: 16px;
+    fill: var(--icon-black);
+    margin-right: 8px;
+    margin-left: 6px;
+  }
+
+  &--m {
+    & .sg-chip__pill {
+      height: componentSize(m);
+    }
+  }
+
+  &--s {
+    & .sg-chip__pill {
+      height: componentSize(s);
+    }
+  }
+}
