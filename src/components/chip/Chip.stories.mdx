@@ -3,6 +3,7 @@ import PageHeader from 'blocks/PageHeader';
 import Icon from '../icons/Icon';
 
 import Chip from './Chip';
+import ChipGroup from './ChipGroup';
 
 <Meta
   title="Components/form/Chip"
@@ -27,13 +28,22 @@ import Chip from './Chip';
 <Canvas>
   <Story name="Default">
     {args => (
-      <Chip
-        {...args}
-        icon={<Icon type="apple" color="icon-black" aria-hidden />}
-        aria-description="here is description"
-      >
-        take an apple
-      </Chip>
+      <ChipGroup>
+        <Chip
+          {...args}
+          icon={<Icon type="apple" color="icon-black" aria-hidden />}
+          aria-description="here is description"
+        >
+          take an apple
+        </Chip>
+        <Chip
+          {...args}
+          icon={<Icon type="facebook" color="icon-black" aria-hidden />}
+          aria-description="here is description"
+        >
+          wash your face
+        </Chip>
+      </ChipGroup>
     )}
   </Story>
 </Canvas>
