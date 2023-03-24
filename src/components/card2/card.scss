@@ -1,8 +1,10 @@
 .sg-card-new {
   --card-background-color: var(--white);
   --card-border-color: var(--gray-30);
+  --card-border-color-focus: var(--gray-40);
   --card-border-color-hover: var(--gray-60);
   --card-border-color-invalid: var(--red-60);
+  --card-border-color-invalid-focus: var(--red-30);
   --card-border-color-invalid-hover: var(--red-50);
   --card-border-color-checked: var(--black);
 
@@ -54,13 +56,13 @@
 
   &:focus-within {
     border-color: var(--card-border-color-selected);
-    outline-color: var(--gray-40);
+    outline-color: var(--card-border-color-focus);
     outline-width: 4px;
     outline-style: solid;
 
     &[data-invalid='true'] {
       border-color: var(--card-border-color-invalid);
-      outline-color: var(--red-30);
+      outline-color: var(--card-border-color-invalid-focus);
     }
   }
 
