@@ -14,7 +14,7 @@ export interface CardCheckboxPropsType {
   className?: string;
 
   /**
-   * Optional React.ReactNode. Children of the card.
+   * Optional React.ReactNode. Children of the card. This is the place where label should be used and connected to the card.
    * @example <Card.Checkbox>Card content</Card.Checkbox>
    */
   children?: React.ReactNode;
