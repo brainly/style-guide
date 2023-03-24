@@ -55,14 +55,23 @@
   }
 
   &:focus-within {
-    border-color: var(--card-border-color-selected);
-    outline-color: var(--card-border-color-focus);
-    outline-width: 4px;
-    outline-style: solid;
+    --focusInnerColor: var(--card-border-color-focus);
+    --focusColor: var(--card-border-color-focus);
+    --focusOuterColor: transparent;
+
+    box-shadow: 0px 0px 0px 2px var(--focusInnerColor),
+      0px 0px 0px 4px var(--focusColor), 0px 0px 0px 6px var(--focusOuterColor);
+
+    outline: none;
+    animation: focusShadow1 $durationQuick2 $easingEntry,
+      focusShadow2 $durationQuick2 $easingEntry calc($durationQuick2 / 2),
+      focusShadow3 $durationQuick2 $easingEntry $durationQuick2;
 
     &[data-invalid='true'] {
       border-color: var(--card-border-color-invalid);
-      outline-color: var(--card-border-color-invalid-focus);
+      --focusInnerColor: var(--card-border-color-invalid-focus);
+      --focusColor: var(--card-border-color-invalid-focus);
+      --focusOuterColor: transparent;
     }
   }
 
