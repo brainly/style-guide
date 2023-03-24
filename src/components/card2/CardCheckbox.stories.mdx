@@ -285,6 +285,8 @@ import Card from './Card';
 
 ### Advanced interactions
 
+#### Animated icons
+
 <Canvas>
   <Story
     name="Interactions"
@@ -292,7 +294,7 @@ import Card from './Card';
       Story => (
         <div
           style={{
-            background: 'var(--gray-30)',
+            background: 'var(--indigo-20)',
             padding: 64,
             display: 'flex',
             justifyContent: 'space-evenly',
@@ -304,44 +306,54 @@ import Card from './Card';
     ]}
   >
     {args => {
-      const STATE_MACHINE_NAME = 'State Machine 1';
-      const {rive, RiveComponent} = useRive({
-        src: 'animations/mathematics_animated_subject_icon.riv',
-        autoplay: true,
-        stateMachines: STATE_MACHINE_NAME,
-      });
-      const isHoverInput = useStateMachineInput(
-        rive,
-        STATE_MACHINE_NAME,
-        'Hover'
-      );
-      return (
-        <Card.Checkbox
-          {...args}
-          width="150px"
-          height="150px"
-          onMouseEnter={() => {
-            isHoverInput.value = true;
-          }}
-          onMouseLeave={() => {
-            isHoverInput.value = false;
-          }}
-        >
-          <Flex
-            justifyContent="center"
-            alignItems="center"
-            fullHeight
-            direction="column"
-            gap="m"
+      const AnimatedCard = (filename, label) => {
+        const STATE_MACHINE_NAME = 'State Machine 1';
+        const {rive, RiveComponent} = useRive({
+          src: `animations/${filename}.riv`,
+          autoplay: true,
+          stateMachines: STATE_MACHINE_NAME,
+        });
+        const isHoverInput = useStateMachineInput(
+          rive,
+          STATE_MACHINE_NAME,
+          'Hover',
+          false
+        );
+        return (
+          <Card.Checkbox
+            {...args}
+            width="150px"
+            height="150px"
+            variant="solid"
+            onMouseEnter={() => {
+              isHoverInput.value = true;
+            }}
+            onMouseLeave={() => {
+              isHoverInput.value = false;
+            }}
           >
-            <div style={{width: 64, height: 64}}>
-              <RiveComponent />
-            </div>
-            <Text color="text-text-black" size="small" weight="bold">
-              Mathematics
-            </Text>
-          </Flex>
-        </Card.Checkbox>
+            <Flex
+              justifyContent="center"
+              alignItems="center"
+              fullHeight
+              direction="column"
+              gap="m"
+            >
+              <div style={{width: 64, height: 64}}>
+                <RiveComponent />
+              </div>
+              <Text color="text-text-black" size="small" weight="bold">
+                {label}
+              </Text>
+            </Flex>
+          </Card.Checkbox>
+        );
+      };
+      return (
+        <>
+          {AnimatedCard('mathematics_animated_subject_icon', 'mathematics')}
+          {AnimatedCard('physics_animated_subject_icon', 'physics')}
+        </>
       );
     }}
   </Story>
