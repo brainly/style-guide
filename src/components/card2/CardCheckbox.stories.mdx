@@ -19,7 +19,26 @@ import Card from './Card';
 ## Overview
 
 <Canvas>
-  <Story name="Default">
+  <Story
+    name="Default"
+    decorators={[
+      Story => (
+        <div
+          style={{
+            background: 'var(--gray-30)',
+            padding: 64,
+            display: 'flex',
+            justifyContent: 'space-evenly',
+          }}
+        >
+          <Story />
+        </div>
+      ),
+    ]}
+    args={{
+      defaultChecked: true,
+    }}
+  >
     {args => (
       <Card.Checkbox {...args} width="150px" height="150px">
         <Card.CheckboxIndicator slot="top-left" />
