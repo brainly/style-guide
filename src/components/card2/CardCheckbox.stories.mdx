@@ -298,6 +298,7 @@ import Card from './Card';
             padding: 64,
             display: 'flex',
             justifyContent: 'space-evenly',
+            flexWrap: 'wrap',
           }}
         >
           <Story />
@@ -322,6 +323,7 @@ import Card from './Card';
         return (
           <Card.Checkbox
             {...args}
+            style={{margin: 16}}
             width="150px"
             height="150px"
             variant="solid"
