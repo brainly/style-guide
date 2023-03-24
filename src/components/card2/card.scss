@@ -1,7 +1,7 @@
 .sg-card-new {
   --card-background-color: var(--white);
   --card-border-color: var(--gray-30);
-  --card-border-color-focus: var(--gray-40);
+  --card-border-color-focus: var(--gray-20);
   --card-border-color-hover: var(--gray-60);
   --card-border-color-invalid: var(--red-60);
   --card-border-color-invalid-focus: var(--red-30);
@@ -60,7 +60,7 @@
     --focusOuterColor: transparent;
 
     box-shadow: 0px 0px 0px 2px var(--focusInnerColor),
-      0px 0px 0px 4px var(--focusColor), 0px 0px 0px 6px var(--focusOuterColor);
+      0px 0px 0px 4px var(--focusColor);
 
     outline: none;
     animation: focusShadow1 $durationQuick2 $easingEntry,
