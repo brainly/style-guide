@@ -52,10 +52,20 @@
     }
   }
 
-  &:hover:not([data-disabled='true']) {
-    &:not(:focus-within) {
-      border-color: var(--card-border-color-hover);
+  &:focus-within {
+    border-color: var(--card-border-color-selected);
+    outline-color: var(--gray-40);
+    outline-width: 4px;
+    outline-style: solid;
+
+    &[data-invalid='true'] {
+      border-color: var(--card-border-color-invalid);
+      outline-color: var(--red-30);
     }
+  }
+
+  &:hover:not([data-disabled='true']) {
+    border-color: var(--card-border-color-hover);
 
     & .sg-checkbox {
       --checkboxColor: var(--card-border-color-hover);
@@ -70,13 +80,6 @@
         --checkboxCheckedColor: var(--card-border-color-invalid-hover);
       }
     }
-  }
-
-  &:focus-within {
-    border-color: var(--focusColor);
-    outline-color: var(--focusOuterColor);
-    outline-width: 2px;
-    outline-style: solid;
   }
 
   /* Indicators */

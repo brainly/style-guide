@@ -185,7 +185,7 @@ const CardCheckbox = ({
         disabled,
       }}
     >
-      <div
+      <label
         className={cx('sg-card-new', className, {
           'sg-card-new--hover': hover,
           [`sg-card-new--variant-${variant}`]: variant,
@@ -213,7 +213,7 @@ const CardCheckbox = ({
         />
         {isChecked}
         {children}
-      </div>
+      </label>
     </CardCheckboxContext.Provider>
   );
 };
