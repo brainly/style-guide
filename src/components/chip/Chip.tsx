@@ -60,7 +60,7 @@ export type ChipPropsType = {
    * The name of the radio input.
    * @example <Chip name="subjects" />
    */
-  name?: string;
+  name: string;
 
   /**
    * Style applied to the container.
