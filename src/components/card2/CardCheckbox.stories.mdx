@@ -1,7 +1,8 @@
 import {ArgsTable, Meta, Story, Canvas} from '@storybook/addon-docs';
 import {StoryVariantTable} from '../../docs/utils';
 import PageHeader from 'blocks/PageHeader';
-import Headline from '../text/Headline';
+import {useRive, useStateMachineInput} from '@rive-app/react-canvas';
+
 import Flex from '../flex/Flex';
 import Text from '../text/Text';
 import SubjectIcon from '../subject-icons/SubjectIcon';
@@ -279,5 +280,69 @@ import Card from './Card';
         </tbody>
       </StoryVariantTable>
     )}
+  </Story>
+</Canvas>
+
+### Advanced interactions
+
+<Canvas>
+  <Story
+    name="Interactions"
+    decorators={[
+      Story => (
+        <div
+          style={{
+            background: 'var(--gray-30)',
+            padding: 64,
+            display: 'flex',
+            justifyContent: 'space-evenly',
+          }}
+        >
+          <Story />
+        </div>
+      ),
+    ]}
+  >
+    {args => {
+      const STATE_MACHINE_NAME = 'State Machine 1';
+      const {rive, RiveComponent} = useRive({
+        src: 'animations/mathematics_animated_subject_icon.riv',
+        autoplay: true,
+        stateMachines: STATE_MACHINE_NAME,
+      });
+      const isHoverInput = useStateMachineInput(
+        rive,
+        STATE_MACHINE_NAME,
+        'Hover'
+      );
+      return (
+        <Card.Checkbox
+          {...args}
+          width="150px"
+          height="150px"
+          onMouseEnter={() => {
+            isHoverInput.value = true;
+          }}
+          onMouseLeave={() => {
+            isHoverInput.value = false;
+          }}
+        >
+          <Flex
+            justifyContent="center"
+            alignItems="center"
+            fullHeight
+            direction="column"
+            gap="m"
+          >
+            <div style={{width: 64, height: 64}}>
+              <RiveComponent />
+            </div>
+            <Text color="text-text-black" size="small" weight="bold">
+              Mathematics
+            </Text>
+          </Flex>
+        </Card.Checkbox>
+      );
+    }}
   </Story>
 </Canvas>
