@@ -1,6 +1,7 @@
 import * as React from 'react';
 import cx from 'classnames';
 import Checkbox from '../form-elements/checkbox/Checkbox';
+import generateRandomString from '../../js/generateRandomString';
 
 export interface CardCheckboxPropsType {
   /**
@@ -143,6 +144,8 @@ const CardCheckbox = ({
     isControlled ? checked : defaultChecked
   );
 
+  const cardId = React.useMemo(() => id || generateRandomString(), [id]);
+
   const cssVariables = {
     '--card-width': width,
     '--card-height': height,
@@ -185,22 +188,19 @@ const CardCheckbox = ({
         disabled,
       }}
     >
-      <label
+      <div
         className={cx('sg-card-new', className, {
           'sg-card-new--hover': hover,
           [`sg-card-new--variant-${variant}`]: variant,
         })}
         style={{...style, ...cssVariables}}
-        onMouseEnter={handleMouseEnter}
-        onMouseLeave={handleMouseLeave}
         data-checked={indeterminate ? 'mixed' : isChecked}
         data-invalid={invalid}
         data-disabled={disabled}
-        // On iOS the :active pseudo state is triggered only when there is a touch event set on the HTML element
-        // and we use active pseudo class to provide press feedback.
-        onTouchStart={() => null}
       >
         <input
+          aria-labelledby={`label-${cardId}`}
+          id={cardId}
           ref={inputRef}
           className="sg-card-new__input"
           type="checkbox"
@@ -212,11 +212,23 @@ const CardCheckbox = ({
           value={value}
           aria-checked={indeterminate ? 'mixed' : isChecked}
           aria-invalid={invalid ? true : undefined}
+          suppressHydrationWarning
           {...props}
         />
-        {isChecked}
-        {children}
-      </label>
+        <label
+          id={`label-${cardId}`}
+          htmlFor={cardId}
+          className="sg-card-new__label"
+          onMouseEnter={handleMouseEnter}
+          onMouseLeave={handleMouseLeave}
+          // On iOS the :active pseudo state is triggered only when there is a touch event set on the HTML element
+          // and we use active pseudo class to provide press feedback.
+          onTouchStart={() => null}
+          suppressHydrationWarning
+        >
+          {children}
+        </label>
+      </div>
     </CardCheckboxContext.Provider>
   );
 };
