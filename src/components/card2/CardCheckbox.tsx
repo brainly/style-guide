@@ -196,6 +196,9 @@ const CardCheckbox = ({
         data-checked={indeterminate ? 'mixed' : isChecked}
         data-invalid={invalid}
         data-disabled={disabled}
+        // On iOS the :active pseudo state is triggered only when there is a touch event set on the HTML element
+        // and we use active pseudo class to provide press feedback.
+        onTouchStart={() => null}
       >
         <input
           ref={inputRef}
