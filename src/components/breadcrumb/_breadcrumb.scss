@@ -8,6 +8,12 @@ $includeHtml: false !default;
     display: inline-block;
     color: $breadcrumbListSeparatorColor;
 
+    &--spaced {
+      .sg-breadcrumb-list__element::after {
+        padding: 0 4px;
+      }
+    }
+
     &__element {
       display: inline-block;
 

@@ -5,6 +5,7 @@ import Flex, {
   FLEX_JUSTIFY_VALUES,
   FLEX_ALIGNMENT_VALUES,
   FLEX_MARGINS,
+  FLEX_GAP_VALUES,
 } from './Flex';
 import Box, {COLOR} from '../box/Box';
 import {
@@ -250,6 +251,33 @@ export const ResponsiveProps = args => {
           <Flex>
             <Box {...indigoBoxStyle}>Flex child</Box>
           </Flex>
+          <Flex>
+            <Box {...indigoBoxStyle}>Flex child</Box>
+          </Flex>
+          <Flex>
+            <Box {...indigoBoxStyle}>Flex child</Box>
+          </Flex>
+        </Flex>
+      </Box>
+      <h3 className="component__story-name">
+        {responsivePropsStoryLabel('gap', [
+          FLEX_GAP_VALUES.SMALL,
+          null,
+          FLEX_GAP_VALUES.MEDIUM,
+          FLEX_GAP_VALUES.XLARGE,
+        ])}
+      </h3>
+      <Box {...indigoBoxStyle} style={{height: 400, width: 400}}>
+        <Flex
+          gap={[
+            FLEX_GAP_VALUES.SMALL,
+            null,
+            FLEX_GAP_VALUES.MEDIUM,
+            FLEX_GAP_VALUES.XLARGE,
+          ]}
+          wrap
+          fullHeight
+        >
           <Flex>
             <Box {...indigoBoxStyle}>Flex child</Box>
           </Flex>

@@ -122,6 +122,12 @@ $flexAlignmentValues: (center flex-start flex-end baseline stretch);
     }
 
     @each $sizeName, $size in $flexSpacingsMap {
+      @include makeResponsive($variant, 'sg-flex--gap-#{$sizeName}') {
+        gap: #{$size};
+      }
+    }
+
+    @each $sizeName, $size in $flexSpacingsMap {
       @each $side in $marginSides {
         @include makeResponsive(
           $variant,
