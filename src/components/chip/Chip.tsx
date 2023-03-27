@@ -1,7 +1,7 @@
 import * as React from 'react';
 import classNames from 'classnames';
 import Text from '../text/Text';
-import useChipContext from './useChipContex';
+import useChipContext from './useChipContext';
 
 export const CHIP_SIZE: {
   M: 'm';
@@ -171,6 +171,7 @@ const Chip = ({
         aria-description={ariaDescription}
         aria-describedby={ariaDescribedBy}
         onChange={onInputChange}
+        name={name}
       />
       <div className="sg-chip__pill">
         {Boolean(icon) && <div className="sg-chip__icon">{icon}</div>}

@@ -1,6 +1,6 @@
 import * as React from 'react';
 import classNames from 'classnames';
-import {ChipContext} from './useChipContex';
+import {ChipContext} from './useChipContext';
 import {generateId} from '../utils';
 import Flex from '../flex/Flex';
 
@@ -40,7 +40,10 @@ export type ChipGroupPropsType = {
   /**
    * Function called with an object containing the react synthetic event, whenever selected radio input changes.
    */
-  onChange: (arg0: React.SyntheticEvent<HTMLInputElement>) => void;
+  onChange: (
+    event: React.SyntheticEvent<HTMLInputElement>,
+    value: string | null | undefined
+  ) => void;
 
   /**
    * Sets whether the Chip is multi select or single select.
@@ -111,7 +114,7 @@ const ChipGroup = ({
 
   const setValue = (event, chipValue) => {
     setSelectedValue(getGroupValue(selectedValue, chipValue, multiSelect));
-    if (onChange) onChange(event);
+    if (onChange) onChange(event, chipValue);
   };
 
   return (
