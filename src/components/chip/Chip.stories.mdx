@@ -1,12 +1,14 @@
 import {ArgsTable, Meta, Story, Canvas} from '@storybook/addon-docs';
 import PageHeader from 'blocks/PageHeader';
 import Icon from '../icons/Icon';
+import Headline from '../text/Headline';
+import Text from '../text/Text';
 
 import Chip from './Chip';
 import ChipGroup from './ChipGroup';
 
 <Meta
-  title="Components/form/Chip"
+  title="Components/Chip"
   component={Chip}
   argTypes={{
     children: {
@@ -18,7 +20,6 @@ import ChipGroup from './ChipGroup';
       },
     },
   }}
-  args={{}}
 />
 
 <PageHeader>Chip</PageHeader>
@@ -26,26 +27,172 @@ import ChipGroup from './ChipGroup';
 ## Overview
 
 <Canvas>
-  <Story name="Default">
-    {args => (
-      <ChipGroup>
-        <Chip
-          {...args}
-          icon={<Icon type="apple" color="icon-black" aria-hidden />}
-          aria-description="here is description"
-        >
-          take an apple
-        </Chip>
-        <Chip
-          {...args}
-          icon={<Icon type="facebook" color="icon-black" aria-hidden />}
-          aria-description="here is description"
-        >
-          wash your face
-        </Chip>
-      </ChipGroup>
-    )}
-  </Story>
+  <Story name="Default">{args => <Chip {...args}>Chip</Chip>}</Story>
 </Canvas>
 
 <ArgsTable story="Default" />
+
+## Stories
+
+<Canvas>
+  <Story name="Controlled/Uncontrolled">
+    {args => {
+      const [selected, setSelected] = React.useState('facebook');
+      return (
+        <div>
+          <div>
+            <Headline
+              extraBold
+              transform="uppercase"
+              as="span"
+              color="text-gray-40"
+              size="medium"
+            >
+              Controlled
+            </Headline>
+            <Text>current value: {selected}</Text>
+            <Chip
+              {...args}
+              icon={<Icon type="apple" color="icon-black" aria-hidden />}
+              checked={'apple' === selected}
+              onChange={() => setSelected('apple')}
+              value="apple"
+              name="con"
+            >
+              take an apple
+            </Chip>
+            <Chip
+              {...args}
+              icon={<Icon type="facebook" color="icon-black" aria-hidden />}
+              checked={'facebook' === selected}
+              onChange={() => setSelected('facebook')}
+              value="facebook"
+              name="con"
+            >
+              wash your face
+            </Chip>
+            <Chip
+              {...args}
+              icon={<Icon type="instagram" color="icon-black" aria-hidden />}
+              checked={'insta' === selected}
+              onChange={() => setSelected('insta')}
+              value="insta"
+              name="con"
+            >
+              wooohooo
+            </Chip>
+          </div>
+          <div>
+            <Headline
+              extraBold
+              transform="uppercase"
+              as="span"
+              color="text-gray-40"
+              size="medium"
+            >
+              Uncontrolled
+            </Headline>
+            <Chip
+              {...args}
+              icon={<Icon type="apple" color="icon-black" aria-hidden />}
+              value="apple"
+              name="uncon"
+            >
+              take an apple
+            </Chip>
+            <Chip
+              {...args}
+              icon={<Icon type="facebook" color="icon-black" aria-hidden />}
+              value="facebook"
+              name="uncon"
+            >
+              wash your face
+            </Chip>
+            <Chip
+              {...args}
+              icon={<Icon type="instagram" color="icon-black" aria-hidden />}
+              value="insta"
+              name="uncon"
+            >
+              wooohooo
+            </Chip>
+          </div>
+        </div>
+      );
+    }}
+  </Story>
+</Canvas>
+
+<Canvas>
+  <Story name="Chip group">
+    {args => {
+      const [selected, setSelected] = React.useState('facebook');
+      return (
+        <div>
+          <div>
+            <Headline
+              extraBold
+              transform="uppercase"
+              as="span"
+              color="text-gray-40"
+              size="medium"
+            >
+              Controlled
+            </Headline>
+            <Text>current value: {selected}</Text>
+            <ChipGroup
+              value={selected}
+              onChange={(e, value) => setSelected(value)}
+            >
+              <Chip
+                {...args}
+                icon={<Icon type="apple" color="icon-black" aria-hidden />}
+                aria-description="here is description"
+                value="apple"
+              >
+                take an apple
+              </Chip>
+              <Chip
+                {...args}
+                icon={<Icon type="facebook" color="icon-black" aria-hidden />}
+                aria-description="here is description"
+                value="facebook"
+              >
+                wash your face
+              </Chip>
+            </ChipGroup>
+          </div>
+          <div>
+            <Headline
+              extraBold
+              transform="uppercase"
+              as="span"
+              color="text-gray-40"
+              size="medium"
+            >
+              Uncontrolled
+            </Headline>
+            <ChipGroup>
+              <Chip
+                {...args}
+                icon={<Icon type="apple" color="icon-black" aria-hidden />}
+                aria-description="here is description"
+                value="apple"
+              >
+                take an apple
+              </Chip>
+              <Chip
+                {...args}
+                icon={<Icon type="facebook" color="icon-black" aria-hidden />}
+                aria-description="here is description"
+                value="facebook"
+              >
+                wash your face
+              </Chip>
+            </ChipGroup>
+          </div>
+        </div>
+      );
+    }}
+  </Story>
+</Canvas>
