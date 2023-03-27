@@ -4,7 +4,11 @@ type ChipContextType = {
   disabled?: boolean;
   multiSelect?: boolean;
   name: string;
-  value: string | null | undefined | Array<string>;
+  groupValue: string | null | undefined | Array<string>;
+  onChipChange: (
+    event: React.SyntheticEvent<HTMLInputElement>,
+    chipValue: string | null | undefined
+  ) => void;
 };
 
 export const ChipContext = React.createContext<ChipContextType>(

@@ -1,6 +1,4 @@
 import * as React from 'react';
-// eslint-disable-next-line import/no-duplicates
-import {useRef} from 'react';
 import classNames from 'classnames';
 import {ChipContext} from './useChipContex';
 import {generateId} from '../utils';
@@ -67,6 +65,22 @@ export type ChipGroupPropsType = {
   | 'multiSelect'
 >;
 
+const getGroupValue = (
+  currentValue: string | null | undefined | Array<string>,
+  toggledValue: string | null | undefined,
+  multiSelect?: boolean
+) => {
+  if (multiSelect) {
+    if (Array.isArray(currentValue)) {
+      return currentValue.includes(toggledValue)
+        ? currentValue.filter(v => v !== toggledValue)
+        : [...currentValue, toggledValue];
+    }
+    return currentValue === toggledValue ? null : [toggledValue];
+  }
+  return currentValue === toggledValue ? null : toggledValue;
+};
+
 const ChipGroup = ({
   className,
   children,
@@ -85,9 +99,20 @@ const ChipGroup = ({
     className
   );
   const groupRole = multiSelect ? 'group' : 'radiogroup';
-  const {current: groupName} = useRef<string>(
+  const {current: groupName} = React.useRef<string>(
     name || `ChipGroup_${generateId()}`
   );
+
+  const [selectedValue, setSelectedValue] = React.useState(value || null);
+
+  React.useEffect(() => {
+    setSelectedValue(value);
+  }, [value]);
+
+  const setValue = (event, chipValue) => {
+    setSelectedValue(getGroupValue(selectedValue, chipValue, multiSelect));
+    if (onChange) onChange(event);
+  };
 
   return (
     <div
@@ -101,8 +126,9 @@ const ChipGroup = ({
           value={{
             name: groupName,
             disabled,
-            value,
+            groupValue: selectedValue,
             multiSelect,
+            onChipChange: setValue,
           }}
         >
           {children}

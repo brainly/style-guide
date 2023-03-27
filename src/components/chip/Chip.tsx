@@ -1,6 +1,7 @@
 import * as React from 'react';
 import classNames from 'classnames';
 import Text from '../text/Text';
+import useChipContext from './useChipContex';
 
 export const CHIP_SIZE: {
   M: 'm';
@@ -18,6 +19,20 @@ type StyleType = Partial<
     '--chipCheckedBorderColor'?: string;
   }
 >;
+
+const isCheckedWithinGroup = (
+  groupValue?: string | Array<string>,
+  value?: string
+) => {
+  if (!value) {
+    return;
+  }
+  if (Array.isArray(groupValue)) {
+    return groupValue.includes(value);
+  }
+
+  return groupValue === value;
+};
 
 export type ChipPropsType = {
   /**
@@ -72,7 +87,7 @@ export type ChipPropsType = {
    * Value of the input.
    * @example <Chip value="1" />
    */
-  value?: string | null | undefined;
+  value: string;
 
   /**
    * You can render icon inside the chip on the left side
@@ -121,12 +136,25 @@ const Chip = ({
 }: ChipPropsType) => {
   const chipClass = classNames('sg-chip', `sg-chip--${size}`, className);
   const inputClass = classNames('sg-visually-hidden', 'sg-chip__input');
-  const inputType = multiSelect ? 'checkbox' : 'radio';
 
-  const isControlled = checked !== undefined;
-  const isChecked = isControlled ? checked : undefined;
+  const chipGroupContext = useChipContext();
+  const isWithinChipGroup = Boolean(
+    chipGroupContext && Object.keys(chipGroupContext).length
+  );
+
+  const isCheckbox = multiSelect || chipGroupContext.multiSelect;
+  const inputType = isCheckbox ? 'checkbox' : 'radio';
+
+  const isControlled = checked !== undefined || isWithinChipGroup;
+  const isChecked = isControlled
+    ? checked ?? isCheckedWithinGroup(chipGroupContext.groupValue, value)
+    : undefined;
 
   const onInputChange = e => {
+    if (isWithinChipGroup) {
+      chipGroupContext.onChipChange(e, value);
+    }
+
     if (onChange) {
       onChange(e);
     }
@@ -137,7 +165,7 @@ const Chip = ({
       <input
         className={inputClass}
         type={inputType}
-        disabled={disabled}
+        disabled={disabled ?? chipGroupContext.disabled}
         value={value}
         checked={isChecked}
         aria-description={ariaDescription}
@@ -154,7 +182,7 @@ const Chip = ({
         >
           {children}
         </Text>
-        {multiSelect && (
+        {isCheckbox && (
           <svg
             viewBox="0 0 16 16"
             xmlns="http://www.w3.org/2000/svg"
