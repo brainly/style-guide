@@ -1,4 +1,4 @@
-import {Form, FormStep, FormContext} from './Form';
+import {Form, FormContext} from './Form';
 import Flex from '../flex/Flex';
 import Button from '../buttons/Button';
 import Headline from '../text/Headline';
@@ -32,7 +32,7 @@ import './form.stories.scss';
           }}
         >
           <Form>
-            <FormStep>
+            <Form.FormStep>
               {({changeStep, currentStepIndex}) => {
                 return (
                   <Flex
@@ -98,8 +98,8 @@ import './form.stories.scss';
                   </Flex>
                 );
               }}
-            </FormStep>
-            <FormStep>
+            </Form.FormStep>
+            <Form.FormStep>
               {({changeStep, currentStepIndex}) => (
                 <Flex justifyContent="center" fullWidth>
                   <div className="form-stories__step-wide">
@@ -148,8 +148,8 @@ import './form.stories.scss';
                   </div>
                 </Flex>
               )}
-            </FormStep>
-            <FormStep>
+            </Form.FormStep>
+            <Form.FormStep>
               {({changeStep, currentStepIndex}) => (
                 <Flex justifyContent="center" fullWidth>
                   <div className="form-stories__step-wide">
@@ -210,8 +210,8 @@ import './form.stories.scss';
                   </div>
                 </Flex>
               )}
-            </FormStep>
-            <FormStep>
+            </Form.FormStep>
+            <Form.FormStep>
               {({changeStep, currentStepIndex}) => (
                 <Flex justifyContent="center" fullWidth>
                   <div className="form-stories__step-wide">
@@ -257,8 +257,8 @@ import './form.stories.scss';
                   </div>
                 </Flex>
               )}
-            </FormStep>
-            <FormStep>
+            </Form.FormStep>
+            <Form.FormStep>
               {({changeStep, currentStepIndex}) => (
                 <Flex justifyContent="center" fullWidth>
                   <div className="form-stories__step-wide">
@@ -302,7 +302,7 @@ import './form.stories.scss';
                   </div>
                 </Flex>
               )}
-            </FormStep>
+            </Form.FormStep>
           </Form>
         </div>
       );

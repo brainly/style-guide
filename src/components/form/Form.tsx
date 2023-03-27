@@ -188,7 +188,11 @@ const overlayEffect: TransitionEffectType = {
   },
 };
 
-export const Form: React.FunctionComponent = ({children}) => {
+type FormPropsType = {
+  children: React.ReactNode;
+};
+
+export const Form = ({children}: FormPropsType) => {
   // state & refs
   const [currentStepIndex, setCurrentStepIndex] = React.useState(0);
   const contentRef = React.useRef<HTMLDivElement>(null);
@@ -356,9 +360,7 @@ type FormStepPropsType = {
   children: (FormContextType) => React.ReactNode;
 };
 
-export const FormStep: React.FunctionComponent<FormStepPropsType> = ({
-  children,
-}) => {
+const FormStep: React.FunctionComponent<FormStepPropsType> = ({children}) => {
   const {changeStep, currentStepIndex} = React.useContext(FormContext);
 
   return (
@@ -369,3 +371,5 @@ export const FormStep: React.FunctionComponent<FormStepPropsType> = ({
     </div>
   );
 };
+
+Form.FormStep = FormStep;
