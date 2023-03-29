@@ -3,7 +3,7 @@ import classNames from 'classnames';
 import Text from '../text/Text';
 import useChipContext from './useChipContext';
 
-export const CHIP_SIZE: {
+export const SIZE: {
   M: 'm';
   S: 's';
 } = {
@@ -104,7 +104,6 @@ export type ChipPropsType = {
    */
   onChange?: (arg0: React.SyntheticEvent<HTMLLabelElement>) => void;
 
-  'aria-description'?: string;
   'aria-describedby'?: string;
 } & Omit<
   React.AllHTMLAttributes<HTMLLabelElement>,
@@ -130,7 +129,6 @@ const Chip = ({
   checked,
   icon,
   onChange,
-  'aria-description': ariaDescription,
   'aria-describedby': ariaDescribedBy,
   ...props
 }: ChipPropsType) => {
@@ -168,7 +166,6 @@ const Chip = ({
         disabled={disabled ?? chipGroupContext.disabled}
         value={value}
         checked={isChecked}
-        aria-description={ariaDescription}
         aria-describedby={ariaDescribedBy}
         onChange={onInputChange}
         name={name}

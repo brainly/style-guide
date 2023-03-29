@@ -1,11 +1,19 @@
 import {ArgsTable, Meta, Story, Canvas} from '@storybook/addon-docs';
+import {StoryVariantTable} from '../../docs/utils';
 import PageHeader from 'blocks/PageHeader';
 import Icon from '../icons/Icon';
+import SubjectIcon from '../subject-icons/SubjectIcon';
 import Headline from '../text/Headline';
 import Text from '../text/Text';
-
-import Chip from './Chip';
+import Button from '../buttons/Button';
+import Flex from '../flex/Flex';
+import Chip, {SIZE} from './Chip';
 import ChipGroup from './ChipGroup';
+const chips = [
+  {value: 'physics', label: 'Physics', icon: 'physics'},
+  {value: 'biology', label: 'Biology', icon: 'biology'},
+  {value: 'mathematics', label: 'Math', icon: 'logic'},
+];
 
 <Meta
   title="Components/Chip"
@@ -20,6 +28,7 @@ import ChipGroup from './ChipGroup';
       },
     },
   }}
+  args={{children: 'Physics'}}
 />
 
 <PageHeader>Chip</PageHeader>
@@ -27,7 +36,7 @@ import ChipGroup from './ChipGroup';
 ## Overview
 
 <Canvas>
-  <Story name="Default">{args => <Chip {...args}>Chip</Chip>}</Story>
+  <Story name="Default">{args => <Chip {...args} />}</Story>
 </Canvas>
 
 <ArgsTable story="Default" />
@@ -37,87 +46,77 @@ import ChipGroup from './ChipGroup';
 <Canvas>
   <Story name="Controlled/Uncontrolled">
     {args => {
-      const [selected, setSelected] = React.useState('facebook');
+      const [selected, setSelected] = React.useState(chips[0].value);
+      const switchValue = () =>
+        setSelected(chips[Math.floor(Math.random() * 3)].value);
       return (
-        <div>
-          <div>
-            <Headline
-              extraBold
-              transform="uppercase"
-              as="span"
-              color="text-gray-40"
-              size="medium"
-            >
-              Controlled
-            </Headline>
-            <Text>current value: {selected}</Text>
-            <Chip
-              {...args}
-              icon={<Icon type="apple" color="icon-black" aria-hidden />}
-              checked={'apple' === selected}
-              onChange={() => setSelected('apple')}
-              value="apple"
-              name="con"
-            >
-              take an apple
-            </Chip>
-            <Chip
-              {...args}
-              icon={<Icon type="facebook" color="icon-black" aria-hidden />}
-              checked={'facebook' === selected}
-              onChange={() => setSelected('facebook')}
-              value="facebook"
-              name="con"
-            >
-              wash your face
-            </Chip>
-            <Chip
-              {...args}
-              icon={<Icon type="instagram" color="icon-black" aria-hidden />}
-              checked={'insta' === selected}
-              onChange={() => setSelected('insta')}
-              value="insta"
-              name="con"
-            >
-              wooohooo
-            </Chip>
-          </div>
-          <div>
-            <Headline
-              extraBold
-              transform="uppercase"
-              as="span"
-              color="text-gray-40"
-              size="medium"
-            >
-              Uncontrolled
-            </Headline>
-            <Chip
-              {...args}
-              icon={<Icon type="apple" color="icon-black" aria-hidden />}
-              value="apple"
-              name="uncon"
-            >
-              take an apple
-            </Chip>
-            <Chip
-              {...args}
-              icon={<Icon type="facebook" color="icon-black" aria-hidden />}
-              value="facebook"
-              name="uncon"
-            >
-              wash your face
-            </Chip>
-            <Chip
-              {...args}
-              icon={<Icon type="instagram" color="icon-black" aria-hidden />}
-              value="insta"
-              name="uncon"
-            >
-              wooohooo
-            </Chip>
-          </div>
-        </div>
+        <StoryVariantTable>
+          <tbody>
+            <tr>
+              <td>
+                <Headline
+                  extraBold
+                  transform="uppercase"
+                  as="span"
+                  color="text-gray-40"
+                  size="medium"
+                >
+                  Controlled
+                </Headline>
+              </td>
+              <td>
+                <Flex gap="s">
+                  {chips.map(({value, icon, label}) => (
+                    <Chip
+                      {...args}
+                      icon={
+                        <SubjectIcon type={icon} size="small" aria-hidden />
+                      }
+                      checked={value === selected}
+                      onChange={() => setSelected(value)}
+                      value={value}
+                      name="con"
+                    >
+                      {label}
+                    </Chip>
+                  ))}
+                </Flex>
+              </td>
+              <td>
+                <Button onClick={switchValue}>Switch value</Button>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <Headline
+                  extraBold
+                  transform="uppercase"
+                  as="span"
+                  color="text-gray-40"
+                  size="medium"
+                >
+                  Uncontrolled
+                </Headline>
+              </td>
+              <td>
+                <Flex gap="s">
+                  {chips.map(({value, icon, label}) => (
+                    <Chip
+                      {...args}
+                      icon={
+                        <SubjectIcon type={icon} size="small" aria-hidden />
+                      }
+                      value={value}
+                      name="uncon"
+                    >
+                      {label}
+                    </Chip>
+                  ))}
+                </Flex>
+              </td>
+            </tr>
+          </tbody>
+        </StoryVariantTable>
       );
     }}
   </Story>
@@ -126,73 +125,108 @@ import ChipGroup from './ChipGroup';
 <Canvas>
   <Story name="Chip group">
     {args => {
-      const [selected, setSelected] = React.useState('facebook');
+      const [selected, setSelected] = React.useState(chips[0].value);
+      const switchValue = () =>
+        setSelected(chips[Math.floor(Math.random() * 3)].value);
       return (
-        <div>
-          <div>
-            <Headline
-              extraBold
-              transform="uppercase"
-              as="span"
-              color="text-gray-40"
-              size="medium"
-            >
-              Controlled
-            </Headline>
-            <Text>current value: {selected}</Text>
-            <ChipGroup
-              value={selected}
-              onChange={(e, value) => setSelected(value)}
-            >
-              <Chip
-                {...args}
-                icon={<Icon type="apple" color="icon-black" aria-hidden />}
-                aria-description="here is description"
-                value="apple"
-              >
-                take an apple
-              </Chip>
-              <Chip
-                {...args}
-                icon={<Icon type="facebook" color="icon-black" aria-hidden />}
-                aria-description="here is description"
-                value="facebook"
-              >
-                wash your face
-              </Chip>
-            </ChipGroup>
-          </div>
-          <div>
-            <Headline
-              extraBold
-              transform="uppercase"
-              as="span"
-              color="text-gray-40"
-              size="medium"
-            >
-              Uncontrolled
-            </Headline>
-            <ChipGroup>
-              <Chip
-                {...args}
-                icon={<Icon type="apple" color="icon-black" aria-hidden />}
-                aria-description="here is description"
-                value="apple"
-              >
-                take an apple
-              </Chip>
-              <Chip
-                {...args}
-                icon={<Icon type="facebook" color="icon-black" aria-hidden />}
-                aria-description="here is description"
-                value="facebook"
-              >
-                wash your face
-              </Chip>
-            </ChipGroup>
-          </div>
-        </div>
+        <StoryVariantTable>
+          <tbody>
+            <tr>
+              <td>
+                <Headline
+                  extraBold
+                  transform="uppercase"
+                  as="span"
+                  color="text-gray-40"
+                  size="medium"
+                >
+                  Controlled
+                </Headline>
+              </td>
+              <td>
+                <ChipGroup
+                  value={selected}
+                  onChange={(e, value) => setSelected(value)}
+                >
+                  {chips.map(({value, icon, label}) => (
+                    <Chip
+                      {...args}
+                      icon={
+                        <SubjectIcon type={icon} size="small" aria-hidden />
+                      }
+                      value={value}
+                      name="uncon"
+                    >
+                      {label}
+                    </Chip>
+                  ))}
+                </ChipGroup>
+              </td>
+              <td>
+                <Button onClick={switchValue}>Switch value</Button>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <Headline
+                  extraBold
+                  transform="uppercase"
+                  as="span"
+                  color="text-gray-40"
+                  size="medium"
+                >
+                  Uncontrolled
+                </Headline>
+              </td>
+              <td>
+                <ChipGroup>
+                  {chips.map(({value, icon, label}) => (
+                    <Chip
+                      {...args}
+                      icon={
+                        <SubjectIcon type={icon} size="small" aria-hidden />
+                      }
+                      value={value}
+                      name="uncon"
+                    >
+                      {label}
+                    </Chip>
+                  ))}
+                </ChipGroup>
+              </td>
+            </tr>
+          </tbody>
+        </StoryVariantTable>
       );
     }}
+  </Story>
+</Canvas>
+
+<Canvas>
+  <Story name="Sizes">
+    {args => (
+      <StoryVariantTable>
+        <tbody>
+          {Object.values(SIZE).map(size => (
+            <tr key={size}>
+              <td>
+                <Headline
+                  extraBold
+                  transform="uppercase"
+                  as="span"
+                  color="text-gray-40"
+                  size="medium"
+                >
+                  {size}
+                </Headline>
+              </td>
+              <td>
+                <Chip {...args} size={size} />
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </StoryVariantTable>
+    )}
   </Story>
 </Canvas>
