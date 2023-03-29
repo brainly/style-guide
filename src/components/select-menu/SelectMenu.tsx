@@ -15,7 +15,8 @@ import Text from '../text/Text';
 import useSelectMenu from './useSelectMenu';
 import useFloatingSelectMenu from './useFloatingSelectMenu';
 import useSelectMenuAnimations from './useSelectMenuAnimations';
-import SelectMenuOption from './SelectMenuOption';
+import Option from './SelectMenuOption';
+import {SelectMenuContext} from './useSelectMenuContext';
 
 export type SelectMenuOptionType = {
   value: string;
@@ -24,6 +25,12 @@ export type SelectMenuOptionType = {
     name: IconTypeType | SubjectIconTypeType;
     isSubjectIcon?: boolean;
   };
+};
+
+export type OptionType = {
+  value: string;
+  label: React.ReactNode | string;
+  icon?: React.ReactNode;
 };
 
 export type SelectMenuSizeType = 's' | 'm' | 'l';
@@ -42,7 +49,7 @@ const ICON_SIZE_MAP = {
   [SIZE.S]: 16,
 } as const;
 
-type SelectMenuColorType = 'default' | 'white';
+export type SelectMenuColorType = 'default' | 'white';
 
 export const COLOR = {
   DEFAULT: 'default',
@@ -50,6 +57,12 @@ export const COLOR = {
 } as const;
 
 export type SelectMenuPropsType = {
+  /**
+   * SelectMenu inner elements
+   * @example <SelectMenu.Root><SelectMenu.Option value="option1">Option 1</SelectMenu.Option></SelectMenu.Root>
+   */
+  children?: React.ReactNode;
+
   /**
    * Optional string. Additional class names.
    */
@@ -154,7 +167,7 @@ export type SelectMenuPropsType = {
    *           options={[{value: 'option1', label: 'Option1'},{value: 'option2', label: 'Select selector'}]}
    *          />
    */
-  onOptionChange: (SelectMenuOptionType) => unknown;
+  onOptionChange: (option: OptionType) => unknown;
 
   /**
    * Callback. Called only when expanded state is controlled, called when component informs the expanded state should change.
@@ -168,6 +181,7 @@ export type SelectMenuPropsType = {
   onToggle?: (boolean) => unknown;
 } & Omit<
   React.AllHTMLAttributes<HTMLElement>,
+  | 'children'
   | 'className'
   | 'placeholder'
   | 'valid'
@@ -186,9 +200,10 @@ export type SelectMenuPropsType = {
   | 'onToggle'
 >;
 
-const SelectMenu = React.forwardRef<HTMLDivElement, SelectMenuPropsType>(
+const Root = React.forwardRef<HTMLDivElement, SelectMenuPropsType>(
   (props: SelectMenuPropsType, ref) => {
     const {
+      children,
       className,
       valid,
       invalid,
@@ -259,49 +274,49 @@ const SelectMenu = React.forwardRef<HTMLDivElement, SelectMenuPropsType>(
       onOpenChange,
     });
 
-    const optionsElements = options.map((option, index) => {
-      if (option.label || option.value) {
-        const isSelected = selectedOptions.some(
-          selectedOption => selectedOption.value === option.value
-        );
+    // const optionsElements = options.map((option, index) => {
+    //   if (option.label || option.value) {
+    //     const isSelected = selectedOptions.some(
+    //       selectedOption => selectedOption.value === option.value
+    //     );
 
-        const optionInteractions = interactions.getItemProps({
-          // Handle pointer select.
-          onClick() {
-            handleOptionSelect(option);
-          },
-          // Handle keyboard select.
-          onKeyDown(event) {
-            if (event.key === 'Enter') {
-              event.preventDefault();
-              handleOptionSelect(option);
-            }
+    //     const optionInteractions = interactions.getItemProps({
+    //       // Handle pointer select.
+    //       onClick() {
+    //         handleOptionSelect(option);
+    //       },
+    //       // Handle keyboard select.
+    //       onKeyDown(event) {
+    //         if (event.key === 'Enter') {
+    //           event.preventDefault();
+    //           handleOptionSelect(option);
+    //         }
 
-            // Only if not using typeahead.
-            if (event.key === ' ' && !context.dataRef.current.typing) {
-              event.preventDefault();
-              handleOptionSelect(option);
-            }
-          },
-        });
+    //         // Only if not using typeahead.
+    //         if (event.key === ' ' && !context.dataRef.current.typing) {
+    //           event.preventDefault();
+    //           handleOptionSelect(option);
+    //         }
+    //       },
+    //     });
 
-        return (
-          <SelectMenuOption
-            key={option.value}
-            ref={node => {
-              listRef.current[index] = node;
-            }}
-            option={option}
-            isSelected={isSelected}
-            multiSelect={multiSelect}
-            withIcon={withIcons}
-            interactions={optionInteractions}
-            tabIndex={index === activeIndex ? 0 : -1}
-          />
-        );
-      }
-      return null;
-    });
+    //     return (
+    //       <SelectMenuOption
+    //         key={option.value}
+    //         ref={node => {
+    //           listRef.current[index] = node;
+    //         }}
+    //         option={option}
+    //         isSelected={isSelected}
+    //         multiSelect={multiSelect}
+    //         withIcon={withIcons}
+    //         interactions={optionInteractions}
+    //         tabIndex={index === activeIndex ? 0 : -1}
+    //       />
+    //     );
+    //   }
+    //   return null;
+    // });
 
     const selectDisplayValue = React.useMemo(() => {
       if (!selectedOptions.length)
@@ -487,7 +502,21 @@ const SelectMenu = React.forwardRef<HTMLDivElement, SelectMenuPropsType>(
                     id={`${id}-listbox`}
                     role="presentation"
                   >
-                    {optionsElements}
+                    <SelectMenuContext.Provider
+                      value={{
+                        withIcons,
+                        multiSelect,
+                        disabled,
+                        valid,
+                        invalid,
+                        size,
+                        color,
+                        interactions,
+                        handleOptionSelect,
+                      }}
+                    >
+                      {children}
+                    </SelectMenuContext.Provider>
                   </div>
                 </div>
               </div>
@@ -499,5 +528,6 @@ const SelectMenu = React.forwardRef<HTMLDivElement, SelectMenuPropsType>(
   }
 );
 
-SelectMenu.displayName = 'SelectMenu';
-export default SelectMenu;
+Root.displayName = 'SelectMenu';
+
+export default {Root, Option};

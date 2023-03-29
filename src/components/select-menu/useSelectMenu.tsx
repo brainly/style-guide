@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import type {SelectMenuPropsType, SelectMenuOptionType} from './SelectMenu';
+import type {SelectMenuPropsType, OptionType} from './SelectMenu';
 
 type UseSelectMenuPropsType =
   | Pick<
@@ -64,7 +64,7 @@ const useSelectMenu = (props: UseSelectMenuPropsType) => {
     };
   }
 
-  const handleOptionSelect = (option: SelectMenuOptionType) => {
+  const handleOptionSelect = (option: OptionType) => {
     onOptionChange(option);
     if (!multiSelect) onOpenChange(false);
   };
