@@ -35,8 +35,9 @@ const isCheckedWithinGroup = (
 };
 
 export type ChipPropsType = {
+  children: React.ReactNode;
   /**
-   * Sets whether the radio is checked or unchecked.
+   * Sets whether the chip is checked or unchecked.
    * @example <Chip checked />
    */
   checked?: boolean;
@@ -48,21 +49,21 @@ export type ChipPropsType = {
   multiSelect?: boolean;
 
   /**
-   * To be displayed to the right of the radio as a label. The label is clickable radio element.
-   * @example <Chip>Label</Chip>
-   */
-  children: React.ReactNode;
-
-  /**
    * Optional string. Additional classnames.
    */
   className?: string | null | undefined;
 
   /**
-   * Sets whether the radio is disabled.
+   * Sets whether the Chip is disabled.
    * @example <Chip disabled />
    */
   disabled?: boolean;
+
+  /**
+   * Sets whether the Chip is required.
+   * @example <Chip required />
+   */
+  required?: boolean;
 
   /**
    * Sets size.
@@ -72,7 +73,7 @@ export type ChipPropsType = {
   size?: ChipSizeType;
 
   /**
-   * The name of the radio input.
+   * The name of the chip group.
    * @example <Chip name="subjects" />
    */
   name: string;
@@ -100,7 +101,7 @@ export type ChipPropsType = {
   icon?: React.ReactNode;
 
   /**
-   * Function called with an object containing the react synthetic event, whenever the state of the radio changes.
+   * Function called with an object containing the react synthetic event, whenever the state of the chip changes.
    */
   onChange?: (arg0: React.SyntheticEvent<HTMLLabelElement>) => void;
 
