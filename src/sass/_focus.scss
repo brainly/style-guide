@@ -1,6 +1,7 @@
 @mixin applyFocusStyle() {
-  box-shadow: 0px 0px 0px 2px var(--focusInnerColor),
-    0px 0px 0px 4px var(--focusColor), 0px 0px 0px 6px var(--focusOuterColor);
+  box-shadow: 0px 0px 0px var(--focusInnerWidth) var(--focusInnerColor),
+    0px 0px 0px var(--focusWidth) var(--focusColor),
+    0px 0px 0px var(--focusOuterWidth) var(--focusOuterColor);
   outline: none;
   animation: focusShadow1 $durationQuick2 $easingEntry,
     focusShadow2 $durationQuick2 $easingEntry calc($durationQuick2 / 2),
@@ -8,8 +9,8 @@
 
   @media (forced-colors: active) {
     outline-color: Highlight;
-    outline-width: 2px;
-    outline-offset: 6px;
+    outline-width: calc(var(--focusWidth) - var(--focusInnerWidth));
+    outline-offset: var(--focusOuterWidth);
     outline-style: auto;
   }
 }
@@ -20,37 +21,39 @@
   }
 
   100% {
-    box-shadow: 0px 0px 0px 2px var(--focusInnerColor);
+    box-shadow: 0px 0px 0px var(--focusInnerWidth) var(--focusInnerColor);
   }
 }
 
 @keyframes focusShadow2 {
   0% {
-    box-shadow: 0px 0px 0px 1.8px var(--focusInnerColor);
+    box-shadow: 0px 0px 0px calc(0.9 * var(--focusInnerWidth))
+      var(--focusInnerColor);
   }
 
   100% {
-    box-shadow: 0px 0px 0px 2px var(--focusInnerColor),
-      0px 0px 0px 4px var(--focusColor);
+    box-shadow: 0px 0px 0px var(--focusInnerWidth) var(--focusInnerColor),
+      0px 0px 0px var(--focusWidth) var(--focusColor);
   }
 }
 
 @keyframes focusShadow3 {
   0% {
-    box-shadow: 0px 0px 0px 2px var(--focusInnerColor),
-      0px 0px 0px 3.8px var(--focusColor);
+    box-shadow: 0px 0px 0px var(--focusInnerWidth) var(--focusInnerColor),
+      0px 0px 0px calc(0.95 * var(--focusWidth)) var(--focusColor);
   }
 
   100% {
-    box-shadow: 0px 0px 0px 2px var(--focusInnerColor),
-      0px 0px 0px 4px var(--focusColor), 0px 0px 0px 6px var(--focusOuterColor);
+    box-shadow: 0px 0px 0px var(--focusInnerWidth) var(--focusInnerColor),
+      0px 0px 0px var(--focusWidth) var(--focusColor),
+      0px 0px 0px var(--focusOuterWidth) var(--focusOuterColor);
   }
 }
 
 @mixin applyFocusTextStyle() {
   outline-color: var(--focusColor);
-  outline-width: 2px;
-  outline-offset: 4px;
+  outline-width: calc(var(--focusWidth) - var(--focusInnerWidth));
+  outline-offset: var(--focusWidth);
   outline-style: auto;
 }
 
