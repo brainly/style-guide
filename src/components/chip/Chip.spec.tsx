@@ -10,7 +10,7 @@ describe('<Chip />', () => {
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const chip = render(
       <div>
-        <Chip aria-describedby="desc" value="label" name="name">
+        <Chip aria-describedby="desc" value="label">
           label
         </Chip>
         <p id="desc">{description}</p>
@@ -23,11 +23,7 @@ describe('<Chip />', () => {
     it('renders uncontrolled chip with accessible name and radio role', () => {
       const label = 'physics';
       // eslint-disable-next-line @typescript-eslint/no-unused-vars
-      const chip = render(
-        <Chip value={label} name={label}>
-          {label}
-        </Chip>
-      );
+      const chip = render(<Chip value={label}>{label}</Chip>);
 
       const chipInput = screen.getByRole('radio', {
         name: label,
@@ -36,7 +32,6 @@ describe('<Chip />', () => {
       expect(chipInput).toBeInTheDocument();
       expect(chipInput.checked).toBe(false);
       expect(chipInput.getAttribute('value')).toBe(label);
-      expect(chipInput.getAttribute('name')).toBe(label);
     });
 
     it('checks/unchecks when either label is clicked or space is pressed', () => {
@@ -76,7 +71,7 @@ describe('<Chip />', () => {
     it('renders as checked', () => {
       const label = 'physics';
       const chip = render(
-        <Chip value={label} name={label} checked>
+        <Chip value={label} checked>
           {label}
         </Chip>
       );
@@ -89,7 +84,7 @@ describe('<Chip />', () => {
       const onChange = jest.fn();
       const label = 'physics';
       const chip = render(
-        <Chip value={label} name={label} onChange={onChange} disabled>
+        <Chip value={label} onChange={onChange} disabled>
           {label}
         </Chip>
       );
@@ -110,7 +105,7 @@ describe('<Chip />', () => {
       const label = 'physics';
       // eslint-disable-next-line @typescript-eslint/no-unused-vars
       const chip = render(
-        <Chip value={label} name={label} multiSelect>
+        <Chip value={label} multiSelect>
           {label}
         </Chip>
       );
@@ -122,7 +117,6 @@ describe('<Chip />', () => {
       expect(chipInput).toBeInTheDocument();
       expect(chipInput.checked).toBe(false);
       expect(chipInput.getAttribute('value')).toBe(label);
-      expect(chipInput.getAttribute('name')).toBe(label);
     });
 
     it('checks/unchecks when either label is clicked or space/enter is pressed', () => {
@@ -162,7 +156,7 @@ describe('<Chip />', () => {
     it('renders as checked', () => {
       const label = 'physics';
       const chip = render(
-        <Chip value={label} name={label} checked multiSelect>
+        <Chip value={label} checked multiSelect>
           {label}
         </Chip>
       );
@@ -175,13 +169,7 @@ describe('<Chip />', () => {
       const onChange = jest.fn();
       const label = 'physics';
       const chip = render(
-        <Chip
-          value={label}
-          name={label}
-          onChange={onChange}
-          disabled
-          multiSelect
-        >
+        <Chip value={label} onChange={onChange} disabled multiSelect>
           {label}
         </Chip>
       );
@@ -201,7 +189,7 @@ describe('<Chip />', () => {
     it('should have no a11y violations when it has a description', async () => {
       await testA11y(
         <div>
-          <Chip aria-describedby="desc" value="label" name="name">
+          <Chip aria-describedby="desc" value="label">
             label
           </Chip>
           <p id="desc">description</p>
@@ -210,16 +198,12 @@ describe('<Chip />', () => {
     });
     describe('single select', () => {
       it('should have no a11y violations when children, name and value are provided', async () => {
-        await testA11y(
-          <Chip name="name" value="value">
-            item
-          </Chip>
-        );
+        await testA11y(<Chip value="value">item</Chip>);
       });
 
       it('should have no a11y violations when checked', async () => {
         await testA11y(
-          <Chip name="name" value="value" checked>
+          <Chip value="value" checked>
             item
           </Chip>
         );
@@ -227,7 +211,7 @@ describe('<Chip />', () => {
 
       it('should have no a11y violations when disabled', async () => {
         await testA11y(
-          <Chip name="name" value="value" disabled>
+          <Chip value="value" disabled>
             item
           </Chip>
         );
@@ -235,7 +219,7 @@ describe('<Chip />', () => {
 
       it('should have no a11y violations when required', async () => {
         await testA11y(
-          <Chip name="name" value="value" required>
+          <Chip value="value" required>
             item
           </Chip>
         );
@@ -245,7 +229,7 @@ describe('<Chip />', () => {
     describe('multi select', () => {
       it('should have no a11y violations when children, name and value are provided', async () => {
         await testA11y(
-          <Chip name="name" value="value" multiSelect>
+          <Chip value="value" multiSelect>
             item
           </Chip>
         );
@@ -253,7 +237,7 @@ describe('<Chip />', () => {
 
       it('should have no a11y violations when checked', async () => {
         await testA11y(
-          <Chip name="name" value="value" checked multiSelect>
+          <Chip value="value" checked multiSelect>
             item
           </Chip>
         );
@@ -261,7 +245,7 @@ describe('<Chip />', () => {
 
       it('should have no a11y violations when disabled', async () => {
         await testA11y(
-          <Chip name="name" value="value" disabled multiSelect>
+          <Chip value="value" disabled multiSelect>
             item
           </Chip>
         );
@@ -269,7 +253,7 @@ describe('<Chip />', () => {
 
       it('should have no a11y violations when required', async () => {
         await testA11y(
-          <Chip name="name" value="value" required multiSelect>
+          <Chip value="value" required multiSelect>
             item
           </Chip>
         );

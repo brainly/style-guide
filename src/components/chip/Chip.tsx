@@ -76,7 +76,7 @@ export type ChipPropsType = {
    * The name of the chip group.
    * @example <Chip name="subjects" />
    */
-  name: string;
+  name?: string;
 
   /**
    * Style applied to the container.
@@ -128,6 +128,7 @@ const Chip = ({
   size = 'm',
   multiSelect,
   checked,
+  required,
   icon,
   onChange,
   'aria-describedby': ariaDescribedBy,
@@ -143,6 +144,9 @@ const Chip = ({
 
   const isCheckbox = multiSelect || chipGroupContext.multiSelect;
   const inputType = isCheckbox ? 'checkbox' : 'radio';
+  const groupName = isWithinChipGroup ? chipGroupContext.name : name;
+  const isRequired = isWithinChipGroup ? chipGroupContext.required : required;
+  const isDisabled = isWithinChipGroup ? chipGroupContext.disabled : disabled;
 
   const isControlled = checked !== undefined || isWithinChipGroup;
   const isChecked = isControlled
@@ -164,12 +168,13 @@ const Chip = ({
       <input
         className={inputClass}
         type={inputType}
-        disabled={disabled ?? chipGroupContext.disabled}
+        disabled={isDisabled}
+        required={isRequired}
         value={value}
         checked={isChecked}
         aria-describedby={ariaDescribedBy}
         onChange={onInputChange}
-        name={name}
+        name={groupName}
       />
       <div className="sg-chip__pill">
         {Boolean(icon) && <div className="sg-chip__icon">{icon}</div>}
