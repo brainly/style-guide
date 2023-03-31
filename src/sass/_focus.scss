@@ -1,7 +1,16 @@
+@mixin calculateFocusWidths() {
+  --totalWidth: calc(var(--focusInnerWidth) + var(--focusWidth));
+  --totalOuterWidth: calc(
+    var(--focusInnerWidth) + var(--focusWidth) + var(--focusOuterWidth)
+  );
+}
+
 @mixin applyFocusStyle() {
+  @include calculateFocusWidths();
+
   box-shadow: 0px 0px 0px var(--focusInnerWidth) var(--focusInnerColor),
-    0px 0px 0px var(--focusWidth) var(--focusColor),
-    0px 0px 0px var(--focusOuterWidth) var(--focusOuterColor);
+    0px 0px 0px var(--totalWidth) var(--focusColor),
+    0px 0px 0px var(--totalOuterWidth) var(--focusOuterColor);
   outline: none;
   animation: focusShadow1 $durationQuick2 $easingEntry,
     focusShadow2 $durationQuick2 $easingEntry calc($durationQuick2 / 2),
@@ -9,8 +18,8 @@
 
   @media (forced-colors: active) {
     outline-color: Highlight;
-    outline-width: calc(var(--focusWidth) - var(--focusInnerWidth));
-    outline-offset: var(--focusOuterWidth);
+    outline-width: var(--focusWidth);
+    outline-offset: var(--totalOuterWidth);
     outline-style: auto;
   }
 }
@@ -33,27 +42,29 @@
 
   100% {
     box-shadow: 0px 0px 0px var(--focusInnerWidth) var(--focusInnerColor),
-      0px 0px 0px var(--focusWidth) var(--focusColor);
+      0px 0px 0px var(--totalWidth) var(--focusColor);
   }
 }
 
 @keyframes focusShadow3 {
   0% {
     box-shadow: 0px 0px 0px var(--focusInnerWidth) var(--focusInnerColor),
-      0px 0px 0px calc(0.95 * var(--focusWidth)) var(--focusColor);
+      0px 0px 0px calc(0.95 * var(--totalWidth)) var(--focusColor);
   }
 
   100% {
     box-shadow: 0px 0px 0px var(--focusInnerWidth) var(--focusInnerColor),
-      0px 0px 0px var(--focusWidth) var(--focusColor),
-      0px 0px 0px var(--focusOuterWidth) var(--focusOuterColor);
+      0px 0px 0px var(--totalWidth) var(--focusColor),
+      0px 0px 0px var(--totalOuterWidth) var(--focusOuterColor);
   }
 }
 
 @mixin applyFocusTextStyle() {
+  @include calculateFocusWidths();
+
   outline-color: var(--focusColor);
-  outline-width: calc(var(--focusWidth) - var(--focusInnerWidth));
-  outline-offset: var(--focusWidth);
+  outline-width: var(--focusWidth);
+  outline-offset: var(--totalWidth);
   outline-style: auto;
 }
 
