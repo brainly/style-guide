@@ -32,6 +32,12 @@ export type ChipGroupPropsType = {
   disabled?: boolean;
 
   /**
+   * Sets whether the group is required.
+   * @example <ChipGroup required />
+   */
+  required?: boolean;
+
+  /**
    * The name of Chip inputs.
    * @example <ChipGroup name="name" />
    */
@@ -40,7 +46,7 @@ export type ChipGroupPropsType = {
   /**
    * Function called with an object containing the react synthetic event, whenever selected radio input changes.
    */
-  onChange: (
+  onChange?: (
     event: React.SyntheticEvent<HTMLInputElement>,
     value: string | null | undefined
   ) => void;
@@ -55,7 +61,7 @@ export type ChipGroupPropsType = {
    * Currently selected radio input.
    * @example <ChipGroup value="1"><Chip value="1">Label</Chip></ChipGroup>
    */
-  value: string | null | undefined | Array<string>;
+  value?: string | null | undefined | Array<string>;
 } & Omit<
   React.AllHTMLAttributes<HTMLElement>,
   | 'children'
@@ -129,6 +135,7 @@ const ChipGroup = ({
           value={{
             name: groupName,
             disabled,
+            required,
             groupValue: selectedValue,
             multiSelect,
             onChipChange: setValue,
