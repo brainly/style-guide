@@ -128,7 +128,7 @@ describe('<SelectMenu />', () => {
 
     expect(
       select
-        .getByRole('option', {name: 'History check'})
+        .getByRole('option', {name: 'History'})
         .getAttribute('aria-selected')
     ).toEqual('true');
   });
@@ -142,14 +142,16 @@ describe('<SelectMenu />', () => {
     expect(select.queryByRole('listbox')).toBeInTheDocument();
     expect(
       select.getByRole('listbox').getAttribute('aria-multiselectable')
-    ).toBe(true);
+    ).toBe('true');
     expect(select.container.getElementsByClassName('sg-checkbox').length).toBe(
       3
     );
+
     userEvent.click(select.getByText('Physics'));
     expect(selectElement.getAttribute('aria-expanded')).toEqual('true');
     userEvent.click(select.getByText('Science'));
     expect(selectElement.getAttribute('aria-expanded')).toEqual('true');
+
     userEvent.click(document.body);
     await waitForElementToBeRemoved(() => select.queryByRole('listbox'));
 
