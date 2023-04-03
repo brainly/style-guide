@@ -32,6 +32,8 @@ const SelectMenuOption = React.forwardRef<
 
   const itemRef = React.useRef<HTMLElement>(null);
 
+  const itemMergedRef = useMergeRefs([ref, itemRef]);
+
   React.useEffect(() => {
     const thisItemIndex = context.optionsList.size + 1;
 
@@ -115,7 +117,7 @@ const SelectMenuOption = React.forwardRef<
   return (
     <div
       key={value}
-      ref={itemRef}
+      ref={itemMergedRef}
       className={classNames}
       role="option"
       aria-selected={isSelected}
