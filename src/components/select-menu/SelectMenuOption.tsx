@@ -1,7 +1,7 @@
 import * as React from 'react';
 import classnames from 'classnames';
+import {useMergeRefs} from '@floating-ui/react';
 
-import {OptionType} from './SelectMenu';
 import type {IconTypeType as SubjectIconTypeType} from '../subject-icons/SubjectIcon';
 import type {IconTypeType} from '../icons/Icon';
 
@@ -19,108 +19,120 @@ export type SelectOptionElementPropsType = {
     isSubjectIcon?: boolean;
   };
   isSelected?: boolean;
-  tabIndex: number;
 };
 
 const SelectMenuOption = React.forwardRef<
   HTMLDivElement,
   SelectOptionElementPropsType
->(
-  (
-    {children, value, icon, isSelected, tabIndex}: SelectOptionElementPropsType,
-    ref
-  ) => {
-    const [isHovered, setIsHovered] = React.useState(false);
+>(({children, value, icon, isSelected}: SelectOptionElementPropsType, ref) => {
+  const [isHovered, setIsHovered] = React.useState(false);
+  const [index, setIndex] = React.useState<number>(null);
 
-    const context = useSelectMenuContext();
+  const context = useSelectMenuContext();
 
-    const classNames = classnames('sg-select-menu__option', {
-      'sg-select-menu__option--selected': isSelected,
-      'sg-select-menu__option--with-icon': context.withIcons,
-      'sg-select-menu__option--multi-select': context.multiSelect,
-    });
+  const itemRef = React.useRef<HTMLElement>(null);
 
-    const displayedIcon = React.useMemo(() => {
-      const {name, isSubjectIcon = false} = icon || {};
+  React.useEffect(() => {
+    const thisItemIndex = context.optionsList.size + 1;
 
-      if (!context.withIcons || (context.withIcons && !name)) return null;
-      if (isSubjectIcon) {
-        const subjectIconName = name as SubjectIconTypeType;
+    setIndex(thisItemIndex);
+    context.optionsList.set(thisItemIndex, itemRef);
+    context.listRef.current[thisItemIndex] = itemRef.current;
 
-        return (
-          <SubjectIcon
-            size="small"
-            monoColor={isSelected || isHovered ? null : 'icon-gray-50'}
-            type={subjectIconName}
-          />
-        );
-      } else {
-        const regularIconName = name as IconTypeType;
+    return () => {
+      context.optionsList.delete(thisItemIndex);
+      context.listRef.current[thisItemIndex] = null;
+    };
+  }, [context.optionsList, context.listRef]);
 
-        return (
-          <Icon
-            size={24}
-            color={isSelected || isHovered ? 'icon-black' : 'icon-gray-50'}
-            type={regularIconName}
-          />
-        );
-      }
-    }, [isSelected, isHovered, context, icon]);
+  console.log('context.optionsList', context.optionsList);
 
-    const optionState = React.useMemo(() => {
-      let optionState;
+  const classNames = classnames('sg-select-menu__option', {
+    'sg-select-menu__option--selected': isSelected,
+    'sg-select-menu__option--with-icon': context.withIcons,
+    'sg-select-menu__option--multi-select': context.multiSelect,
+  });
 
-      if (context.multiSelect) {
-        optionState = <Checkbox id={value} checked={isSelected} />;
-      } else if (isSelected) {
-        optionState = <Icon type="check" size={24} color="icon-black" />;
-      }
+  const displayedIcon = React.useMemo(() => {
+    const {name, isSubjectIcon = false} = icon || {};
 
-      return <div className="sg-select-menu__option-state">{optionState}</div>;
-    }, [isSelected, context, value]);
+    if (!context.withIcons || (context.withIcons && !name)) return null;
+    if (isSubjectIcon) {
+      const subjectIconName = name as SubjectIconTypeType;
 
-    const interactions = context.interactions.getItemProps({
-      // Handle pointer select.
-      onClick() {
+      return (
+        <SubjectIcon
+          size="small"
+          monoColor={isSelected || isHovered ? null : 'icon-gray-50'}
+          type={subjectIconName}
+        />
+      );
+    } else {
+      const regularIconName = name as IconTypeType;
+
+      return (
+        <Icon
+          size={24}
+          color={isSelected || isHovered ? 'icon-black' : 'icon-gray-50'}
+          type={regularIconName}
+        />
+      );
+    }
+  }, [isSelected, isHovered, context, icon]);
+
+  const optionState = React.useMemo(() => {
+    let optionState;
+
+    if (context.multiSelect) {
+      optionState = <Checkbox id={value} checked={isSelected} />;
+    } else if (isSelected) {
+      optionState = <Icon type="check" size={24} color="icon-black" />;
+    }
+
+    return <div className="sg-select-menu__option-state">{optionState}</div>;
+  }, [isSelected, context, value]);
+
+  const interactions = context.interactions.getItemProps({
+    // Handle pointer select.
+    onClick() {
+      context.handleOptionSelect({value, icon, label: children});
+    },
+    // Handle keyboard select.
+    onKeyDown(event) {
+      if (event.key === 'Enter') {
+        event.preventDefault();
         context.handleOptionSelect({value, icon, label: children});
-      },
-      // Handle keyboard select.
-      onKeyDown(event) {
-        if (event.key === 'Enter') {
-          event.preventDefault();
-          context.handleOptionSelect({value, icon, label: children});
-        }
+      }
 
-        // Only if not using typeahead.
-        if (event.key === ' ') {
-          event.preventDefault();
-          context.handleOptionSelect({value, icon, label: children});
-        }
-      },
-    });
+      // Only if not using typeahead.
+      if (event.key === ' ') {
+        event.preventDefault();
+        context.handleOptionSelect({value, icon, label: children});
+      }
+    },
+  });
 
-    return (
-      <div
-        key={value}
-        ref={ref}
-        className={classNames}
-        role="option"
-        aria-selected={isSelected}
-        tabIndex={tabIndex}
-        {...interactions}
-        onMouseEnter={() => setIsHovered(true)}
-        onMouseLeave={() => setIsHovered(false)}
-      >
-        <div className="sg-select-menu__option-label">
-          {displayedIcon}
-          <Text size="small" weight="bold" breakWords>
-            {children}
-          </Text>
-        </div>
-        {optionState}
+  return (
+    <div
+      key={value}
+      ref={itemRef}
+      className={classNames}
+      role="option"
+      aria-selected={isSelected}
+      tabIndex={index === context.activeIndex ? 0 : -1}
+      {...interactions}
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+    >
+      <div className="sg-select-menu__option-label">
+        {displayedIcon}
+        <Text size="small" weight="bold" breakWords>
+          {children}
+        </Text>
       </div>
-    );
-  }
-);
+      {optionState}
+    </div>
+  );
+});
 
 export default SelectMenuOption;

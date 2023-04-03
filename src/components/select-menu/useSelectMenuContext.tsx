@@ -14,6 +14,9 @@ type SelectMenuContextType = {
   size?: SelectMenuSizeType;
   color?: SelectMenuColorType | null | undefined;
   interactions: any;
+  listRef: React.MutableRefObject<HTMLElement>;
+  activeIndex: number;
+  optionsList: Map<number, React.MutableRefObject<HTMLElement>>;
   handleOptionSelect: (option: OptionType) => unknown;
 };
 export const SelectMenuContext = React.createContext<SelectMenuContextType>(

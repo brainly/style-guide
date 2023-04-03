@@ -117,6 +117,49 @@ This component is a controlled component, so you have to handle selecting option
   </Story>
 </Canvas>
 
+### With timeout
+
+<Canvas>
+  <Story
+    name="With timeout"
+    parameters={{
+      chromatic: {disableSnapshot: true},
+    }}
+  >
+    {args => {
+      const [selectedOptions, setSelectedOptions] = React.useState([
+        {value: 'history', label: 'History'},
+      ]);
+      const [showSecondOption, setShowSecondOption] = React.useState(true);
+      React.useEffect(() => {
+        const timeout = setTimeout(() => {
+          setShowSecondOption(false);
+        }, 4000);
+        return () => {
+          clearTimeout(timeout);
+        };
+      }, []);
+      return (
+        <div style={{width: '200px'}}>
+          <SelectMenu.Root
+            {...args}
+            selectedOptions={selectedOptions}
+            onOptionChange={option => {
+              setSelectedOptions([option]);
+            }}
+          >
+            <SelectMenu.Option value="history">History</SelectMenu.Option>
+            {showSecondOption && (
+              <SelectMenu.Option value="math">Math</SelectMenu.Option>
+            )}
+            <SelectMenu.Option value="science">Science</SelectMenu.Option>
+          </SelectMenu.Root>
+        </div>
+      );
+    }}
+  </Story>
+</Canvas>
+
 ## Accessibility
 
 <SelectMenuA11y />

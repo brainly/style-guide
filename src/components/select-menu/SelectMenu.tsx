@@ -512,6 +512,9 @@ const Root = React.forwardRef<HTMLDivElement, SelectMenuPropsType>(
                         size,
                         color,
                         interactions,
+                        listRef,
+                        activeIndex,
+                        optionsList: new Map(),
                         handleOptionSelect,
                       }}
                     >
