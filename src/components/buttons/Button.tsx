@@ -2,6 +2,7 @@ import * as React from 'react';
 import Spinner, {SPINNER_SIZE, SPINNER_COLOR} from '../spinner/Spinner';
 import cx from 'classnames';
 import {__DEV__, invariant} from '../utils';
+import {Shimmer} from '../shimmer/Shimmer';
 
 export const BUTTON_SIZE: {
   L: 'l';
@@ -249,6 +250,11 @@ export type ButtonPropsType = {
   onClick?: (
     arg0: React.MouseEvent<HTMLButtonElement | HTMLAnchorElement>
   ) => unknown;
+  shimmer?: {
+    id?: string;
+    origin?: string;
+    delay?: number;
+  };
 } & Omit<
   React.AllHTMLAttributes<HTMLElement>,
   | 'variant'
@@ -293,6 +299,7 @@ const Button = React.forwardRef(
       loadingAriaLive = 'off',
       loadingAriaLabel,
       type,
+      shimmer,
       ...props
     }: ButtonPropsType,
     ref
@@ -395,6 +402,7 @@ const Button = React.forwardRef(
         onTouchStart={() => null}
         type={type}
       >
+        {shimmer ? <Shimmer direction="edge" {...shimmer} /> : null}
         {variant.includes('transparent') ? (
           <span className="sg-button__hover-overlay" />
         ) : null}

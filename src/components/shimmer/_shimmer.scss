@@ -1,0 +1,64 @@
+.shimmer {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  display: none;
+  overflow: hidden;
+  pointer-events: none;
+
+  &-effect {
+    display: block;
+
+    &--horizontal {
+      height: 100%;
+      width: 100%;
+      background: linear-gradient(
+        90deg,
+        rgba(255, 255, 255, 0) 0%,
+        rgba(255, 255, 255, 1) 50%,
+        rgba(255, 255, 255, 0) 100%
+      );
+      background-attachment: fixed;
+      background-repeat: no-repeat;
+    }
+
+    &--edge-top {
+      left: -100%;
+      top: 0px;
+      height: 1px;
+      width: 50%;
+      background: linear-gradient(
+        90deg,
+        rgba(255, 255, 255, 0) 0%,
+        rgba(255, 255, 255, 1) 80%,
+        rgba(255, 255, 255, 0.5) 100%
+      );
+      animation: shimmerEdgeTop;
+      animation-duration: 2s;
+      animation-iteration-count: infinite;
+      animation-timing-function: ease-in-out;
+      box-shadow: rgba($color: #fff, $alpha: 1) 0px 0px 3px;
+    }
+
+    &--edge-bottom {
+      left: 100%;
+      bottom: 0px;
+      height: 1px;
+      width: 50%;
+      background: linear-gradient(
+        90deg,
+        rgba(255, 255, 255, 0.5) 0%,
+        rgba(255, 255, 255, 1) 20%,
+        rgba(255, 255, 255, 0) 100%
+      );
+      animation: shimmerEdgeBottom;
+      animation-duration: 2s;
+      animation-delay: 1s;
+      animation-iteration-count: infinite;
+      animation-timing-function: ease-in-out;
+      box-shadow: rgba($color: #fff, $alpha: 1) 0px 0px 3px;
+    }
+  }
+}

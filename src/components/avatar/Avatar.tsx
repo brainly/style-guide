@@ -2,6 +2,7 @@ import * as React from 'react';
 import classNames from 'classnames';
 import Icon, {ICON_COLOR} from '../icons/Icon';
 import {__DEV__, invariant} from '../utils';
+import {Shimmer} from '../shimmer/Shimmer';
 
 export type AvatarSizeType = 'xs' | 's' | 'm' | 'l' | 'xl' | 'xxl';
 export const SIZE = {
@@ -31,6 +32,11 @@ export type AvatarPropsType = {
   link?: string;
   ariaLinkLabel?: string;
   alt?: string;
+  shimmer?: {
+    id?: string;
+    origin?: string;
+    delay?: number;
+  };
 } & Omit<
   React.AllHTMLAttributes<HTMLElement>,
   | 'size'
@@ -51,6 +57,7 @@ const Avatar = ({
   className,
   link,
   ariaLinkLabel,
+  shimmer,
   alt = '',
   ...props
 }: AvatarPropsType) => {
@@ -95,6 +102,7 @@ const Avatar = ({
           />
         </div>
       )}
+      {shimmer ? <Shimmer direction="edge" {...shimmer} /> : null}
     </div>
   );
 
