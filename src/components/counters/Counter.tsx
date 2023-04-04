@@ -16,11 +16,11 @@ export type CounterColorType =
   | 'gray'
   | 'achromatic';
 
-export type CounterType = 'light' | 'solid';
+export type CounterType = 'solid' | 'light';
 
-export const LABEL_TYPE = {
+export const COUNTER_TYPE = {
+  solid: 'solid',
   light: 'light',
-  SOLID: 'solid',
 } as const;
 
 export const COLORS_SOLID_MAP = {
@@ -142,7 +142,7 @@ const Counter = ({
   className,
   size,
   color = 'blue',
-  type,
+  type = 'solid',
   withAnimation,
   'aria-label': ariaLabel,
   ...props
