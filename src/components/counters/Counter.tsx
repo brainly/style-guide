@@ -141,7 +141,7 @@ const Counter = ({
   children,
   className,
   size,
-  color = 'blue',
+  color = 'red',
   type = 'solid',
   withAnimation,
   'aria-label': ariaLabel,
