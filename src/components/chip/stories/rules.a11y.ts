@@ -1,15 +1,15 @@
 const rules = [
   {
-    pattern: '<b>Should</b> be focusable and tabable.',
-    status: 'TO DO',
-    tests: 'TO DO',
-  },
-  {
     pattern: '<b>Should</b> have an accessible name.',
     comment: `Can be named by children (children should be purely presentational and 
         do not include interactive elements).`,
     status: 'DONE',
     tests: 'DONE',
+  },
+  {
+    pattern: '<b>Should</b> be focusable and tabable.',
+    status: 'DONE',
+    tests: 'TO DO',
   },
   {
     pattern: '<b>Should</b> have visible checked / unchecked / disabled style.',
@@ -56,7 +56,7 @@ const rules = [
   },
   {
     pattern: '<b>Should</b> be focused and checked by pressing arrows.',
-    status: 'TO DO',
+    status: 'DONE',
     tests: 'N/A',
   },
   {

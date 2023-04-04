@@ -1,0 +1,81 @@
+### Grouped
+
+<Canvas>
+  <Story name="Chip group">
+    {args => {
+      const [selected, setSelected] = React.useState(chips[0].value);
+      const switchValue = () =>
+        setSelected(chips[Math.floor(Math.random() * 3)].value);
+      return (
+        <StoryVariantTable>
+          <tbody>
+            <tr>
+              <td>
+                <Headline
+                  extraBold
+                  transform="uppercase"
+                  as="span"
+                  color="text-gray-40"
+                  size="medium"
+                >
+                  Controlled
+                </Headline>
+              </td>
+              <td>
+                <ChipGroup
+                  value={selected}
+                  onChange={(e, value) => setSelected(value)}
+                >
+                  {chips.map(({value, icon, label}) => (
+                    <Chip
+                      {...args}
+                      icon={
+                        <SubjectIcon type={icon} size="small" aria-hidden />
+                      }
+                      value={value}
+                      name="uncon"
+                    >
+                      {label}
+                    </Chip>
+                  ))}
+                </ChipGroup>
+              </td>
+              <td>
+                <Button onClick={switchValue}>Switch value</Button>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <Headline
+                  extraBold
+                  transform="uppercase"
+                  as="span"
+                  color="text-gray-40"
+                  size="medium"
+                >
+                  Uncontrolled
+                </Headline>
+              </td>
+              <td>
+                <ChipGroup>
+                  {chips.map(({value, icon, label}) => (
+                    <Chip
+                      {...args}
+                      icon={
+                        <SubjectIcon type={icon} size="small" aria-hidden />
+                      }
+                      value={value}
+                      name="uncon"
+                    >
+                      {label}
+                    </Chip>
+                  ))}
+                </ChipGroup>
+              </td>
+            </tr>
+          </tbody>
+        </StoryVariantTable>
+      );
+    }}
+  </Story>
+</Canvas>

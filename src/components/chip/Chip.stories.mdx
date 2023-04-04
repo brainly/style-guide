@@ -9,6 +9,7 @@ import Button from '../buttons/Button';
 import Flex from '../flex/Flex';
 import Chip, {SIZE} from './Chip';
 import ChipGroup from './ChipGroup';
+import ChipAccessibility from './stories/Chip.a11y.mdx';
 const chips = [
   {value: 'physics', label: 'Physics', icon: 'physics'},
   {value: 'biology', label: 'Biology', icon: 'biology'},
@@ -33,6 +34,9 @@ const chips = [
 
 <PageHeader>Chip</PageHeader>
 
+- [Stories](#stories)
+- [Accessibility](#accessibility)
+
 ## Overview
 
 <Canvas>
@@ -42,6 +46,58 @@ const chips = [
 <ArgsTable story="Default" />
 
 ## Stories
+
+### Multi select
+
+<Canvas>
+  <Story name="Multi select">{args => <Chip {...args} multiSelect />}</Story>
+</Canvas>
+
+### With icon
+
+<Canvas>
+  <Story name="With icon">
+    {args => (
+      <Chip
+        {...args}
+        icon={<SubjectIcon type="physics" size="small" aria-hidden />}
+      />
+    )}
+  </Story>
+</Canvas>
+
+### Sizes
+
+<Canvas>
+  <Story name="Sizes">
+    {args => (
+      <StoryVariantTable>
+        <tbody>
+          {Object.values(SIZE).map(size => (
+            <tr key={size}>
+              <td>
+                <Headline
+                  extraBold
+                  transform="uppercase"
+                  as="span"
+                  color="text-gray-40"
+                  size="medium"
+                >
+                  {size}
+                </Headline>
+              </td>
+              <td>
+                <Chip {...args} size={size} />
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </StoryVariantTable>
+    )}
+  </Story>
+</Canvas>
+
+### Controlled / uncontrolled
 
 <Canvas>
   <Story name="Controlled/Uncontrolled">
@@ -122,111 +178,6 @@ const chips = [
   </Story>
 </Canvas>
 
-<Canvas>
-  <Story name="Chip group">
-    {args => {
-      const [selected, setSelected] = React.useState(chips[0].value);
-      const switchValue = () =>
-        setSelected(chips[Math.floor(Math.random() * 3)].value);
-      return (
-        <StoryVariantTable>
-          <tbody>
-            <tr>
-              <td>
-                <Headline
-                  extraBold
-                  transform="uppercase"
-                  as="span"
-                  color="text-gray-40"
-                  size="medium"
-                >
-                  Controlled
-                </Headline>
-              </td>
-              <td>
-                <ChipGroup
-                  value={selected}
-                  onChange={(e, value) => setSelected(value)}
-                >
-                  {chips.map(({value, icon, label}) => (
-                    <Chip
-                      {...args}
-                      icon={
-                        <SubjectIcon type={icon} size="small" aria-hidden />
-                      }
-                      value={value}
-                      name="uncon"
-                    >
-                      {label}
-                    </Chip>
-                  ))}
-                </ChipGroup>
-              </td>
-              <td>
-                <Button onClick={switchValue}>Switch value</Button>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <Headline
-                  extraBold
-                  transform="uppercase"
-                  as="span"
-                  color="text-gray-40"
-                  size="medium"
-                >
-                  Uncontrolled
-                </Headline>
-              </td>
-              <td>
-                <ChipGroup>
-                  {chips.map(({value, icon, label}) => (
-                    <Chip
-                      {...args}
-                      icon={
-                        <SubjectIcon type={icon} size="small" aria-hidden />
-                      }
-                      value={value}
-                      name="uncon"
-                    >
-                      {label}
-                    </Chip>
-                  ))}
-                </ChipGroup>
-              </td>
-            </tr>
-          </tbody>
-        </StoryVariantTable>
-      );
-    }}
-  </Story>
-</Canvas>
+## Accessibility
 
-<Canvas>
-  <Story name="Sizes">
-    {args => (
-      <StoryVariantTable>
-        <tbody>
-          {Object.values(SIZE).map(size => (
-            <tr key={size}>
-              <td>
-                <Headline
-                  extraBold
-                  transform="uppercase"
-                  as="span"
-                  color="text-gray-40"
-                  size="medium"
-                >
-                  {size}
-                </Headline>
-              </td>
-              <td>
-                <Chip {...args} size={size} />
-              </td>
-            </tr>
-          ))}
-        </tbody>
-      </StoryVariantTable>
-    )}
-  </Story>
-</Canvas>
+<ChipAccessibility />
