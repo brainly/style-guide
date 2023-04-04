@@ -1,11 +1,8 @@
 .sg-card-new {
   --card-background-color: var(--white);
-  // changed from --gray-30 to --gray-40
-  --card-border-color: var(--gray-40);
-  --card-border-color-focus: var(--gray-30);
+  --card-border-color: var(--gray-30);
   --card-border-color-hover: var(--gray-60);
   --card-border-color-invalid: var(--red-60);
-  --card-border-color-invalid-focus: var(--red-30);
   --card-border-color-invalid-hover: var(--red-50);
   --card-border-color-checked: var(--black);
 
