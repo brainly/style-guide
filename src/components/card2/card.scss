@@ -56,23 +56,19 @@
   }
 
   &:focus-within {
-    --focusInnerColor: var(--card-border-color-focus);
-    --focusColor: var(--card-border-color-focus);
-    --focusOuterColor: transparent;
-
+    // Replace with applyFocusStyle when it's updated to support different border widths
     box-shadow: 0px 0px 0px 2px var(--focusInnerColor),
-      0px 0px 0px 4px var(--focusColor);
-
+      0px 0px 0px 4px var(--focusColor), 0px 0px 0px 7px var(--focusOuterColor);
     outline: none;
     animation: focusShadow1 $durationQuick2 $easingEntry,
       focusShadow2 $durationQuick2 $easingEntry calc($durationQuick2 / 2),
       focusShadow3 $durationQuick2 $easingEntry $durationQuick2;
 
-    &[data-invalid='true'] {
-      border-color: var(--card-border-color-invalid);
-      --focusInnerColor: var(--card-border-color-invalid-focus);
-      --focusColor: var(--card-border-color-invalid-focus);
-      --focusOuterColor: transparent;
+    @media (forced-colors: active) {
+      outline-color: Highlight;
+      outline-width: 2px;
+      outline-offset: 6px;
+      outline-style: auto;
     }
   }
 
