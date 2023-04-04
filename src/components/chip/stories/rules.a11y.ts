@@ -30,14 +30,14 @@ const rules = [
   },
   {
     pattern:
-      '<b>Should</b> have a color indicator with 3:1 contrast ratio against the background.', // selected state
+      '<b>Should</b> have a selected indicator with 3:1 contrast ratio against the background.',
     comment:
       '<code>dark</code> against white: 21:1, <code>light</code> against black: 20.9:1.',
     status: 'TO DO',
     tests: 'N/A',
   },
   {
-    pattern: '<b>Should</b> respect Windows High Contrast mode.',
+    pattern: '<b>Should</b> respect Windows High Contrast mode.', //  checked is not visible
     status: 'TO DO',
     tests: 'N/A',
   },
