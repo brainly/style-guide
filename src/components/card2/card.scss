@@ -55,7 +55,7 @@
     }
   }
 
-  &:focus-within {
+  & .sg-card-new__input:focus-visible + .sg-card-new__label {
     // Replace with applyFocusStyle when it's updated to support different border widths
     box-shadow: 0px 0px 0px 2px var(--focusInnerColor),
       0px 0px 0px 4px var(--focusColor), 0px 0px 0px 7px var(--focusOuterColor);
@@ -110,7 +110,8 @@
 
 .sg-card-new__label {
   position: absolute;
-  inset: 0;
+  inset: -2px;
+  border-radius: 8px;
 }
 
 .sg-card-new__indicator {
