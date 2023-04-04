@@ -26,12 +26,60 @@ $counterSizeXS: componentSize(xs);
       top: 3px;
     }
 
-    &--red-60 {
-      background-color: $red-60;
+    &--black {
+      background-color: $black;
+    }
+
+    &--white {
+      background-color: $white;
     }
 
     &--blue-60 {
       background-color: $blue-60;
+    }
+
+    &--green-60 {
+      background-color: $green-60;
+    }
+
+    &--indigo-60 {
+      background-color: $indigo-60;
+    }
+
+    &--red-60 {
+      background-color: $red-60;
+    }
+
+    &--yellow-40 {
+      background-color: $yellow-40;
+    }
+
+    &--gray-40 {
+      background-color: $gray-40;
+    }
+
+    &--blue-20 {
+      background-color: $blue-20;
+    }
+
+    &--green-20 {
+      background-color: $green-20;
+    }
+
+    &--indigo-20 {
+      background-color: $indigo-20;
+    }
+
+    &--red-20 {
+      background-color: $red-20;
+    }
+
+    &--yellow-20 {
+      background-color: $yellow-20;
+    }
+
+    &--gray-20 {
+      background-color: $gray-20;
     }
 
     &--with-icon {

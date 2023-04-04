@@ -1,15 +1,66 @@
 import * as React from 'react';
 import cx from 'classnames';
-import Text from '../text/Text';
+import Text, {TEXT_COLOR} from '../text/Text';
 import Flex from '../flex/Flex';
 import Icon from '../icons/Icon';
 import type {IconTypeType} from '../icons/Icon';
 
 type CounterSizeType = 'xs' | 'xxs';
-type ColorType = 'red-60' | 'blue-60';
-export const COUNTER_COLOR = {
-  'red-60': 'red-60',
-  'blue-60': 'blue-60',
+
+export type CounterColorType =
+  | 'blue'
+  | 'green'
+  | 'indigo'
+  | 'red'
+  | 'yellow'
+  | 'gray'
+  | 'achromatic';
+
+export type CounterType = 'light' | 'solid';
+
+export const LABEL_TYPE = {
+  light: 'light',
+  SOLID: 'solid',
+} as const;
+
+export const COLORS_SOLID_MAP = {
+  blue: 'blue-60',
+  green: 'green-60',
+  indigo: 'indigo-60',
+  red: 'red-60',
+  yellow: 'yellow-40',
+  gray: 'gray-40',
+  achromatic: 'black',
+} as const;
+
+const SOLID_COLOR_TEXT_MAP = {
+  blue: 'text-white',
+  green: 'text-white',
+  indigo: 'text-white',
+  red: 'text-white',
+  yellow: 'text-black',
+  gray: 'text-black',
+  achromatic: 'text-white',
+} as const;
+
+export const COLORS_LIGHT_MAP = {
+  blue: 'blue-20',
+  green: 'green-20',
+  indigo: 'indigo-20',
+  red: 'red-20',
+  yellow: 'yellow-20',
+  gray: 'gray-20',
+  achromatic: 'white',
+} as const;
+
+export const COUNTER_COLORS_SET = {
+  BLUE: 'blue',
+  GREEN: 'green',
+  INDIGO: 'indigo',
+  RED: 'red',
+  YELLOW: 'yellow',
+  GRAY: 'gray',
+  ACHROMATIC: 'achromatic',
 } as const;
 
 export const COUNTER_SIZE = {
@@ -48,7 +99,13 @@ export type CounterPropsType = {
    * Counter background color
    * @example <Counter color="blue-60">1</Counter>
    */
-  color?: ColorType | null | undefined;
+  color?: CounterColorType | null | undefined;
+
+  /**
+   * Specify type of counter
+   * @example <Counter type="solid">1</Counter>
+   */
+  type?: CounterType;
 
   /**
    * Optional boolean for counter with animation
@@ -73,6 +130,7 @@ export type CounterPropsType = {
   | 'icon'
   | 'size'
   | 'color'
+  | 'type'
   | 'withAnimation'
   | 'className'
   | 'undefined'
@@ -83,21 +141,28 @@ const Counter = ({
   children,
   className,
   size,
-  color = 'red-60',
+  color = 'blue',
+  type,
   withAnimation,
   'aria-label': ariaLabel,
   ...props
 }: CounterPropsType) => {
+  const backgroundColor =
+    type === 'solid' ? COLORS_SOLID_MAP[color] : COLORS_LIGHT_MAP[color];
   const counterClass = cx(
     'sg-counter',
     {
       [`sg-counter--${String(size)}`]: size,
-      [`sg-counter--${String(color)}`]: color,
+      [`sg-counter--${String(backgroundColor)}`]: backgroundColor,
       'sg-counter--with-animation': withAnimation,
       'sg-counter--with-icon': icon,
     },
     className
   );
+
+  const textColor =
+    type === 'solid' ? SOLID_COLOR_TEXT_MAP[color] : TEXT_COLOR['text-black'];
+
   let content;
 
   content = (
@@ -108,7 +173,7 @@ const Counter = ({
           : 'small'
       }
       weight="bold"
-      color="text-white"
+      color={textColor}
       className={
         size === 'xxs' ? 'sg-counter__text' : 'sg-counter__text-spaced'
       }
