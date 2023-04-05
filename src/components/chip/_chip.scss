@@ -1,3 +1,6 @@
+$hover-transition: background-color $durationModerate1 $easingLinear;
+$active-transition: background-color $durationModerate2 $easingLinear;
+
 .sg-chip {
   --chipBorderColor: var(--gray-30);
   --chipCheckedBorderColor: var(--black);
@@ -54,6 +57,7 @@
 
     &:active + .sg-chip__pill {
       background: rgba($gray-40, 0.2);
+      transform: scale(0.96);
     }
   }
 
@@ -67,7 +71,9 @@
     display: flex;
     align-items: center;
     border-radius: 8px;
-    transition: box-shadow $durationQuick1 $easingExit;
+    transition: box-shadow $durationQuick1 $easingExit,
+      border-color $durationModerate1 $easingLinear,
+      transform $durationModerate2 $easingLinear;
 
     @media (forced-colors: active) {
       border-color: FieldText;
