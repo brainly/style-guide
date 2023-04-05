@@ -23,7 +23,7 @@ export const COUNTER_TYPE = {
   light: 'light',
 } as const;
 
-export const COLORS_SOLID_MAP = {
+const SOLID_COLOR_BACKGROUND_MAP = {
   blue: 'blue-60',
   green: 'green-60',
   indigo: 'indigo-60',
@@ -43,7 +43,7 @@ const SOLID_COLOR_TEXT_MAP = {
   achromatic: 'text-white',
 } as const;
 
-export const COLORS_LIGHT_MAP = {
+const LIGHT_COLOR_BACKGROUND_MAP = {
   blue: 'blue-20',
   green: 'green-20',
   indigo: 'indigo-20',
@@ -53,7 +53,7 @@ export const COLORS_LIGHT_MAP = {
   achromatic: 'white',
 } as const;
 
-export const COUNTER_COLORS_SET = {
+export const COUNTER_COLOR = {
   BLUE: 'blue',
   GREEN: 'green',
   INDIGO: 'indigo',
@@ -148,7 +148,7 @@ const Counter = ({
   ...props
 }: CounterPropsType) => {
   const backgroundColor =
-    type === 'solid' ? COLORS_SOLID_MAP[color] : COLORS_LIGHT_MAP[color];
+    type === 'solid' ? SOLID_COLOR_BACKGROUND_MAP[color] : LIGHT_COLOR_BACKGROUND_MAP[color];
   const counterClass = cx(
     'sg-counter',
     {
@@ -161,7 +161,7 @@ const Counter = ({
   );
 
   const textColor =
-    type === 'solid' ? SOLID_COLOR_TEXT_MAP[color] : TEXT_COLOR['text-black'];
+    type === 'solid' ? SOLID_COLOR_TEXT_MAP[color] : 'text-black';
 
   let content;
 

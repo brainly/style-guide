@@ -5,7 +5,7 @@ import {formatTags} from '../../docs/utils';
 import Counter, {
   COUNTER_SIZE,
   COUNTER_TYPE,
-  COUNTER_COLORS_SET,
+  COUNTER_COLOR,
 } from './Counter';
 import {TYPE as ICON_TYPE} from '../icons/Icon';
 import Flex from '../flex/Flex';
@@ -21,7 +21,7 @@ import PageHeader from 'blocks/PageHeader';
     size: {control: {type: 'select', options: COUNTER_SIZE}},
     withAnimation: {control: 'boolean'},
     type: {control: {type: 'select', options: COUNTER_TYPE}},
-    color: {control: {type: 'select', options: COUNTER_COLORS_SET}},
+    color: {control: {type: 'select', options: COUNTER_COLOR}},
     icon: {
       control: {type: 'select', options: Object.values(ICON_TYPE)},
       table: {type: {summary: formatTags(Object.values(ICON_TYPE))}},
@@ -185,7 +185,7 @@ import PageHeader from 'blocks/PageHeader';
             </tr>
           </thead>
           <tbody>
-            {Object.values(COUNTER_COLORS_SET).map(color => (
+            {Object.values(COUNTER_COLOR).map(color => (
               <tr key={color}>
                 <td>
                   <Headline
