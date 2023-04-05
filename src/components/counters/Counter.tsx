@@ -148,7 +148,9 @@ const Counter = ({
   ...props
 }: CounterPropsType) => {
   const backgroundColor =
-    type === 'solid' ? SOLID_COLOR_BACKGROUND_MAP[color] : LIGHT_COLOR_BACKGROUND_MAP[color];
+    type === 'solid'
+      ? SOLID_COLOR_BACKGROUND_MAP[color]
+      : LIGHT_COLOR_BACKGROUND_MAP[color];
   const counterClass = cx(
     'sg-counter',
     {
