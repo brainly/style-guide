@@ -1,24 +1,11 @@
 import * as React from 'react';
-import classnames from 'classnames';
-import {
-  FloatingFocusManager,
-  FloatingOverlay,
-  useMergeRefs,
-} from '@floating-ui/react';
 
-import {isTouchScreen, __DEV__, invariant, generateId} from '../utils';
-import Icon from '../icons/Icon';
-import SubjectIcon from '../subject-icons/SubjectIcon';
 import type {IconTypeType as SubjectIconTypeType} from '../subject-icons/SubjectIcon';
 import type {IconTypeType} from '../icons/Icon';
-import Text from '../text/Text';
 import useSelectMenu from './useSelectMenu';
 import Option from './SelectMenuOption';
 import {SelectMenuContext} from './useSelectMenuContext';
-import {
-  SelectMenuDescendantsContext,
-  useSelectMenuDescendants,
-} from './useSelectMenuDescendantsContext';
+import {SelectMenuDescendantsContext} from './useSelectMenuDescendantsContext';
 import SelectMenuComponent from './SelectMenuComponent';
 
 export type SelectMenuOptionType = {
@@ -236,56 +223,6 @@ const Root = React.forwardRef<HTMLDivElement, SelectMenuPropsType>(
       onOptionChange,
     });
 
-    // const {current: descendants} = React.useRef(
-    //   useSelectMenuDescendants({
-    //     listRef: context.floating.listRef,
-    //   })
-    // );
-
-    // const optionsElements = options.map((option, index) => {
-    //   if (option.label || option.value) {
-    //     const isSelected = selectedOptions.some(
-    //       selectedOption => selectedOption.value === option.value
-    //     );
-
-    //     const optionInteractions = interactions.getItemProps({
-    //       // Handle pointer select.
-    //       onClick() {
-    //         handleOptionSelect(option);
-    //       },
-    //       // Handle keyboard select.
-    //       onKeyDown(event) {
-    //         if (event.key === 'Enter') {
-    //           event.preventDefault();
-    //           handleOptionSelect(option);
-    //         }
-
-    //         // Only if not using typeahead.
-    //         if (event.key === ' ' && !context.dataRef.current.typing) {
-    //           event.preventDefault();
-    //           handleOptionSelect(option);
-    //         }
-    //       },
-    //     });
-
-    //     return (
-    //       <SelectMenuOption
-    //         key={option.value}
-    //         ref={node => {
-    //           listRef.current[index] = node;
-    //         }}
-    //         option={option}
-    //         isSelected={isSelected}
-    //         multiSelect={multiSelect}
-    //         withIcon={withIcons}
-    //         interactions={optionInteractions}
-    //         tabIndex={index === activeIndex ? 0 : -1}
-    //       />
-    //     );
-    //   }
-    //   return null;
-    // });
-
     const ctx = React.useMemo(
       () => ({
         ...context,
@@ -301,7 +238,11 @@ const Root = React.forwardRef<HTMLDivElement, SelectMenuPropsType>(
     return (
       <SelectMenuDescendantsContext.Provider value={descendants}>
         <SelectMenuContext.Provider value={ctx}>
-          <SelectMenuComponent ref={ref} className={className}>
+          <SelectMenuComponent
+            ref={ref}
+            className={className}
+            {...additionalProps}
+          >
             {children}
           </SelectMenuComponent>
         </SelectMenuContext.Provider>
