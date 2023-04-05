@@ -10,6 +10,7 @@ import Icon from '../icons/Icon';
 import Checkbox from '../form-elements/checkbox/Checkbox';
 import Text from '../text/Text';
 import useSelectMenuContext from './useSelectMenuContext';
+import useSelectMenuOption from './useSelectMenuOption';
 
 export type SelectOptionElementPropsType = {
   children: React.ReactNode;
@@ -26,28 +27,13 @@ const SelectMenuOption = React.forwardRef<
   SelectOptionElementPropsType
 >(({children, value, icon, isSelected}: SelectOptionElementPropsType, ref) => {
   const [isHovered, setIsHovered] = React.useState(false);
-  const [index, setIndex] = React.useState<number>(null);
 
   const context = useSelectMenuContext();
+  const {register, index} = useSelectMenuOption();
 
   const itemRef = React.useRef<HTMLElement>(null);
 
-  const itemMergedRef = useMergeRefs([ref, itemRef]);
-
-  React.useEffect(() => {
-    const thisItemIndex = context.optionsList.size + 1;
-
-    setIndex(thisItemIndex);
-    context.optionsList.set(thisItemIndex, itemRef);
-    context.listRef.current[thisItemIndex] = itemRef.current;
-
-    return () => {
-      context.optionsList.delete(thisItemIndex);
-      context.listRef.current[thisItemIndex] = null;
-    };
-  }, [context.optionsList, context.listRef]);
-
-  console.log('context.optionsList', context.optionsList);
+  const itemMergedRef = useMergeRefs([ref, itemRef, register]);
 
   const classNames = classnames('sg-select-menu__option', {
     'sg-select-menu__option--selected': isSelected,
@@ -94,7 +80,7 @@ const SelectMenuOption = React.forwardRef<
     return <div className="sg-select-menu__option-state">{optionState}</div>;
   }, [isSelected, context, value]);
 
-  const interactions = context.interactions.getItemProps({
+  const interactions = context.floating.interactions.getItemProps({
     // Handle pointer select.
     onClick() {
       context.handleOptionSelect({value, icon, label: children});
@@ -121,7 +107,7 @@ const SelectMenuOption = React.forwardRef<
       className={classNames}
       role="option"
       aria-selected={isSelected}
-      tabIndex={index === context.activeIndex ? 0 : -1}
+      tabIndex={index === context.floating.activeIndex ? 0 : -1}
       {...interactions}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}

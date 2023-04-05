@@ -13,10 +13,13 @@ import type {IconTypeType as SubjectIconTypeType} from '../subject-icons/Subject
 import type {IconTypeType} from '../icons/Icon';
 import Text from '../text/Text';
 import useSelectMenu from './useSelectMenu';
-import useFloatingSelectMenu from './useFloatingSelectMenu';
-import useSelectMenuAnimations from './useSelectMenuAnimations';
 import Option from './SelectMenuOption';
 import {SelectMenuContext} from './useSelectMenuContext';
+import {
+  SelectMenuDescendantsContext,
+  useSelectMenuDescendants,
+} from './useSelectMenuDescendantsContext';
+import SelectMenuComponent from './SelectMenuComponent';
 
 export type SelectMenuOptionType = {
   value: string;
@@ -211,7 +214,6 @@ const Root = React.forwardRef<HTMLDivElement, SelectMenuPropsType>(
       color,
       selectedOptions = [],
       placeholder = 'Select...',
-      options = [],
       expanded = undefined,
       defaultExpanded = undefined,
       withIcons = false,
@@ -223,56 +225,22 @@ const Root = React.forwardRef<HTMLDivElement, SelectMenuPropsType>(
       ...additionalProps
     } = props;
 
-    const {current: id} = React.useRef<string>(`select-${generateId()}`);
-
-    if (__DEV__) {
-      invariant(
-        !(valid && invalid),
-        `Select cannot be valid and invalid at the same time.`
-      );
-    }
-    const wrapperId = `${id}-wrapper`;
-    const popupClassName = 'sg-select-menu__popup';
-    const popupContentClassName = 'sg-select-menu__options-wrapper';
-    const selectElementClassName = 'sg-select-menu__element';
-    const floatingContainerClassName =
-      'sg-select-menu__options-floating-container';
-
-    const {animateEntry, animateExit} = useSelectMenuAnimations({
-      selectId: wrapperId,
-      floatingContainerClassName,
-      popupClassName,
-      popupContentClassName,
-      selectElementClassName,
-    });
-
-    const {isExpanded, onOpenChange, handleOptionSelect} = useSelectMenu({
-      id,
+    const {descendants, ...context} = useSelectMenu({
       valid,
       invalid,
       expanded,
       defaultExpanded,
       disabled,
       multiSelect,
-      onEntry: animateEntry,
-      onExit: animateExit,
       onToggle,
       onOptionChange,
     });
 
-    const {
-      interactions,
-      floatingProps,
-      refs,
-      listRef,
-      context,
-      isMounted,
-      status,
-      activeIndex,
-    } = useFloatingSelectMenu({
-      isExpanded,
-      onOpenChange,
-    });
+    // const {current: descendants} = React.useRef(
+    //   useSelectMenuDescendants({
+    //     listRef: context.floating.listRef,
+    //   })
+    // );
 
     // const optionsElements = options.map((option, index) => {
     //   if (option.label || option.value) {
@@ -318,215 +286,26 @@ const Root = React.forwardRef<HTMLDivElement, SelectMenuPropsType>(
     //   return null;
     // });
 
-    const selectDisplayValue = React.useMemo(() => {
-      if (!selectedOptions.length)
-        return (
-          <Text
-            className="sg-select-menu__placeholder"
-            size="small"
-            color="text-gray-60"
-          >
-            {placeholder}
-          </Text>
-        );
-
-      if (selectedOptions.length === 1) {
-        const {label, icon} = selectedOptions[0] || {};
-
-        const displayLabel = (
-          <Text
-            size="small"
-            className="sg-select-menu__element-label"
-            aria-label={label}
-          >
-            {label}
-          </Text>
-        );
-
-        if (withIcons && icon?.name) {
-          const {name, isSubjectIcon = false} = icon || {};
-
-          let displayedIcon;
-
-          if (isSubjectIcon) {
-            const iconName = name as SubjectIconTypeType;
-
-            // Add an icon name key so only icon different
-            // from the previous one will have opacity animation
-            displayedIcon = (
-              <SubjectIcon
-                key={iconName}
-                className="sg-select-menu__element-label-icon"
-                size="small"
-                type={iconName}
-              />
-            );
-          } else {
-            const iconName = name as IconTypeType;
-
-            // Add an icon name key so only icon different
-            // from the previous one will have opacity animation
-            displayedIcon = (
-              <Icon
-                key={iconName}
-                className="sg-select-menu__element-label-icon"
-                size={24}
-                color="icon-black"
-                type={iconName}
-              />
-            );
-          }
-          return (
-            <>
-              {displayedIcon}
-              {displayLabel}
-            </>
-          );
-        }
-
-        return displayLabel;
-      } else {
-        const label = [];
-
-        selectedOptions.map(option => label.push(option.label));
-        const labelString = label.join(', ');
-
-        return (
-          <Text
-            size="small"
-            className="sg-select-menu__element-label"
-            aria-label={labelString}
-          >
-            {labelString}
-          </Text>
-        );
-      }
-    }, [placeholder, withIcons, selectedOptions]);
-
-    const selectClass = classnames(
-      'sg-select-menu',
-      {
-        'sg-select-menu--selected': selectedOptions.length,
-        'sg-select-menu--valid': valid,
-        'sg-select-menu--invalid': invalid,
-        'sg-select-menu--disabled': disabled,
-        [`sg-select-menu--${String(size)}`]: size && size !== DEFAULT_SIZE,
-        [`sg-select-menu--${String(color)}`]: color,
-      },
-      className
+    const ctx = React.useMemo(
+      () => ({
+        ...context,
+        selectedOptions,
+        placeholder,
+        onClick,
+        withIcons,
+        size,
+      }),
+      [context, selectedOptions, placeholder, onClick, withIcons, size]
     );
 
-    const selectRef = useMergeRefs([ref, refs.setReference]);
-
-    // this is to not block clicking and hovering outside
-    // when the exit animation plays
-    const overlayPointerEvents =
-      status === 'open' || status === 'initial' ? 'all' : 'none';
-
     return (
-      <div id={wrapperId} className={selectClass} onClick={onClick}>
-        <div
-          ref={selectRef}
-          id={id}
-          className={selectElementClassName}
-          role="combobox"
-          tabIndex={disabled ? -1 : 0}
-          aria-disabled={disabled}
-          aria-invalid={invalid ? true : undefined}
-          aria-controls={`${id}-listbox`}
-          aria-expanded={isExpanded}
-          aria-haspopup="listbox"
-          aria-multiselectable={multiSelect}
-          data-status={status}
-          {...interactions.getReferenceProps({
-            // Handle pointer
-            onClick() {
-              if (!disabled) onOpenChange(!isExpanded);
-            },
-            // Handle keyboard
-            onKeyDown(event) {
-              if ((event.key === 'Enter' || event.key === ' ') && !disabled) {
-                event.preventDefault();
-                onOpenChange(!isExpanded);
-              }
-            },
-          })}
-          {...additionalProps}
-        >
-          {selectDisplayValue}
-          <div className="sg-select-menu__element-icon">
-            <Icon
-              type="caret_down"
-              size={ICON_SIZE_MAP[size]}
-              color="icon-gray-70"
-            />
-          </div>
-        </div>
-        {isMounted && (
-          <FloatingOverlay
-            lockScroll={!isTouchScreen()}
-            style={{
-              zIndex: 1,
-              pointerEvents: overlayPointerEvents,
-            }}
-          >
-            <FloatingFocusManager
-              context={context}
-              modal={false}
-              visuallyHiddenDismiss
-            >
-              <div
-                ref={refs.setFloating}
-                className={floatingContainerClassName}
-                style={{
-                  position: floatingProps.strategy,
-                  top: floatingProps.y ?? 0,
-                  left: floatingProps.x ?? 0,
-                  minWidth: 120,
-                  width: 'max-content',
-                  maxWidth: 320,
-                  zIndex: 1,
-                }}
-                {...interactions.getFloatingProps()}
-                tabIndex={-1}
-                data-placement={floatingProps.placement}
-              >
-                <div
-                  className={popupClassName}
-                  data-placement={floatingProps.placement}
-                  tabIndex={activeIndex === null ? 0 : -1}
-                  role="presentation"
-                >
-                  <div
-                    className={popupContentClassName}
-                    id={`${id}-listbox`}
-                    role="presentation"
-                  >
-                    <SelectMenuContext.Provider
-                      value={{
-                        withIcons,
-                        multiSelect,
-                        disabled,
-                        valid,
-                        invalid,
-                        size,
-                        color,
-                        interactions,
-                        listRef,
-                        activeIndex,
-                        optionsList: new Map(),
-                        handleOptionSelect,
-                      }}
-                    >
-                      {children}
-                    </SelectMenuContext.Provider>
-                  </div>
-                </div>
-              </div>
-            </FloatingFocusManager>
-          </FloatingOverlay>
-        )}
-      </div>
+      <SelectMenuDescendantsContext.Provider value={descendants}>
+        <SelectMenuContext.Provider value={ctx}>
+          <SelectMenuComponent ref={ref} className={className}>
+            {children}
+          </SelectMenuComponent>
+        </SelectMenuContext.Provider>
+      </SelectMenuDescendantsContext.Provider>
     );
   }
 );

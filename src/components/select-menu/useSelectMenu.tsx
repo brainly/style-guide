@@ -1,38 +1,42 @@
 import * as React from 'react';
 
 import type {SelectMenuPropsType, OptionType} from './SelectMenu';
+import {__DEV__, invariant, generateId} from '../utils';
+import useFloatingSelectMenu from './useFloatingSelectMenu';
+import useSelectMenuAnimations from './useSelectMenuAnimations';
+import {useSelectMenuDescendants} from './useSelectMenuDescendantsContext';
 
-type UseSelectMenuPropsType =
-  | Pick<
-      SelectMenuPropsType,
-      | 'valid'
-      | 'invalid'
-      | 'expanded'
-      | 'defaultExpanded'
-      | 'disabled'
-      | 'multiSelect'
-      | 'onToggle'
-      | 'onOptionChange'
-    > & {
-      id: string;
-      onEntry: () => unknown;
-      onExit: ({callback}: {callback?: () => unknown}) => unknown;
-    };
+type UseSelectMenuPropsType = Pick<
+  SelectMenuPropsType,
+  | 'valid'
+  | 'invalid'
+  | 'expanded'
+  | 'defaultExpanded'
+  | 'disabled'
+  | 'multiSelect'
+  | 'onToggle'
+  | 'onOptionChange'
+>;
 
 const useSelectMenu = (props: UseSelectMenuPropsType) => {
   const {
-    id,
     valid,
     invalid,
     expanded,
     defaultExpanded,
     disabled,
     multiSelect,
-    onEntry,
-    onExit,
     onToggle,
     onOptionChange,
   } = props;
+  const {current: id} = React.useRef<string>(`select-${generateId()}`);
+
+  if (__DEV__) {
+    invariant(
+      !(valid && invalid),
+      `Select cannot be valid and invalid at the same time.`
+    );
+  }
 
   const [isExpanded, setIsExpanded] = React.useState(
     expanded || defaultExpanded || false
@@ -40,22 +44,20 @@ const useSelectMenu = (props: UseSelectMenuPropsType) => {
   const isExpandedControlled = expanded !== undefined;
   const prevExpanded = React.useRef<Boolean>();
 
-  // Handle expanded change when controlled
-  React.useEffect(() => {
-    if (isExpandedControlled) setIsExpanded(expanded);
-  }, [isExpandedControlled, expanded]);
+  const wrapperId = `${id}-wrapper`;
+  const popupClassName = 'sg-select-menu__popup';
+  const popupContentClassName = 'sg-select-menu__options-wrapper';
+  const selectElementClassName = 'sg-select-menu__element';
+  const floatingContainerClassName =
+    'sg-select-menu__options-floating-container';
 
-  React.useEffect(() => {
-    // Ensure animation fires only
-    // when expanded change was detected
-    if (!prevExpanded.current || isExpanded !== prevExpanded.current) {
-      prevExpanded.current = isExpanded;
-
-      if (isExpanded) {
-        onEntry();
-      }
-    }
-  }, [isExpanded, onEntry]);
+  const {animateEntry, animateExit} = useSelectMenuAnimations({
+    selectId: wrapperId,
+    floatingContainerClassName,
+    popupClassName,
+    popupContentClassName,
+    selectElementClassName,
+  });
 
   if (valid === true && invalid === true) {
     throw {
@@ -79,8 +81,8 @@ const useSelectMenu = (props: UseSelectMenuPropsType) => {
 
     // If the component will close
     // we first have to animate its exit before destroying it
-    if (!isOpen && onExit) {
-      onExit({
+    if (!isOpen && animateExit) {
+      animateExit({
         callback: () => {
           handleOpenChange(isOpen);
         },
@@ -90,11 +92,69 @@ const useSelectMenu = (props: UseSelectMenuPropsType) => {
     }
   };
 
-  return {
-    id,
+  const {
+    interactions,
+    floatingProps,
+    refs,
+    listRef,
+    context,
+    isMounted,
+    status,
+    activeIndex,
+  } = useFloatingSelectMenu({
     isExpanded,
-    handleOptionSelect,
     onOpenChange,
+  });
+
+  const {current: descendants} = React.useRef(
+    useSelectMenuDescendants({listRef})
+  );
+
+  // Handle expanded change when controlled
+  React.useEffect(() => {
+    if (isExpandedControlled) setIsExpanded(expanded);
+  }, [isExpandedControlled, expanded]);
+
+  React.useEffect(() => {
+    // Ensure animation fires only
+    // when expanded change was detected
+    if (
+      prevExpanded.current === undefined ||
+      isExpanded !== prevExpanded.current
+    ) {
+      prevExpanded.current = isExpanded;
+
+      if (isExpanded) {
+        animateEntry();
+      }
+    }
+  }, [isExpanded, animateEntry]);
+
+  return {
+    descendants,
+    id,
+    ids: {
+      wrapperId,
+    },
+    classNames: {
+      floatingContainerClassName,
+      popupClassName,
+      popupContentClassName,
+      selectElementClassName,
+    },
+    isExpanded,
+    floating: {
+      interactions,
+      floatingProps,
+      refs,
+      listRef,
+      context,
+      isMounted,
+      status,
+      activeIndex,
+    },
+    onOpenChange,
+    handleOptionSelect,
   };
 };
 

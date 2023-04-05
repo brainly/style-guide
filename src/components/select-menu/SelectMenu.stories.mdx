@@ -140,20 +140,23 @@ This component is a controlled component, so you have to handle selecting option
         };
       }, []);
       return (
-        <div style={{width: '200px'}}>
-          <SelectMenu.Root
-            {...args}
-            selectedOptions={selectedOptions}
-            onOptionChange={option => {
-              setSelectedOptions([option]);
-            }}
-          >
-            <SelectMenu.Option value="history">History</SelectMenu.Option>
-            {showSecondOption && (
-              <SelectMenu.Option value="math">Math</SelectMenu.Option>
-            )}
-            <SelectMenu.Option value="science">Science</SelectMenu.Option>
-          </SelectMenu.Root>
+        <div>
+          <Text>The second option will disappear</Text>
+          <div style={{width: '200px', marginTop: '10px'}}>
+            <SelectMenu.Root
+              {...args}
+              selectedOptions={selectedOptions}
+              onOptionChange={option => {
+                setSelectedOptions([option]);
+              }}
+            >
+              <SelectMenu.Option value="history">History</SelectMenu.Option>
+              {showSecondOption && (
+                <SelectMenu.Option value="math">Math</SelectMenu.Option>
+              )}
+              <SelectMenu.Option value="science">Science</SelectMenu.Option>
+            </SelectMenu.Root>
+          </div>
         </div>
       );
     }}
