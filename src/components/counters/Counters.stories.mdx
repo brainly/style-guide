@@ -2,7 +2,7 @@ import {ArgsTable, Meta, Story, Canvas} from '@storybook/addon-docs';
 import {StoryVariant, StoryVariantTable} from '../../docs/utils';
 import {formatTags} from '../../docs/utils';
 
-import Counter, {COUNTER_SIZE, COUNTER_TYPE, COUNTER_COLOR} from './Counter';
+import Counter, {COUNTER_SIZE, COUNTER_VARIANT, COUNTER_COLOR} from './Counter';
 import {TYPE as ICON_TYPE} from '../icons/Icon';
 import Flex from '../flex/Flex';
 import Headline from '../text/Headline';
@@ -16,7 +16,7 @@ import PageHeader from 'blocks/PageHeader';
   argTypes={{
     size: {control: {type: 'select', options: COUNTER_SIZE}},
     withAnimation: {control: 'boolean'},
-    type: {control: {type: 'select', options: COUNTER_TYPE}},
+    variant: {control: {type: 'select', options: COUNTER_VARIANT}},
     color: {control: {type: 'select', options: COUNTER_COLOR}},
     icon: {
       control: {type: 'select', options: Object.values(ICON_TYPE)},
@@ -30,7 +30,6 @@ import PageHeader from 'blocks/PageHeader';
   }}
   args={{
     children: '25',
-    size: 'xs',
   }}
 />
 
@@ -49,10 +48,10 @@ import PageHeader from 'blocks/PageHeader';
 
 ## Stories
 
-### Sizes and types
+### Sizes and variants
 
 <Canvas>
-  <Story name="SizesAndTypes">
+  <Story name="SizesAndVariants">
     {args => (
       <div>
         <StoryVariantTable>
@@ -110,14 +109,14 @@ import PageHeader from 'blocks/PageHeader';
                 </td>
                 <td>
                   <Flex justifyContent="center">
-                    <Counter key={size} {...args} size={size} type="solid">
+                    <Counter key={size} {...args} size={size} variant="solid">
                       2
                     </Counter>
                   </Flex>
                 </td>
                 <td>
                   <Flex justifyContent="center">
-                    <Counter key={size} {...args} size="xs" type="light">
+                    <Counter key={size} {...args} size="xs" variant="light">
                       2
                     </Counter>
                   </Flex>
@@ -200,7 +199,7 @@ import PageHeader from 'blocks/PageHeader';
                       key={color}
                       {...args}
                       size="xs"
-                      type="solid"
+                      variant="solid"
                       color={color}
                     >
                       2
@@ -218,7 +217,7 @@ import PageHeader from 'blocks/PageHeader';
                       key={color}
                       {...args}
                       size="xs"
-                      type="light"
+                      variant="light"
                       color={color}
                     >
                       2

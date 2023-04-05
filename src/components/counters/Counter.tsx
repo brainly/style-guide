@@ -16,9 +16,9 @@ export type CounterColorType =
   | 'gray'
   | 'achromatic';
 
-export type CounterType = 'solid' | 'light';
+export type CounterVariantType = 'solid' | 'light';
 
-export const COUNTER_TYPE = {
+export const COUNTER_VARIANT = {
   solid: 'solid',
   light: 'light',
 } as const;
@@ -71,25 +71,23 @@ export const COUNTER_SIZE = {
 export type CounterPropsType = {
   /**
    * Children to be rendered inside Counter
-   * @example <Counter type="basic">
+   * @example <Counter>
    *            text
    *          </Counter>
    */
   children: React.ReactNode;
 
   /**
-   * Specify type of the counter that you want to use, two types for now
-   * @example <Counter type="basic">
+   * You can render icon inside of counter
+   * @example <Counter icon="points">
    *            1
    *          </Counter>
-   * @see type="basic" https://styleguide.brainly.com/latest/docs/interactive.html?type="basic"#counters
-   * @see type="points" https://styleguide.brainly.com/latest/docs/interactive.html?type="points"#counters
    */
   icon?: IconTypeType | null | undefined;
 
   /**
    * There are two sizes options for counters, not need to be specify, default is xs
-   * @example <Counter icon="points">
+   * @example <Counter>
    *            1pts
    *          </Counter>
    */
@@ -102,14 +100,14 @@ export type CounterPropsType = {
   color?: CounterColorType | null | undefined;
 
   /**
-   * Specify type of counter
-   * @example <Counter type="solid">1</Counter>
+   * Specify variant of counter
+   * @example <Counter variant="solid">1</Counter>
    */
-  type?: CounterType;
+  variant?: CounterVariantType;
 
   /**
    * Optional boolean for counter with animation
-   * @example <Counter type="basic" withAnimation>
+   * @example <Counter withAnimation>
    *            12
    *          </Counter>
    */
@@ -130,7 +128,7 @@ export type CounterPropsType = {
   | 'icon'
   | 'size'
   | 'color'
-  | 'type'
+  | 'variant'
   | 'withAnimation'
   | 'className'
   | 'undefined'
@@ -140,15 +138,15 @@ const Counter = ({
   icon,
   children,
   className,
-  size,
+  size = 'xs',
   color = 'red',
-  type = 'solid',
+  variant = 'solid',
   withAnimation,
   'aria-label': ariaLabel,
   ...props
 }: CounterPropsType) => {
   const backgroundColor =
-    type === 'solid'
+    variant === 'solid'
       ? SOLID_COLOR_BACKGROUND_MAP[color]
       : LIGHT_COLOR_BACKGROUND_MAP[color];
   const counterClass = cx(
@@ -163,7 +161,7 @@ const Counter = ({
   );
 
   const textColor =
-    type === 'solid' ? SOLID_COLOR_TEXT_MAP[color] : 'text-black';
+    variant === 'solid' ? SOLID_COLOR_TEXT_MAP[color] : 'text-black';
 
   let content;
 
