@@ -178,7 +178,9 @@ const SelectMenuComponent = React.forwardRef<
   // this is to not block clicking and hovering outside
   // when the exit animation plays
   const overlayPointerEvents =
-    status === 'open' || status === 'initial' ? 'all' : 'none';
+    floating.status === 'open' || floating.status === 'initial'
+      ? 'all'
+      : 'none';
 
   return (
     <div id={ids.wrapperId} className={selectClass} onClick={onClick}>
@@ -194,7 +196,7 @@ const SelectMenuComponent = React.forwardRef<
         aria-expanded={isExpanded}
         aria-haspopup="listbox"
         aria-multiselectable={multiSelect}
-        data-status={status}
+        data-status={floating.status}
         {...floating.interactions.getReferenceProps()}
         {...additionalProps}
       >
