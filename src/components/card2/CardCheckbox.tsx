@@ -194,6 +194,8 @@ const CardCheckbox = ({
           [`sg-card-new--variant-${variant}`]: variant,
         })}
         style={{...style, ...cssVariables}}
+        data-variant={variant}
+        data-hover={hover}
         data-checked={indeterminate ? 'mixed' : isChecked}
         data-invalid={invalid}
         data-disabled={disabled}
