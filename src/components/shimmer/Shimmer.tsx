@@ -1,10 +1,11 @@
 import React from 'react';
 
-type ShimmerPropsType = {
+export type ShimmerPropsType = {
   type?: 'full' | 'edge';
   origin?: string;
   id?: string;
   detached?: boolean;
+  active?: boolean;
 };
 
 const GLOBAL_SHIMMER_ORIGIN_ID = 'shimmer-origin';
@@ -14,24 +15,27 @@ export const Shimmer: React.FunctionComponent<ShimmerPropsType> = ({
   type = 'full',
   origin,
   detached = false,
+  children,
+  active = false,
 }) => {
   const containerRef = React.useRef<HTMLDivElement>();
   const effectRef = React.useRef<HTMLSpanElement>();
+  const animationRef = React.useRef<Animation>();
 
-  // copy styles from parent to restrict same painting area
+  // copy styles from child to restrict same painting area
   React.useEffect(() => {
     if (containerRef.current) {
       const computedStyle = window.getComputedStyle(
-        containerRef.current.parentElement
+        containerRef.current.firstElementChild
       );
 
       containerRef.current.style.borderRadius = computedStyle.borderRadius;
       containerRef.current.style.clipPath = computedStyle.clipPath;
-      containerRef.current.style.display = 'block';
+      containerRef.current.style.display = 'inline-block';
     }
   }, [containerRef]);
 
-  // play animation
+  // setup animation
   React.useEffect(() => {
     const keyFrames = new KeyframeEffect(
       effectRef.current,
@@ -92,13 +96,45 @@ export const Shimmer: React.FunctionComponent<ShimmerPropsType> = ({
       animation.id = GLOBAL_SHIMMER_ORIGIN_ID;
     }
 
-    animation.play();
+    animationRef.current = animation;
   }, [containerRef, origin, id, detached]);
+
+  // play animation
+  React.useEffect(() => {
+    if (animationRef.current) {
+      if (active) {
+        if (origin) {
+          const customShimmerOrigin = document
+            .getAnimations()
+            .find(animation => animation.id === origin);
+
+          if (customShimmerOrigin) {
+            animationRef.current.startTime = customShimmerOrigin.startTime;
+          }
+        } else if (!detached) {
+          const globalShimmerOrigin = document
+            .getAnimations()
+            .find(animation => animation.id === GLOBAL_SHIMMER_ORIGIN_ID);
+
+          if (globalShimmerOrigin) {
+            animationRef.current.startTime = globalShimmerOrigin.startTime;
+          }
+        }
+        animationRef.current.play();
+      } else {
+        animationRef.current.pause();
+      }
+    }
+  }, [active, animationRef, detached, origin]);
 
   return (
     <div className="shimmer" ref={containerRef}>
+      {children}
       {type === 'full' ? (
-        <span ref={effectRef} className="shimmer-effect shimmer-effect--full" />
+        <span
+          ref={effectRef}
+          className="shimmer-effect shimmer-effect--active shimmer-effect--full"
+        />
       ) : null}
     </div>
   );

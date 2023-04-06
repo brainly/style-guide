@@ -402,7 +402,7 @@ const Button = React.forwardRef(
         onTouchStart={() => null}
         type={type}
       >
-        {shimmer ? <Shimmer direction="edge" {...shimmer} /> : null}
+        {shimmer ? <Shimmer {...shimmer} /> : null}
         {variant.includes('transparent') ? (
           <span className="sg-button__hover-overlay" />
         ) : null}

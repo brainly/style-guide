@@ -1,6 +1,7 @@
-import React, {useEffect} from 'react';
+import React from 'react';
 import Button from '../buttons/Button';
 import Flex from '../flex/Flex';
+import {generateId} from '../utils';
 import {Shimmer} from './Shimmer';
 
 export default {
@@ -8,53 +9,71 @@ export default {
   component: Shimmer,
 };
 
-type ShimmerItem = {id?: string; origin?: string; detached?: boolean};
-
 export const Default = () => {
-  const [synced, setSynced] = React.useState<Array<ShimmerItem>>([]);
-  const [globalSynced, setGlobalSynced] = React.useState<Array<ShimmerItem>>([
-    {},
-  ]);
+  const [buttons, setButtons] = React.useState([]);
 
   const addSynced = React.useCallback(() => {
-    setSynced(synced.concat([{origin: 'sync-custom-origin'}]));
-  }, [synced]);
-  const addGlobalSynced = React.useCallback(() => {
-    setGlobalSynced(globalSynced.concat([{}]));
-  }, [globalSynced]);
+    const origin = buttons.length > 0 ? 'sync-custom-origin' : '';
+    const id = buttons.length === 0 ? 'sync-custom-origin' : generateId();
 
-  useEffect(() => {
-    setTimeout(() => {
-      setSynced(synced =>
-        synced.concat([{id: 'sync-custom-origin', detached: true}])
-      );
-    }, 2000);
-  }, []);
+    setButtons(
+      buttons.concat([
+        {
+          variant: 'solid',
+          id,
+          shimmer: {origin, active: false, id, detached: true},
+        },
+      ])
+    );
+  }, [buttons]);
+  const addGlobalSynced = React.useCallback(() => {
+    setButtons(
+      buttons.concat([
+        {variant: 'solid-indigo', id: generateId(), shimmer: {active: false}},
+      ])
+    );
+  }, [buttons]);
+
+  const toggleActive = React.useCallback(
+    (id: string) => {
+      const newButtons = buttons.concat([]);
+
+      const buttonToToggle = newButtons.find(button => button.id === id);
+
+      if (buttonToToggle) {
+        buttonToToggle.shimmer.active = !buttonToToggle.shimmer.active;
+        setButtons(newButtons);
+      }
+    },
+    [buttons]
+  );
 
   return (
     <div style={{background: 'gray', padding: 20}}>
-      <Flex>
+      <Flex direction="column">
         <div>
           <Button onClick={addGlobalSynced} variant="solid-indigo">
             Add global-synced
           </Button>
-          {globalSynced.map((shimmer, index) => (
-            <div key={index} style={{padding: 10}}>
-              <Button shimmer={shimmer}>My button</Button>
-            </div>
-          ))}
+          <Button onClick={addSynced}>Add id synced</Button>
         </div>
-        <Flex marginLeft="m" direction="column">
-          <Button onClick={addSynced} variant="solid-indigo">
-            Add id synced
-          </Button>
-          {synced.map((shimmer, index) => (
-            <div key={index} style={{padding: 10}}>
-              <Button shimmer={shimmer} style={{paddingLeft: (index + 1) * 20}}>
-                My button
-              </Button>
-            </div>
-          ))}
+        <Flex marginTop="m" direction="column">
+          <div style={{width: 1000}}>
+            <Flex wrap>
+              {buttons.map((button, index) => (
+                <div key={index} style={{padding: 5}}>
+                  <Shimmer {...button.shimmer}>
+                    <Button
+                      onClick={() => toggleActive(button.id)}
+                      variant={button.variant}
+                    >
+                      My button
+                    </Button>
+                  </Shimmer>
+                </div>
+              ))}
+            </Flex>
+          </div>
         </Flex>
       </Flex>
     </div>
