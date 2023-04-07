@@ -108,7 +108,11 @@
     transform: translate(-50%, -50%);
     transition: $durationModerate2 $easingRegular;
     border-radius: 2px;
-    background-color: black;
+    background-color: $black;
+
+    @media (prefers-reduced-motion) {
+      transition: none;
+    }
 
     &--vertical {
       width: 2px;
