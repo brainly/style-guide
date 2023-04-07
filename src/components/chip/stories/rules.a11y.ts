@@ -37,13 +37,13 @@ const rules = [
     tests: 'N/A',
   },
   {
-    pattern: '<b>Should</b> respect Windows High Contrast mode.', //  checked is not visible
-    status: 'TO DO',
+    pattern: '<b>Should</b> respect Windows High Contrast mode.',
+    status: 'DONE',
     tests: 'N/A',
   },
   {
     pattern: '<b>Should</b> respect prefers reduce motion settings.',
-    status: 'TO DO',
+    status: 'DONE',
     tests: 'N/A',
   },
   {

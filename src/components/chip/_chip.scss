@@ -16,6 +16,24 @@
       & + .sg-chip__pill {
         border-color: var(--chipCheckedBorderColor);
 
+        @media (forced-colors: active) {
+          border-width: 4px;
+
+          & .sg-chip__text {
+            &:first-child {
+              margin-left: 10px;
+            }
+
+            &:last-child {
+              margin-right: 10px;
+            }
+          }
+
+          & .sg-chip__icon {
+            margin-left: 6px;
+          }
+        }
+
         & .sg-chip__lines {
           &--horizontal {
             width: 6.27px;
