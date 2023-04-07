@@ -1,6 +1,3 @@
-$hover-transition: background-color $durationModerate1 $easingLinear;
-$active-transition: background-color $durationModerate2 $easingLinear;
-
 .sg-chip {
   --chipBorderColor: var(--gray-30);
   --chipCheckedBorderColor: var(--black);
@@ -12,6 +9,8 @@ $active-transition: background-color $durationModerate2 $easingLinear;
     width: 100%;
     height: 100%;
     z-index: 1;
+    position: absolute;
+    opacity: 0;
 
     &:checked {
       & + .sg-chip__pill {
@@ -73,7 +72,7 @@ $active-transition: background-color $durationModerate2 $easingLinear;
     border-radius: 8px;
     transition: box-shadow $durationQuick1 $easingExit,
       border-color $durationModerate1 $easingLinear,
-      transform $durationModerate2 $easingLinear;
+      transform $durationModerate2 $easingRegular;
 
     @media (forced-colors: active) {
       border-color: FieldText;

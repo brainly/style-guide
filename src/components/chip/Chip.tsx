@@ -135,7 +135,7 @@ const Chip = ({
   ...props
 }: ChipPropsType) => {
   const chipClass = classNames('sg-chip', `sg-chip--${size}`, className);
-  const inputClass = classNames('sg-visually-hidden', 'sg-chip__input');
+  const inputClass = classNames('sg-chip__input');
 
   const chipGroupContext = useChipContext();
   const isWithinChipGroup = Boolean(
