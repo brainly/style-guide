@@ -52,11 +52,11 @@
     }
 
     &:hover + .sg-chip__pill {
-      background: rgba($gray-40, 0.12);
+      background-color: rgba($gray-40, 0.12);
     }
 
     &:active + .sg-chip__pill {
-      background: rgba($gray-40, 0.2);
+      background-color: rgba($gray-40, 0.2);
       transform: scale(0.96);
     }
   }
@@ -73,7 +73,8 @@
     border-radius: 8px;
     transition: box-shadow $durationQuick1 $easingExit,
       border-color $durationModerate1 $easingLinear,
-      transform $durationModerate2 $easingRegular;
+      transform $durationModerate2 $easingRegular,
+      background-color $durationModerate1 $easingLinear;
 
     @media (forced-colors: active) {
       border-color: FieldText;
@@ -107,7 +108,7 @@
     transform: translate(-50%, -50%);
     transition: $durationModerate2 $easingRegular;
     border-radius: 2px;
-    background: black;
+    background-color: black;
 
     &--vertical {
       width: 2px;
