@@ -16,22 +16,23 @@
       & + .sg-chip__pill {
         border-color: var(--chipCheckedBorderColor);
 
-        & .sg-chip__check-icon path {
-          &:first-child {
-            display: inline-block;
+        & .sg-chip__lines {
+          &--horizontal {
+            width: 6.27px;
+            transform: rotate(45deg)
+              translate(calc(-50% - 1px), calc(-50% + 5.5px));
           }
 
-          &:last-child {
-            display: none;
+          &--vertical {
+            height: 10.5px;
+            transform: rotate(45deg)
+              translate(calc(-50% - 2.2px), calc(-50% + 1px));
           }
         }
       }
     }
 
-    &:focus-visible + .sg-chip__pill {
-      @include applyFocusStyle();
-    }
-
+    &:focus-visible + .sg-chip__pill,
     &:focus + .sg-chip__pill {
       @include applyFocusStyle();
     }
@@ -94,46 +95,29 @@
   &__check-icon {
     width: 16px;
     height: 16px;
-    fill: var(--icon-black);
+    position: relative;
     margin-right: 8px;
     margin-left: 6px;
-
-    & path:first-child {
-      display: none;
-    }
-
-    &--try {
-      width: 16px;
-      height: 16px;
-      position: relative;
-      margin-left: -24px;
-
-      & > * {
-        background: pink;
-      }
-    }
   }
 
-  &__vertical-line {
-    width: 2px;
-    border-radius: 2px;
-    height: 11px;
+  &__lines {
     position: absolute;
     top: 8px;
     left: 8px;
     transform: translate(-50%, -50%);
     transition: $durationModerate2 $easingRegular;
-  }
-
-  &__horizontal-line {
-    width: 11px;
     border-radius: 2px;
-    height: 2px;
-    position: absolute;
-    top: 8px;
-    left: 8px;
-    transform: translate(-50%, -50%);
-    transition: $durationModerate2 $easingRegular;
+    background: black;
+
+    &--vertical {
+      width: 2px;
+      height: 11px;
+    }
+
+    &--horizontal {
+      width: 11px;
+      height: 2px;
+    }
   }
 
   &--m {
