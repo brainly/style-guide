@@ -8,7 +8,7 @@ import Text from '../text/Text';
 
 <Meta title="Components/Card2/Radio" component={Card.Radio} />
 
-<PageHeader>Card</PageHeader>
+<PageHeader>Card.Radio</PageHeader>
 
 - [Stories](#stories)
 - [Accessibility](#accessibility)
@@ -16,12 +16,32 @@ import Text from '../text/Text';
 ## Overview
 
 <Canvas>
-  <Story name="Default">
+  <Story
+    name="Default"
+    decorators={[
+      Story => (
+        <div
+          style={{
+            background: 'var(--gray-30)',
+            padding: 64,
+            display: 'flex',
+            justifyContent: 'space-evenly',
+          }}
+        >
+          <Story />
+        </div>
+      ),
+    ]}
+    args={{
+      defaultChecked: false,
+    }}
+  >
     {args => (
       <Card.Radio {...args} width="150px" height="150px">
+        <Card.RadioIndicator slot="top-left" />
         <Flex justifyContent="center" alignItems="center" fullHeight>
           <Text color="text-gray-50" size="xsmall" weight="bold">
-            Radio Card
+            Placeholder
           </Text>
         </Flex>
       </Card.Radio>
