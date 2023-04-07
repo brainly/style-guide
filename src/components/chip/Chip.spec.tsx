@@ -143,6 +143,7 @@ describe('<Chip />', () => {
       expect(chipInputs[1].checked).toBe(false);
 
       chipInputs[1].focus();
+      expect(chipInputs[1]).toEqual(document.activeElement);
       userEvent.keyboard('{space}');
       expect(chipInputs[0].checked).toBe(true);
       expect(chipInputs[1].checked).toBe(true);
