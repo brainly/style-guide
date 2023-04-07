@@ -101,6 +101,39 @@
     & path:first-child {
       display: none;
     }
+
+    &--try {
+      width: 16px;
+      height: 16px;
+      position: relative;
+      margin-left: -24px;
+
+      & > * {
+        background: pink;
+      }
+    }
+  }
+
+  &__vertical-line {
+    width: 2px;
+    border-radius: 2px;
+    height: 11px;
+    position: absolute;
+    top: 8px;
+    left: 8px;
+    transform: translate(-50%, -50%);
+    transition: $durationModerate2 $easingRegular;
+  }
+
+  &__horizontal-line {
+    width: 11px;
+    border-radius: 2px;
+    height: 2px;
+    position: absolute;
+    top: 8px;
+    left: 8px;
+    transform: translate(-50%, -50%);
+    transition: $durationModerate2 $easingRegular;
   }
 
   &--m {

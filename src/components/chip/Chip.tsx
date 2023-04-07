@@ -201,6 +201,15 @@ const Chip = ({
             <path d="M9 3.5C9 2.94772 8.55228 2.5 8 2.5C7.44772 2.5 7 2.94772 7 3.5V7H3.5C2.94772 7 2.5 7.44772 2.5 8C2.5 8.55228 2.94772 9 3.5 9H7V12.5C7 13.0523 7.44772 13.5 8 13.5C8.55228 13.5 9 13.0523 9 12.5V9H12.5C13.0523 9 13.5 8.55228 13.5 8C13.5 7.44772 13.0523 7 12.5 7H9V3.5Z" />
           </svg>
         )}
+        {isCheckbox && (
+          <div
+            className="sg-chip__check-icon sg-chip__check-icon--try"
+            aria-hidden
+          >
+            <div className="sg-chip__vertical-line" />
+            <div className="sg-chip__horizontal-line" />
+          </div>
+        )}
       </div>
     </label>
   );
