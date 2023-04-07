@@ -58,6 +58,7 @@
     & .sg-checkbox {
       --checkboxColor: var(--card-border-color-hover);
       --checkboxCheckedColor: var(--card-border-color-hover);
+      --checkboxHoverColor: var(--card-border-color-hover);
     }
 
     &[data-invalid='true'] {
@@ -66,6 +67,7 @@
       & .sg-checkbox {
         --checkboxColor: var(--card-border-color-invalid-hover);
         --checkboxCheckedColor: var(--card-border-color-invalid-hover);
+        --checkboxHoverColor: var(--card-border-color-invalid-hover);
       }
     }
   }
