@@ -52,23 +52,6 @@
     }
   }
 
-  & .sg-card-new__input:focus-visible + .sg-card-new__label {
-    // Replace with applyFocusStyle when it's updated to support different border widths
-    box-shadow: 0px 0px 0px 2px var(--focusInnerColor),
-      0px 0px 0px 4px var(--focusColor), 0px 0px 0px 7px var(--focusOuterColor);
-    outline: none;
-    animation: focusShadow1 $durationQuick2 $easingEntry,
-      focusShadow2 $durationQuick2 $easingEntry calc($durationQuick2 / 2),
-      focusShadow3 $durationQuick2 $easingEntry $durationQuick2;
-
-    @media (forced-colors: active) {
-      outline-color: Highlight;
-      outline-width: 2px;
-      outline-offset: 6px;
-      outline-style: auto;
-    }
-  }
-
   &:hover:not([data-disabled='true']) {
     border-color: var(--card-border-color-hover);
 
@@ -93,8 +76,21 @@
     --checkboxCheckedColor: var(--card-border-color-checked);
   }
 
-  & .sg-checkbox--disabled {
-    opacity: 1;
+  & .sg-card-new__input:focus-visible + .sg-card-new__label {
+    // Replace with applyFocusStyle when it's updated to support different border widths
+    box-shadow: 0px 0px 0px 2px var(--focusInnerColor),
+      0px 0px 0px 4px var(--focusColor), 0px 0px 0px 7px var(--focusOuterColor);
+    outline: none;
+    animation: focusShadow1 $durationQuick2 $easingEntry,
+      focusShadow2 $durationQuick2 $easingEntry calc($durationQuick2 / 2),
+      focusShadow3 $durationQuick2 $easingEntry $durationQuick2;
+
+    @media (forced-colors: active) {
+      outline-color: Highlight;
+      outline-width: 2px;
+      outline-offset: 6px;
+      outline-style: auto;
+    }
   }
 }
 
