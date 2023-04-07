@@ -59,6 +59,7 @@
       --checkboxColor: var(--card-border-color-hover);
       --checkboxCheckedColor: var(--card-border-color-hover);
       --checkboxHoverColor: var(--card-border-color-hover);
+      transition: all $durationModerate1 $easingRegular;
     }
 
     &[data-invalid='true'] {
@@ -78,8 +79,14 @@
     --checkboxCheckedColor: var(--card-border-color-checked);
   }
 
+  & .sg-checkbox__icon {
+    transition: all $durationModerate1 $easingLinear;
+  }
+
+  /* Focus styles */
+
   & .sg-card-new__input:focus-visible + .sg-card-new__label {
-    // Replace with applyFocusStyle when it's updated to support different border widths
+    // TODO(coderitual): Replace with applyFocusStyle when it's updated to support different border widths
     box-shadow: 0px 0px 0px 2px var(--focusInnerColor),
       0px 0px 0px 4px var(--focusColor), 0px 0px 0px 7px var(--focusOuterColor);
     outline: none;
