@@ -58,6 +58,11 @@ export type ShimmerPropsType = {
     | 'saturation'
     | 'color'
     | 'luminosity';
+  /**
+   * Optional string. Controls animation direction
+   * @example <Shimmer direction="vertical"><Avatar /></Shimmer>
+   */
+  direction?: 'horizontal' | 'vertical' | 'diagonal';
 };
 
 const GLOBAL_SHIMMER_ORIGIN_ID = 'shimmer-origin';
@@ -71,6 +76,7 @@ export const Shimmer: React.FunctionComponent<ShimmerPropsType> = ({
   children,
   active = false,
   blendMode,
+  direction = 'horizontal',
 }) => {
   const containerRef = React.useRef<HTMLDivElement>();
   const effectRef = React.useRef<HTMLSpanElement>();
@@ -91,30 +97,82 @@ export const Shimmer: React.FunctionComponent<ShimmerPropsType> = ({
 
   // setup animation
   React.useEffect(() => {
-    const documentStyle = window.getComputedStyle(document.body);
-    const keyFrames = new KeyframeEffect(
-      effectRef.current,
-      [
+    const height = `${window.outerHeight}px`;
+    const width = `${window.outerWidth}px`;
+
+    const KEYFRAMES_BY_DIRECTON = {
+      horizontal: [
         {
-          backgroundPositionX: `-${documentStyle.width}`,
+          backgroundPositionX: `-${width}`,
         },
         {
-          backgroundPositionX: documentStyle.width,
+          backgroundPositionX: width,
           offset: 0.33,
         },
         {
-          backgroundPositionX: documentStyle.width,
+          backgroundPositionX: width,
           offset: 0.5,
         },
         {
-          backgroundPositionX: `-${documentStyle.width}`,
+          backgroundPositionX: `-${width}`,
           offset: 0.83,
         },
         {
-          backgroundPositionX: `-${documentStyle.width}`,
+          backgroundPositionX: `-${width}`,
           offset: 1,
         },
       ],
+      vertical: [
+        {
+          backgroundPositionY: `-${height}`,
+        },
+        {
+          backgroundPositionY: height,
+          offset: 0.33,
+        },
+        {
+          backgroundPositionY: height,
+          offset: 0.5,
+        },
+        {
+          backgroundPositionY: `-${height}`,
+          offset: 0.83,
+        },
+        {
+          backgroundPositionY: `-${height}`,
+          offset: 1,
+        },
+      ],
+      diagonal: [
+        {
+          backgroundPositionX: `-${width}`,
+          backgroundPositionY: `-${height}`,
+        },
+        {
+          backgroundPositionX: width,
+          backgroundPositionY: height,
+          offset: 0.33,
+        },
+        {
+          backgroundPositionX: width,
+          backgroundPositionY: height,
+          offset: 0.5,
+        },
+        {
+          backgroundPositionX: `-${width}`,
+          backgroundPositionY: `-${height}`,
+          offset: 0.83,
+        },
+        {
+          backgroundPositionX: `-${width}`,
+          backgroundPositionY: `-${height}`,
+          offset: 1,
+        },
+      ],
+    };
+    const keyFrames = new KeyframeEffect(
+      effectRef.current,
+      KEYFRAMES_BY_DIRECTON[direction],
       {
         duration: 9000,
         iterations: Infinity,
@@ -152,7 +210,7 @@ export const Shimmer: React.FunctionComponent<ShimmerPropsType> = ({
     }
 
     animationRef.current = animation;
-  }, [containerRef, idSync, id, globalSync]);
+  }, [containerRef, idSync, id, globalSync, direction]);
 
   // play animation
   React.useEffect(() => {
@@ -188,12 +246,17 @@ export const Shimmer: React.FunctionComponent<ShimmerPropsType> = ({
       {type === 'full' ? (
         <span
           ref={effectRef}
-          className={classNames('shimmer-effect', 'shimmer-effect--active', {
-            'shimmer-effect--fill': !image,
-          })}
+          className={classNames(
+            'shimmer-effect',
+            'shimmer-effect--active',
+            `shimmer-effect--${direction}`,
+            {
+              'shimmer-effect--fill': !image,
+            }
+          )}
           style={{
             backgroundImage: image,
-            backgroundBlendMode: blendMode,
+            mixBlendMode: blendMode,
           }}
         />
       ) : null}
