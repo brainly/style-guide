@@ -3,6 +3,7 @@ import classNames from 'classnames';
 import {ChipContext} from './useChipContext';
 import {generateId} from '../utils';
 import Flex from '../flex/Flex';
+import type {ResponsivePropType} from '../utils/responsive-props';
 
 type DirectionType = 'row' | 'column';
 
@@ -62,6 +63,14 @@ export type ChipGroupPropsType = {
    * @example <ChipGroup value="1"><Chip value="1">Label</Chip></ChipGroup>
    */
   value?: string | null | undefined | Array<string>;
+
+  /**
+   * It will wrap component
+   * @example <Flex wrap>
+   *            component content
+   *          </Flex>
+   */
+  wrap?: ResponsivePropType<boolean>;
 } & Omit<
   React.AllHTMLAttributes<HTMLElement>,
   | 'children'
@@ -72,6 +81,8 @@ export type ChipGroupPropsType = {
   | 'onChange'
   | 'value'
   | 'multiSelect'
+  | 'as'
+  | 'wrap'
 >;
 
 const getGroupValue = (
@@ -93,20 +104,16 @@ const getGroupValue = (
 const ChipGroup = ({
   className,
   children,
-  direction = 'row',
   disabled,
   name,
   required,
   value,
   onChange,
   multiSelect,
+  wrap = true,
   ...props
 }: ChipGroupPropsType) => {
-  const chipGroupClass = classNames(
-    'sg-chip-group',
-    `sg-chip-group--${direction}`,
-    className
-  );
+  const chipGroupClass = classNames('sg-chip-group', className);
   const groupRole = multiSelect ? 'group' : 'radiogroup';
   const {current: groupName} = React.useRef<string>(
     name || `ChipGroup_${generateId()}`
@@ -124,27 +131,27 @@ const ChipGroup = ({
   };
 
   return (
-    <div
-      {...props}
+    <Flex
+      gap="s"
       className={chipGroupClass}
       role={groupRole}
       aria-disabled={disabled}
+      wrap={wrap}
+      {...props}
     >
-      <Flex gap="s">
-        <ChipContext.Provider
-          value={{
-            name: groupName,
-            disabled,
-            required,
-            groupValue: selectedValue,
-            multiSelect,
-            onChipChange: setValue,
-          }}
-        >
-          {children}
-        </ChipContext.Provider>
-      </Flex>
-    </div>
+      <ChipContext.Provider
+        value={{
+          name: groupName,
+          disabled,
+          required,
+          groupValue: selectedValue,
+          multiSelect,
+          onChipChange: setValue,
+        }}
+      >
+        {children}
+      </ChipContext.Provider>
+    </Flex>
   );
 };
 
