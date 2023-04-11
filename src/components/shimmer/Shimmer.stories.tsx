@@ -21,7 +21,19 @@ export const Default = () => {
         {
           variant: 'solid',
           id,
-          shimmer: {origin, active: false, id, detached: true},
+          shimmer: {
+            idSync: origin,
+            active: false,
+            id,
+            globalSync: false,
+            image: `linear-gradient(
+        90deg,
+        rgba(255, 255, 255, 0) 0%,
+        rgba(255, 121, 104, 0.5) 50%,
+        rgba(255, 255, 255, 0) 100%
+      )`,
+            blendMode: 'difference',
+          },
         },
       ])
     );
@@ -48,32 +60,40 @@ export const Default = () => {
     [buttons]
   );
 
+  const toggleAll = React.useCallback(() => {
+    setButtons(
+      buttons.map(button => {
+        button.shimmer.active = !button.shimmer.active;
+        return button;
+      })
+    );
+  }, [buttons]);
+
   return (
-    <div style={{background: 'gray', padding: 20}}>
+    <div>
       <Flex direction="column">
         <div>
           <Button onClick={addGlobalSynced} variant="solid-indigo">
             Add global-synced
           </Button>
           <Button onClick={addSynced}>Add id synced</Button>
+          <Button variant="outline-indigo" onClick={toggleAll}>
+            toggle all
+          </Button>
         </div>
-        <Flex marginTop="m" direction="column">
-          <div style={{width: 1000}}>
-            <Flex wrap>
-              {buttons.map((button, index) => (
-                <div key={index} style={{padding: 5}}>
-                  <Shimmer {...button.shimmer}>
-                    <Button
-                      onClick={() => toggleActive(button.id)}
-                      variant={button.variant}
-                    >
-                      My button
-                    </Button>
-                  </Shimmer>
-                </div>
-              ))}
-            </Flex>
-          </div>
+        <Flex wrap marginTop="m">
+          {buttons.map((button, index) => (
+            <div key={index} style={{padding: 5}}>
+              <Shimmer {...button.shimmer}>
+                <Button
+                  onClick={() => toggleActive(button.id)}
+                  variant={button.variant}
+                >
+                  My button
+                </Button>
+              </Shimmer>
+            </div>
+          ))}
         </Flex>
       </Flex>
     </div>
