@@ -164,7 +164,7 @@ const Chip = ({
   };
 
   return (
-    <label {...props} className={chipClass}>
+    <label className={chipClass} {...props} style={style}>
       <input
         className={inputClass}
         type={inputType}

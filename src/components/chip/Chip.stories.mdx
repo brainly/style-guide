@@ -8,6 +8,7 @@ import Text from '../text/Text';
 import Button from '../buttons/Button';
 import Flex from '../flex/Flex';
 import Chip, {SIZE} from './Chip';
+import {styled} from '@storybook/theming';
 import ChipAccessibility from './stories/Chip.a11y.mdx';
 const chips = [
   {value: 'physics', label: 'Physics', icon: 'physics'},
@@ -172,6 +173,63 @@ const chips = [
             </tr>
           </tbody>
         </StoryVariantTable>
+      );
+    }}
+  </Story>
+</Canvas>
+
+### With custom theme
+
+To use custom theme for `Chip`, you can override following CSS variables:
+
+| Css variable name        | Explanation               |
+| ------------------------ | ------------------------- |
+| --chipBorderColor        | Chip border color         |
+| --chipCheckedBorderColor | Checked chip border color |
+
+There are two ways of achieving custom theming:
+
+1. Change CSS variables for particular `Chip` by defining them inline in the `style` attribute. Example:
+
+```jsx
+<Chip style={{'--chipBorderColor': 'green'}}>Chip label</Chip>
+```
+
+2. Or, you can use `className` and define variables replacements in your CSS file. Example:
+
+```css
+.sg-chip--custom-theme {
+  --chipBorderColor: #fbbe2e;
+  --chipCheckedBorderColor: #c98600;
+}
+```
+
+In the following example, className `sg-chip--custom-theme` was applied to all `Chip` components. The last component has inline variable override:
+
+<Canvas>
+  <Story name="With custom theme" args={{className: 'sg-chip--custom-theme'}}>
+    {args => {
+      const StyledChips = styled(Flex)`
+        display: flex;
+        flex-direction: column;
+        .sg-chip--custom-theme {
+          --chipBorderColor: #fbbe2e;
+          --chipCheckedBorderColor: #c98600;
+        }
+      `;
+      return (
+        <StyledChips gap="s">
+          <Chip {...args} name="custom">
+            Custom
+          </Chip>
+          <Chip
+            {...args}
+            name="custom"
+            style={{'--chipBorderColor': '#24a865'}}
+          >
+            With inline color override
+          </Chip>
+        </StyledChips>
       );
     }}
   </Story>
