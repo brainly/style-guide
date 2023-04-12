@@ -4,6 +4,8 @@
 
   display: inline-flex;
   position: relative;
+  background: $white;
+  border-radius: 8px;
 
   &__input {
     width: 100%;
