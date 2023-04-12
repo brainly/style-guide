@@ -21,8 +21,8 @@ describe('<ChipGroup />', () => {
 
   it('does not allow checking disabled chip', () => {
     const onChange = jest.fn();
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    const chipGroup = renderChipGroup({
+
+    renderChipGroup({
       value: chips[0],
       disabled: true,
       onChange,
@@ -36,8 +36,8 @@ describe('<ChipGroup />', () => {
 
   it('has an accessible name', () => {
     const label = 'ChipGroup name';
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    const chipGroup = renderChipGroup({
+
+    renderChipGroup({
       'aria-label': label,
     });
 
@@ -49,8 +49,7 @@ describe('<ChipGroup />', () => {
   });
 
   it('has an accessible description', () => {
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    const chipGroup = render(
+    render(
       <div>
         <ChipGroup aria-describedby="rg-desc">
           <Chip onChange={() => jest.fn()} value="option-a">
@@ -73,8 +72,7 @@ describe('<ChipGroup />', () => {
 
   describe('single select', () => {
     it('renders single select chip group with chips', () => {
-      // eslint-disable-next-line @typescript-eslint/no-unused-vars
-      const chipGroup = renderChipGroup({});
+      renderChipGroup({});
 
       expect(screen.getByRole('radiogroup')).toBeInTheDocument();
       expect(screen.getByLabelText(chips[0])).not.toBeChecked();
@@ -82,8 +80,7 @@ describe('<ChipGroup />', () => {
     });
 
     it('changes checked element when Chip is clicked and has only one checked Chip at a time', () => {
-      // eslint-disable-next-line @typescript-eslint/no-unused-vars
-      const chipGroup = renderChipGroup({
+      renderChipGroup({
         value: chips[0],
       });
 
@@ -126,8 +123,7 @@ describe('<ChipGroup />', () => {
 
     describe('multi select', () => {
       it('renders multi select chip group with chips', () => {
-        // eslint-disable-next-line @typescript-eslint/no-unused-vars
-        const chipGroup = renderChipGroup({multiSelect: true});
+        renderChipGroup({multiSelect: true});
 
         expect(screen.getByRole('group')).toBeInTheDocument();
         expect(screen.getByLabelText(chips[0])).not.toBeChecked();

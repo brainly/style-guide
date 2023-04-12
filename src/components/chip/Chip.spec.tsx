@@ -7,8 +7,8 @@ import {testA11y} from '../../axe';
 describe('<Chip />', () => {
   it('has an accessible description', () => {
     const description = 'This is a secription';
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    const chip = render(
+
+    render(
       <div>
         <Chip aria-describedby="desc" value="label">
           label
@@ -22,8 +22,8 @@ describe('<Chip />', () => {
   describe('single select', () => {
     it('renders uncontrolled chip with accessible name and radio role', () => {
       const label = 'physics';
-      // eslint-disable-next-line @typescript-eslint/no-unused-vars
-      const chip = render(<Chip value={label}>{label}</Chip>);
+
+      render(<Chip value={label}>{label}</Chip>);
 
       const chipInput = screen.getByRole('radio', {
         name: label,
@@ -103,8 +103,8 @@ describe('<Chip />', () => {
   describe('multi select', () => {
     it('renders uncontrolled chip with accessible name and radio role', () => {
       const label = 'physics';
-      // eslint-disable-next-line @typescript-eslint/no-unused-vars
-      const chip = render(
+
+      render(
         <Chip value={label} multiSelect>
           {label}
         </Chip>
