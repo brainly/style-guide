@@ -69,13 +69,15 @@
       }
     }
 
-    &:hover + .sg-chip__pill {
-      background-color: rgba($gray-40, 0.12);
-    }
+    &:not([disabled]) {
+      &:hover + .sg-chip__pill {
+        background-color: rgba($gray-40, 0.12);
+      }
 
-    &:active + .sg-chip__pill {
-      background-color: rgba($gray-40, 0.2);
-      transform: scale(0.96);
+      &:active + .sg-chip__pill {
+        background-color: rgba($gray-40, 0.2);
+        transform: scale(0.96);
+      }
     }
   }
 
