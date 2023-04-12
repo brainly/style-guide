@@ -91,7 +91,7 @@ export const Shimmer: React.FunctionComponent<ShimmerPropsType> = ({
 
       containerRef.current.style.borderRadius = computedStyle.borderRadius;
       containerRef.current.style.clipPath = computedStyle.clipPath;
-      containerRef.current.style.display = 'inline-block';
+      containerRef.current.style.display = 'inline-flex';
     }
   }, [containerRef]);
 
@@ -174,7 +174,7 @@ export const Shimmer: React.FunctionComponent<ShimmerPropsType> = ({
       effectRef.current,
       KEYFRAMES_BY_DIRECTON[direction],
       {
-        duration: 9000,
+        duration: 12000,
         iterations: Infinity,
       }
     );
