@@ -405,8 +405,11 @@ const SelectMenu = React.forwardRef<HTMLDivElement, SelectMenuPropsType>(
 
     // this is to not block clicking and hovering outside
     // when the exit animation plays
+    // and when on touch screen
     const overlayPointerEvents =
-      status === 'open' || status === 'initial' ? 'all' : 'none';
+      (status === 'open' || status === 'initial') && !isTouchScreen()
+        ? 'auto'
+        : 'none';
 
     return (
       <div id={wrapperId} className={selectClass} onClick={onClick}>
@@ -424,10 +427,6 @@ const SelectMenu = React.forwardRef<HTMLDivElement, SelectMenuPropsType>(
           aria-multiselectable={multiSelect}
           data-status={status}
           {...interactions.getReferenceProps({
-            // Handle pointer
-            onClick() {
-              if (!disabled) onOpenChange(!isExpanded);
-            },
             // Handle keyboard
             onKeyDown(event) {
               if ((event.key === 'Enter' || event.key === ' ') && !disabled) {
