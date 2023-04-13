@@ -4,7 +4,7 @@
 
   display: inline-flex;
   position: relative;
-  background: $white;
+  background: var(--white);
   border-radius: 8px;
 
   &__input {
@@ -137,7 +137,7 @@
     left: 8px;
     transform: translate(-50%, -50%);
     transition: $durationModerate2 $easingRegular;
-    background-color: $black;
+    background-color: var(--black);
 
     &::before,
     &::after {
