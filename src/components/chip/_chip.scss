@@ -37,29 +37,7 @@
           }
         }
 
-        & .sg-chip__lines {
-          &--horizontal {
-            transform: rotate(45deg) scaleX(calc(4.27 / 9))
-              translate(calc(-50% - 4.8px), calc(-50% + 6.9px));
-
-            &::before,
-            &::after {
-              transform: scaleX(calc(9 / 4.27));
-            }
-          }
-
-          &--vertical {
-            transform: rotate(45deg) scaleY(calc(8.5 / 9))
-              translate(calc(-50% - 1.3px), calc(-50% + 1px));
-
-            &::before,
-            &::after {
-              transform: scaleY(calc(9 / 8.5));
-            }
-          }
-        }
-
-        & .sg-chip__l {
+        & .sg-chip__line {
           transform: rotate(45deg);
           &--horizontal {
             transform-origin: 3px 8.5px;
@@ -145,59 +123,10 @@
     margin-left: 6px;
   }
 
-  &__l {
+  &__line {
     transition: $durationModerate2 $easingRegular;
-  }
-
-  &__lines {
-    position: absolute;
-    top: 8px;
-    left: 8px;
-    transform: translate(-50%, -50%);
-    transition: $durationModerate2 $easingRegular;
-    background-color: var(--black);
-    // background-color: transparent;
-
-    &::before,
-    &::after {
-      position: absolute;
-      width: 2px;
-      height: 2px;
-      border-radius: 2px;
-      content: '';
-      transition: inherit;
-      background-color: inherit;
-    }
-
-    @media (prefers-reduced-motion) {
-      transition: none;
-    }
-
-    &--vertical {
-      width: 2px;
-      height: 9px;
-
-      &::before {
-        top: -1px;
-      }
-
-      &::after {
-        bottom: -1px;
-      }
-    }
-
-    &--horizontal {
-      width: 9px;
-      height: 2px;
-
-      &::before {
-        left: -1px;
-      }
-
-      &::after {
-        right: -1px;
-      }
-    }
+    stroke-dasharray: 9 20;
+    color: var(--black);
   }
 
   &--m {
