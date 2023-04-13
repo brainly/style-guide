@@ -6,6 +6,7 @@
   position: relative;
   background: var(--white);
   border-radius: 8px;
+  // transform: scale(10) translate(20px, 20px);
 
   &__input {
     width: 100%;
@@ -55,6 +56,19 @@
             &::after {
               transform: scaleY(calc(9 / 8.5));
             }
+          }
+        }
+
+        & .sg-chip__l {
+          transform: rotate(45deg);
+          &--horizontal {
+            transform-origin: 3px 8.5px;
+            stroke-dasharray: 4.27 20;
+          }
+
+          &--vertical {
+            stroke-dasharray: 8.5 20;
+            transform-origin: 8.5px 10.5px;
           }
         }
       }
@@ -131,6 +145,10 @@
     margin-left: 6px;
   }
 
+  &__l {
+    transition: $durationModerate2 $easingRegular;
+  }
+
   &__lines {
     position: absolute;
     top: 8px;
@@ -138,6 +156,7 @@
     transform: translate(-50%, -50%);
     transition: $durationModerate2 $easingRegular;
     background-color: var(--black);
+    // background-color: transparent;
 
     &::before,
     &::after {

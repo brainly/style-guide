@@ -193,6 +193,35 @@ const Chip = ({
             <div className="sg-chip__lines sg-chip__lines--horizontal" />
           </div>
         )}
+        {isCheckbox && (
+          <svg
+            viewBox="0 0 16 16"
+            xmlns="http://www.w3.org/2000/svg"
+            className="sg-chip__check-icon"
+            style={{marginLeft: '-24px'}}
+          >
+            <line
+              x1="3.5"
+              y1="8"
+              x2="12.5"
+              y2="8"
+              stroke="blue"
+              strokeWidth="2"
+              strokeLinecap="round"
+              className="sg-chip__l sg-chip__l--horizontal"
+            />
+            <line
+              y2="3.5"
+              x2="8"
+              y1="12.5"
+              x1="8"
+              stroke="blue"
+              strokeWidth="2"
+              strokeLinecap="round"
+              className="sg-chip__l sg-chip__l--vertical"
+            />
+          </svg>
+        )}
       </div>
     </label>
   );
