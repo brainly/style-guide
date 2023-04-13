@@ -2,6 +2,7 @@ import * as React from 'react';
 import classNames from 'classnames';
 import Text from '../text/Text';
 import useChipContext from './useChipContext';
+import ChipGroup from './ChipGroup';
 
 export const SIZE: {
   M: 'm';
@@ -103,7 +104,7 @@ export type ChipPropsType = {
   /**
    * Function called with an object containing the react synthetic event, whenever the state of the chip changes.
    */
-  onChange?: (arg0: React.SyntheticEvent<HTMLLabelElement>) => void;
+  onChange?: (arg0: React.SyntheticEvent<HTMLInputElement>) => void;
 
   'aria-describedby'?: string;
 } & Omit<
@@ -197,4 +198,5 @@ const Chip = ({
   );
 };
 
+Chip.Group = ChipGroup;
 export default Chip;
