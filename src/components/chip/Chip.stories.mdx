@@ -12,11 +12,10 @@ import Chip, {SIZE} from './Chip';
 import {styled} from '@storybook/theming';
 import ChipAccessibility from './stories/Chip.a11y.mdx';
 import ProgressBar from '../progress-bar/ProgressBar';
-
 const chips = [
-{value: 'physics', label: 'Physics', icon: 'physics'},
-{value: 'biology', label: 'Biology', icon: 'biology'},
-{value: 'mathematics', label: 'Math', icon: 'logic'},
+  {value: 'physics', label: 'Physics', icon: 'physics'},
+  {value: 'biology', label: 'Biology', icon: 'biology'},
+  {value: 'mathematics', label: 'Math', icon: 'logic'},
 ];
 
 <Meta
@@ -243,7 +242,7 @@ In the following example, className `sg-chip--custom-theme` was applied to all `
 <Canvas>
   <Story name="Filtering">
     {() => {
-      const chips = ['Sophomore year', 'Junior year', 'Senior year'];
+      const chipValues = ['Sophomore year', 'Junior year', 'Senior year'];
       const books = [
         {
           name: 'Linear algebra, 4th edition',
@@ -271,7 +270,7 @@ In the following example, className `sg-chip--custom-theme` was applied to all `
       return (
         <Flex gap="m" direction="column">
           <Flex gap="s">
-            {chips.map(c => (
+            {chipValues.map(c => (
               <Chip
                 value={c}
                 key={c}
@@ -315,14 +314,14 @@ In the following example, className `sg-chip--custom-theme` was applied to all `
 <Canvas>
   <Story name="Selecting">
     {() => {
-      const chips = ['Algebra 1', 'Geometry', 'Intro to Logic', 'Course'];
+      const chipValues = ['Algebra 1', 'Geometry', 'Intro to Logic', 'Course'];
       return (
         <Flex gap="m" direction="column">
           <Headline size="xsmall">
             Select courses you take this semester
           </Headline>
           <Flex gap="s">
-            {chips.map(c => (
+            {chipValues.map(c => (
               <Chip value={c} key={c} name="selecting" multiSelect>
                 {c}
               </Chip>
