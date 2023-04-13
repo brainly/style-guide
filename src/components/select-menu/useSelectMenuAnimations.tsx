@@ -44,7 +44,7 @@ const useSelectMenuAnimations = (props: UseSelectMenuAnimationsPropsType) => {
     floatingContainerClassName,
     selectElementClassName,
   } = props;
-  const lastRef = React.useRef<DOMRect>();
+  const initialElementRef = React.useRef<DOMRect>();
   const selectRef = React.useRef<DOMRect>();
   const hasReduceMotion = useReducedMotion();
 
@@ -70,8 +70,8 @@ const useSelectMenuAnimations = (props: UseSelectMenuAnimationsPropsType) => {
     requestAnimationFrame(() => {
       popupContainer.classList.add(ANIMATE_CLASSNAME);
       floatingContainer.classList.add(ANIMATE_CLASSNAME);
-      resetFloatingContainerTopPosition(floatingContainer, lastRef);
 
+      resetFloatingContainerTopPosition(floatingContainer, initialElementRef);
       if (callback) callback();
     });
   };
@@ -98,9 +98,10 @@ const useSelectMenuAnimations = (props: UseSelectMenuAnimationsPropsType) => {
       )[0] as HTMLDivElement;
 
       // Register desired position
-      lastRef.current = floatingContainer.getBoundingClientRect();
+      if (!initialElementRef.current)
+        initialElementRef.current = floatingContainer.getBoundingClientRect();
       selectRef.current = selectElement.getBoundingClientRect();
-      const initialContainerSize = lastRef.current;
+      const initialContainerSize = initialElementRef.current;
       const selectElementSize = selectRef.current;
 
       popupContent.style.width = `${initialContainerSize.width}px`;
@@ -116,7 +117,7 @@ const useSelectMenuAnimations = (props: UseSelectMenuAnimationsPropsType) => {
         // should be the same as element select width
         popupContainer.style.width = `${selectElementSize.width}px`;
 
-        resetFloatingContainerTopPosition(floatingContainer, lastRef);
+        resetFloatingContainerTopPosition(floatingContainer, initialElementRef);
       }
 
       // Wait for the next frame so we
