@@ -110,14 +110,14 @@ $largeButtonSize: componentSize(l);
   }
 
   &--s {
-    border-radius: 16px;
+    border-radius: $borderRadiusM;
     height: $smallButtonSize;
     padding: 0 spacing(s);
     font-size: 12px;
     line-height: 12px;
 
     .sg-button__hover-overlay {
-      border-radius: 16px;
+      border-radius: $borderRadiusM;
     }
 
     // Proxima is broken

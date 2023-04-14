@@ -5,7 +5,7 @@ $counterSizeXS: componentSize(xs);
 
 @if ($includeHtml) {
   .sg-counter {
-    border-radius: $borderRadiusLarge;
+    border-radius: $borderRadiusS;
     padding: 0 spacing(xs);
     min-width: $counterSizeXS;
     min-height: $counterSizeXS;
@@ -132,7 +132,7 @@ $counterSizeXS: componentSize(xs);
         &::before {
           height: 12px;
           width: 12px;
-          border-radius: 6px;
+          border-radius: $borderRadiusXXS;
         }
       }
     }

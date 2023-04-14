@@ -42,7 +42,7 @@ $includeHtml: false !default;
       justify-content: center;
       width: $buttonRoundAddSize;
       height: $buttonRoundAddSize;
-      border-radius: 50%;
+      border-radius: $borderRadiusPill;
       line-height: $buttonRoundAddSize;
       text-align: center;
       background-color: $buttonRoundColor;

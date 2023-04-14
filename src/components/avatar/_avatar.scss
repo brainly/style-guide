@@ -19,7 +19,7 @@ $includeHtml: false !default;
 
     width: $avatarSmallSize;
     height: $avatarSmallSize;
-    border-radius: 50%;
+    border-radius: $borderRadiusPill;
     // workaround for the Chrome bug - crbug.com/157218
     -webkit-perspective: 1px;
 
@@ -42,7 +42,7 @@ $includeHtml: false !default;
     &__wrapper-link {
       @include applyFocus();
 
-      border-radius: 50%;
+      border-radius: $borderRadiusPill;
       display: block;
       width: min-content;
     }

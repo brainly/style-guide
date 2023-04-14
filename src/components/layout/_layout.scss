@@ -50,7 +50,7 @@ $includeHtml: false !default;
 
       @include sgBreakpoint(medium-up) {
         margin-top: $layoutContainerMarginTop + rhythm(1);
-        border-radius: $borderRadiusDefault;
+        border-radius: $borderRadiusXS;
         max-width: $layoutMediumContentMaxWidth;
       }
 

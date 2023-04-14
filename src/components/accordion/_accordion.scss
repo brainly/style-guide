@@ -9,13 +9,13 @@
 
       &:first-child {
         border-top: 2px solid $gray-20;
-        border-top-left-radius: $borderRadiusDefault;
-        border-top-right-radius: $borderRadiusDefault;
+        border-top-left-radius: $borderRadiusXS;
+        border-top-right-radius: $borderRadiusXS;
       }
 
       &:last-child {
-        border-bottom-left-radius: $borderRadiusDefault;
-        border-bottom-right-radius: $borderRadiusDefault;
+        border-bottom-left-radius: $borderRadiusXS;
+        border-bottom-right-radius: $borderRadiusXS;
       }
     }
 
@@ -66,7 +66,7 @@
         width: 40px;
         height: 40px;
         content: '';
-        border-radius: 50%;
+        border-radius: $borderRadiusPill;
         transition: $durationQuick2 $easingLinear background-color,
           $durationQuick2 $easingRegular transform;
       }

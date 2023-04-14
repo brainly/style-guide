@@ -140,7 +140,7 @@ $radioCheckedBorderWidth: 5px;
     margin: auto;
     width: $radioSize;
     height: $radioSize;
-    border-radius: 50%;
+    border-radius: $borderRadiusPill;
     box-shadow: 0px 0px 0px var(--radioBorderWidth) var(--radioRingColor) inset;
     transition: box-shadow 0s;
 

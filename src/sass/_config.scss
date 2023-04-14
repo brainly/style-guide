@@ -67,11 +67,18 @@ $componentSizesSetup: (
 );
 
 // Border radius
+// this comment exists to suppress errors about these unused variables
+// till we change them to new ones in brainly-frontend:
+// $borderRadiusDefault $borderRadiusLarge $borderRadiusSmall
 $borderRadiusDefault: 8px;
 $borderRadiusLarge: $borderRadiusDefault * 1.5;
 $borderRadiusSmall: math.div($borderRadiusDefault, 2);
 
 // New Border radius
+// this comment exists to suppress errors about these unused variables:
+// $borderRadiusNone $borderRadiusXXXS $borderRadiusXXS $borderRadiusXS
+// $borderRadiusS $borderRadiusM $borderRadiusM $borderRadiusXL
+// $borderRadiusXXL $borderRadiusPill
 $borderRadiusNone: 0;
 $borderRadiusXXXS: 4px;
 $borderRadiusXXS: 6px;

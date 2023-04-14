@@ -109,7 +109,7 @@ $includeHtml: false !default;
     &--with-border {
       .sg-icon-as-button__hole {
         border: solid $iconAsButtonColor 1px;
-        border-radius: 50%;
+        border-radius: $borderRadiusPill;
       }
     }
 
@@ -187,12 +187,12 @@ $includeHtml: false !default;
 
     &--action {
       transition: background 0.3s ease-out, color 0.3s ease-out;
-      border-radius: 50%;
+      border-radius: $borderRadiusPill;
     }
 
     &--transparent {
       transition: background 0.3s ease-out, color 0.3s ease-out;
-      border-radius: 50%;
+      border-radius: $borderRadiusPill;
 
       &:active {
         background: $iconAsButtonTransparentColor;
@@ -208,7 +208,7 @@ $includeHtml: false !default;
     &--action-active {
       background: $iconAsButtonColor;
       color: $iconAsButtonActionColor;
-      border-radius: 50%;
+      border-radius: $borderRadiusPill;
 
       &.sg-icon-as-button--adaptive {
         color: inherit;

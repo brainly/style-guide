@@ -2,7 +2,7 @@
 .sg-spinner {
   background-color: transparent;
   border: 3px solid $gray-70;
-  border-radius: 50%;
+  border-radius: $borderRadiusPill;
   border-top-color: transparent;
   border-right-color: transparent;
   display: inline-block;

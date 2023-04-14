@@ -24,7 +24,7 @@ $includeHtml: false !default;
   .sg-bubble {
     background: $bubbleBackground;
     border-color: $bubbleBackground;
-    border-radius: $borderRadiusDefault;
+    border-radius: $borderRadiusXS;
     box-shadow: $shadowMedium;
     padding: gutter(0.5) gutter(1);
     position: relative;
