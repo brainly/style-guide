@@ -470,6 +470,7 @@ const SelectMenu = React.forwardRef<HTMLDivElement, SelectMenuPropsType>(
                   width: 'max-content',
                   maxWidth: 320,
                   zIndex: 1,
+                  pointerEvents: 'auto',
                 }}
                 {...interactions.getFloatingProps()}
                 tabIndex={-1}
