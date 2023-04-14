@@ -71,6 +71,18 @@ $borderRadiusDefault: 8px;
 $borderRadiusLarge: $borderRadiusDefault * 1.5;
 $borderRadiusSmall: math.div($borderRadiusDefault, 2);
 
+// New Border radius
+$borderRadiusNone: 0;
+$borderRadiusXXXS: 4px;
+$borderRadiusXXS: 6px;
+$borderRadiusXS: 8px;
+$borderRadiusS: 12px;
+$borderRadiusM: 16px;
+$borderRadiusL: 24px;
+$borderRadiusXL: 32px;
+$borderRadiusXXL: 40px;
+$borderRadiusPill: 999px;
+
 // Vertical stack
 $sgHeaderZIndex: 101;
 $overlayZIndex: 999;
@@ -142,6 +154,3 @@ $easingRegular: cubic-bezier(0.35, 0, 0.1, 1);
 $easingEntry: cubic-bezier(0.1, 0, 0, 1);
 $easingExit: cubic-bezier(0.3, 0, 1, 0.8);
 $easingLinear: linear;
-
-// this comment exists to suppress errors about these unused variables:
-// $durationGentle2 $durationGentle1 $durationInstant $durationModerate1 $durationQuick1 $easingRegular
