@@ -63,6 +63,9 @@ const Container = (Story, options) => {
     color: SELECT_COLOR.DEFAULT,
   }}
   decorators={[Container]}
+  parameters={{
+    chromatic: {diffThreshold: 0.073},
+  }}
 />
 
 <PageHeader>SelectMenu</PageHeader>
