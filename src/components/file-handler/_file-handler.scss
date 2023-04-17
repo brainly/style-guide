@@ -2,7 +2,7 @@
   display: inline-flex;
   align-items: center;
   height: componentSize(m);
-  border-radius: $borderRadiusXXS;
+  border-radius: var(--border-radius-xxs);
   padding: spacing(xs);
   padding-right: 12px;
   cursor: default;
@@ -19,7 +19,7 @@
     & img {
       width: 24px;
       max-height: 24px;
-      border-radius: $borderRadiusXXXS;
+      border-radius: var(--border-radius-xxxs);
     }
   }
 

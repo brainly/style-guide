@@ -104,7 +104,7 @@ $includeHtml: false !default;
       }
 
       @include makeResponsive($variant, 'sg-box--border-radius') {
-        border-radius: $borderRadiusXS;
+        border-radius: var(--border-radius-xs);
       }
 
       @include makeResponsive($variant, 'sg-box--border') {

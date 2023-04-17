@@ -160,7 +160,7 @@
 }
 
 .docblock-source {
-  border-radius: $borderRadiusXS !important;
+  border-radius: var(--border-radius-xs) !important;
 }
 
 .docblock-source button {
@@ -227,7 +227,7 @@ table.docblock-argstable tbody.docblock-argstable-body {
 }
 
 .intro-page-header {
-  border-radius: $borderRadiusXS;
+  border-radius: var(--border-radius-xs);
   width: 320px;
   height: 336px;
   background-image: url('./assets/introduction_phone.jpg');

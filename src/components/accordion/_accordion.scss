@@ -9,13 +9,13 @@
 
       &:first-child {
         border-top: 2px solid $gray-20;
-        border-top-left-radius: $borderRadiusXS;
-        border-top-right-radius: $borderRadiusXS;
+        border-top-left-radius: var(--border-radius-xs);
+        border-top-right-radius: var(--border-radius-xs);
       }
 
       &:last-child {
-        border-bottom-left-radius: $borderRadiusXS;
-        border-bottom-right-radius: $borderRadiusXS;
+        border-bottom-left-radius: var(--border-radius-xs);
+        border-bottom-right-radius: var(--border-radius-xs);
       }
     }
 
@@ -66,7 +66,7 @@
         width: 40px;
         height: 40px;
         content: '';
-        border-radius: $borderRadiusPill;
+        border-radius: var(--border-radius-pill);
         transition: $durationQuick2 $easingLinear background-color,
           $durationQuick2 $easingRegular transform;
       }

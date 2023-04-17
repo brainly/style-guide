@@ -8,7 +8,7 @@ $mediaItemSecondaryColor: $gray-70;
   padding: rhythm(math.div(1, 2));
   line-height: rhythm(1);
   min-height: rhythm(2.5);
-  border-radius: $borderRadiusXXXS;
+  border-radius: var(--border-radius-xxxs);
 
   &--no-padding {
     padding: 0;

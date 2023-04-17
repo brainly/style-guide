@@ -4,7 +4,7 @@
 
   width: 100%;
   min-width: 120px;
-  border-radius: $borderRadiusXS;
+  border-radius: var(--border-radius-xs);
   background: var(--track-color);
   position: relative;
   overflow: hidden;
