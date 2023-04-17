@@ -13,7 +13,7 @@ $counterSizeXS: componentSize(xs);
     justify-content: center;
     align-content: center;
     flex-shrink: 0;
-    background-color: $red-60;
+    background-color: var(--red-60);
     cursor: default;
 
     &__text {
@@ -26,12 +26,60 @@ $counterSizeXS: componentSize(xs);
       top: 3px;
     }
 
-    &--red-60 {
-      background-color: $red-60;
+    &--black {
+      background-color: var(--black);
+    }
+
+    &--white {
+      background-color: var(--white);
     }
 
     &--blue-60 {
-      background-color: $blue-60;
+      background-color: var(--blue-60);
+    }
+
+    &--green-60 {
+      background-color: var(--green-60);
+    }
+
+    &--indigo-60 {
+      background-color: var(--indigo-60);
+    }
+
+    &--red-60 {
+      background-color: var(--red-60);
+    }
+
+    &--yellow-40 {
+      background-color: var(--yellow-40);
+    }
+
+    &--gray-40 {
+      background-color: var(--gray-40);
+    }
+
+    &--blue-20 {
+      background-color: var(--blue-20);
+    }
+
+    &--green-20 {
+      background-color: var(--green-20);
+    }
+
+    &--indigo-20 {
+      background-color: var(--indigo-20);
+    }
+
+    &--red-20 {
+      background-color: var(--red-20);
+    }
+
+    &--yellow-20 {
+      background-color: var(--yellow-20);
+    }
+
+    &--gray-20 {
+      background-color: var(--gray-20);
     }
 
     &--with-icon {
@@ -39,7 +87,7 @@ $counterSizeXS: componentSize(xs);
       padding: 0;
       border-radius: $counterSizeXS;
       padding-right: spacing(xs);
-      background: $gray-20;
+      background: var(--gray-20);
       position: relative;
       vertical-align: top;
 
@@ -77,7 +125,7 @@ $counterSizeXS: componentSize(xs);
         border-radius: 10px;
         left: 2px;
         top: 2px;
-        background-color: $white;
+        background-color: var(--white);
       }
 
       &--xxs {

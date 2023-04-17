@@ -2,7 +2,7 @@ import {ArgsTable, Meta, Story, Canvas} from '@storybook/addon-docs';
 import {StoryVariant, StoryVariantTable} from '../../docs/utils';
 import {formatTags} from '../../docs/utils';
 
-import Counter, {COUNTER_SIZE} from './Counter';
+import Counter, {COUNTER_SIZE, COUNTER_VARIANT, COUNTER_COLOR} from './Counter';
 import {TYPE as ICON_TYPE} from '../icons/Icon';
 import Flex from '../flex/Flex';
 import Headline from '../text/Headline';
@@ -16,6 +16,8 @@ import PageHeader from 'blocks/PageHeader';
   argTypes={{
     size: {control: {type: 'select', options: COUNTER_SIZE}},
     withAnimation: {control: 'boolean'},
+    variant: {control: {type: 'select', options: COUNTER_VARIANT}},
+    color: {control: {type: 'select', options: COUNTER_COLOR}},
     icon: {
       control: {type: 'select', options: Object.values(ICON_TYPE)},
       table: {type: {summary: formatTags(Object.values(ICON_TYPE))}},
@@ -28,7 +30,6 @@ import PageHeader from 'blocks/PageHeader';
   }}
   args={{
     children: '25',
-    size: 'xs',
   }}
 />
 
@@ -47,10 +48,10 @@ import PageHeader from 'blocks/PageHeader';
 
 ## Stories
 
-### Sizes, colors and types
+### Sizes and variants
 
 <Canvas>
-  <Story name="SizesColorsAndTypes">
+  <Story name="SizesAndVariants">
     {args => (
       <div>
         <StoryVariantTable>
@@ -65,7 +66,7 @@ import PageHeader from 'blocks/PageHeader';
                   color="text-gray-40"
                   size="medium"
                 >
-                  default
+                  solid
                 </Headline>
               </th>
               <th>
@@ -76,7 +77,7 @@ import PageHeader from 'blocks/PageHeader';
                   color="text-gray-40"
                   size="medium"
                 >
-                  blue
+                  light
                 </Headline>
               </th>
               <th>
@@ -108,14 +109,14 @@ import PageHeader from 'blocks/PageHeader';
                 </td>
                 <td>
                   <Flex justifyContent="center">
-                    <Counter key={size} {...args} size={size}>
+                    <Counter key={size} {...args} size={size} variant="solid">
                       2
                     </Counter>
                   </Flex>
                 </td>
                 <td>
                   <Flex justifyContent="center">
-                    <Counter key={size} {...args} size={size} color="blue-60">
+                    <Counter key={size} {...args} size="xs" variant="light">
                       2
                     </Counter>
                   </Flex>
@@ -132,6 +133,94 @@ import PageHeader from 'blocks/PageHeader';
                       <Text as="span" color="text-gray-60" inherited>
                         {size !== 'xxs' && ` pts`}{' '}
                       </Text>
+                    </Counter>
+                  </Flex>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </StoryVariantTable>
+      </div>
+    )}
+  </Story>
+</Canvas>
+
+### Colors
+
+<Canvas>
+  <Story name="Colors">
+    {args => (
+      <div>
+        <StoryVariantTable>
+          <thead>
+            <tr>
+              <th />
+              <th>
+                <Headline
+                  extraBold
+                  transform="uppercase"
+                  as="span"
+                  color="text-gray-40"
+                  size="medium"
+                >
+                  solid
+                </Headline>
+              </th>
+              <th>
+                <Headline
+                  extraBold
+                  transform="uppercase"
+                  as="span"
+                  color="text-gray-40"
+                  size="medium"
+                >
+                  light
+                </Headline>
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            {Object.values(COUNTER_COLOR).map(color => (
+              <tr key={color}>
+                <td>
+                  <Headline
+                    extraBold
+                    transform="uppercase"
+                    as="span"
+                    color="text-gray-40"
+                    size="medium"
+                  >
+                    {color}
+                  </Headline>
+                </td>
+                <td>
+                  <Flex justifyContent="center">
+                    <Counter
+                      key={color}
+                      {...args}
+                      size="xs"
+                      variant="solid"
+                      color={color}
+                    >
+                      2
+                    </Counter>
+                  </Flex>
+                </td>
+                <td
+                  style={{
+                    backgroundColor:
+                      color === 'achromatic' ? 'black' : 'transparent',
+                  }}
+                >
+                  <Flex justifyContent="center">
+                    <Counter
+                      key={color}
+                      {...args}
+                      size="xs"
+                      variant="light"
+                      color={color}
+                    >
+                      2
                     </Counter>
                   </Flex>
                 </td>
