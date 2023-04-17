@@ -282,6 +282,11 @@
 
       &:hover {
         background-color: var(--gray-10);
+
+        .sg-checkbox {
+          --checkboxColor: var(--checkboxHoverColor);
+          --checkboxCheckedColor: var(--checkboxHoverColor);
+        }
       }
 
       &--selected {
