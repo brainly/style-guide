@@ -418,7 +418,7 @@ const SelectMenu = React.forwardRef<HTMLDivElement, SelectMenuPropsType>(
           id={id}
           className={selectElementClassName}
           role="combobox"
-          tabIndex={disabled ? -1 : 0}
+          tabIndex={!disabled ? 0 : -1}
           aria-disabled={disabled}
           aria-invalid={invalid ? true : undefined}
           aria-controls={`${id}-listbox`}
@@ -458,6 +458,8 @@ const SelectMenu = React.forwardRef<HTMLDivElement, SelectMenuPropsType>(
               context={context}
               modal={false}
               visuallyHiddenDismiss
+              order={['reference', 'content']}
+              initialFocus={-1}
             >
               <div
                 ref={refs.setFloating}
@@ -473,13 +475,11 @@ const SelectMenu = React.forwardRef<HTMLDivElement, SelectMenuPropsType>(
                   pointerEvents: 'auto',
                 }}
                 {...interactions.getFloatingProps()}
-                tabIndex={-1}
                 data-placement={floatingProps.placement}
               >
                 <div
                   className={popupClassName}
                   data-placement={floatingProps.placement}
-                  tabIndex={activeIndex === null ? 0 : -1}
                   role="presentation"
                 >
                   <div
