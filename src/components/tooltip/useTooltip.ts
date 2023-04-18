@@ -11,7 +11,7 @@ import {
 } from '@floating-ui/react';
 
 const useTooltip = () => {
-  const [isOpen, setIsOpen] = React.useState(true);
+  const [isOpen, setIsOpen] = React.useState(false);
 
   const data = useFloating({
     open: isOpen,
