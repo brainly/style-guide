@@ -5,6 +5,7 @@ import Flex, {
   FLEX_MARGINS,
   FLEX_JUSTIFY_VALUES,
   FLEX_GAP_VALUES,
+  FLEX_FLEX_VALUES,
 } from './Flex';
 import Text, {TEXT_SIZE} from '../text/Text';
 import SeparatorHorizontal from '../separators/SeparatorHorizontal';
@@ -235,6 +236,18 @@ const indigoBoxStyle = {
       control: {
         type: 'select',
         options: Object.values(FLEX_GAP_VALUES),
+      },
+    },
+    flex: {
+      description: '(Responsive)',
+      table: {
+        type: {
+          summary: formatTags(Object.values(FLEX_FLEX_VALUES)),
+        },
+      },
+      control: {
+        type: 'select',
+        options: Object.values(FLEX_FLEX_VALUES),
       },
     },
   }}

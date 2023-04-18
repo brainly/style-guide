@@ -6,6 +6,7 @@ import {
   FLEX_ALIGNMENT_VALUES,
   FLEX_MARGINS,
   FLEX_GAP_VALUES,
+  FLEX_FLEX_VALUES,
 } from './FlexConsts';
 import {generateResponsiveClassNames} from '../utils/responsive-props';
 import type {ResponsivePropType} from '../utils/responsive-props';
@@ -72,12 +73,29 @@ type FlexGapValueType =
   | 'xxl'
   | 'xxxl'
   | 'xxxxl';
+type FlexFlexValueType =
+  | 1
+  | 2
+  | 3
+  | 4
+  | 5
+  | 6
+  | 7
+  | 8
+  | 9
+  | 10
+  | 11
+  | 12
+  | 'auto'
+  | 'initial'
+  | 'none';
 export {
   FLEX_DIRECTION,
   FLEX_JUSTIFY_VALUES,
   FLEX_ALIGNMENT_VALUES,
   FLEX_MARGINS,
   FLEX_GAP_VALUES,
+  FLEX_FLEX_VALUES,
 };
 export type FlexPropsType = {
   /**
@@ -259,6 +277,13 @@ export type FlexPropsType = {
    *          </Flex>
    */
   gap?: ResponsivePropType<FlexGapValueType>;
+  /**
+   * Specify flex value:
+   * @example <Flex flex="auto">
+   *            component content
+   *          </Flex>
+   */
+  flex?: ResponsivePropType<FlexFlexValueType>;
 } & Omit<
   React.AllHTMLAttributes<HTMLElement>,
   | 'children'
@@ -281,6 +306,7 @@ export type FlexPropsType = {
   | 'marginBottom'
   | 'marginLeft'
   | 'gap'
+  | 'flex'
 >;
 const Flex = React.forwardRef<HTMLElement, FlexPropsType>(
   (props: FlexPropsType, ref) => {
@@ -305,6 +331,7 @@ const Flex = React.forwardRef<HTMLElement, FlexPropsType>(
       gap,
       children,
       className,
+      flex,
       ...otherProps
     } = props;
     const flexClass = classNames(
@@ -392,6 +419,10 @@ const Flex = React.forwardRef<HTMLElement, FlexPropsType>(
       ...generateResponsiveClassNames(
         propValue => `sg-flex--gap-${propValue}`,
         gap
+      ),
+      ...generateResponsiveClassNames(
+        propValue => `sg-flex--flex-${propValue}`,
+        flex
       ),
       className
     );
