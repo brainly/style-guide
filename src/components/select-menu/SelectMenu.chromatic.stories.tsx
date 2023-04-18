@@ -113,10 +113,6 @@ export const DifferentPopupLenghts = args => {
   );
 };
 
-DifferentPopupLenghts.parameters = {
-  chromatic: {diffThreshold: 0.073},
-};
-
 const Hovers = args => {
   const types = [{name: 'default'}, {disabled: true, name: 'disabled'}];
 
