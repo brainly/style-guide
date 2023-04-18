@@ -5,6 +5,7 @@ import {
   useDismiss,
   useRole,
   useHover,
+  useFocus,
   shift,
   offset,
   flip,
@@ -28,9 +29,10 @@ const useTooltip = () => {
   const hover = useHover(data.context, {
     move: false,
   });
+  const focus = useFocus(data.context);
   const dismiss = useDismiss(data.context);
   const role = useRole(data.context, {role: 'tooltip'});
-  const interactions = useInteractions([hover, role, dismiss]);
+  const interactions = useInteractions([hover, focus, role, dismiss]);
 
   return React.useMemo(
     () => ({
