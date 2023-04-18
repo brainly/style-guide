@@ -1,0 +1,32 @@
+import {ArgsTable, Meta, Story, Canvas} from '@storybook/addon-docs';
+import {StoryVariant, StoryVariantTable} from '../../docs/utils';
+import PageHeader from 'blocks/PageHeader';
+
+import Button from '../buttons/Button';
+import Tooltip from './Tooltip';
+
+<Meta title="Components/Tooltip" component={Tooltip} />
+
+<PageHeader>Tooltip</PageHeader>
+
+- [Stories](#stories)
+- [Accessibility](#accessibility)
+
+## Overview
+
+<Canvas>
+  <Story name="Default">
+    {args => (
+      <Tooltip {...args}>
+        <Tooltip.Element>Here's my tooltip</Tooltip.Element>
+        <Tooltip.Trigger>
+          <Button>Hover me</Button>
+        </Tooltip.Trigger>
+      </Tooltip>
+    )}
+  </Story>
+</Canvas>
+
+<ArgsTable story="Default" />
+
+## Stories

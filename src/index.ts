@@ -173,3 +173,6 @@ export type {ProgressBarPropsType} from './components/progress-bar/ProgressBar';
 export {default as ProgressBar} from './components/progress-bar/ProgressBar';
 export type {SparksPropsType} from './components/sparks/Sparks';
 export {default as Sparks} from './components/sparks/Sparks';
+export {default as Tooltip} from './components/tooltip/Tooltip';
+export type {TooltipPropsType} from './components/tooltip/Tooltip';
+export {default as useTooltipContext} from './components/tooltip/useTooltipContext';
