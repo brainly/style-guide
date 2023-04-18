@@ -3,6 +3,7 @@ import classNames from 'classnames';
 import TooltipElement from './TooltipElement';
 import TooltipTrigger from './TooltipTrigger';
 import {TooltipContext} from './useTooltipContext';
+import useTooltip from './useTooltip';
 
 export type TooltipPropsType = {
   /**
@@ -23,11 +24,13 @@ export type TooltipPropsType = {
 } & Omit<React.AllHTMLAttributes<HTMLElement>, 'children' | 'className'>;
 
 const Tooltip = ({className, children, ...props}: TooltipPropsType) => {
-  const tooltipClass = classNames('sg-tooltip', className);
+  const tooltip = useTooltip();
 
   return (
-    <div {...props} className={tooltipClass}>
-      <TooltipContext.Provider value={{}}>{children}</TooltipContext.Provider>
+    <div {...props} className={className}>
+      <TooltipContext.Provider value={tooltip}>
+        {children}
+      </TooltipContext.Provider>
     </div>
   );
 };

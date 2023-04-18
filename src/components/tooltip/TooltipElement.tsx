@@ -1,5 +1,7 @@
 import * as React from 'react';
 import classNames from 'classnames';
+import {FloatingPortal, useMergeRefs} from '@floating-ui/react';
+
 import useTooltipContext from './useTooltipContext';
 
 export type TooltipElementPropsType = {
@@ -15,19 +17,35 @@ export type TooltipElementPropsType = {
   className?: string | null | undefined;
 } & Omit<React.AllHTMLAttributes<HTMLElement>, 'children' | 'className'>;
 
-const TooltipElement = ({
-  children,
-  className,
-  ...props
-}: TooltipElementPropsType) => {
-  const tooltipContext = useTooltipContext();
-  const isInContext = Boolean(
-    tooltipContext && Object.keys(tooltipContext).length
+const TooltipElement = React.forwardRef<
+  HTMLDivElement,
+  TooltipElementPropsType
+>((props: TooltipElementPropsType, ref) => {
+  const {className, children} = props;
+  const context = useTooltipContext();
+  const elementRef = useMergeRefs([context.refs.setFloating, ref]);
+
+  if (!context.isOpen) return null;
+
+  const tooltipElementClass = classNames('sg-tooltip', className);
+
+  return (
+    <FloatingPortal>
+      <div
+        ref={elementRef}
+        className={tooltipElementClass}
+        style={{
+          position: context.strategy,
+          top: context.y ?? 0,
+          left: context.x ?? 0,
+          ...props.style,
+        }}
+        {...context.getFloatingProps()}
+      >
+        {children}
+      </div>
+    </FloatingPortal>
   );
-
-  const tooltipElementClass = classNames('sg-tooltip-element', className);
-
-  return <div className={tooltipElementClass}>{children}</div>;
-};
+});
 
 export default TooltipElement;
