@@ -1,6 +1,6 @@
 import * as React from 'react';
 import classNames from 'classnames';
-import {FloatingPortal, useMergeRefs} from '@floating-ui/react';
+import {FloatingPortal, useMergeRefs, FloatingArrow} from '@floating-ui/react';
 
 import useTooltipContext from './useTooltipContext';
 
@@ -43,6 +43,14 @@ const TooltipElement = React.forwardRef<
         {...context.getFloatingProps()}
       >
         {children}
+        <FloatingArrow
+          ref={context.arrowRef}
+          context={context.context}
+          width={24}
+          height={24}
+          staticOffset="16px"
+          d="M0 24C1.72106 24 3.38535 23.3843 4.69205 22.2642L11.026 16.8349C11.5868 16.3542 12.414 16.3533 12.9759 16.8327L19.3782 22.2961C20.667 23.3958 22.3057 24 24 24V24L0 24V24Z"
+        />
       </div>
     </FloatingPortal>
   );
