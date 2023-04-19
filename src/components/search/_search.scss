@@ -12,10 +12,15 @@ $includeHtml: false !default;
       transform: translateY(-50%);
       right: 5px;
 
+      &--s.sg-button--icon-only {
+        height: componentSize(xs);
+        width: componentSize(xs);
+      }
+
       &--transparent.sg-button--icon-only {
         width: 28px;
 
-        &.sg-search-button--l {
+        &.sg-search__icon--l {
           width: 36px;
         }
 
@@ -47,9 +52,4 @@ $includeHtml: false !default;
   input[type='search'].sg-search__input {
     -webkit-appearance: none;
   }
-}
-
-.sg-button.sg-button--s.sg-search-button--s {
-  height: componentSize(xs);
-  width: componentSize(xs);
 }
