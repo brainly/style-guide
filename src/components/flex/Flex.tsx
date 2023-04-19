@@ -1,12 +1,12 @@
 import * as React from 'react';
 import classNames from 'classnames';
 import {
-  FLEX_DIRECTION,
-  FLEX_JUSTIFY_VALUES,
-  FLEX_ALIGNMENT_VALUES,
-  FLEX_MARGINS,
-  FLEX_GAP_VALUES,
-  FLEX_FLEX_VALUES,
+  DIRECTION,
+  JUSTIFY_VALUES,
+  ALIGNMENT_VALUES,
+  MARGINS,
+  GAP_VALUES,
+  FLEX_VALUES,
 } from './FlexConsts';
 import {generateResponsiveClassNames} from '../utils/responsive-props';
 import type {ResponsivePropType} from '../utils/responsive-props';
@@ -90,12 +90,12 @@ type FlexFlexValueType =
   | 'initial'
   | 'none';
 export {
-  FLEX_DIRECTION,
-  FLEX_JUSTIFY_VALUES,
-  FLEX_ALIGNMENT_VALUES,
-  FLEX_MARGINS,
-  FLEX_GAP_VALUES,
-  FLEX_FLEX_VALUES,
+  DIRECTION,
+  JUSTIFY_VALUES,
+  ALIGNMENT_VALUES,
+  MARGINS,
+  GAP_VALUES,
+  FLEX_VALUES,
 };
 export type FlexPropsType = {
   /**
@@ -356,13 +356,13 @@ const Flex = React.forwardRef<HTMLElement, FlexPropsType>(
         inlineFlex
       ),
       ...generateResponsiveClassNames(direction => {
-        if (direction === FLEX_DIRECTION.COLUMN) {
+        if (direction === DIRECTION.COLUMN) {
           return 'sg-flex--column';
-        } else if (direction === FLEX_DIRECTION.COLUMN_REVERSE) {
+        } else if (direction === DIRECTION.COLUMN_REVERSE) {
           return 'sg-flex--column-reverse';
-        } else if (direction === FLEX_DIRECTION.ROW) {
+        } else if (direction === DIRECTION.ROW) {
           return 'sg-flex--row';
-        } else if (direction === FLEX_DIRECTION.ROW_REVERSE) {
+        } else if (direction === DIRECTION.ROW_REVERSE) {
           return 'sg-flex--row-reverse';
         } else {
           return 'sg-flex--row';

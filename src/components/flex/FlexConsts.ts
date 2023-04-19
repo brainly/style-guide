@@ -1,36 +1,36 @@
-export const FLEX_DIRECTION = {
+export const DIRECTION = {
   COLUMN: 'column',
   COLUMN_REVERSE: 'column-reverse',
   ROW: 'row',
   ROW_REVERSE: 'row-reverse',
 } as const;
 
-export const FLEX_JUSTIFY_VALUES = {
+export const JUSTIFY_VALUES = {
   CENTER: 'center',
-  FLEX_START: 'flex-start',
-  FLEX_END: 'flex-end',
+  START: 'flex-start',
+  END: 'flex-end',
   SPACE_BETWEEN: 'space-between',
   SPACE_AROUND: 'space-around',
   SPACE_EVENLY: 'space-evenly',
   STRETCH: 'stretch',
 } as const;
 
-export const FLEX_ALIGN_VALUES = {
+export const ALIGN_VALUES = {
   CENTER: 'center',
-  FLEX_START: 'start',
-  FLEX_END: 'end',
+  START: 'start',
+  END: 'end',
   STRETCH: 'stretch',
 } as const;
 
-export const FLEX_ALIGNMENT_VALUES = {
+export const ALIGNMENT_VALUES = {
   CENTER: 'center',
-  FLEX_START: 'flex-start',
-  FLEX_END: 'flex-end',
+  START: 'flex-start',
+  END: 'flex-end',
   BASELINE: 'baseline',
   STRETCH: 'stretch',
 } as const;
 
-export const FLEX_MARGINS = {
+export const MARGINS = {
   NONE: 'none',
   XSMALL: 'xs',
   SMALL: 's',
@@ -42,7 +42,7 @@ export const FLEX_MARGINS = {
   XXXXLARGE: 'xxxxl',
 } as const;
 
-export const FLEX_GAP_VALUES = {
+export const GAP_VALUES = {
   NONE: 'none',
   XSMALL: 'xs',
   SMALL: 's',
@@ -54,7 +54,7 @@ export const FLEX_GAP_VALUES = {
   XXXXLARGE: 'xxxxl',
 } as const;
 
-export const FLEX_FLEX_VALUES = {
+export const FLEX_VALUES = {
   NONE: 'none',
   INITIAL: 'initial',
   AUTO: 'auto',
