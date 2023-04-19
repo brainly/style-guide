@@ -77,8 +77,8 @@ const Search = ({
         variant={withRoundButton ? 'solid' : 'transparent-light'}
         className={cx([
           `${baseClassName}__icon`,
+          `sg-search-button--${size}`,
           {
-            'sg-search-button--s': size === 's',
             [`${baseClassName}__icon--transparent`]: !withRoundButton,
           },
         ])}

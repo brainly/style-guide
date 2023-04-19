@@ -15,6 +15,10 @@ $includeHtml: false !default;
       &--transparent.sg-button--icon-only {
         width: 28px;
 
+        &.sg-search-button--l {
+          width: 36px;
+        }
+
         & .sg-button__hover-overlay {
           display: none;
         }
