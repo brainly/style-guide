@@ -8,16 +8,17 @@ $includeHtml: false !default;
     &__icon {
       transition: color 0.3s ease-out;
       position: absolute;
-      top: 0;
-      bottom: 0;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: $white;
-      background: none;
-      border: none;
+      top: 50%;
+      transform: translateY(-50%);
       right: 5px;
-      border-radius: 0 20px 20px 0;
+
+      &--transparent.sg-button--icon-only {
+        width: 28px;
+
+        & .sg-button__hover-overlay {
+          display: none;
+        }
+      }
     }
 
     &__input {
