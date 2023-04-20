@@ -27,11 +27,11 @@ const Tooltip = ({className, children, ...props}: TooltipPropsType) => {
   const tooltip = useTooltip();
 
   return (
-    <div {...props} className={className}>
+    <span {...props} className={className}>
       <TooltipContext.Provider value={tooltip}>
         {children}
       </TooltipContext.Provider>
-    </div>
+    </span>
   );
 };
 
