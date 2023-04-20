@@ -2,7 +2,11 @@ import {ArgsTable, Meta, Story, Canvas} from '@storybook/addon-docs';
 import {StoryVariant, StoryVariantTable} from '../../docs/utils';
 import PageHeader from 'blocks/PageHeader';
 
+import Text from '../text/Text';
 import Button from '../buttons/Button';
+import Flex from '../flex/Flex';
+import Checkbox from '../form-elements/checkbox/Checkbox';
+import Radio from '../form-elements/radio/Radio';
 import Tooltip from './Tooltip';
 
 <Meta title="Components/Tooltip" component={Tooltip} />
@@ -18,9 +22,9 @@ import Tooltip from './Tooltip';
   <Story name="Default">
     {args => (
       <Tooltip {...args}>
-        <Tooltip.Element>Here's my tooltip</Tooltip.Element>
+        <Tooltip.Element>Here's my long tooltip</Tooltip.Element>
         <Tooltip.Trigger>
-          <Button>Hover me</Button>
+          <Button>Hover me to trigger the tooltip</Button>
         </Tooltip.Trigger>
       </Tooltip>
     )}
@@ -30,3 +34,51 @@ import Tooltip from './Tooltip';
 <ArgsTable story="Default" />
 
 ## Stories
+
+### Types of triggers
+
+<Canvas>
+  <Story name="Types of triggers">
+    {args => {
+      const RenderTooltip = ({trigger}) => (
+        <Tooltip {...args}>
+          <Tooltip.Element>Here's tooltip</Tooltip.Element>
+          <Tooltip.Trigger>{trigger}</Tooltip.Trigger>
+        </Tooltip>
+      );
+      return (
+        <Flex direction="column" style={{gap: '20px'}}>
+          <div>
+            <Text>Button component:</Text>
+            <RenderTooltip trigger={<Button>Hover me</Button>} />
+          </div>
+          <div>
+            <Text>Checkbox component:</Text>
+            <RenderTooltip trigger={<Checkbox>Hover me</Checkbox>} />
+          </div>
+          <div>
+            <Text>Button tag:</Text>
+            <RenderTooltip
+              trigger={<button>Hover me to trigger the tooltip</button>}
+            />
+          </div>
+          <div>
+            <Text>p tag:</Text>
+            <RenderTooltip trigger={<p>Hover me to trigger the tooltip</p>} />
+          </div>
+          <div style={{width: '300px'}}>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
+            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+            aliquip ex ea commodo consequat.{' '}
+            <RenderTooltip trigger="Hover me to trigger the tooltip." /> Duis
+            aute irure dolor in reprehenderit in voluptate velit esse cillum
+            dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat
+            non proident, sunt in culpa qui officia deserunt mollit anim id est
+            laborum.
+          </div>
+        </Flex>
+      );
+    }}
+  </Story>
+</Canvas>
