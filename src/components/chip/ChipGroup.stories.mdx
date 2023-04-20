@@ -1,0 +1,141 @@
+import {ArgsTable, Meta, Story, Canvas} from '@storybook/addon-docs';
+import {StoryVariantTable} from '../../docs/utils';
+import PageHeader from 'blocks/PageHeader';
+import Icon from '../icons/Icon';
+import SubjectIcon from '../subject-icons/SubjectIcon';
+import Headline from '../text/Headline';
+import Text from '../text/Text';
+import Button from '../buttons/Button';
+import Chip from './Chip';
+import ChipGroup from './ChipGroup';
+import ChipGroupAccessibility from './stories/ChipGroup.a11y.mdx';
+const chips = [
+  {value: 'physics', label: 'Physics', icon: 'physics'},
+  {value: 'biology', label: 'Biology', icon: 'biology'},
+  {value: 'mathematics', label: 'Math', icon: 'logic'},
+  {value: 'art', label: 'Art', icon: 'art'},
+  {value: 'economics', label: 'Economics', icon: 'economics'},
+  {value: 'chemistry', label: 'Chemistry', icon: 'chemistry'},
+  {value: 'astronomy', label: 'Astronomy', icon: 'astronomy'},
+  {value: 'ethics', label: 'Ethics', icon: 'ethics'},
+  {value: 'music', label: 'Music', icon: 'music'},
+  {value: 'pedagogics', label: 'Pedagogics', icon: 'pedagogics'},
+  {value: 'english', label: 'English', icon: 'english'},
+  {value: 'tourism', label: 'Tourism', icon: 'tourism'},
+];
+
+<Meta
+  title="Components/ChipGroup"
+  component={ChipGroup}
+  argTypes={{
+    onChange: {
+      table: {
+        category: 'Events',
+      },
+    },
+  }}
+  args={{
+    children: chips.map(chip => <Chip value={chip.value}>{chip.label}</Chip>),
+  }}
+/>
+
+<PageHeader>ChipGroup</PageHeader>
+
+- [Stories](#stories)
+- [Accessibility](#accessibility)
+
+## Overview
+
+<Canvas>
+  <Story name="Default">{args => <ChipGroup {...args} />}</Story>
+</Canvas>
+
+<ArgsTable story="Default" />
+
+## Stories
+
+### Controlled / uncontrolled
+
+<Canvas>
+  <Story name="Controlled/Uncontrolled">
+    {args => {
+      const [selected, setSelected] = React.useState(chips[0].value);
+      const switchValue = () =>
+        setSelected(chips[Math.floor(Math.random() * 3)].value);
+      return (
+        <StoryVariantTable>
+          <tbody>
+            <tr>
+              <td>
+                <Headline
+                  extraBold
+                  transform="uppercase"
+                  as="span"
+                  color="text-gray-40"
+                  size="medium"
+                >
+                  Controlled
+                </Headline>
+              </td>
+              <td>
+                <ChipGroup
+                  value={selected}
+                  onChange={(e, value) => setSelected(value)}
+                >
+                  {chips.map(({value, icon, label}) => (
+                    <Chip
+                      {...args}
+                      icon={
+                        <SubjectIcon type={icon} size="small" aria-hidden />
+                      }
+                      value={value}
+                      name="uncon"
+                    >
+                      {label}
+                    </Chip>
+                  ))}
+                </ChipGroup>
+              </td>
+              <td>
+                <Button onClick={switchValue}>Switch value</Button>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <Headline
+                  extraBold
+                  transform="uppercase"
+                  as="span"
+                  color="text-gray-40"
+                  size="medium"
+                >
+                  Uncontrolled
+                </Headline>
+              </td>
+              <td>
+                <ChipGroup>
+                  {chips.map(({value, icon, label}) => (
+                    <Chip
+                      {...args}
+                      icon={
+                        <SubjectIcon type={icon} size="small" aria-hidden />
+                      }
+                      value={value}
+                      name="uncon"
+                    >
+                      {label}
+                    </Chip>
+                  ))}
+                </ChipGroup>
+              </td>
+            </tr>
+          </tbody>
+        </StoryVariantTable>
+      );
+    }}
+  </Story>
+</Canvas>
+
+## Accessibility
+
+<ChipGroupAccessibility />
