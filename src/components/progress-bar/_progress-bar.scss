@@ -10,7 +10,7 @@
   overflow: hidden;
 
   &--no-border-radius {
-    border-radius: 0;
+    border-radius: var(--border-radius-none);
   }
 
   &--invisible-track {

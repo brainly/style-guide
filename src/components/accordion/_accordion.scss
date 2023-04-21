@@ -4,7 +4,7 @@
     transition: $durationQuick2 $easingLinear border-color;
 
     &--no-gap {
-      border-radius: 0;
+      border-radius: var(--border-radius-none);
       border-top: none;
 
       &:first-child {

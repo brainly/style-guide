@@ -5,7 +5,7 @@
   display: inline-flex;
   position: relative;
   background: var(--white);
-  border-radius: 8px;
+  border-radius: var(--border-radius-xs);
   // transform: scale(10) translate(20px, 20px);
 
   &__input {
@@ -92,7 +92,7 @@
     border: 2px solid var(--chipBorderColor);
     display: flex;
     align-items: center;
-    border-radius: 8px;
+    border-radius: var(--border-radius-xs);
     transition: box-shadow $durationQuick1 $easingExit,
       border-color $durationModerate1 $easingLinear,
       transform $durationModerate2 $easingRegular,
