@@ -127,29 +127,29 @@
   }
 
   &--top-left {
-    top: -2px;
-    left: -2px;
+    top: 0;
+    left: 0;
   }
   &--center-left {
     top: 50%;
-    left: -2px;
+    left: 0;
     transform: translateY(-50%);
   }
   &--bottom-left {
-    bottom: -2px;
-    left: -2px;
+    bottom: 0;
+    left: 0;
   }
   &--top-right {
-    top: -2px;
-    right: -2px;
+    top: 0;
+    right: 0;
   }
   &--center-right {
     top: 50%;
-    right: -2px;
+    right: 0;
     transform: translateY(-50%);
   }
   &--bottom-right {
-    bottom: -2px;
-    right: -2px;
+    bottom: 0;
+    right: 0;
   }
 }
