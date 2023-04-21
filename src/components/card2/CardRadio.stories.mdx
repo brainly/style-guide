@@ -1,10 +1,12 @@
 import {ArgsTable, Meta, Story, Canvas} from '@storybook/addon-docs';
-import {StoryVariant} from '../../docs/utils';
+import {StoryVariantTable} from '../../docs/utils';
 import PageHeader from 'blocks/PageHeader';
 
-import Card from './Card';
 import Flex from '../flex/Flex';
 import Text from '../text/Text';
+import SubjectIcon from '../subject-icons/SubjectIcon';
+
+import Card from './Card';
 
 <Meta title="Components/Card2/Radio" component={Card.Radio} />
 
@@ -52,3 +54,250 @@ import Text from '../text/Text';
 <ArgsTable story="Default" />
 
 ## Stories
+
+### Variants
+
+#### Solid
+
+<Canvas>
+  <Story
+    name="Solid"
+    decorators={[
+      Story => (
+        <div
+          style={{
+            background: 'var(--gray-30)',
+            padding: 64,
+            display: 'flex',
+            justifyContent: 'space-evenly',
+            flexWrap: 'wrap',
+            gap: 32,
+          }}
+        >
+          <Story />
+        </div>
+      ),
+    ]}
+  >
+    {args => (
+      <>
+        <Card.Radio
+          {...args}
+          width="150px"
+          height="150px"
+          defaultChecked={true}
+        >
+          <Card.RadioIndicator slot="top-left" />
+          <Flex justifyContent="center" alignItems="center" fullHeight>
+            <Text color="text-gray-50" size="xsmall" weight="bold">
+              Placeholder
+            </Text>
+          </Flex>
+        </Card.Radio>
+        <Card.Radio
+          {...args}
+          width="150px"
+          height="150px"
+          defaultChecked={true}
+          style={{'--card-background-color': 'var(--green-20)'}}
+        >
+          <Card.RadioIndicator slot="top-left" />
+          <Flex
+            justifyContent="center"
+            alignItems="center"
+            fullHeight
+            direction="column"
+            gap="s"
+          >
+            <SubjectIcon type="biology" />
+            <Text color="text-text-black" size="small" weight="bold">
+              Biology
+            </Text>
+          </Flex>
+        </Card.Radio>
+      </>
+    )}
+  </Story>
+</Canvas>
+
+#### Outline
+
+<Canvas>
+  <Story
+    name="Outline"
+    decorators={[
+      Story => (
+        <div
+          style={{
+            padding: 64,
+            display: 'flex',
+            justifyContent: 'space-evenly',
+            flexWrap: 'wrap',
+            gap: 32,
+          }}
+        >
+          <Story />
+        </div>
+      ),
+    ]}
+  >
+    {args => (
+      <>
+        <Card.Radio
+          {...args}
+          width="150px"
+          height="150px"
+          defaultChecked={true}
+        >
+          <Card.RadioIndicator slot="top-left" />
+          <Flex justifyContent="center" alignItems="center" fullHeight>
+            <Text color="text-gray-50" size="xsmall" weight="bold">
+              Placeholder
+            </Text>
+          </Flex>
+        </Card.Radio>
+        <Card.Radio
+          {...args}
+          variant="outline"
+          width="150px"
+          height="150px"
+          defaultChecked={true}
+        >
+          <Card.RadioIndicator slot="top-left" />
+          <Flex
+            justifyContent="center"
+            alignItems="center"
+            fullHeight
+            direction="column"
+            gap="s"
+          >
+            <SubjectIcon type="geometry" />
+            <Text color="text-text-black" size="small" weight="bold">
+              Geometry
+            </Text>
+          </Flex>
+        </Card.Radio>
+      </>
+    )}
+  </Story>
+</Canvas>
+
+### Indicator position
+
+<Canvas>
+  <Story
+    name="Indicator position"
+    decorators={[
+      Story => (
+        <div
+          style={{
+            background: 'var(--gray-30)',
+            padding: 64,
+            display: 'flex',
+            justifyContent: 'space-evenly',
+            flexWrap: 'wrap',
+            gap: 32,
+          }}
+        >
+          <Story />
+        </div>
+      ),
+    ]}
+  >
+    {args => (
+      <Card.Radio {...args} width="150px" height="150px" defaultChecked={true}>
+        <Card.RadioIndicator slot="top-left" />
+        <Card.RadioIndicator slot="center-left" />
+        <Card.RadioIndicator slot="bottom-left" />
+        <Card.RadioIndicator slot="top-right" />
+        <Card.RadioIndicator slot="center-right" />
+        <Card.RadioIndicator slot="bottom-right" />
+        <Flex justifyContent="center" alignItems="center" fullHeight>
+          <Text color="text-gray-50" size="xsmall" weight="bold">
+            Placeholder
+          </Text>
+        </Flex>
+      </Card.Radio>
+    )}
+  </Story>
+</Canvas>
+
+### States
+
+<Canvas>
+  <Story name="States">
+    {args => (
+      <StoryVariantTable>
+        <thead>
+          <tr>
+            <th />
+            <th>
+              <Text weight="bold" transform="capitalize" size="medium">
+                default
+              </Text>
+            </th>
+            <th>
+              <Text weight="bold" transform="capitalize" size="medium">
+                disabled
+              </Text>
+            </th>
+            <th>
+              <Text weight="bold" transform="capitalize" size="medium">
+                error
+              </Text>
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          {['outline', 'solid'].map(variant => {
+            return [false, true].map(indicator => {
+              return [false, true].map(checked => {
+                const states = ['default', 'disabled', 'error'].map(states => (
+                  <td>
+                    <Card.Radio
+                      {...args}
+                      variant={variant}
+                      width="120px"
+                      height="64px"
+                      disabled={states === 'disabled'}
+                      invalid={states === 'error'}
+                      defaultChecked={checked}
+                    >
+                      {indicator && <Card.RadioIndicator slot="top-left" />}
+                      <Flex
+                        justifyContent="center"
+                        alignItems="center"
+                        fullHeight
+                      >
+                        <Text color="text-gray-50" size="xsmall" weight="bold">
+                          Placeholder
+                        </Text>
+                      </Flex>
+                    </Card.Radio>
+                  </td>
+                ));
+                return (
+                  <tr>
+                    <td>
+                      <Text weight="bold" size="small" transform="capitalize">
+                        {variant}
+                        <br />
+                        {checked ? 'checked' : 'unchecked'}
+                        <br />
+                        {indicator
+                          ? 'with indicator'
+                          : 'without indicator'}{' '}
+                        <br />
+                      </Text>
+                    </td>
+                    {states}
+                  </tr>
+                );
+              });
+            });
+          })}
+        </tbody>
+      </StoryVariantTable>
+    )}
+  </Story>
+</Canvas>
