@@ -180,11 +180,11 @@ $dialogMaxWidthMap: (
       box-shadow: $dialogBoxShadow;
 
       @include sgResponsive(md) {
-        border-radius: var(--border-radius-xs);
+        border-radius: var(--border-radius-l);
       }
 
       &.sg-dialog__container--fullscreen {
-        border-radius: 0;
+        border-radius: --border-radius-none;
         box-shadow: none;
       }
     }
