@@ -1,6 +1,19 @@
 $includeHtml: false !default;
 
 @if ($includeHtml) {
+  :root {
+    --border-radius-none: 0;
+    --border-radius-xxxs: 4px;
+    --border-radius-xxs: 6px;
+    --border-radius-xs: 8px;
+    --border-radius-s: 12px;
+    --border-radius-m: 16px;
+    --border-radius-l: 24px;
+    --border-radius-xl: 32px;
+    --border-radius-xxl: 40px;
+    --border-radius-pill: 999px;
+  }
+
   html {
     font-size: $baseFont;
   }
