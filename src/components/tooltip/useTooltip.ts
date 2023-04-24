@@ -6,29 +6,38 @@ import {
   useRole,
   useHover,
   useFocus,
-  shift,
   offset,
   flip,
   arrow,
+  autoUpdate,
+  shift,
 } from '@floating-ui/react';
 
-const useTooltip = () => {
-  const [isOpen, setIsOpen] = React.useState(false);
+import type {Placement} from '@floating-ui/react';
+
+interface UseTooltipPropTypes {
+  placement?: Placement;
+}
+
+const useTooltip = ({placement = 'top'}: UseTooltipPropTypes) => {
+  const [isOpen, setIsOpen] = React.useState(true);
 
   const arrowRef = React.useRef(null);
 
   const data = useFloating({
     open: isOpen,
     onOpenChange: setIsOpen,
-    placement: 'bottom-start',
+    placement,
+    whileElementsMounted: autoUpdate,
     middleware: [
       arrow({
         element: arrowRef,
       }),
-      offset(8),
-      flip(),
-      // Apply shift when we want to move component to the side to fit
-      shift(),
+      offset(12),
+      flip({
+        fallbackAxisSideDirection: 'start',
+      }),
+      shift({padding: 5}),
     ],
   });
 
@@ -45,10 +54,11 @@ const useTooltip = () => {
       isOpen,
       setIsOpen,
       arrowRef,
+      placement,
       ...interactions,
       ...data,
     }),
-    [isOpen, setIsOpen, interactions, data]
+    [isOpen, placement, interactions, data]
   );
 };
 

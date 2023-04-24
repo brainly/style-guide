@@ -7,7 +7,22 @@ import Button from '../buttons/Button';
 import Flex from '../flex/Flex';
 import Checkbox from '../form-elements/checkbox/Checkbox';
 import Radio from '../form-elements/radio/Radio';
+import Icon from '../icons/Icon';
 import Tooltip from './Tooltip';
+const TOOLTIP_PLACEMENTS = [
+  'top',
+  'top-start',
+  'top-end',
+  'bottom',
+  'bottom-start',
+  'bottom-end',
+  'left',
+  'left-start',
+  'left-end',
+  'right',
+  'right-start',
+  'right-end',
+];
 
 <Meta title="Components/Tooltip" component={Tooltip} />
 
@@ -77,6 +92,107 @@ import Tooltip from './Tooltip';
             non proident, sunt in culpa qui officia deserunt mollit anim id est
             laborum.
           </div>
+        </Flex>
+      );
+    }}
+  </Story>
+</Canvas>
+
+### Placement
+
+<Canvas>
+  <Story name="Placement">
+    {args => {
+      return (
+        <Flex direction="column" alignItems="center" style={{gap: '50px'}}>
+          {TOOLTIP_PLACEMENTS.map(placement => (
+            <Flex direction="column" style={{gap: '100px'}}>
+              <Text>Position {placement}</Text>
+              <Tooltip {...args} placement={placement}>
+                <Tooltip.Element>
+                  Here's a long tooltip Here's a long tooltip
+                </Tooltip.Element>
+                <Tooltip.Trigger>
+                  <Button>Hover me</Button>
+                </Tooltip.Trigger>
+              </Tooltip>
+            </Flex>
+          ))}
+          {TOOLTIP_PLACEMENTS.map(placement => (
+            <Flex direction="column" style={{gap: '100px'}}>
+              <Text>Position {placement}</Text>
+              <Tooltip {...args} placement={placement}>
+                <Tooltip.Element>
+                  Here's a long tooltip Here's a long tooltip
+                </Tooltip.Element>
+                <Tooltip.Trigger>
+                  <Button
+                    icon={<Icon color="adaptive" type="report_flag_outlined" />}
+                    iconOnly
+                    variant="solid-light"
+                  >
+                    button
+                  </Button>
+                </Tooltip.Trigger>
+              </Tooltip>
+            </Flex>
+          ))}
+          {TOOLTIP_PLACEMENTS.map(placement => (
+            <Flex direction="column" style={{gap: '100px'}}>
+              <Text>Position {placement}</Text>
+              <Tooltip {...args} placement={placement}>
+                <Tooltip.Element>tooltip</Tooltip.Element>
+                <Tooltip.Trigger>
+                  <Button>Hover me</Button>
+                </Tooltip.Trigger>
+              </Tooltip>
+            </Flex>
+          ))}
+        </Flex>
+      );
+    }}
+  </Story>
+</Canvas>
+
+### Flip
+
+<Canvas>
+  <Story name="Flip">
+    {args => {
+      return (
+        <Flex direction="column" style={{gap: '50px'}}>
+          {TOOLTIP_PLACEMENTS.map(placement => (
+            <Flex direction="column" style={{gap: '100px'}}>
+              <Text>Initial position: {placement}</Text>
+              <Tooltip {...args} placement={placement}>
+                <Tooltip.Element>
+                  Here's a long tooltip Here's a long tooltip
+                </Tooltip.Element>
+                <Tooltip.Trigger>
+                  <Button>Hover me</Button>
+                </Tooltip.Trigger>
+              </Tooltip>
+            </Flex>
+          ))}
+          {TOOLTIP_PLACEMENTS.map(placement => (
+            <Flex direction="column" style={{gap: '100px'}}>
+              <Text>Initial position: {placement}</Text>
+              <Tooltip {...args} placement={placement}>
+                <Tooltip.Element>
+                  Here's a long tooltip Here's a long tooltip
+                </Tooltip.Element>
+                <Tooltip.Trigger>
+                  <Button
+                    icon={<Icon color="adaptive" type="report_flag_outlined" />}
+                    iconOnly
+                    variant="solid-light"
+                  >
+                    button
+                  </Button>
+                </Tooltip.Trigger>
+              </Tooltip>
+            </Flex>
+          ))}
         </Flex>
       );
     }}

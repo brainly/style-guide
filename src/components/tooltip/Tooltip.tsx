@@ -1,9 +1,9 @@
 import * as React from 'react';
-import classNames from 'classnames';
 import TooltipElement from './TooltipElement';
 import TooltipTrigger from './TooltipTrigger';
 import {TooltipContext} from './useTooltipContext';
 import useTooltip from './useTooltip';
+import type {Placement} from '@floating-ui/react';
 
 export type TooltipPropsType = {
   /**
@@ -21,10 +21,20 @@ export type TooltipPropsType = {
    * Optional string. Additional classnames.
    */
   className?: string | null | undefined;
+
+  /**
+   * Tooltip alignment.
+   */
+  placement?: Placement;
 } & Omit<React.AllHTMLAttributes<HTMLElement>, 'children' | 'className'>;
 
-const Tooltip = ({className, children, ...props}: TooltipPropsType) => {
-  const tooltip = useTooltip();
+const Tooltip = ({
+  className,
+  children,
+  placement = 'top',
+  ...props
+}: TooltipPropsType) => {
+  const tooltip = useTooltip({placement});
 
   return (
     <span {...props} className={className}>
