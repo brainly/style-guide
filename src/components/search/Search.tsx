@@ -73,21 +73,32 @@ const Search = ({
         className={cx(`${baseClassName}__input`, inputClassName)}
         fullWidth
       />
-      <Button
-        variant={withRoundButton ? 'solid' : 'transparent-light'}
+      <div
         className={cx([
-          `${baseClassName}__icon`,
-          `${baseClassName}__icon--${size}`,
-          {
-            [`${baseClassName}__icon--transparent`]: !withRoundButton,
-          },
+          `${baseClassName}-icon-wrapper`,
+          `${baseClassName}-icon-wrapper--${size}`,
         ])}
-        icon={
-          <Icon type="search" size={size === 'l' ? 24 : 16} color="adaptive" />
-        }
-        iconOnly
-        size={size === 'l' ? 'm' : 's'}
-      />
+      >
+        <Button
+          variant={withRoundButton ? 'solid' : 'transparent-light'}
+          className={cx([
+            `${baseClassName}__icon`,
+            `${baseClassName}__icon--${size}`,
+            {
+              [`${baseClassName}__icon--transparent`]: !withRoundButton,
+            },
+          ])}
+          icon={
+            <Icon
+              type="search"
+              size={size === 'l' ? 24 : 16}
+              color="adaptive"
+            />
+          }
+          iconOnly
+          size={size === 'l' ? 'm' : 's'}
+        />
+      </div>
     </div>
   );
 };

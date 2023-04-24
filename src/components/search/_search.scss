@@ -6,12 +6,6 @@ $includeHtml: false !default;
     overflow: visible;
 
     &__icon {
-      transition: color 0.3s ease-out;
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      right: 5px;
-
       &--s.sg-button--icon-only {
         height: componentSize(xs);
         width: componentSize(xs);
@@ -30,12 +24,19 @@ $includeHtml: false !default;
       }
     }
 
-    &__input {
-      width: 100%;
+    &-icon-wrapper {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      right: 5px;
+
+      &--s {
+        height: componentSize(xs);
+      }
     }
 
-    &__input:focus + &__icon {
-      color: $gray-50;
+    &__input {
+      width: 100%;
     }
 
     &--full-width {
@@ -43,7 +44,7 @@ $includeHtml: false !default;
     }
 
     &--l {
-      .sg-search__icon {
+      .sg-search-icon-wrapper {
         right: spacing(xs);
       }
     }
