@@ -31,6 +31,21 @@ export type TooltipPropsType = {
    * Tooltip alignment.
    */
   placement?: Placement;
+
+  /**
+   * Set if Tooltip should be displayed by default.
+   */
+  defaultOpen?: boolean;
+
+  /**
+   * Only controlled component. Set Tooltip open state.
+   */
+  open?: boolean;
+
+  /**
+   * Only controlled component. Handle Tooltip open state change.
+   */
+  onOpenChange?: (arg0: boolean) => void;
 } & Omit<React.AllHTMLAttributes<HTMLElement>, 'children' | 'className'>;
 
 const Tooltip = ({
@@ -38,9 +53,18 @@ const Tooltip = ({
   children,
   placement = 'top',
   id,
+  defaultOpen = false,
+  open: controlledOpen,
+  onOpenChange: setControlledOpen,
   ...props
 }: TooltipPropsType) => {
-  const tooltip = useTooltip({placement, customId: id});
+  const tooltip = useTooltip({
+    placement,
+    customId: id,
+    defaultOpen,
+    controlledOpen,
+    setControlledOpen,
+  });
 
   return (
     <span {...props} className={className} id={tooltip.id}>

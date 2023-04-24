@@ -18,14 +18,25 @@ import {generateId} from '../utils';
 interface UseTooltipPropTypes {
   placement?: Placement;
   customId?: string;
+  defaultOpen?: boolean;
+  controlledOpen?: boolean;
+  setControlledOpen?: (arg0: boolean) => void;
 }
 
-const useTooltip = ({placement = 'top', customId}: UseTooltipPropTypes) => {
+const useTooltip = ({
+  placement = 'top',
+  customId,
+  defaultOpen = false,
+  controlledOpen,
+  setControlledOpen,
+}: UseTooltipPropTypes) => {
   const {current: id} = React.useRef<string>(
     customId ?? `Tooltip_${generateId()}`
   );
+  const [uncontrolledOpen, setUncontrolledOpen] = React.useState(defaultOpen);
 
-  const [isOpen, setIsOpen] = React.useState(true);
+  const isOpen = controlledOpen ?? uncontrolledOpen;
+  const setIsOpen = setControlledOpen ?? setUncontrolledOpen;
 
   const arrowRef = React.useRef(null);
 
@@ -66,7 +77,7 @@ const useTooltip = ({placement = 'top', customId}: UseTooltipPropTypes) => {
       ...interactions,
       ...data,
     }),
-    [id, isOpen, placement, interactions, data]
+    [id, isOpen, setIsOpen, placement, interactions, data]
   );
 };
 
