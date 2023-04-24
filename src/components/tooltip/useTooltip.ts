@@ -35,14 +35,16 @@ const useTooltip = ({placement = 'top', customId}: UseTooltipPropTypes) => {
     placement,
     whileElementsMounted: autoUpdate,
     middleware: [
-      arrow({
-        element: arrowRef,
-      }),
       offset(12),
       flip({
         fallbackAxisSideDirection: 'start',
       }),
       shift({padding: 5}),
+      arrow({
+        element: arrowRef,
+        padding:
+          placement.includes('top') || placement.includes('bottom') ? 16 : 0,
+      }),
     ],
   });
 
