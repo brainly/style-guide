@@ -1,6 +1,7 @@
 .sg-tooltip {
   --tooltip-color: var(--black);
   --tooltip-text-color: var(--text-white);
+  --tooltip-max-width: 272px;
 
     background-color: var(--tooltip-color);
     color: var(--tooltip-text-color);
@@ -8,4 +9,6 @@
     padding: 8px 12px;
     font-size: fontSize(small);
     border-radius: 6px;
+
+    max-width: var(--tooltip-max-width);
 }
