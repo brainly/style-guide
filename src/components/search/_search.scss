@@ -6,12 +6,6 @@ $includeHtml: false !default;
     overflow: visible;
 
     &__icon {
-      transition: color 0.3s ease-out;
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      right: 5px;
-
       &--s.sg-button--icon-only {
         height: componentSize(xs);
         width: componentSize(xs);
@@ -28,6 +22,14 @@ $includeHtml: false !default;
           display: none;
         }
       }
+    }
+
+    &-icon-wrapper {
+      transition: color 0.3s ease-out;
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      right: 5px;
     }
 
     &__input {
