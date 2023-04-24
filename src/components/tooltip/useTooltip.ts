@@ -12,14 +12,19 @@ import {
   autoUpdate,
   shift,
 } from '@floating-ui/react';
-
 import type {Placement} from '@floating-ui/react';
+import {generateId} from '../utils';
 
 interface UseTooltipPropTypes {
   placement?: Placement;
+  customId?: string;
 }
 
-const useTooltip = ({placement = 'top'}: UseTooltipPropTypes) => {
+const useTooltip = ({placement = 'top', customId}: UseTooltipPropTypes) => {
+  const {current: id} = React.useRef<string>(
+    customId ?? `Tooltip_${generateId()}`
+  );
+
   const [isOpen, setIsOpen] = React.useState(true);
 
   const arrowRef = React.useRef(null);
@@ -51,6 +56,7 @@ const useTooltip = ({placement = 'top'}: UseTooltipPropTypes) => {
 
   return React.useMemo(
     () => ({
+      id,
       isOpen,
       setIsOpen,
       arrowRef,
@@ -58,7 +64,7 @@ const useTooltip = ({placement = 'top'}: UseTooltipPropTypes) => {
       ...interactions,
       ...data,
     }),
-    [isOpen, placement, interactions, data]
+    [id, isOpen, placement, interactions, data]
   );
 };
 

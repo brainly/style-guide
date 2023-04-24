@@ -23,6 +23,11 @@ export type TooltipPropsType = {
   className?: string | null | undefined;
 
   /**
+   * Tooltip id.
+   */
+  id?: string;
+
+  /**
    * Tooltip alignment.
    */
   placement?: Placement;
@@ -32,12 +37,13 @@ const Tooltip = ({
   className,
   children,
   placement = 'top',
+  id,
   ...props
 }: TooltipPropsType) => {
-  const tooltip = useTooltip({placement});
+  const tooltip = useTooltip({placement, customId: id});
 
   return (
-    <span {...props} className={className}>
+    <span {...props} className={className} id={tooltip.id}>
       <TooltipContext.Provider value={tooltip}>
         {children}
       </TooltipContext.Provider>

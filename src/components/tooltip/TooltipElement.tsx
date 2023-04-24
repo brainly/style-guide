@@ -34,6 +34,7 @@ const TooltipElement = React.forwardRef<
       <div
         ref={elementRef}
         className={tooltipElementClass}
+        data-tooltip-id={context.id}
         style={{
           position: context.strategy,
           top: context.y ?? 0,
@@ -48,7 +49,6 @@ const TooltipElement = React.forwardRef<
           context={context.context}
           width={24}
           height={24}
-          // staticOffset={getArrowOffset()}
           d="M0 24C1.72106 24 3.38535 23.3843 4.69205 22.2642L11.026 16.8349C11.5868 16.3542 12.414 16.3533 12.9759 16.8327L19.3782 22.2961C20.667 23.3958 22.3057 24 24 24V24L0 24V24Z"
         />
       </div>
