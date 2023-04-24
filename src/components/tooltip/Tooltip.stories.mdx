@@ -198,3 +198,44 @@ const TOOLTIP_PLACEMENTS = [
     }}
   </Story>
 </Canvas>
+
+### Short tooltip
+
+<Canvas>
+  <Story name="Short tooltip">
+    {args => {
+      return (
+        <div>
+          {['top', 'top-start', 'top-end'].map(placement => (
+            <Flex
+              direction="column"
+              style={{gap: '60px', marginBottom: '30px'}}
+            >
+              <Text>Position {placement}</Text>
+              <Tooltip {...args} placement={placement}>
+                <Tooltip.Element>tooltip</Tooltip.Element>
+                <Tooltip.Trigger>
+                  <Button>Hover me</Button>
+                </Tooltip.Trigger>
+              </Tooltip>
+            </Flex>
+          ))}
+          {['bottom', 'bottom-start', 'bottom-end'].map(placement => (
+            <Flex
+              direction="column"
+              style={{gap: '10px', marginBottom: '90px'}}
+            >
+              <Text>Position {placement}</Text>
+              <Tooltip {...args} placement={placement}>
+                <Tooltip.Element>tooltip</Tooltip.Element>
+                <Tooltip.Trigger>
+                  <Button>Hover me</Button>
+                </Tooltip.Trigger>
+              </Tooltip>
+            </Flex>
+          ))}
+        </div>
+      );
+    }}
+  </Story>
+</Canvas>
