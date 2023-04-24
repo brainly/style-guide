@@ -100,7 +100,12 @@ import Card from './Card';
           width="150px"
           height="150px"
           defaultChecked={true}
-          style={{'--card-background-color': 'var(--indigo-60)'}}
+          style={{
+            '--card-background-color': 'var(--indigo-60)',
+            '--card-border-color': 'var(--white)',
+            '--card-border-color-checked': 'var(--white)',
+            '--card-border-color-hover': 'rgba(255,255,255,0.8)',
+          }}
         >
           <Card.CheckboxIndicator slot="top-left" />
           <Flex

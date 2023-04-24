@@ -5,6 +5,7 @@
   --card-border-color-invalid: var(--red-60);
   --card-border-color-invalid-hover: var(--red-50);
   --card-border-color-checked: var(--black);
+  --card-indicator-color: var(--card-background-color);
 
   display: block;
   position: relative;
@@ -77,6 +78,7 @@
   & .sg-checkbox {
     --checkboxColor: var(--card-border-color);
     --checkboxCheckedColor: var(--card-border-color-checked);
+    --checkboxIconFillColor: var(--card-indicator-color);
   }
 
   & .sg-checkbox__icon {
