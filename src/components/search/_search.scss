@@ -25,19 +25,19 @@ $includeHtml: false !default;
     }
 
     &-icon-wrapper {
-      transition: color 0.3s ease-out;
       position: absolute;
       top: 50%;
       transform: translateY(-50%);
       right: 5px;
+
+      &--s {
+        height: componentSize(xs);
+        width: componentSize(xs);
+      }
     }
 
     &__input {
       width: 100%;
-    }
-
-    &__input:focus + &__icon {
-      color: $gray-50;
     }
 
     &--full-width {
@@ -45,7 +45,7 @@ $includeHtml: false !default;
     }
 
     &--l {
-      .sg-search__icon {
+      .sg-search-icon-wrapper {
         right: spacing(xs);
       }
     }
