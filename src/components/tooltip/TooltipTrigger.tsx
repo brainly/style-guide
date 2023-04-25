@@ -32,6 +32,8 @@ const TooltipTrigger = React.forwardRef<
     childrenRef,
   ]);
 
+  const className = 'sg-tooltip-trigger';
+
   // If children is valid element, i.e. <p>, <Checkbox> etc.
   // and if the element is forward ref type (otherwise we cannot pass ref).
   if (React.isValidElement(children) && isReactForwardRefType(children)) {
@@ -39,6 +41,7 @@ const TooltipTrigger = React.forwardRef<
       children,
       context.getReferenceProps({
         ref: triggerRef,
+        className,
         tabIndex: 0, // ensure the element tabindex is set, but allow overriding with children props
         ...props,
         ...children.props,
@@ -51,6 +54,7 @@ const TooltipTrigger = React.forwardRef<
     <span
       ref={triggerRef}
       tabIndex={0} // ensure the element tabindex is set, but allow overriding with children props
+      className={className}
       // The user can style the trigger based on the state
       data-state={context.isOpen ? 'open' : 'closed'}
       {...context.getReferenceProps(props)}
