@@ -15,8 +15,13 @@ import {
 import type {Placement} from '@floating-ui/react';
 import {generateId} from '../utils';
 
+type TooltipPlacement = Exclude<
+  Placement,
+  'left-start' | 'left-end' | 'right-start' | 'right-end'
+>;
+
 interface UseTooltipPropTypes {
-  placement?: Placement;
+  placement?: TooltipPlacement;
   customId?: string;
   defaultOpen?: boolean;
   controlledOpen?: boolean;
