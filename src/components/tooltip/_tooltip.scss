@@ -9,6 +9,8 @@
 
     max-width: var(--tooltip-max-width);
 
+    box-shadow: $shadowSmall;
+
   &--small {
     padding: 2px 8px;
   }
