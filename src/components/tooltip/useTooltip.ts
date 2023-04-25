@@ -51,7 +51,10 @@ const useTooltip = ({
     placement,
     whileElementsMounted: autoUpdate,
     middleware: [
-      offset(12),
+      offset({
+        mainAxis: 12,
+        alignmentAxis: -8,
+      }),
       flip({
         fallbackAxisSideDirection: 'start',
       }),
