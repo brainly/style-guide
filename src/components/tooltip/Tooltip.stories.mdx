@@ -230,46 +230,67 @@ const TOOLTIP_PLACEMENTS = [
   <Story name="Sizes" args={{defaultOpen: true}}>
     {args => {
       return (
-        <Flex justifyContent="center" style={{gap: '250px'}}>
-          {['default', 'small'].map(size => (
-            <Flex direction="column" style={{gap: '60px'}}>
-              <Text>Size {size}</Text>
-              <Tooltip {...args} size={size}>
-                <Tooltip.Element label="Tooltip content" />
-                <Tooltip.Trigger>
-                  <Button
-                    icon={<Icon color="adaptive" type="report_flag_outlined" />}
-                    iconOnly
-                    variant="solid-light"
-                  >
-                    button
-                  </Button>
-                </Tooltip.Trigger>
-              </Tooltip>
-            </Flex>
-          ))}
-          {['default', 'small'].map(size => (
-            <Flex direction="column" style={{gap: '60px'}}>
-              <Text>Long tooltip {size}</Text>
-              <Tooltip {...args} size={size}>
-                <Tooltip.Element
-                  label="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+        <Flex direction="column" style={{gap: '50px'}}>
+          <Flex justifyContent="center" style={{gap: '250px'}}>
+            {['default', 'small'].map(size => (
+              <Flex
+                direction="column"
+                alignItems="center"
+                style={{gap: '60px'}}
+              >
+                <Text>Size {size}</Text>
+                <Tooltip {...args} size={size}>
+                  <Tooltip.Element label="Tooltip content" />
+                  <Tooltip.Trigger>
+                    <Button
+                      icon={
+                        <Icon color="adaptive" type="report_flag_outlined" />
+                      }
+                      iconOnly
+                      variant="solid-light"
+                    >
+                      button
+                    </Button>
+                  </Tooltip.Trigger>
+                </Tooltip>
+              </Flex>
+            ))}
+          </Flex>
+          <Flex
+            justifyContent="center"
+            direction="column"
+            style={{gap: '60px'}}
+            alignItems="center"
+          >
+            {['default', 'small'].map(size => (
+              <Flex
+                direction="column"
+                style={{gap: '90px'}}
+                alignItems="center"
+              >
+                <Text>Long tooltip, size {size}</Text>
+                <Tooltip {...args} size={size}>
+                  <Tooltip.Element
+                    label="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
             eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
             ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
             aliquip ex ea commodo consequat."
-                />
-                <Tooltip.Trigger>
-                  <Button
-                    icon={<Icon color="adaptive" type="report_flag_outlined" />}
-                    iconOnly
-                    variant="solid-light"
-                  >
-                    button
-                  </Button>
-                </Tooltip.Trigger>
-              </Tooltip>
-            </Flex>
-          ))}
+                  />
+                  <Tooltip.Trigger>
+                    <Button
+                      icon={
+                        <Icon color="adaptive" type="report_flag_outlined" />
+                      }
+                      iconOnly
+                      variant="solid-light"
+                    >
+                      button
+                    </Button>
+                  </Tooltip.Trigger>
+                </Tooltip>
+              </Flex>
+            ))}
+          </Flex>
         </Flex>
       );
     }}
