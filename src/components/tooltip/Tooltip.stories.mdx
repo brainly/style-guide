@@ -33,7 +33,7 @@ const TOOLTIP_PLACEMENTS = [
   <Story name="Default">
     {args => (
       <Tooltip {...args}>
-        <Tooltip.Element>Here's my long tooltip</Tooltip.Element>
+        <Tooltip.Element label="Here's my long tooltip" />
         <Tooltip.Trigger>
           <Button>Hover me to trigger the tooltip</Button>
         </Tooltip.Trigger>
@@ -53,7 +53,7 @@ const TOOLTIP_PLACEMENTS = [
     {args => {
       const RenderTooltip = ({trigger}) => (
         <Tooltip {...args}>
-          <Tooltip.Element>Here's tooltip</Tooltip.Element>
+          <Tooltip.Element label="Here's tooltip" />
           <Tooltip.Trigger>{trigger}</Tooltip.Trigger>
         </Tooltip>
       );
@@ -101,9 +101,7 @@ const TOOLTIP_PLACEMENTS = [
             <Flex direction="column" style={{gap: '100px'}}>
               <Text>Position {placement}</Text>
               <Tooltip {...args} placement={placement}>
-                <Tooltip.Element>
-                  Here's a long tooltip Here's a long tooltip
-                </Tooltip.Element>
+                <Tooltip.Element label="Here's a long tooltip Here's a long tooltip" />
                 <Tooltip.Trigger>
                   <Button>Hover me</Button>
                 </Tooltip.Trigger>
@@ -114,9 +112,7 @@ const TOOLTIP_PLACEMENTS = [
             <Flex direction="column" style={{gap: '100px'}}>
               <Text>Position {placement}</Text>
               <Tooltip {...args} placement={placement}>
-                <Tooltip.Element>
-                  Here's a long tooltip Here's a long tooltip
-                </Tooltip.Element>
+                <Tooltip.Element label="Here's a long tooltip Here's a long tooltip" />
                 <Tooltip.Trigger>
                   <Button
                     icon={<Icon color="adaptive" type="report_flag_outlined" />}
@@ -133,7 +129,7 @@ const TOOLTIP_PLACEMENTS = [
             <Flex direction="column" style={{gap: '100px'}}>
               <Text>Position {placement}</Text>
               <Tooltip {...args} placement={placement}>
-                <Tooltip.Element>tooltip</Tooltip.Element>
+                <Tooltip.Element label="tooltip" />
                 <Tooltip.Trigger>
                   <Button>Hover me</Button>
                 </Tooltip.Trigger>
@@ -157,9 +153,7 @@ const TOOLTIP_PLACEMENTS = [
             <Flex direction="column" style={{gap: '100px'}}>
               <Text>Initial position: {placement}</Text>
               <Tooltip {...args} placement={placement}>
-                <Tooltip.Element>
-                  Here's a long tooltip Here's a long tooltip
-                </Tooltip.Element>
+                <Tooltip.Element label="Here's a long tooltip Here's a long tooltip" />
                 <Tooltip.Trigger>
                   <Button>Hover me</Button>
                 </Tooltip.Trigger>
@@ -170,9 +164,7 @@ const TOOLTIP_PLACEMENTS = [
             <Flex direction="column" style={{gap: '100px'}}>
               <Text>Initial position: {placement}</Text>
               <Tooltip {...args} placement={placement}>
-                <Tooltip.Element>
-                  Here's a long tooltip Here's a long tooltip
-                </Tooltip.Element>
+                <Tooltip.Element label="Here's a long tooltip Here's a long tooltip" />
                 <Tooltip.Trigger>
                   <Button
                     icon={<Icon color="adaptive" type="report_flag_outlined" />}
@@ -205,7 +197,7 @@ const TOOLTIP_PLACEMENTS = [
             >
               <Text>Position {placement}</Text>
               <Tooltip {...args} placement={placement}>
-                <Tooltip.Element>tooltip</Tooltip.Element>
+                <Tooltip.Element label="tooltip" />
                 <Tooltip.Trigger>
                   <Button>Hover me</Button>
                 </Tooltip.Trigger>
@@ -219,7 +211,7 @@ const TOOLTIP_PLACEMENTS = [
             >
               <Text>Position {placement}</Text>
               <Tooltip {...args} placement={placement}>
-                <Tooltip.Element>tooltip</Tooltip.Element>
+                <Tooltip.Element label="tooltip" />
                 <Tooltip.Trigger>
                   <Button>Hover me</Button>
                 </Tooltip.Trigger>
@@ -231,3 +223,35 @@ const TOOLTIP_PLACEMENTS = [
     }}
   </Story>
 </Canvas>
+
+### Sizes
+
+<Canvas>
+  <Story name="Sizes" args={{defaultOpen: true}}>
+    {args => {
+      return (
+        <Flex justifyContent="center" style={{gap: '250px'}}>
+          {['default', 'small'].map(size => (
+            <Flex direction="column" style={{gap: '60px'}}>
+              <Text>Size {size}</Text>
+              <Tooltip {...args} size={size}>
+                <Tooltip.Element label="Tooltip content" />
+                <Tooltip.Trigger>
+                  <Button
+                    icon={<Icon color="adaptive" type="report_flag_outlined" />}
+                    iconOnly
+                    variant="solid-light"
+                  >
+                    button
+                  </Button>
+                </Tooltip.Trigger>
+              </Tooltip>
+            </Flex>
+          ))}
+        </Flex>
+      );
+    }}
+  </Story>
+</Canvas>
+
+### Flip

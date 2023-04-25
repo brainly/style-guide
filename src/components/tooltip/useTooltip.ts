@@ -15,6 +15,8 @@ import {
 import type {Placement} from '@floating-ui/react';
 import {generateId} from '../utils';
 
+export type SizeType = 'default' | 'small';
+
 export type TooltipPlacement = Exclude<
   Placement,
   'left-start' | 'left-end' | 'right-start' | 'right-end'
@@ -23,6 +25,7 @@ export type TooltipPlacement = Exclude<
 interface UseTooltipPropTypes {
   placement?: TooltipPlacement;
   customId?: string;
+  size?: SizeType;
   defaultOpen?: boolean;
   controlledOpen?: boolean;
   setControlledOpen?: (arg0: boolean) => void;
@@ -31,6 +34,7 @@ interface UseTooltipPropTypes {
 const useTooltip = ({
   placement = 'top',
   customId,
+  size = 'default' as SizeType,
   defaultOpen = false,
   controlledOpen,
   setControlledOpen,
@@ -52,8 +56,8 @@ const useTooltip = ({
     whileElementsMounted: autoUpdate,
     middleware: [
       offset({
-        mainAxis: 12,
-        alignmentAxis: -8,
+        mainAxis: size === 'small' ? 6 : 10,
+        alignmentAxis: size === 'small' ? -4 : -8,
       }),
       flip({
         fallbackAxisSideDirection: 'start',
@@ -82,10 +86,11 @@ const useTooltip = ({
       setIsOpen,
       arrowRef,
       placement,
+      size,
       ...interactions,
       ...data,
     }),
-    [id, isOpen, setIsOpen, placement, interactions, data]
+    [id, isOpen, setIsOpen, placement, size, interactions, data]
   );
 };
 

@@ -2,7 +2,7 @@ import * as React from 'react';
 import TooltipElement from './TooltipElement';
 import TooltipTrigger from './TooltipTrigger';
 import {TooltipContext} from './useTooltipContext';
-import useTooltip, {TooltipPlacement} from './useTooltip';
+import useTooltip, {TooltipPlacement, SizeType} from './useTooltip';
 
 export type TooltipPropsType = {
   /**
@@ -17,11 +17,6 @@ export type TooltipPropsType = {
   children?: React.ReactNode;
 
   /**
-   * Optional string. Additional classnames.
-   */
-  className?: string | null | undefined;
-
-  /**
    * Tooltip id.
    */
   id?: string;
@@ -30,6 +25,11 @@ export type TooltipPropsType = {
    * Tooltip alignment.
    */
   placement?: TooltipPlacement;
+
+  /**
+   * Tooltip size.
+   */
+  size?: SizeType;
 
   /**
    * Set if Tooltip should be displayed by default.
@@ -45,32 +45,33 @@ export type TooltipPropsType = {
    * Only controlled component. Handle Tooltip open state change.
    */
   onOpenChange?: (arg0: boolean) => void;
-} & Omit<React.AllHTMLAttributes<HTMLElement>, 'children' | 'className'>;
+} & Omit<
+  React.AllHTMLAttributes<HTMLElement>,
+  'children' | 'className' | 'size' | 'placement'
+>;
 
 const Tooltip = ({
-  className,
   children,
-  placement = 'top',
+  placement,
   id,
+  size,
   defaultOpen = false,
   open: controlledOpen,
   onOpenChange: setControlledOpen,
-  ...props
 }: TooltipPropsType) => {
   const tooltip = useTooltip({
     placement,
     customId: id,
+    size,
     defaultOpen,
     controlledOpen,
     setControlledOpen,
   });
 
   return (
-    <span {...props} className={className} id={tooltip.id}>
-      <TooltipContext.Provider value={tooltip}>
-        {children}
-      </TooltipContext.Provider>
-    </span>
+    <TooltipContext.Provider value={tooltip}>
+      {children}
+    </TooltipContext.Provider>
   );
 };
 
