@@ -15,7 +15,7 @@ import {
 import type {Placement} from '@floating-ui/react';
 import {generateId} from '../utils';
 
-type TooltipPlacement = Exclude<
+export type TooltipPlacement = Exclude<
   Placement,
   'left-start' | 'left-end' | 'right-start' | 'right-end'
 >;

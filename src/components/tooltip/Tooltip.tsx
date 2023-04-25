@@ -2,8 +2,7 @@ import * as React from 'react';
 import TooltipElement from './TooltipElement';
 import TooltipTrigger from './TooltipTrigger';
 import {TooltipContext} from './useTooltipContext';
-import useTooltip from './useTooltip';
-import type {Placement} from '@floating-ui/react';
+import useTooltip, {TooltipPlacement} from './useTooltip';
 
 export type TooltipPropsType = {
   /**
@@ -30,7 +29,7 @@ export type TooltipPropsType = {
   /**
    * Tooltip alignment.
    */
-  placement?: Placement;
+  placement?: TooltipPlacement;
 
   /**
    * Set if Tooltip should be displayed by default.
