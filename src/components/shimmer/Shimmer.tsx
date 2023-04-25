@@ -174,7 +174,7 @@ export const Shimmer: React.FunctionComponent<ShimmerPropsType> = ({
       effectRef.current,
       KEYFRAMES_BY_DIRECTON[direction],
       {
-        duration: 12000,
+        duration: 14000,
         iterations: Infinity,
       }
     );
