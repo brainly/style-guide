@@ -5,9 +5,13 @@
     background-color: var(--tooltip-color);
     padding: 8px 12px;
     border-radius: 6px;
-    max-width: 60ch;
 
   &--small {
     padding: 2px 8px;
+  }
+
+  &__label {
+    max-width: 60ch;
+    word-break: break-all;
   }
 }

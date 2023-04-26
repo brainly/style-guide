@@ -68,7 +68,7 @@ const TooltipElement = React.forwardRef<
         }}
         {...context.getFloatingProps()}
       >
-        <Text color="text-white" size="small">
+        <Text className="sg-tooltip__label" color="text-white" size="small">
           {label}
         </Text>
         {arrow}
