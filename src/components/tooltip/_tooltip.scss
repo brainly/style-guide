@@ -1,7 +1,7 @@
 .sg-tooltip {
   --tooltip-color: var(--black);
 
-  box-shadow: $shadowSmall;
+  box-shadow: $shadowSmall !important;
   background-color: var(--tooltip-color);
   padding: 8px 12px;
   border-radius: 6px;
