@@ -3,11 +3,12 @@ import cx from 'classnames';
 import Input, {COLOR, SIZE} from '../form-elements/Input';
 import type {InputPropsType} from '../form-elements/Input';
 import Icon from '../icons/Icon';
-import Button from '../buttons/Button';
+import Button, {ButtonTypeType} from '../buttons/Button';
 
 export type SearchPropsType = {
   inputClassName?: string;
   withRoundButton?: boolean;
+  buttonType?: ButtonTypeType;
 } & Omit<
   React.AllHTMLAttributes<HTMLElement>,
   'inputClassName' | 'withRoundButton' | 'size'
@@ -46,6 +47,12 @@ const Search = ({
    * @example <Search inputClassName="sg-input--white" placeholder="Find all the answers..." />
    */
   inputClassName,
+
+  /**
+   * The default behavior of the button.
+   * @example <Search buttonType="submit" />
+   */
+  buttonType,
 
   /**
    * Additional classname for input in search, like color, which is pass directly to input
@@ -97,6 +104,7 @@ const Search = ({
           }
           iconOnly
           size={size === 'l' ? 'm' : 's'}
+          type={buttonType}
         />
       </div>
     </div>
