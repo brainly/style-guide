@@ -84,7 +84,9 @@ const useTooltip = ({
   const hover = useHover(data.context, {
     move: false,
     mouseOnly: true,
-    handleClose: safePolygon(),
+    handleClose: safePolygon({
+      blockPointerEvents: true,
+    }),
   });
   const focus = useFocus(data.context, {
     enabled: enableTooltip,
