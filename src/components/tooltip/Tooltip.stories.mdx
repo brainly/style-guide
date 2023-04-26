@@ -93,132 +93,46 @@ const TOOLTIP_PLACEMENTS = [
 ### Placement
 
 <Canvas>
-  <Story name="Placement" args={{defaultOpen: true}}>
+  <Story name="Placement">
     {args => {
-      return (
-        <Flex direction="column" alignItems="center" style={{gap: '50px'}}>
-          {TOOLTIP_PLACEMENTS.map(placement => (
-            <Flex direction="column" style={{gap: '100px'}}>
-              <Text>Position {placement}</Text>
-              <Tooltip {...args} placement={placement}>
-                <Tooltip.Element label="Here's a long tooltip Here's a long tooltip" />
-                <Tooltip.Trigger>
-                  <Button>Hover me</Button>
-                </Tooltip.Trigger>
-              </Tooltip>
-            </Flex>
-          ))}
-          {TOOLTIP_PLACEMENTS.map(placement => (
-            <Flex direction="column" style={{gap: '100px'}}>
-              <Text>Position {placement}</Text>
-              <Tooltip {...args} placement={placement}>
-                <Tooltip.Element label="Here's a long tooltip Here's a long tooltip" />
-                <Tooltip.Trigger>
-                  <Button
-                    icon={<Icon color="adaptive" type="report_flag_outlined" />}
-                    iconOnly
-                    variant="solid-light"
-                  >
-                    button
-                  </Button>
-                </Tooltip.Trigger>
-              </Tooltip>
-            </Flex>
-          ))}
-          {TOOLTIP_PLACEMENTS.map(placement => (
-            <Flex direction="column" style={{gap: '100px'}}>
-              <Text>Position {placement}</Text>
-              <Tooltip {...args} placement={placement}>
-                <Tooltip.Element label="tooltip" />
-                <Tooltip.Trigger>
-                  <Button>Hover me</Button>
-                </Tooltip.Trigger>
-              </Tooltip>
-            </Flex>
-          ))}
-        </Flex>
+      const RenderTooltip = ({placement}) => (
+        <Tooltip {...args} placement={placement}>
+          <Tooltip.Element label="Report this" />
+          <Tooltip.Trigger>
+            <Button
+              icon={<Icon color="adaptive" type="report_flag_outlined" />}
+              iconOnly
+              variant="solid-light"
+            />
+          </Tooltip.Trigger>
+        </Tooltip>
       );
-    }}
-  </Story>
-</Canvas>
-
-### Flip
-
-<Canvas>
-  <Story name="Flip" args={{defaultOpen: true}}>
-    {args => {
       return (
-        <Flex direction="column" style={{gap: '50px'}}>
-          {TOOLTIP_PLACEMENTS.map(placement => (
-            <Flex direction="column" style={{gap: '100px'}}>
-              <Text>Initial position: {placement}</Text>
-              <Tooltip {...args} placement={placement}>
-                <Tooltip.Element label="Here's a long tooltip Here's a long tooltip" />
-                <Tooltip.Trigger>
-                  <Button>Hover me</Button>
-                </Tooltip.Trigger>
-              </Tooltip>
+        <Flex justifyContent="center" style={{paddingTop: '100px'}}>
+          <Flex
+            direction="column"
+            alignItems="center"
+            style={{width: '300px', gap: '20px'}}
+          >
+            <RenderTooltip placement="top" />
+            <Flex direction="row" justifyContent="space-between" fullWidth>
+              {['top-end', 'top-start'].map(placement => (
+                <RenderTooltip placement={placement} />
+              ))}
             </Flex>
-          ))}
-          {TOOLTIP_PLACEMENTS.map(placement => (
-            <Flex direction="column" style={{gap: '100px'}}>
-              <Text>Initial position: {placement}</Text>
-              <Tooltip {...args} placement={placement}>
-                <Tooltip.Element label="Here's a long tooltip Here's a long tooltip" />
-                <Tooltip.Trigger>
-                  <Button
-                    icon={<Icon color="adaptive" type="report_flag_outlined" />}
-                    iconOnly
-                    variant="solid-light"
-                  >
-                    button
-                  </Button>
-                </Tooltip.Trigger>
-              </Tooltip>
+            <Flex direction="row" justifyContent="space-between" fullWidth>
+              {['left', 'right'].map(placement => (
+                <RenderTooltip placement={placement} />
+              ))}
             </Flex>
-          ))}
+            <Flex direction="row" justifyContent="space-between" fullWidth>
+              {['bottom-end', 'bottom-start'].map(placement => (
+                <RenderTooltip placement={placement} />
+              ))}
+            </Flex>
+            <RenderTooltip placement="bottom" />
+          </Flex>
         </Flex>
-      );
-    }}
-  </Story>
-</Canvas>
-
-### Short tooltip
-
-<Canvas>
-  <Story name="Short tooltip" args={{defaultOpen: true}}>
-    {args => {
-      return (
-        <div>
-          {['top', 'top-start', 'top-end'].map(placement => (
-            <Flex
-              direction="column"
-              style={{gap: '60px', marginBottom: '30px'}}
-            >
-              <Text>Position {placement}</Text>
-              <Tooltip {...args} placement={placement}>
-                <Tooltip.Element label="tooltip" />
-                <Tooltip.Trigger>
-                  <Button>Hover me</Button>
-                </Tooltip.Trigger>
-              </Tooltip>
-            </Flex>
-          ))}
-          {['bottom', 'bottom-start', 'bottom-end'].map(placement => (
-            <Flex
-              direction="column"
-              style={{gap: '10px', marginBottom: '90px'}}
-            >
-              <Text>Position {placement}</Text>
-              <Tooltip {...args} placement={placement}>
-                <Tooltip.Element label="tooltip" />
-                <Tooltip.Trigger>
-                  <Button>Hover me</Button>
-                </Tooltip.Trigger>
-              </Tooltip>
-            </Flex>
-          ))}
-        </div>
       );
     }}
   </Story>
