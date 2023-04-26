@@ -31,6 +31,7 @@ const TooltipElement = React.forwardRef<
     'sg-tooltip',
     {
       [`sg-tooltip--${String(context.size)}`]: context.size,
+      [`sg-tooltip--${String(context.color)}`]: context.color,
     },
     className
   );
@@ -39,6 +40,7 @@ const TooltipElement = React.forwardRef<
     context.size === 'small' ? (
       <FloatingArrow
         ref={context.arrowRef}
+        className="sg-tooltip__arrow"
         context={context.context}
         width={12}
         height={12}
@@ -47,6 +49,7 @@ const TooltipElement = React.forwardRef<
     ) : (
       <FloatingArrow
         ref={context.arrowRef}
+        className="sg-tooltip__arrow"
         context={context.context}
         width={24}
         height={24}
@@ -68,7 +71,11 @@ const TooltipElement = React.forwardRef<
         }}
         {...context.getFloatingProps()}
       >
-        <Text className="sg-tooltip__label" color="text-white" size="small">
+        <Text
+          className="sg-tooltip__label"
+          color={context.color === 'dark' ? 'text-white' : 'text-black'}
+          size="small"
+        >
           {label}
         </Text>
         {arrow}

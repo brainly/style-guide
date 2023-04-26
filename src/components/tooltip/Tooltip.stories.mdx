@@ -296,3 +296,33 @@ const TOOLTIP_PLACEMENTS = [
     }}
   </Story>
 </Canvas>
+
+### Color
+
+<Canvas>
+  <Story name="Color" args={{defaultOpen: true}}>
+    {args => {
+      return (
+        <Flex justifyContent="center" style={{gap: '200px'}}>
+          {['dark', 'light'].map(color => (
+            <Flex direction="column" alignItems="center" style={{gap: '60px'}}>
+              <Text>Color {color}</Text>
+              <Tooltip {...args} color={color}>
+                <Tooltip.Element label="Tooltip content" />
+                <Tooltip.Trigger>
+                  <Button
+                    icon={<Icon color="adaptive" type="report_flag_outlined" />}
+                    iconOnly
+                    variant="solid-light"
+                  >
+                    button
+                  </Button>
+                </Tooltip.Trigger>
+              </Tooltip>
+            </Flex>
+          ))}
+        </Flex>
+      );
+    }}
+  </Story>
+</Canvas>

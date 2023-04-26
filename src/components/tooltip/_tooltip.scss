@@ -1,17 +1,26 @@
 .sg-tooltip {
-    --tooltip-color: var(--black);
+  --tooltip-color: var(--black);
 
-    box-shadow: $shadowSmall;
-    background-color: var(--tooltip-color);
-    padding: 8px 12px;
-    border-radius: 6px;
+  box-shadow: $shadowSmall;
+  background-color: var(--tooltip-color);
+  padding: 8px 12px;
+  border-radius: 6px;
 
   &--small {
     padding: 2px 8px;
   }
 
+  &--light {
+    --tooltip-color: var(--white);
+  }
+
   &__label {
     max-width: 60ch;
     word-break: break-all;
+  }
+
+  &__arrow {
+    fill: var(--tooltip-color);
+    filter: drop-shadow(2px 0 8px rgba($gray-70, 0.2));
   }
 }

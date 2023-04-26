@@ -17,6 +17,8 @@ import {generateId, isTouchScreen} from '../utils';
 
 export type SizeType = 'default' | 'small';
 
+export type ColorType = 'dark' | 'light';
+
 export type TooltipPlacement = Exclude<
   Placement,
   'left-start' | 'left-end' | 'right-start' | 'right-end'
@@ -26,6 +28,7 @@ interface UseTooltipPropTypes {
   placement?: TooltipPlacement;
   customId?: string;
   size?: SizeType;
+  color?: ColorType;
   defaultOpen?: boolean;
   controlledOpen?: boolean;
   setControlledOpen?: (arg0: boolean) => void;
@@ -35,6 +38,7 @@ const useTooltip = ({
   placement = 'top',
   customId,
   size = 'default' as SizeType,
+  color = 'dark' as ColorType,
   defaultOpen = false,
   controlledOpen,
   setControlledOpen,
@@ -95,10 +99,11 @@ const useTooltip = ({
       arrowRef,
       placement,
       size,
+      color,
       ...interactions,
       ...data,
     }),
-    [id, isOpen, setIsOpen, placement, size, interactions, data]
+    [id, isOpen, setIsOpen, placement, size, color, interactions, data]
   );
 };
 

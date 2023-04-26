@@ -2,7 +2,7 @@ import * as React from 'react';
 import TooltipElement from './TooltipElement';
 import TooltipTrigger from './TooltipTrigger';
 import {TooltipContext} from './useTooltipContext';
-import useTooltip, {TooltipPlacement, SizeType} from './useTooltip';
+import useTooltip, {TooltipPlacement, SizeType, ColorType} from './useTooltip';
 
 export type TooltipPropsType = {
   /**
@@ -32,6 +32,12 @@ export type TooltipPropsType = {
   size?: SizeType;
 
   /**
+   * Specify color variant of the Tooltip.
+   * @example <Tooltip color="dark">...</Tooltip>
+   */
+  color?: ColorType;
+
+  /**
    * Set if Tooltip should be displayed by default.
    */
   defaultOpen?: boolean;
@@ -55,6 +61,7 @@ const Tooltip = ({
   placement,
   id,
   size,
+  color,
   defaultOpen = false,
   open: controlledOpen,
   onOpenChange: setControlledOpen,
@@ -63,6 +70,7 @@ const Tooltip = ({
     placement,
     customId: id,
     size,
+    color,
     defaultOpen,
     controlledOpen,
     setControlledOpen,
