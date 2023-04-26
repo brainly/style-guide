@@ -25,8 +25,6 @@ const TooltipElement = React.forwardRef<
   const context = useTooltipContext();
   const elementRef = useMergeRefs([context.refs.setFloating, ref]);
 
-  if (!context.isOpen) return null;
-
   const tooltipClass = classNames(
     'sg-tooltip',
     {
@@ -58,29 +56,33 @@ const TooltipElement = React.forwardRef<
     );
 
   return (
-    <FloatingPortal>
-      <div
-        ref={elementRef}
-        className={tooltipClass}
-        data-tooltip-id={context.id}
-        style={{
-          position: context.strategy,
-          top: context.y ?? 0,
-          left: context.x ?? 0,
-          ...props.style,
-        }}
-        {...context.getFloatingProps()}
-      >
-        <Text
-          className="sg-tooltip__label"
-          color={context.color === 'dark' ? 'text-white' : 'text-black'}
-          size="small"
+    context.isMounted && (
+      <FloatingPortal>
+        <div
+          ref={elementRef}
+          className={tooltipClass}
+          data-tooltip-id={context.id}
+          data-placement={context.floatingPlacement}
+          data-status={context.status}
+          style={{
+            position: context.strategy,
+            top: context.y ?? 0,
+            left: context.x ?? 0,
+            ...props.style,
+          }}
+          {...context.getFloatingProps()}
         >
-          {label}
-        </Text>
-        {arrow}
-      </div>
-    </FloatingPortal>
+          <Text
+            className="sg-tooltip__label"
+            color={context.color === 'dark' ? 'text-white' : 'text-black'}
+            size="small"
+          >
+            {label}
+          </Text>
+          {arrow}
+        </div>
+      </FloatingPortal>
+    )
   );
 });
 

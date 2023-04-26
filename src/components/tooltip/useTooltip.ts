@@ -12,6 +12,7 @@ import {
   autoUpdate,
   shift,
   safePolygon,
+  useTransitionStatus,
 } from '@floating-ui/react';
 import type {Placement} from '@floating-ui/react';
 import {generateId, isTouchScreen} from '../utils';
@@ -95,6 +96,13 @@ const useTooltip = ({
   const role = useRole(data.context, {role: 'tooltip'});
   const interactions = useInteractions([hover, focus, role, dismiss]);
 
+  const {isMounted, status} = useTransitionStatus(data.context, {
+    duration: {
+      open: 260,
+      close: 180,
+    },
+  });
+
   return React.useMemo(
     () => ({
       id,
@@ -104,10 +112,24 @@ const useTooltip = ({
       placement,
       size,
       color,
+      isMounted,
+      status,
+      floatingPlacement: data.placement,
       ...interactions,
       ...data,
     }),
-    [id, isOpen, setIsOpen, placement, size, color, interactions, data]
+    [
+      id,
+      isOpen,
+      setIsOpen,
+      placement,
+      size,
+      color,
+      isMounted,
+      status,
+      data,
+      interactions,
+    ]
   );
 };
 

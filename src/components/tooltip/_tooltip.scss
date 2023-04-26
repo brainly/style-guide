@@ -6,6 +6,52 @@
   padding: 8px 12px;
   border-radius: 6px;
 
+  transition: opacity $durationQuick2 $easingLinear,
+    transform $durationModerate2 $easingEntry;
+
+  @mixin initial-state() {
+    opacity: 0;
+
+    &[data-placement^='top'] {
+      transform: translateY(8px);
+    }
+
+    &[data-placement^='bottom'] {
+      transform: translateY(-8px);
+    }
+
+    &[data-placement^='left'] {
+      transform: translateX(8px);
+    }
+
+    &[data-placement^='right'] {
+      transform: translateX(-8px);
+    }
+  }
+
+  @include initial-state();
+
+  &[data-status='open'] {
+    opacity: 1;
+
+    &[data-placement^='top'],
+    &[data-placement^='bottom'] {
+      transform: translateY(0);
+    }
+
+    &[data-placement^='left'],
+    &[data-placement^='right'] {
+      transform: translateX(0);
+    }
+  }
+
+  &[data-status='close'] {
+    transition-duration: $durationQuick2, $durationModerate1;
+    transition-delay: 0.06s, 0;
+
+    @include initial-state();
+  }
+
   &--small {
     padding: 2px 8px;
   }
