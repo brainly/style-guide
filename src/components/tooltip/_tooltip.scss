@@ -47,6 +47,7 @@
 
   &[data-status='close'] {
     transition-duration: $durationQuick2, $durationModerate1;
+    transition-timing-function: $easingLinear, $easingExit;
     transition-delay: 0.06s, 0;
 
     @include initial-state();
