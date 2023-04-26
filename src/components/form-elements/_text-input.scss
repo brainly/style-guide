@@ -73,7 +73,7 @@ $includeHtml: false !default;
     }
 
     &--valid {
-      :not([disabled]) {
+      &:not([disabled]) {
         border: 2px solid $formElementValidColor;
         color: $black;
         font-weight: normal;

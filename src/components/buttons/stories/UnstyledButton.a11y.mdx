@@ -1,0 +1,33 @@
+import {unstyledButtonRules} from './rules.a11y';
+
+### Rules
+
+<AccessibilityList rules={unstyledButtonRules} />
+
+<InfoBox>
+  UnstyledButton can be used as a functional wrapper for any interactive
+  component that triggers an <code>onClick</code> action.
+</InfoBox>
+
+<InfoBox type="warning">
+  Custom styling should follow accessible styling & color contrast requirements.
+</InfoBox>
+
+### Usage
+
+#### Code examples
+
+- as a Box wrapper
+
+```jsx
+<UnstyledButton onClick={onClick}>
+  <Box>
+    <Headline size="medium" align="center" extraBold>
+      Expert answer in 15 min
+    </Headline>
+    <Text size="small" align="center">
+      Get quick Math expert help from $2/month
+    </Text>
+  </Box>
+</UnstyledButton>
+```

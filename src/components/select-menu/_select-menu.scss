@@ -196,7 +196,7 @@
     }
 
     &__popup {
-      border-radius: 16px;
+      border-radius: var(--border-radius-m);
       box-shadow: $shadowLarge !important;
       overflow: hidden;
       display: inline-flex;
@@ -271,7 +271,7 @@
       flex-direction: row;
       align-items: center;
       justify-content: space-between;
-      border-radius: $borderRadiusDefault;
+      border-radius: var(--border-radius-xs);
       cursor: default;
       transition: background-color $durationModerate1 $easingLinear,
         transform $durationModerate2 $easingRegular;

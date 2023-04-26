@@ -1,0 +1,93 @@
+import {ArgsTable, Meta, Story, Canvas} from '@storybook/addon-docs';
+import UnstyledButton from './UnstyledButton';
+import {styled} from '@storybook/theming';
+import Headline from '../text/Headline';
+import Label from '../labels/Label';
+import PageHeader from 'blocks/PageHeader';
+import UnstyledButtonA11y from './stories/UnstyledButton.a11y.mdx';
+
+<Meta title="Components/UnstyledButton" component={UnstyledButton} />
+
+<PageHeader>UnstyledButton</PageHeader>
+
+- [Stories](#stories)
+- [Accessibility](#accessibility)
+
+## Overview
+
+<Canvas>
+  <Story name="Default">
+    {args => (
+      <UnstyledButton {...args}>
+        I am an unstyled, interactive button
+      </UnstyledButton>
+    )}
+  </Story>
+</Canvas>
+
+<ArgsTable story="Default" />
+
+## Stories
+
+### Interactive box
+
+<Canvas>
+  <Story name="Interactive box">
+    {args => {
+      const Box = styled(UnstyledButton)({
+        position: 'relative',
+        borderRadius: '8px',
+        border: '2px solid var(--gray-40)',
+        margin: '24px',
+        width: '400px',
+        padding: '16px',
+        '&:hover': {
+          borderColor: 'var(--gray-50)',
+        },
+      });
+      const Badge = styled.div`
+        position: absolute;
+        bottom: 100%;
+        right: 18px;
+        line-height: 18px;
+        padding: 0 8px;
+        background-color: var(--yellow-40);
+        transform: translate3d(0, 50%, 0);
+        border-radius: var(--border-radius-xs);
+        color: var(--white);
+        font-weight: bold;
+      `;
+      return (
+        <Box {...args}>
+          <Badge>new feature</Badge>
+          <Headline size="medium" align="center" extraBold>
+            Expert answer in 15 min
+          </Headline>
+          <Text size="small" align="center">
+            Get quick Math expert help from $2/month
+          </Text>
+        </Box>
+      );
+    }}
+  </Story>
+</Canvas>
+
+### User Profile Badge
+
+<Canvas>
+  <Story name="User Profile Badge">
+    {args => {
+      return (
+        <UnstyledButton>
+          <Label color="indigo" iconType="shield" style={{cursor: 'inherit'}}>
+            Profile
+          </Label>
+        </UnstyledButton>
+      );
+    }}
+  </Story>
+</Canvas>
+
+## Accessibility
+
+<UnstyledButtonA11y />

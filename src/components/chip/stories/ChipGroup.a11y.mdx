@@ -1,0 +1,66 @@
+import {
+  groupRules,
+  singleSelectGroupRules,
+  multiSelectGroupRules,
+} from './rules.a11y';
+
+### Rules
+
+<AccessibilityList rules={groupRules} />
+
+#### Single select
+
+<AccessibilityList rules={singleSelectGroupRules} />
+
+#### Multi select
+
+<AccessibilityList rules={multiSelectGroupRules} />
+
+### Usage
+
+#### Code examples
+
+- with an accessible label
+
+<!-- prettier-ignore -->
+```jsx
+<ChipGroup name="subjects" aria-label="Your favorite subject">
+  <Chip>Physics</Chip>
+  <Chip>Math</Chip>
+  <Chip>Biology</Chip>
+</ChipGroup>
+```
+
+- with an accessible description
+
+<!-- prettier-ignore -->
+```jsx
+<ChipGroup name="subjects" aria-describedby="desc">
+  <Chip>Physics</Chip>
+  <Chip>Math</Chip>
+  <Chip>Biology</Chip>
+</ChipGroup>
+<div id="desc">Choose 2</div>
+```
+
+- with `onChange`
+
+<!-- prettier-ignore -->
+```jsx
+<ChipGroup name="subjects" onChange={onChipChange}>
+  <Chip>Physics</Chip>
+  <Chip>Math</Chip>
+  <Chip>Biology</Chip>
+</ChipGroup>
+```
+
+- multiSelect
+
+<!-- prettier-ignore -->
+```jsx
+<ChipGroup name="subjects" multiSelect>
+  <Chip>Physics</Chip>
+  <Chip>Math</Chip>
+  <Chip>Biology</Chip>
+</ChipGroup>
+```
