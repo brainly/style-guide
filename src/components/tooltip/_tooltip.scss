@@ -15,8 +15,9 @@
   }
 
   &__label {
-    max-width: 60ch;
-    word-break: break-all;
+    max-width: 50ch;
+    word-break: normal;
+    overflow-wrap: anywhere;
   }
 
   &__arrow {
