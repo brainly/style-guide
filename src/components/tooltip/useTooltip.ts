@@ -11,6 +11,7 @@ import {
   arrow,
   autoUpdate,
   shift,
+  safePolygon,
 } from '@floating-ui/react';
 import type {Placement} from '@floating-ui/react';
 import {generateId, isTouchScreen} from '../utils';
@@ -82,7 +83,8 @@ const useTooltip = ({
 
   const hover = useHover(data.context, {
     move: false,
-    enabled: enableTooltip,
+    mouseOnly: true,
+    handleClose: safePolygon(),
   });
   const focus = useFocus(data.context, {
     enabled: enableTooltip,
