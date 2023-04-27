@@ -8,6 +8,7 @@ import Flex from '../flex/Flex';
 import Checkbox from '../form-elements/checkbox/Checkbox';
 import Radio from '../form-elements/radio/Radio';
 import Icon from '../icons/Icon';
+import Counter from '../counters/Counter';
 import Tooltip from './Tooltip';
 const TOOLTIP_PLACEMENTS = [
   'top',
@@ -74,14 +75,28 @@ const TOOLTIP_PLACEMENTS = [
             <RenderTooltip trigger={<Checkbox>Hover me</Checkbox>} />
           </div>
           <div>
-            <Text>Button tag:</Text>
+            <Text>{`<button>`} tag:</Text>
             <RenderTooltip
               trigger={<button>Hover me to trigger the tooltip</button>}
             />
           </div>
           <div>
-            <Text>p tag:</Text>
+            <Text>{`<p>`} tag:</Text>
             <RenderTooltip trigger={<p>Hover me to trigger the tooltip</p>} />
+          </div>
+          <div>
+            <Text>Counter component:</Text>
+            <RenderTooltip
+              trigger={
+                <Counter icon="points" size="xs">
+                  +15
+                  <Text as="span" color="text-gray-60" inherited>
+                    {' '}
+                    pts{' '}
+                  </Text>
+                </Counter>
+              }
+            />
           </div>
           <div style={{width: '300px'}}>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
