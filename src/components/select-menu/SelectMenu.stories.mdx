@@ -70,6 +70,24 @@ const Container = (Story, options) => {
 
 <PageHeader>SelectMenu</PageHeader>
 
+- [Stories](#stories)
+- [Accessibility](#accessibility)
+
+## Overview
+
+<Canvas>
+  <Story
+    name="Default"
+    parameters={{
+      chromatic: {disableSnapshot: true},
+    }}
+  >
+    {args => <SelectMenu {...args} />}
+  </Story>
+</Canvas>
+
+<ArgsTable story="Default" />
+
 This component is a controlled component, so you have to handle selecting options.
 
 ```jsx
@@ -88,24 +106,6 @@ return (
   />
 );
 ```
-
-- [Stories](#stories)
-- [Accessibility](#accessibility)
-
-## Overview
-
-<Canvas>
-  <Story
-    name="Default"
-    parameters={{
-      chromatic: {disableSnapshot: true},
-    }}
-  >
-    {args => <SelectMenu {...args} />}
-  </Story>
-</Canvas>
-
-<ArgsTable story="Default" />
 
 ## Stories
 
