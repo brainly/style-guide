@@ -40,13 +40,11 @@
         & .sg-chip__line {
           transform: rotate(45deg);
           &--horizontal {
-            transform-origin: 3px 8.5px;
             stroke-dasharray: 4.27 20;
           }
 
           &--vertical {
             stroke-dasharray: 8.5 20;
-            transform-origin: 8.5px 10.5px;
           }
         }
       }
@@ -127,6 +125,14 @@
     transition: $durationModerate2 $easingRegular;
     stroke-dasharray: 9 20;
     color: var(--black);
+
+    &--horizontal {
+      transform-origin: 3px 8.5px;
+    }
+
+    &--vertical {
+      transform-origin: 8.5px 10.5px;
+    }
   }
 
   &--m {
