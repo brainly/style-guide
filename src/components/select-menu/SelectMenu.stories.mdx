@@ -82,13 +82,27 @@ const Container = (Story, options) => {
       chromatic: {disableSnapshot: true},
     }}
   >
-    {args => <SelectMenu {...args} />}
+    {args => {
+      const [selectedOptions, setSelectedOptions] = React.useState([]);
+      return (
+        <div style={{width: '200px'}}>
+          <SelectMenu
+            {...args}
+            selectedOptions={selectedOptions}
+            onOptionChange={option => {
+              setSelectedOptions([option]);
+            }}
+          />
+        </div>
+      );
+    }}
   </Story>
 </Canvas>
 
 <ArgsTable story="Default" />
 
-This component is a controlled component, so you have to handle selecting options.
+Note: This component is a controlled component, so you have to handle selecting options.
+Example:
 
 ```jsx
 const [selectedOptions, setSelectedOptions] = React.useState([]);
