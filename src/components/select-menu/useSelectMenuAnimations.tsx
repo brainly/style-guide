@@ -11,30 +11,10 @@ type UseSelectMenuAnimationsPropsType = {
 
 const MIN_POPUP_WIDTH = 120;
 const ANIMATE_CLASSNAME = 'sg-animate-on-transforms';
+const EXIT_STATE_CLASSNAME = 'exit-state';
 const SCROLL_HIDE_CLASSNAME = 'hide-scroll';
 const OPEN_CLASSNAME = 'open';
 const MINIMAL_POPUP_TO_INPUT_RATIO = 0.7;
-
-/**
- * Move floating container by 8px from the initial top position.
- */
-const resetFloatingContainerTopPosition = (
-  floatingContainerElement,
-  originalElementRef
-) => {
-  let transformTopAmount = -8;
-  const placement = floatingContainerElement.getAttribute('data-placement');
-
-  if (placement.includes('top')) {
-    transformTopAmount = 8;
-  }
-
-  if (!originalElementRef.current) return;
-
-  floatingContainerElement.style.top = `${
-    originalElementRef.current.top + transformTopAmount
-  }px`;
-};
 
 const useSelectMenuAnimations = (props: UseSelectMenuAnimationsPropsType) => {
   const {
@@ -60,18 +40,15 @@ const useSelectMenuAnimations = (props: UseSelectMenuAnimationsPropsType) => {
       popupContentClassName
     )[0] as HTMLDivElement;
 
-    popupContainer.classList.add('exit-animation');
+    popupContainer.style.opacity = `0`;
     popupContainer.style.height = `0px`;
     if (selectRef.current)
       popupContainer.style.width = `${selectRef.current.width}px`;
-    popupContainer.style.opacity = `0`;
     popupContent.classList.add(SCROLL_HIDE_CLASSNAME);
 
+    popupContainer.classList.add(EXIT_STATE_CLASSNAME);
+    floatingContainer.classList.add(EXIT_STATE_CLASSNAME);
     requestAnimationFrame(() => {
-      popupContainer.classList.add(ANIMATE_CLASSNAME);
-      floatingContainer.classList.add(ANIMATE_CLASSNAME);
-
-      resetFloatingContainerTopPosition(floatingContainer, initialElementRef);
       if (callback) callback();
     });
   };
@@ -98,8 +75,7 @@ const useSelectMenuAnimations = (props: UseSelectMenuAnimationsPropsType) => {
       )[0] as HTMLDivElement;
 
       // Register desired position
-      if (!initialElementRef.current)
-        initialElementRef.current = floatingContainer.getBoundingClientRect();
+      initialElementRef.current = floatingContainer.getBoundingClientRect();
       selectRef.current = selectElement.getBoundingClientRect();
       const initialContainerSize = initialElementRef.current;
       const selectElementSize = selectRef.current;
@@ -108,30 +84,25 @@ const useSelectMenuAnimations = (props: UseSelectMenuAnimationsPropsType) => {
       popupContent.style.height = `${initialContainerSize.height}px`;
       popupContent.classList.add(SCROLL_HIDE_CLASSNAME);
 
-      if (!hasReduceMotion) {
-        // Reset the popup height to the pre-appear position
-        popupContainer.style.height = `0`;
-        popupContainer.style.opacity = `0`;
+      // Popup width at the start of animation
+      // should be the same as element select width
+      popupContainer.style.width = `${selectElementSize.width}px`;
 
-        // Popup width at the start of animation
-        // should be the same as element select width
-        popupContainer.style.width = `${selectElementSize.width}px`;
+      popupContainer.style.height = `0px`;
 
-        resetFloatingContainerTopPosition(floatingContainer, initialElementRef);
-      }
+      // Reset the popup and container to the pre-appear position
+      floatingContainer.classList.add(EXIT_STATE_CLASSNAME);
+      popupContainer.classList.add(EXIT_STATE_CLASSNAME);
 
       // Wait for the next frame so we
       // know all the style changes have
       // taken hold.
       requestAnimationFrame(() => {
-        if (!hasReduceMotion) {
-          popupContainer.classList.add(ANIMATE_CLASSNAME);
-          floatingContainer.classList.add(ANIMATE_CLASSNAME);
-        }
-
+        floatingContainer.classList.remove(EXIT_STATE_CLASSNAME);
+        popupContainer.classList.remove(EXIT_STATE_CLASSNAME);
         floatingContainer.classList.add(OPEN_CLASSNAME);
-
-        popupContainer.style.opacity = `1`;
+        popupContainer.classList.add(ANIMATE_CLASSNAME);
+        floatingContainer.classList.add(ANIMATE_CLASSNAME);
 
         popupContainer.style.height = `${initialContainerSize.height}px`;
         const popupWidth: number = Math.max(
@@ -143,8 +114,6 @@ const useSelectMenuAnimations = (props: UseSelectMenuAnimationsPropsType) => {
         popupContainer.style.width = `${popupWidth}px`;
         popupContent.style.width = `${popupWidth}px`;
 
-        // Animate the floating container position back to it's initial state
-        floatingContainer.style.top = `${initialContainerSize.top}px`;
         // Ensure manipulating popup height doesn't affect the floating container
         floatingContainer.style.height = `${initialContainerSize.height}px`;
         floatingContainer.style.width = `${Math.max(

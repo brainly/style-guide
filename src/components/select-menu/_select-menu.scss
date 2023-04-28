@@ -173,17 +173,16 @@
 
     &__options-floating-container {
       overflow: auto;
+      transition: transform $durationGentle1 Cubic-Bezier(0.35, 0, 0.2, 1);
+      transform: translateY(-8px);
 
-      &.open {
-        overflow: visible;
-      }
-
-      &.sg-animate-on-transforms {
-        transition: top $durationGentle1 Cubic-Bezier(0.35, 0, 0.2, 1);
+      @media (prefers-reduced-motion) {
+        transition-duration: 0s;
       }
 
       &[data-placement^='top'] {
         transform-origin: bottom left;
+        transform: translateY(8px);
       }
 
       &[data-placement^='top-end'] {
@@ -192,6 +191,22 @@
 
       &[data-placement^='bottom-end'] {
         transform-origin: top right;
+      }
+
+      &.open {
+        overflow: visible;
+      }
+
+      &.sg-animate-on-transforms {
+        transform: translateY(0);
+      }
+
+      &.exit-state {
+        transform: translateY(-8px);
+
+        &[data-placement^='top'] {
+          transform: translateY(8px);
+        }
       }
     }
 
@@ -208,6 +223,7 @@
       display: flex;
       flex-direction: column;
       flex: 1 0 auto;
+      opacity: 0;
 
       @media (forced-colors: active) {
         border: 2px solid FieldText;
@@ -216,20 +232,31 @@
       }
     }
 
-    &__popup.sg-animate-on-transforms {
-      opacity: 1;
+    &__popup {
       transition: height $durationGentle1 $easingRegular,
         width $durationGentle1 $easingRegular,
         opacity $durationQuick1 $easingLinear;
-      position: absolute;
 
-      transform-origin: top left;
+      @media (prefers-reduced-motion) {
+        transition-duration: 0s;
+      }
 
-      &.exit-animation {
-        transition-delay: 0, 0, 0.07s;
+      &.exit-state {
+        transition-delay: 0s, 0s, 7ms;
         transition-duration: $durationGentle1, $durationGentle1,
           $durationModerate1;
+        opacity: 0;
+
+        @media (prefers-reduced-motion) {
+          transition-duration: 0s;
+        }
       }
+    }
+
+    &__popup.sg-animate-on-transforms {
+      position: absolute;
+      transform-origin: top left;
+      opacity: 1;
 
       &[data-placement^='top'] {
         bottom: 0;
