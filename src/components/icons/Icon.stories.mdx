@@ -179,25 +179,29 @@ import {formatTags} from '../../docs/utils';
               ) : null
             )}
           </Flex>
-          <Headline
-            extraBold
-            transform="uppercase"
-            as="span"
-            color="text-gray-40"
-            size="medium"
-            style={{marginBottom: 10, marginLeft: 10, marginTop: 40}}
-          >
-            misc icons
-          </Headline>
-          <Flex wrap>
-            {groups['Misc'].map(type =>
-              type ? (
-                <div className="sg-icon-story-variant" key={type}>
-                  <Icon key={type} {...args} type={type} />
-                </div>
-              ) : null
-            )}
-          </Flex>
+          {groups['Misc'] ? (
+            <>
+              <Headline
+                extraBold
+                transform="uppercase"
+                as="span"
+                color="text-gray-40"
+                size="medium"
+                style={{marginBottom: 10, marginLeft: 10, marginTop: 40}}
+              >
+                misc icons
+              </Headline>
+              <Flex wrap>
+                {groups['Misc'].map(type =>
+                  type ? (
+                    <div className="sg-icon-story-variant" key={type}>
+                      <Icon key={type} {...args} type={type} />
+                    </div>
+                  ) : null
+                )}
+              </Flex>
+            </>
+          ) : null}
         </div>
       );
     }}
