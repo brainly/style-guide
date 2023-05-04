@@ -40,6 +40,9 @@ export const parameters = {
       InfoBox,
       AccessibilityList,
     },
+    source: {
+      excludeDecorators: true,
+    },
   },
   controls: {hideNoControlsWarning: true},
   options: {
