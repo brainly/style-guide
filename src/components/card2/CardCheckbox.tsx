@@ -220,7 +220,7 @@ const CardCheckbox = ({
         <label
           id={`label-${cardId}`}
           htmlFor={cardId}
-          className="sg-card-new__label"
+          className="sg-card-new__background"
           onMouseEnter={handleMouseEnter}
           onMouseLeave={handleMouseLeave}
           // On iOS the :active pseudo state is triggered only when there is a touch event set on the HTML element
