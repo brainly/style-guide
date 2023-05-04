@@ -4,6 +4,7 @@ import {
   useRef,
   useMemo, // eslint-disable-next-line import/no-duplicates
 } from 'react';
+import {usePrevious} from '../../utils/usePrevious';
 import classNames from 'classnames';
 import Text from '../../text/Text';
 import generateRandomString from '../../../js/generateRandomString';
@@ -182,6 +183,8 @@ const Radio = ({
           radioGroupContext.selectedValue === value;
   }
 
+  const prevChecked = usePrevious(isChecked);
+
   const colorName = radioGroupContext.color || color;
   const isDisabled =
     disabled !== undefined ? disabled : radioGroupContext.disabled;
@@ -208,6 +211,13 @@ const Radio = ({
   });
   const labelId = ariaLabelledBy || `${radioId}-label`;
   const isInvalid = invalid !== undefined ? invalid : radioGroupContext.invalid;
+
+  React.useEffect(() => {
+    console.log('-----', {isControlled, isChecked, checked, isPristine});
+    if (isControlled && prevChecked !== isChecked) {
+      if (isPristine) setIsPristine(false);
+    }
+  }, [prevChecked, isControlled, isChecked, isPristine]);
 
   const onInputChange = e => {
     if (isWithinRadioGroup) {
