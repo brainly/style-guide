@@ -268,4 +268,6 @@ export const CardCheckboxIndicator = ({
   );
 };
 
+CardCheckbox.Indicator = CardCheckboxIndicator;
+
 export default CardCheckbox;

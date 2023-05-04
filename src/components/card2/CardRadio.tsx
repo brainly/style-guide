@@ -258,4 +258,6 @@ export const CardRadioIndicator = ({
   );
 };
 
+CardRadio.Indicator = CardRadioIndicator;
+
 export default CardRadio;

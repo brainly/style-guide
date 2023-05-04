@@ -1,14 +1,13 @@
 import {ArgsTable, Meta, Story, Canvas} from '@storybook/addon-docs';
-import {StoryVariant} from '../../docs/utils';
 import PageHeader from 'blocks/PageHeader';
 
-import Card from './Card';
+import CardButton from './CardButton';
 import Flex from '../flex/Flex';
 import Text from '../text/Text';
 
-<Meta title="Components/Card2/Button" component={Card.Button} />
+<Meta title="Components/CardButton" component={CardButton} />
 
-<PageHeader>Card</PageHeader>
+<PageHeader>CardButton</PageHeader>
 
 - [Stories](#stories)
 - [Accessibility](#accessibility)
@@ -18,13 +17,13 @@ import Text from '../text/Text';
 <Canvas>
   <Story name="Default">
     {args => (
-      <Card.Button {...args} width="150px" height="150px">
+      <CardButton {...args} width="150px" height="150px">
         <Flex justifyContent="center" alignItems="center" fullHeight>
           <Text color="text-gray-50" size="xsmall" weight="bold">
             Button Card
           </Text>
         </Flex>
-      </Card.Button>
+      </CardButton>
     )}
   </Story>
 </Canvas>

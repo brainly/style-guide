@@ -1,7 +1,5 @@
-import Button from './CardButton';
-import Radio, {CardRadioIndicator as RadioIndicator} from './CardRadio';
-import Checkbox, {
-  CardCheckboxIndicator as CheckboxIndicator,
-} from './CardCheckbox';
+import CardButton from './CardButton';
+import CardRadio from './CardRadio';
+import CardCheckbox from './CardCheckbox';
 
-export default {Button, Radio, RadioIndicator, Checkbox, CheckboxIndicator};
+export {CardButton, CardRadio, CardCheckbox};

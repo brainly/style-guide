@@ -7,11 +7,11 @@ import Flex from '../flex/Flex';
 import Text from '../text/Text';
 import SubjectIcon from '../subject-icons/SubjectIcon';
 
-import Card from './Card';
+import CardCheckbox from './CardCheckbox';
 
-<Meta title="Components/Card2/Checkbox" component={Card.Checkbox} />
+<Meta title="Components/CardCheckbox" component={CardCheckbox} />
 
-<PageHeader>Card.Checkbox</PageHeader>
+<PageHeader>CardCheckbox</PageHeader>
 
 - [Stories](#stories)
 - [Accessibility](#accessibility)
@@ -40,14 +40,14 @@ import Card from './Card';
     }}
   >
     {args => (
-      <Card.Checkbox {...args} width="150px" height="150px">
-        <Card.CheckboxIndicator slot="top-left" />
+      <CardCheckbox {...args} width="150px" height="150px">
+        <CardCheckbox.Indicator slot="top-left" />
         <Flex justifyContent="center" alignItems="center" fullHeight>
           <Text color="text-gray-50" size="xsmall" weight="bold">
             Placeholder
           </Text>
         </Flex>
-      </Card.Checkbox>
+      </CardCheckbox>
     )}
   </Story>
 </Canvas>
@@ -82,20 +82,20 @@ import Card from './Card';
   >
     {args => (
       <>
-        <Card.Checkbox
+        <CardCheckbox
           {...args}
           width="150px"
           height="150px"
           defaultChecked={true}
         >
-          <Card.CheckboxIndicator slot="top-left" />
+          <CardCheckbox.Indicator slot="top-left" />
           <Flex justifyContent="center" alignItems="center" fullHeight>
             <Text color="text-gray-50" size="xsmall" weight="bold">
               Placeholder
             </Text>
           </Flex>
-        </Card.Checkbox>
-        <Card.Checkbox
+        </CardCheckbox>
+        <CardCheckbox
           {...args}
           width="150px"
           height="150px"
@@ -107,7 +107,7 @@ import Card from './Card';
             '--card-border-color-hover': 'rgba(255,255,255,0.8)',
           }}
         >
-          <Card.CheckboxIndicator slot="top-left" />
+          <CardCheckbox.Indicator slot="top-left" />
           <Flex
             justifyContent="center"
             alignItems="center"
@@ -120,7 +120,7 @@ import Card from './Card';
               Geometry
             </Text>
           </Flex>
-        </Card.Checkbox>
+        </CardCheckbox>
       </>
     )}
   </Story>
@@ -149,27 +149,27 @@ import Card from './Card';
   >
     {args => (
       <>
-        <Card.Checkbox
+        <CardCheckbox
           {...args}
           width="150px"
           height="150px"
           defaultChecked={true}
         >
-          <Card.CheckboxIndicator slot="top-left" />
+          <CardCheckbox.Indicator slot="top-left" />
           <Flex justifyContent="center" alignItems="center" fullHeight>
             <Text color="text-gray-50" size="xsmall" weight="bold">
               Placeholder
             </Text>
           </Flex>
-        </Card.Checkbox>
-        <Card.Checkbox
+        </CardCheckbox>
+        <CardCheckbox
           {...args}
           variant="outline"
           width="150px"
           height="150px"
           defaultChecked={true}
         >
-          <Card.CheckboxIndicator slot="top-left" />
+          <CardCheckbox.Indicator slot="top-left" />
           <Flex
             justifyContent="center"
             alignItems="center"
@@ -182,7 +182,7 @@ import Card from './Card';
               Geometry
             </Text>
           </Flex>
-        </Card.Checkbox>
+        </CardCheckbox>
       </>
     )}
   </Story>
@@ -211,24 +211,24 @@ import Card from './Card';
     ]}
   >
     {args => (
-      <Card.Checkbox
+      <CardCheckbox
         {...args}
         width="150px"
         height="150px"
         defaultChecked={true}
       >
-        <Card.CheckboxIndicator slot="top-left" />
-        <Card.CheckboxIndicator slot="center-left" />
-        <Card.CheckboxIndicator slot="bottom-left" />
-        <Card.CheckboxIndicator slot="top-right" />
-        <Card.CheckboxIndicator slot="center-right" />
-        <Card.CheckboxIndicator slot="bottom-right" />
+        <CardCheckbox.Indicator slot="top-left" />
+        <CardCheckbox.Indicator slot="center-left" />
+        <CardCheckbox.Indicator slot="bottom-left" />
+        <CardCheckbox.Indicator slot="top-right" />
+        <CardCheckbox.Indicator slot="center-right" />
+        <CardCheckbox.Indicator slot="bottom-right" />
         <Flex justifyContent="center" alignItems="center" fullHeight>
           <Text color="text-gray-50" size="xsmall" weight="bold">
             Placeholder
           </Text>
         </Flex>
-      </Card.Checkbox>
+      </CardCheckbox>
     )}
   </Story>
 </Canvas>
@@ -265,7 +265,7 @@ import Card from './Card';
               return [false, true].map(checked => {
                 const states = ['default', 'disabled', 'error'].map(states => (
                   <td>
-                    <Card.Checkbox
+                    <CardCheckbox
                       {...args}
                       variant={variant}
                       width="120px"
@@ -274,7 +274,7 @@ import Card from './Card';
                       invalid={states === 'error'}
                       defaultChecked={checked}
                     >
-                      {indicator && <Card.CheckboxIndicator slot="top-left" />}
+                      {indicator && <CardCheckbox.Indicator slot="top-left" />}
                       <Flex
                         justifyContent="center"
                         alignItems="center"
@@ -284,7 +284,7 @@ import Card from './Card';
                           Placeholder
                         </Text>
                       </Flex>
-                    </Card.Checkbox>
+                    </CardCheckbox>
                   </td>
                 ));
                 return (
@@ -351,7 +351,7 @@ import Card from './Card';
           false
         );
         return (
-          <Card.Checkbox
+          <CardCheckbox
             {...args}
             style={{margin: 16}}
             width="150px"
@@ -378,7 +378,7 @@ import Card from './Card';
                 {label}
               </Text>
             </Flex>
-          </Card.Checkbox>
+          </CardCheckbox>
         );
       };
       return (
