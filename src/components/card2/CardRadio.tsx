@@ -16,27 +16,27 @@ export interface CardRadioPropsType {
 
   /**
    * Optional React.ReactNode. Children of the card. This is the place where label should be used and connected to the card.
-   * @example <Card.Radio>Card content</Card.Radio>
+   * @example <CardRadio>Card content</CardRadio>
    */
   children?: React.ReactNode;
 
   /**
    * Optional string. Width of the card.
    * @default auto
-   * @example <Card.Radio width="100px" />
+   * @example <CardRadio width="100px" />
    **/
   width?: React.CSSProperties['width'];
 
   /**
    * Optional string. Height of the card.
    * @default auto
-   * @example <Card.Radio height="100px" />
+   * @example <CardRadio height="100px" />
    */
   height?: React.CSSProperties['height'];
 
   /**
    * Optional object. Inline styles.
-   * @example <Card.Radio style={--card-background-color: var(--green-20)} />
+   * @example <CardRadio style={--card-background-color: var(--green-20)} />
    */
   style?: React.CSSProperties;
 
@@ -62,25 +62,25 @@ export interface CardRadioPropsType {
 
   /**
    * Optional boolean. Whether the Radio is invalid.
-   * @default <Card.Radio invalid />
+   * @default <CardRadio invalid />
    */
   invalid?: boolean;
 
   /**
    * Optional boolean. Whether the Radio is required.
-   * @default <Card.Radio required />
+   * @default <CardRadio required />
    */
   required?: boolean;
 
   /**
-   * Value of the Card.Radio input.
-   * @example <Card.Radio value="1" />
+   * Value of the CardRadio input.
+   * @example <CardRadio value="1" />
    */
   value?: string;
 
   /**
-   * Name of the Card.Radio input.
-   * @example <Card.Radio name="radio" />
+   * Name of the CardRadio input.
+   * @example <CardRadio name="radio" />
    */
   name?: string;
 

@@ -16,27 +16,27 @@ export interface CardCheckboxPropsType {
 
   /**
    * Optional React.ReactNode. Children of the card. This is the place where label should be used and connected to the card.
-   * @example <Card.Checkbox>Card content</Card.Checkbox>
+   * @example <CardCheckbox>Card content</Card.Checkbox>
    */
   children?: React.ReactNode;
 
   /**
    * Optional string. Width of the card.
    * @default auto
-   * @example <Card.Checkbox width="100px" />
+   * @example <CardCheckbox width="100px" />
    **/
   width?: React.CSSProperties['width'];
 
   /**
    * Optional string. Height of the card.
    * @default auto
-   * @example <Card.Checkbox height="100px" />
+   * @example <CardCheckbox height="100px" />
    */
   height?: React.CSSProperties['height'];
 
   /**
    * Optional object. Inline styles.
-   * @example <Card.Checkbox style={--card-background-color: var(--green-20)} />
+   * @example <CardCheckbox style={--card-background-color: var(--green-20)} />
    */
   style?: React.CSSProperties;
 
@@ -62,32 +62,32 @@ export interface CardCheckboxPropsType {
 
   /**
    * Sets whether the checkbox is displayed as indeterminate. Note: this prop doesn't modify the `checked` property.
-   * @example  <Card.Checkbox indeterminate />
+   * @example  <CardCheckbox indeterminate />
    * @default false
    */
   indeterminate?: boolean;
 
   /**
    * Optional boolean. Whether the checkbox is invalid.
-   * @default <Card.Checkbox invalid />
+   * @default <CardCheckbox invalid />
    */
   invalid?: boolean;
 
   /**
    * Optional boolean. Whether the checkbox is required.
-   * @default <Card.Checkbox required />
+   * @default <CardCheckbox required />
    */
   required?: boolean;
 
   /**
    * Value of the Card.Checkbox input.
-   * @example <Checkbox value="1" />
+   * @example <CardCheckbox value="1" />
    */
   value?: string;
 
   /**
    * Name of the Card.Checkbox input.
-   * @example <Checkbox name="checkbox" />
+   * @example <CardCheckbox name="checkbox" />
    */
   name?: string;
 
