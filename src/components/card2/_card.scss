@@ -42,6 +42,10 @@
       --checkboxColor: var(--card-border-color-checked);
       --checkboxCheckedColor: var(--card-border-color-checked);
     }
+
+    & .sg-radio {
+      --radioColor: var(--card-border-color-checked);
+    }
   }
 
   &[data-invalid='true'] {
@@ -50,6 +54,11 @@
     & .sg-checkbox {
       --checkboxColor: var(--card-border-color-invalid);
       --checkboxCheckedColor: var(--card-border-color-invalid);
+    }
+
+    & .sg-radio {
+      --radioColor: var(--card-border-color-invalid);
+      --radioHoverColor: var(--card-border-color-invalid);
     }
   }
 
@@ -63,6 +72,11 @@
       transition: all $durationModerate1 $easingRegular;
     }
 
+    & .sg-radio {
+      --radioColor: var(--card-border-color-hover);
+      --radioHoverColor: var(--card-border-color-hover);
+    }
+
     &[data-invalid='true'] {
       border-color: var(--card-border-color-invalid-hover);
 
@@ -70,6 +84,11 @@
         --checkboxColor: var(--card-border-color-invalid-hover);
         --checkboxCheckedColor: var(--card-border-color-invalid-hover);
         --checkboxHoverColor: var(--card-border-color-invalid-hover);
+      }
+
+      & .sg-radio {
+        --radioColor: var(--card-border-color-invalid-hover);
+        --radioHoverColor: var(--card-border-color-invalid-hover);
       }
     }
   }
@@ -82,6 +101,14 @@
   }
 
   & .sg-checkbox__icon {
+    transition: all $durationModerate1 $easingLinear;
+  }
+
+  & .sg-radio {
+    --radioColor: var(--card-border-color);
+  }
+
+  & .sg-radio__circle {
     transition: all $durationModerate1 $easingLinear;
   }
 
