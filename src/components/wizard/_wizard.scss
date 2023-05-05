@@ -1,0 +1,40 @@
+.wizard {
+  height: 100%;
+  width: 100%;
+
+  &-step {
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    transform: translateX(-5000px);
+
+    &-content {
+      width: 600px;
+    }
+
+    &-counter {
+      background-color: $black;
+    }
+
+    &--current {
+      transform: translateX(0);
+    }
+  }
+
+  &-progress-bar {
+    flex: none;
+  }
+
+  &-form {
+    position: relative;
+    flex: 1;
+  }
+
+  &-footer {
+    &__icon {
+      width: auto;
+    }
+  }
+}
