@@ -6,7 +6,7 @@
   --card-border-color-invalid-hover: var(--red-50);
   --card-border-color-checked: var(--black);
   --card-border-color-checked-hover: var(--gray-60);
-  --card-indicator-color: var(--card-background-color);
+  --card-indicator-color: var(--white);
 
   &[data-color='light'] {
     --card-background-color: var(--black);
@@ -16,7 +16,7 @@
     --card-border-color-invalid-hover: var(--red-50);
     --card-border-color-checked: var(--white);
     --card-border-color-checked-hover: var(--white);
-    --card-indicator-color: var(--card-background-color);
+    --card-indicator-color: var(--black);
   }
 
   display: block;
