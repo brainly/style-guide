@@ -252,7 +252,7 @@ export const CardRadioIndicator = ({
   style,
   className,
 }: CardRadioIndicatorPropsType) => {
-  const {checked, disabled, color} = React.useContext(CardRadioContext);
+  const {checked, disabled} = React.useContext(CardRadioContext);
 
   return (
     <div
