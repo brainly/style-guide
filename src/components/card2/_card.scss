@@ -12,7 +12,7 @@
   width: var(--card-width, auto);
   height: var(--card-height, auto);
   border-radius: 8px;
-  border: 2px solid transparent;
+  border: 2px solid var(--card-background-color);
   background-color: var(--card-background-color);
   user-select: none;
 
@@ -24,7 +24,7 @@
   }
 
   &--variant-solid {
-    border-color: transparent;
+    border-color: var(--card-background-color);
   }
 
   &:active:not([data-disabled='true']) {
@@ -114,7 +114,7 @@
 
   /* Focus styles */
 
-  & .sg-card-new__input:focus-visible + .sg-card-new__label {
+  & .sg-card-new__input:focus-visible + .sg-card-new__background {
     // TODO(coderitual): Replace with applyFocusStyle when it's updated to support different border widths
     box-shadow: 0px 0px 0px 2px var(--focusInnerColor),
       0px 0px 0px 4px var(--focusColor), 0px 0px 0px 7px var(--focusOuterColor);
@@ -139,7 +139,7 @@
   left: 0;
 }
 
-.sg-card-new__label {
+.sg-card-new__background {
   position: absolute;
   inset: -2px;
   border-radius: 8px;
@@ -147,6 +147,8 @@
 
 .sg-card-new__indicator {
   position: absolute;
+  width: 32px;
+  height: 32px;
 
   /*
     The indicator is coming from the real checkbox element so we need to remove its input from the layout
