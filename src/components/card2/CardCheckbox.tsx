@@ -9,6 +9,8 @@ export interface CardCheckboxPropsType {
    */
   variant?: 'solid' | 'outline';
 
+  color?: 'light' | 'dark';
+
   /**
    * Optional string. Additional class names.
    */
@@ -107,15 +109,25 @@ export interface CardCheckboxPropsType {
   onMouseLeave?: (e: React.MouseEvent<HTMLDivElement>) => void;
 }
 
-export const CardCheckboxContext = React.createContext({
-  checked: false,
-  disabled: false,
-  indeterminate: false,
-  hover: false,
-});
+type CardCheckboxContextType = {
+  checked: boolean;
+  disabled: boolean;
+  indeterminate: boolean;
+  hover: boolean;
+};
+
+export const CardCheckboxContext = React.createContext<CardCheckboxContextType>(
+  {
+    checked: false,
+    disabled: false,
+    indeterminate: false,
+    hover: false,
+  }
+);
 
 const CardCheckbox = ({
   variant = 'outline',
+  color = 'dark',
   className,
   children,
   width,
@@ -195,6 +207,7 @@ const CardCheckbox = ({
         })}
         style={{...style, ...cssVariables}}
         data-variant={variant}
+        data-color={color}
         data-hover={hover}
         data-checked={indeterminate ? 'mixed' : isChecked}
         data-invalid={invalid}

@@ -9,6 +9,8 @@ export interface CardRadioPropsType {
    */
   variant?: 'solid' | 'outline';
 
+  color?: 'light' | 'dark';
+
   /**
    * Optional string. Additional class names.
    */
@@ -100,7 +102,13 @@ export interface CardRadioPropsType {
   onMouseLeave?: (e: React.MouseEvent<HTMLDivElement>) => void;
 }
 
-export const CardRadioContext = React.createContext({
+type CardRadioContextType = {
+  checked: boolean;
+  disabled: boolean;
+  hover: boolean;
+};
+
+export const CardRadioContext = React.createContext<CardRadioContextType>({
   checked: false,
   disabled: false,
   hover: false,
@@ -108,6 +116,7 @@ export const CardRadioContext = React.createContext({
 
 const CardRadio = ({
   variant = 'outline',
+  color = 'dark',
   className,
   children,
   width,
@@ -185,6 +194,7 @@ const CardRadio = ({
         })}
         style={{...style, ...cssVariables}}
         data-variant={variant}
+        data-color={color}
         data-hover={hover}
         data-checked={isChecked}
         data-invalid={invalid}
@@ -242,7 +252,7 @@ export const CardRadioIndicator = ({
   style,
   className,
 }: CardRadioIndicatorPropsType) => {
-  const {checked, disabled} = React.useContext(CardRadioContext);
+  const {checked, disabled, color} = React.useContext(CardRadioContext);
 
   return (
     <div

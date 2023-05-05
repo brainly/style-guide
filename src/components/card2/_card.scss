@@ -1,12 +1,23 @@
 .sg-card-new {
   --card-background-color: var(--white);
   --card-border-color: var(--gray-30);
-  --card-border-color-hover: var(--gray-60);
+  --card-border-color-hover: var(--gray-40);
   --card-border-color-invalid: var(--red-60);
   --card-border-color-invalid-hover: var(--red-50);
   --card-border-color-checked: var(--black);
   --card-border-color-checked-hover: var(--gray-60);
   --card-indicator-color: var(--card-background-color);
+
+  &[data-color='light'] {
+    --card-background-color: var(--black);
+    --card-border-color: var(--gray-40);
+    --card-border-color-hover: var(--gray-50);
+    --card-border-color-invalid: var(--red-40);
+    --card-border-color-invalid-hover: var(--red-50);
+    --card-border-color-checked: var(--white);
+    --card-border-color-checked-hover: var(--white);
+    --card-indicator-color: var(--card-background-color);
+  }
 
   display: block;
   position: relative;
@@ -76,6 +87,21 @@
     & .sg-radio {
       --radioColor: var(--card-border-color-hover);
       --radioHoverColor: var(--card-border-color-hover);
+    }
+
+    &[data-checked='true'] {
+      border-color: var(--card-border-color-checked-hover);
+
+      & .sg-checkbox {
+        --checkboxColor: var(--card-border-color-checked-hover);
+        --checkboxCheckedColor: var(--card-border-color-checked-hover);
+        --checkboxHoverColor: var(--card-border-color-checked-hover);
+      }
+
+      & .sg-radio {
+        --radioColor: var(--card-border-color-checked-hover);
+        --radioHoverColor: var(--card-border-color-checked-hover);
+      }
     }
 
     &[data-invalid='true'] {
