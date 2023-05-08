@@ -81,7 +81,13 @@ import CardRadio from './CardRadio';
   >
     {args => (
       <>
-        <CardRadio {...args} width="150px" height="150px" defaultChecked={true}>
+        <CardRadio
+          {...args}
+          variant="solid"
+          width="150px"
+          height="150px"
+          defaultChecked={true}
+        >
           <CardRadio.Indicator slot="top-left" />
           <Flex justifyContent="center" alignItems="center" fullHeight>
             <Text color="text-gray-50" size="xsmall" weight="bold">
@@ -91,6 +97,7 @@ import CardRadio from './CardRadio';
         </CardRadio>
         <CardRadio
           {...args}
+          variant="solid"
           width="150px"
           height="150px"
           defaultChecked={true}
