@@ -159,18 +159,19 @@
   }
 }
 
-.sg-card-new__input {
-  position: absolute;
-  opacity: 0;
-  top: 0;
-  left: 0;
-}
+// .sg-card-new__input {
+//   position: absolute;
+//   opacity: 0;
+//   top: 0;
+//   left: 0;
+// }
 
 .sg-card-new__background {
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
   position: absolute;
   inset: -2px;
   border-radius: 8px;
+  padding: 2px;
 }
 
 .sg-card-new__indicator {

@@ -151,7 +151,7 @@ const CardRadio = ({
     '--card-height': height,
   };
 
-  const onInputChange = React.useCallback(
+  const handleInputChange = React.useCallback(
     e => {
       if (!isControlled) {
         setIsChecked(val => !val);
@@ -209,10 +209,9 @@ const CardRadio = ({
           checked={isChecked}
           disabled={disabled}
           name={name}
-          onChange={onInputChange}
+          onChange={handleInputChange}
           required={required}
           value={value}
-          aria-checked={isChecked}
           aria-invalid={invalid ? true : undefined}
           suppressHydrationWarning
           {...props}

@@ -298,3 +298,69 @@ import CardRadio from './CardRadio';
     )}
   </Story>
 </Canvas>
+
+### Examples
+
+#### Animated background
+
+<Canvas>
+  <Story
+    name="Interactions"
+    decorators={[
+      Story => (
+        <div
+          style={{
+            padding: 64,
+            display: 'flex',
+            justifyContent: 'center',
+            flexWrap: 'wrap',
+          }}
+        >
+          <Story />
+        </div>
+      ),
+    ]}
+  >
+    {args => {
+      const EnhancedCard = (value, label, image) => {
+        return (
+          <CardRadio
+            {...args}
+            style={{margin: 8}}
+            width="270px"
+            height="50px"
+            variant="outline"
+            name="usertype"
+            id={value}
+            value={value}
+            onMouseEnter={() => {}}
+            onMouseLeave={() => {}}
+          >
+            <CardRadio.Indicator slot="center-left" />
+            <Flex
+              justifyContent="center"
+              alignItems="center"
+              fullHeight
+              direction="row"
+              gap="xxs"
+              marginLeft="l"
+            >
+              <Text color="text-text-black" size="small" weight="bold">
+                {label}
+              </Text>
+              <div style={{width: 105, height: '100%', marginLeft: 'auto'}}>
+                <img src={`images/${image}.png`} height="100%" />
+              </div>
+            </Flex>
+          </CardRadio>
+        );
+      };
+      return (
+        <>
+          {EnhancedCard('student', 'I’m a Student', 'avatar_10')}
+          {EnhancedCard('parent', 'I’m a Parent', 'avatar_16')}
+        </>
+      );
+    }}
+  </Story>
+</Canvas>
