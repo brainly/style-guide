@@ -6,7 +6,7 @@ $radioCheckedBorderWidth: 5px;
 
 .sg-radio {
   --radioColor: #{$black};
-  --radioInsideColor: #{$white};
+  --radioRingInsideColor: #{$white};
   --radioHoverColor: #{$gray-60};
   --radioInvalidColor: #{$red-60};
   --radioInvalidHoverColor: #{$red-50};
@@ -21,7 +21,7 @@ $radioCheckedBorderWidth: 5px;
 
   &--light {
     --radioColor: #{$white};
-    --radioInsideColor: #{$black};
+    --radioRingInsideColor: #{$black};
     --radioHoverColor: #{$gray-40};
     --radioInvalidColor: #{$red-40};
     --radioInvalidHoverColor: #{$red-50};
@@ -104,7 +104,7 @@ $radioCheckedBorderWidth: 5px;
     &:checked + .sg-radio__circle {
       --radioBorderWidth: #{$radioCheckedBorderWidth};
       --radioRingColor: var(--radioColor);
-      background: var(--radioInsideColor);
+      background: var(--radioRingInsideColor);
 
       &--with-animation {
         animation-name: radioCheckedFadeOut, radioCheckedFadeIn;
@@ -226,7 +226,7 @@ $radioCheckedBorderWidth: 5px;
     0% {
       width: calc($radioSize / 2);
       height: calc($radioSize / 2);
-      background: var(--radioInsideColor);
+      background: var(--radioRingInsideColor);
     }
 
     100% {
