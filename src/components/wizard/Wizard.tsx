@@ -9,61 +9,42 @@ import Box from '../box/Box';
 import Headline from '../text/Headline';
 import Counter from '../counters/Counter';
 
-/**
- * Wizard
- * - renders current step
- * - renders navigation
- * - handle submit event
- * - handle next button click event
- * - renders next button
- * - renders keyboard hint
- */
-
 type WizardProps = {
-  onSubmit?(event: SubmitEvent): void;
-  onNext?(step: number): boolean;
   title?: string;
+  subtitle?: string;
 };
 
 const WizardContext = React.createContext<{
   currentStep: number;
   stepsLength: number;
-  onSubmit?: React.FormEventHandler<HTMLFormElement>;
+  next(): void;
 }>({
   currentStep: 0,
   stepsLength: 0,
+  next: () => null,
+});
+
+const WizardStepContext = React.createContext<{
+  index: number;
+}>({
+  index: 0,
 });
 
 const Wizard: React.FunctionComponent<WizardProps> = ({
   children,
-  onSubmit,
-  onNext,
   title,
+  subtitle,
 }) => {
   const stepsArray = React.Children.toArray(children).filter(reactNode => {
-    return (
-      (React.isValidElement(reactNode) && reactNode.type === WizardStep) ||
-      !React.isValidElement(reactNode)
-    );
+    return React.isValidElement(reactNode) && reactNode.type === WizardStep;
   });
-
   const [currentStep, setCurrentStep] = React.useState<number>(0);
-  const handleSubmit = React.useCallback(
-    event => {
-      event.preventDefault();
 
-      if (currentStep < stepsArray.length - 1) {
-        const shouldChangeStep = onNext ? onNext(currentStep) : true;
-
-        if (shouldChangeStep) {
-          setCurrentStep(currentStep + 1);
-        }
-      } else {
-        onSubmit(event);
-      }
-    },
-    [onSubmit, currentStep, onNext, stepsArray]
-  );
+  const next = React.useCallback(() => {
+    if (currentStep < stepsArray.length - 1) {
+      setCurrentStep(currentStep + 1);
+    }
+  }, [currentStep, stepsArray]);
 
   return (
     <div className="wizard">
@@ -71,7 +52,7 @@ const Wizard: React.FunctionComponent<WizardProps> = ({
         value={{
           currentStep,
           stepsLength: stepsArray.length,
-          onSubmit: handleSubmit,
+          next,
         }}
       >
         <Flex direction="column" fullHeight>
@@ -90,7 +71,7 @@ const Wizard: React.FunctionComponent<WizardProps> = ({
             ) : null}
           </div>
           <div className="wizard-form">
-            {stepsArray.map((step, index, array) => {
+            {stepsArray.map((step, index) => {
               return (
                 <Flex
                   justifyContent="center"
@@ -101,15 +82,19 @@ const Wizard: React.FunctionComponent<WizardProps> = ({
                   })}
                 >
                   <Flex direction="column" className="wizard-step-content">
-                    {index === 0 ? (
-                      <>
-                        <Headline size="xlarge">Almost there.</Headline>
-                        <Flex marginBottom="xxl">
-                          <Text size="medium">Let us know you better</Text>
-                        </Flex>
-                      </>
+                    {index === 0 && title ? (
+                      <Flex marginBottom="l" direction="column">
+                        <Headline className="wizard-form__title" size="xlarge">
+                          {title}
+                        </Headline>
+                        {subtitle ? (
+                          <Text size="medium">{subtitle}</Text>
+                        ) : null}
+                      </Flex>
                     ) : null}
-                    {step}
+                    <WizardStepContext.Provider value={{index}}>
+                      {step}
+                    </WizardStepContext.Provider>
                   </Flex>
                 </Flex>
               );
@@ -122,73 +107,91 @@ const Wizard: React.FunctionComponent<WizardProps> = ({
 };
 
 const WizardStep: React.FunctionComponent<{
-  title?: string;
-  description?: string;
-  submit?: string | React.ReactNode;
-}> = ({children, title, description, submit}) => {
-  const {currentStep, stepsLength, onSubmit} = React.useContext(WizardContext);
-  let submitElement: React.ReactNode;
+  onSubmit?(fields: {[key: string]: string}, next: () => void);
+}> = ({children, onSubmit}) => {
+  const {next} = React.useContext(WizardContext);
+  const handleSubmit = React.useCallback<
+    React.FormEventHandler<HTMLFormElement>
+  >(
+    event => {
+      event.preventDefault();
 
-  if (submit) {
-    if (typeof submit === 'string') {
-      submitElement = <Button>{submit}</Button>;
-    } else {
-      submitElement = submit;
-    }
-  } else {
-    submitElement = (
-      <Button>{currentStep < stepsLength - 1 ? 'next' : 'submit'}</Button>
-    );
-  }
+      const fields = {};
 
-  return (
-    <form onSubmit={onSubmit}>
-      <Flex direction="column" marginBottom="l">
-        {title ? (
-          <Flex>
-            <Flex marginRight="s">
-              <Counter className="wizard-step-counter">
-                {currentStep + 1}
-              </Counter>
-            </Flex>
-            <Headline size="medium">{title}</Headline>
-          </Flex>
-        ) : null}
-        {description ? (
-          <Flex marginTop="s">
-            <Text size="small">{description}</Text>
-          </Flex>
-        ) : null}
-      </Flex>
-      {children}
-      <Flex marginTop="l">
-        <Flex marginRight="s">{submitElement}</Flex>
-        <Flex alignItems="center">
-          <Flex marginRight="xs">
-            <Text color="text-gray-50" noWrap size="small">
-              press&nbsp;
-              <Text inherited weight="bold" as="span">
-                Enter
-              </Text>
-            </Text>
-          </Flex>
-          <Box color="gray-20" padding="xxs" className="wizard-footer__icon">
-            <Icon size={24} type="keyboard" color="icon-gray-50" />
-          </Box>
-        </Flex>
-      </Flex>
-    </form>
+      new FormData(event.currentTarget).forEach((value, key) => {
+        fields[key] = value;
+      });
+
+      if (onSubmit) {
+        onSubmit(fields, next);
+      } else {
+        next();
+      }
+    },
+    [next, onSubmit]
   );
+
+  return <form onSubmit={handleSubmit}>{children}</form>;
 };
 
 const WizardStepSubmit: React.FunctionComponent<{
-  onClick?: () => void;
-}> = ({label, onClick}) => {
+  hint?: string;
+  variant?: ButtonVariantType;
+}> = ({variant = 'solid', hint = 'press', children}) => {
   return (
-    <Button type="button" onClick={onClick}>
-      {label}
-    </Button>
+    <Flex marginTop="l">
+      <Flex marginRight="s">
+        <Button variant={variant}>{children}</Button>
+      </Flex>
+      <Flex alignItems="center">
+        <Flex marginRight="xs">
+          <Text color="text-gray-50" noWrap size="small">
+            {hint}&nbsp;
+            <Text inherited weight="bold" as="span">
+              Enter
+            </Text>
+          </Text>
+        </Flex>
+        <Box color="gray-20" padding="xxs" className="wizard-footer__icon">
+          <Icon size={24} type="keyboard" color="icon-gray-50" />
+        </Box>
+      </Flex>
+    </Flex>
   );
 };
 
-export {Wizard, WizardStep, WizardStepSubmit};
+const WizardStepHeader: React.FunctionComponent<{
+  description?: string;
+}> = ({children, description}) => {
+  const {index} = React.useContext(WizardStepContext);
+
+  return (
+    <Flex direction="column" marginBottom="l">
+      <Flex>
+        <Flex marginRight="s">
+          {typeof index === 'number' ? (
+            <Counter className="wizard-step-counter">{index + 1}</Counter>
+          ) : null}
+        </Flex>
+        <Headline size="medium">{children}</Headline>
+      </Flex>
+      {description ? (
+        <Flex marginTop="s">
+          <Text size="small">{description}</Text>
+        </Flex>
+      ) : null}
+    </Flex>
+  );
+};
+
+const WizardExport: typeof Wizard & {
+  Step: typeof WizardStep;
+  StepSubmit: typeof WizardStepSubmit;
+  StepHeader: typeof WizardStepHeader;
+} = Object.assign(Wizard, {
+  Step: WizardStep,
+  StepSubmit: WizardStepSubmit,
+  StepHeader: WizardStepHeader,
+});
+
+export {WizardExport as Wizard, WizardStepSubmit, WizardStepHeader};

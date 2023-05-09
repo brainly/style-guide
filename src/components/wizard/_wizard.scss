@@ -30,6 +30,10 @@
   &-form {
     position: relative;
     flex: 1;
+
+    &__title {
+      margin-bottom: spacing(xs);
+    }
   }
 
   &-footer {
