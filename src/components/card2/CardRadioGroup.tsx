@@ -68,6 +68,7 @@ const CardRadioGroup = React.forwardRef<HTMLDivElement, CardRadioGroupProps>(
           gap="s"
           className={cx('card-radio-group', className)}
           role="radiogroup"
+          dir={direction}
           aria-disabled={disabled}
           {...other}
         >
