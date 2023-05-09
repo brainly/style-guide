@@ -101,12 +101,12 @@ export interface CardCheckboxPropsType {
   /**
    * Function called whenever the mouse enters the checkbox.
    */
-  onMouseEnter?: (e: React.MouseEvent<HTMLDivElement>) => void;
+  onMouseEnter?: (e: React.MouseEvent<HTMLElement>) => void;
 
   /**
    * Function called whenever the mouse leaves the checkbox.
    */
-  onMouseLeave?: (e: React.MouseEvent<HTMLDivElement>) => void;
+  onMouseLeave?: (e: React.MouseEvent<HTMLElement>) => void;
 }
 
 type CardCheckboxContextType = {

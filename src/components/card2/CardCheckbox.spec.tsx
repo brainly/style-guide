@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {CardCheckbox} from './Card';
+import CardCheckbox from './CardCheckbox';
 import {render} from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import {testA11y} from '../../axe';
