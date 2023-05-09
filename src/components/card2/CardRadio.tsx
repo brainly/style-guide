@@ -5,20 +5,88 @@ import generateRandomString from '../../js/generateRandomString';
 import {useCardRadioGroupContext} from './CardRadioGroupContext';
 
 export interface CardRadioPropsType {
+  /**
+   * Required string. Value of the CardRadio input.
+   */
   value: string;
+
+  /**
+   * Optional boolean. Whether the Radio is required.
+   * @default false
+   */
   required?: boolean;
+
+  /**
+   * Optional boolean. Whether the Radio is disabled.
+   * @default false
+   */
   disabled?: boolean;
+
+  /**
+   * Optional boolean. Whether the Radio is invalid.
+   * @default false
+   */
   invalid?: boolean;
+
+  /**
+   * Optional string. ID of the Radio.
+   */
   id?: string;
+
+  /**
+   * Optional string. Variant of the card. Default is 'outline'.
+   */
   variant?: 'solid' | 'outline';
+
+  /**
+   * Optional string. Color of the card. Default is 'dark'.
+   */
   color?: 'light' | 'dark';
+
+  /**
+   * Optional string. Additional class names.
+   */
   className?: string;
+
+  /**
+   * Optional React.ReactNode. Children of the card. This is the place where label should be used and connected to the card.
+   * @example <CardRadio>Card content</CardRadio>
+   */
   children?: React.ReactNode;
+
+  /**
+   * Optional string. Width of the card.
+   * @default auto
+   * @example <CardRadio width="100px" />
+   */
   width?: React.CSSProperties['width'];
+
+  /**
+   * Optional string. Height of the card.
+   * @default auto
+   * @example <CardRadio height="100px" />
+   */
   height?: React.CSSProperties['height'];
+
+  /**
+   * Optional object. Inline styles.
+   * @example <CardRadio style={--card-background-color: var(--green-20)} />
+   */
   style?: React.CSSProperties;
+
+  /**
+   * Function called whenever the state of the Radio changes.
+   */
   onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
+
+  /**
+   * Function called whenever the mouse enters the Radio.
+   */
   onMouseEnter?: (e: React.MouseEvent<HTMLDivElement>) => void;
+
+  /**
+   * Function called whenever the mouse leaves the Radio.
+   */
   onMouseLeave?: (e: React.MouseEvent<HTMLDivElement>) => void;
 }
 
