@@ -14,6 +14,7 @@ type RadioLabelSizeType = 'medium' | 'small';
 type StyleType = Partial<
   React.CSSProperties & {
     '--radioColor'?: string;
+    '--radioInsideColor'?: string;
     '--radioHoverColor'?: string;
     '--radioInvalidColor'?: string;
     '--radioInvalidHoverColor'?: string;
