@@ -12,6 +12,8 @@ export {default as Bubble} from './components/bubble/Bubble';
 export type {BubblePropsType} from './components/bubble/Bubble';
 export {default as Button} from './components/buttons/Button';
 export type {ButtonPropsType} from './components/buttons/Button';
+export {default as UnstyledButton} from './components/buttons/UnstyledButton';
+export type {UnstyledButtonPropsType} from './components/buttons/UnstyledButton';
 export {default as ButtonRound} from './components/buttons/ButtonRound';
 export type {ButtonRoundPropsType} from './components/buttons/ButtonRound';
 export {default as Card} from './components/card/Card';

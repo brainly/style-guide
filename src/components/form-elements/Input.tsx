@@ -165,6 +165,7 @@ const Input = (props: InputPropsType) => {
     className,
     setInputRef,
     errorMessage,
+    disabled,
     ...additionalProps
   } = props;
 
@@ -189,6 +190,7 @@ const Input = (props: InputPropsType) => {
   );
   const wrapperClass = classnames('sg-input__wrapper', {
     'sg-input__wrapper--full-width': fullWidth,
+    'sg-input__wrapper--disabled': disabled,
   });
   const errorMessageDisplayed =
     invalid === true && errorMessage !== undefined && errorMessage !== '';
@@ -201,6 +203,7 @@ const Input = (props: InputPropsType) => {
         ref={setInputRef}
         className={inputClass}
         value={value}
+        disabled={disabled}
       />
       {errorMessageDisplayed && (
         <Flex
@@ -208,7 +211,10 @@ const Input = (props: InputPropsType) => {
           marginLeft={size === 'l' ? 'm' : 's'}
           marginRight={size === 'l' ? 'm' : 's'}
         >
-          <Text size={size === 'l' ? 'small' : 'xsmall'} color="text-red-60">
+          <Text
+            size={size === 'l' ? 'small' : 'xsmall'}
+            color={disabled ? 'text-gray-50' : 'text-red-60'}
+          >
             {errorMessage}
           </Text>
         </Flex>

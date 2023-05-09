@@ -176,15 +176,15 @@ $dialogMaxWidthMap: (
 
     &--appearance-dialog {
       background-color: $white;
-      border-radius: 24px 24px 0 0;
+      border-radius: var(--border-radius-l) var(--border-radius-l) 0 0;
       box-shadow: $dialogBoxShadow;
 
       @include sgResponsive(md) {
-        border-radius: $borderRadiusDefault;
+        border-radius: var(--border-radius-l);
       }
 
       &.sg-dialog__container--fullscreen {
-        border-radius: 0;
+        border-radius: var(--border-radius-none);
         box-shadow: none;
       }
     }

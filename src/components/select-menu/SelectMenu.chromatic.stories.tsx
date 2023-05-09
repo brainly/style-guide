@@ -29,7 +29,7 @@ export const DifferentPopupLenghts = args => {
   return (
     <Flex direction="row" style={{gap: '40px'}}>
       <div style={{width: '320px'}}>
-        <div style={{width: '200px'}}>
+        <div style={{width: '230px'}}>
           <Text>Popup with wide content:</Text>
           <SelectMenu
             options={[

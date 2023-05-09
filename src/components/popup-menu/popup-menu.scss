@@ -19,7 +19,7 @@ $includeHtml: false !default;
     display: flex;
     justify-content: space-around;
     align-items: center;
-    border-radius: $borderRadiusDefault $borderRadiusDefault 0 0;
+    border-radius: var(--border-radius-xs) var(--border-radius-xs) 0 0;
     box-shadow: $shadowMedium;
 
     &::before {

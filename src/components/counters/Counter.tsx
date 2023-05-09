@@ -6,10 +6,61 @@ import Icon from '../icons/Icon';
 import type {IconTypeType} from '../icons/Icon';
 
 type CounterSizeType = 'xs' | 'xxs';
-type ColorType = 'red-60' | 'blue-60';
+
+export type CounterColorType =
+  | 'blue'
+  | 'green'
+  | 'indigo'
+  | 'red'
+  | 'yellow'
+  | 'gray'
+  | 'achromatic';
+
+export type CounterVariantType = 'solid' | 'light';
+
+export const COUNTER_VARIANT = {
+  solid: 'solid',
+  light: 'light',
+} as const;
+
+const SOLID_COLOR_BACKGROUND_MAP = {
+  blue: 'blue-60',
+  green: 'green-60',
+  indigo: 'indigo-60',
+  red: 'red-60',
+  yellow: 'yellow-40',
+  gray: 'gray-40',
+  achromatic: 'black',
+} as const;
+
+const SOLID_COLOR_TEXT_MAP = {
+  blue: 'text-white',
+  green: 'text-white',
+  indigo: 'text-white',
+  red: 'text-white',
+  yellow: 'text-black',
+  gray: 'text-black',
+  achromatic: 'text-white',
+} as const;
+
+const LIGHT_COLOR_BACKGROUND_MAP = {
+  blue: 'blue-20',
+  green: 'green-20',
+  indigo: 'indigo-20',
+  red: 'red-20',
+  yellow: 'yellow-20',
+  gray: 'gray-20',
+  achromatic: 'white',
+} as const;
+
 export const COUNTER_COLOR = {
-  'red-60': 'red-60',
-  'blue-60': 'blue-60',
+  BLUE: 'blue',
+  GREEN: 'green',
+  INDIGO: 'indigo',
+  RED: 'red',
+  YELLOW: 'yellow',
+  GRAY: 'gray',
+  ACHROMATIC: 'achromatic',
 } as const;
 
 export const COUNTER_SIZE = {
@@ -20,25 +71,23 @@ export const COUNTER_SIZE = {
 export type CounterPropsType = {
   /**
    * Children to be rendered inside Counter
-   * @example <Counter type="basic">
+   * @example <Counter>
    *            text
    *          </Counter>
    */
   children: React.ReactNode;
 
   /**
-   * Specify type of the counter that you want to use, two types for now
-   * @example <Counter type="basic">
+   * You can render icon inside of counter
+   * @example <Counter icon="points">
    *            1
    *          </Counter>
-   * @see type="basic" https://styleguide.brainly.com/latest/docs/interactive.html?type="basic"#counters
-   * @see type="points" https://styleguide.brainly.com/latest/docs/interactive.html?type="points"#counters
    */
   icon?: IconTypeType | null | undefined;
 
   /**
    * There are two sizes options for counters, not need to be specify, default is xs
-   * @example <Counter icon="points">
+   * @example <Counter>
    *            1pts
    *          </Counter>
    */
@@ -48,11 +97,17 @@ export type CounterPropsType = {
    * Counter background color
    * @example <Counter color="blue-60">1</Counter>
    */
-  color?: ColorType | null | undefined;
+  color?: CounterColorType | null | undefined;
+
+  /**
+   * Specify variant of counter
+   * @example <Counter variant="solid">1</Counter>
+   */
+  variant?: CounterVariantType;
 
   /**
    * Optional boolean for counter with animation
-   * @example <Counter type="basic" withAnimation>
+   * @example <Counter withAnimation>
    *            12
    *          </Counter>
    */
@@ -73,6 +128,7 @@ export type CounterPropsType = {
   | 'icon'
   | 'size'
   | 'color'
+  | 'variant'
   | 'withAnimation'
   | 'className'
   | 'undefined'
@@ -82,22 +138,31 @@ const Counter = ({
   icon,
   children,
   className,
-  size,
-  color = 'red-60',
+  size = 'xs',
+  color = 'red',
+  variant = 'solid',
   withAnimation,
   'aria-label': ariaLabel,
   ...props
 }: CounterPropsType) => {
+  const backgroundColor =
+    variant === 'solid'
+      ? SOLID_COLOR_BACKGROUND_MAP[color]
+      : LIGHT_COLOR_BACKGROUND_MAP[color];
   const counterClass = cx(
     'sg-counter',
     {
       [`sg-counter--${String(size)}`]: size,
-      [`sg-counter--${String(color)}`]: color,
+      [`sg-counter--${String(backgroundColor)}`]: backgroundColor,
       'sg-counter--with-animation': withAnimation,
       'sg-counter--with-icon': icon,
     },
     className
   );
+
+  const textColor =
+    variant === 'solid' ? SOLID_COLOR_TEXT_MAP[color] : 'text-black';
+
   let content;
 
   content = (
@@ -108,7 +173,7 @@ const Counter = ({
           : 'small'
       }
       weight="bold"
-      color="text-white"
+      color={textColor}
       className={
         size === 'xxs' ? 'sg-counter__text' : 'sg-counter__text-spaced'
       }
