@@ -3,6 +3,7 @@ import {generateId} from '../utils';
 import cx from 'classnames';
 import Flex from '../flex/Flex';
 import {CardRadioGroupContext} from './CardRadioGroupContext';
+import type {CardRadioGroupContextType} from './CardRadioGroupContext';
 
 interface CardRadioGroupProps {
   name?: string;
