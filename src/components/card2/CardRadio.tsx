@@ -2,103 +2,23 @@ import * as React from 'react';
 import cx from 'classnames';
 import Radio from '../form-elements/radio/Radio';
 import generateRandomString from '../../js/generateRandomString';
+import {useCardRadioGroupContext} from './CardRadioGroupContext';
 
 export interface CardRadioPropsType {
-  /**
-   * Optional string. Variant of the card. Default is 'outline'.
-   */
-  variant?: 'solid' | 'outline';
-
-  color?: 'light' | 'dark';
-
-  /**
-   * Optional string. Additional class names.
-   */
-  className?: string;
-
-  /**
-   * Optional React.ReactNode. Children of the card. This is the place where label should be used and connected to the card.
-   * @example <CardRadio>Card content</CardRadio>
-   */
-  children?: React.ReactNode;
-
-  /**
-   * Optional string. Width of the card.
-   * @default auto
-   * @example <CardRadio width="100px" />
-   **/
-  width?: React.CSSProperties['width'];
-
-  /**
-   * Optional string. Height of the card.
-   * @default auto
-   * @example <CardRadio height="100px" />
-   */
-  height?: React.CSSProperties['height'];
-
-  /**
-   * Optional object. Inline styles.
-   * @example <CardRadio style={--card-background-color: var(--green-20)} />
-   */
-  style?: React.CSSProperties;
-
-  /**
-   * Optional boolean. Whether the Radio is checked.
-   */
-  checked?: boolean;
-
-  /**
-   * Optional boolean. Whether the Radio is checked by default. Only works when `checked` is not defined.
-   */
-  defaultChecked?: boolean;
-
-  /**
-   * Optional boolean. Whether the Radio is disabled.
-   */
-  disabled?: boolean;
-
-  /**
-   * Optional string. ID of the Radio.
-   */
-  id?: string;
-
-  /**
-   * Optional boolean. Whether the Radio is invalid.
-   * @default <CardRadio invalid />
-   */
-  invalid?: boolean;
-
-  /**
-   * Optional boolean. Whether the Radio is required.
-   * @default <CardRadio required />
-   */
+  value: string;
   required?: boolean;
-
-  /**
-   * Value of the CardRadio input.
-   * @example <CardRadio value="1" />
-   */
-  value?: string;
-
-  /**
-   * Name of the CardRadio input.
-   * @example <CardRadio name="radio" />
-   */
-  name?: string;
-
-  /**
-   * Function called whenever the state of the Radio changes.
-   */
+  disabled?: boolean;
+  invalid?: boolean;
+  id?: string;
+  variant?: 'solid' | 'outline';
+  color?: 'light' | 'dark';
+  className?: string;
+  children?: React.ReactNode;
+  width?: React.CSSProperties['width'];
+  height?: React.CSSProperties['height'];
+  style?: React.CSSProperties;
   onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
-
-  /**
-   * Function called whenever the mouse enters the Radio.
-   */
   onMouseEnter?: (e: React.MouseEvent<HTMLDivElement>) => void;
-
-  /**
-   * Function called whenever the mouse leaves the Radio.
-   */
   onMouseLeave?: (e: React.MouseEvent<HTMLDivElement>) => void;
 }
 
@@ -124,43 +44,37 @@ const CardRadio = ({
   style,
 
   // radio related props
-  checked,
-  defaultChecked = false,
-  disabled,
+
   id,
-  invalid = false,
+  disabled,
   required = false,
+  invalid = false,
   value,
-  name,
   onChange,
   onMouseEnter,
   onMouseLeave,
   ...props
 }: CardRadioPropsType) => {
-  const [hover, setHover] = React.useState(false);
-  const isControlled = checked !== undefined;
-  const inputRef = React.useRef<HTMLInputElement>(null);
-  const [isChecked, setIsChecked] = React.useState(
-    isControlled ? checked : defaultChecked
-  );
+  const context = useCardRadioGroupContext();
 
+  const [hover, setHover] = React.useState(false);
+  const inputRef = React.useRef<HTMLInputElement>(null);
   const cardId = React.useMemo(() => id || generateRandomString(), [id]);
+  const isChecked = context.value === value;
+  const isRequired = context.required || required;
+  const isDisabled = context.disabled || disabled;
+  const isInvalid = context.invalid || invalid;
 
   const cssVariables = {
     '--card-width': width,
     '--card-height': height,
   };
 
-  const handleInputChange = React.useCallback(
-    e => {
-      if (!isControlled) {
-        setIsChecked(val => !val);
-      }
-
-      if (onChange) onChange(e);
-    },
-    [onChange, isControlled]
-  );
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    if (context.onChange) {
+      context.onChange(e.target.value);
+    }
+  };
 
   // handle onmouseenter and onmouseleave
   const handleMouseEnter = React.useCallback(
@@ -197,8 +111,8 @@ const CardRadio = ({
         data-color={color}
         data-hover={hover}
         data-checked={isChecked}
-        data-invalid={invalid}
-        data-disabled={disabled}
+        data-invalid={isInvalid}
+        data-disabled={isDisabled}
       >
         <input
           aria-labelledby={`label-${cardId}`}
@@ -207,12 +121,12 @@ const CardRadio = ({
           className="sg-card-new__input"
           type="Radio"
           checked={isChecked}
-          disabled={disabled}
-          name={name}
+          disabled={isDisabled}
+          name={context.name}
           onChange={handleInputChange}
-          required={required}
+          required={isRequired}
           value={value}
-          aria-invalid={invalid ? true : undefined}
+          aria-invalid={isInvalid}
           suppressHydrationWarning
           {...props}
         />

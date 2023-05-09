@@ -2,20 +2,7 @@ import * as React from 'react';
 import {generateId} from '../utils';
 import cx from 'classnames';
 import Flex from '../flex/Flex';
-
-type CardRadioGroupContextType = {
-  name?: string;
-  required: boolean;
-  disabled: boolean;
-  invalid?: boolean;
-  value?: string;
-  onChange?(value: string): void;
-};
-
-const CardRadioGroupContext = React.createContext<CardRadioGroupContextType>({
-  required: false,
-  disabled: false,
-});
+import {CardRadioGroupContext} from './CardRadioGroupContext';
 
 interface CardRadioGroupProps {
   name?: string;
