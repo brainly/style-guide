@@ -1,5 +1,5 @@
 import React from 'react';
-import {Wizard, WizardStepHeader, WizardStepSubmit} from './Wizard';
+import {Wizard, WizardStepTitle, WizardStepSubmit} from './Wizard';
 import Input from '../form-elements/Input';
 import Checkbox from '../form-elements/checkbox/Checkbox';
 import Textarea from '../form-elements/Textarea';
@@ -20,21 +20,21 @@ export default {
 
 export const Default = () => {
   const onChange = () => null;
-  const onSubmit = () => {
-    alert('form submitted successfuly');
+  const onComplete = () => {
+    alert('wizard form completed');
   };
 
   return (
-    <Wizard title="form title" subtitle="form subtitle">
+    <Wizard title="form title" subtitle="form subtitle" onComplete={onComplete}>
       <Wizard.Step>
-        <Wizard.StepHeader>step 1 title</Wizard.StepHeader>
+        <Wizard.StepTitle>step 1 title</Wizard.StepTitle>
         <Input fullWidth name="field 1" />
         <Wizard.StepSubmit>next</Wizard.StepSubmit>
       </Wizard.Step>
-      <Wizard.Step onSubmit={onSubmit}>
-        <Wizard.StepHeader description="step 2 description">
+      <Wizard.Step>
+        <Wizard.StepTitle subtitle="step 2 subtitle">
           step 2 title
-        </Wizard.StepHeader>
+        </Wizard.StepTitle>
         <RadioGroup name="field_2" onChange={onChange}>
           <Radio value="option_1">option 1</Radio>
           <Radio value="option_2">option 2</Radio>
@@ -48,14 +48,18 @@ export const Default = () => {
 
 export const CreateAccount = () => {
   const onChange = () => null;
-  const onSubmit = () => {
-    alert('form submitted successfuly');
+  const onComplete = () => {
+    alert('wizard form completed');
   };
 
   return (
-    <Wizard title="Join Brainly" subtitle="Let us know you better">
+    <Wizard
+      title="Join Brainly"
+      subtitle="Let us know you better"
+      onComplete={onComplete}
+    >
       <Wizard.Step>
-        <Wizard.StepHeader>Who are you?</Wizard.StepHeader>
+        <Wizard.StepTitle>Who are you?</Wizard.StepTitle>
         <RadioGroup name="account_type" onChange={onChange}>
           <Radio value="student">Student</Radio>
           <Radio value="parent">Parent</Radio>
@@ -63,13 +67,13 @@ export const CreateAccount = () => {
         <Wizard.StepSubmit>next</Wizard.StepSubmit>
       </Wizard.Step>
       <Wizard.Step>
-        <Wizard.StepHeader description="This is only to get in touch, not to send spam. We love GDPR and GDPR loves us.">
+        <Wizard.StepTitle subtitle="This is only to get in touch, not to send spam. We love GDPR and GDPR loves us.">
           What email adress can we reach you at?
-        </Wizard.StepHeader>
+        </Wizard.StepTitle>
         <Input placeholder="youremail@mail.com" fullWidth name="email" />
         <Wizard.StepSubmit>next</Wizard.StepSubmit>
       </Wizard.Step>
-      <Wizard.Step onSubmit={onSubmit}>
+      <Wizard.Step>
         <Checkbox>
           By creating an account, you accept the Brainly Terms of Service &
           Privacy Policy
@@ -84,16 +88,16 @@ export const CreateAccount = () => {
 
 export const AskYourQuestion = () => {
   const onChange = () => null;
-  const onSubmit = () => {
-    alert('form submitted successfuly');
+  const onComplete = () => {
+    alert('wizard form completed');
   };
 
   return (
-    <Wizard title="Ask your question">
+    <Wizard title="Ask your question" onComplete={onComplete}>
       <Wizard.Step>
-        <Wizard.StepHeader description="You can type out your question below and/or add a file.">
+        <Wizard.StepTitle subtitle="You can type out your question below and/or add a file.">
           What can we help you with?
-        </Wizard.StepHeader>
+        </Wizard.StepTitle>
         <Textarea
           fullWidth
           size="tall"
@@ -103,7 +107,7 @@ export const AskYourQuestion = () => {
         <Wizard.StepSubmit>next</Wizard.StepSubmit>
       </Wizard.Step>
       <Wizard.Step>
-        <WizardStepHeader>How can we assist you? *</WizardStepHeader>
+        <WizardStepTitle>How can we assist you? *</WizardStepTitle>
         <RadioGroup name="subject" onChange={onChange}>
           <Radio value="math">Mathematics</Radio>
           <Radio value="physics">Physics</Radio>
@@ -112,10 +116,10 @@ export const AskYourQuestion = () => {
         </RadioGroup>
         <WizardStepSubmit>next</WizardStepSubmit>
       </Wizard.Step>
-      <Wizard.Step onSubmit={onSubmit}>
-        <Wizard.StepHeader description="This step is optional — you can skip it if you want.">
+      <Wizard.Step>
+        <Wizard.StepTitle subtitle="This step is optional — you can skip it if you want.">
           What can we help you with?
-        </Wizard.StepHeader>
+        </Wizard.StepTitle>
         <RadioGroup name="help_type" onChange={onChange}>
           <Radio value="quick help">Quick help</Radio>
           <Radio value="step-by-step">Step-by-step explanation</Radio>

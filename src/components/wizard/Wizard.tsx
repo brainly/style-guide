@@ -12,6 +12,7 @@ import Counter from '../counters/Counter';
 type WizardProps = {
   title?: string;
   subtitle?: string;
+  onComplete?(): void;
 };
 
 const WizardContext = React.createContext<{
@@ -34,6 +35,7 @@ const Wizard: React.FunctionComponent<WizardProps> = ({
   children,
   title,
   subtitle,
+  onComplete,
 }) => {
   const stepsArray = React.Children.toArray(children).filter(reactNode => {
     return React.isValidElement(reactNode) && reactNode.type === WizardStep;
@@ -43,8 +45,10 @@ const Wizard: React.FunctionComponent<WizardProps> = ({
   const next = React.useCallback(() => {
     if (currentStep < stepsArray.length - 1) {
       setCurrentStep(currentStep + 1);
+    } else {
+      onComplete();
     }
-  }, [currentStep, stepsArray]);
+  }, [currentStep, stepsArray, onComplete]);
 
   return (
     <div className="wizard">
@@ -160,9 +164,9 @@ const WizardStepSubmit: React.FunctionComponent<{
   );
 };
 
-const WizardStepHeader: React.FunctionComponent<{
-  description?: string;
-}> = ({children, description}) => {
+const WizardStepTitle: React.FunctionComponent<{
+  subtitle?: string;
+}> = ({children, subtitle}) => {
   const {index} = React.useContext(WizardStepContext);
 
   return (
@@ -175,9 +179,9 @@ const WizardStepHeader: React.FunctionComponent<{
         </Flex>
         <Headline size="medium">{children}</Headline>
       </Flex>
-      {description ? (
+      {subtitle ? (
         <Flex marginTop="s">
-          <Text size="small">{description}</Text>
+          <Text size="small">{subtitle}</Text>
         </Flex>
       ) : null}
     </Flex>
@@ -187,11 +191,11 @@ const WizardStepHeader: React.FunctionComponent<{
 const WizardExport: typeof Wizard & {
   Step: typeof WizardStep;
   StepSubmit: typeof WizardStepSubmit;
-  StepHeader: typeof WizardStepHeader;
+  StepTitle: typeof WizardStepTitle;
 } = Object.assign(Wizard, {
   Step: WizardStep,
   StepSubmit: WizardStepSubmit,
-  StepHeader: WizardStepHeader,
+  StepTitle: WizardStepTitle,
 });
 
-export {WizardExport as Wizard, WizardStepSubmit, WizardStepHeader};
+export {WizardExport as Wizard, WizardStepSubmit, WizardStepTitle};
