@@ -163,7 +163,6 @@ const CardRadio = ({
     <CardRadioContext.Provider
       value={{
         checked: isChecked,
-        hover,
         disabled,
       }}
     >
