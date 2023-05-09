@@ -6,11 +6,12 @@ import Flex from '../flex/Flex';
 import Text from '../text/Text';
 import SubjectIcon from '../subject-icons/SubjectIcon';
 
+import {CardRadioGroup} from './CardRadioGroup';
 import CardRadio from './CardRadio';
 
-<Meta title="Components/CardRadio" component={CardRadio} />
+<Meta title="Components/CardRadioGroup" component={CardRadioGroup} />
 
-<PageHeader>CardRadio</PageHeader>
+<PageHeader>CardRadioGroup</PageHeader>
 
 - [Stories](#stories)
 - [Accessibility](#accessibility)
@@ -39,14 +40,16 @@ import CardRadio from './CardRadio';
     }}
   >
     {args => (
-      <CardRadio {...args} width="150px" height="150px">
-        <CardRadio.Indicator slot="top-left" />
-        <Flex justifyContent="center" alignItems="center" fullHeight>
-          <Text color="text-gray-50" size="xsmall" weight="bold">
-            Placeholder
-          </Text>
-        </Flex>
-      </CardRadio>
+      <CardRadioGroup {...args}>
+        <CardRadio width="150px" height="150px">
+          <CardRadio.Indicator slot="top-left" />
+          <Flex justifyContent="center" alignItems="center" fullHeight>
+            <Text color="text-gray-50" size="xsmall" weight="bold">
+              Placeholder
+            </Text>
+          </Flex>
+        </CardRadio>
+      </CardRadioGroup>
     )}
   </Story>
 </Canvas>
@@ -322,7 +325,7 @@ import CardRadio from './CardRadio';
     ]}
   >
     {args => {
-      const EnhancedCard = (value, label, image) => {
+      const ExtendedCardRadio = (value, label, image) => {
         return (
           <CardRadio
             {...args}
@@ -356,10 +359,10 @@ import CardRadio from './CardRadio';
         );
       };
       return (
-        <>
-          {EnhancedCard('student', 'I’m a Student', 'avatar_10')}
-          {EnhancedCard('parent', 'I’m a Parent', 'avatar_16')}
-        </>
+        <CardRadioGroup>
+          {ExtendedCardRadio('student', 'I’m a Student', 'avatar_10')}
+          {ExtendedCardRadio('parent', 'I’m a Parent', 'avatar_16')}
+        </CardRadioGroup>
       );
     }}
   </Story>
