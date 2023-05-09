@@ -9,6 +9,10 @@
   transition: opacity $durationQuick2 $easingLinear,
     transform $durationModerate2 $easingEntry;
 
+  @media (prefers-reduced-motion) {
+    transition: opacity $durationQuick2 $easingLinear;
+  }
+
   @mixin initial-state() {
     opacity: 0;
 
@@ -26,6 +30,12 @@
 
     &[data-placement^='right'] {
       transform: translateX(-8px);
+    }
+
+    &[data-placement] {
+      @media (prefers-reduced-motion) {
+        transform: none;
+      }
     }
   }
 
@@ -49,6 +59,10 @@
     transition-duration: $durationQuick2, $durationModerate1;
     transition-timing-function: $easingLinear, $easingExit;
     transition-delay: 0.06s, 0;
+
+    @media (prefers-reduced-motion) {
+      transition-delay: 0, 0;
+    }
 
     @include initial-state();
   }
