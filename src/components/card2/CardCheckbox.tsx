@@ -147,7 +147,6 @@ const CardCheckbox = ({
   onMouseLeave,
   ...props
 }: CardCheckboxPropsType) => {
-  const [hover, setHover] = React.useState(false);
   const isControlled = checked !== undefined;
   const inputRef = React.useRef<HTMLInputElement>(null);
   const [isChecked, setIsChecked] = React.useState(
@@ -172,23 +171,6 @@ const CardCheckbox = ({
     [onChange, isControlled]
   );
 
-  // handle onmouseenter and onmouseleave
-  const handleMouseEnter = React.useCallback(
-    e => {
-      onMouseEnter?.(e);
-      setHover(true);
-    },
-    [onMouseEnter]
-  );
-
-  const handleMouseLeave = React.useCallback(
-    e => {
-      onMouseLeave?.(e);
-      setHover(false);
-    },
-    [onMouseLeave]
-  );
-
   return (
     <CardCheckboxContext.Provider
       value={{
@@ -198,14 +180,10 @@ const CardCheckbox = ({
       }}
     >
       <div
-        className={cx('sg-card-new', className, {
-          'sg-card-new--hover': hover,
-          [`sg-card-new--variant-${variant}`]: variant,
-        })}
+        className={cx('sg-card-new', className)}
         style={{...style, ...cssVariables}}
         data-variant={variant}
         data-color={color}
-        data-hover={hover}
         data-checked={indeterminate ? 'mixed' : isChecked}
         data-invalid={invalid}
         data-disabled={disabled}
@@ -231,8 +209,8 @@ const CardCheckbox = ({
           id={`label-${cardId}`}
           htmlFor={cardId}
           className="sg-card-new__background"
-          onMouseEnter={handleMouseEnter}
-          onMouseLeave={handleMouseLeave}
+          onMouseEnter={onMouseEnter}
+          onMouseLeave={onMouseLeave}
           // On iOS the :active pseudo state is triggered only when there is a touch event set on the HTML element
           // and we use active pseudo class to provide press feedback.
           onTouchStart={() => null}

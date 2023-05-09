@@ -82,12 +82,12 @@ export interface CardRadioPropsType {
   /**
    * Function called whenever the mouse enters the Radio.
    */
-  onMouseEnter?: (e: React.MouseEvent<HTMLDivElement>) => void;
+  onMouseEnter?: (e: React.MouseEvent<HTMLElement>) => void;
 
   /**
    * Function called whenever the mouse leaves the Radio.
    */
-  onMouseLeave?: (e: React.MouseEvent<HTMLDivElement>) => void;
+  onMouseLeave?: (e: React.MouseEvent<HTMLElement>) => void;
 }
 
 type CardRadioContextType = {
@@ -123,7 +123,6 @@ const CardRadio = ({
 }: CardRadioPropsType) => {
   const context = useCardRadioGroupContext();
 
-  const [hover, setHover] = React.useState(false);
   const inputRef = React.useRef<HTMLInputElement>(null);
   const cardId = React.useMemo(() => id || generateRandomString(), [id]);
   const isChecked = context.value === value;
@@ -142,23 +141,6 @@ const CardRadio = ({
     }
   };
 
-  // handle onmouseenter and onmouseleave
-  const handleMouseEnter = React.useCallback(
-    e => {
-      onMouseEnter?.(e);
-      setHover(true);
-    },
-    [onMouseEnter]
-  );
-
-  const handleMouseLeave = React.useCallback(
-    e => {
-      onMouseLeave?.(e);
-      setHover(false);
-    },
-    [onMouseLeave]
-  );
-
   return (
     <CardRadioContext.Provider
       value={{
@@ -167,14 +149,10 @@ const CardRadio = ({
       }}
     >
       <div
-        className={cx('sg-card-new', className, {
-          'sg-card-new--hover': hover,
-          [`sg-card-new--variant-${variant}`]: variant,
-        })}
+        className={cx('sg-card-new', className)}
         style={{...style, ...cssVariables}}
         data-variant={variant}
         data-color={color}
-        data-hover={hover}
         data-checked={isChecked}
         data-invalid={isInvalid}
         data-disabled={isDisabled}
@@ -199,8 +177,8 @@ const CardRadio = ({
           id={`label-${cardId}`}
           htmlFor={cardId}
           className="sg-card-new__background"
-          onMouseEnter={handleMouseEnter}
-          onMouseLeave={handleMouseLeave}
+          onMouseEnter={onMouseEnter}
+          onMouseLeave={onMouseLeave}
           // On iOS the :active pseudo state is triggered only when there is a touch event set on the HTML element
           // and we use active pseudo class to provide press feedback.
           onTouchStart={() => null}

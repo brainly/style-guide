@@ -31,11 +31,11 @@
   transition: transform $durationModerate2 $easingRegular,
     border $durationModerate1 $easingLinear;
 
-  &--variant-outline {
+  &[data-variant='outlined'] {
     border-color: var(--card-border-color);
   }
 
-  &--variant-solid {
+  &[data-variant='solid'] {
     border-color: var(--card-background-color);
   }
 
@@ -159,12 +159,12 @@
   }
 }
 
-// .sg-card-new__input {
-//   position: absolute;
-//   opacity: 0;
-//   top: 0;
-//   left: 0;
-// }
+.sg-card-new__input {
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  left: 0;
+}
 
 .sg-card-new__background {
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
