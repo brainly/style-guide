@@ -93,13 +93,11 @@ export interface CardRadioPropsType {
 type CardRadioContextType = {
   checked: boolean;
   disabled: boolean;
-  hover: boolean;
 };
 
 export const CardRadioContext = React.createContext<CardRadioContextType>({
   checked: false,
   disabled: false,
-  hover: false,
 });
 
 const CardRadio = ({

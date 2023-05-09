@@ -113,7 +113,6 @@ type CardCheckboxContextType = {
   checked: boolean;
   disabled: boolean;
   indeterminate: boolean;
-  hover: boolean;
 };
 
 export const CardCheckboxContext = React.createContext<CardCheckboxContextType>(
@@ -121,7 +120,6 @@ export const CardCheckboxContext = React.createContext<CardCheckboxContextType>(
     checked: false,
     disabled: false,
     indeterminate: false,
-    hover: false,
   }
 );
 
@@ -196,7 +194,6 @@ const CardCheckbox = ({
       value={{
         checked: isChecked,
         indeterminate,
-        hover,
         disabled,
       }}
     >
@@ -265,7 +262,8 @@ export const CardCheckboxIndicator = ({
   style,
   className,
 }: CardCheckboxIndicatorPropsType) => {
-  const {checked, disabled} = React.useContext(CardCheckboxContext);
+  const {checked, disabled, indeterminate} =
+    React.useContext(CardCheckboxContext);
 
   return (
     <div
@@ -276,7 +274,11 @@ export const CardCheckboxIndicator = ({
       )}
       style={style}
     >
-      <Checkbox checked={checked} disabled={disabled} />
+      <Checkbox
+        checked={checked}
+        disabled={disabled}
+        indeterminate={indeterminate}
+      />
     </div>
   );
 };
