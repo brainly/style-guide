@@ -110,9 +110,11 @@ const Wizard: React.FunctionComponent<WizardProps> = ({
   );
 };
 
-const WizardStep: React.FunctionComponent<{
-  onSubmit?(fields: {[key: string]: string}, next: () => void);
-}> = ({children, onSubmit}) => {
+const WizardStep: React.FunctionComponent<
+  {
+    onSubmit?(event: React.FormEvent<HTMLFormElement>, next: () => void);
+  } & React.FormHTMLAttributes<HTMLFormElement>
+> = ({children, onSubmit, ...props}) => {
   const {next} = React.useContext(WizardContext);
   const handleSubmit = React.useCallback<
     React.FormEventHandler<HTMLFormElement>
@@ -120,14 +122,8 @@ const WizardStep: React.FunctionComponent<{
     event => {
       event.preventDefault();
 
-      const fields = {};
-
-      new FormData(event.currentTarget).forEach((value, key) => {
-        fields[key] = value;
-      });
-
       if (onSubmit) {
-        onSubmit(fields, next);
+        onSubmit(event, next);
       } else {
         next();
       }
@@ -135,7 +131,11 @@ const WizardStep: React.FunctionComponent<{
     [next, onSubmit]
   );
 
-  return <form onSubmit={handleSubmit}>{children}</form>;
+  return (
+    <form onSubmit={handleSubmit} {...props}>
+      {children}
+    </form>
+  );
 };
 
 const WizardStepSubmit: React.FunctionComponent<{
