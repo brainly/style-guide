@@ -1,14 +1,17 @@
-import {useRef} from 'react';
+import React from 'react';
 
-const useIsFirstRender = () => {
-  const isFirstRender = useRef(true);
+export const useIsFirstRender = () => {
+  const [isFirstRender, setIsFirstRender] = React.useState(true);
 
-  if (isFirstRender.current === true) {
-    isFirstRender.current = false;
-    return true;
-  }
+  React.useLayoutEffect(() => {
+    const raf = window.requestAnimationFrame(() => {
+      setIsFirstRender(false);
+    });
 
-  return isFirstRender.current;
+    return () => {
+      window.cancelAnimationFrame(raf);
+    };
+  }, []);
+
+  return isFirstRender;
 };
-
-export default useIsFirstRender;

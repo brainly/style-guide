@@ -8,6 +8,7 @@ import classNames from 'classnames';
 import Text from '../../text/Text';
 import generateRandomString from '../../../js/generateRandomString';
 import useRadioContext from './useRadioContext';
+import {useIsFirstRender} from '../../utils/useIsFirstRender';
 
 export type RadioColorType = 'light' | 'dark';
 type RadioLabelSizeType = 'medium' | 'small';
@@ -167,20 +168,35 @@ const Radio = ({
   const isWithinRadioGroup = Boolean(
     radioGroupContext && Object.keys(radioGroupContext).length
   );
-  const [isPristine, setIsPristine] = React.useState(true);
-  const shouldAnimate =
-    (isWithinRadioGroup && !radioGroupContext.isPristine) || !isPristine;
+  const isFirstRender = useIsFirstRender();
+  const [shouldAnimate, setShouldAnimate] = React.useState(false);
   const isControlled = checked !== undefined || isWithinRadioGroup;
-  let isChecked: boolean | undefined = undefined;
+  const [isChecked, setIsChecked] = React.useState<boolean>();
 
-  if (isControlled) {
-    // Radio can either be directly set as checked, or be controlled by a RadioGroup
-    isChecked =
-      checked !== undefined
-        ? checked
-        : Boolean(radioGroupContext.selectedValue) &&
-          radioGroupContext.selectedValue === value;
-  }
+  React.useEffect(() => {
+    if (isControlled) {
+      // Radio can either be directly set as checked, or be controlled by a RadioGroup
+      const newIsChecked =
+        checked !== undefined
+          ? checked
+          : Boolean(radioGroupContext.selectedValue) &&
+            radioGroupContext.selectedValue === value;
+
+      setIsChecked(newIsChecked);
+
+      if (!isFirstRender && !shouldAnimate && newIsChecked !== isChecked) {
+        setShouldAnimate(true);
+      }
+    }
+  }, [
+    isChecked,
+    checked,
+    isControlled,
+    value,
+    radioGroupContext.selectedValue,
+    isFirstRender,
+    shouldAnimate,
+  ]);
 
   const colorName = radioGroupContext.color || color;
   const isDisabled =
@@ -213,12 +229,14 @@ const Radio = ({
     if (isWithinRadioGroup) {
       radioGroupContext.setLastFocusedValue(value);
       radioGroupContext.setSelectedValue(e, value);
-    } else {
-      setIsPristine(false);
     }
 
     if (onChange) {
       onChange(e);
+    }
+
+    if (!shouldAnimate) {
+      setShouldAnimate(true);
     }
   };
 
