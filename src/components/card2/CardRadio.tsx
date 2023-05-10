@@ -117,7 +117,7 @@ const CardRadio = React.forwardRef<HTMLInputElement, CardRadioPropsType>(
       disabled,
       required = false,
       invalid = false,
-      value = '',
+      value,
       onChange,
       onMouseEnter,
       onMouseLeave,

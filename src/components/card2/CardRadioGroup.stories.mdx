@@ -203,8 +203,8 @@ import CardRadio from './CardRadio';
     ]}
   >
     {args => (
-      <CardRadioGroup {...args}>
-        <CardRadio width="150px" height="150px">
+      <CardRadioGroup defaultValue="default" {...args}>
+        <CardRadio value="default" width="150px" height="150px">
           <CardRadio.Indicator slot="top-left" />
           <CardRadio.Indicator slot="center-left" />
           <CardRadio.Indicator slot="bottom-left" />
@@ -224,8 +224,10 @@ import CardRadio from './CardRadio';
 
 ### States
 
+#### Dark
+
 <Canvas>
-  <Story name="States">
+  <Story name="States Dark">
     {args => (
       <StoryVariantTable>
         <thead>
@@ -285,6 +287,125 @@ import CardRadio from './CardRadio';
                   <tr>
                     <td>
                       <Text weight="bold" size="small" transform="capitalize">
+                        {variant}
+                        <br />
+                        {checked ? 'checked' : 'unchecked'}
+                        <br />
+                        {indicator
+                          ? 'with indicator'
+                          : 'without indicator'}{' '}
+                        <br />
+                      </Text>
+                    </td>
+                    {states}
+                  </tr>
+                );
+              });
+            });
+          })}
+        </tbody>
+      </StoryVariantTable>
+    )}
+  </Story>
+</Canvas>
+
+#### Light
+
+<Canvas>
+  <Story
+    name="States Light"
+    decorators={[
+      Story => (
+        <div
+          style={{
+            background: 'var(--black)',
+          }}
+        >
+          <Story />
+        </div>
+      ),
+    ]}
+  >
+    {args => (
+      <StoryVariantTable>
+        <thead>
+          <tr>
+            <th />
+            <th>
+              <Text
+                color="text-white"
+                weight="bold"
+                transform="capitalize"
+                size="medium"
+              >
+                default
+              </Text>
+            </th>
+            <th>
+              <Text
+                color="text-white"
+                weight="bold"
+                transform="capitalize"
+                size="medium"
+              >
+                disabled
+              </Text>
+            </th>
+            <th>
+              <Text
+                color="text-white"
+                weight="bold"
+                transform="capitalize"
+                size="medium"
+              >
+                error
+              </Text>
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          {['outline', 'solid'].map(variant => {
+            return [false, true].map(indicator => {
+              return [false, true].map(checked => {
+                const states = ['default', 'disabled', 'error'].map(states => (
+                  <td>
+                    <CardRadioGroup defaultValue={checked ? 'default' : ''}>
+                      <CardRadio
+                        variant={variant}
+                        color="light"
+                        width="120px"
+                        height="64px"
+                        disabled={states === 'disabled'}
+                        invalid={states === 'error'}
+                        value="default"
+                      >
+                        {indicator && <CardRadio.Indicator slot="top-left" />}
+                        <Flex
+                          justifyContent="center"
+                          alignItems="center"
+                          fullHeight
+                        >
+                          <Text
+                            color="text-gray-50"
+                            size="xsmall"
+                            weight="bold"
+                          >
+                            Placeholder
+                          </Text>
+                        </Flex>
+                      </CardRadio>
+                    </CardRadioGroup>
+                  </td>
+                ));
+                return (
+                  <tr>
+                    <td>
+                      <Text
+                        color="text-white"
+                        weight="bold"
+                        size="small"
+                        transform="capitalize"
+                      >
                         {variant}
                         <br />
                         {checked ? 'checked' : 'unchecked'}

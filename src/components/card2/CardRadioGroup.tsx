@@ -28,7 +28,7 @@ const CardRadioGroup = React.forwardRef<HTMLDivElement, CardRadioGroupProps>(
       direction,
       children,
       className,
-      defaultValue,
+      defaultValue = '',
       value: controlledValue,
       onChange,
       ...other
