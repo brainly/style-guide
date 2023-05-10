@@ -1,4 +1,5 @@
 // private mixin for widths calculations
+/* stylelint-disable-next-line scss/at-mixin-pattern */
 @mixin _calculateFocusWidths() {
   --totalWidth: calc(var(--focusInnerWidth) + var(--focusWidth));
   --totalOuterWidth: calc(
