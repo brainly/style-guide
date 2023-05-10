@@ -135,6 +135,7 @@
 
   & .sg-radio {
     --radioColor: var(--card-border-color);
+    --radioRingInsideColor: var(--card-indicator-color);
   }
 
   & .sg-radio__circle {
