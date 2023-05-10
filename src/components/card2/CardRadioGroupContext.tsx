@@ -19,9 +19,7 @@ export const useCardRadioGroupContext = () => {
   const context = React.useContext(CardRadioGroupContext);
 
   if (!context) {
-    throw new Error(
-      'Component using useCardRadioGroupContext must be used within a CardRadioGroupProvider'
-    );
+    throw new Error('Component must be used within a CardRadioGroup');
   }
   return context;
 };
