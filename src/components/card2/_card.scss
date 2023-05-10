@@ -47,7 +47,8 @@
     opacity: 0.45;
   }
 
-  &[data-checked='true'] {
+  &[data-checked='true'],
+  &[data-checked='mixed'] {
     border-color: var(--card-border-color-checked);
 
     & .sg-checkbox {
@@ -89,7 +90,8 @@
       --radioHoverColor: var(--card-border-color-hover);
     }
 
-    &[data-checked='true'] {
+    &[data-checked='true'],
+    &[data-checked='mixed'] {
       border-color: var(--card-border-color-checked-hover);
 
       & .sg-checkbox {
