@@ -31,7 +31,7 @@
   transition: transform $durationModerate2 $easingRegular,
     border $durationModerate1 $easingLinear;
 
-  &[data-variant='outlined'] {
+  &[data-variant='outline'] {
     border-color: var(--card-border-color);
   }
 

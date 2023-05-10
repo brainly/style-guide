@@ -4,7 +4,8 @@ import Radio from '../form-elements/radio/Radio';
 import generateRandomString from '../../js/generateRandomString';
 import {useCardRadioGroupContext} from './CardRadioGroupContext';
 
-export interface CardRadioPropsType {
+export interface CardRadioPropsType
+  extends React.AllHTMLAttributes<HTMLDivElement> {
   /**
    * Required string. Value of the CardRadio input.
    */
@@ -100,96 +101,102 @@ export const CardRadioContext = React.createContext<CardRadioContextType>({
   disabled: false,
 });
 
-const CardRadio = ({
-  variant = 'outline',
-  color = 'dark',
-  className,
-  children,
-  width,
-  height,
-  style,
+const CardRadio = React.forwardRef<HTMLInputElement, CardRadioPropsType>(
+  (
+    {
+      variant = 'outline',
+      color = 'dark',
+      className,
+      children,
+      width,
+      height,
+      style,
 
-  // radio related props
+      // radio related props
+      id,
+      disabled,
+      required = false,
+      invalid = false,
+      value = '',
+      onChange,
+      onMouseEnter,
+      onMouseLeave,
+      'aria-labelledby': ariaLabelledBy,
+      'aria-describedby': ariaDescribedBy,
+      ...props
+    }: CardRadioPropsType,
+    ref
+  ) => {
+    const context = useCardRadioGroupContext();
 
-  id,
-  disabled,
-  required = false,
-  invalid = false,
-  value,
-  onChange,
-  onMouseEnter,
-  onMouseLeave,
-  ...props
-}: CardRadioPropsType) => {
-  const context = useCardRadioGroupContext();
+    const cardId = React.useMemo(() => id || generateRandomString(), [id]);
+    const isChecked = context.value === value;
+    const isRequired = context.required || required;
+    const isDisabled = context.disabled || disabled;
+    const isInvalid = context.invalid || invalid;
 
-  const inputRef = React.useRef<HTMLInputElement>(null);
-  const cardId = React.useMemo(() => id || generateRandomString(), [id]);
-  const isChecked = context.value === value;
-  const isRequired = context.required || required;
-  const isDisabled = context.disabled || disabled;
-  const isInvalid = context.invalid || invalid;
+    const cssVariables = {
+      '--card-width': width,
+      '--card-height': height,
+    };
 
-  const cssVariables = {
-    '--card-width': width,
-    '--card-height': height,
-  };
+    const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+      if (context.onChange) {
+        context.onChange(e.target.value);
+      }
+    };
 
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    if (context.onChange) {
-      context.onChange(e.target.value);
-    }
-  };
-
-  return (
-    <CardRadioContext.Provider
-      value={{
-        checked: isChecked,
-        disabled,
-      }}
-    >
-      <div
-        className={cx('sg-card-new', className)}
-        style={{...style, ...cssVariables}}
-        data-variant={variant}
-        data-color={color}
-        data-checked={isChecked}
-        data-invalid={isInvalid}
-        data-disabled={isDisabled}
+    return (
+      <CardRadioContext.Provider
+        value={{
+          checked: isChecked,
+          disabled,
+        }}
       >
-        <input
-          aria-labelledby={`label-${cardId}`}
-          id={cardId}
-          ref={inputRef}
-          className="sg-card-new__input"
-          type="Radio"
-          checked={isChecked}
-          disabled={isDisabled}
-          name={context.name}
-          onChange={handleInputChange}
-          required={isRequired}
-          value={value}
-          aria-invalid={isInvalid}
-          suppressHydrationWarning
+        <div
+          className={cx('sg-card-new', className)}
+          style={{...style, ...cssVariables}}
+          data-variant={variant}
+          data-color={color}
+          data-checked={isChecked}
+          data-invalid={isInvalid}
+          data-disabled={isDisabled}
           {...props}
-        />
-        <label
-          id={`label-${cardId}`}
-          htmlFor={cardId}
-          className="sg-card-new__background"
-          onMouseEnter={onMouseEnter}
-          onMouseLeave={onMouseLeave}
-          // On iOS the :active pseudo state is triggered only when there is a touch event set on the HTML element
-          // and we use active pseudo class to provide press feedback.
-          onTouchStart={() => null}
-          suppressHydrationWarning
         >
-          {children}
-        </label>
-      </div>
-    </CardRadioContext.Provider>
-  );
-};
+          <input
+            id={cardId}
+            ref={ref}
+            className="sg-card-new__input"
+            type="Radio"
+            checked={isChecked}
+            disabled={isDisabled}
+            name={context.name}
+            onChange={handleInputChange}
+            required={isRequired}
+            value={value}
+            aria-invalid={isInvalid}
+            aria-labelledby={ariaLabelledBy || `label-${cardId}`}
+            aria-describedby={ariaDescribedBy}
+            suppressHydrationWarning
+          />
+          <label
+            id={`label-${cardId}`}
+            htmlFor={cardId}
+            className="sg-card-new__background"
+            onMouseEnter={onMouseEnter}
+            onMouseLeave={onMouseLeave}
+            // On iOS the :active pseudo state is triggered only when there is a touch event set on the HTML element
+            // and we use active pseudo class to provide press feedback.
+            onTouchStart={() => null}
+            suppressHydrationWarning
+          >
+            {children}
+          </label>
+        </div>
+      </CardRadioContext.Provider>
+    );
+  }
+);
 
 export interface CardRadioIndicatorPropsType {
   slot?:

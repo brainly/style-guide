@@ -41,7 +41,7 @@ import CardRadio from './CardRadio';
   >
     {args => (
       <CardRadioGroup {...args}>
-        <CardRadio width="150px" height="150px">
+        <CardRadio value="default" width="150px" height="150px">
           <CardRadio.Indicator slot="top-left" />
           <Flex justifyContent="center" alignItems="center" fullHeight>
             <Text color="text-gray-50" size="xsmall" weight="bold">
@@ -83,9 +83,8 @@ import CardRadio from './CardRadio';
     ]}
   >
     {args => (
-      <>
+      <CardRadioGroup>
         <CardRadio
-          {...args}
           variant="solid"
           width="150px"
           height="150px"
@@ -99,7 +98,6 @@ import CardRadio from './CardRadio';
           </Flex>
         </CardRadio>
         <CardRadio
-          {...args}
           variant="solid"
           width="150px"
           height="150px"
@@ -120,7 +118,7 @@ import CardRadio from './CardRadio';
             </Text>
           </Flex>
         </CardRadio>
-      </>
+      </CardRadioGroup>
     )}
   </Story>
 </Canvas>
@@ -205,19 +203,21 @@ import CardRadio from './CardRadio';
     ]}
   >
     {args => (
-      <CardRadio {...args} width="150px" height="150px" defaultChecked={true}>
-        <CardRadio.Indicator slot="top-left" />
-        <CardRadio.Indicator slot="center-left" />
-        <CardRadio.Indicator slot="bottom-left" />
-        <CardRadio.Indicator slot="top-right" />
-        <CardRadio.Indicator slot="center-right" />
-        <CardRadio.Indicator slot="bottom-right" />
-        <Flex justifyContent="center" alignItems="center" fullHeight>
-          <Text color="text-gray-50" size="xsmall" weight="bold">
-            Placeholder
-          </Text>
-        </Flex>
-      </CardRadio>
+      <CardRadioGroup {...args}>
+        <CardRadio width="150px" height="150px">
+          <CardRadio.Indicator slot="top-left" />
+          <CardRadio.Indicator slot="center-left" />
+          <CardRadio.Indicator slot="bottom-left" />
+          <CardRadio.Indicator slot="top-right" />
+          <CardRadio.Indicator slot="center-right" />
+          <CardRadio.Indicator slot="bottom-right" />
+          <Flex justifyContent="center" alignItems="center" fullHeight>
+            <Text color="text-gray-50" size="xsmall" weight="bold">
+              Placeholder
+            </Text>
+          </Flex>
+        </CardRadio>
+      </CardRadioGroup>
     )}
   </Story>
 </Canvas>
@@ -254,26 +254,31 @@ import CardRadio from './CardRadio';
               return [false, true].map(checked => {
                 const states = ['default', 'disabled', 'error'].map(states => (
                   <td>
-                    <CardRadio
-                      {...args}
-                      variant={variant}
-                      width="120px"
-                      height="64px"
-                      disabled={states === 'disabled'}
-                      invalid={states === 'error'}
-                      defaultChecked={checked}
-                    >
-                      {indicator && <CardRadio.Indicator slot="top-left" />}
-                      <Flex
-                        justifyContent="center"
-                        alignItems="center"
-                        fullHeight
+                    <CardRadioGroup defaultValue={checked ? 'default' : ''}>
+                      <CardRadio
+                        variant={variant}
+                        width="120px"
+                        height="64px"
+                        disabled={states === 'disabled'}
+                        invalid={states === 'error'}
+                        value="default"
                       >
-                        <Text color="text-gray-50" size="xsmall" weight="bold">
-                          Placeholder
-                        </Text>
-                      </Flex>
-                    </CardRadio>
+                        {indicator && <CardRadio.Indicator slot="top-left" />}
+                        <Flex
+                          justifyContent="center"
+                          alignItems="center"
+                          fullHeight
+                        >
+                          <Text
+                            color="text-gray-50"
+                            size="xsmall"
+                            weight="bold"
+                          >
+                            Placeholder
+                          </Text>
+                        </Flex>
+                      </CardRadio>
+                    </CardRadioGroup>
                   </td>
                 ));
                 return (
@@ -352,7 +357,7 @@ import CardRadio from './CardRadio';
                 {label}
               </Text>
               <div style={{width: 105, height: '100%', marginLeft: 'auto'}}>
-                <img src={`images/${image}.png`} height="100%" />
+                <img src={`images/${image}.png`} height="100%" alt="" />
               </div>
             </Flex>
           </CardRadio>
