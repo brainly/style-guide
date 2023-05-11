@@ -31,10 +31,10 @@ describe('<CardRadioGroup />', () => {
 
   it('changes selected element when CardRadio is clicked', () => {
     render(getCardRadioGroup());
-    //userEvent.click(screen.getByLabelText('Option A'));
+    userEvent.click(screen.getByLabelText('Option A'));
     expect(screen.getByLabelText('Option A')).toBeChecked();
     expect(screen.getByLabelText('Option B')).not.toBeChecked();
-    //userEvent.click(screen.getByLabelText('Option B'));
+    userEvent.click(screen.getByLabelText('Option B'));
     expect(screen.getByLabelText('Option A')).not.toBeChecked();
     expect(screen.getByLabelText('Option B')).toBeChecked();
   });
