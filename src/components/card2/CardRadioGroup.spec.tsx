@@ -43,7 +43,7 @@ describe('<CardRadioGroup />', () => {
   it('calls onChange when CardRadio is clicked', () => {
     const onChange = jest.fn();
 
-    renderCardRadioGroup();
+    renderCardRadioGroup({onChange});
     userEvent.click(screen.getByLabelText('Option A'));
     expect(onChange).toHaveBeenCalledWith('option-a');
   });
