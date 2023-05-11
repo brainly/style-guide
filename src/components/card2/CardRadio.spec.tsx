@@ -40,6 +40,38 @@ describe('<CardRadio />', () => {
     expect(screen.getByLabelText('Option A')).not.toBeChecked();
   });
 
+  it('allows aria-labbelledby to override accessible name', () => {
+    render(
+      <CardRadioGroup>
+        <CardRadio value="option-a" aria-labelledby="labelid">
+          Option A<span id="labelid">Custom Label Option A</span>
+        </CardRadio>
+      </CardRadioGroup>
+    );
+
+    const cardRadio = screen.getByRole('radio', {
+      name: 'Custom Label Option A',
+    }) as HTMLInputElement;
+
+    expect(cardRadio).toBeInTheDocument();
+  });
+
+  it('allows descriibedby to define accessible description', () => {
+    render(
+      <CardRadioGroup>
+        <CardRadio value="option-a" aria-describedby="descriptionid">
+          Option A<span id="descriptionid">Custom Description Option A</span>
+        </CardRadio>
+      </CardRadioGroup>
+    );
+
+    const cardRadio = screen.getByRole('radio', {
+      description: 'Custom Description Option A',
+    }) as HTMLInputElement;
+
+    expect(cardRadio).toBeInTheDocument();
+  });
+
   describe('a11y', () => {
     it('should have no a11y violations', async () => {
       const {container} = renderCardRadio();
