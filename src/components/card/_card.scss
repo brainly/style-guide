@@ -1,218 +1,153 @@
-.sg-card-new {
-  --card-background-color: var(--white);
-  --card-border-color: var(--gray-30);
-  --card-border-color-hover: var(--gray-40);
-  --card-border-color-invalid: var(--red-60);
-  --card-border-color-invalid-hover: var(--red-50);
-  --card-border-color-checked: var(--black);
-  --card-border-color-checked-hover: var(--gray-60);
-  --card-indicator-color: var(--white);
+@use 'sass:math';
+$cardBorderColor: $gray-40;
+$cardBorderSize: 1px;
+$cardShadow: $shadowSmall;
 
-  &[data-color='light'] {
-    --card-background-color: var(--black);
-    --card-border-color: var(--gray-40);
-    --card-border-color-hover: var(--gray-50);
-    --card-border-color-invalid: var(--red-40);
-    --card-border-color-invalid-hover: var(--red-50);
-    --card-border-color-checked: var(--white);
-    --card-border-color-checked-hover: var(--white);
-    --card-indicator-color: var(--black);
-  }
+$includeHtml: false !default;
 
-  display: block;
-  position: relative;
-  width: var(--card-width, auto);
-  height: var(--card-height, auto);
-  border-radius: 8px;
-  border: 2px solid var(--card-background-color);
-  background-color: var(--card-background-color);
-  user-select: none;
+@if ($includeHtml) {
+  .sg-card {
+    @include component();
+    display: inline-flex;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    border-radius: var(--border-radius-xs);
+    border: $cardBorderColor solid $cardBorderSize;
+    overflow: hidden;
+    background-color: $white;
 
-  transition: transform $durationModerate2 $easingRegular,
-    border $durationModerate1 $easingLinear;
-
-  &[data-variant='outline'] {
-    border-color: var(--card-border-color);
-  }
-
-  &[data-variant='solid'] {
-    border-color: var(--card-background-color);
-  }
-
-  &:active:not([data-disabled='true']) {
-    transform: scale(0.98);
-  }
-
-  &[data-disabled='true'] {
-    opacity: 0.45;
-  }
-
-  &[data-checked='true'],
-  &[data-checked='mixed'] {
-    border-color: var(--card-border-color-checked);
-
-    & .sg-checkbox {
-      --checkboxColor: var(--card-border-color-checked);
-      --checkboxCheckedColor: var(--card-border-color-checked);
+    &--transparent {
+      background-color: transparent;
     }
 
-    & .sg-radio {
-      --radioColor: var(--card-border-color-checked);
-    }
-  }
+    &--full {
+      width: 100%;
 
-  &[data-invalid='true'] {
-    border-color: var(--card-border-color-invalid);
-
-    & .sg-checkbox {
-      --checkboxColor: var(--card-border-color-invalid);
-      --checkboxCheckedColor: var(--card-border-color-invalid);
-    }
-
-    & .sg-radio {
-      --radioColor: var(--card-border-color-invalid);
-      --radioHoverColor: var(--card-border-color-invalid);
-    }
-  }
-
-  &:hover:not([data-disabled='true']) {
-    border-color: var(--card-border-color-hover);
-
-    & .sg-checkbox {
-      --checkboxColor: var(--card-border-color-hover);
-      --checkboxCheckedColor: var(--card-border-color-hover);
-      --checkboxHoverColor: var(--card-border-color-hover);
-      transition: all $durationModerate1 $easingRegular;
-    }
-
-    & .sg-radio {
-      --radioColor: var(--card-border-color-hover);
-      --radioHoverColor: var(--card-border-color-hover);
-    }
-
-    &[data-checked='true'],
-    &[data-checked='mixed'] {
-      border-color: var(--card-border-color-checked-hover);
-
-      & .sg-checkbox {
-        --checkboxColor: var(--card-border-color-checked-hover);
-        --checkboxCheckedColor: var(--card-border-color-checked-hover);
-        --checkboxHoverColor: var(--card-border-color-checked-hover);
-      }
-
-      & .sg-radio {
-        --radioColor: var(--card-border-color-checked-hover);
-        --radioHoverColor: var(--card-border-color-checked-hover);
+      .sg-card__hole {
+        width: 100%;
       }
     }
 
-    &[data-invalid='true'] {
-      border-color: var(--card-border-color-invalid-hover);
+    &--vertical {
+      flex-direction: row;
 
-      & .sg-checkbox {
-        --checkboxColor: var(--card-border-color-invalid-hover);
-        --checkboxCheckedColor: var(--card-border-color-invalid-hover);
-        --checkboxHoverColor: var(--card-border-color-invalid-hover);
-      }
-
-      & .sg-radio {
-        --radioColor: var(--card-border-color-invalid-hover);
-        --radioHoverColor: var(--card-border-color-invalid-hover);
+      .sg-card__hole {
+        align-self: stretch;
+        flex: 1;
       }
     }
-  }
 
-  /* Indicators */
-  & .sg-checkbox {
-    --checkboxColor: var(--card-border-color);
-    --checkboxCheckedColor: var(--card-border-color-checked);
-    --checkboxIconFillColor: var(--card-indicator-color);
-  }
-
-  & .sg-checkbox__icon {
-    transition: all $durationModerate1 $easingLinear;
-  }
-
-  & .sg-radio {
-    --radioColor: var(--card-border-color);
-    --radioRingInsideColor: var(--card-indicator-color);
-  }
-
-  & .sg-radio__circle {
-    transition: all $durationModerate1 $easingLinear;
-  }
-
-  /* Focus styles */
-
-  & .sg-card-new__input:focus-visible + .sg-card-new__background {
-    // TODO(coderitual): Replace with applyFocusStyle when it's updated to support different border widths
-    box-shadow: 0px 0px 0px 2px var(--focusInnerColor),
-      0px 0px 0px 4px var(--focusColor), 0px 0px 0px 7px var(--focusOuterColor);
-    outline: none;
-    animation: focusShadow1 $durationQuick2 $easingEntry,
-      focusShadow2 $durationQuick2 $easingEntry calc($durationQuick2 / 2),
-      focusShadow3 $durationQuick2 $easingEntry $durationQuick2;
-
-    @media (forced-colors: active) {
-      outline-color: Highlight;
-      outline-width: 2px;
-      outline-offset: 6px;
-      outline-style: auto;
+    &--with-shadow {
+      box-shadow: $cardShadow;
     }
-  }
-}
 
-.sg-card-new__input {
-  position: absolute;
-  opacity: 0;
-  top: 0;
-  left: 0;
-}
+    &--no-border {
+      border: none;
+    }
 
-.sg-card-new__background {
-  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-  position: absolute;
-  inset: -2px;
-  border-radius: 8px;
-  padding: 2px;
-}
+    &--centered {
+      .sg-card__hole {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: center;
+      }
+    }
 
-.sg-card-new__indicator {
-  position: absolute;
-  width: 32px;
-  height: 32px;
+    &--padding-small {
+      .sg-card__hole {
+        padding: gutter(math.div(2, 3));
+      }
+    }
 
-  /*
-    The indicator is coming from the real checkbox element so we need to remove its input from the layout
-  */
-  & input {
-    display: none;
-  }
+    &--padding-normal {
+      .sg-card__hole {
+        padding: gutter(1);
+      }
+    }
 
-  &--top-left {
-    top: 0;
-    left: 0;
-  }
-  &--center-left {
-    top: 50%;
-    left: 0;
-    transform: translateY(-50%);
-  }
-  &--bottom-left {
-    bottom: 0;
-    left: 0;
-  }
-  &--top-right {
-    top: 0;
-    right: 0;
-  }
-  &--center-right {
-    top: 50%;
-    right: 0;
-    transform: translateY(-50%);
-  }
-  &--bottom-right {
-    bottom: 0;
-    right: 0;
+    &--padding-large {
+      .sg-card__hole {
+        padding: gutter(math.div(4, 3));
+      }
+    }
+
+    &--padding-xlarge {
+      .sg-card__hole {
+        padding: gutter(math.div(8, 3));
+      }
+    }
+
+    &__hole {
+      width: 100%;
+
+      &--blue-40 {
+        background-color: $blue-40;
+      }
+
+      &--blue-30 {
+        background-color: $blue-30;
+      }
+
+      &--blue-20 {
+        background-color: $blue-20;
+      }
+
+      &--indigo-40 {
+        background-color: $indigo-40;
+      }
+
+      &--indigo-30 {
+        background-color: $indigo-30;
+      }
+
+      &--indigo-20 {
+        background-color: $indigo-20;
+      }
+
+      &--green-40 {
+        background-color: $green-40;
+      }
+
+      &--green-30 {
+        background-color: $green-30;
+      }
+
+      &--green-20 {
+        background-color: $green-20;
+      }
+
+      &--yellow-40 {
+        background-color: $yellow-40;
+      }
+
+      &--yellow-30 {
+        background-color: $yellow-30;
+      }
+
+      &--yellow-20 {
+        background-color: $yellow-20;
+      }
+
+      &--gray-70 {
+        background-color: $gray-70;
+      }
+
+      &--gray-50 {
+        background-color: $gray-50;
+      }
+
+      &--gray-40 {
+        background-color: $gray-40;
+      }
+
+      &--gray-20 {
+        background-color: $gray-20;
+      }
+
+      &--gray-10 {
+        background-color: $gray-10;
+      }
+    }
   }
 }
