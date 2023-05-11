@@ -5,7 +5,7 @@ import generateRandomString from '../../js/generateRandomString';
 import {useCardRadioGroupContext} from './CardRadioGroupContext';
 
 export interface CardRadioPropsType
-  extends React.AllHTMLAttributes<HTMLDivElement> {
+  extends React.ComponentPropsWithoutRef<'div'> {
   /**
    * Required string. Value of the CardRadio input.
    */
