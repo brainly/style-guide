@@ -1,10 +1,9 @@
 import * as React from 'react';
-import {CardRadioGroup} from './CardRadioGroup';
 import {render, screen} from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import {testA11y} from '../../axe';
 
-// Assume that we have a CardRadio component in the same directory
+import {CardRadioGroup} from './CardRadioGroup';
 import CardRadio from './CardRadio';
 
 describe('<CardRadioGroup />', () => {
