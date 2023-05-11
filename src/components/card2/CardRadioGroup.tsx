@@ -10,9 +10,12 @@ interface CardRadioGroupProps {
   required?: boolean;
   disabled?: boolean;
   invalid?: boolean;
-  direction: 'row' | 'column';
+  direction?: 'row' | 'column';
   children: React.ReactNode;
   className?: string;
+  'aria-labelledby'?: string;
+  'aria-describedby'?: string;
+  'aria-label'?: string;
   defaultValue?: string;
   value?: string;
   onChange?: (value: string) => void;
@@ -25,7 +28,7 @@ const CardRadioGroup = React.forwardRef<HTMLDivElement, CardRadioGroupProps>(
       required = false,
       disabled = false,
       invalid,
-      direction,
+      direction = 'row',
       children,
       className,
       defaultValue = '',
