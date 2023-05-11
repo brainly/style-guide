@@ -1,4 +1,4 @@
-.sg-card-new {
+.sg-card-interactive {
   --card-background-color: var(--white);
   --card-border-color: var(--gray-30);
   --card-border-color-hover: var(--gray-40);
@@ -144,7 +144,9 @@
 
   /* Focus styles */
 
-  & .sg-card-new__input:focus-visible + .sg-card-new__background {
+  &
+    .sg-card-interactive__input:focus-visible
+    + .sg-card-interactive__background {
     // TODO(coderitual): Replace with applyFocusStyle when it's updated to support different border widths
     box-shadow: 0px 0px 0px 2px var(--focusInnerColor),
       0px 0px 0px 4px var(--focusColor), 0px 0px 0px 7px var(--focusOuterColor);
@@ -162,14 +164,14 @@
   }
 }
 
-.sg-card-new__input {
+.sg-card-interactive__input {
   position: absolute;
   opacity: 0;
   top: 0;
   left: 0;
 }
 
-.sg-card-new__background {
+.sg-card-interactive__background {
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
   position: absolute;
   inset: -2px;
@@ -177,7 +179,7 @@
   padding: 2px;
 }
 
-.sg-card-new__indicator {
+.sg-card-interactive__indicator {
   position: absolute;
   width: 32px;
   height: 32px;

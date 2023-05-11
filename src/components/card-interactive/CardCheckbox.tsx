@@ -180,7 +180,7 @@ const CardCheckbox = ({
       }}
     >
       <div
-        className={cx('sg-card-new', className)}
+        className={cx('sg-card-interactive', className)}
         style={{...style, ...cssVariables}}
         data-variant={variant}
         data-color={color}
@@ -192,7 +192,7 @@ const CardCheckbox = ({
           aria-labelledby={`label-${cardId}`}
           id={cardId}
           ref={inputRef}
-          className="sg-card-new__input"
+          className="sg-card-interactive__input"
           type="checkbox"
           checked={isChecked}
           disabled={disabled}
@@ -208,7 +208,7 @@ const CardCheckbox = ({
         <label
           id={`label-${cardId}`}
           htmlFor={cardId}
-          className="sg-card-new__background"
+          className="sg-card-interactive__background"
           onMouseEnter={onMouseEnter}
           onMouseLeave={onMouseLeave}
           // On iOS the :active pseudo state is triggered only when there is a touch event set on the HTML element
@@ -246,8 +246,8 @@ export const CardCheckboxIndicator = ({
   return (
     <div
       className={cx(
-        'sg-card-new__indicator',
-        `sg-card-new__indicator--${slot}`,
+        'sg-card-interactive__indicator',
+        `sg-card-interactive__indicator--${slot}`,
         className
       )}
       style={style}

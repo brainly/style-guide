@@ -154,7 +154,7 @@ const CardRadio = React.forwardRef<HTMLInputElement, CardRadioPropsType>(
         }}
       >
         <div
-          className={cx('sg-card-new', className)}
+          className={cx('sg-card-interactive', className)}
           style={{...style, ...cssVariables}}
           data-variant={variant}
           data-color={color}
@@ -166,7 +166,7 @@ const CardRadio = React.forwardRef<HTMLInputElement, CardRadioPropsType>(
           <input
             id={cardId}
             ref={ref}
-            className="sg-card-new__input"
+            className="sg-card-interactive__input"
             type="Radio"
             checked={isChecked}
             disabled={isDisabled}
@@ -182,7 +182,7 @@ const CardRadio = React.forwardRef<HTMLInputElement, CardRadioPropsType>(
           <label
             id={`label-${cardId}`}
             htmlFor={cardId}
-            className="sg-card-new__background"
+            className="sg-card-interactive__background"
             onMouseEnter={onMouseEnter}
             onMouseLeave={onMouseLeave}
             // On iOS the :active pseudo state is triggered only when there is a touch event set on the HTML element
@@ -220,8 +220,8 @@ export const CardRadioIndicator = ({
   return (
     <div
       className={cx(
-        'sg-card-new__indicator',
-        `sg-card-new__indicator--${slot}`,
+        'sg-card-interactive__indicator',
+        `sg-card-interactive__indicator--${slot}`,
         className
       )}
       style={style}
