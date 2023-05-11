@@ -34,7 +34,7 @@
     "inquirer": "^8.2.0",
     "jscodeshift": "^0.13.1",
     "meow": "^5.0.0",
-    "react-hook-form": "^7.43.1",
+    "react-hook-form": "7.37.0",
     "patch-package": "^6.5.1",
     "path": "^0.12.7",
     "postinstall-postinstall": "^2.1.0"

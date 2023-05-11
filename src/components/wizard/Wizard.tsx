@@ -13,6 +13,7 @@ type WizardProps = {
   title?: string;
   subtitle?: string;
   onComplete?(): void;
+  children: React.ReactNode;
 };
 
 const WizardContext = React.createContext<{
@@ -31,84 +32,88 @@ const WizardStepContext = React.createContext<{
   index: 0,
 });
 
-const Wizard: React.FunctionComponent<WizardProps> = ({
-  children,
-  title,
-  subtitle,
-  onComplete,
-}) => {
-  const stepsArray = React.Children.toArray(children).filter(reactNode => {
-    return React.isValidElement(reactNode) && reactNode.type === WizardStep;
-  });
-  const [currentStep, setCurrentStep] = React.useState<number>(0);
+const Wizard = React.forwardRef(
+  ({children, title, subtitle, onComplete}: WizardProps, ref) => {
+    const stepsArray = React.Children.toArray(children).filter(reactNode => {
+      return React.isValidElement(reactNode) && reactNode.type === WizardStep;
+    });
+    const [currentStep, setCurrentStep] = React.useState<number>(0);
 
-  const next = React.useCallback(() => {
-    if (currentStep < stepsArray.length - 1) {
-      setCurrentStep(currentStep + 1);
-    } else {
-      onComplete();
-    }
-  }, [currentStep, stepsArray, onComplete]);
+    const next = React.useCallback(() => {
+      if (currentStep < stepsArray.length - 1) {
+        setCurrentStep(currentStep + 1);
+      } else {
+        onComplete();
+      }
+    }, [currentStep, stepsArray, onComplete]);
 
-  return (
-    <div className="wizard">
-      <WizardContext.Provider
-        value={{
-          currentStep,
-          stepsLength: stepsArray.length,
-          next,
-        }}
-      >
-        <Flex direction="column" fullHeight>
-          <div className="wizard-progress-bar">
-            <Box padding="s">
-              <Text size="medium" weight="bold" align="to-center">
-                {title}
-              </Text>
-            </Box>
-            {stepsArray.length > 0 ? (
-              <ProgressBar
-                maxValue={stepsArray.length}
-                value={currentStep}
-                noBorderRadius
-              />
-            ) : null}
-          </div>
-          <div className="wizard-form">
-            {stepsArray.map((step, index) => {
-              return (
-                <Flex
-                  justifyContent="center"
-                  alignItems="center"
-                  key={index}
-                  className={classNames('wizard-step', {
-                    'wizard-step--current': index === currentStep,
-                  })}
-                >
-                  <Flex direction="column" className="wizard-step-content">
-                    {index === 0 && title ? (
-                      <Flex marginBottom="l" direction="column">
-                        <Headline className="wizard-form__title" size="xlarge">
-                          {title}
-                        </Headline>
-                        {subtitle ? (
-                          <Text size="medium">{subtitle}</Text>
-                        ) : null}
-                      </Flex>
-                    ) : null}
-                    <WizardStepContext.Provider value={{index}}>
-                      {step}
-                    </WizardStepContext.Provider>
+    React.useImperativeHandle(ref, () => {
+      return {next};
+    });
+
+    return (
+      <div className="wizard">
+        <WizardContext.Provider
+          value={{
+            currentStep,
+            stepsLength: stepsArray.length,
+            next,
+          }}
+        >
+          <Flex direction="column" fullHeight>
+            <div className="wizard-progress-bar">
+              <Box padding="s">
+                <Text size="medium" weight="bold" align="to-center">
+                  {title}
+                </Text>
+              </Box>
+              {stepsArray.length > 0 ? (
+                <ProgressBar
+                  maxValue={stepsArray.length}
+                  value={currentStep}
+                  noBorderRadius
+                />
+              ) : null}
+            </div>
+            <div className="wizard-form">
+              {stepsArray.map((step, index) => {
+                return (
+                  <Flex
+                    justifyContent="center"
+                    alignItems="center"
+                    key={index}
+                    className={classNames('wizard-step', {
+                      'wizard-step--current': index === currentStep,
+                    })}
+                  >
+                    <Flex direction="column" className="wizard-step-content">
+                      {index === 0 && title ? (
+                        <Flex marginBottom="l" direction="column">
+                          <Headline
+                            className="wizard-form__title"
+                            size="xlarge"
+                          >
+                            {title}
+                          </Headline>
+                          {subtitle ? (
+                            <Text size="medium">{subtitle}</Text>
+                          ) : null}
+                        </Flex>
+                      ) : null}
+                      <WizardStepContext.Provider value={{index}}>
+                        {step}
+                      </WizardStepContext.Provider>
+                    </Flex>
                   </Flex>
-                </Flex>
-              );
-            })}
-          </div>
-        </Flex>
-      </WizardContext.Provider>
-    </div>
-  );
-};
+                );
+              })}
+            </div>
+          </Flex>
+        </WizardContext.Provider>
+      </div>
+    );
+  }
+);
 
 const WizardStep: React.FunctionComponent<
   {
@@ -120,6 +125,7 @@ const WizardStep: React.FunctionComponent<
     React.FormEventHandler<HTMLFormElement>
   >(
     event => {
+      console.log('WizardStep onSubmit');
       event.preventDefault();
 
       if (onSubmit) {
@@ -198,4 +204,19 @@ const WizardExport: typeof Wizard & {
   StepTitle: WizardStepTitle,
 });
 
-export {WizardExport as Wizard, WizardStepSubmit, WizardStepTitle};
+const useWizard = () => {
+  const wizardRef = React.useRef<{
+    next(): void;
+  }>();
+
+  return {
+    ref: wizardRef,
+    next: () => {
+      if (wizardRef.current) {
+        wizardRef.current.next();
+      }
+    },
+  };
+};
+
+export {WizardExport as Wizard, WizardStepSubmit, WizardStepTitle, useWizard};

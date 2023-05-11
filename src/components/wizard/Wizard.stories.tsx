@@ -1,11 +1,13 @@
 import React from 'react';
-import {Wizard, WizardStepTitle, WizardStepSubmit} from './Wizard';
+import {Wizard, WizardStepTitle, WizardStepSubmit, useWizard} from './Wizard';
 import Input from '../form-elements/Input';
 import Checkbox from '../form-elements/checkbox/Checkbox';
 import Textarea from '../form-elements/Textarea';
 import RadioGroup from '../form-elements/radio/RadioGroup';
 import Radio from '../form-elements/radio/Radio';
 import Dialog from '../dialog/Dialog';
+import {useBrainlyForm} from './useBrainlyForm';
+import {useBrainlyFormField} from './useBrainlyFormField';
 
 export default {
   title: 'Components/Wizard',
@@ -18,29 +20,55 @@ export default {
   ],
 };
 
+const InputField = ({name}) => {
+  const firstNameFieldProps = useBrainlyFormField({name});
+
+  return <Input {...firstNameFieldProps} />;
+};
+
 export const Default = () => {
-  const onChange = () => null;
   const onComplete = () => {
     alert('wizard form completed');
   };
+  const onChange = () => null;
+
+  const {Form} = useBrainlyForm();
+
+  const {next, ref} = useWizard();
 
   return (
-    <Wizard title="form title" subtitle="form subtitle" onComplete={onComplete}>
+    <Wizard
+      title="form title"
+      subtitle="form subtitle"
+      onComplete={onComplete}
+      ref={ref}
+    >
       <Wizard.Step>
-        <Wizard.StepTitle>step 1 title</Wizard.StepTitle>
-        <Input fullWidth name="field 1" />
-        <Wizard.StepSubmit>next</Wizard.StepSubmit>
+        <Form
+          onSubmit={(data, e) => {
+            /**
+             *
+             * SUBMIT sie odpala w Wizard.Step
+             *
+             */
+            e.stopPropagation();
+            e.preventDefault();
+            console.log(data);
+            next();
+          }}
+        >
+          <Wizard.StepTitle>step 1 title</Wizard.StepTitle>
+          <InputField name="first_name" />
+          <Wizard.StepSubmit>next</Wizard.StepSubmit>
+        </Form>
       </Wizard.Step>
       <Wizard.Step>
-        <Wizard.StepTitle subtitle="step 2 subtitle">
-          step 2 title
-        </Wizard.StepTitle>
-        <RadioGroup name="field_2" onChange={onChange}>
-          <Radio value="option_1">option 1</Radio>
-          <Radio value="option_2">option 2</Radio>
-          <Radio value="option_3">option 3</Radio>
+        <Wizard.StepTitle>Who are you?</Wizard.StepTitle>
+        <RadioGroup name="account_type" onChange={onChange}>
+          <Radio value="student">Student</Radio>
+          <Radio value="parent">Parent</Radio>
         </RadioGroup>
-        <Wizard.StepSubmit>finish</Wizard.StepSubmit>
+        <Wizard.StepSubmit>next</Wizard.StepSubmit>
       </Wizard.Step>
     </Wizard>
   );
