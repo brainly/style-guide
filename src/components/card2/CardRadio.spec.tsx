@@ -18,8 +18,17 @@ describe('<CardRadio />', () => {
       </CardRadioGroup>
     );
 
-  it('renders CardRadio', () => {
+  it('renders CardRadio with accessible name and radio role', () => {
+    const label = 'Option A';
+
     renderCardRadio();
-    expect(screen.getByLabelText('Option A')).toBeInTheDocument();
+
+    const cardRadio = screen.getByRole('radio', {
+      name: label,
+    }) as HTMLInputElement;
+
+    expect(cardRadio).toBeInTheDocument();
+    expect(cardRadio.checked).toBe(false);
+    expect(cardRadio.getAttribute('value')).toBe('option-a');
   });
 });
