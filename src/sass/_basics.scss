@@ -32,6 +32,10 @@ $includeHtml: false !default;
     --focusInnerColor: #{$white};
     --focusOuterColor: rgba(109, 131, 243, 0.3);
 
+    --focusWidth: 2px;
+    --focusInnerWidth: 2px;
+    --focusOuterWidth: 2px;
+
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 
