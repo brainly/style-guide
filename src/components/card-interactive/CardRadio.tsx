@@ -231,4 +231,6 @@ export function CardRadioIndicator({
   );
 }
 
+CardRadioIndicator.displayName = 'CardRadioIndicator';
+
 export {CardRadio};
