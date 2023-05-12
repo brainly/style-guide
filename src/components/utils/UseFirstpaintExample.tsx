@@ -12,30 +12,33 @@ export const Example = () => {
   }, [isToggled]);
 
   return (
-    <div style={{height: 300, width: 600}}>
-      <div
-        onClick={handleClick}
-        ref={expandableRef}
-        style={{
-          position: 'absolute',
-          height: 200,
-          width: 200,
-          display: 'flex',
-          justifyContent: 'center',
-          alignItems: 'center',
-          background: 'var(--blue-40)',
-          color: 'var(--white)',
-          borderRadius: 'var(--border-radius-xs)',
-          cursor: 'pointer',
-          animationName: isToggled
-            ? 'useFirstPaintExampleToggleOn'
-            : 'useFirstPaintExampleToggleOff',
-          animationDuration: isFirstPaintRef.current ? '0' : '1000ms',
-          animationFillMode: 'both',
-          fontWeight: 'bold',
-        }}
-      >
-        Click me
+    <div>
+      <p>Animation is not visible on initial render</p>
+      <div style={{height: 300, width: 600}}>
+        <div
+          onClick={handleClick}
+          ref={expandableRef}
+          style={{
+            position: 'absolute',
+            height: 200,
+            width: 200,
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
+            background: 'var(--blue-40)',
+            color: 'var(--white)',
+            borderRadius: 'var(--border-radius-xs)',
+            cursor: 'pointer',
+            animationName: isToggled
+              ? 'useFirstPaintExampleToggleOn'
+              : 'useFirstPaintExampleToggleOff',
+            animationDuration: isFirstPaintRef.current ? '0' : '1000ms',
+            animationFillMode: 'both',
+            fontWeight: 'bold',
+          }}
+        >
+          Click me
+        </div>
       </div>
     </div>
   );
