@@ -195,7 +195,7 @@ const Checkbox = ({
     if (isControlled && checked !== isChecked) {
       setIsChecked(checked);
 
-      if (isFirstRender.current === false && checkboxIconRef.current) {
+      if (!isFirstRender && checkboxIconRef.current) {
         checkboxIconRef.current.classList.add(
           'sg-checkbox__icon--with-animation'
         );
@@ -210,13 +210,13 @@ const Checkbox = ({
 
       if (onChange) onChange(e);
 
-      if (checkboxIconRef.current) {
+      if (!isFirstRender && checkboxIconRef.current) {
         checkboxIconRef.current.classList.add(
           'sg-checkbox__icon--with-animation'
         );
       }
     },
-    [onChange, isControlled, checkboxIconRef]
+    [onChange, isControlled, checkboxIconRef, isFirstRender]
   );
 
   if (__DEV__) {

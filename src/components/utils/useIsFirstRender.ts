@@ -14,5 +14,5 @@ export const useIsFirstRender = () => {
     };
   }, []);
 
-  return isFirstRender;
+  return isFirstRender.current;
 };

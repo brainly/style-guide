@@ -181,7 +181,7 @@ const Radio = ({
         : Boolean(radioGroupContext.selectedValue) &&
           radioGroupContext.selectedValue === value;
 
-    if (isFirstRender.current === false && circleRef.current) {
+    if (!isFirstRender && circleRef.current) {
       circleRef.current.classList.add('sg-radio__circle--with-animation');
     }
   }
@@ -223,7 +223,7 @@ const Radio = ({
       onChange(e);
     }
 
-    if (circleRef.current) {
+    if (circleRef.current && !isFirstRender) {
       circleRef.current.classList.add('sg-radio__circle--with-animation');
     }
   };
