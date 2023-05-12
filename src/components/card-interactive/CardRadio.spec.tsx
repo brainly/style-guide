@@ -3,8 +3,8 @@ import {render, screen} from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import {testA11y} from '../../axe';
 
-import {CardRadioGroup} from './CardRadioGroup';
-import CardRadio from './CardRadio';
+import CardRadioGroup from './CardRadioGroup';
+import {CardRadio} from './CardRadio';
 
 type Optional<Type, Key extends keyof Type> = Omit<Type, Key> & Partial<Type>;
 

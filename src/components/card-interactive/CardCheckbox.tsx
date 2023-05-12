@@ -123,105 +123,112 @@ export const CardCheckboxContext = React.createContext<CardCheckboxContextType>(
   }
 );
 
-const CardCheckbox = ({
-  variant = 'outline',
-  color = 'dark',
-  className,
-  children,
-  width,
-  height,
-  style,
+const CardCheckboxRoot = React.forwardRef<
+  HTMLInputElement,
+  CardCheckboxPropsType
+>(
+  (
+    {
+      variant = 'outline',
+      color = 'dark',
+      className,
+      children,
+      width,
+      height,
+      style,
 
-  // checkbox related props
-  checked,
-  defaultChecked = false,
-  disabled,
-  id,
-  indeterminate,
-  invalid = false,
-  required = false,
-  value,
-  name,
-  onChange,
-  onMouseEnter,
-  onMouseLeave,
-  ...props
-}: CardCheckboxPropsType) => {
-  const isControlled = checked !== undefined;
-  const inputRef = React.useRef<HTMLInputElement>(null);
-  const [isChecked, setIsChecked] = React.useState(
-    isControlled ? checked : defaultChecked
-  );
+      // checkbox related props
+      checked,
+      defaultChecked = false,
+      disabled,
+      id,
+      indeterminate,
+      invalid = false,
+      required = false,
+      value,
+      name,
+      onChange,
+      onMouseEnter,
+      onMouseLeave,
+      ...props
+    }: CardCheckboxPropsType,
+    ref
+  ) => {
+    const isControlled = checked !== undefined;
+    const [isChecked, setIsChecked] = React.useState(
+      isControlled ? checked : defaultChecked
+    );
 
-  const cardId = React.useMemo(() => id || generateRandomString(), [id]);
+    const cardId = React.useMemo(() => id || generateRandomString(), [id]);
 
-  const cssVariables = {
-    '--card-width': width,
-    '--card-height': height,
-  };
+    const cssVariables = {
+      '--card-width': width,
+      '--card-height': height,
+    };
 
-  const onInputChange = React.useCallback(
-    e => {
-      if (!isControlled) {
-        setIsChecked(val => !val);
-      }
+    const onInputChange = React.useCallback(
+      e => {
+        if (!isControlled) {
+          setIsChecked(val => !val);
+        }
 
-      if (onChange) onChange(e);
-    },
-    [onChange, isControlled]
-  );
+        if (onChange) onChange(e);
+      },
+      [onChange, isControlled]
+    );
 
-  return (
-    <CardCheckboxContext.Provider
-      value={{
-        checked: isChecked,
-        indeterminate,
-        disabled,
-      }}
-    >
-      <div
-        className={cx('sg-card-interactive', className)}
-        style={{...style, ...cssVariables}}
-        data-variant={variant}
-        data-color={color}
-        data-checked={indeterminate ? 'mixed' : isChecked}
-        data-invalid={invalid}
-        data-disabled={disabled}
+    return (
+      <CardCheckboxContext.Provider
+        value={{
+          checked: isChecked,
+          indeterminate,
+          disabled,
+        }}
       >
-        <input
-          aria-labelledby={`label-${cardId}`}
-          id={cardId}
-          ref={inputRef}
-          className="sg-card-interactive__input"
-          type="checkbox"
-          checked={isChecked}
-          disabled={disabled}
-          name={name}
-          onChange={onInputChange}
-          required={required}
-          value={value}
-          aria-checked={indeterminate ? 'mixed' : isChecked}
-          aria-invalid={invalid ? true : undefined}
-          suppressHydrationWarning
-          {...props}
-        />
-        <label
-          id={`label-${cardId}`}
-          htmlFor={cardId}
-          className="sg-card-interactive__background"
-          onMouseEnter={onMouseEnter}
-          onMouseLeave={onMouseLeave}
-          // On iOS the :active pseudo state is triggered only when there is a touch event set on the HTML element
-          // and we use active pseudo class to provide press feedback.
-          onTouchStart={() => null}
-          suppressHydrationWarning
+        <div
+          className={cx('sg-card-interactive', className)}
+          style={{...style, ...cssVariables}}
+          data-variant={variant}
+          data-color={color}
+          data-checked={indeterminate ? 'mixed' : isChecked}
+          data-invalid={invalid}
+          data-disabled={disabled}
         >
-          {children}
-        </label>
-      </div>
-    </CardCheckboxContext.Provider>
-  );
-};
+          <input
+            id={cardId}
+            aria-labelledby={`label-${cardId}`}
+            ref={ref}
+            className="sg-card-interactive__input"
+            type="checkbox"
+            checked={isChecked}
+            disabled={disabled}
+            name={name}
+            onChange={onInputChange}
+            required={required}
+            value={value}
+            aria-checked={indeterminate ? 'mixed' : isChecked}
+            aria-invalid={invalid ? true : undefined}
+            suppressHydrationWarning
+            {...props}
+          />
+          <label
+            id={`label-${cardId}`}
+            htmlFor={cardId}
+            className="sg-card-interactive__background"
+            onMouseEnter={onMouseEnter}
+            onMouseLeave={onMouseLeave}
+            // On iOS the :active pseudo state is triggered only when there is a touch event set on the HTML element
+            // and we use active pseudo class to provide press feedback.
+            onTouchStart={() => null}
+            suppressHydrationWarning
+          >
+            {children}
+          </label>
+        </div>
+      </CardCheckboxContext.Provider>
+    );
+  }
+);
 
 export interface CardCheckboxIndicatorPropsType {
   slot?:
@@ -261,6 +268,11 @@ export const CardCheckboxIndicator = ({
   );
 };
 
-CardCheckbox.Indicator = CardCheckboxIndicator;
+const CardCheckbox = Object.assign(CardCheckboxRoot, {
+  Indicator: CardCheckboxIndicator,
+});
+
+CardCheckbox.displayName = 'CardCheckbox';
+CardCheckboxIndicator.displayName = 'CardCheckbox.Indicator';
 
 export default CardCheckbox;

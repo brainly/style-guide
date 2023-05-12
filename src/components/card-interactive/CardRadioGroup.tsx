@@ -4,6 +4,7 @@ import cx from 'classnames';
 import Flex from '../flex/Flex';
 import {CardRadioGroupContext} from './CardRadioGroupContext';
 import type {CardRadioGroupContextType} from './CardRadioGroupContext';
+import {CardRadio, CardRadioIndicator} from './CardRadio';
 
 export interface CardRadioGroupPropsType {
   name?: string;
@@ -21,7 +22,7 @@ export interface CardRadioGroupPropsType {
   onChange?: (value: string) => void;
 }
 
-const CardRadioGroup = React.forwardRef<
+const CardRadioGroupRoot = React.forwardRef<
   HTMLDivElement,
   CardRadioGroupPropsType
 >((props, ref) => {
@@ -83,4 +84,13 @@ const CardRadioGroup = React.forwardRef<
   );
 });
 
-export {CardRadioGroup, CardRadioGroupContext};
+const CardRadioGroup = Object.assign(CardRadioGroupRoot, {
+  Item: CardRadio,
+  Indicator: CardRadioIndicator,
+});
+
+CardRadioGroup.displayName = 'CardRadioGroup';
+CardRadio.displayName = 'CardRadioGroup.Item';
+CardRadioIndicator.displayName = 'CardRadioGroup.Indicator';
+
+export default CardRadioGroup;

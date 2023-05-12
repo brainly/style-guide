@@ -175,7 +175,7 @@ export type {ProgressBarPropsType} from './components/progress-bar/ProgressBar';
 export {default as ProgressBar} from './components/progress-bar/ProgressBar';
 export type {SparksPropsType} from './components/sparks/Sparks';
 export {default as Sparks} from './components/sparks/Sparks';
-export {CardRadioGroup} from './components/card-interactive/CardRadioGroup';
+export {default as CardRadioGroup} from './components/card-interactive/CardRadioGroup';
 export type {CardRadioGroupPropsType} from './components/card-interactive/CardRadioGroup';
 export {default as CardCheckbox} from './components/card-interactive/CardCheckbox';
 export type {CardCheckboxPropsType} from './components/card-interactive/CardCheckbox';

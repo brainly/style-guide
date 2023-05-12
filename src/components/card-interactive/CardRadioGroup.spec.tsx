@@ -3,8 +3,7 @@ import {render, screen} from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import {testA11y} from '../../axe';
 
-import {CardRadioGroup} from './CardRadioGroup';
-import CardRadio from './CardRadio';
+import CardRadioGroup from './CardRadioGroup';
 
 describe('<CardRadioGroup />', () => {
   const renderCardRadioGroup = (
@@ -12,8 +11,8 @@ describe('<CardRadioGroup />', () => {
   ) =>
     render(
       <CardRadioGroup {...props}>
-        <CardRadio value="option-a">Option A</CardRadio>
-        <CardRadio value="option-b">Option B</CardRadio>
+        <CardRadioGroup.Item value="option-a">Option A</CardRadioGroup.Item>
+        <CardRadioGroup.Item value="option-b">Option B</CardRadioGroup.Item>
       </CardRadioGroup>
     );
 
@@ -50,8 +49,8 @@ describe('<CardRadioGroup />', () => {
   it('checked CardRadio can be changed on controlled CardRadioGroup', () => {
     const {rerender} = render(
       <CardRadioGroup value="option-a">
-        <CardRadio value="option-a">Option A</CardRadio>
-        <CardRadio value="option-b">Option B</CardRadio>
+        <CardRadioGroup.Item value="option-a">Option A</CardRadioGroup.Item>
+        <CardRadioGroup.Item value="option-b">Option B</CardRadioGroup.Item>
       </CardRadioGroup>
     );
 
@@ -60,8 +59,8 @@ describe('<CardRadioGroup />', () => {
 
     rerender(
       <CardRadioGroup value="option-b">
-        <CardRadio value="option-a">Option A</CardRadio>
-        <CardRadio value="option-b">Option B</CardRadio>
+        <CardRadioGroup.Item value="option-a">Option A</CardRadioGroup.Item>
+        <CardRadioGroup.Item value="option-b">Option B</CardRadioGroup.Item>
       </CardRadioGroup>
     );
     expect(screen.getByLabelText('Option A')).not.toBeChecked();
@@ -80,8 +79,8 @@ describe('<CardRadioGroup />', () => {
         aria-label="Card radio label"
       >
         <p id="description">description</p>
-        <CardRadio value="option-a">Option A</CardRadio>
-        <CardRadio value="option-b">Option B</CardRadio>
+        <CardRadioGroup.Item value="option-a">Option A</CardRadioGroup.Item>
+        <CardRadioGroup.Item value="option-b">Option B</CardRadioGroup.Item>
       </CardRadioGroup>
     );
 
@@ -128,8 +127,8 @@ describe('<CardRadioGroup />', () => {
           aria-label="Card radio label"
         >
           <p id="description">description</p>
-          <CardRadio value="option-a">Option A</CardRadio>
-          <CardRadio value="option-b">Option B</CardRadio>
+          <CardRadioGroup.Item value="option-a">Option A</CardRadioGroup.Item>
+          <CardRadioGroup.Item value="option-b">Option B</CardRadioGroup.Item>
         </CardRadioGroup>
       );
 

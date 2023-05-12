@@ -210,11 +210,11 @@ export interface CardRadioIndicatorPropsType {
   className?: string;
 }
 
-export const CardRadioIndicator = ({
+export function CardRadioIndicator({
   slot = 'top-left',
   style,
   className,
-}: CardRadioIndicatorPropsType) => {
+}: CardRadioIndicatorPropsType) {
   const {checked, disabled} = React.useContext(CardRadioContext);
 
   return (
@@ -229,8 +229,6 @@ export const CardRadioIndicator = ({
       <Radio checked={checked} disabled={disabled} />
     </div>
   );
-};
+}
 
-CardRadio.Indicator = CardRadioIndicator;
-
-export default CardRadio;
+export {CardRadio};
