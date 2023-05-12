@@ -1,0 +1,42 @@
+import {ArgsTable, Meta, Story, Canvas} from '@storybook/addon-docs';
+import Accordion from '../accordion/Accordion';
+import AccordionItem from '../accordion/AccordionItem';
+import PageHeader from 'blocks/PageHeader';
+import {Example} from './UseFirstpaintExample.tsx';
+
+<Meta title="Hooks/useFirstPaint" />
+
+<PageHeader type="utility">useFirstPaint</PageHeader>
+
+`useFirstPaint` is a custom hook for detecting when component is before first DOM paint. This is useful for preventing unnecessary animations on initial render.
+
+## Import
+
+```jsx
+import {useFirstPaint} from 'brainly-style-guide';
+```
+
+## Usage
+
+```jsx
+const didFirstPaintRef = useFirstPaint();
+const [isToggled, setIsToggled] = React.useState(true);
+const onClick = () => {
+  setIsToggled(!isToggled);
+};
+
+return (
+  <div
+    click={onClick}
+    style={{
+      // this will make animation instant thus not visible when component is rendered first time
+      animationDuration: didFirstPaintRef.current ? '300ms' : '0',
+    }}
+    className={`${isToggled ? 'with-animation': ''}`}
+  >toggle</>
+);
+```
+
+<Canvas>
+  <Example />
+</Canvas>

@@ -1,0 +1,17 @@
+@keyframes useFirstPaintExampleToggleOn {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(300px);
+  }
+}
+
+@keyframes useFirstPaintExampleToggleOff {
+  0% {
+    transform: translateX(300px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}

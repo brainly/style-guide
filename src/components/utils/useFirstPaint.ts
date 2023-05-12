@@ -1,12 +1,12 @@
 import React from 'react';
 import useIsomorphicLayoutEffect from 'use-isomorphic-layout-effect';
 
-export const useIsAfterFirstPaint = () => {
-  const afterDOMRender = React.useRef(false);
+export const useFirstPaint = () => {
+  const afterDOMRender = React.useRef(true);
 
   useIsomorphicLayoutEffect(() => {
     const raf = window.requestAnimationFrame(() => {
-      afterDOMRender.current = true;
+      afterDOMRender.current = false;
     });
 
     return () => {

@@ -8,7 +8,7 @@ import classNames from 'classnames';
 import Text from '../../text/Text';
 import generateRandomString from '../../../js/generateRandomString';
 import useRadioContext from './useRadioContext';
-import {useIsAfterFirstPaint} from '../../utils/useIsAfterFirstPaint';
+import {useFirstPaint} from '../../utils/useFirstPaint';
 
 export type RadioColorType = 'light' | 'dark';
 type RadioLabelSizeType = 'medium' | 'small';
@@ -169,7 +169,7 @@ const Radio = ({
   const isWithinRadioGroup = Boolean(
     radioGroupContext && Object.keys(radioGroupContext).length
   );
-  const isAfterFirstPaintRef = useIsAfterFirstPaint();
+  const isFirstPaintRef = useFirstPaint();
   const isControlled = checked !== undefined || isWithinRadioGroup;
   let isChecked: boolean | undefined = undefined;
 
@@ -181,7 +181,7 @@ const Radio = ({
         : Boolean(radioGroupContext.selectedValue) &&
           radioGroupContext.selectedValue === value;
 
-    if (isAfterFirstPaintRef.current && circleRef.current) {
+    if (!isFirstPaintRef.current && circleRef.current) {
       circleRef.current.classList.add('sg-radio__circle--with-animation');
     }
   }
@@ -223,7 +223,7 @@ const Radio = ({
       onChange(e);
     }
 
-    if (circleRef.current && isAfterFirstPaintRef.current) {
+    if (circleRef.current && !isFirstPaintRef.current) {
       circleRef.current.classList.add('sg-radio__circle--with-animation');
     }
   };
