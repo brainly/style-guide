@@ -1,6 +1,6 @@
 import * as React from 'react';
 import Checkbox from './Checkbox';
-import {render} from '@testing-library/react';
+import {render, waitFor} from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import {testA11y} from '../../../axe';
 
@@ -138,7 +138,7 @@ describe('<Checkbox />', () => {
     expect(checkboxInput.checked).toBe(false);
   });
 
-  it('it does not apply animation unless initial state has changed', () => {
+  it('checkbox it does not apply animation unless initial state has changed after first render of DOM', async () => {
     const checkbox = renderCheckbox({
       defaultChecked: false,
       children: 'my label',
@@ -150,10 +150,16 @@ describe('<Checkbox />', () => {
 
     expect(checkboxInput.checked).toBe(false);
     expect(iconWithAnimation.length).toBe(0);
-    userEvent.click(checkbox.getByLabelText('my label'));
-    expect(checkboxInput).toEqual(document.activeElement);
+    setTimeout(() => {
+      userEvent.click(checkbox.getByLabelText('my label'));
+    });
+    await waitFor(() => {
+      expect(checkboxInput).toEqual(document.activeElement);
+    });
     expect(checkboxInput.checked).toBe(true);
-    expect(iconWithAnimation.length).toBe(1);
+    await waitFor(() => {
+      expect(iconWithAnimation.length).toBe(1);
+    });
   });
 
   describe('a11y', () => {

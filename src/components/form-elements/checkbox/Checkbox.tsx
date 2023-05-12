@@ -5,7 +5,7 @@ import {__DEV__, invariant} from '../../utils';
 import Text from '../../text/Text';
 import {CheckIcon, IndeterminateIcon} from './CheckboxIcon';
 import ErrorMessage from '../ErrorMessage';
-import {useIsFirstRender} from '../../utils/useIsFirstRender';
+import {useIsAfterFirstPaint} from '../../utils/useIsAfterFirstPaint';
 
 type CheckboxColorType = 'dark' | 'light';
 type CheckboxLabelSizeType = 'medium' | 'small';
@@ -186,7 +186,7 @@ const Checkbox = ({
   );
   const inputRef = React.useRef<HTMLInputElement>(null);
   const iconRef = React.useRef<SVGSVGElement | null>(null);
-  const isFirstRender = useIsFirstRender();
+  const isAfterFirstPaintRef = useIsAfterFirstPaint();
 
   React.useEffect(() => {
     if (inputRef.current) inputRef.current.indeterminate = indeterminate;
@@ -195,13 +195,13 @@ const Checkbox = ({
     if (isControlled && checked !== isChecked) {
       setIsChecked(checked);
 
-      if (!isFirstRender && checkboxIconRef.current) {
+      if (isAfterFirstPaintRef.current && checkboxIconRef.current) {
         checkboxIconRef.current.classList.add(
           'sg-checkbox__icon--with-animation'
         );
       }
     }
-  }, [checked, isControlled, isChecked, isFirstRender]);
+  }, [checked, isControlled, isChecked, isAfterFirstPaintRef]);
   const onInputChange = React.useCallback(
     e => {
       if (!isControlled) {
@@ -210,13 +210,13 @@ const Checkbox = ({
 
       if (onChange) onChange(e);
 
-      if (!isFirstRender && checkboxIconRef.current) {
+      if (isAfterFirstPaintRef.current && checkboxIconRef.current) {
         checkboxIconRef.current.classList.add(
           'sg-checkbox__icon--with-animation'
         );
       }
     },
-    [onChange, isControlled, checkboxIconRef, isFirstRender]
+    [onChange, isControlled, checkboxIconRef, isAfterFirstPaintRef]
   );
 
   if (__DEV__) {

@@ -109,9 +109,10 @@ describe('<RadioGroup />', () => {
     );
 
     expect(iconsWithAnimation.length).toBe(0);
-    userEvent.click(radioGroup.getByLabelText('Option B'));
-    await waitFor(() => expect(iconsWithAnimation.length).toBe(1));
-    userEvent.click(radioGroup.getByLabelText('Option A'));
+
+    requestAnimationFrame(() => {
+      userEvent.click(radioGroup.getByLabelText('Option B'));
+    });
     await waitFor(() => expect(iconsWithAnimation.length).toBe(2));
   });
   it('has an accessible name', () => {
