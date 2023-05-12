@@ -123,7 +123,7 @@ export const CardCheckboxContext = React.createContext<CardCheckboxContextType>(
   }
 );
 
-const CardCheckboxRoot = React.forwardRef<
+export const CardCheckboxRoot = React.forwardRef<
   HTMLInputElement,
   CardCheckboxPropsType
 >(

@@ -8,7 +8,14 @@ import SubjectIcon from '../subject-icons/SubjectIcon';
 
 import CardRadioGroup from './CardRadioGroup';
 
-<Meta title="Components/CardRadioGroup" component={CardRadioGroup} />
+<Meta
+  title="Components/CardRadioGroup"
+  component={CardRadioGroup}
+  subcomponents={{
+    Item: CardRadioGroup.Item,
+    Indicator: CardRadioGroup.Indicator,
+  }}
+/>
 
 <PageHeader>CardRadioGroup</PageHeader>
 
