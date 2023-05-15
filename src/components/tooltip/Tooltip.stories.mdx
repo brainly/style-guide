@@ -34,16 +34,14 @@ const TOOLTIP_PLACEMENTS = [
 <Canvas>
   <Story name="Default" parameters={{layout: 'centered'}}>
     {args => (
-      <Tooltip {...args}>
+      <Tooltip {...args} asLabel>
         <Tooltip.Element label="Copy to clipboard" />
         <Tooltip.Trigger>
           <Button
-            icon={<Icon color="adaptive" type="clipboard" />}
+            icon={<Icon color="adaptive" type="clipboard" aria-hidden />}
             iconOnly
             variant="solid-light"
-          >
-            button
-          </Button>
+          />
         </Tooltip.Trigger>
       </Tooltip>
     )}

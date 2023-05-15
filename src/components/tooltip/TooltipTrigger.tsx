@@ -2,6 +2,7 @@ import * as React from 'react';
 import {useMergeRefs} from '@floating-ui/react';
 
 import useTooltipContext from './useTooltipContext';
+import {aria} from 'aria-query';
 
 function isReactForwardRefType(object) {
   const REACT_FORWARD_REF_TYPE = Symbol.for('react.forward_ref');
@@ -33,21 +34,25 @@ const TooltipTrigger = React.forwardRef<
   ]);
 
   const className = 'sg-tooltip-trigger';
+  const tooltipId = context.getFloatingProps().id as string;
+  const ariaLink = context.asLabel
+    ? {'aria-labeledby': tooltipId}
+    : {'aria-describedby': tooltipId};
 
   // If children is valid element, i.e. <p>, <Checkbox> etc.
   // and if the element is forward ref type (otherwise we cannot pass ref).
   if (React.isValidElement(children) && isReactForwardRefType(children)) {
-    return React.cloneElement(
-      children,
-      context.getReferenceProps({
+    return React.cloneElement(children, {
+      ...context.getReferenceProps({
         ref: triggerRef,
         className,
         tabIndex: 0, // ensure the element tabindex is set, but allow overriding with children props
         ...props,
         ...children.props,
         'data-state': context.isOpen ? 'open' : 'closed',
-      })
-    );
+      }),
+      ...ariaLink,
+    });
   }
 
   return (
@@ -58,6 +63,7 @@ const TooltipTrigger = React.forwardRef<
       // The user can style the trigger based on the state
       data-state={context.isOpen ? 'open' : 'closed'}
       {...context.getReferenceProps(props)}
+      aria-describedby={tooltipId}
     >
       {children}
     </span>

@@ -33,6 +33,7 @@ interface UseTooltipPropTypes {
   color?: ColorType;
   defaultOpen?: boolean;
   controlledOpen?: boolean;
+  asLabel?: boolean;
   setControlledOpen?: (arg0: boolean) => void;
 }
 
@@ -43,6 +44,7 @@ const useTooltip = ({
   color = 'dark' as ColorType,
   defaultOpen = false,
   controlledOpen,
+  asLabel,
   setControlledOpen,
 }: UseTooltipPropTypes) => {
   const {current: id} = React.useRef<string>(
@@ -106,6 +108,7 @@ const useTooltip = ({
   return React.useMemo(
     () => ({
       id,
+      asLabel,
       isOpen,
       setIsOpen,
       arrowRef,
@@ -120,6 +123,7 @@ const useTooltip = ({
     }),
     [
       id,
+      asLabel,
       isOpen,
       setIsOpen,
       placement,

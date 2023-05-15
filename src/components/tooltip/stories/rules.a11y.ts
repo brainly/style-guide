@@ -1,12 +1,12 @@
 const rules = [
   {
     pattern: '<b>Should</b> have no role.',
-    status: 'TO DO',
+    status: 'DONE',
     tests: 'TO DO',
   },
   {
     pattern: '<b>Should</b> be hidden from accessibility tree.',
-    status: 'TO DO',
+    status: 'DONE',
     tests: 'TO DO',
   },
   {
@@ -33,7 +33,7 @@ const rules = [
     pattern: '<b>Should</b> label or describe the trigger.',
     comment:
       'Tooltip content is linked to the trigger by <code>aria-labelledby</code> or <code>aria-describedby</code>.',
-    status: 'TO DO',
+    status: 'DONE',
     tests: 'TO DO',
   },
   {
