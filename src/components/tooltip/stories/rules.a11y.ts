@@ -16,17 +16,17 @@ const rules = [
   },
   {
     pattern: '<b>Should</b> be dismissable by pressing <code>Esc</code>.',
-    status: 'TO DO',
+    status: 'DONE',
     tests: 'TO DO',
   },
   {
     pattern: '<b>Should</b> be hoverable.',
-    status: 'TO DO',
+    status: 'DONE',
     tests: 'TO DO',
   },
   {
     pattern: '<b>Should</b> be persistent.',
-    status: 'TO DO',
+    status: 'DONE',
     tests: 'TO DO',
   },
   {
@@ -39,7 +39,7 @@ const rules = [
   {
     pattern: '<b>Should not</b> be focusable of contain interactive elements.',
     comment: 'Tooltip can contain only (styled) text and/or images.',
-    status: 'TO DO',
+    status: 'N/A',
     tests: 'N/A',
   },
   {
@@ -61,7 +61,7 @@ const rules = [
   },
   {
     pattern: '<b>Should</b> respect prefers reduce motion settings.',
-    status: 'TO DO',
+    status: 'DONE',
     tests: 'N/A',
   },
 ];
