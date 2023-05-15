@@ -47,6 +47,23 @@ const rules = [
     status: 'TO DO',
     tests: 'TO DO',
   },
+  {
+    pattern: '<b>Should</b> respect Windows High Contrast mode.',
+    status: 'TO DO',
+    tests: 'N/A',
+  },
+  {
+    pattern:
+      '<b>Should</b> have a content with 4.5:1 contrast ratio against the background.',
+    comment: '<code>black</code> against white: 21:1.',
+    status: 'DONE',
+    tests: 'N/A',
+  },
+  {
+    pattern: '<b>Should</b> respect prefers reduce motion settings.',
+    status: 'TO DO',
+    tests: 'N/A',
+  },
 ];
 
 export default rules;
