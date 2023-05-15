@@ -71,7 +71,6 @@ import CardCheckbox from './CardCheckbox';
       Story => (
         <div
           style={{
-            background: 'var(--gray-30)',
             padding: 64,
             display: 'flex',
             justifyContent: 'space-evenly',
@@ -90,13 +89,22 @@ import CardCheckbox from './CardCheckbox';
           {...args}
           variant="solid"
           width="150px"
-          height="150px"
+          height="214px"
           defaultChecked={true}
+          style={{
+            '--card-background-color': 'var(--green-10)',
+          }}
         >
           <CardCheckbox.Indicator slot="top-left" />
-          <Flex justifyContent="center" alignItems="center" fullHeight>
-            <Text color="text-gray-50" size="xsmall" weight="bold">
-              Placeholder
+          <Flex
+            justifyContent="space-evenly"
+            alignItems="center"
+            fullHeight
+            direction="column"
+          >
+            <img src="images/calipers.svg" width="58" />
+            <Text color="text-black" size="small" weight="bold">
+              Knowledge
             </Text>
           </Flex>
         </CardCheckbox>
@@ -104,24 +112,26 @@ import CardCheckbox from './CardCheckbox';
           {...args}
           variant="solid"
           width="150px"
-          height="150px"
+          height="214px"
           defaultChecked={true}
           color="light"
           style={{
-            '--card-background-color': 'var(--indigo-60)',
+            '--card-background-color': 'var(--green-70)',
           }}
         >
           <CardCheckbox.Indicator slot="top-left" />
           <Flex
-            justifyContent="center"
+            justifyContent="space-between"
             alignItems="center"
             fullHeight
             direction="column"
             gap="s"
           >
-            <SubjectIcon type="geometry" />
+            <div style={{width: 150, height: 150}}>
+              <img src="images/image_1.jpeg" width="150" height="150" />
+            </div>
             <Text color="text-white" size="small" weight="bold">
-              Geometry
+              High School
             </Text>
           </Flex>
         </CardCheckbox>
@@ -155,6 +165,7 @@ import CardCheckbox from './CardCheckbox';
       <>
         <CardCheckbox
           {...args}
+          variant="outline"
           width="150px"
           height="150px"
           defaultChecked={true}
@@ -172,6 +183,10 @@ import CardCheckbox from './CardCheckbox';
           width="150px"
           height="150px"
           defaultChecked={true}
+          color="light"
+          style={{
+            '--card-background-color': 'var(--indigo-60)',
+          }}
         >
           <CardCheckbox.Indicator slot="top-left" />
           <Flex
@@ -182,7 +197,7 @@ import CardCheckbox from './CardCheckbox';
             gap="s"
           >
             <SubjectIcon type="geometry" />
-            <Text color="text-text-black" size="small" weight="bold">
+            <Text color="text-white" size="small" weight="bold">
               Geometry
             </Text>
           </Flex>
