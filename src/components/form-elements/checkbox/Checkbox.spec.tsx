@@ -138,7 +138,7 @@ describe('<Checkbox />', () => {
     expect(checkboxInput.checked).toBe(false);
   });
 
-  it('checkbox it does not apply animation unless initial state has changed after first render of DOM', async () => {
+  it('it does not apply animation unless initial state has changed after first render of DOM', async () => {
     const checkbox = renderCheckbox({
       defaultChecked: false,
       children: 'my label',
