@@ -201,12 +201,6 @@
   background-color: var(--card-background-color);
 }
 
-.sg-card-interactive {
-  .sg-card-interactive__background {
-    clip-path: inset(1px round 8px);
-  }
-}
-
 .sg-card-interactive__indicator {
   position: absolute;
   width: 32px;
