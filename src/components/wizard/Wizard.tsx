@@ -117,31 +117,50 @@ const Wizard = React.forwardRef(
 
 const WizardStep: React.FunctionComponent<
   {
-    onSubmit?(event: React.FormEvent<HTMLFormElement>, next: () => void);
-  } & React.FormHTMLAttributes<HTMLFormElement>
-> = ({children, onSubmit, ...props}) => {
+    as?: 'container' | 'form' | 'child';
+    onSubmit?: (
+      next: () => void
+    ) => (event: React.FormEvent<HTMLFormElement>) => void;
+  } & React.HTMLAttributes<HTMLFormElement>
+> = ({children, onSubmit, as = 'form', ...props}) => {
   const {next} = React.useContext(WizardContext);
-  const handleSubmit = React.useCallback<
-    React.FormEventHandler<HTMLFormElement>
-  >(
-    event => {
-      console.log('WizardStep onSubmit');
+
+  if (as === 'container') {
+    return <div>{children}</div>;
+  } else if (as === 'child') {
+    const handleChildFormSubmit = onSubmit ? onSubmit(next) : () => null;
+    const childrenArray = React.Children.toArray(children);
+    const childForm = childrenArray[0];
+
+    if (React.isValidElement(childForm))
+      return (
+        <div>
+          {React.cloneElement<React.HTMLAttributes<HTMLFormElement>>(
+            childForm,
+            {
+              onSubmit: handleChildFormSubmit,
+              ...props,
+            }
+          )}
+        </div>
+      );
+  } else {
+    const handleFormSubmit: React.FormEventHandler<HTMLFormElement> = event => {
       event.preventDefault();
 
       if (onSubmit) {
-        onSubmit(event, next);
+        onSubmit(next)(event);
       } else {
         next();
       }
-    },
-    [next, onSubmit]
-  );
+    };
 
-  return (
-    <form onSubmit={handleSubmit} {...props}>
-      {children}
-    </form>
-  );
+    return (
+      <form onSubmit={handleFormSubmit} {...props}>
+        {children}
+      </form>
+    );
+  }
 };
 
 const WizardStepSubmit: React.FunctionComponent<{
@@ -196,12 +215,12 @@ const WizardStepTitle: React.FunctionComponent<{
 
 const WizardExport: typeof Wizard & {
   Step: typeof WizardStep;
-  StepSubmit: typeof WizardStepSubmit;
-  StepTitle: typeof WizardStepTitle;
+  Submit: typeof WizardStepSubmit;
+  Title: typeof WizardStepTitle;
 } = Object.assign(Wizard, {
   Step: WizardStep,
-  StepSubmit: WizardStepSubmit,
-  StepTitle: WizardStepTitle,
+  Submit: WizardStepSubmit,
+  Title: WizardStepTitle,
 });
 
 const useWizard = () => {
@@ -219,4 +238,4 @@ const useWizard = () => {
   };
 };
 
-export {WizardExport as Wizard, WizardStepSubmit, WizardStepTitle, useWizard};
+export {WizardExport as Wizard, useWizard};

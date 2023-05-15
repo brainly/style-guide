@@ -1,5 +1,5 @@
 import React from 'react';
-import {Wizard, WizardStepTitle, WizardStepSubmit, useWizard} from './Wizard';
+import {Wizard, useWizard} from './Wizard';
 import Input from '../form-elements/Input';
 import Checkbox from '../form-elements/checkbox/Checkbox';
 import Textarea from '../form-elements/Textarea';
@@ -43,32 +43,38 @@ export const Default = () => {
       onComplete={onComplete}
       ref={ref}
     >
-      <Wizard.Step>
+      <Wizard.Step as="container">
         <Form
           onSubmit={(data, e) => {
-            /**
-             *
-             * SUBMIT sie odpala w Wizard.Step
-             *
-             */
-            e.stopPropagation();
-            e.preventDefault();
             console.log(data);
             next();
           }}
         >
-          <Wizard.StepTitle>step 1 title</Wizard.StepTitle>
+          <Wizard.Title>step 1 title</Wizard.Title>
           <InputField name="first_name" />
-          <Wizard.StepSubmit>next</Wizard.StepSubmit>
+          <Wizard.Submit>next</Wizard.Submit>
         </Form>
       </Wizard.Step>
+      <Wizard.Step
+        as="child"
+        onSubmit={next => e => {
+          e.preventDefault();
+          next();
+        }}
+      >
+        <form>
+          <Wizard.Title>step 2 title</Wizard.Title>
+          <Input name="last_name" />
+          <Wizard.Submit>next</Wizard.Submit>
+        </form>
+      </Wizard.Step>
       <Wizard.Step>
-        <Wizard.StepTitle>Who are you?</Wizard.StepTitle>
+        <Wizard.Title>Last step title</Wizard.Title>
         <RadioGroup name="account_type" onChange={onChange}>
           <Radio value="student">Student</Radio>
           <Radio value="parent">Parent</Radio>
         </RadioGroup>
-        <Wizard.StepSubmit>next</Wizard.StepSubmit>
+        <Wizard.Submit>next</Wizard.Submit>
       </Wizard.Step>
     </Wizard>
   );
@@ -87,28 +93,26 @@ export const CreateAccount = () => {
       onComplete={onComplete}
     >
       <Wizard.Step>
-        <Wizard.StepTitle>Who are you?</Wizard.StepTitle>
+        <Wizard.Title>Who are you?</Wizard.Title>
         <RadioGroup name="account_type" onChange={onChange}>
           <Radio value="student">Student</Radio>
           <Radio value="parent">Parent</Radio>
         </RadioGroup>
-        <Wizard.StepSubmit>next</Wizard.StepSubmit>
+        <Wizard.Submit>next</Wizard.Submit>
       </Wizard.Step>
       <Wizard.Step>
-        <Wizard.StepTitle subtitle="This is only to get in touch, not to send spam. We love GDPR and GDPR loves us.">
+        <Wizard.Title subtitle="This is only to get in touch, not to send spam. We love GDPR and GDPR loves us.">
           What email adress can we reach you at?
-        </Wizard.StepTitle>
+        </Wizard.Title>
         <Input placeholder="youremail@mail.com" fullWidth name="email" />
-        <Wizard.StepSubmit>next</Wizard.StepSubmit>
+        <Wizard.Submit>next</Wizard.Submit>
       </Wizard.Step>
       <Wizard.Step>
         <Checkbox>
           By creating an account, you accept the Brainly Terms of Service &
           Privacy Policy
         </Checkbox>
-        <Wizard.StepSubmit variant="solid-indigo">
-          create account
-        </Wizard.StepSubmit>
+        <Wizard.Submit variant="solid-indigo">create account</Wizard.Submit>
       </Wizard.Step>
     </Wizard>
   );
@@ -123,38 +127,38 @@ export const AskYourQuestion = () => {
   return (
     <Wizard title="Ask your question" onComplete={onComplete}>
       <Wizard.Step>
-        <Wizard.StepTitle subtitle="You can type out your question below and/or add a file.">
+        <Wizard.Title subtitle="You can type out your question below and/or add a file.">
           What can we help you with?
-        </Wizard.StepTitle>
+        </Wizard.Title>
         <Textarea
           fullWidth
           size="tall"
           name="question"
           placeholder="I have a problem with the task where I have to choose one of the available answers. I would also like to understand why the correct answer is .. correct. Please help me choose the correct one and explain why such an answer is the best one. "
         />
-        <Wizard.StepSubmit>next</Wizard.StepSubmit>
+        <Wizard.Submit>next</Wizard.Submit>
       </Wizard.Step>
       <Wizard.Step>
-        <WizardStepTitle>How can we assist you? *</WizardStepTitle>
+        <Wizard.Title>How can we assist you? *</Wizard.Title>
         <RadioGroup name="subject" onChange={onChange}>
           <Radio value="math">Mathematics</Radio>
           <Radio value="physics">Physics</Radio>
           <Radio value="chemistry">Chemistry</Radio>
           <Radio value="biology">Biology</Radio>
         </RadioGroup>
-        <WizardStepSubmit>next</WizardStepSubmit>
+        <Wizard.Submit>next</Wizard.Submit>
       </Wizard.Step>
       <Wizard.Step>
-        <Wizard.StepTitle subtitle="This step is optional — you can skip it if you want.">
+        <Wizard.Title subtitle="This step is optional — you can skip it if you want.">
           What can we help you with?
-        </Wizard.StepTitle>
+        </Wizard.Title>
         <RadioGroup name="help_type" onChange={onChange}>
           <Radio value="quick help">Quick help</Radio>
           <Radio value="step-by-step">Step-by-step explanation</Radio>
           <Radio value="exam">Exam preparation</Radio>
           <Radio value="homework">Homework check</Radio>
         </RadioGroup>
-        <WizardStepSubmit>ask your question</WizardStepSubmit>
+        <Wizard.Submit>ask your question</Wizard.Submit>
       </Wizard.Step>
     </Wizard>
   );
