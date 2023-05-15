@@ -16,7 +16,6 @@ $includeHtml: false !default;
       width: $logoLargeWidth;
     }
 
-    &--brainly-plus-small,
     &--znanija-plus-small {
       width: $logoDefaultWidth;
       height: 68px;
@@ -27,11 +26,8 @@ $includeHtml: false !default;
       }
     }
 
-    &--brainly-plus,
-    &--brainly-plus-inverse,
     &--znanija-plus,
-    &--znanija-plus-inverse,
-    &--brainly-tutoring {
+    &--znanija-plus-inverse {
       width: $logoDefaultWidth;
       height: 90px;
 
@@ -41,33 +37,25 @@ $includeHtml: false !default;
       }
     }
 
-    &--brainly-plus-var-a {
+    &--brainly-tutoring,
+    &--brainly-tutoring-inverse {
+      width: $logoDefaultWidth;
+      height: 67px;
+
+      @include sgResponsive(md) {
+        width: $logoLargeWidth;
+        height: 90px;
+      }
+    }
+
+    &--brainly-plus,
+    &--brainly-plus-inverse {
       width: $logoDefaultWidth;
       height: 55px;
 
       @include sgResponsive(md) {
         width: $logoLargeWidth;
         height: 73px;
-      }
-    }
-
-    &--brainly-plus-var-b {
-      width: $logoDefaultWidth;
-      height: 64px;
-
-      @include sgResponsive(md) {
-        width: $logoLargeWidth;
-        height: 86px;
-      }
-    }
-
-    &--brainly-tutoring-small {
-      width: $logoDefaultWidth;
-      height: 72px;
-
-      @include sgResponsive(md) {
-        width: $logoLargeWidth;
-        height: 96px;
       }
     }
 

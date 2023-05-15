@@ -21,7 +21,7 @@ export type LogoTypeType =
   | 'brainly-plus'
   | 'brainly-plus-inverse'
   | 'brainly-tutoring'
-  | 'brainly-tutoring-small'
+  | 'brainly-tutoring-inverse'
   | 'brainly-logotype-tutor'
   | 'logo-tutor'
   | 'logo-math-solver'
@@ -50,7 +50,7 @@ export const TYPE = {
   BRAINLY_PLUS: 'brainly-plus',
   BRAINLY_PLUS_INVERSE: 'brainly-plus-inverse',
   BRAINLY_TUTORING: 'brainly-tutoring',
-  BRAINLY_TUTORING_SMALL: 'brainly-tutoring-small',
+  BRAINLY_TUTORING_INVERSE: 'brainly-tutoring-inverse',
   LOGO_TUTOR: 'logo-tutor',
   LOGO_MATH_SOLVER: 'logo-math-solver',
   LOGO_COMMUNITY_QA: 'logo-community-qa',
