@@ -207,9 +207,7 @@ const Radio = ({
     'sg-radio__label--with-padding-bottom': description,
     [`sg-radio__label--${String(labelSize)}`]: labelSize,
   });
-  const circleClass = classNames('sg-radio__circle', {
-    // 'sg-radio__circle--with-animation': shouldAnimate,
-  });
+  const circleClass = classNames('sg-radio__circle');
   const labelId = ariaLabelledBy || `${radioId}-label`;
   const isInvalid = invalid !== undefined ? invalid : radioGroupContext.invalid;
 
