@@ -2,6 +2,7 @@ import {ArgsTable, Meta, Story, Canvas} from '@storybook/addon-docs';
 import {StoryVariantTable} from '../../docs/utils';
 import PageHeader from 'blocks/PageHeader';
 import {useRive, useStateMachineInput} from '@rive-app/react-canvas';
+import CardCheckboxAccessibility from './stories/CardCheckbox.a11y.mdx';
 
 import Flex from '../flex/Flex';
 import Text from '../text/Text';
@@ -459,7 +460,7 @@ import CardCheckbox from './CardCheckbox';
 
 <Canvas>
   <Story
-    name="Interactions"
+    name="Animation on hover"
     decorators={[
       Story => (
         <div
@@ -532,3 +533,7 @@ import CardCheckbox from './CardCheckbox';
     }}
   </Story>
 </Canvas>
+
+## Accessibility
+
+<CardCheckboxAccessibility />
