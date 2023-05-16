@@ -30,7 +30,7 @@ return (
     click={onClick}
     style={{
       // this will make animation instant thus not visible when component is rendered first time
-      animationDuration: didFirstPaintRef.current ? '300ms' : '0',
+      animationDuration: didFirstPaintRef.current ? '0' : '300ms',
     }}
     className={`${isToggled ? 'with-animation': ''}`}
   >toggle</>
