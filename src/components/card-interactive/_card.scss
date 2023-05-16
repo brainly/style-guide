@@ -24,31 +24,20 @@
   width: var(--card-width, auto);
   height: var(--card-height, auto);
   border-radius: 8px;
+  border: 2px solid transparent;
   overflow: hidden;
   user-select: none;
-
-  &::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    box-sizing: border-box;
-    border-radius: 8px;
-    border: 2px solid;
-    pointer-events: none;
-    transition: border $durationModerate1 $easingLinear;
-  }
+  background-color: var(--card-background-color);
+  background-clip: padding-box;
 
   transition: transform $durationModerate2 $easingRegular,
     border $durationModerate1 $easingLinear;
 
-  &[data-variant='outline']::after {
+  &[data-variant='outline'] {
     border-color: var(--card-border-color);
   }
 
-  &[data-variant='solid']::after {
+  &[data-variant='solid'] {
     border-color: transparent;
   }
 
@@ -62,9 +51,7 @@
 
   &[data-checked='true'],
   &[data-checked='mixed'] {
-    &::after {
-      border-color: var(--card-border-color-checked);
-    }
+    border-color: var(--card-border-color-checked);
 
     & .sg-checkbox {
       --checkboxColor: var(--card-border-color-checked);
@@ -77,9 +64,7 @@
   }
 
   &[data-invalid='true'] {
-    &::after {
-      border-color: var(--card-border-color-invalid);
-    }
+    border-color: var(--card-border-color-invalid);
 
     & .sg-checkbox {
       --checkboxColor: var(--card-border-color-invalid);
@@ -93,9 +78,7 @@
   }
 
   &:hover:not([data-disabled='true']) {
-    &::after {
-      border-color: var(--card-border-color-hover);
-    }
+    border-color: var(--card-border-color-hover);
 
     & .sg-checkbox {
       --checkboxColor: var(--card-border-color-hover);
@@ -111,9 +94,7 @@
 
     &[data-checked='true'],
     &[data-checked='mixed'] {
-      &::after {
-        border-color: var(--card-border-color-checked-hover);
-      }
+      border-color: var(--card-border-color-checked-hover);
 
       & .sg-checkbox {
         --checkboxColor: var(--card-border-color-checked-hover);
@@ -128,9 +109,7 @@
     }
 
     &[data-invalid='true'] {
-      &::after {
-        border-color: var(--card-border-color-invalid-hover);
-      }
+      border-color: var(--card-border-color-invalid-hover);
 
       & .sg-checkbox {
         --checkboxColor: var(--card-border-color-invalid-hover);
@@ -197,8 +176,7 @@
 .sg-card-interactive__background {
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
   position: absolute;
-  inset: 0px;
-  background-color: var(--card-background-color);
+  inset: 0;
 }
 
 .sg-card-interactive__indicator {
@@ -214,29 +192,29 @@
   }
 
   &--top-left {
-    top: 0;
-    left: 0;
+    top: -2px;
+    left: -2px;
   }
   &--center-left {
     top: 50%;
-    left: 0;
+    left: -2px;
     transform: translateY(-50%);
   }
   &--bottom-left {
-    bottom: 0;
-    left: 0;
+    bottom: -2px;
+    left: -2px;
   }
   &--top-right {
-    top: 0;
-    right: 0;
+    top: -2px;
+    right: -2px;
   }
   &--center-right {
     top: 50%;
-    right: 0;
+    right: -2px;
     transform: translateY(-50%);
   }
   &--bottom-right {
-    bottom: 0;
-    right: 0;
+    bottom: -2px;
+    right: -2px;
   }
 }
