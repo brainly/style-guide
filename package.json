@@ -1,6 +1,6 @@
 {
   "name": "brainly-style-guide",
-  "version": "224.6.0-beta.1",
+  "version": "224.5.0",
   "description": "Brainly Front-End Style Guide",
   "repository": "https://github.com/brainly/style-guide.git",
   "author": "Brainly Team",
@@ -161,8 +161,8 @@
     "ts-buildtypes": "node ./scripts/build-types.js",
     "ts-check": "tsc --noEmit --emitDeclarationOnly false",
     "package-clean": "rimraf esm/ commonjs/ css/ types/ assets/ deprecated.yaml",
-    "package-esm": "PUBLIC_PATH=https://styleguide-dev.brainly.com/ BABEL_ENV=esm babel src --out-dir esm --only 'src/logos.ts' --only 'src/components' --only 'src/js' --only 'src/index.ts' --only 'src/logo-url.ts' --ignore '**/*.spec.tsx' --ignore '**/pages/**' --ignore '**/iframe-pages/**' --ignore '**/__mocks__/**' --extensions '.js,.ts,.tsx,.jsx'",
-    "package-commonjs": "PUBLIC_PATH=https://styleguide-dev.brainly.com/ BABEL_ENV=commonjs babel src --out-dir commonjs --only 'src/logos.ts' --only 'src/components' --only 'src/js' --only 'src/index.ts' --only 'src/logo-url.ts' --ignore '**/*.spec.tsx' --ignore '**/pages/**' --ignore '**/iframe-pages/**' --ignore '**/__mocks__/**' --extensions '.js,.ts,.tsx,.jsx'",
+    "package-esm": "PUBLIC_PATH=https://styleguide.brainly.com/ BABEL_ENV=esm babel src --out-dir esm --only 'src/logos.ts' --only 'src/components' --only 'src/js' --only 'src/index.ts' --only 'src/logo-url.ts' --ignore '**/*.spec.tsx' --ignore '**/pages/**' --ignore '**/iframe-pages/**' --ignore '**/__mocks__/**' --extensions '.js,.ts,.tsx,.jsx'",
+    "package-commonjs": "PUBLIC_PATH=https://styleguide.brainly.com/ BABEL_ENV=commonjs babel src --out-dir commonjs --only 'src/logos.ts' --only 'src/components' --only 'src/js' --only 'src/index.ts' --only 'src/logo-url.ts' --ignore '**/*.spec.tsx' --ignore '**/pages/**' --ignore '**/iframe-pages/**' --ignore '**/__mocks__/**' --extensions '.js,.ts,.tsx,.jsx'",
     "package-css": "node ./scripts/build-css.js",
     "package-deprecated": "node ./scripts/build-deprecated-list.js",
     "package-assets": "gulp build-package-assets",
