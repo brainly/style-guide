@@ -13,6 +13,10 @@
     transition: opacity $durationQuick2 $easingLinear;
   }
 
+  @media (forced-colors: active) {
+    border: 2px solid CanvasText;
+  }
+
   @mixin initial-state() {
     opacity: 0;
 
@@ -84,6 +88,15 @@
   &__arrow {
     fill: var(--tooltip-color);
     filter: drop-shadow(2px 0 8px rgba($gray-70, 0.2));
+
+    & path {
+      @media (forced-colors: active) {
+        stroke: CanvasText;
+        stroke-width: 2px;
+        stroke-dasharray: 23 28;
+        stroke-dashoffset: -3;
+      }
+    }
   }
 }
 
