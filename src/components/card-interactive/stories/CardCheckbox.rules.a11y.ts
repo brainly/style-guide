@@ -11,7 +11,10 @@ const rules = [
   },
   {
     pattern: '<b>Should</b> have an accessible name.',
-    comment: `<code>CardCheckbox</code> can be named by adding children and/or using aria-label or labelled-by.`,
+    comment: `Can be named by: <ul>
+      <li>a label specified by <code>aria-label</code> prop</li>
+      <li>a value (<code>IDREF</code>) set for the <code>aria-labelledby</code> prop that refers to an element</li>
+      <li>can be named by adding children.</li></ul>`,
     status: 'DONE',
     tests: 'DONE',
   },
