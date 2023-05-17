@@ -26,47 +26,38 @@ const InputField = ({name}) => {
   return <Input {...firstNameFieldProps} />;
 };
 
+const FirstStepForm = () => {
+  const {next} = useWizard();
+  const {Form} = useBrainlyForm();
+
+  return (
+    <Form
+      onSubmit={(data, e) => {
+        next();
+      }}
+    >
+      <Wizard.Title>step 1 title</Wizard.Title>
+      <InputField name="first_name" />
+      <Wizard.Submit>next</Wizard.Submit>
+    </Form>
+  );
+};
+
 export const Default = () => {
   const onComplete = () => {
     alert('wizard form completed');
   };
   const onChange = () => null;
 
-  const {Form} = useBrainlyForm();
-
-  const {next, ref} = useWizard();
-
   return (
-    <Wizard
-      title="form title"
-      subtitle="form subtitle"
-      onComplete={onComplete}
-      ref={ref}
-    >
-      <Wizard.Step as="container">
-        <Form
-          onSubmit={(data, e) => {
-            console.log(data);
-            next();
-          }}
-        >
-          <Wizard.Title>step 1 title</Wizard.Title>
-          <InputField name="first_name" />
-          <Wizard.Submit>next</Wizard.Submit>
-        </Form>
+    <Wizard title="form title" subtitle="form subtitle" onComplete={onComplete}>
+      <Wizard.Step as="div">
+        <FirstStepForm />
       </Wizard.Step>
-      <Wizard.Step
-        as="child"
-        onSubmit={next => e => {
-          e.preventDefault();
-          next();
-        }}
-      >
-        <form>
-          <Wizard.Title>step 2 title</Wizard.Title>
-          <Input name="last_name" />
-          <Wizard.Submit>next</Wizard.Submit>
-        </form>
+      <Wizard.Step>
+        <Wizard.Title>step 2 title</Wizard.Title>
+        <Input name="last_name" />
+        <Wizard.Submit>next</Wizard.Submit>
       </Wizard.Step>
       <Wizard.Step>
         <Wizard.Title>Last step title</Wizard.Title>

@@ -32,124 +32,99 @@ const WizardStepContext = React.createContext<{
   index: 0,
 });
 
-const Wizard = React.forwardRef(
-  ({children, title, subtitle, onComplete}: WizardProps, ref) => {
-    const stepsArray = React.Children.toArray(children).filter(reactNode => {
-      return React.isValidElement(reactNode) && reactNode.type === WizardStep;
-    });
-    const [currentStep, setCurrentStep] = React.useState<number>(0);
+const Wizard = ({children, title, subtitle, onComplete}: WizardProps) => {
+  const stepsArray = React.Children.toArray(children).filter(reactNode => {
+    return React.isValidElement(reactNode) && reactNode.type === WizardStep;
+  });
+  const [currentStep, setCurrentStep] = React.useState<number>(0);
 
-    const next = React.useCallback(() => {
-      if (currentStep < stepsArray.length - 1) {
-        setCurrentStep(currentStep + 1);
-      } else {
-        onComplete();
-      }
-    }, [currentStep, stepsArray, onComplete]);
+  const next = React.useCallback(() => {
+    if (currentStep < stepsArray.length - 1) {
+      setCurrentStep(currentStep + 1);
+    } else {
+      onComplete();
+    }
+  }, [currentStep, stepsArray, onComplete]);
 
-    React.useImperativeHandle(ref, () => {
-      return {next};
-    });
-
-    return (
-      <div className="wizard">
-        <WizardContext.Provider
-          value={{
-            currentStep,
-            stepsLength: stepsArray.length,
-            next,
-          }}
-        >
-          <Flex direction="column" fullHeight>
-            <div className="wizard-progress-bar">
-              <Box padding="s">
-                <Text size="medium" weight="bold" align="to-center">
-                  {title}
-                </Text>
-              </Box>
-              {stepsArray.length > 0 ? (
-                <ProgressBar
-                  maxValue={stepsArray.length}
-                  value={currentStep}
-                  noBorderRadius
-                />
-              ) : null}
-            </div>
-            <div className="wizard-form">
-              {stepsArray.map((step, index) => {
-                return (
-                  <Flex
-                    justifyContent="center"
-                    alignItems="center"
-                    key={index}
-                    className={classNames('wizard-step', {
-                      'wizard-step--current': index === currentStep,
-                    })}
-                  >
-                    <Flex direction="column" className="wizard-step-content">
-                      {index === 0 && title ? (
-                        <Flex marginBottom="l" direction="column">
-                          <Headline
-                            className="wizard-form__title"
-                            size="xlarge"
-                          >
-                            {title}
-                          </Headline>
-                          {subtitle ? (
-                            <Text size="medium">{subtitle}</Text>
-                          ) : null}
-                        </Flex>
-                      ) : null}
-                      <WizardStepContext.Provider value={{index}}>
-                        {step}
-                      </WizardStepContext.Provider>
-                    </Flex>
+  return (
+    <div className="wizard">
+      <WizardContext.Provider
+        value={{
+          currentStep,
+          stepsLength: stepsArray.length,
+          next,
+        }}
+      >
+        <Flex direction="column" fullHeight>
+          <div className="wizard-progress-bar">
+            <Box padding="s">
+              <Text size="medium" weight="bold" align="to-center">
+                {title}
+              </Text>
+            </Box>
+            {stepsArray.length > 0 ? (
+              <ProgressBar
+                maxValue={stepsArray.length}
+                value={currentStep}
+                noBorderRadius
+              />
+            ) : null}
+          </div>
+          <div className="wizard-form">
+            {stepsArray.map((step, index) => {
+              return (
+                <Flex
+                  justifyContent="center"
+                  alignItems="center"
+                  key={index}
+                  className={classNames('wizard-step', {
+                    'wizard-step--current': index === currentStep,
+                  })}
+                >
+                  <Flex direction="column" className="wizard-step-content">
+                    {index === 0 && title ? (
+                      <Flex marginBottom="l" direction="column">
+                        <Headline className="wizard-form__title" size="xlarge">
+                          {title}
+                        </Headline>
+                        {subtitle ? (
+                          <Text size="medium">{subtitle}</Text>
+                        ) : null}
+                      </Flex>
+                    ) : null}
+                    <WizardStepContext.Provider value={{index}}>
+                      {step}
+                    </WizardStepContext.Provider>
                   </Flex>
-                );
-              })}
-            </div>
-          </Flex>
-        </WizardContext.Provider>
-      </div>
-    );
-  }
-);
+                </Flex>
+              );
+            })}
+          </div>
+        </Flex>
+      </WizardContext.Provider>
+    </div>
+  );
+};
 
 const WizardStep: React.FunctionComponent<
   {
-    as?: 'container' | 'form' | 'child';
+    as?: 'form' | 'div';
     onSubmit?: (
+      event: React.FormEvent<HTMLFormElement>,
       next: () => void
-    ) => (event: React.FormEvent<HTMLFormElement>) => void;
-  } & React.HTMLAttributes<HTMLFormElement>
+    ) => void;
+  } & Omit<React.HTMLAttributes<HTMLElement>, 'onSubmit'>
 > = ({children, onSubmit, as = 'form', ...props}) => {
   const {next} = React.useContext(WizardContext);
 
-  if (as === 'container') {
+  if (as === 'div') {
     return <div>{children}</div>;
-  } else if (as === 'child') {
-    const handleChildFormSubmit = onSubmit ? onSubmit(next) : () => null;
-    const childrenArray = React.Children.toArray(children);
-    const childForm = childrenArray[0];
-
-    if (React.isValidElement(childForm))
-      return (
-        <div>
-          {React.cloneElement<React.HTMLAttributes<HTMLFormElement>>(
-            childForm,
-            {
-              onSubmit: handleChildFormSubmit,
-              ...props,
-            }
-          )}
-        </div>
-      );
   } else {
     const handleFormSubmit: React.FormEventHandler<HTMLFormElement> = event => {
       event.preventDefault();
 
       if (onSubmit) {
-        onSubmit(next)(event);
+        onSubmit(event, next);
       } else {
         next();
       }
@@ -224,17 +199,10 @@ const WizardExport: typeof Wizard & {
 });
 
 const useWizard = () => {
-  const wizardRef = React.useRef<{
-    next(): void;
-  }>();
+  const {next} = React.useContext(WizardContext);
 
   return {
-    ref: wizardRef,
-    next: () => {
-      if (wizardRef.current) {
-        wizardRef.current.next();
-      }
-    },
+    next,
   };
 };
 
