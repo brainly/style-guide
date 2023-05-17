@@ -6,15 +6,19 @@ export type LogoTypeType =
   | 'brainly'
   | 'brainly-inverse'
   | 'brainly-mobile'
+  | 'brainly-mobile-inverse'
   | 'eodev'
   | 'eodev-inverse'
   | 'eodev-mobile'
+  | 'eodev-mobile-inverse'
   | 'nosdevoirs'
   | 'nosdevoirs-inverse'
   | 'nosdevoirs-mobile'
+  | 'nosdevoirs-mobile-inverse'
   | 'znanija'
   | 'znanija-inverse'
   | 'znanija-mobile'
+  | 'znanija-mobile-inverse'
   | 'znanija-plus'
   | 'znanija-plus-inverse'
   | 'znanija-plus-small'
@@ -35,15 +39,19 @@ export const TYPE = {
   BRAINLY: 'brainly',
   BRAINLY_INVERSE: 'brainly-inverse',
   BRAINLY_MOBILE: 'brainly-mobile',
+  BRAINLY_MOBILE_INVERSE: 'brainly-mobile-inverse',
   EODEV: 'eodev',
   EODEV_INVERSE: 'eodev-inverse',
   EODEV_MOBILE: 'eodev-mobile',
+  EODEV_MOBILE_INVERSE: 'eodev-mobile-inverse',
   NOSDEVOIRS: 'nosdevoirs',
   NOSDEVOIRS_INVERSE: 'nosdevoirs-inverse',
   NOSDEVOIRS_MOBILE: 'nosdevoirs-mobile',
+  NOSDEVOIRS_MOBILE_INVERSE: 'nosdevoirs-mobile-inverse',
   ZNANIJA: 'znanija',
   ZNANIJA_INVERSE: 'znanija-inverse',
   ZNANIJA_MOBILE: 'znanija-mobile',
+  ZNANIJA_MOBILE_INVERSE: 'znanija-mobile-inverse',
   ZNANIJA_PLUS: 'znanija-plus',
   ZNANIJA_PLUS_INVERSE: 'znanija-plus-inverse',
   ZNANIJA_PLUS_SMALL: 'znanija-plus-small',
