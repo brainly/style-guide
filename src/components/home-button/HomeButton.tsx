@@ -33,8 +33,8 @@ const ICONS = {
   nosdevoirs: 'nosdevoirs-mobile',
   znanija: 'znanija-mobile',
   'znanija-plus': 'znanija-plus-small',
-  'brainly-plus': 'brainly-plus-small',
-  'brainly-tutoring': 'brainly-tutoring-small',
+  'brainly-plus': 'brainly-plus',
+  'brainly-tutoring': 'brainly-tutoring',
 };
 
 export type HomeButtonPropsType = {
