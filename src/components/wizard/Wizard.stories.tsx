@@ -1,5 +1,5 @@
 import React from 'react';
-import {Wizard, useWizard} from './Wizard';
+import {Wizard, WizardStep, useWizard} from './Wizard';
 import Input from '../form-elements/Input';
 import Checkbox from '../form-elements/checkbox/Checkbox';
 import Textarea from '../form-elements/Textarea';
@@ -32,13 +32,13 @@ const FirstStepForm = () => {
 
   return (
     <Form
-      onSubmit={(data, e) => {
+      onSubmit={() => {
         next();
       }}
     >
-      <Wizard.Title>step 1 title</Wizard.Title>
+      <WizardStep.Title>step 1 title</WizardStep.Title>
       <InputField name="first_name" />
-      <Wizard.Submit>next</Wizard.Submit>
+      <WizardStep.Submit>next</WizardStep.Submit>
     </Form>
   );
 };
@@ -50,23 +50,24 @@ export const Default = () => {
   const onChange = () => null;
 
   return (
-    <Wizard title="form title" subtitle="form subtitle" onComplete={onComplete}>
-      <Wizard.Step as="div">
+    <Wizard onComplete={onComplete}>
+      <WizardStep as="div">
+        <Wizard.Title subtitle="form subtitle">form title</Wizard.Title>
         <FirstStepForm />
-      </Wizard.Step>
-      <Wizard.Step>
-        <Wizard.Title>step 2 title</Wizard.Title>
+      </WizardStep>
+      <WizardStep>
+        <WizardStep.Title>step 2 title</WizardStep.Title>
         <Input name="last_name" />
-        <Wizard.Submit>next</Wizard.Submit>
-      </Wizard.Step>
-      <Wizard.Step>
-        <Wizard.Title>Last step title</Wizard.Title>
+        <WizardStep.Submit>next</WizardStep.Submit>
+      </WizardStep>
+      <WizardStep>
+        <WizardStep.Title>Last step title</WizardStep.Title>
         <RadioGroup name="account_type" onChange={onChange}>
           <Radio value="student">Student</Radio>
           <Radio value="parent">Parent</Radio>
         </RadioGroup>
-        <Wizard.Submit>next</Wizard.Submit>
-      </Wizard.Step>
+        <WizardStep.Submit>next</WizardStep.Submit>
+      </WizardStep>
     </Wizard>
   );
 };
@@ -83,28 +84,30 @@ export const CreateAccount = () => {
       subtitle="Let us know you better"
       onComplete={onComplete}
     >
-      <Wizard.Step>
-        <Wizard.Title>Who are you?</Wizard.Title>
+      <WizardStep>
+        <WizardStep.Title>Who are you?</WizardStep.Title>
         <RadioGroup name="account_type" onChange={onChange}>
           <Radio value="student">Student</Radio>
           <Radio value="parent">Parent</Radio>
         </RadioGroup>
-        <Wizard.Submit>next</Wizard.Submit>
-      </Wizard.Step>
-      <Wizard.Step>
-        <Wizard.Title subtitle="This is only to get in touch, not to send spam. We love GDPR and GDPR loves us.">
+        <WizardStep.Submit>next</WizardStep.Submit>
+      </WizardStep>
+      <WizardStep>
+        <WizardStep.Title subtitle="This is only to get in touch, not to send spam. We love GDPR and GDPR loves us.">
           What email adress can we reach you at?
-        </Wizard.Title>
+        </WizardStep.Title>
         <Input placeholder="youremail@mail.com" fullWidth name="email" />
-        <Wizard.Submit>next</Wizard.Submit>
-      </Wizard.Step>
-      <Wizard.Step>
+        <WizardStep.Submit>next</WizardStep.Submit>
+      </WizardStep>
+      <WizardStep>
         <Checkbox>
           By creating an account, you accept the Brainly Terms of Service &
           Privacy Policy
         </Checkbox>
-        <Wizard.Submit variant="solid-indigo">create account</Wizard.Submit>
-      </Wizard.Step>
+        <WizardStep.Submit variant="solid-indigo">
+          create account
+        </WizardStep.Submit>
+      </WizardStep>
     </Wizard>
   );
 };
@@ -117,10 +120,10 @@ export const AskYourQuestion = () => {
 
   return (
     <Wizard title="Ask your question" onComplete={onComplete}>
-      <Wizard.Step>
-        <Wizard.Title subtitle="You can type out your question below and/or add a file.">
+      <WizardStep>
+        <WizardStep.Title subtitle="You can type out your question below and/or add a file.">
           What can we help you with?
-        </Wizard.Title>
+        </WizardStep.Title>
         <Textarea
           fullWidth
           size="tall"
@@ -128,9 +131,9 @@ export const AskYourQuestion = () => {
           placeholder="I have a problem with the task where I have to choose one of the available answers. I would also like to understand why the correct answer is .. correct. Please help me choose the correct one and explain why such an answer is the best one. "
         />
         <Wizard.Submit>next</Wizard.Submit>
-      </Wizard.Step>
-      <Wizard.Step>
-        <Wizard.Title>How can we assist you? *</Wizard.Title>
+      </WizardStep>
+      <WizardStep>
+        <WizardStep.Title>How can we assist you? *</WizardStep.Title>
         <RadioGroup name="subject" onChange={onChange}>
           <Radio value="math">Mathematics</Radio>
           <Radio value="physics">Physics</Radio>
@@ -138,11 +141,11 @@ export const AskYourQuestion = () => {
           <Radio value="biology">Biology</Radio>
         </RadioGroup>
         <Wizard.Submit>next</Wizard.Submit>
-      </Wizard.Step>
-      <Wizard.Step>
-        <Wizard.Title subtitle="This step is optional — you can skip it if you want.">
+      </WizardStep>
+      <WizardStep>
+        <WizardStep.Title subtitle="This step is optional — you can skip it if you want.">
           What can we help you with?
-        </Wizard.Title>
+        </WizardStep.Title>
         <RadioGroup name="help_type" onChange={onChange}>
           <Radio value="quick help">Quick help</Radio>
           <Radio value="step-by-step">Step-by-step explanation</Radio>
@@ -150,7 +153,7 @@ export const AskYourQuestion = () => {
           <Radio value="homework">Homework check</Radio>
         </RadioGroup>
         <Wizard.Submit>ask your question</Wizard.Submit>
-      </Wizard.Step>
+      </WizardStep>
     </Wizard>
   );
 };

@@ -82,16 +82,6 @@ const Wizard = ({children, title, subtitle, onComplete}: WizardProps) => {
                   })}
                 >
                   <Flex direction="column" className="wizard-step-content">
-                    {index === 0 && title ? (
-                      <Flex marginBottom="l" direction="column">
-                        <Headline className="wizard-form__title" size="xlarge">
-                          {title}
-                        </Headline>
-                        {subtitle ? (
-                          <Text size="medium">{subtitle}</Text>
-                        ) : null}
-                      </Flex>
-                    ) : null}
                     <WizardStepContext.Provider value={{index}}>
                       {step}
                     </WizardStepContext.Provider>
@@ -188,12 +178,29 @@ const WizardStepTitle: React.FunctionComponent<{
   );
 };
 
+const WizardTitle: React.FunctionComponent<{
+  subtitle?: string;
+}> = ({children, subtitle}) => {
+  return (
+    <Flex marginBottom="l" direction="column">
+      <Headline className="wizard-form__title" size="xlarge">
+        {children}
+      </Headline>
+      {subtitle ? <Text size="medium">{subtitle}</Text> : null}
+    </Flex>
+  );
+};
+
 const WizardExport: typeof Wizard & {
-  Step: typeof WizardStep;
+  Title: typeof WizardTitle;
+} = Object.assign(Wizard, {
+  Title: WizardTitle,
+});
+
+const WizardStepExport: typeof WizardStep & {
   Submit: typeof WizardStepSubmit;
   Title: typeof WizardStepTitle;
-} = Object.assign(Wizard, {
-  Step: WizardStep,
+} = Object.assign(WizardStep, {
   Submit: WizardStepSubmit,
   Title: WizardStepTitle,
 });
@@ -206,4 +213,4 @@ const useWizard = () => {
   };
 };
 
-export {WizardExport as Wizard, useWizard};
+export {WizardExport as Wizard, WizardStepExport as WizardStep, useWizard};
