@@ -43,11 +43,6 @@ const rules = [
     tests: 'N/A',
   },
   {
-    pattern: '<b>Should</b> have descriptive information about invalid state.',
-    status: 'DONE',
-    tests: 'DONE',
-  },
-  {
     pattern: '<b>Should</b> respect prefers reduce motion settings.',
     status: 'TO DO',
     tests: 'N/A',
