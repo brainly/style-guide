@@ -78,5 +78,33 @@ describe('<CardRadio />', () => {
 
       await testA11y(container);
     });
+
+    it('should have no a11y violations when disabled', async () => {
+      const {container} = renderCardRadio({disabled: true});
+
+      await testA11y(container);
+    });
+
+    it('should have no a11y violations when invalid', async () => {
+      const {container} = renderCardRadio({invalid: true});
+
+      await testA11y(container);
+    });
+
+    it('should have no a11y violations when checked', async () => {
+      const {container} = render(
+        <CardRadioGroup value="option-a">
+          <CardRadio value="option-a">Option A</CardRadio>
+        </CardRadioGroup>
+      );
+
+      await testA11y(container);
+    });
+
+    it('should have no a11y violations when required', async () => {
+      const {container} = renderCardRadio({required: true});
+
+      await testA11y(container);
+    });
   });
 });

@@ -81,14 +81,16 @@ export interface CardRadioPropsType
   onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
 
   /**
-   * Function called whenever the mouse enters the Radio.
-   */
-  onMouseEnter?: (e: React.MouseEvent<HTMLElement>) => void;
+   * Optional string. ID of the element that labels the Radio.
+   * @example <CardRadio aria-labelledby="label-id" />
+   **/
+  'aria-labelledby'?: string;
 
   /**
-   * Function called whenever the mouse leaves the Radio.
-   */
-  onMouseLeave?: (e: React.MouseEvent<HTMLElement>) => void;
+   * Optional string. ID of the element that describes the Radio.
+   * @example <CardRadio aria-describedby="description-id" />
+   **/
+  'aria-describedby'?: string;
 }
 
 type CardRadioContextType = {
@@ -119,8 +121,6 @@ const CardRadio = React.forwardRef<HTMLInputElement, CardRadioPropsType>(
       invalid = false,
       value,
       onChange,
-      onMouseEnter,
-      onMouseLeave,
       'aria-labelledby': ariaLabelledBy,
       'aria-describedby': ariaDescribedBy,
       ...props
@@ -143,6 +143,10 @@ const CardRadio = React.forwardRef<HTMLInputElement, CardRadioPropsType>(
     const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
       if (context.onChange) {
         context.onChange(e.target.value);
+      }
+
+      if (onChange) {
+        onChange(e);
       }
     };
 
@@ -183,8 +187,6 @@ const CardRadio = React.forwardRef<HTMLInputElement, CardRadioPropsType>(
             id={`label-${cardId}`}
             htmlFor={cardId}
             className="sg-card-interactive__background"
-            onMouseEnter={onMouseEnter}
-            onMouseLeave={onMouseLeave}
             // On iOS the :active pseudo state is triggered only when there is a touch event set on the HTML element
             // and we use active pseudo class to provide press feedback.
             onTouchStart={() => null}

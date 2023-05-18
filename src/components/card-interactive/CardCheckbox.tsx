@@ -3,7 +3,8 @@ import cx from 'classnames';
 import Checkbox from '../form-elements/checkbox/Checkbox';
 import generateRandomString from '../../js/generateRandomString';
 
-export interface CardCheckboxPropsType {
+export interface CardCheckboxPropsType
+  extends React.ComponentPropsWithoutRef<'div'> {
   /**
    * Optional string. Variant of the card. Default is 'outline'.
    */
@@ -99,14 +100,16 @@ export interface CardCheckboxPropsType {
   onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
 
   /**
-   * Function called whenever the mouse enters the checkbox.
-   */
-  onMouseEnter?: (e: React.MouseEvent<HTMLElement>) => void;
+   * Optional string. ID of the element that labels the Radio.
+   * @example <CardRadio aria-labelledby="label-id" />
+   **/
+  'aria-labelledby'?: string;
 
   /**
-   * Function called whenever the mouse leaves the checkbox.
-   */
-  onMouseLeave?: (e: React.MouseEvent<HTMLElement>) => void;
+   * Optional string. ID of the element that describes the Radio.
+   * @example <CardRadio aria-describedby="description-id" />
+   **/
+  'aria-describedby'?: string;
 }
 
 type CardCheckboxContextType = {
@@ -148,8 +151,8 @@ export const CardCheckboxRoot = React.forwardRef<
       value,
       name,
       onChange,
-      onMouseEnter,
-      onMouseLeave,
+      'aria-labelledby': ariaLabelledBy,
+      'aria-describedby': ariaDescribedBy,
       ...props
     }: CardCheckboxPropsType,
     ref
@@ -193,10 +196,10 @@ export const CardCheckboxRoot = React.forwardRef<
           data-checked={indeterminate ? 'mixed' : isChecked}
           data-invalid={invalid}
           data-disabled={disabled}
+          {...props}
         >
           <input
             id={cardId}
-            aria-labelledby={`label-${cardId}`}
             ref={ref}
             className="sg-card-interactive__input"
             type="checkbox"
@@ -208,15 +211,14 @@ export const CardCheckboxRoot = React.forwardRef<
             value={value}
             aria-checked={indeterminate ? 'mixed' : isChecked}
             aria-invalid={invalid ? true : undefined}
+            aria-labelledby={ariaLabelledBy || `label-${cardId}`}
+            aria-describedby={ariaDescribedBy}
             suppressHydrationWarning
-            {...props}
           />
           <label
             id={`label-${cardId}`}
             htmlFor={cardId}
             className="sg-card-interactive__background"
-            onMouseEnter={onMouseEnter}
-            onMouseLeave={onMouseLeave}
             // On iOS the :active pseudo state is triggered only when there is a touch event set on the HTML element
             // and we use active pseudo class to provide press feedback.
             onTouchStart={() => null}
