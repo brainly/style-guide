@@ -8,6 +8,14 @@
   --card-border-color-checked-hover: var(--gray-60);
   --card-indicator-color: var(--white);
 
+  --card-focus-color: var(--focusColor);
+  --card-focus-inner-color: var(--focusInnerColor);
+  --card-focus-outer-color: var(--focusOuterColor);
+  --card-focus-color-invalid: var(--red-40);
+  --card-focus-outer-color-invalid: rgba(207, 28, 0, 0.3);
+
+  --card-press-scale-factor: 0.98;
+
   &[data-color='light'] {
     --card-background-color: var(--black);
     --card-border-color: var(--gray-40);
@@ -17,32 +25,44 @@
     --card-border-color-checked: var(--white);
     --card-border-color-checked-hover: var(--white);
     --card-indicator-color: var(--black);
+
+    --card-focus-color: var(--focusColor);
+    --card-focus-inner-color: var(--black);
+    --card-focus-outer-color: var(--focusOuterColor);
+    --card-focus-color-invalid: var(--red-40);
+    --card-focus-outer-color-invalid: rgba(207, 28, 0, 0.4);
   }
 
   display: block;
   position: relative;
   width: var(--card-width, auto);
   height: var(--card-height, auto);
-  border-radius: 8px;
-  border: 2px solid transparent;
-  overflow: hidden;
   user-select: none;
-  background-color: var(--card-background-color);
-  background-clip: padding-box;
 
-  transition: transform $durationModerate2 $easingRegular,
-    border $durationModerate1 $easingLinear;
+  transition: transform $durationModerate2 $easingRegular;
 
-  &[data-variant='outline'] {
+  &__background {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    position: absolute;
+    inset: 0;
+    border-radius: 8px;
+    overflow: hidden;
+    border: 2px solid transparent;
+    background-color: var(--card-background-color);
+    transition: transform $durationModerate2 $easingRegular,
+      border $durationModerate1 $easingLinear;
+  }
+
+  &[data-variant='outline'] &__background {
     border-color: var(--card-border-color);
   }
 
-  &[data-variant='solid'] {
+  &[data-variant='solid'] &__background {
     border-color: transparent;
   }
 
   &:active:not([data-disabled='true']) {
-    transform: scale(0.98);
+    transform: scale(var(--card-press-scale-factor));
   }
 
   &[data-disabled='true'] {
@@ -51,7 +71,9 @@
 
   &[data-checked='true'],
   &[data-checked='mixed'] {
-    border-color: var(--card-border-color-checked);
+    .sg-card-interactive__background {
+      border-color: var(--card-border-color-checked);
+    }
 
     & .sg-checkbox {
       --checkboxColor: var(--card-border-color-checked);
@@ -64,7 +86,9 @@
   }
 
   &[data-invalid='true'] {
-    border-color: var(--card-border-color-invalid);
+    .sg-card-interactive__background {
+      border-color: var(--card-border-color-invalid);
+    }
 
     & .sg-checkbox {
       --checkboxColor: var(--card-border-color-invalid);
@@ -78,7 +102,9 @@
   }
 
   &:hover:not([data-disabled='true']) {
-    border-color: var(--card-border-color-hover);
+    .sg-card-interactive__background {
+      border-color: var(--card-border-color-hover);
+    }
 
     & .sg-checkbox {
       --checkboxColor: var(--card-border-color-hover);
@@ -94,7 +120,9 @@
 
     &[data-checked='true'],
     &[data-checked='mixed'] {
-      border-color: var(--card-border-color-checked-hover);
+      .sg-card-interactive__background {
+        border-color: var(--card-border-color-checked-hover);
+      }
 
       & .sg-checkbox {
         --checkboxColor: var(--card-border-color-checked-hover);
@@ -109,7 +137,9 @@
     }
 
     &[data-invalid='true'] {
-      border-color: var(--card-border-color-invalid-hover);
+      .sg-card-interactive__background {
+        border-color: var(--card-border-color-invalid-hover);
+      }
 
       & .sg-checkbox {
         --checkboxColor: var(--card-border-color-invalid-hover);
@@ -146,23 +176,24 @@
 
   /* Focus styles */
 
+  --focusOuterWidth: 3px;
+
+  &[data-invalid='true']
+    .sg-card-interactive__input:focus-visible
+    + .sg-card-interactive__background {
+    --focusColor: var(--card-focus-color-invalid);
+    --focusInnerColor: var(--card-focus-inner-color);
+    --focusOuterColor: var(--card-focus-outer-color-invalid);
+    @include applyFocusStyle();
+  }
+
   &
     .sg-card-interactive__input:focus-visible
     + .sg-card-interactive__background {
-    // TODO(coderitual): Replace with applyFocusStyle when it's updated to support different border widths
-    box-shadow: 0px 0px 0px 2px var(--focusInnerColor),
-      0px 0px 0px 4px var(--focusColor), 0px 0px 0px 7px var(--focusOuterColor);
-    outline: none;
-    animation: focusShadow1 $durationQuick2 $easingEntry,
-      focusShadow2 $durationQuick2 $easingEntry calc($durationQuick2 / 2),
-      focusShadow3 $durationQuick2 $easingEntry $durationQuick2;
-
-    @media (forced-colors: active) {
-      outline-color: Highlight;
-      outline-width: 2px;
-      outline-offset: 6px;
-      outline-style: auto;
-    }
+    --focusColor: var(--card-focus-color);
+    --focusInnerColor: var(--card-focus-inner-color);
+    --focusOuterColor: var(--card-focus-outer-color);
+    @include applyFocusStyle();
   }
 }
 
@@ -171,12 +202,6 @@
   opacity: 0;
   top: 0;
   left: 0;
-}
-
-.sg-card-interactive__background {
-  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-  position: absolute;
-  inset: 0;
 }
 
 .sg-card-interactive__indicator {
