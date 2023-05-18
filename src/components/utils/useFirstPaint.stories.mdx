@@ -19,7 +19,7 @@ import {useFirstPaint} from 'brainly-style-guide';
 ## Usage
 
 ```jsx
-const animatedElementRef = React.useRef<HTMLDivElement>();
+const animatedElementRef = React.useRef();
 const [isToggled, setIsToggled] = React.useState(true);
 const handleClick = React.useCallback(() => {
   setIsToggled(!isToggled);
