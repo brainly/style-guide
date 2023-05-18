@@ -127,7 +127,7 @@ const CardRadioGroupRoot = React.forwardRef<
         gap="s"
         className={cx('card-radio-group', className)}
         role="radiogroup"
-        dir={direction}
+        direction={direction}
         aria-disabled={disabled}
         {...other}
       >
