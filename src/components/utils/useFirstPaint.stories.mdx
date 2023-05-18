@@ -20,9 +20,14 @@ import {useFirstPaint} from 'brainly-style-guide';
 
 ```jsx
 const animatedElementRef = React.useRef();
+const shouldAnimateRef = React.useRef(false);
 const [isToggled, setIsToggled] = React.useState(true);
 const handleClick = React.useCallback(() => {
   setIsToggled(!isToggled);
+
+  if (shouldAnimateRef.current) {
+    animatedElementRef.current.style.animationDuration = '';
+  }
 }, [isToggled]);
 
 React.useLayoutEffect(() => {
@@ -30,12 +35,11 @@ React.useLayoutEffect(() => {
 }, []);
 
 useFirstPaint(() => {
-  animatedElementRef.current.style.animationDuration = '';
+  shouldAnimateRef.current = true;
 });
 
 return (
   <div>
-    <p>Same animation is not visible on initial render, but after click</p>
     <div style={{height: 300, width: 600}}>
       <div
         className={classNames('use-first-paint-example-box', {

@@ -186,7 +186,11 @@ const Checkbox = ({
   );
   const inputRef = React.useRef<HTMLInputElement>(null);
   const iconRef = React.useRef<SVGSVGElement | null>(null);
-  const isFirstPaintRef = useFirstPaint();
+  const shouldAnimate = React.useRef(false);
+
+  useFirstPaint(() => {
+    shouldAnimate.current = true;
+  });
 
   React.useEffect(() => {
     if (inputRef.current) inputRef.current.indeterminate = indeterminate;
@@ -194,14 +198,13 @@ const Checkbox = ({
   React.useEffect(() => {
     if (isControlled && checked !== isChecked) {
       setIsChecked(checked);
-
-      if (!isFirstPaintRef.current && checkboxIconRef.current) {
+      if (shouldAnimate.current && checkboxIconRef.current) {
         checkboxIconRef.current.classList.add(
           'sg-checkbox__icon--with-animation'
         );
       }
     }
-  }, [checked, isControlled, isChecked, isFirstPaintRef]);
+  }, [checked, isControlled, isChecked]);
   const onInputChange = React.useCallback(
     e => {
       if (!isControlled) {
@@ -210,13 +213,13 @@ const Checkbox = ({
 
       if (onChange) onChange(e);
 
-      if (!isFirstPaintRef.current && checkboxIconRef.current) {
+      if (shouldAnimate.current && checkboxIconRef.current) {
         checkboxIconRef.current.classList.add(
           'sg-checkbox__icon--with-animation'
         );
       }
     },
-    [onChange, isControlled, checkboxIconRef, isFirstPaintRef]
+    [onChange, isControlled, checkboxIconRef]
   );
 
   if (__DEV__) {

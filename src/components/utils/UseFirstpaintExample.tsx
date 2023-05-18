@@ -5,9 +5,14 @@ import classNames from 'classnames';
 
 export const Example = () => {
   const animatedElementRef = React.useRef<HTMLDivElement>();
+  const shouldAnimateRef = React.useRef(false);
   const [isToggled, setIsToggled] = React.useState(true);
   const handleClick = React.useCallback(() => {
     setIsToggled(!isToggled);
+
+    if (shouldAnimateRef.current) {
+      animatedElementRef.current.style.animationDuration = '';
+    }
   }, [isToggled]);
 
   React.useLayoutEffect(() => {
@@ -15,7 +20,7 @@ export const Example = () => {
   }, []);
 
   useFirstPaint(() => {
-    animatedElementRef.current.style.animationDuration = '';
+    shouldAnimateRef.current = true;
   });
 
   return (

@@ -169,9 +169,13 @@ const Radio = ({
   const isWithinRadioGroup = Boolean(
     radioGroupContext && Object.keys(radioGroupContext).length
   );
-  const isFirstPaintRef = useFirstPaint();
+  const shouldAnimateRef = React.useRef(false);
   const isControlled = checked !== undefined || isWithinRadioGroup;
   let isChecked: boolean | undefined = undefined;
+
+  useFirstPaint(() => {
+    shouldAnimateRef.current = true;
+  });
 
   if (isControlled) {
     // Radio can either be directly set as checked, or be controlled by a RadioGroup
@@ -181,7 +185,7 @@ const Radio = ({
         : Boolean(radioGroupContext.selectedValue) &&
           radioGroupContext.selectedValue === value;
 
-    if (!isFirstPaintRef.current && circleRef.current) {
+    if (shouldAnimateRef.current && circleRef.current) {
       circleRef.current.classList.add('sg-radio__circle--with-animation');
     }
   }
@@ -221,7 +225,7 @@ const Radio = ({
       onChange(e);
     }
 
-    if (circleRef.current && !isFirstPaintRef.current) {
+    if (circleRef.current && shouldAnimateRef.current) {
       circleRef.current.classList.add('sg-radio__circle--with-animation');
     }
   };
