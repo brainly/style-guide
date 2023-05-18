@@ -29,6 +29,7 @@ type StoryVariantPropsType = {
   width?: string;
   label: string;
   whiteText?: boolean;
+  dark?: boolean;
 };
 export const StoryVariant = ({
   children,
@@ -36,9 +37,10 @@ export const StoryVariant = ({
   width = 'auto',
   label,
   whiteText,
+  dark = false,
 }: StoryVariantPropsType) => (
   <div
-    className="sg-story-variant"
+    className={`sg-story-variant ${dark && 'sg-story-variant-dark-box'}`}
     style={{
       height,
       width,

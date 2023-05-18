@@ -17,7 +17,7 @@
     border: 2px solid CanvasText;
   }
 
-  @mixin initial-state() {
+  @mixin initialState() {
     opacity: 0;
 
     &[data-placement^='top'] {
@@ -43,7 +43,7 @@
     }
   }
 
-  @include initial-state();
+  @include initialState();
 
   &[data-status='open'] {
     opacity: 1;
@@ -68,7 +68,7 @@
       transition-delay: 0, 0;
     }
 
-    @include initial-state();
+    @include initialState();
   }
 
   &--small {

@@ -72,6 +72,7 @@ export type IconTypeType =
   | 'friends'
   | 'fullscreen'
   | 'funnel'
+  | 'ginny'
   | 'globe'
   | 'google'
   | 'greek'
@@ -248,6 +249,7 @@ export const TYPE = {
   FRIENDS: 'friends',
   FULLSCREEN: 'fullscreen',
   FUNNEL: 'funnel',
+  GINNY: 'ginny',
   GLOBE: 'globe',
   GOOGLE: 'google',
   GREEK: 'greek',
