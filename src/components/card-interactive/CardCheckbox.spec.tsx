@@ -92,13 +92,29 @@ describe('<CardCheckbox />', () => {
     expect(checkboxInput.checked).toBe(false);
   });
 
-  it('calls onChange when clicked', () => {
-    const onChange = jest.fn();
-    const checkbox = render(<CardCheckbox onChange={onChange} />);
+  it('works in controlled mode', () => {
+    const ControlledCheckbox = () => {
+      const [checked, setChecked] = React.useState(false);
+
+      return (
+        <CardCheckbox
+          checked={checked}
+          onChange={() => setChecked(val => !val)}
+          aria-labelledby="label"
+        >
+          <label id="label">placeholder</label>
+        </CardCheckbox>
+      );
+    };
+
+    const checkbox = render(<ControlledCheckbox />);
     const checkboxInput = checkbox.getByRole('checkbox') as HTMLInputElement;
 
+    expect(checkboxInput.checked).toBe(false);
     userEvent.click(checkboxInput);
-    expect(onChange).toHaveBeenCalledTimes(1);
+    expect(checkboxInput.checked).toBe(true);
+    userEvent.click(checkboxInput);
+    expect(checkboxInput.checked).toBe(false);
   });
 
   describe('a11y', () => {

@@ -180,6 +180,12 @@ export const CardCheckboxRoot = React.forwardRef<
       [onChange, isControlled]
     );
 
+    React.useEffect(() => {
+      if (isControlled) {
+        setIsChecked(checked);
+      }
+    }, [checked, isControlled]);
+
     return (
       <CardCheckboxContext.Provider
         value={{
