@@ -47,6 +47,8 @@ export type TooltipPropsType = {
    */
   open?: boolean;
 
+  asLabel?: boolean;
+
   /**
    * Only controlled component. Handle Tooltip open state change.
    */
@@ -62,6 +64,7 @@ const Tooltip = ({
   id,
   size,
   color,
+  asLabel,
   defaultOpen = false,
   open: controlledOpen,
   onOpenChange: setControlledOpen,
@@ -74,6 +77,7 @@ const Tooltip = ({
     defaultOpen,
     controlledOpen,
     setControlledOpen,
+    asLabel,
   });
 
   return (

@@ -70,7 +70,9 @@ const TooltipElement = React.forwardRef<
             left: context.x ?? 0,
             ...props.style,
           }}
+          aria-hidden="true"
           {...context.getFloatingProps()}
+          role="none"
         >
           <Text
             className="sg-tooltip__label"

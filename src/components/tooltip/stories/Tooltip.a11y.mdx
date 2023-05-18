@@ -1,0 +1,47 @@
+import rules from './rules.a11y';
+
+### Rules
+
+<AccessibilityList rules={rules} />
+
+### Usage
+
+#### Code examples
+
+- basic (abbreviation extension)
+
+```jsx
+<Tooltip>
+  <Tooltip.Element label="United States of America" />
+  <Tooltip.Trigger>USA</Tooltip.Trigger>
+</Tooltip>
+```
+
+- as button label
+
+```jsx
+<Tooltip>
+  <Tooltip.Element label="Copy to clipboard" asLabel />
+  <Tooltip.Trigger>
+    <Button
+      icon={<Icon color="adaptive" type="clipboard" aria-hidden />}
+      iconOnly
+      variant="solid-light"
+    />
+  </Tooltip.Trigger>
+</Tooltip>
+```
+
+- as password input hint, with styled content
+
+```jsx
+<Tooltip>
+  <Tooltip.Element>
+    Passwords should contain: <b>uppercase letters</b> (A-Z),
+    <b>lowercase letters</b> (a-z) and at least one <b>number</b> (0-9).
+  </Tooltip.Element>
+  <Tooltip.Trigger>
+    <Input type="password" aria-label="password" />
+  </Tooltip.Trigger>
+</Tooltip>
+```
