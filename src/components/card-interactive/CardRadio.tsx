@@ -3,6 +3,7 @@ import cx from 'classnames';
 import Radio from '../form-elements/radio/Radio';
 import generateRandomString from '../../js/generateRandomString';
 import {useCardRadioGroupContext} from './CardRadioGroupContext';
+import type {StyleType} from './types';
 
 export interface CardRadioPropsType
   extends React.ComponentPropsWithoutRef<'div'> {
@@ -73,7 +74,7 @@ export interface CardRadioPropsType
    * Optional object. Inline styles.
    * @example <CardRadio style={--card-background-color: var(--green-20)} />
    */
-  style?: React.CSSProperties;
+  style?: StyleType;
 
   /**
    * Function called whenever the state of the Radio changes.
