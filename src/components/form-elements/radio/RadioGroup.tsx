@@ -63,7 +63,7 @@ export type RadioGroupPropsType = {
   /**
    * Function called with an object containing the react synthetic event, whenever selected radio input changes.
    */
-  onChange: (arg0: React.SyntheticEvent<HTMLInputElement>) => void;
+  onChange?: (arg0: React.SyntheticEvent<HTMLInputElement>) => void;
 
   /**
    * Currently selected radio input.
