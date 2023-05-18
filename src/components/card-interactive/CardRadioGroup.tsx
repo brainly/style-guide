@@ -5,20 +5,73 @@ import Flex from '../flex/Flex';
 import {CardRadioGroupContext} from './CardRadioGroupContext';
 import type {CardRadioGroupContextType} from './CardRadioGroupContext';
 import {CardRadio, CardRadioIndicator} from './CardRadio';
+import type {FlexPropsType} from '../flex/Flex';
 
 export interface CardRadioGroupPropsType {
+  /**
+   * The name of the radio group and the form data when submitting the form.
+   */
   name?: string;
+
+  /**
+   * Optional boolean. Whether the CardRadioGroup is required.
+   * @default false
+   */
   required?: boolean;
+
+  /**
+   * Optional boolean. Whether the CardRadioGroup is disabled.
+   * @default false
+   */
   disabled?: boolean;
+
+  /**
+   * Optional boolean. Whether the CardRadioGroup is invalid.
+   * @default false
+   **/
   invalid?: boolean;
-  direction?: 'row' | 'column';
+
+  /**
+   * Optional string. The direction of the CardRadioGroup.
+   * @default 'row'
+   **/
+  direction?: FlexPropsType['direction'];
+
+  /**
+   * CardRadioGroup  inner elements
+   * @example
+   * <CardRadioGroup>
+   *  <CardRadioGroup.Item value="1">1</CardRadioGroup.Item>
+   *  <CardRadioGroup.Item value="2">2</CardRadioGroup.Item>
+   * </CardRadioGroup>
+   *
+   **/
   children: React.ReactNode;
+
+  /**
+   * Optional string. The className of the CardRadioGroup.
+   * @default undefined
+   **/
   className?: string;
+
   'aria-labelledby'?: string;
   'aria-describedby'?: string;
   'aria-label'?: string;
+
+  /**
+   * Optional string. The default value of the CardRadioGroup.
+   * @default ''
+   **/
   defaultValue?: string;
+
+  /**
+   * Optional string. Currently selected value of the CardRadioGroup.Item.
+   **/
   value?: string;
+
+  /**
+   * Optional function. The callback function that is triggered when the value of the CardRadioGroup changes.
+   **/
   onChange?: (value: string) => void;
 }
 
