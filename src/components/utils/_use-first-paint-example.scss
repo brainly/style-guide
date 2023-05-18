@@ -1,3 +1,24 @@
+.use-first-paint-example-box {
+  animation-duration: 1000ms;
+  position: absolute;
+  height: 200px;
+  width: 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: var(--blue-40);
+  color: var(--white);
+  border-radius: var(--border-radius-xs);
+  cursor: pointer;
+  animation-fill-mode: both;
+  font-weight: bold;
+  animation-name: useFirstPaintExampleToggleOff;
+
+  &--toggled {
+    animation-name: useFirstPaintExampleToggleOn;
+  }
+}
+
 @keyframes useFirstPaintExampleToggleOn {
   0% {
     transform: translateX(0);

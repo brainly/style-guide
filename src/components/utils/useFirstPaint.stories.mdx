@@ -8,7 +8,7 @@ import {Example} from './UseFirstpaintExample.tsx';
 
 <PageHeader type="utility">useFirstPaint</PageHeader>
 
-`useFirstPaint` is a custom hook for detecting when component is before first DOM paint. This is useful for preventing unnecessary animations on initial render.
+`useFirstPaint` is a custom hook for detecting when first DOM paint of component happened. This is useful for e.g. preventing unnecessary animations on initial render.
 
 ## Import
 
@@ -19,23 +19,39 @@ import {useFirstPaint} from 'brainly-style-guide';
 ## Usage
 
 ```jsx
-const didFirstPaintRef = useFirstPaint();
+const animatedElementRef = React.useRef<HTMLDivElement>();
 const [isToggled, setIsToggled] = React.useState(true);
-const onClick = () => {
+const handleClick = React.useCallback(() => {
   setIsToggled(!isToggled);
-};
+}, [isToggled]);
+
+React.useLayoutEffect(() => {
+  animatedElementRef.current.style.animationDuration = '0ms';
+}, []);
+
+useFirstPaint(() => {
+  animatedElementRef.current.style.animationDuration = '';
+});
 
 return (
-  <div
-    click={onClick}
-    style={{
-      // this will make animation instant thus not visible when component is rendered first time
-      animationDuration: didFirstPaintRef.current ? '0' : '300ms',
-    }}
-    className={`${isToggled ? 'with-animation': ''}`}
-  >toggle</>
+  <div>
+    <p>Same animation is not visible on initial render, but after click</p>
+    <div style={{height: 300, width: 600}}>
+      <div
+        className={classNames('use-first-paint-example-box', {
+          'use-first-paint-example-box--toggled': isToggled,
+        })}
+        onClick={handleClick}
+        ref={animatedElementRef}
+      >
+        Click me
+      </div>
+    </div>
+  </div>
 );
 ```
+
+`useFirstPaint` is used here to "hide" transition on first render by making its duration 0ms, but when first paint is done we can reset the duration to see full animation.
 
 <Canvas>
   <Example />

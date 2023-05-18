@@ -1,41 +1,32 @@
 import React from 'react';
 import {useFirstPaint} from './useFirstPaint';
 import './_use-first-paint-example.scss';
+import classNames from 'classnames';
 
 export const Example = () => {
-  const expandableRef = React.useRef<HTMLDivElement>();
-  const isFirstPaintRef = useFirstPaint();
+  const animatedElementRef = React.useRef<HTMLDivElement>();
   const [isToggled, setIsToggled] = React.useState(true);
-
   const handleClick = React.useCallback(() => {
     setIsToggled(!isToggled);
   }, [isToggled]);
 
+  React.useLayoutEffect(() => {
+    animatedElementRef.current.style.animationDuration = '0ms';
+  }, []);
+
+  useFirstPaint(() => {
+    animatedElementRef.current.style.animationDuration = '';
+  });
+
   return (
     <div>
-      <p>Animation is not visible on initial render</p>
       <div style={{height: 300, width: 600}}>
         <div
+          className={classNames('use-first-paint-example-box', {
+            'use-first-paint-example-box--toggled': isToggled,
+          })}
           onClick={handleClick}
-          ref={expandableRef}
-          style={{
-            position: 'absolute',
-            height: 200,
-            width: 200,
-            display: 'flex',
-            justifyContent: 'center',
-            alignItems: 'center',
-            background: 'var(--blue-40)',
-            color: 'var(--white)',
-            borderRadius: 'var(--border-radius-xs)',
-            cursor: 'pointer',
-            animationName: isToggled
-              ? 'useFirstPaintExampleToggleOn'
-              : 'useFirstPaintExampleToggleOff',
-            animationDuration: isFirstPaintRef.current ? '0' : '1000ms',
-            animationFillMode: 'both',
-            fontWeight: 'bold',
-          }}
+          ref={animatedElementRef}
         >
           Click me
         </div>
