@@ -2,7 +2,7 @@ import * as CardCheckbox from './CardCheckbox.stories.mdx';
 import {generateChromaticStory} from '../../chromatic/utils';
 
 export const Default = generateChromaticStory(CardCheckbox, {
-  storiesToHover: ['solid'],
+  storiesToHover: ['statesDark', 'statesLight'],
 });
 const {includeStories, ...meta} = CardCheckbox.default;
 
