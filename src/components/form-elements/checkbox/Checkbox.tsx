@@ -5,6 +5,7 @@ import {__DEV__, invariant} from '../../utils';
 import Text from '../../text/Text';
 import {CheckIcon, IndeterminateIcon} from './CheckboxIcon';
 import ErrorMessage from '../ErrorMessage';
+import {useFirstPaint} from '../../utils/useFirstPaint';
 
 type CheckboxColorType = 'dark' | 'light';
 type CheckboxLabelSizeType = 'medium' | 'small';
@@ -175,6 +176,7 @@ const Checkbox = ({
   'aria-labelledby': ariaLabelledBy,
   ...props
 }: CheckboxPropsType) => {
+  const checkboxIconRef = React.useRef<HTMLSpanElement>();
   const {current: checkboxId} = React.useRef(
     id === undefined || id === '' ? generateRandomString() : id
   );
@@ -184,7 +186,11 @@ const Checkbox = ({
   );
   const inputRef = React.useRef<HTMLInputElement>(null);
   const iconRef = React.useRef<SVGSVGElement | null>(null);
-  const [isPristine, setIsPristine] = React.useState(true);
+  const shouldAnimate = React.useRef(false);
+
+  useFirstPaint(() => {
+    shouldAnimate.current = true;
+  });
 
   React.useEffect(() => {
     if (inputRef.current) inputRef.current.indeterminate = indeterminate;
@@ -192,19 +198,28 @@ const Checkbox = ({
   React.useEffect(() => {
     if (isControlled && checked !== isChecked) {
       setIsChecked(checked);
-      if (isPristine) setIsPristine(false);
+      if (shouldAnimate.current && checkboxIconRef.current) {
+        checkboxIconRef.current.classList.add(
+          'sg-checkbox__icon--with-animation'
+        );
+      }
     }
-  }, [checked, isControlled, isChecked, isPristine]);
+  }, [checked, isControlled, isChecked]);
   const onInputChange = React.useCallback(
     e => {
       if (!isControlled) {
         setIsChecked(val => !val);
-        if (isPristine) setIsPristine(false);
       }
 
       if (onChange) onChange(e);
+
+      if (shouldAnimate.current && checkboxIconRef.current) {
+        checkboxIconRef.current.classList.add(
+          'sg-checkbox__icon--with-animation'
+        );
+      }
     },
-    [onChange, isControlled, isPristine]
+    [onChange, isControlled, checkboxIconRef]
   );
 
   if (__DEV__) {
@@ -230,9 +245,7 @@ const Checkbox = ({
     'sg-checkbox__label--with-padding-bottom': description || errorMessage,
     [`sg-checkbox__label--${String(labelSize)}`]: labelSize,
   });
-  const iconClass = classNames('sg-checkbox__icon', {
-    'sg-checkbox__icon--with-animation': !isPristine, // Apply animation only when checkbox is not pristine
-  });
+  const iconClass = classNames('sg-checkbox__icon');
   const errorTextId = `${checkboxId}-errorText`;
   const descriptionId = `${checkboxId}-description`;
   const describedbyIds = React.useMemo(() => {
@@ -287,6 +300,7 @@ const Checkbox = ({
           <div className="sg-checkbox__icon-wrapper">
             <span
               className={iconClass} // This element is purely decorative so
+              ref={checkboxIconRef}
               // we hide it for screen readers
               aria-hidden="true"
             >

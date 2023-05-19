@@ -7,6 +7,7 @@ import Flex from '../../flex/Flex';
 import Box from '../../box/Box';
 import Headline from '../../text/Headline';
 import Text from '../../text/Text';
+import Button from '../../buttons/Button';
 
 import Radio from './Radio';
 import RadioGroup from './RadioGroup';
@@ -376,6 +377,38 @@ In the following example, className `sg-radio--custom-theme` was applied to all 
             With inline color override
           </Radio>
         </StyledRadios>
+      );
+    }}
+  </Story>
+</Canvas>
+
+<Canvas>
+  <Story
+    name="toggle without radio group"
+    height="120px"
+    args={{name: 'optionA', value: 'option-a'}}
+  >
+    {args => {
+      const [value, setValue] = React.useState('option-a');
+      return (
+        <div>
+          <div>
+            <Button
+              onClick={() =>
+                setValue(value === 'option-a' ? 'option-b' : 'option-a')
+              }
+              size="s"
+            >
+              click to toggle active radio
+            </Button>
+          </div>
+          <Radio value="option-a" checked={value === 'option-a'}>
+            Option A
+          </Radio>
+          <Radio value="option-b" checked={value === 'option-b'}>
+            Option B
+          </Radio>
+        </div>
       );
     }}
   </Story>
