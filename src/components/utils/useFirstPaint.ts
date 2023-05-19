@@ -1,4 +1,4 @@
-import useIsomorphicLayoutEffect from 'use-isomorphic-layout-effect';
+import {useIsomorphicLayoutEffect} from './useIsomorphicLayoutEffect';
 
 export const useFirstPaint = (cb: () => void) => {
   useIsomorphicLayoutEffect(() => {

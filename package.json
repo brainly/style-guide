@@ -37,8 +37,7 @@
     "meow": "^5.0.0",
     "patch-package": "^6.5.1",
     "path": "^0.12.7",
-    "postinstall-postinstall": "^2.1.0",
-    "use-isomorphic-layout-effect": "^1.1.2"
+    "postinstall-postinstall": "^2.1.0"
   },
   "devDependencies": {
     "@babel/cli": "^7.8.3",
