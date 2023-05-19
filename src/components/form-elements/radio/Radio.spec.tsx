@@ -1,6 +1,6 @@
 import * as React from 'react';
 import Radio from './Radio';
-import {render} from '@testing-library/react';
+import {render, waitFor} from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import {testA11y} from '../../../axe';
 
@@ -104,7 +104,7 @@ describe('<Radio />', () => {
     expect(radioInput.checked).toBe(false);
   });
 
-  it('it does not apply animation unless initial state has changed', () => {
+  it('it does not apply animation unless initial state has changed after first render of DOM', async () => {
     const radio = renderRadio({
       children: 'my label',
     });
@@ -115,8 +115,12 @@ describe('<Radio />', () => {
 
     expect(radioInput.checked).toBe(false);
     expect(iconWithAnimation.length).toBe(0);
-    userEvent.click(radio.getByLabelText('my label'));
-    expect(radioInput).toEqual(document.activeElement);
+    setTimeout(() => {
+      userEvent.click(radio.getByLabelText('my label'));
+    });
+    await waitFor(() => {
+      expect(radioInput).toEqual(document.activeElement);
+    });
     expect(radioInput.checked).toBe(true);
     expect(iconWithAnimation.length).toBe(1);
   });
