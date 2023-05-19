@@ -210,7 +210,7 @@
   height: 32px;
 
   /*
-    The indicator is coming from the real checkbox element so we need to remove its input from the layout
+    The indicator is coming from the real component (checkbox or radio) so we need to remove its input from the layout
   */
   & input {
     display: none;
