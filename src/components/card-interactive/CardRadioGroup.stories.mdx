@@ -1,4 +1,5 @@
 import {ArgsTable, Meta, Story, Canvas} from '@storybook/addon-docs';
+import {styled} from '@storybook/theming';
 import {StoryVariantTable} from '../../docs/utils';
 import PageHeader from 'blocks/PageHeader';
 
@@ -529,7 +530,7 @@ import CardCustomisation from './stories/CardCustomisation.mdx';
 
 <Canvas>
   <Story
-    name="Interactions"
+    name="Animation on hover"
     decorators={[
       Story => (
         <div
@@ -546,6 +547,19 @@ import CardCustomisation from './stories/CardCustomisation.mdx';
     ]}
   >
     {args => {
+      const Image = styled.div`
+        width: 105px;
+        height: 100%;
+        background-image: ${props =>
+          props.src ? `url(${props.src})` : 'none'};
+        background-size: 100%;
+        background-position: center;
+        transition: background-size 0.26s linear;
+        .sg-card-interactive:hover &,
+        .sg-card-interactive:focus-within & {
+          background-size: 108%;
+        }
+      `;
       const ExtendedCardRadio = (value, label, image) => {
         return (
           <CardRadioGroup.Item
@@ -562,7 +576,7 @@ import CardCustomisation from './stories/CardCustomisation.mdx';
           >
             <CardRadioGroup.Indicator slot="center-left" />
             <Flex
-              justifyContent="center"
+              justifyContent="space-between"
               alignItems="center"
               fullHeight
               direction="row"
@@ -572,9 +586,7 @@ import CardCustomisation from './stories/CardCustomisation.mdx';
               <Text color="text-text-black" size="small" weight="bold">
                 {label}
               </Text>
-              <div style={{width: 105, height: '100%', marginLeft: 'auto'}}>
-                <img src={`images/${image}.png`} height="100%" alt="" />
-              </div>
+              <Image src={`images/${image}.png`} />
             </Flex>
           </CardRadioGroup.Item>
         );
