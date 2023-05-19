@@ -58,14 +58,12 @@ export interface CardRadioPropsType
 
   /**
    * Optional string. Width of the card.
-   * @default auto
    * @example <CardRadio width="100px" />
    */
   width?: React.CSSProperties['width'];
 
   /**
    * Optional string. Height of the card.
-   * @default auto
    * @example <CardRadio height="100px" />
    */
   height?: React.CSSProperties['height'];

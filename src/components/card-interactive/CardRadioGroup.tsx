@@ -83,7 +83,7 @@ const CardRadioGroupRoot = React.forwardRef<
     name,
     required = false,
     disabled = false,
-    invalid,
+    invalid = false,
     direction = 'row',
     children,
     className,

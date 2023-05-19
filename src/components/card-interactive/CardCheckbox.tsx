@@ -25,14 +25,12 @@ export interface CardCheckboxPropsType
 
   /**
    * Optional string. Width of the card.
-   * @default auto
    * @example <CardCheckbox width="100px" />
    **/
   width?: React.CSSProperties['width'];
 
   /**
    * Optional string. Height of the card.
-   * @default auto
    * @example <CardCheckbox height="100px" />
    */
   height?: React.CSSProperties['height'];

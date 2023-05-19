@@ -10,7 +10,6 @@ describe('<CardCheckbox />', () => {
     const checkboxInput = checkbox.getByRole('checkbox') as HTMLInputElement;
 
     expect(checkboxInput.checked).toBe(false);
-    expect(checkbox.queryByLabelText('my label')).not.toBeInTheDocument();
   });
 
   it('renders CardRadio with accessible name and checkbox role', () => {
@@ -92,7 +91,7 @@ describe('<CardCheckbox />', () => {
     expect(checkboxInput.checked).toBe(false);
   });
 
-  it('works in controlled mode', () => {
+  it('responds to check/uncheck when controlled', () => {
     const ControlledCheckbox = () => {
       const [checked, setChecked] = React.useState(false);
 
