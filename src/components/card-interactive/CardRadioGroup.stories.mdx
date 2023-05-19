@@ -4,6 +4,7 @@ import PageHeader from 'blocks/PageHeader';
 
 import Flex from '../flex/Flex';
 import Text from '../text/Text';
+import Headline from '../text/Headline';
 import SubjectIcon from '../subject-icons/SubjectIcon';
 
 import CardRadioGroup from './CardRadioGroup';
@@ -34,7 +35,7 @@ import CardCustomisation from './stories/CardCustomisation.mdx';
         <div
           style={{
             background: 'var(--gray-30)',
-            padding: 64,
+            padding: 96,
             display: 'flex',
             justifyContent: 'space-evenly',
           }}
@@ -77,12 +78,9 @@ import CardCustomisation from './stories/CardCustomisation.mdx';
       Story => (
         <div
           style={{
-            background: 'var(--gray-30)',
-            padding: 64,
             display: 'flex',
             justifyContent: 'space-evenly',
             flexWrap: 'wrap',
-            gap: 32,
           }}
         >
           <Story />
@@ -92,40 +90,87 @@ import CardCustomisation from './stories/CardCustomisation.mdx';
   >
     {args => (
       <CardRadioGroup>
-        <CardRadioGroup.Item
-          variant="solid"
-          width="150px"
-          height="150px"
-          defaultChecked={true}
+        <Flex
+          flex="1"
+          justifyContent="center"
+          alignItems="center"
+          gap="s"
+          direction="column"
+          style={{padding: 96}}
         >
-          <CardRadioGroup.Indicator slot="top-left" />
-          <Flex justifyContent="center" alignItems="center" fullHeight>
-            <Text color="text-gray-50" size="xsmall" weight="bold">
-              Placeholder
-            </Text>
-          </Flex>
-        </CardRadioGroup.Item>
-        <CardRadioGroup.Item
-          variant="solid"
-          width="150px"
-          height="150px"
-          defaultChecked={true}
-          style={{'--card-background-color': 'var(--green-20)'}}
-        >
-          <CardRadioGroup.Indicator slot="top-left" />
-          <Flex
-            justifyContent="center"
-            alignItems="center"
-            fullHeight
-            direction="column"
-            gap="s"
+          <Headline color="text-black" size="small" extraBold>
+            DARK
+          </Headline>
+          <CardRadioGroup.Item
+            value="anatomy"
+            variant="solid"
+            width="150px"
+            height="214px"
+            defaultChecked={true}
+            style={{
+              '--card-background-color': 'var(--blue-10)',
+            }}
           >
-            <SubjectIcon type="biology" />
-            <Text color="text-text-black" size="small" weight="bold">
-              Biology
-            </Text>
-          </Flex>
-        </CardRadioGroup.Item>
+            <CardRadioGroup.Indicator slot="top-left" />
+            <Flex
+              justifyContent="space-evenly"
+              alignItems="center"
+              fullHeight
+              direction="column"
+            >
+              <SubjectIcon type="astronomy" />
+              <Text color="text-black" size="small" weight="bold">
+                Anatomy
+              </Text>
+            </Flex>
+          </CardRadioGroup.Item>
+        </Flex>
+        <Flex
+          flex="1"
+          justifyContent="center"
+          alignItems="center"
+          gap="s"
+          direction="column"
+          style={{background: 'var(--gray-20)', padding: 96}}
+        >
+          <Headline color="text-black" size="small" extraBold>
+            LIGHT
+          </Headline>
+          <CardRadioGroup.Item
+            value="statistics"
+            variant="solid"
+            width="150px"
+            height="214px"
+            defaultChecked={true}
+            color="light"
+            style={{
+              '--card-background-color': 'var(--indigo-70)',
+            }}
+          >
+            <CardRadioGroup.Indicator slot="top-left" />
+            <Flex
+              justifyContent="space-between"
+              alignItems="center"
+              fullHeight
+              direction="column"
+              gap="none"
+            >
+              <div style={{width: 150, height: 150}}>
+                <img
+                  src="images/image_2.jpeg"
+                  width="100%"
+                  height="100%"
+                  style={{objectFit: 'cover'}}
+                />
+              </div>
+              <Flex flex="1" alignItems="center">
+                <Text color="text-white" size="small" weight="bold">
+                  Statistics
+                </Text>
+              </Flex>
+            </Flex>
+          </CardRadioGroup.Item>
+        </Flex>
       </CardRadioGroup>
     )}
   </Story>
@@ -140,7 +185,7 @@ import CardCustomisation from './stories/CardCustomisation.mdx';
       Story => (
         <div
           style={{
-            padding: 64,
+            padding: 96,
             display: 'flex',
             justifyContent: 'space-evenly',
             flexWrap: 'wrap',
@@ -153,42 +198,75 @@ import CardCustomisation from './stories/CardCustomisation.mdx';
     ]}
   >
     {args => (
-      <>
-        <CardRadioGroup.Item
-          {...args}
-          width="150px"
-          height="150px"
-          defaultChecked={true}
+      <CardRadioGroup>
+        <Flex
+          flex="1"
+          justifyContent="center"
+          alignItems="center"
+          gap="s"
+          direction="column"
+          style={{padding: 96}}
         >
-          <CardRadioGroup.Indicator slot="top-left" />
-          <Flex justifyContent="center" alignItems="center" fullHeight>
-            <Text color="text-gray-50" size="xsmall" weight="bold">
-              Placeholder
-            </Text>
-          </Flex>
-        </CardRadioGroup.Item>
-        <CardRadioGroup.Item
-          {...args}
-          variant="outline"
-          width="150px"
-          height="150px"
-          defaultChecked={true}
-        >
-          <CardRadioGroup.Indicator slot="top-left" />
-          <Flex
-            justifyContent="center"
-            alignItems="center"
-            fullHeight
-            direction="column"
-            gap="s"
+          <Headline color="text-black" size="small" extraBold>
+            DARK
+          </Headline>
+          <CardRadioGroup.Item
+            value="tourism"
+            width="150px"
+            height="150px"
+            defaultChecked={true}
           >
-            <SubjectIcon type="geometry" />
-            <Text color="text-text-black" size="small" weight="bold">
-              Geometry
-            </Text>
-          </Flex>
-        </CardRadioGroup.Item>
-      </>
+            <CardRadioGroup.Indicator slot="top-left" />
+            <Flex
+              justifyContent="center"
+              alignItems="center"
+              fullHeight
+              direction="column"
+              gap="s"
+            >
+              <SubjectIcon type="tourism" />
+              <Text color="text-black" size="small" weight="bold">
+                Tourism
+              </Text>
+            </Flex>
+          </CardRadioGroup.Item>
+        </Flex>
+        <Flex
+          flex="1"
+          justifyContent="center"
+          alignItems="center"
+          gap="s"
+          direction="column"
+          style={{background: 'var(--gray-20)', padding: 96}}
+        >
+          <Headline color="text-black" size="small" extraBold>
+            LIGHT
+          </Headline>{' '}
+          <CardRadioGroup.Item
+            value="environment"
+            variant="outline"
+            color="light"
+            width="150px"
+            height="150px"
+            defaultChecked={true}
+            style={{'--card-background-color': 'var(--green-70'}}
+          >
+            <CardRadioGroup.Indicator slot="top-left" />
+            <Flex
+              justifyContent="center"
+              alignItems="center"
+              fullHeight
+              direction="column"
+              gap="s"
+            >
+              <SubjectIcon type="environment" />
+              <Text color="text-white" size="small" weight="bold">
+                Environment
+              </Text>
+            </Flex>
+          </CardRadioGroup.Item>
+        </Flex>
+      </CardRadioGroup>
     )}
   </Story>
 </Canvas>
@@ -203,7 +281,7 @@ import CardCustomisation from './stories/CardCustomisation.mdx';
         <div
           style={{
             background: 'var(--gray-30)',
-            padding: 64,
+            padding: 96,
             display: 'flex',
             justifyContent: 'space-evenly',
             flexWrap: 'wrap',
@@ -456,7 +534,7 @@ import CardCustomisation from './stories/CardCustomisation.mdx';
       Story => (
         <div
           style={{
-            padding: 64,
+            padding: 96,
             display: 'flex',
             justifyContent: 'center',
             flexWrap: 'wrap',
