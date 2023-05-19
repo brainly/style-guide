@@ -49,6 +49,7 @@
     overflow: hidden;
     border: 2px solid transparent;
     background-color: var(--card-background-color);
+    background-clip: padding-box;
     transition: transform $durationModerate2 $easingRegular,
       border $durationModerate1 $easingLinear;
   }
