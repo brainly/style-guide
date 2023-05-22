@@ -24,7 +24,11 @@ const TOOLTIP_PLACEMENTS = [
   'right',
 ];
 
-<Meta title="Components/Tooltip" component={Tooltip} />
+<Meta
+  title="Components/Tooltip"
+  component={Tooltip}
+  subcomponents={{Element: Tooltip.Element, Trigger: Tooltip.Trigger}}
+/>
 
 <PageHeader>Tooltip</PageHeader>
 

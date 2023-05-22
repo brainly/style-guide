@@ -6,7 +6,7 @@ import useTooltipContext from './useTooltipContext';
 
 export type TooltipElementPropsType = {
   /**
-   * Tooltip content.
+   * Tooltip text.
    * @example <TooltipElement label="My tooltip" />
    */
   label: string;

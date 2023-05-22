@@ -2,7 +2,6 @@ import * as React from 'react';
 import {useMergeRefs} from '@floating-ui/react';
 
 import useTooltipContext from './useTooltipContext';
-import {aria} from 'aria-query';
 
 function isReactForwardRefType(object) {
   const REACT_FORWARD_REF_TYPE = Symbol.for('react.forward_ref');
@@ -14,7 +13,9 @@ function isReactForwardRefType(object) {
 
 export type TooltipTriggerPropsType = {
   /**
-   * Wrapper of element that should trigger tooltip.
+   * Wrapper of element that should trigger tooltip. If children element supports forwarding refs,
+   * it will become a trigger for the tooltip.
+   * Otherwise, additional wrapper will be created.
    * @example <TooltipTrigger><Button>My button</Button></TooltipTrigger>
    */
   children: React.ReactNode;
