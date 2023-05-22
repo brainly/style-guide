@@ -11,7 +11,8 @@ export const rules = [
   },
   {
     pattern: '<b>Should</b> have descriptive information about invalid state.',
-    comment: 'State can be described using <code>errorMessage</code> prop.',
+    comment:
+      'State can be described using <code>aria-description</code> or <code>aria-describedby</code>.',
     status: 'DONE',
     tests: 'TO DO',
   },
