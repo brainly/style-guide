@@ -73,8 +73,7 @@ export const radioItemRules = [
   {
     pattern:
       '<b>Should</b> have a label with 4.5:1 contrast ratio against the background.',
-    comment:
-      '<code>dark</code> against white: 21:1, <code>light</code> against black: 20.9:1.',
+    comment: 'Selected <code>color</code> should relate to the label color.',
     status: 'DONE',
     tests: 'N/A',
   },
@@ -82,7 +81,7 @@ export const radioItemRules = [
     pattern:
       '<b>Should</b> have a color indicator with 3:1 contrast ratio against the background.',
     comment:
-      '<code>dark</code> against white: 21:1, <code>light</code> against black: 20.9:1.',
+      '<code>dark</code> against white: 21:1, <code>light</code> against black: 13.48:1.',
     status: 'DONE',
     tests: 'N/A',
   },
@@ -95,7 +94,7 @@ export const radioItemRules = [
     pattern:
       '<b>Should</b> have descriptive information about required and invalid state.',
     comment:
-      'Invalid state is indicated by color change. Both states can be described using <code>description</code> prop.',
+      'Invalid state is indicated by color change. Both states can be described using aria-describedby prop.',
     status: 'DONE',
     tests: 'DONE',
   },
