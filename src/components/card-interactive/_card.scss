@@ -1,0 +1,256 @@
+.sg-card-interactive {
+  --card-background-color: var(--white);
+  --card-border-color: var(--gray-30);
+  --card-border-color-hover: var(--gray-40);
+  --card-border-color-invalid: var(--red-60);
+  --card-border-color-invalid-hover: var(--red-50);
+  --card-border-color-checked: var(--black);
+  --card-border-color-checked-hover: var(--gray-60);
+  --card-indicator-color: var(--white);
+
+  --card-focus-color: var(--focusColor);
+  --card-focus-inner-color: var(--focusInnerColor);
+  --card-focus-outer-color: var(--focusOuterColor);
+  --card-focus-color-invalid: var(--red-40);
+  --card-focus-outer-color-invalid: rgba(207, 28, 0, 0.3);
+
+  --card-border-width: 2px;
+  --card-border-radius: 8px;
+  --card-press-scale-factor: 0.97;
+
+  &[data-color='light'] {
+    --card-background-color: var(--black);
+    --card-border-color: var(--gray-40);
+    --card-border-color-hover: var(--gray-50);
+    --card-border-color-invalid: var(--red-40);
+    --card-border-color-invalid-hover: var(--red-50);
+    --card-border-color-checked: var(--white);
+    --card-border-color-checked-hover: var(--white);
+    --card-indicator-color: var(--black);
+
+    --card-focus-color: var(--focusColor);
+    --card-focus-inner-color: var(--black);
+    --card-focus-outer-color: var(--focusOuterColor);
+    --card-focus-color-invalid: var(--red-40);
+    --card-focus-outer-color-invalid: rgba(207, 28, 0, 0.3);
+  }
+
+  display: block;
+  position: relative;
+  width: var(--card-width, auto);
+  height: var(--card-height, auto);
+  user-select: none;
+
+  &__border {
+    display: block;
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    border-radius: var(--card-border-radius);
+    overflow: hidden;
+
+    transition: transform $durationModerate2 $easingRegular,
+      background-color $durationModerate1 $easingLinear,
+      background-image $durationModerate1 $easingLinear,
+      background-position $durationModerate1 $easingLinear;
+  }
+
+  &__background {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    position: absolute;
+    inset: var(--card-border-width);
+    border-radius: calc(var(--card-border-radius) - var(--card-border-width));
+    overflow: hidden;
+    background-color: var(--card-background-color);
+    background-clip: padding-box;
+  }
+
+  &[data-variant='outline'] &__border {
+    background: var(--card-border-color);
+  }
+
+  &[data-variant='solid'] &__border {
+    background: transparent;
+  }
+
+  &:active:not([data-disabled='true']) &__border {
+    transform: scale(var(--card-press-scale-factor));
+  }
+
+  &[data-disabled='true'] {
+    opacity: 0.45;
+  }
+
+  &[data-checked='true'],
+  &[data-checked='mixed'] {
+    .sg-card-interactive__border {
+      background: var(--card-border-color-checked);
+    }
+
+    & .sg-checkbox {
+      --checkboxColor: var(--card-border-color-checked);
+      --checkboxCheckedColor: var(--card-border-color-checked);
+    }
+
+    & .sg-radio {
+      --radioColor: var(--card-border-color-checked);
+    }
+  }
+
+  &[data-invalid='true'] {
+    .sg-card-interactive__border {
+      background: var(--card-border-color-invalid);
+    }
+
+    & .sg-checkbox {
+      --checkboxColor: var(--card-border-color-invalid);
+      --checkboxCheckedColor: var(--card-border-color-invalid);
+    }
+
+    & .sg-radio {
+      --radioColor: var(--card-border-color-invalid);
+      --radioHoverColor: var(--card-border-color-invalid);
+    }
+  }
+
+  &:hover:not([data-disabled='true']) {
+    .sg-card-interactive__border {
+      background: var(--card-border-color-hover);
+    }
+
+    & .sg-checkbox {
+      --checkboxColor: var(--card-border-color-hover);
+      --checkboxCheckedColor: var(--card-border-color-hover);
+      --checkboxHoverColor: var(--card-border-color-hover);
+      transition: all $durationModerate1 $easingRegular;
+    }
+
+    & .sg-radio {
+      --radioColor: var(--card-border-color-hover);
+      --radioHoverColor: var(--card-border-color-hover);
+    }
+
+    &[data-checked='true'],
+    &[data-checked='mixed'] {
+      .sg-card-interactive__border {
+        background: var(--card-border-color-checked-hover);
+      }
+
+      & .sg-checkbox {
+        --checkboxColor: var(--card-border-color-checked-hover);
+        --checkboxCheckedColor: var(--card-border-color-checked-hover);
+        --checkboxHoverColor: var(--card-border-color-checked-hover);
+      }
+
+      & .sg-radio {
+        --radioColor: var(--card-border-color-checked-hover);
+        --radioHoverColor: var(--card-border-color-checked-hover);
+      }
+    }
+
+    &[data-invalid='true'] {
+      .sg-card-interactive__border {
+        background: var(--card-border-color-invalid-hover);
+      }
+
+      & .sg-checkbox {
+        --checkboxColor: var(--card-border-color-invalid-hover);
+        --checkboxCheckedColor: var(--card-border-color-invalid-hover);
+        --checkboxHoverColor: var(--card-border-color-invalid-hover);
+      }
+
+      & .sg-radio {
+        --radioColor: var(--card-border-color-invalid-hover);
+        --radioHoverColor: var(--card-border-color-invalid-hover);
+      }
+    }
+  }
+
+  /* Indicators */
+  & .sg-checkbox {
+    --checkboxColor: var(--card-border-color);
+    --checkboxCheckedColor: var(--card-border-color-checked);
+    --checkboxIconFillColor: var(--card-indicator-color);
+  }
+
+  & .sg-checkbox__icon {
+    transition: all $durationModerate1 $easingLinear;
+  }
+
+  & .sg-radio {
+    --radioColor: var(--card-border-color);
+    --radioRingInsideColor: var(--card-indicator-color);
+  }
+
+  & .sg-radio__circle {
+    transition: all $durationModerate1 $easingLinear;
+  }
+
+  /* Focus styles */
+
+  --focusOuterWidth: 3px;
+
+  &[data-invalid='true']
+    .sg-card-interactive__input:focus-visible
+    + .sg-card-interactive__border {
+    --focusColor: var(--card-focus-color-invalid);
+    --focusInnerColor: var(--card-focus-inner-color);
+    --focusOuterColor: var(--card-focus-outer-color-invalid);
+    @include applyFocusStyle();
+  }
+
+  & .sg-card-interactive__input:focus-visible + .sg-card-interactive__border {
+    --focusColor: var(--card-focus-color);
+    --focusInnerColor: var(--card-focus-inner-color);
+    --focusOuterColor: var(--card-focus-outer-color);
+    @include applyFocusStyle();
+  }
+}
+
+.sg-card-interactive__input {
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  left: 0;
+}
+
+.sg-card-interactive__indicator {
+  position: absolute;
+  width: 32px;
+  height: 32px;
+
+  /*
+    The indicator is coming from the real component (checkbox or radio) so we need to remove its input from the layout
+  */
+  & input {
+    display: none;
+  }
+
+  &--top-left {
+    top: calc(var(--card-border-width) * -1);
+    left: calc(var(--card-border-width) * -1);
+  }
+  &--center-left {
+    top: 50%;
+    left: calc(var(--card-border-width) * -1);
+    transform: translateY(-50%);
+  }
+  &--bottom-left {
+    bottom: calc(var(--card-border-width) * -1);
+    left: calc(var(--card-border-width) * -1);
+  }
+  &--top-right {
+    top: calc(var(--card-border-width) * -1);
+    right: calc(var(--card-border-width) * -1);
+  }
+  &--center-right {
+    top: 50%;
+    right: calc(var(--card-border-width) * -1);
+    transform: translateY(-50%);
+  }
+  &--bottom-right {
+    bottom: calc(var(--card-border-width) * -1);
+    right: calc(var(--card-border-width) * -1);
+  }
+}

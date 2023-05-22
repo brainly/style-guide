@@ -1,0 +1,16 @@
+import rules from './CardCheckbox.rules.a11y';
+
+### Rules
+
+<AccessibilityList rules={rules} />
+
+<InfoBox type="warning">
+  Safari does not fully support <code>indeterminate</code> state of checkbox. It
+  is a know bug reported in{' '}
+  <a
+    href="https://bugs.webkit.org/show_bug.cgi?id=231760"
+    aria-label="checkbox indeterminate IDL attribute regression, Bugzilla"
+  >
+    Webkit Bugzilla
+  </a>
+</InfoBox>
