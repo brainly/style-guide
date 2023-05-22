@@ -9,6 +9,8 @@ import Checkbox from '../form-elements/checkbox/Checkbox';
 import Radio from '../form-elements/radio/Radio';
 import Icon from '../icons/Icon';
 import Counter from '../counters/Counter';
+import Logo from '../logo/Logo';
+import Avatar from '../avatar/Avatar';
 import Tooltip from './Tooltip';
 import TooltipA11y from './stories/Tooltip.a11y.mdx';
 const TOOLTIP_PLACEMENTS = [
@@ -255,6 +257,64 @@ const TOOLTIP_PLACEMENTS = [
               </Tooltip>
             </Flex>
           ))}
+        </Flex>
+      );
+    }}
+  </Story>
+</Canvas>
+
+### Usage example
+
+<Canvas>
+  <Story name="UsageExample">
+    {args => {
+      return (
+        <Flex
+          alignItems="center"
+          justifyContent="center"
+          style={{padding: '60px 24px 16px 24px', gap: '15px'}}
+        >
+          <Button variant="transparent">Ask question</Button>
+          <Tooltip {...args}>
+            <Tooltip.Element label="Click to see notifications" />
+            <Tooltip.Trigger>
+              <Button
+                variant="transparent"
+                iconOnly
+                icon={
+                  <>
+                    <Icon color="adaptive" type="notifications" />
+                    <Counter
+                      size="xxs"
+                      style={{
+                        position: 'absolute',
+                        top: 0,
+                        right: 0,
+                        transform: 'translate(8px, -8px)',
+                      }}
+                    >
+                      2
+                    </Counter>
+                  </>
+                }
+              >
+                button
+              </Button>
+            </Tooltip.Trigger>
+          </Tooltip>
+          <Tooltip {...args}>
+            <Tooltip.Element label="Go to your profile" />
+            <Tooltip.Trigger>
+              <Button
+                variant="transparent"
+                iconOnly
+                icon={<Avatar imgSrc={null} link="#" size="xs" />}
+              >
+                button
+              </Button>
+            </Tooltip.Trigger>
+          </Tooltip>
+          <Button variant="solid-indigo">Start free trial</Button>
         </Flex>
       );
     }}
