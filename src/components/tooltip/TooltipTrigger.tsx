@@ -45,11 +45,11 @@ const TooltipTrigger = React.forwardRef<
   if (React.isValidElement(children) && isReactForwardRefType(children)) {
     return React.cloneElement(children, {
       ...context.getReferenceProps({
-        ref: triggerRef,
         className,
         tabIndex: 0, // ensure the element tabindex is set, but allow overriding with children props
         ...props,
         ...children.props,
+        ref: triggerRef, // override forwarded ref with merged refs
         'data-state': context.isOpen ? 'open' : 'closed',
       }),
       ...ariaLink,
