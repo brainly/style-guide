@@ -99,13 +99,13 @@ export interface CardCheckboxPropsType
 
   /**
    * Optional string. ID of the element that labels the Radio.
-   * @example <CardRadio aria-labelledby="label-id" />
+   * @example <CardCheckbox aria-labelledby="label-id" />
    **/
   'aria-labelledby'?: string;
 
   /**
    * Optional string. ID of the element that describes the Radio.
-   * @example <CardRadio aria-describedby="description-id" />
+   * @example <CardCheckbox aria-describedby="description-id" />
    **/
   'aria-describedby'?: string;
 }

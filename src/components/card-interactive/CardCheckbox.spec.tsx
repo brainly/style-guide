@@ -59,7 +59,7 @@ describe('<CardCheckbox />', () => {
     expect(checkboxInput).toBeInTheDocument();
   });
 
-  it('allows descriibedby to define accessible description', () => {
+  it('allows aria-descriibedby to define accessible description', () => {
     render(
       <CardCheckbox aria-describedby="descriptionid">
         Option A<span id="descriptionid">Custom Description Option A</span>

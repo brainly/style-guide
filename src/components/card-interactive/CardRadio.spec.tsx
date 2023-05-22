@@ -56,7 +56,7 @@ describe('<CardRadio />', () => {
     expect(cardRadio).toBeInTheDocument();
   });
 
-  it('allows descriibedby to define accessible description', () => {
+  it('allows aria-descriibedby to define accessible description', () => {
     render(
       <CardRadioGroup>
         <CardRadio value="option-a" aria-describedby="descriptionid">
