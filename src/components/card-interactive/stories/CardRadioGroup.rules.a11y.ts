@@ -124,7 +124,7 @@ export const radioItemRules = [
   {
     pattern: '<b>Can</b> have an accessible description.',
     comment:
-      'Can be described by setting a value for <code>description</code> prop.',
+      'Can be described by setting a value for <code>aria-description</code> prop.',
     status: 'DONE',
     tests: 'DONE',
   },
