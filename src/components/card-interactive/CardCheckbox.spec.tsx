@@ -41,7 +41,7 @@ describe('<CardCheckbox />', () => {
     expect(checkboxInput.checked).toBe(true);
     userEvent.keyboard('{space}');
     expect(checkboxInput.checked).toBe(false);
-    userEvent.click(checkbox.getByText('my label'));
+    userEvent.click(checkbox.getByLabelText('my label'));
     expect(checkboxInput.checked).toBe(true);
   });
 

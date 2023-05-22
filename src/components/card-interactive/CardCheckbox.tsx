@@ -4,7 +4,7 @@ import Checkbox from '../form-elements/checkbox/Checkbox';
 import generateRandomString from '../../js/generateRandomString';
 
 export interface CardCheckboxPropsType
-  extends React.ComponentPropsWithoutRef<'div'> {
+  extends Omit<React.ComponentPropsWithoutRef<'label'>, 'onChange'> {
   /**
    * Optional string. Variant of the card. Default is 'outline'.
    */
@@ -192,7 +192,7 @@ export const CardCheckboxRoot = React.forwardRef<
           disabled,
         }}
       >
-        <div
+        <label
           className={cx('sg-card-interactive', className)}
           style={{...style, ...cssVariables}}
           data-variant={variant}
@@ -200,6 +200,12 @@ export const CardCheckboxRoot = React.forwardRef<
           data-checked={indeterminate ? 'mixed' : isChecked}
           data-invalid={invalid}
           data-disabled={disabled}
+          id={`label-${cardId}`}
+          htmlFor={cardId}
+          // On iOS the :active pseudo state is triggered only when there is a touch event set on the HTML element
+          // and we use active pseudo class to provide press feedback.
+          onTouchStart={() => null}
+          suppressHydrationWarning
           {...props}
         >
           <input
@@ -219,18 +225,10 @@ export const CardCheckboxRoot = React.forwardRef<
             aria-describedby={ariaDescribedBy}
             suppressHydrationWarning
           />
-          <label
-            id={`label-${cardId}`}
-            htmlFor={cardId}
-            className="sg-card-interactive__background"
-            // On iOS the :active pseudo state is triggered only when there is a touch event set on the HTML element
-            // and we use active pseudo class to provide press feedback.
-            onTouchStart={() => null}
-            suppressHydrationWarning
-          >
-            {children}
-          </label>
-        </div>
+          <div className="sg-card-interactive__border">
+            <div className="sg-card-interactive__background">{children}</div>
+          </div>
+        </label>
       </CardCheckboxContext.Provider>
     );
   }

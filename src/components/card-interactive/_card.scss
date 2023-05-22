@@ -16,7 +16,7 @@
 
   --card-border-width: 2px;
   --card-border-radius: 8px;
-  --card-press-scale-factor: 0.98;
+  --card-press-scale-factor: 0.97;
 
   &[data-color='light'] {
     --card-background-color: var(--black);
@@ -40,13 +40,21 @@
   width: var(--card-width, auto);
   height: var(--card-height, auto);
   user-select: none;
-  background: transparent;
-  border-radius: var(--card-border-radius);
 
-  transition: transform $durationModerate2 $easingRegular,
-    background-color $durationModerate1 $easingLinear,
-    background-image $durationModerate1 $easingLinear,
-    background-position $durationModerate1 $easingLinear;
+  &__border {
+    display: block;
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    border-radius: var(--card-border-radius);
+    overflow: hidden;
+
+    transition: transform $durationModerate2 $easingRegular,
+      background-color $durationModerate1 $easingLinear,
+      background-image $durationModerate1 $easingLinear,
+      background-position $durationModerate1 $easingLinear;
+  }
 
   &__background {
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
@@ -58,15 +66,15 @@
     background-clip: padding-box;
   }
 
-  &[data-variant='outline'] {
+  &[data-variant='outline'] &__border {
     background: var(--card-border-color);
   }
 
-  &[data-variant='solid'] {
+  &[data-variant='solid'] &__border {
     background: transparent;
   }
 
-  &:active:not([data-disabled='true']) {
+  &:active:not([data-disabled='true']) &__border {
     transform: scale(var(--card-press-scale-factor));
   }
 
@@ -76,7 +84,9 @@
 
   &[data-checked='true'],
   &[data-checked='mixed'] {
-    background: var(--card-border-color-checked);
+    .sg-card-interactive__border {
+      background: var(--card-border-color-checked);
+    }
 
     & .sg-checkbox {
       --checkboxColor: var(--card-border-color-checked);
@@ -89,7 +99,9 @@
   }
 
   &[data-invalid='true'] {
-    background: var(--card-border-color-invalid);
+    .sg-card-interactive__border {
+      background: var(--card-border-color-invalid);
+    }
 
     & .sg-checkbox {
       --checkboxColor: var(--card-border-color-invalid);
@@ -103,7 +115,9 @@
   }
 
   &:hover:not([data-disabled='true']) {
-    background: var(--card-border-color-hover);
+    .sg-card-interactive__border {
+      background: var(--card-border-color-hover);
+    }
 
     & .sg-checkbox {
       --checkboxColor: var(--card-border-color-hover);
@@ -119,7 +133,9 @@
 
     &[data-checked='true'],
     &[data-checked='mixed'] {
-      background: var(--card-border-color-checked-hover);
+      .sg-card-interactive__border {
+        background: var(--card-border-color-checked-hover);
+      }
 
       & .sg-checkbox {
         --checkboxColor: var(--card-border-color-checked-hover);
@@ -134,7 +150,9 @@
     }
 
     &[data-invalid='true'] {
-      background: var(--card-border-color-invalid-hover);
+      .sg-card-interactive__border {
+        background: var(--card-border-color-invalid-hover);
+      }
 
       & .sg-checkbox {
         --checkboxColor: var(--card-border-color-invalid-hover);
@@ -175,16 +193,14 @@
 
   &[data-invalid='true']
     .sg-card-interactive__input:focus-visible
-    + .sg-card-interactive__background {
+    + .sg-card-interactive__border {
     --focusColor: var(--card-focus-color-invalid);
     --focusInnerColor: var(--card-focus-inner-color);
     --focusOuterColor: var(--card-focus-outer-color-invalid);
     @include applyFocusStyle();
   }
 
-  &
-    .sg-card-interactive__input:focus-visible
-    + .sg-card-interactive__background {
+  & .sg-card-interactive__input:focus-visible + .sg-card-interactive__border {
     --focusColor: var(--card-focus-color);
     --focusInnerColor: var(--card-focus-inner-color);
     --focusOuterColor: var(--card-focus-outer-color);

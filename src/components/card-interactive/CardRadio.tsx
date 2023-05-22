@@ -6,7 +6,7 @@ import {useCardRadioGroupContext} from './CardRadioGroupContext';
 import type {StyleType} from './types';
 
 export interface CardRadioPropsType
-  extends React.ComponentPropsWithoutRef<'div'> {
+  extends Omit<React.ComponentPropsWithoutRef<'label'>, 'onChange'> {
   /**
    * Required string. Value of the CardRadio input.
    */
@@ -156,14 +156,20 @@ const CardRadio = React.forwardRef<HTMLInputElement, CardRadioPropsType>(
           disabled,
         }}
       >
-        <div
+        <label
           className={cx('sg-card-interactive', className)}
           style={{...style, ...cssVariables}}
           data-variant={variant}
           data-color={color}
           data-checked={isChecked}
-          data-invalid={isInvalid}
-          data-disabled={isDisabled}
+          data-invalid={invalid}
+          data-disabled={disabled}
+          id={`label-${cardId}`}
+          htmlFor={cardId}
+          // On iOS the :active pseudo state is triggered only when there is a touch event set on the HTML element
+          // and we use active pseudo class to provide press feedback.
+          onTouchStart={() => null}
+          suppressHydrationWarning
           {...props}
         >
           <input
@@ -182,18 +188,10 @@ const CardRadio = React.forwardRef<HTMLInputElement, CardRadioPropsType>(
             aria-describedby={ariaDescribedBy}
             suppressHydrationWarning
           />
-          <label
-            id={`label-${cardId}`}
-            htmlFor={cardId}
-            className="sg-card-interactive__background"
-            // On iOS the :active pseudo state is triggered only when there is a touch event set on the HTML element
-            // and we use active pseudo class to provide press feedback.
-            onTouchStart={() => null}
-            suppressHydrationWarning
-          >
-            {children}
-          </label>
-        </div>
+          <div className="sg-card-interactive__border">
+            <div className="sg-card-interactive__background">{children}</div>
+          </div>
+        </label>
       </CardRadioContext.Provider>
     );
   }
