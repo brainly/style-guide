@@ -133,6 +133,86 @@ describe('<Tooltip />', () => {
     expect(tooltipElement).not.toBeInTheDocument();
   });
 
+  it('hides tooltip if hover leaves, even when trigger is focused, ', () => {
+    const tooltip = render(
+      <RenderTooltip>
+        <Button
+          data-testid="button1"
+          icon={<Icon color="adaptive" type="clipboard" />}
+          iconOnly
+          variant="solid-light"
+        >
+          button
+        </Button>
+      </RenderTooltip>
+    );
+    const button = screen.getByTestId('button1');
+
+    fireEvent.focus(button);
+    const tooltipElement = tooltip.getByRole('tooltip') as HTMLElement;
+
+    expect(tooltipElement).toBeInTheDocument();
+
+    fireEvent.mouseEnter(button);
+
+    expect(tooltipElement).toBeInTheDocument();
+
+    fireEvent.mouseEnter(document);
+    expect(tooltipElement).not.toBeInTheDocument();
+  });
+
+  it('hides tooltip if focus leaves, even when trigger is hovered, ', () => {
+    const tooltip = render(
+      <RenderTooltip>
+        <Button
+          data-testid="button1"
+          icon={<Icon color="adaptive" type="clipboard" />}
+          iconOnly
+          variant="solid-light"
+        >
+          button
+        </Button>
+      </RenderTooltip>
+    );
+    const button = screen.getByTestId('button1');
+
+    fireEvent.focus(button);
+    fireEvent.mouseEnter(button);
+
+    const tooltipElement = tooltip.getByRole('tooltip') as HTMLElement;
+
+    expect(tooltipElement).toBeInTheDocument();
+
+    fireEvent.blur(button);
+    expect(tooltipElement).not.toBeInTheDocument();
+  });
+
+  it('hides tooltip when Esc key is hit', () => {
+    const tooltip = render(
+      <RenderTooltip>
+        <Button
+          data-testid="button1"
+          icon={<Icon color="adaptive" type="clipboard" />}
+          iconOnly
+          variant="solid-light"
+        >
+          button
+        </Button>
+      </RenderTooltip>
+    );
+    const button = screen.getByTestId('button1');
+
+    fireEvent.focus(button);
+    fireEvent.mouseEnter(button);
+
+    const tooltipElement = tooltip.getByRole('tooltip') as HTMLElement;
+
+    expect(tooltipElement).toBeInTheDocument();
+
+    fireEvent.keyDown(document.activeElement, {key: 'Escape'});
+    expect(tooltipElement).not.toBeInTheDocument();
+  });
+
   it('displays tooltip initally when set as default open', async () => {
     const tooltip = render(
       <RenderTooltip defaultOpen>
