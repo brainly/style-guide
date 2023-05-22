@@ -1,0 +1,86 @@
+.sg-button-petit {
+  --petit-button-background-color: transparent;
+  --petit-button-background-beackground-color: transparent;
+  --petit-button-hover-background-color: var(--gray-50);
+  --petit-button-active-background-color: var(--gray-50);
+  --petit-button-label-color: var(--text-black);
+  --petit-button-height: 32px;
+
+  padding: 0 8px;
+  position: relative;
+  height: var(--petit-button-height);
+  display: flex;
+  border-radius: var(--petit-button-height);
+  border: none;
+  background: var(--petit-button-background-beackground-color);
+  align-items: center;
+
+  &::before {
+    background: var(--petit-button-background-color);
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: inherit;
+    z-index: -1;
+  }
+
+  &__text {
+    color: --petit-button-label-color;
+  }
+
+  &:not([disabled]) {
+    &:hover::before {
+      background: var(--petit-button-hover-background-color);
+      opacity: 0.12;
+    }
+
+    &:active::before {
+      background: var(--petit-button-active-background-color);
+      opacity: 0.2;
+    }
+  }
+
+  &:disabled {
+    opacity: 0.45;
+  }
+
+  &--xs {
+    --petit-button-height: 24px;
+  }
+
+  &--transparent-inverted {
+    --petit-button-hover-background-color: var(--white);
+    --petit-button-active-background-color: var(--white);
+    --petit-button-label-color: var(--text-white);
+  }
+
+  &--transparent-light {
+    --petit-button-hover-background-color: var(--gray-50);
+    --petit-button-active-background-color: var(--gray-50);
+    --petit-button-label-color: var(--text-gray-60);
+  }
+
+  &--transparent-light {
+    --petit-button-hover-background-color: var(--indigo-50);
+    --petit-button-active-background-color: var(--indigo-50);
+    --petit-button-label-color: var(--text-indigo-60);
+  }
+
+  &--solid-light {
+    --petit-button-background-beackground-color: var(--gray-20);
+    --petit-button-background-color: transparent;
+    --petit-button-hover-background-color: var(--gray-50);
+    --petit-button-active-background-color: var(--gray-50);
+    --petit-button-label-color: var(--text-black);
+  }
+
+  &--solid-indigo-light {
+    --petit-button-background-color: var(--indigo-10);
+    --petit-button-hover-background-color: var(--indigo-50);
+    --petit-button-active-background-color: var(--indigo-50);
+    --petit-button-label-color: var(--text-indigo-60);
+  }
+}

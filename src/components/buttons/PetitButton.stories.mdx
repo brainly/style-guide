@@ -1,0 +1,27 @@
+import {ArgsTable, Meta, Story, Canvas} from '@storybook/addon-docs';
+import PetitButton from './PetitButton';
+import {styled} from '@storybook/theming';
+import Headline from '../text/Headline';
+import Label from '../labels/Label';
+import PageHeader from 'blocks/PageHeader';
+
+<Meta title="Components/PetitButton" component={PetitButton} />
+
+<PageHeader>PetitButton</PageHeader>
+
+- [Stories](#stories)
+- [Accessibility](#accessibility)
+
+## Overview
+
+<Canvas>
+  <Story name="Default">
+    {args => <PetitButton {...args}>Link button</PetitButton>}
+  </Story>
+</Canvas>
+
+<ArgsTable story="Default" />
+
+## Stories
+
+## Accessibility
