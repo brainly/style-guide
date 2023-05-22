@@ -14,8 +14,6 @@
   --card-focus-color-invalid: var(--red-40);
   --card-focus-outer-color-invalid: rgba(207, 28, 0, 0.3);
 
-  --card-background-position: center;
-  --card-border-position: center;
   --card-border-width: 2px;
   --card-border-radius: 8px;
   --card-press-scale-factor: 0.98;
@@ -43,7 +41,6 @@
   height: var(--card-height, auto);
   user-select: none;
   background: transparent;
-  background-position: var(--card-border-position);
   border-radius: var(--card-border-radius);
 
   transition: transform $durationModerate2 $easingRegular,
@@ -57,8 +54,8 @@
     inset: var(--card-border-width);
     border-radius: calc(var(--card-border-radius) - var(--card-border-width));
     overflow: hidden;
-    background: var(--card-background-color);
-    background-position: var(--card-background-position);
+    background-color: var(--card-background-color);
+    background-clip: padding-box;
   }
 
   &[data-variant='outline'] {
