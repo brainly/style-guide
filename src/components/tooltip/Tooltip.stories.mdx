@@ -72,25 +72,25 @@ const TOOLTIP_PLACEMENTS = [
       return (
         <Flex direction="column" style={{gap: '20px'}}>
           <div>
-            <Text>Button component:</Text>
+            <Text weight="bold">Button component:</Text>
             <RenderTooltip trigger={<Button>Hover me</Button>} />
           </div>
           <div>
-            <Text>Checkbox component:</Text>
+            <Text weight="bold">Checkbox component:</Text>
             <RenderTooltip trigger={<Checkbox>Hover me</Checkbox>} />
           </div>
           <div>
-            <Text>{`<button>`} tag:</Text>
+            <Text weight="bold">{`<button>`} tag:</Text>
             <RenderTooltip
               trigger={<button>Hover me to trigger the tooltip</button>}
             />
           </div>
           <div>
-            <Text>{`<p>`} tag:</Text>
+            <Text weight="bold">{`<p>`} tag:</Text>
             <RenderTooltip trigger={<p>Hover me to trigger the tooltip</p>} />
           </div>
           <div>
-            <Text>Counter component:</Text>
+            <Text weight="bold">Counter component:</Text>
             <RenderTooltip
               trigger={
                 <Counter icon="points" size="xs">
@@ -103,12 +103,12 @@ const TOOLTIP_PLACEMENTS = [
               }
             />
           </div>
-          <div style={{width: '300px'}}>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua.{' '}
-            <RenderTooltip trigger="Hover me to trigger the tooltip." /> Ut enim
-            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-            aliquip ex ea commodo consequat.
+          <div style={{maxWidth: '300px'}}>
+            <Text weight="bold">Plain text:</Text>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+            tempor incididunt ut labore et dolore magna aliqua. <RenderTooltip trigger="HOVER ME TO TRIGGER TOOLTIP" />{' '}
+            Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi
+            ut aliquip ex ea commodo consequat.
           </div>
         </Flex>
       );
