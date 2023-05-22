@@ -14,6 +14,8 @@
   --card-focus-color-invalid: var(--red-40);
   --card-focus-outer-color-invalid: rgba(207, 28, 0, 0.3);
 
+  --card-border-width: 2px;
+  --card-border-radius: 8px;
   --card-press-scale-factor: 0.98;
 
   &[data-color='light'] {
@@ -38,28 +40,30 @@
   width: var(--card-width, auto);
   height: var(--card-height, auto);
   user-select: none;
+  background: transparent;
+  border-radius: var(--card-border-radius);
 
-  transition: transform $durationModerate2 $easingRegular;
+  transition: transform $durationModerate2 $easingRegular,
+    background-color $durationModerate1 $easingLinear,
+    background-image $durationModerate1 $easingLinear,
+    background-position $durationModerate1 $easingLinear;
 
   &__background {
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
     position: absolute;
-    inset: 0;
-    border-radius: 8px;
+    inset: var(--card-border-width);
+    border-radius: calc(var(--card-border-radius) - var(--card-border-width));
     overflow: hidden;
-    border: 2px solid transparent;
     background-color: var(--card-background-color);
     background-clip: padding-box;
-    transition: transform $durationModerate2 $easingRegular,
-      border $durationModerate1 $easingLinear;
   }
 
-  &[data-variant='outline'] &__background {
-    border-color: var(--card-border-color);
+  &[data-variant='outline'] {
+    background: var(--card-border-color);
   }
 
-  &[data-variant='solid'] &__background {
-    border-color: transparent;
+  &[data-variant='solid'] {
+    background: transparent;
   }
 
   &:active:not([data-disabled='true']) {
@@ -72,9 +76,7 @@
 
   &[data-checked='true'],
   &[data-checked='mixed'] {
-    .sg-card-interactive__background {
-      border-color: var(--card-border-color-checked);
-    }
+    background: var(--card-border-color-checked);
 
     & .sg-checkbox {
       --checkboxColor: var(--card-border-color-checked);
@@ -87,9 +89,7 @@
   }
 
   &[data-invalid='true'] {
-    .sg-card-interactive__background {
-      border-color: var(--card-border-color-invalid);
-    }
+    background: var(--card-border-color-invalid);
 
     & .sg-checkbox {
       --checkboxColor: var(--card-border-color-invalid);
@@ -103,9 +103,7 @@
   }
 
   &:hover:not([data-disabled='true']) {
-    .sg-card-interactive__background {
-      border-color: var(--card-border-color-hover);
-    }
+    background: var(--card-border-color-hover);
 
     & .sg-checkbox {
       --checkboxColor: var(--card-border-color-hover);
@@ -121,9 +119,7 @@
 
     &[data-checked='true'],
     &[data-checked='mixed'] {
-      .sg-card-interactive__background {
-        border-color: var(--card-border-color-checked-hover);
-      }
+      background: var(--card-border-color-checked-hover);
 
       & .sg-checkbox {
         --checkboxColor: var(--card-border-color-checked-hover);
@@ -138,9 +134,7 @@
     }
 
     &[data-invalid='true'] {
-      .sg-card-interactive__background {
-        border-color: var(--card-border-color-invalid-hover);
-      }
+      background: var(--card-border-color-invalid-hover);
 
       & .sg-checkbox {
         --checkboxColor: var(--card-border-color-invalid-hover);
@@ -218,29 +212,29 @@
   }
 
   &--top-left {
-    top: -2px;
-    left: -2px;
+    top: calc(var(--card-border-width) * -1);
+    left: calc(var(--card-border-width) * -1);
   }
   &--center-left {
     top: 50%;
-    left: -2px;
+    left: calc(var(--card-border-width) * -1);
     transform: translateY(-50%);
   }
   &--bottom-left {
-    bottom: -2px;
-    left: -2px;
+    bottom: calc(var(--card-border-width) * -1);
+    left: calc(var(--card-border-width) * -1);
   }
   &--top-right {
-    top: -2px;
-    right: -2px;
+    top: calc(var(--card-border-width) * -1);
+    right: calc(var(--card-border-width) * -1);
   }
   &--center-right {
     top: 50%;
-    right: -2px;
+    right: calc(var(--card-border-width) * -1);
     transform: translateY(-50%);
   }
   &--bottom-right {
-    bottom: -2px;
-    right: -2px;
+    bottom: calc(var(--card-border-width) * -1);
+    right: calc(var(--card-border-width) * -1);
   }
 }
