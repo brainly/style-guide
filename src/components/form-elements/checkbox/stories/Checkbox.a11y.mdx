@@ -14,3 +14,73 @@ import rules from './rules.a11y';
     Webkit Bugzilla
   </a>
 </InfoBox>
+
+### Usage
+
+#### Code examples
+
+- with a meaningful label
+
+<!-- prettier-ignore -->
+```jsx
+<Checkbox>
+  I accept the Brainly Terms of Service & Privacy Policy.
+</Checkbox>
+```
+
+- checked and required
+
+<!-- prettier-ignore -->
+```jsx
+<Checkbox
+  checked="true"
+  required="true"
+>
+  I accept the Brainly Terms of Service & Privacy Policy.
+</Checkbox>
+```
+
+- without a label, but labelled by a custom element
+
+<!-- prettier-ignore -->
+```jsx
+<h5 id="label-for-checkbox">
+  I accept the Brainly Terms of Service & Privacy Policy.
+</h5>
+<Checkbox
+  aria-labelledby="label-for-checkbox"
+/>
+```
+
+- without a label, but wrapped by a label
+
+<!-- prettier-ignore -->
+```jsx
+<label>
+  I accept the Brainly Terms of Service & Privacy Policy.
+  <Checkbox />
+</label>
+```
+
+- invalid with error message
+
+<!-- prettier-ignore -->
+```jsx
+<Checkbox
+  invalid="true"
+  errorMessage="Please check this box if you want to proceed"
+>
+  I accept the Brainly Terms of Service & Privacy Policy.
+</Checkbox>
+```
+
+- indetermined
+
+<!-- prettier-ignore -->
+```jsx
+<Checkbox
+  indetermined="true"
+>
+  I'm not convinced to accept the Brainly Terms of Service & Privacy Policy, I accept only Privacy Policy.
+</Checkbox>
+```
