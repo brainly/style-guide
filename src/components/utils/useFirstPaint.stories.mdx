@@ -1,0 +1,62 @@
+import {ArgsTable, Meta, Story, Canvas} from '@storybook/addon-docs';
+import Accordion from '../accordion/Accordion';
+import AccordionItem from '../accordion/AccordionItem';
+import PageHeader from 'blocks/PageHeader';
+import {Example} from './UseFirstpaintExample.tsx';
+
+<Meta title="Hooks/useFirstPaint" />
+
+<PageHeader type="utility">useFirstPaint</PageHeader>
+
+`useFirstPaint` is a custom hook for detecting when first DOM paint of component happened. This is useful for e.g. preventing unnecessary animations on initial render.
+
+## Import
+
+```jsx
+import {useFirstPaint} from 'brainly-style-guide';
+```
+
+## Usage
+
+```jsx
+const animatedElementRef = React.useRef();
+const shouldAnimateRef = React.useRef(false);
+const [isToggled, setIsToggled] = React.useState(true);
+const handleClick = React.useCallback(() => {
+  setIsToggled(!isToggled);
+
+  if (shouldAnimateRef.current) {
+    animatedElementRef.current.style.animationDuration = '';
+  }
+}, [isToggled]);
+
+React.useLayoutEffect(() => {
+  animatedElementRef.current.style.animationDuration = '0ms';
+}, []);
+
+useFirstPaint(() => {
+  shouldAnimateRef.current = true;
+});
+
+return (
+  <div>
+    <div style={{height: 300, width: 600}}>
+      <div
+        className={classNames('use-first-paint-example-box', {
+          'use-first-paint-example-box--toggled': isToggled,
+        })}
+        onClick={handleClick}
+        ref={animatedElementRef}
+      >
+        Click me
+      </div>
+    </div>
+  </div>
+);
+```
+
+`useFirstPaint` is used here to "hide" transition on first render by making its duration 0ms, but when first paint is done we can reset the duration to see full animation.
+
+<Canvas>
+  <Example />
+</Canvas>

@@ -13,8 +13,7 @@ $flexSpacingsMap: (
 
 $marginSides: (top right bottom left);
 
-$flexProps: (justify-content align-items align-self);
-$flexJustifyValues: (space-between space-evenly space-around);
+$flexProps: (align-items align-self);
 $flexAlignmentValues: (center flex-start flex-end baseline stretch);
 
 .sg-flex {
@@ -83,7 +82,17 @@ $flexAlignmentValues: (center flex-start flex-end baseline stretch);
       flex-direction: row-reverse;
     }
 
-    @each $value in $flexJustifyValues {
+    @each $value
+      in (
+        center,
+        flex-start,
+        flex-end,
+        space-between,
+        space-around,
+        space-evenly,
+        stretch
+      )
+    {
       @include makeResponsive($variant, 'sg-flex--justify-content-#{$value}') {
         justify-content: #{$value};
       }
@@ -109,6 +118,30 @@ $flexAlignmentValues: (center flex-start flex-end baseline stretch);
     @each $sizeName, $size in $flexSpacingsMap {
       @include makeResponsive($variant, 'sg-flex--margin-#{$sizeName}') {
         margin: #{$size};
+      }
+    }
+
+    @each $sizeName, $size in $flexSpacingsMap {
+      @include makeResponsive($variant, 'sg-flex--gap-#{$sizeName}') {
+        gap: #{$size};
+      }
+    }
+
+    @include makeResponsive($variant, 'sg-flex--flex-auto') {
+      flex: auto;
+    }
+
+    @include makeResponsive($variant, 'sg-flex--flex-initial') {
+      flex: initial;
+    }
+
+    @include makeResponsive($variant, 'sg-flex--flex-none') {
+      flex: none;
+    }
+
+    @for $value from 1 through 12 {
+      @include makeResponsive($variant, 'sg-flex--flex-#{$value}') {
+        flex: #{$value};
       }
     }
 

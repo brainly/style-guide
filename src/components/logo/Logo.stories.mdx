@@ -27,11 +27,19 @@ import PageHeader from 'blocks/PageHeader';
   <Story name="Types">
     {args => (
       <div>
-        {Object.values(TYPE).map(type => (
-          <StoryVariant label={`type - ${type}`} key={type}>
-            <Logo {...args} type={type} />
-          </StoryVariant>
-        ))}
+        {Object.values(TYPE).map(type => {
+          const isDark = type.includes('-inverse');
+          return (
+            <StoryVariant
+              dark={isDark}
+              whiteText={isDark}
+              label={`type - ${type}`}
+              key={type}
+            >
+              <Logo {...args} type={type} />
+            </StoryVariant>
+          );
+        })}
       </div>
     )}
   </Story>

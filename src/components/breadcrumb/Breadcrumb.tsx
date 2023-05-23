@@ -7,6 +7,7 @@ export type BreadcrumbPropsType = {
   short?: boolean | null | undefined;
   inlineItems?: boolean | null | undefined;
   elements?: ReadonlyArray<React.ReactNode>;
+  spaced?: boolean;
 } & Omit<
   React.AllHTMLAttributes<HTMLElement>,
   'className' | 'adaptive' | 'short' | 'inlineItems' | 'elements'
@@ -18,6 +19,7 @@ const Breadcrumb = ({
   adaptive,
   inlineItems,
   elements = [],
+  spaced,
   ...props
 }: BreadcrumbPropsType) => {
   const breadcrumbClass = classNames(
@@ -26,6 +28,7 @@ const Breadcrumb = ({
       'sg-breadcrumb-list--short': short,
       'sg-breadcrumb-list--adaptive': adaptive,
       'sg-breadcrumb-list--inline-items': inlineItems,
+      'sg-breadcrumb-list--spaced': spaced,
     },
     className
   );

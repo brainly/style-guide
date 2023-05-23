@@ -1,0 +1,329 @@
+@if ($includeHtml) {
+  .sg-select-menu {
+    --select-background: var(--gray-20);
+    --border-color: var(--gray-20);
+    --active-border-color: #{mix($gray-50, $gray-20, 12%)};
+    --active-background-color: var(--white);
+    --hover-background-color: #{mix($gray-50, $gray-20, 12%)};
+    --hover-border-color: #{mix($gray-50, $gray-20, 12%)};
+
+    display: inline-block;
+    position: relative;
+    min-width: 120px;
+    max-width: 320px;
+    width: 100%;
+    user-select: none;
+
+    &--white {
+      --select-background: var(--white);
+      --border-color: var(--white);
+      --active-border-color: var(--gray-40);
+      --hover-background-color: var(--gray-20);
+      --hover-border-color: var(--gray-20);
+    }
+
+    &--valid {
+      --border-color: var(--green-40);
+      --hover-border-color: var(--green-40);
+      --active-border-color: var(--green-40);
+    }
+
+    &--invalid {
+      --border-color: var(--red-60);
+      --hover-border-color: var(--red-60);
+      --active-border-color: var(--red-60);
+    }
+
+    &--disabled {
+      pointer-events: none;
+      opacity: 42%;
+
+      .sg-select-menu__element {
+        pointer-events: none;
+      }
+
+      @media (forced-colors: active) {
+        --border-color: GrayText;
+        --active-border-color: GrayText;
+      }
+    }
+
+    &--s {
+      .sg-select-menu__element {
+        padding: 0 32px 0 12px;
+        height: $formElementSizeS;
+      }
+
+      .sg-select-menu__option-label .sg-text,
+      .sg-select-menu__element-label,
+      .sg-select-menu__placeholder {
+        font-size: $formElementSmallFontSize;
+      }
+    }
+
+    &--l {
+      .sg-select-menu__element-icon {
+        right: 12px;
+      }
+
+      .sg-select-menu__element {
+        border-radius: $formElementLargeBorderRadius;
+        padding: 0 60px 0 (spacing(m));
+        height: $formElementSizeL;
+      }
+
+      .sg-select-menu__option-label .sg-text,
+      .sg-select-menu__element-label,
+      .sg-select-menu__placeholder {
+        font-size: $formElementLargeFontSize;
+      }
+    }
+
+    &:focus-within {
+      .sg-select-menu__element:not(:hover) {
+        border-color: var(--active-border-color);
+        background-color: var(--active-background-color);
+
+        @media (forced-colors: active) {
+          border-color: FieldText;
+          background-color: Field;
+        }
+      }
+    }
+
+    &__element {
+      @include applyFocus();
+
+      display: flex;
+      align-items: center;
+      padding: 0 44px 0 spacing(s);
+      width: 100%;
+      text-overflow: ellipsis;
+      border: 2px solid var(--border-color);
+      border-radius: $formElementStandardBorderRadius;
+      height: $formElementSizeM;
+      font-size: $formElementDefaultFontSize;
+      color: $formElementPlacholderTextColor;
+      background-color: var(--select-background);
+      transition: background-color $durationModerate1 $easingLinear,
+        border-color $durationModerate1 $easingLinear;
+
+      @media (forced-colors: active) {
+        color: FieldText;
+      }
+
+      &[data-status='open'],
+      &:active,
+      &:focus,
+      &:focus-visible {
+        border-color: var(--active-border-color);
+        background-color: var(--active-background-color);
+
+        @media (forced-colors: active) {
+          border-color: FieldText;
+          background-color: Field;
+        }
+      }
+
+      &:hover {
+        border-color: var(--hover-border-color);
+        background-color: var(--hover-background-color);
+
+        @media (forced-colors: active) {
+          border-color: FieldText;
+          background-color: Field;
+        }
+      }
+
+      &[data-status='open'] .sg-select-menu__element-icon {
+        transform: rotate(-180deg);
+      }
+
+      @keyframes selectIconFadeIn {
+        from {
+          opacity: 0;
+        }
+        to {
+          opacity: 1;
+        }
+      }
+
+      .sg-select-menu__element-label-icon {
+        margin-right: 12px;
+        flex: 0 0 auto;
+        animation: selectIconFadeIn $durationModerate1 $easingLinear;
+      }
+    }
+
+    &__element-icon {
+      position: absolute;
+      right: 8px;
+      transition: transform $durationGentle1 $easingRegular;
+
+      @media (prefers-reduced-motion) {
+        transition-duration: 0s;
+      }
+    }
+
+    &__element-label {
+      text-overflow: ellipsis;
+      overflow: hidden;
+      white-space: nowrap;
+    }
+
+    &__options-floating-container {
+      overflow: auto;
+
+      &.open {
+        overflow: visible;
+      }
+
+      &.sg-animate-on-transforms {
+        transition: top $durationGentle1 Cubic-Bezier(0.35, 0, 0.2, 1);
+      }
+
+      &[data-placement^='top'] {
+        transform-origin: bottom left;
+      }
+
+      &[data-placement^='top-end'] {
+        transform-origin: bottom right;
+      }
+
+      &[data-placement^='bottom-end'] {
+        transform-origin: top right;
+      }
+    }
+
+    &__popup {
+      border-radius: var(--border-radius-m);
+      box-shadow: $shadowLarge !important;
+      overflow: hidden;
+      display: inline-flex;
+      min-width: 120px;
+      max-width: 320px;
+      width: max-content;
+      max-height: 100%;
+      background-color: var(--white);
+      display: flex;
+      flex-direction: column;
+      flex: 1 0 auto;
+
+      @media (forced-colors: active) {
+        border: 2px solid FieldText;
+        background-color: Field;
+        color: FieldText;
+      }
+    }
+
+    &__popup.sg-animate-on-transforms {
+      opacity: 1;
+      transition: height $durationGentle1 $easingRegular,
+        width $durationGentle1 $easingRegular,
+        opacity $durationQuick1 $easingLinear;
+      position: absolute;
+
+      transform-origin: top left;
+
+      &.exit-animation {
+        transition-delay: 0, 0, 0.07s;
+        transition-duration: $durationGentle1, $durationGentle1,
+          $durationModerate1;
+      }
+
+      &[data-placement^='top'] {
+        bottom: 0;
+        transform-origin: bottom left;
+        justify-content: flex-end;
+      }
+
+      &[data-placement^='top-end'] {
+        right: 0;
+        justify-content: flex-end;
+        align-items: flex-end;
+        transform-origin: bottom right;
+      }
+
+      &[data-placement^='bottom-end'] {
+        right: 0;
+        align-items: flex-end;
+        transform-origin: top right;
+      }
+    }
+
+    &__options-wrapper {
+      padding: 16px;
+      display: flex;
+      flex-direction: column;
+      flex: 1 0 auto;
+      gap: 8px;
+      overflow-y: auto;
+
+      &.hide-scroll::-webkit-scrollbar {
+        display: none;
+      }
+    }
+
+    &__option {
+      padding: 8px 12px;
+      width: 100%;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+      border-radius: var(--border-radius-xs);
+      cursor: default;
+      transition: background-color $durationModerate1 $easingLinear,
+        transform $durationModerate2 $easingRegular;
+
+      &:active:not([disabled]) {
+        transform: scale(0.96);
+      }
+
+      &:hover {
+        background-color: var(--gray-10);
+      }
+
+      &--selected {
+        background-color: var(--gray-20);
+      }
+
+      &--multi-select {
+        padding-right: 4px;
+
+        input {
+          // Hide checkbox input so it doesn't mess up the layout animation.
+          // The input accessibility isn't needed here,
+          // because the option handles accessibility in this case.
+          display: none;
+        }
+
+        .sg-select-menu__option-state {
+          width: 32px;
+        }
+      }
+
+      .sg-text {
+        padding: 2px 0;
+        font-size: 16px;
+      }
+
+      .sg-subject-icon,
+      .sg-icon {
+        margin-right: 12px;
+        flex: 0 0 auto;
+      }
+    }
+
+    &__option-label {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+    }
+
+    &__option-state {
+      margin-left: 12px;
+      width: 24px;
+    }
+  }
+}

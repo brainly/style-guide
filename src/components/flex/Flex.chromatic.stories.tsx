@@ -1,10 +1,12 @@
 import * as React from 'react';
 import * as FlexStories from './Flex.stories.mdx';
 import Flex, {
-  FLEX_DIRECTION,
-  FLEX_JUSTIFY_VALUES,
-  FLEX_ALIGNMENT_VALUES,
-  FLEX_MARGINS,
+  DIRECTION,
+  JUSTIFY_VALUES,
+  ALIGNMENT_VALUES,
+  MARGINS,
+  GAP_VALUES,
+  FLEX_VALUES,
 } from './Flex';
 import Box, {COLOR} from '../box/Box';
 import {
@@ -23,18 +25,18 @@ export const ResponsiveProps = args => {
     <div>
       <h3 className="component__story-name">
         {responsivePropsStoryLabel('direction', [
-          FLEX_DIRECTION.COLUMN,
-          FLEX_DIRECTION.COLUMN_REVERSE,
+          DIRECTION.COLUMN,
+          DIRECTION.COLUMN_REVERSE,
           null,
-          FLEX_DIRECTION.ROW,
+          DIRECTION.ROW,
         ])}
       </h3>
       <Flex
         direction={[
-          FLEX_DIRECTION.COLUMN,
-          FLEX_DIRECTION.COLUMN_REVERSE,
+          DIRECTION.COLUMN,
+          DIRECTION.COLUMN_REVERSE,
           null,
-          FLEX_DIRECTION.ROW,
+          DIRECTION.ROW,
         ]}
         {...args}
       >
@@ -56,18 +58,18 @@ export const ResponsiveProps = args => {
       </div>
       <h3 className="component__story-name">
         {responsivePropsStoryLabel('justifyContent', [
-          FLEX_JUSTIFY_VALUES.FLEX_END,
-          FLEX_JUSTIFY_VALUES.FLEX_START,
+          JUSTIFY_VALUES.END,
+          JUSTIFY_VALUES.START,
           null,
-          FLEX_JUSTIFY_VALUES.SPACE_BETWEEN,
+          JUSTIFY_VALUES.SPACE_BETWEEN,
         ])}
       </h3>
       <Flex
         justifyContent={[
-          FLEX_JUSTIFY_VALUES.FLEX_END,
-          FLEX_JUSTIFY_VALUES.FLEX_START,
+          JUSTIFY_VALUES.END,
+          JUSTIFY_VALUES.START,
           null,
-          FLEX_JUSTIFY_VALUES.SPACE_BETWEEN,
+          JUSTIFY_VALUES.SPACE_BETWEEN,
         ]}
         {...args}
       >
@@ -80,18 +82,18 @@ export const ResponsiveProps = args => {
       </Flex>
       <h3 className="component__story-name">
         {responsivePropsStoryLabel('alignItems', [
-          FLEX_ALIGNMENT_VALUES.CENTER,
-          FLEX_ALIGNMENT_VALUES.FLEX_END,
+          ALIGNMENT_VALUES.CENTER,
+          ALIGNMENT_VALUES.END,
           null,
-          FLEX_ALIGNMENT_VALUES.FLEX_START,
+          ALIGNMENT_VALUES.START,
         ])}
       </h3>
       <Flex
         alignItems={[
-          FLEX_ALIGNMENT_VALUES.CENTER,
-          FLEX_ALIGNMENT_VALUES.FLEX_END,
+          ALIGNMENT_VALUES.CENTER,
+          ALIGNMENT_VALUES.END,
           null,
-          FLEX_ALIGNMENT_VALUES.FLEX_START,
+          ALIGNMENT_VALUES.START,
         ]}
         {...args}
       >
@@ -104,20 +106,15 @@ export const ResponsiveProps = args => {
       </Flex>
       <h3 className="component__story-name">
         {responsivePropsStoryLabel('margin', [
-          FLEX_MARGINS.XSMALL,
-          FLEX_MARGINS.XXLARGE,
+          MARGINS.XSMALL,
+          MARGINS.XXLARGE,
           null,
-          FLEX_MARGINS.XXXXLARGE,
+          MARGINS.XXXXLARGE,
         ])}
       </h3>
       <Flex {...args}>
         <Flex
-          margin={[
-            FLEX_MARGINS.XSMALL,
-            FLEX_MARGINS.XXLARGE,
-            null,
-            FLEX_MARGINS.XXXXLARGE,
-          ]}
+          margin={[MARGINS.XSMALL, MARGINS.XXLARGE, null, MARGINS.XXXXLARGE]}
           {...args}
         >
           <Box {...indigoBoxStyle}>Flex child 1</Box>
@@ -128,10 +125,10 @@ export const ResponsiveProps = args => {
       </Flex>
       <h3 className="component__story-name">
         {responsivePropsStoryLabel('marginTop', [
-          FLEX_MARGINS.XSMALL,
-          FLEX_MARGINS.XXLARGE,
+          MARGINS.XSMALL,
+          MARGINS.XXLARGE,
           null,
-          FLEX_MARGINS.XXXXLARGE,
+          MARGINS.XXXXLARGE,
         ])}
       </h3>
       <Flex direction="column" {...args}>
@@ -139,12 +136,7 @@ export const ResponsiveProps = args => {
           <Box {...indigoBoxStyle}>Flex child 1</Box>
         </Flex>
         <Flex
-          marginTop={[
-            FLEX_MARGINS.XSMALL,
-            FLEX_MARGINS.XXLARGE,
-            null,
-            FLEX_MARGINS.XXXXLARGE,
-          ]}
+          marginTop={[MARGINS.XSMALL, MARGINS.XXLARGE, null, MARGINS.XXXXLARGE]}
           {...args}
         >
           <Box {...indigoBoxStyle}>Flex child 1</Box>
@@ -152,10 +144,10 @@ export const ResponsiveProps = args => {
       </Flex>
       <h3 className="component__story-name">
         {responsivePropsStoryLabel('marginLeft', [
-          FLEX_MARGINS.XSMALL,
-          FLEX_MARGINS.XXLARGE,
+          MARGINS.XSMALL,
+          MARGINS.XXLARGE,
           null,
-          FLEX_MARGINS.XXXXLARGE,
+          MARGINS.XXXXLARGE,
         ])}
       </h3>
       <Flex {...args}>
@@ -164,10 +156,10 @@ export const ResponsiveProps = args => {
         </Flex>
         <Flex
           marginLeft={[
-            FLEX_MARGINS.XSMALL,
-            FLEX_MARGINS.XXLARGE,
+            MARGINS.XSMALL,
+            MARGINS.XXLARGE,
             null,
-            FLEX_MARGINS.XXXXLARGE,
+            MARGINS.XXXXLARGE,
           ]}
           {...args}
         >
@@ -176,19 +168,19 @@ export const ResponsiveProps = args => {
       </Flex>
       <h3 className="component__story-name">
         {responsivePropsStoryLabel('marginBottom', [
-          FLEX_MARGINS.XSMALL,
-          FLEX_MARGINS.XXLARGE,
+          MARGINS.XSMALL,
+          MARGINS.XXLARGE,
           null,
-          FLEX_MARGINS.XXXXLARGE,
+          MARGINS.XXXXLARGE,
         ])}
       </h3>
       <Flex direction="column" {...args}>
         <Flex
           marginBottom={[
-            FLEX_MARGINS.XSMALL,
-            FLEX_MARGINS.XXLARGE,
+            MARGINS.XSMALL,
+            MARGINS.XXLARGE,
             null,
-            FLEX_MARGINS.XXXXLARGE,
+            MARGINS.XXXXLARGE,
           ]}
           {...args}
         >
@@ -200,19 +192,19 @@ export const ResponsiveProps = args => {
       </Flex>
       <h3 className="component__story-name">
         {responsivePropsStoryLabel('marginRight', [
-          FLEX_MARGINS.XSMALL,
-          FLEX_MARGINS.XXLARGE,
+          MARGINS.XSMALL,
+          MARGINS.XXLARGE,
           null,
-          FLEX_MARGINS.XXXXLARGE,
+          MARGINS.XXXXLARGE,
         ])}
       </h3>
       <Flex {...args}>
         <Flex
           marginRight={[
-            FLEX_MARGINS.XSMALL,
-            FLEX_MARGINS.XXLARGE,
+            MARGINS.XSMALL,
+            MARGINS.XXLARGE,
             null,
-            FLEX_MARGINS.XXXXLARGE,
+            MARGINS.XXXXLARGE,
           ]}
           {...args}
         >
@@ -224,19 +216,19 @@ export const ResponsiveProps = args => {
       </Flex>
       <h3 className="component__story-name">
         {responsivePropsStoryLabel('alignContent', [
-          FLEX_ALIGNMENT_VALUES.CENTER,
-          FLEX_ALIGNMENT_VALUES.FLEX_END,
-          FLEX_ALIGNMENT_VALUES.FLEX_START,
-          FLEX_ALIGNMENT_VALUES.STRETCH,
+          ALIGNMENT_VALUES.CENTER,
+          ALIGNMENT_VALUES.END,
+          ALIGNMENT_VALUES.START,
+          ALIGNMENT_VALUES.STRETCH,
         ])}
       </h3>
       <Box {...indigoBoxStyle} style={{height: 400, width: 400}}>
         <Flex
           alignContent={[
-            FLEX_ALIGNMENT_VALUES.CENTER,
-            FLEX_ALIGNMENT_VALUES.FLEX_END,
-            FLEX_ALIGNMENT_VALUES.FLEX_START,
-            FLEX_ALIGNMENT_VALUES.STRETCH,
+            ALIGNMENT_VALUES.CENTER,
+            ALIGNMENT_VALUES.END,
+            ALIGNMENT_VALUES.START,
+            ALIGNMENT_VALUES.STRETCH,
           ]}
           wrap
           fullHeight
@@ -254,6 +246,60 @@ export const ResponsiveProps = args => {
             <Box {...indigoBoxStyle}>Flex child</Box>
           </Flex>
           <Flex>
+            <Box {...indigoBoxStyle}>Flex child</Box>
+          </Flex>
+        </Flex>
+      </Box>
+      <h3 className="component__story-name">
+        {responsivePropsStoryLabel('gap', [
+          GAP_VALUES.SMALL,
+          null,
+          GAP_VALUES.MEDIUM,
+          GAP_VALUES.XLARGE,
+        ])}
+      </h3>
+      <Box {...indigoBoxStyle} style={{height: 400, width: 400}}>
+        <Flex
+          gap={[GAP_VALUES.SMALL, null, GAP_VALUES.MEDIUM, GAP_VALUES.XLARGE]}
+          wrap
+          fullHeight
+        >
+          <Flex>
+            <Box {...indigoBoxStyle}>Flex child</Box>
+          </Flex>
+          <Flex>
+            <Box {...indigoBoxStyle}>Flex child</Box>
+          </Flex>
+        </Flex>
+      </Box>
+      <h3 className="component__story-name">
+        {responsivePropsStoryLabel('FLEX', [
+          FLEX_VALUES.INITIAL,
+          null,
+          FLEX_VALUES.AUTO,
+          FLEX_VALUES['10'],
+        ])}
+      </h3>
+      <Box {...indigoBoxStyle} style={{height: 400, width: 400}}>
+        <Flex wrap fullHeight>
+          <Flex
+            flex={[
+              FLEX_VALUES.INITIAL,
+              FLEX_VALUES['10'],
+              null,
+              FLEX_VALUES.AUTO,
+            ]}
+          >
+            <Box {...indigoBoxStyle}>Flex child</Box>
+          </Flex>
+          <Flex
+            flex={[
+              FLEX_VALUES.INITIAL,
+              FLEX_VALUES['2'],
+              null,
+              FLEX_VALUES.AUTO,
+            ]}
+          >
             <Box {...indigoBoxStyle}>Flex child</Box>
           </Flex>
         </Flex>

@@ -2,6 +2,7 @@ import * as React from 'react';
 import classNames from 'classnames';
 import type {IconColorType} from '../icons/Icon';
 import {ICON_COLOR} from '../icons/Icon';
+import {generateId} from '../utils';
 
 export type IconTypeType =
   | 'accountancy'
@@ -172,7 +173,7 @@ export type SubjectIconPropsType = {
   monoColor?: IconColorType;
   title?: string;
 } & Omit<
-  React.AllHTMLAttributes<HTMLElement>,
+  React.SVGProps<SVGSVGElement>,
   'className' | 'type' | 'size' | 'monoColor' | 'title'
 >;
 
@@ -184,6 +185,7 @@ const SubjectIcon = ({
   title,
   ...props
 }: SubjectIconPropsType) => {
+  const {current: id} = React.useRef(generateId());
   const iconClass = classNames(
     'sg-subject-icon',
     {
@@ -194,14 +196,24 @@ const SubjectIcon = ({
     className
   );
   const iconType = `#icon-subject-${monoColor ? 'mono-' : ''}${type}`;
-  const titleId = `sg-math-symbol-icon-${type}-title`;
+  const titleId = `sg-math-symbol-icon-${type}-title-${id}`;
   const defaultTitle = type.replace(/-alt$/g, '').replace(/-/g, ' ');
 
   return (
-    // @ts-expect-error ts migration
-    <svg {...props} className={iconClass} aria-labelledby={titleId} role="img">
-      {/* @ts-expect-error ts migration */}
-      <text id={titleId} hidden>
+    <svg
+      {...props}
+      className={iconClass}
+      aria-labelledby={titleId}
+      role="img"
+      /* @ts-expect-error */
+      suppressHydrationWarning
+    >
+      <text
+        id={titleId}
+        visibility="hidden"
+        /* @ts-expect-error */
+        suppressHydrationWarning
+      >
         {title || defaultTitle}
       </text>
       <use xlinkHref={iconType} aria-hidden="true" />

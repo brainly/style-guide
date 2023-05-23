@@ -1,10 +1,12 @@
 import * as React from 'react';
 import classNames from 'classnames';
 import {
-  FLEX_DIRECTION,
-  FLEX_JUSTIFY_VALUES,
-  FLEX_ALIGNMENT_VALUES,
-  FLEX_MARGINS,
+  DIRECTION,
+  JUSTIFY_VALUES,
+  ALIGNMENT_VALUES,
+  MARGINS,
+  GAP_VALUES,
+  FLEX_VALUES,
 } from './FlexConsts';
 import {generateResponsiveClassNames} from '../utils/responsive-props';
 import type {ResponsivePropType} from '../utils/responsive-props';
@@ -39,7 +41,6 @@ type FlexJustifyValuesType =
   | 'center'
   | 'flex-start'
   | 'flex-end'
-  | 'baseline'
   | 'space-between'
   | 'space-around'
   | 'space-evenly'
@@ -61,11 +62,40 @@ type FlexMarginsType =
   | 'xxl'
   | 'xxxl'
   | 'xxxxl';
+type FlexGapValueType =
+  | 'none'
+  | 'xxs'
+  | 'xs'
+  | 's'
+  | 'm'
+  | 'l'
+  | 'xl'
+  | 'xxl'
+  | 'xxxl'
+  | 'xxxxl';
+type FlexFlexValueType =
+  | 1
+  | 2
+  | 3
+  | 4
+  | 5
+  | 6
+  | 7
+  | 8
+  | 9
+  | 10
+  | 11
+  | 12
+  | 'auto'
+  | 'initial'
+  | 'none';
 export {
-  FLEX_DIRECTION,
-  FLEX_JUSTIFY_VALUES,
-  FLEX_ALIGNMENT_VALUES,
-  FLEX_MARGINS,
+  DIRECTION,
+  JUSTIFY_VALUES,
+  ALIGNMENT_VALUES,
+  MARGINS,
+  GAP_VALUES,
+  FLEX_VALUES,
 };
 export type FlexPropsType = {
   /**
@@ -131,7 +161,6 @@ export type FlexPropsType = {
    * @see justifyContent=center https://styleguide.brainly.com/latest/docs/interactive.html?justifyContent=center#flexbox
    * @see justifyContent=flex-start https://styleguide.brainly.com/latest/docs/interactive.html?ustifyContent=flex-start#flexbox
    * @see justifyContent=flex-end https://styleguide.brainly.com/latest/docs/interactive.html?justifyContent=flex-end#flexbox
-   * @see justifyContent=baseline https://styleguide.brainly.com/latest/docs/interactive.html?justifyContent=baseline#flexbox
    * @see justifyContent=space-between https://styleguide.brainly.com/latest/docs/interactive.html?justifyContent=space-between#flexbox
    * @see justifyContent=space-around https://styleguide.brainly.com/latest/docs/interactive.html?justifyContent=space-around#flexbox
    * @see justifyContent=space-evenly https://styleguide.brainly.com/latest/docs/interactive.html?justifyContent=space-evenly#flexbox
@@ -241,6 +270,20 @@ export type FlexPropsType = {
    *          </Flex>
    */
   marginLeft?: ResponsivePropType<FlexMarginsType>;
+  /**
+   * Specify gap between flex children: none: 0px, xxs: 4px, xs: 8px, s: 16px, m: 24px, l: 40px, xl: 64px, xxl: 104px, xxxl: 168px, xxxxl: 272px
+   * @example <Flex gap="m">
+   *            component content
+   *          </Flex>
+   */
+  gap?: ResponsivePropType<FlexGapValueType>;
+  /**
+   * Specify flex value:
+   * @example <Flex flex="auto">
+   *            component content
+   *          </Flex>
+   */
+  flex?: ResponsivePropType<FlexFlexValueType>;
 } & Omit<
   React.AllHTMLAttributes<HTMLElement>,
   | 'children'
@@ -262,6 +305,8 @@ export type FlexPropsType = {
   | 'marginRight'
   | 'marginBottom'
   | 'marginLeft'
+  | 'gap'
+  | 'flex'
 >;
 const Flex = React.forwardRef<HTMLElement, FlexPropsType>(
   (props: FlexPropsType, ref) => {
@@ -283,8 +328,10 @@ const Flex = React.forwardRef<HTMLElement, FlexPropsType>(
       marginBottom,
       marginLeft,
       marginRight,
+      gap,
       children,
       className,
+      flex,
       ...otherProps
     } = props;
     const flexClass = classNames(
@@ -309,13 +356,13 @@ const Flex = React.forwardRef<HTMLElement, FlexPropsType>(
         inlineFlex
       ),
       ...generateResponsiveClassNames(direction => {
-        if (direction === FLEX_DIRECTION.COLUMN) {
+        if (direction === DIRECTION.COLUMN) {
           return 'sg-flex--column';
-        } else if (direction === FLEX_DIRECTION.COLUMN_REVERSE) {
+        } else if (direction === DIRECTION.COLUMN_REVERSE) {
           return 'sg-flex--column-reverse';
-        } else if (direction === FLEX_DIRECTION.ROW) {
+        } else if (direction === DIRECTION.ROW) {
           return 'sg-flex--row';
-        } else if (direction === FLEX_DIRECTION.ROW_REVERSE) {
+        } else if (direction === DIRECTION.ROW_REVERSE) {
           return 'sg-flex--row-reverse';
         } else {
           return 'sg-flex--row';
@@ -368,6 +415,14 @@ const Flex = React.forwardRef<HTMLElement, FlexPropsType>(
       ...generateResponsiveClassNames(
         propValue => `sg-flex--margin-left-${propValue}`,
         marginLeft
+      ),
+      ...generateResponsiveClassNames(
+        propValue => `sg-flex--gap-${propValue}`,
+        gap
+      ),
+      ...generateResponsiveClassNames(
+        propValue => `sg-flex--flex-${propValue}`,
+        flex
       ),
       className
     );

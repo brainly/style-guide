@@ -2,12 +2,13 @@ import * as React from 'react';
 import cx from 'classnames';
 import Input, {COLOR, SIZE} from '../form-elements/Input';
 import type {InputPropsType} from '../form-elements/Input';
-import Icon, {ICON_COLOR} from '../icons/Icon';
-import Button from '../buttons/Button';
+import Icon from '../icons/Icon';
+import Button, {ButtonTypeType} from '../buttons/Button';
 
 export type SearchPropsType = {
   inputClassName?: string;
   withRoundButton?: boolean;
+  buttonType?: ButtonTypeType;
 } & Omit<
   React.AllHTMLAttributes<HTMLElement>,
   'inputClassName' | 'withRoundButton' | 'size'
@@ -48,6 +49,12 @@ const Search = ({
   inputClassName,
 
   /**
+   * The default behavior of the button.
+   * @example <Search buttonType="submit" />
+   */
+  buttonType,
+
+  /**
    * Additional classname for input in search, like color, which is pass directly to input
    * @example <Search color="white" placeholder="Find all the answers..." />
    */
@@ -73,34 +80,33 @@ const Search = ({
         className={cx(`${baseClassName}__input`, inputClassName)}
         fullWidth
       />
-
-      {withRoundButton ? (
-        <div className={`${baseClassName}__icon`}>
-          <Button
-            variant="solid"
-            className={cx({
-              'sg-search-button--s': size === 's',
-            })}
-            icon={
-              <Icon
-                type="search"
-                size={size === 'l' ? 24 : 16}
-                color="adaptive"
-              />
-            }
-            iconOnly
-            size={size === 'l' ? 'm' : 's'}
-          />
-        </div>
-      ) : (
-        <button className={`${baseClassName}__icon`}>
-          <Icon
-            type="search"
-            color={ICON_COLOR['icon-gray-50']}
-            size={size === 'l' ? 24 : 16}
-          />
-        </button>
-      )}
+      <div
+        className={cx([
+          `${baseClassName}-icon-wrapper`,
+          `${baseClassName}-icon-wrapper--${size}`,
+        ])}
+      >
+        <Button
+          variant={withRoundButton ? 'solid' : 'transparent-light'}
+          className={cx([
+            `${baseClassName}__icon`,
+            `${baseClassName}__icon--${size}`,
+            {
+              [`${baseClassName}__icon--transparent`]: !withRoundButton,
+            },
+          ])}
+          icon={
+            <Icon
+              type="search"
+              size={size === 'l' ? 24 : 16}
+              color="adaptive"
+            />
+          }
+          iconOnly
+          size={size === 'l' ? 'm' : 's'}
+          type={buttonType}
+        />
+      </div>
     </div>
   );
 };

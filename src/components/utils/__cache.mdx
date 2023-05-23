@@ -1,0 +1,32 @@
+<PageHeader type="utility">useFirstPaint</PageHeader>
+
+`useFirstPaint` is a custom hook for detecting when component is before first DOM paint. This is useful for preventing unnecessary animations on initial render.
+
+## Import
+
+```jsx
+import {useFirstPaint} from 'brainly-style-guide';
+```
+
+## Usage
+
+```jsx
+const animatedElementRef = React.useRef();
+const [isToggled, setIsToggled] = React.useState(true);
+const onClick = () => {
+  setIsToggled(!isToggled);
+};
+
+useFirstPaint(() => {
+    if (animatedElementRef) {
+      animatedElementRef.current.classList.add('with-animation')
+    }
+  });
+
+return (
+  <div
+    ref={animatedElementRef}
+    click={onClick}
+  >toggle</>
+);
+```

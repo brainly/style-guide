@@ -21,6 +21,7 @@ const iconMap = {
     'envelope',
     'exclamation_mark',
     'funnel',
+    'ginny',
     'globe',
     'hand_move',
     'info',

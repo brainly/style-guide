@@ -5,6 +5,7 @@ import PageHeader from 'blocks/PageHeader';
 
 import Headline from '../text/Headline';
 import Input, {SIZE, COLOR} from './Input';
+import Flex from '../flex/Flex';
 
 <Meta
   title="Components/Form Elements/Input"
@@ -31,6 +32,8 @@ import Input, {SIZE, COLOR} from './Input';
 </Canvas>
 
 <ArgsTable story="Default" />
+
+## Stories
 
 ### Sizes
 
@@ -83,7 +86,7 @@ import Input, {SIZE, COLOR} from './Input';
 <Canvas>
   <Story name="Styles and types">
     {args => (
-      <StoryVariantTable>
+      <StoryVariantTable alignTop>
         <tbody>
           <tr>
             <td />
@@ -144,7 +147,12 @@ import Input, {SIZE, COLOR} from './Input';
               <Input {...args} />
             </td>
             <td>
-              <Input {...args} disabled />
+              <Flex direction="column">
+                <Input {...args} value="" disabled />
+                <Flex marginTop="s">
+                  <Input {...args} disabled />
+                </Flex>
+              </Flex>
             </td>
           </tr>
           <tr style={{backgroundColor: hex.black}}>
@@ -167,7 +175,12 @@ import Input, {SIZE, COLOR} from './Input';
               <Input {...args} color={COLOR.WHITE} />
             </td>
             <td>
-              <Input {...args} disabled color={COLOR.WHITE} />
+              <Flex direction="column">
+                <Input {...args} disabled color={COLOR.WHITE} value="" />
+                <Flex marginTop="s">
+                  <Input {...args} disabled color={COLOR.WHITE} />
+                </Flex>
+              </Flex>
             </td>
           </tr>
           <tr>
@@ -189,7 +202,14 @@ import Input, {SIZE, COLOR} from './Input';
             <td>
               <Input {...args} valid />
             </td>
-            <td />
+            <td>
+              <Flex direction="column">
+                <Input {...args} valid disabled value="" />
+                <Flex marginTop="s">
+                  <Input {...args} valid disabled />
+                </Flex>
+              </Flex>
+            </td>
           </tr>
           <tr>
             <td>
@@ -210,7 +230,14 @@ import Input, {SIZE, COLOR} from './Input';
             <td>
               <Input {...args} invalid />
             </td>
-            <td />
+            <td>
+              <Flex direction="column">
+                <Input {...args} invalid disabled value="" />
+                <Flex marginTop="s">
+                  <Input {...args} invalid disabled />
+                </Flex>
+              </Flex>
+            </td>
           </tr>
           <tr>
             <td>
@@ -236,7 +263,25 @@ import Input, {SIZE, COLOR} from './Input';
             <td>
               <Input {...args} invalid errorMessage="Something went wrong" />
             </td>
-            <td />
+            <td>
+              <Flex direction="column">
+                <Input
+                  {...args}
+                  invalid
+                  disabled
+                  value=""
+                  errorMessage="Something went wrong"
+                />
+                <Flex marginTop="s">
+                  <Input
+                    {...args}
+                    invalid
+                    disabled
+                    errorMessage="Something went wrong"
+                  />
+                </Flex>
+              </Flex>
+            </td>
           </tr>
         </tbody>
       </StoryVariantTable>

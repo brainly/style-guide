@@ -38,7 +38,11 @@ export const generateChromaticStory: any = (
 
 const mergeStories: any = module => {
   const stories = Object.keys(module)
-    .filter(moduleExports => moduleExports !== 'default')
+    .filter(
+      moduleExports =>
+        moduleExports !== 'default' &&
+        !module[moduleExports].parameters?.chromatic?.disableSnapshot
+    )
     .map(moduleExportName => {
       return {
         name: moduleExportName,

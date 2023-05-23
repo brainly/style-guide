@@ -1,0 +1,48 @@
+import rules, {singleSelectRules, multiSelectRules} from './rules.a11y';
+
+### Rules
+
+<AccessibilityList rules={rules} />
+
+#### Single select
+
+<AccessibilityList rules={singleSelectRules} />
+
+#### Multi select
+
+<AccessibilityList rules={multiSelectRules} />
+
+### Usage
+
+#### Code examples
+
+- basic, grouped by name
+
+```jsx
+<Chip name="subject" value="physics">Physics</Chip>
+<Chip name="subject" value="bilogy">Biology</Chip>
+<Chip name="subject" value="math">Math</Chip>
+```
+
+- with an icon
+
+```jsx
+<Chip icon={<SubjectIcon type="physics" size="small" aria-hidden />}>
+  Physics
+</Chip>
+```
+
+- multiselect
+
+```jsx
+<Chip name="subject" value="physics" multiSelect>Physics</Chip>
+<Chip name="subject" value="bilogy" multiSelect>Biology</Chip>
+<Chip name="subject" value="math" multiSelect>Math</Chip>
+```
+
+- with an accessible description
+
+```jsx
+<Chip name="subject" value="physics" aria-describedby="desc">Physics</Chip>
+<p id="desc">Yes, physics is my favourite subject.</p>
+```

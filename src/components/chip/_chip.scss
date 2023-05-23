@@ -1,0 +1,149 @@
+.sg-chip {
+  --chipBorderColor: var(--gray-30);
+  --chipCheckedBorderColor: var(--black);
+
+  display: inline-flex;
+  position: relative;
+  background: var(--white);
+  border-radius: var(--border-radius-xs);
+  // transform: scale(10) translate(20px, 20px);
+
+  &__input {
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    position: absolute;
+    opacity: 0;
+
+    &:checked {
+      & + .sg-chip__pill {
+        border-color: var(--chipCheckedBorderColor);
+
+        @media (forced-colors: active) {
+          border-width: 4px;
+
+          & .sg-chip__text {
+            &:first-child {
+              margin-left: 10px;
+            }
+
+            &:last-child {
+              margin-right: 10px;
+            }
+          }
+
+          & .sg-chip__icon {
+            margin-left: 6px;
+          }
+        }
+
+        & .sg-chip__line {
+          transform: rotate(45deg);
+          &--horizontal {
+            stroke-dasharray: 4.27 20;
+          }
+
+          &--vertical {
+            stroke-dasharray: 8.5 20;
+          }
+        }
+      }
+    }
+
+    &:focus-visible + .sg-chip__pill,
+    &:focus + .sg-chip__pill {
+      @include applyFocusStyle();
+    }
+
+    &:focus:not(:focus-visible) + .sg-chip__pill {
+      box-shadow: none;
+      outline: none;
+      animation: none;
+    }
+
+    &:disabled + .sg-chip__pill {
+      opacity: 0.45;
+
+      @media (forced-colors: active) {
+        border-color: GrayText;
+      }
+    }
+
+    &:not([disabled]) {
+      &:hover + .sg-chip__pill {
+        background-color: rgba($gray-40, 0.12);
+      }
+
+      &:active + .sg-chip__pill {
+        background-color: rgba($gray-40, 0.2);
+        transform: scale(0.96);
+      }
+    }
+  }
+
+  &__icon {
+    margin-left: 8px;
+    display: flex;
+  }
+
+  &__pill {
+    border: 2px solid var(--chipBorderColor);
+    display: flex;
+    align-items: center;
+    border-radius: var(--border-radius-xs);
+    transition: box-shadow $durationQuick1 $easingExit,
+      border-color $durationModerate1 $easingLinear,
+      transform $durationModerate2 $easingRegular,
+      background-color $durationModerate1 $easingLinear;
+
+    @media (forced-colors: active) {
+      border-color: FieldText;
+    }
+  }
+
+  &__text {
+    margin-left: 6px;
+
+    &:first-child {
+      margin-left: 12px;
+    }
+
+    &:last-child {
+      margin-right: 12px;
+    }
+  }
+
+  &__check-icon {
+    width: 16px;
+    height: 16px;
+    position: relative;
+    margin-right: 8px;
+    margin-left: 6px;
+  }
+
+  &__line {
+    transition: $durationModerate2 $easingRegular;
+    stroke-dasharray: 9 20;
+    color: var(--black);
+
+    &--horizontal {
+      transform-origin: 3px 8.5px;
+    }
+
+    &--vertical {
+      transform-origin: 8.5px 10.5px;
+    }
+  }
+
+  &--m {
+    & .sg-chip__pill {
+      height: componentSize(m);
+    }
+  }
+
+  &--s {
+    & .sg-chip__pill {
+      height: componentSize(s);
+    }
+  }
+}

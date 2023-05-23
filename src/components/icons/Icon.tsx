@@ -72,6 +72,7 @@ export type IconTypeType =
   | 'friends'
   | 'fullscreen'
   | 'funnel'
+  | 'ginny'
   | 'globe'
   | 'google'
   | 'greek'
@@ -103,6 +104,7 @@ export type IconTypeType =
   | 'notifications'
   | 'numbered_list'
   | 'open_in_new_tab'
+  | 'options'
   | 'padlock'
   | 'pause'
   | 'pencil'
@@ -247,6 +249,7 @@ export const TYPE = {
   FRIENDS: 'friends',
   FULLSCREEN: 'fullscreen',
   FUNNEL: 'funnel',
+  GINNY: 'ginny',
   GLOBE: 'globe',
   GOOGLE: 'google',
   GREEK: 'greek',
@@ -278,6 +281,7 @@ export const TYPE = {
   NOTIFICATIONS: 'notifications',
   NUMBERED_LIST: 'numbered_list',
   OPEN_IN_NEW_TAB: 'open_in_new_tab',
+  OPTIONS: 'options',
   PADLOCK: 'padlock',
   PAUSE: 'pause',
   PENCIL: 'pencil',
@@ -521,8 +525,12 @@ const Icon = ({
           // @ts-expect-error
           suppressHydrationWarning
         >
-          {/* @ts-expect-error */}
-          <text id={titleId} hidden suppressHydrationWarning>
+          <text
+            id={titleId}
+            visibility="hidden"
+            /* @ts-expect-error */
+            suppressHydrationWarning
+          >
             {title || defaultTitle}
           </text>
           {description && <desc id={descId}>{description}</desc>}

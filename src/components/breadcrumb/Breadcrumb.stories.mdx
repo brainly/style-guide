@@ -46,7 +46,7 @@ const longElements = [
 <PageHeader>Breadcrumb</PageHeader>
 
 - [Stories](#stories)
-- [Accesibility](#accessibility)
+- [Accessibility](#accessibility)
 
 ## Overview
 
@@ -101,6 +101,14 @@ const longElements = [
         <Breadcrumb {...args} inlineItems />
       </div>
     )}
+  </Story>
+</Canvas>
+
+### Spaced
+
+<Canvas>
+  <Story name="Spaced" args={{elements: longElements}}>
+    {args => <Breadcrumb {...args} spaced />}
   </Story>
 </Canvas>
 
