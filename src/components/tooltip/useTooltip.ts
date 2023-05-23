@@ -62,6 +62,24 @@ const useTooltip = ({
 
   const arrowRef = React.useRef(null);
 
+  // Get position and size specitic params
+  const variantParams = React.useMemo(() => {
+    const offsetMainAxis = size === 'small' ? 6 : 10;
+    const offsetAlignmentAxis = size === 'small' ? -4 : -8;
+    const padding = 5;
+    const arrowPadding =
+      placement.includes('top') || placement.includes('bottom') ? 16 : 0;
+
+    return {
+      offset: {
+        mainAxis: offsetMainAxis,
+        alignmentAxis: offsetAlignmentAxis,
+      },
+      padding,
+      arrowPadding,
+    };
+  }, [placement, size]);
+
   const data = useFloating({
     open: enableTooltip ? isOpen : false,
     onOpenChange: setIsOpen,
@@ -69,17 +87,16 @@ const useTooltip = ({
     whileElementsMounted: autoUpdate,
     middleware: [
       offset({
-        mainAxis: size === 'small' ? 6 : 10,
-        alignmentAxis: size === 'small' ? -4 : -8,
+        mainAxis: variantParams.offset.mainAxis,
+        alignmentAxis: variantParams.offset.alignmentAxis,
       }),
       flip({
         fallbackAxisSideDirection: 'start',
       }),
-      shift({padding: 5}),
+      shift({padding: variantParams.padding}),
       arrow({
         element: arrowRef,
-        padding:
-          placement.includes('top') || placement.includes('bottom') ? 16 : 0,
+        padding: variantParams.arrowPadding,
       }),
     ],
   });
