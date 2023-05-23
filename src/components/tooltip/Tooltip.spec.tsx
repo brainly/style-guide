@@ -22,7 +22,15 @@ export function RenderTooltip(props: {
   );
 }
 
+class ResizeObserver {
+  observe = jest.fn();
+  unobserve = jest.fn();
+  disconnect = jest.fn();
+}
+
 describe('<Tooltip />', () => {
+  window.ResizeObserver = ResizeObserver;
+
   it('does not display tooltip by default', () => {
     render(
       <RenderTooltip>
