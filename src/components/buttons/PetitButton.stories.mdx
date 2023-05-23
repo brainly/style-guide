@@ -1,11 +1,18 @@
 import {ArgsTable, Meta, Story, Canvas} from '@storybook/addon-docs';
-import PetitButton from './PetitButton';
+import PetitButton, {PETIT_BUTTON_VARIANT} from './PetitButton';
 import {styled} from '@storybook/theming';
 import Headline from '../text/Headline';
 import Label from '../labels/Label';
 import PageHeader from 'blocks/PageHeader';
 
-<Meta title="Components/PetitButton" component={PetitButton} />
+<Meta
+  title="Components/PetitButton"
+  component={PetitButton}
+  args={{
+    children: 'Link button',
+    onClick: () => console.log('button clicked'),
+  }}
+/>
 
 <PageHeader>PetitButton</PageHeader>
 
@@ -15,13 +22,138 @@ import PageHeader from 'blocks/PageHeader';
 ## Overview
 
 <Canvas>
-  <Story name="Default">
-    {args => <PetitButton {...args}>Link button</PetitButton>}
-  </Story>
+  <Story name="Default">{args => <PetitButton {...args} />}</Story>
 </Canvas>
 
 <ArgsTable story="Default" />
 
 ## Stories
+
+### Variants
+
+<Canvas>
+  <Story name="Variants">
+    {args => (
+      <StoryVariantTable className="sg-button-stories-table">
+        <thead>
+          <tr>
+            <th />
+            <th>
+              <Headline
+                extraBold
+                transform="uppercase"
+                as="span"
+                color="text-gray-40"
+                size="medium"
+              >
+                default
+              </Headline>
+            </th>
+            <th>
+              <Headline
+                extraBold
+                transform="uppercase"
+                as="span"
+                color="text-gray-40"
+                size="medium"
+              >
+                disabled
+              </Headline>
+            </th>
+            <th>
+              <Headline
+                extraBold
+                transform="uppercase"
+                as="span"
+                color="text-gray-40"
+                size="medium"
+              >
+                loading
+              </Headline>
+            </th>
+            <th>
+              <Headline
+                extraBold
+                transform="uppercase"
+                as="span"
+                color="text-gray-40"
+                size="medium"
+              >
+                with icon right
+              </Headline>
+            </th>
+            <th>
+              <Headline
+                extraBold
+                transform="uppercase"
+                as="span"
+                color="text-gray-40"
+                size="medium"
+              >
+                with icon left
+              </Headline>
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          {Object.values(PETIT_BUTTON_VARIANT).map(variant => (
+            <tr
+              style={{
+                backgroundColor:
+                  'transparent-inverted' === variant ? 'black' : 'transparent',
+              }}
+              key={variant}
+            >
+              <td>
+                <div
+                  style={{
+                    height: 40,
+                    display: 'flex',
+                    alignItems: 'center',
+                  }}
+                >
+                  <Headline
+                    extraBold
+                    transform="uppercase"
+                    as="span"
+                    color="text-gray-40"
+                    size="medium"
+                  >
+                    {variant}
+                  </Headline>
+                </div>
+              </td>
+              <td>
+                <div>
+                  <PetitButton {...args} variant={variant} />
+                </div>
+              </td>
+              <td>
+                <PetitButton {...args} variant={variant} disabled />
+              </td>
+              <td>
+                <PetitButton {...args} variant={variant} />
+              </td>
+              <td>
+                <PetitButton
+                  {...args}
+                  variant={variant}
+                  icon={<Icon type="arrow_right" color="adaptive" />}
+                />
+              </td>
+              <td>
+                <PetitButton
+                  {...args}
+                  variant={variant}
+                  icon={<Icon type="arrow_up" color="adaptive" reversedOrder />}
+                />
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </StoryVariantTable>
+    )}
+  </Story>
+</Canvas>
 
 ## Accessibility

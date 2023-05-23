@@ -1,6 +1,6 @@
 .sg-button-petit {
   --petit-button-background-color: transparent;
-  --petit-button-background-beackground-color: transparent;
+  --petit-button-background-background-color: transparent;
   --petit-button-hover-background-color: var(--gray-50);
   --petit-button-active-background-color: var(--gray-50);
   --petit-button-label-color: var(--text-black);
@@ -12,7 +12,7 @@
   display: flex;
   border-radius: var(--petit-button-height);
   border: none;
-  background: var(--petit-button-background-beackground-color);
+  background: var(--petit-button-background-background-color);
   align-items: center;
 
   &::before {
@@ -24,11 +24,13 @@
     width: 100%;
     height: 100%;
     border-radius: inherit;
-    z-index: -1;
   }
 
   &__text {
-    color: --petit-button-label-color;
+    color: var(--petit-button-label-color);
+    z-index: 1;
+    white-space: nowrap;
+    text-decoration: none;
   }
 
   &:not([disabled]) {
@@ -63,15 +65,15 @@
     --petit-button-label-color: var(--text-gray-60);
   }
 
-  &--transparent-light {
+  &--transparent-indigo {
     --petit-button-hover-background-color: var(--indigo-50);
     --petit-button-active-background-color: var(--indigo-50);
     --petit-button-label-color: var(--text-indigo-60);
   }
 
   &--solid-light {
-    --petit-button-background-beackground-color: var(--gray-20);
     --petit-button-background-color: transparent;
+    --petit-button-background-background-color: var(--gray-20);
     --petit-button-hover-background-color: var(--gray-50);
     --petit-button-active-background-color: var(--gray-50);
     --petit-button-label-color: var(--text-black);
