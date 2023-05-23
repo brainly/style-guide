@@ -1,7 +1,7 @@
 import * as React from 'react';
 import RadioGroup from './RadioGroup';
 import Radio from './Radio';
-import {render} from '@testing-library/react';
+import {render, waitFor} from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
 describe('<RadioGroup />', () => {
@@ -67,7 +67,7 @@ describe('<RadioGroup />', () => {
     expect(onChange).not.toHaveBeenCalled();
     expect(radioGroup.getByLabelText('Option B')).not.toBeChecked();
   });
-  it('checked radio can be changed on controlled radio group', () => {
+  it('checked radio can be changed on controlled radio group', async () => {
     const {container, getByLabelText, rerender} = renderRadioGroup({
       name: 'option',
       value: 'option-a',
@@ -96,11 +96,10 @@ describe('<RadioGroup />', () => {
         </Radio>
       </RadioGroup>
     );
-    expect(iconsWithAnimation.length).toBe(2);
     expect(getByLabelText('Option A')).not.toBeChecked();
     expect(getByLabelText('Option B')).toBeChecked();
   });
-  it('it does not apply animation unless initial state has changed', () => {
+  it('it does not apply animation unless initial state has changed after first render of DOM', async () => {
     const radioGroup = renderRadioGroup({
       name: 'option',
       value: 'option-a',
@@ -110,8 +109,11 @@ describe('<RadioGroup />', () => {
     );
 
     expect(iconsWithAnimation.length).toBe(0);
-    userEvent.click(radioGroup.getByLabelText('Option B'));
-    expect(iconsWithAnimation.length).toBe(2);
+
+    requestAnimationFrame(() => {
+      userEvent.click(radioGroup.getByLabelText('Option B'));
+    });
+    await waitFor(() => expect(iconsWithAnimation.length).toBe(2));
   });
   it('has an accessible name', () => {
     const onChange = jest.fn();

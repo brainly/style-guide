@@ -178,3 +178,7 @@ export {default as Sparks} from './components/sparks/Sparks';
 export {default as Tooltip} from './components/tooltip/Tooltip';
 export type {TooltipPropsType} from './components/tooltip/Tooltip';
 export {default as useTooltipContext} from './components/tooltip/useTooltipContext';
+export {default as CardRadioGroup} from './components/card-interactive/CardRadioGroup';
+export type {CardRadioGroupPropsType} from './components/card-interactive/CardRadioGroup';
+export {default as CardCheckbox} from './components/card-interactive/CardCheckbox';
+export type {CardCheckboxPropsType} from './components/card-interactive/CardCheckbox';
