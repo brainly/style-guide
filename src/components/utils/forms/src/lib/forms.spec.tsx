@@ -1,7 +1,7 @@
 import * as React from 'react';
 import {useBrainlyFormField} from './useBrainlyFormField';
 import {useBrainlyForm} from './useBrainlyForm';
-import {ValidationRules} from '../../../../wizard/types';
+import {ValidationRules} from '../../../../wizard/_dev_utils/types';
 import {renderHook} from '@testing-library/react-hooks';
 import {fireEvent, render} from '@testing-library/react';
 

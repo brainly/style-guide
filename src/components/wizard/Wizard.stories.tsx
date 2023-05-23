@@ -6,8 +6,8 @@ import Textarea from '../form-elements/Textarea';
 import RadioGroup from '../form-elements/radio/RadioGroup';
 import Radio from '../form-elements/radio/Radio';
 import Dialog from '../dialog/Dialog';
-import {useBrainlyForm} from './useBrainlyForm';
-import {useBrainlyFormField} from './useBrainlyFormField';
+import {useBrainlyForm} from './_dev_utils/useBrainlyForm';
+import {useBrainlyFormField} from './_dev_utils/useBrainlyFormField';
 
 export default {
   title: 'Components/Wizard',
@@ -51,6 +51,7 @@ export const Default = () => {
 
   return (
     <Wizard onComplete={onComplete}>
+      <Wizard.ProgressBar>form title</Wizard.ProgressBar>
       <WizardStep as="div">
         <Wizard.Title subtitle="form subtitle">form title</Wizard.Title>
         <FirstStepForm />
@@ -79,12 +80,11 @@ export const CreateAccount = () => {
   };
 
   return (
-    <Wizard
-      title="Join Brainly"
-      subtitle="Let us know you better"
-      onComplete={onComplete}
-    >
+    <Wizard onComplete={onComplete}>
       <WizardStep>
+        <Wizard.Title subtitle="Let us know you better">
+          Join Brainly
+        </Wizard.Title>
         <WizardStep.Title>Who are you?</WizardStep.Title>
         <RadioGroup name="account_type" onChange={onChange}>
           <Radio value="student">Student</Radio>
@@ -119,8 +119,9 @@ export const AskYourQuestion = () => {
   };
 
   return (
-    <Wizard title="Ask your question" onComplete={onComplete}>
+    <Wizard onComplete={onComplete}>
       <WizardStep>
+        <Wizard.Title>Ask your question</Wizard.Title>
         <WizardStep.Title subtitle="You can type out your question below and/or add a file.">
           What can we help you with?
         </WizardStep.Title>
@@ -130,7 +131,7 @@ export const AskYourQuestion = () => {
           name="question"
           placeholder="I have a problem with the task where I have to choose one of the available answers. I would also like to understand why the correct answer is .. correct. Please help me choose the correct one and explain why such an answer is the best one. "
         />
-        <Wizard.Submit>next</Wizard.Submit>
+        <WizardStep.Submit>next</WizardStep.Submit>
       </WizardStep>
       <WizardStep>
         <WizardStep.Title>How can we assist you? *</WizardStep.Title>
@@ -140,7 +141,7 @@ export const AskYourQuestion = () => {
           <Radio value="chemistry">Chemistry</Radio>
           <Radio value="biology">Biology</Radio>
         </RadioGroup>
-        <Wizard.Submit>next</Wizard.Submit>
+        <WizardStep.Submit>next</WizardStep.Submit>
       </WizardStep>
       <WizardStep>
         <WizardStep.Title subtitle="This step is optional — you can skip it if you want.">
@@ -152,7 +153,7 @@ export const AskYourQuestion = () => {
           <Radio value="exam">Exam preparation</Radio>
           <Radio value="homework">Homework check</Radio>
         </RadioGroup>
-        <Wizard.Submit>ask your question</Wizard.Submit>
+        <WizardStep.Submit>ask your question</WizardStep.Submit>
       </WizardStep>
     </Wizard>
   );

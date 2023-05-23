@@ -1,39 +1,46 @@
-.wizard {
+.sg-wizard {
   height: 100%;
   width: 100%;
+  position: relative;
 
-  &-step {
+  &-navigation {
+    position: absolute;
+    right: 24px;
+    bottom: 24px;
+    display: flex;
+  }
+
+  &-steps {
+    flex: 1;
+    position: relative;
+    overflow: hidden;
+  }
+
+  &-steps-scroll {
     position: absolute;
     left: 0;
     top: 0;
     height: 100%;
     width: 100%;
-    transform: translateX(-5000px);
+    transition: transform 0.7s $easingRegular;
+  }
 
-    &-content {
+  &-step {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+
+    &-viewer {
       width: 600px;
     }
 
     &-counter {
       background-color: $black;
     }
-
-    &--current {
-      transform: translateX(0);
-    }
   }
 
   &-progress-bar {
     flex: none;
-  }
-
-  &-form {
-    position: relative;
-    flex: 1;
-
-    &__title {
-      margin-bottom: spacing(xs);
-    }
   }
 
   &-footer {
