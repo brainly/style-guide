@@ -53,7 +53,7 @@ const WizardProgressBar = ({children}: WizardProgressBarPropsType) => {
 };
 
 const WizardNavigation = () => {
-  const {prev, next} = useWizard();
+  const {prev, next, currentStep, stepsLength} = useWizard();
   const handleUp = React.useCallback(() => {
     prev();
   }, [prev]);
@@ -63,21 +63,21 @@ const WizardNavigation = () => {
   }, [next]);
 
   return (
-    <Flex direction="column" className="sg-wizard-navigation">
+    <Flex className="sg-wizard-navigation">
       <Button
         variant="transparent"
         iconOnly
         icon={<Icon type={TYPE.ARROW_UP} color="icon-black" />}
         onClick={handleUp}
+        disabled={currentStep === 0}
       />
-      <Flex marginTop="s">
-        <Button
-          variant="transparent"
-          iconOnly
-          icon={<Icon type={TYPE.ARROW_DOWN} color="icon-black" />}
-          onClick={handleDown}
-        />
-      </Flex>
+      <Button
+        variant="transparent"
+        iconOnly
+        icon={<Icon type={TYPE.ARROW_DOWN} color="icon-black" />}
+        onClick={handleDown}
+        disabled={currentStep === stepsLength - 1}
+      />
     </Flex>
   );
 };
@@ -388,7 +388,7 @@ const WizardStepTitle: React.FunctionComponent<{
       <Flex>
         <Flex marginRight="s">
           {typeof index === 'number' ? (
-            <Counter className="sg-wizard-step-counter">{index + 1}</Counter>
+            <Counter color="achromatic">{index + 1}</Counter>
           ) : null}
         </Flex>
         <Headline size="medium">{children}</Headline>

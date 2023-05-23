@@ -7,7 +7,6 @@
     position: absolute;
     right: 24px;
     bottom: 24px;
-    display: flex;
   }
 
   &-steps {
@@ -22,7 +21,7 @@
     top: 0;
     height: 100%;
     width: 100%;
-    transition: transform 0.7s $easingRegular;
+    transition: transform $durationGentle2 $easingRegular;
   }
 
   &-step {
@@ -32,10 +31,6 @@
 
     &-viewer {
       width: 600px;
-    }
-
-    &-counter {
-      background-color: $black;
     }
   }
 
