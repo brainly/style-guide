@@ -122,8 +122,8 @@ const TOOLTIP_PLACEMENTS = [
   <Story name="Placement">
     {args => {
       const RenderTooltip = ({placement}) => (
-        <Tooltip {...args} placement={placement}>
-          <Tooltip.Element label="Report this" />
+        <Tooltip {...args} placement={placement} defaultOpen>
+          <Tooltip.Element label={placement} />
           <Tooltip.Trigger>
             <Button
               icon={<Icon color="adaptive" type="report_flag_outlined" />}
@@ -270,7 +270,7 @@ const TOOLTIP_PLACEMENTS = [
 ### Usage example
 
 <Canvas>
-  <Story name="UsageExample">
+  <Story name="Usage example">
     {args => {
       return (
         <Flex

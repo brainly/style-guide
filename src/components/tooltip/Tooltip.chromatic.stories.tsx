@@ -105,6 +105,93 @@ export const TypesOfTriggers = args => {
     </Flex>
   );
 };
+export const TextLengths = args => {
+  const RenderShortTooltip = ({placement}) => (
+    <Tooltip {...args} placement={placement} defaultOpen>
+      <Tooltip.Element label="0" />
+      <Tooltip.Trigger>
+        <Button
+          icon={<Icon color="adaptive" type="report_flag_outlined" />}
+          iconOnly
+          variant="solid-light"
+        />
+      </Tooltip.Trigger>
+    </Tooltip>
+  );
+
+  const RenderLongTooltip = ({placement}) => (
+    <Tooltip {...args} placement={placement} defaultOpen>
+      <Tooltip.Element
+        label="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+            tempor incididunt ut labore et dolore magna aliqua.
+            Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi
+            ut aliquip ex ea commodo consequat."
+      />
+      <Tooltip.Trigger>
+        <Button
+          icon={<Icon color="adaptive" type="report_flag_outlined" />}
+          iconOnly
+          variant="solid-light"
+        />
+      </Tooltip.Trigger>
+    </Tooltip>
+  );
+
+  return (
+    <Flex direction="column">
+      <Text weight="bold">Short text:</Text>
+      <Flex justifyContent="center" style={{paddingTop: '50px'}}>
+        <Flex
+          direction="column"
+          alignItems="center"
+          style={{width: '300px', gap: '20px'}}
+        >
+          <RenderShortTooltip placement="top" />
+          <Flex direction="row" justifyContent="space-between" fullWidth>
+            {['top-end', 'top-start'].map(placement => (
+              <RenderShortTooltip key={placement} placement={placement} />
+            ))}
+          </Flex>
+          <Flex direction="row" justifyContent="space-between" fullWidth>
+            {['left', 'right'].map(placement => (
+              <RenderShortTooltip key={placement} placement={placement} />
+            ))}
+          </Flex>
+          <Flex direction="row" justifyContent="space-between" fullWidth>
+            {['bottom-end', 'bottom-start'].map(placement => (
+              <RenderShortTooltip key={placement} placement={placement} />
+            ))}
+          </Flex>
+          <RenderShortTooltip placement="bottom" />
+        </Flex>
+      </Flex>
+      <Text weight="bold" style={{paddingTop: '100px'}}>
+        Long text:
+      </Text>
+      <Flex direction="column" style={{padding: '140px 0'}} fullWidth>
+        <Flex
+          direction="column"
+          justifyContent="center"
+          alignItems="center"
+          style={{gap: '140px', paddingBottom: '140px'}}
+        >
+          <RenderLongTooltip placement="top" />
+          <RenderLongTooltip placement="top-end" />
+          <RenderLongTooltip placement="top-start" />
+          <RenderLongTooltip placement="bottom" />
+          <RenderLongTooltip placement="bottom-end" />
+          <RenderLongTooltip placement="bottom-start" />
+        </Flex>
+        <Flex justifyContent="flex-end" style={{padding: '60px 0'}} fullWidth>
+          <RenderLongTooltip placement="left" />
+        </Flex>
+        <Flex justifyContent="flex-start" style={{padding: '60px 0'}} fullWidth>
+          <RenderLongTooltip placement="right" />
+        </Flex>
+      </Flex>
+    </Flex>
+  );
+};
 
 export const Default = generateChromaticStory({
   ...TooltipStories,
