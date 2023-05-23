@@ -22,15 +22,17 @@ export function RenderTooltip(props: {
   );
 }
 
-class ResizeObserver {
-  observe = jest.fn();
-  unobserve = jest.fn();
-  disconnect = jest.fn();
+// JSDom (which is used by jest) does not implement layout/rendering.
+// we create this mock to simply simulate a desktop view with a width of 1000
+function useResizeObserverMock() {
+  return {
+    width: 1000,
+  };
 }
 
-describe('<Tooltip />', () => {
-  window.ResizeObserver = ResizeObserver;
+jest.mock('use-resize-observer', () => useResizeObserverMock);
 
+describe('<Tooltip />', () => {
   it('does not display tooltip by default', () => {
     render(
       <RenderTooltip>
