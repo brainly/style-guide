@@ -1,18 +1,23 @@
-.sg-button-petit {
+.sg-petit-button {
+  // color variables
   --petit-button-background-color: transparent;
   --petit-button-background-background-color: transparent;
   --petit-button-hover-background-color: var(--gray-50);
   --petit-button-active-background-color: var(--gray-50);
   --petit-button-label-color: var(--text-black);
+
+  // size variables
   --petit-button-height: 32px;
+  --petit-button-spinner-size: 24px;
 
   padding: 0 8px;
   position: relative;
   height: var(--petit-button-height);
-  display: flex;
   border-radius: var(--petit-button-height);
   border: none;
   background: var(--petit-button-background-background-color);
+  display: inline-flex;
+  justify-content: center;
   align-items: center;
 
   &::before {
@@ -33,6 +38,21 @@
     text-decoration: none;
   }
 
+  &__spinner.sg-spinner {
+    position: absolute;
+
+    border-bottom-color: var(--petit-button-label-color);
+    border-left-color: var(--petit-button-label-color);
+    width: var(--petit-button-spinner-size);
+    height: var(--petit-button-spinner-size);
+  }
+
+  &--loading {
+    & .sg-petit-button__text {
+      opacity: 0;
+    }
+  }
+
   &:not([disabled]) {
     &:hover::before {
       background: var(--petit-button-hover-background-color);
@@ -45,12 +65,13 @@
     }
   }
 
-  &:disabled {
+  &:disabled:not(.sg-petit-button--loading) {
     opacity: 0.45;
   }
 
   &--xs {
     --petit-button-height: 24px;
+    --petit-button-spinner-size: 16px;
   }
 
   &--transparent-inverted {

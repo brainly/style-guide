@@ -1,6 +1,7 @@
 import * as React from 'react';
 import cx from 'classnames';
 import Text from '../text/Text';
+import Spinner, {SPINNER_SIZE, SPINNER_COLOR} from '../spinner/Spinner';
 
 export const PETIT_BUTTON_SIZE = {
   XS: 'xs',
@@ -44,6 +45,30 @@ export type PetitButtonPropsType = {
    */
   size?: PetitButtonSizeType;
 
+  /**
+   * Show loading state. By default loading state make button disabled while
+   * showing spinner inside and keep button's width unchanged.
+   */
+  loading?: boolean;
+
+  /**
+   * `aria-live` for loading state. Defaults to "off".
+   */
+  loadingAriaLive?: AriaLiveType;
+
+  /**
+   * Accessible information about loading state. Defaults to "loading".
+   */
+  loadingAriaLabel?: string;
+
+  /**
+   * Optional boolean for disabled button
+   * @example <Button variant="solid-indigo" disabled>
+   *            button
+   *          </Button>
+   */
+  disabled?: boolean;
+
   className?: string;
 } & React.ButtonHTMLAttributes<HTMLButtonElement>;
 
@@ -52,18 +77,30 @@ const PetitButton = ({
   variant,
   children,
   size,
+  loading,
+  loadingAriaLabel,
+  loadingAriaLive,
+  disabled,
   ...rest
 }: PetitButtonPropsType) => {
   const buttonClass = cx(
-    'sg-button-petit',
-    `sg-button-petit--${variant}`,
-    `sg-button-petit--${size}`,
+    'sg-petit-button',
+    `sg-petit-button--${variant}`,
+    `sg-petit-button--${size}`,
+    {'sg-petit-button--loading': loading},
     className
   );
 
   return (
-    <button {...rest} className={buttonClass}>
-      <Text className="sg-button-petit__text" weight="bold" size="small">
+    <button {...rest} className={buttonClass} disabled={disabled || loading}>
+      {loading && (
+        <Spinner
+          aria-live={loadingAriaLive}
+          aria-label={loadingAriaLabel}
+          className="sg-petit-button__spinner"
+        />
+      )}
+      <Text className="sg-petit-button__text" weight="bold" size="small">
         {children}
       </Text>
     </button>

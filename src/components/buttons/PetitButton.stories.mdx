@@ -134,7 +134,7 @@ import {StoryVariantTable} from '../../docs/utils';
                 <PetitButton {...args} variant={variant} disabled />
               </td>
               <td>
-                <PetitButton {...args} variant={variant} />
+                <PetitButton {...args} variant={variant} loading />
               </td>
               <td>
                 <PetitButton
@@ -186,6 +186,14 @@ import {StoryVariantTable} from '../../docs/utils';
                   {...args}
                   size={size}
                   icon={<Icon type="arrow_up" color="adaptive" />}
+                  variant="solid-light"
+                />
+              </td>
+              <td>
+                <PetitButton
+                  {...args}
+                  size={size}
+                  loading
                   variant="solid-light"
                 />
               </td>
