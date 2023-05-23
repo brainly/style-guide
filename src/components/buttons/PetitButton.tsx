@@ -2,6 +2,13 @@ import * as React from 'react';
 import cx from 'classnames';
 import Text from '../text/Text';
 
+export const PETIT_BUTTON_SIZE = {
+  XS: 'xs',
+  S: 's',
+};
+
+type PetitButtonSizeType = 'xs' | 's';
+
 export const PETIT_BUTTON_VARIANT = {
   TRANSPARENT: 'transparent',
   TRANSPARENT_INVERTED: 'transparent-inverted',
@@ -28,6 +35,15 @@ export type PetitButtonPropsType = {
    *
    */
   variant?: PetitButtonVariantType;
+
+  /**
+   * There are two sizes options for buttons, not need to be specify, default is s
+   * @example <PetitButton  size="xs">
+   *            button
+   *          </PetitButton>
+   */
+  size?: PetitButtonSizeType;
+
   className?: string;
 } & React.ButtonHTMLAttributes<HTMLButtonElement>;
 
@@ -35,11 +51,13 @@ const PetitButton = ({
   className,
   variant,
   children,
+  size,
   ...rest
 }: PetitButtonPropsType) => {
   const buttonClass = cx(
     'sg-button-petit',
     `sg-button-petit--${variant}`,
+    `sg-button-petit--${size}`,
     className
   );
 

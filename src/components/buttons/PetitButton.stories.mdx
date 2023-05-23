@@ -1,9 +1,11 @@
 import {ArgsTable, Meta, Story, Canvas} from '@storybook/addon-docs';
-import PetitButton, {PETIT_BUTTON_VARIANT} from './PetitButton';
-import {styled} from '@storybook/theming';
+import PetitButton, {
+  PETIT_BUTTON_VARIANT,
+  PETIT_BUTTON_SIZE,
+} from './PetitButton';
 import Headline from '../text/Headline';
-import Label from '../labels/Label';
 import PageHeader from 'blocks/PageHeader';
+import {StoryVariantTable} from '../../docs/utils';
 
 <Meta
   title="Components/PetitButton"
@@ -146,6 +148,45 @@ import PageHeader from 'blocks/PageHeader';
                   {...args}
                   variant={variant}
                   icon={<Icon type="arrow_up" color="adaptive" reversedOrder />}
+                />
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </StoryVariantTable>
+    )}
+  </Story>
+</Canvas>
+
+### Sizes
+
+<Canvas>
+  <Story name="Sizes">
+    {args => (
+      <StoryVariantTable>
+        <tbody>
+          {Object.values(PETIT_BUTTON_SIZE).map(size => (
+            <tr key={size}>
+              <td>
+                <Headline
+                  extraBold
+                  transform="uppercase"
+                  as="span"
+                  color="text-gray-40"
+                  size="medium"
+                >
+                  {size}
+                </Headline>
+              </td>
+              <td>
+                <PetitButton {...args} size={size} variant="solid-light" />
+              </td>
+              <td>
+                <PetitButton
+                  {...args}
+                  size={size}
+                  icon={<Icon type="arrow_up" color="adaptive" />}
+                  variant="solid-light"
                 />
               </td>
             </tr>
