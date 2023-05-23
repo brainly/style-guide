@@ -76,6 +76,7 @@ const TooltipElement = React.forwardRef<
         >
           <Text
             className="sg-tooltip__label"
+            align="to-center"
             color={context.color === 'dark' ? 'text-white' : 'text-black'}
             size="small"
           >
