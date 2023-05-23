@@ -7,7 +7,7 @@ import Icon, {TYPE as ICON_TYPES} from 'icons/Icon';
 import Headline from '../text/Headline';
 import PageHeader from 'blocks/PageHeader';
 import {StoryVariantTable} from '../../docs/utils';
-const ICON_SIZE_MAP = {
+const iconSize = {
   [PETIT_BUTTON_SIZE.XS]: 16,
   [PETIT_BUTTON_SIZE.S]: 24,
 };
@@ -15,6 +15,24 @@ const ICON_SIZE_MAP = {
 <Meta
   title="Components/PetitButton"
   component={PetitButton}
+  argTypes={{
+    children: {
+      control: {
+        type: 'text',
+      },
+    },
+    icon: {
+      control: {
+        type: 'select',
+        options: ICON_TYPES,
+      },
+    },
+    onClick: {
+      table: {
+        category: 'Events',
+      },
+    },
+  }}
   args={{
     children: 'Link button',
     onClick: () => console.log('button clicked'),
@@ -29,7 +47,22 @@ const ICON_SIZE_MAP = {
 ## Overview
 
 <Canvas>
-  <Story name="Default">{args => <PetitButton {...args} />}</Story>
+  <Story name="Default">
+    {args => (
+      <PetitButton
+        {...args}
+        icon={
+          args.icon ? (
+            <Icon
+              size={iconSize[args.size]}
+              type={args.icon}
+              color="adaptive"
+            />
+          ) : null
+        }
+      />
+    )}
+  </Story>
 </Canvas>
 
 <ArgsTable story="Default" />
@@ -195,7 +228,7 @@ const ICON_SIZE_MAP = {
                     <Icon
                       type="arrow_up"
                       color="adaptive"
-                      size={ICON_SIZE_MAP[size]}
+                      size={iconSize[size]}
                     />
                   }
                   variant="solid-light"

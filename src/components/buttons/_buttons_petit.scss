@@ -73,7 +73,8 @@
   }
 
   &--loading {
-    & .sg-petit-button__text {
+    & .sg-petit-button__text,
+    .sg-petit-button__icon {
       opacity: 0;
     }
   }
