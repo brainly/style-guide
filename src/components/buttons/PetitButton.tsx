@@ -1,12 +1,12 @@
 import * as React from 'react';
 import cx from 'classnames';
 import Text from '../text/Text';
-import Spinner, {SPINNER_SIZE, SPINNER_COLOR} from '../spinner/Spinner';
+import Spinner from '../spinner/Spinner';
 
 export const PETIT_BUTTON_SIZE = {
   XS: 'xs',
   S: 's',
-};
+} as const;
 
 type PetitButtonSizeType = 'xs' | 's';
 
@@ -69,27 +69,50 @@ export type PetitButtonPropsType = {
    */
   disabled?: boolean;
 
+  /**
+   * You can render icon inside each variant of button on the left side
+   * @example <PetitButton
+   *           icon={<Icon variant="facebook" color="icon-white" size={24} />}
+   *           variant="facebook"
+   *          >
+   *            Login with Facebook
+   *          </PetitButton>
+   */
+  icon?: React.ReactNode;
+
+  /**
+   * Reverses order of icon and text. Effective only when icon is set.
+   */
+  reversedOrder?: boolean;
+
   className?: string;
 } & React.ButtonHTMLAttributes<HTMLButtonElement>;
 
 const PetitButton = ({
   className,
-  variant,
+  variant = PETIT_BUTTON_VARIANT.TRANSPARENT,
   children,
-  size,
+  size = PETIT_BUTTON_SIZE.S,
   loading,
   loadingAriaLabel,
   loadingAriaLive,
   disabled,
+  icon,
+  reversedOrder,
   ...rest
 }: PetitButtonPropsType) => {
   const buttonClass = cx(
     'sg-petit-button',
     `sg-petit-button--${variant}`,
     `sg-petit-button--${size}`,
-    {'sg-petit-button--loading': loading},
+    {
+      'sg-petit-button--loading': loading,
+      'sg-petit-button--reversed-order': reversedOrder,
+    },
     className
   );
+
+  const hasIcon = icon !== undefined && icon !== null;
 
   return (
     <button {...rest} className={buttonClass} disabled={disabled || loading}>
@@ -103,6 +126,7 @@ const PetitButton = ({
       <Text className="sg-petit-button__text" weight="bold" size="small">
         {children}
       </Text>
+      {hasIcon && <span className="sg-petit-button__icon">{icon}</span>}
     </button>
   );
 };

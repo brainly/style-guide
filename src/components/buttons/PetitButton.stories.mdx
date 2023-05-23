@@ -3,9 +3,14 @@ import PetitButton, {
   PETIT_BUTTON_VARIANT,
   PETIT_BUTTON_SIZE,
 } from './PetitButton';
+import Icon, {TYPE as ICON_TYPES} from 'icons/Icon';
 import Headline from '../text/Headline';
 import PageHeader from 'blocks/PageHeader';
 import {StoryVariantTable} from '../../docs/utils';
+const ICON_SIZE_MAP = {
+  [PETIT_BUTTON_SIZE.XS]: 16,
+  [PETIT_BUTTON_SIZE.S]: 24,
+};
 
 <Meta
   title="Components/PetitButton"
@@ -147,7 +152,8 @@ import {StoryVariantTable} from '../../docs/utils';
                 <PetitButton
                   {...args}
                   variant={variant}
-                  icon={<Icon type="arrow_up" color="adaptive" reversedOrder />}
+                  icon={<Icon type="arrow_up" color="adaptive" />}
+                  reversedOrder
                 />
               </td>
             </tr>
@@ -185,7 +191,13 @@ import {StoryVariantTable} from '../../docs/utils';
                 <PetitButton
                   {...args}
                   size={size}
-                  icon={<Icon type="arrow_up" color="adaptive" />}
+                  icon={
+                    <Icon
+                      type="arrow_up"
+                      color="adaptive"
+                      size={ICON_SIZE_MAP[size]}
+                    />
+                  }
                   variant="solid-light"
                 />
               </td>
