@@ -123,10 +123,10 @@ const PetitButton = ({
           className="sg-petit-button__spinner"
         />
       )}
+      {hasIcon && <span className="sg-petit-button__icon">{icon}</span>}
       <Text className="sg-petit-button__text" weight="bold" size="small">
         {children}
       </Text>
-      {hasIcon && <span className="sg-petit-button__icon">{icon}</span>}
     </button>
   );
 };
