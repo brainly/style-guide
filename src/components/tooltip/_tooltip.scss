@@ -5,6 +5,8 @@
   background-color: var(--tooltip-color);
   padding: 8px 12px;
   border-radius: 6px;
+  min-width: 56px; // 24px of arrow width + 16px padding on each side
+  min-height: 36px;
 
   transition: opacity $durationQuick2 $easingLinear,
     transform $durationModerate2 $easingEntry;
@@ -73,6 +75,8 @@
 
   &--small {
     padding: 2px 8px;
+    min-height: 24px;
+    min-width: 44px; // 12px of arrow width + 16px padding on each side
   }
 
   &--light {
