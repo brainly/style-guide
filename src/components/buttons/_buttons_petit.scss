@@ -48,6 +48,11 @@
     border-left-color: var(--petit-button-label-color);
     width: var(--petit-button-spinner-size);
     height: var(--petit-button-spinner-size);
+
+    @media (forced-colors: active) {
+      border-bottom-color: CanvasText;
+      border-left-color: CanvasText;
+    }
   }
 
   &__icon {
@@ -70,6 +75,10 @@
 
   &:disabled:not(.sg-petit-button--loading) {
     opacity: 0.45;
+
+    @media (forced-colors: active) {
+      --petit-button-label-color: GrayText;
+    }
   }
 
   &--loading {
@@ -85,6 +94,10 @@
     --petit-button-icon-margin-right: 6px;
 
     padding: 0 8px;
+
+    @media (forced-colors: active) {
+      padding: 0 6px;
+    }
   }
 
   &--reversed-order {
@@ -129,5 +142,10 @@
     --petit-button-hover-background-color: var(--indigo-50);
     --petit-button-active-background-color: var(--indigo-50);
     --petit-button-label-color: var(--text-indigo-60);
+  }
+
+  @media (forced-colors: active) {
+    border: 2px solid CanvasText;
+    padding: 0 8px;
   }
 }

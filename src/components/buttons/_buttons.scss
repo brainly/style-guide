@@ -51,6 +51,12 @@ $largeButtonSize: componentSize(l);
     transform: scale(0.96);
   }
 
+  &:disabled {
+    @media (forced-colors: active) {
+      color: GrayText;
+    }
+  }
+
   &__text {
     position: relative;
     display: flex;
