@@ -21,7 +21,7 @@
     top: 0;
     height: 100%;
     width: 100%;
-    transition: transform $durationGentle2 $easingRegular;
+    transition: transform 2 * $durationGentle2 $easingRegular;
   }
 
   &-step {

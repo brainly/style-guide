@@ -1,6 +1,6 @@
 import * as React from 'react';
 import cx from 'classnames';
-import Checkbox from '../form-elements/checkbox/Checkbox';
+import Checkbox from '../form/checkbox/Checkbox';
 import generateRandomString from '../../js/generateRandomString';
 
 export interface CardCheckboxPropsType

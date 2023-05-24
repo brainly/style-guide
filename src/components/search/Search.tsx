@@ -1,7 +1,7 @@
 import * as React from 'react';
 import cx from 'classnames';
-import Input, {COLOR, SIZE} from '../form-elements/Input';
-import type {InputPropsType} from '../form-elements/Input';
+import Input, {COLOR, SIZE} from '../form/Input';
+import type {InputPropsType} from '../form/Input';
 import Icon from '../icons/Icon';
 import Button, {ButtonTypeType} from '../buttons/Button';
 
