@@ -22,6 +22,7 @@
   justify-content: center;
   align-items: center;
   color: var(--petit-button-label-color);
+  transition: transform $durationModerate2 $easingRegular;
 
   &::before {
     background: var(--petit-button-background-color);
@@ -67,9 +68,13 @@
       opacity: 0.12;
     }
 
-    &:active::before {
-      background: var(--petit-button-active-background-color);
-      opacity: 0.2;
+    &:active {
+      transform: scale(0.96);
+
+      &::before {
+        background: var(--petit-button-active-background-color);
+        opacity: 0.2;
+      }
     }
   }
 
