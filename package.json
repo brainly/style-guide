@@ -38,8 +38,7 @@
     "react-hook-form": "7.37.0",
     "patch-package": "^6.5.1",
     "path": "^0.12.7",
-    "postinstall-postinstall": "^2.1.0",
-    "use-isomorphic-layout-effect": "^1.1.2"
+    "postinstall-postinstall": "^2.1.0"
   },
   "devDependencies": {
     "@babel/cli": "^7.8.3",
@@ -56,6 +55,7 @@
     "@hot-loader/react-dom": "^16.8.6",
     "@khanacademy/flow-to-ts": "^0.5.2",
     "@microsoft/api-extractor": "^7.33.8",
+    "@rive-app/react-canvas": "^3.0.38",
     "@storybook/addon-a11y": "^6.5.13",
     "@storybook/addon-actions": "^6.5.13",
     "@storybook/addon-docs": "^6.5.13",
