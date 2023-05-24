@@ -25,7 +25,7 @@ const TooltipTrigger = React.forwardRef<
   HTMLDivElement,
   TooltipTriggerPropsType
 >((props: TooltipTriggerPropsType, ref) => {
-  const {children} = props;
+  const {children, ...rest} = props;
   const context = useTooltipContext();
   const childrenRef = (children as any).ref;
   const triggerRef = useMergeRefs([
@@ -47,7 +47,7 @@ const TooltipTrigger = React.forwardRef<
       ...context.getReferenceProps({
         className,
         tabIndex: 0, // ensure the element tabindex is set, but allow overriding with children props
-        ...props,
+        ...rest,
         ...children.props,
         ref: triggerRef, // override forwarded ref with merged refs
         'data-state': context.isOpen ? 'open' : 'closed',
