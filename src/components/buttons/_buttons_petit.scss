@@ -1,7 +1,6 @@
 .sg-petit-button {
   // color variables
-  --petit-button-background-color: transparent;
-  --petit-button-background-background-color: transparent;
+  --petit-button-solid-background-color: transparent;
   --petit-button-hover-background-color: var(--gray-50);
   --petit-button-active-background-color: var(--gray-50);
   --petit-button-label-color: var(--text-black);
@@ -17,7 +16,7 @@
   height: var(--petit-button-height);
   border-radius: var(--petit-button-height);
   border: none;
-  background: var(--petit-button-background-background-color);
+  background: var(--petit-button-solid-background-color);
   display: inline-flex;
   justify-content: center;
   align-items: center;
@@ -25,7 +24,7 @@
   transition: transform $durationModerate2 $easingRegular;
 
   &::before {
-    background: var(--petit-button-background-color);
+    background: var(--petit-button-hover-background-color);
     content: '';
     position: absolute;
     top: 0;
@@ -33,6 +32,10 @@
     width: 100%;
     height: 100%;
     border-radius: inherit;
+    transform: scale(0.5);
+    opacity: 0;
+    transition: transform $durationModerate2 cubic-bezier(0.3, 0, 1, 0.8),
+      opacity $durationModerate1 linear;
   }
 
   &__text {
@@ -64,8 +67,8 @@
 
   &:not([disabled]) {
     &:hover::before {
-      background: var(--petit-button-hover-background-color);
       opacity: 0.12;
+      transform: scale(1);
     }
 
     &:active {
@@ -135,15 +138,20 @@
   }
 
   &--solid-light {
-    --petit-button-background-color: transparent;
-    --petit-button-background-background-color: var(--gray-20);
+    &::before {
+      transform: scale(1);
+    }
+    --petit-button-solid-background-color: var(--gray-20);
     --petit-button-hover-background-color: var(--gray-50);
     --petit-button-active-background-color: var(--gray-50);
     --petit-button-label-color: var(--text-black);
   }
 
   &--solid-indigo-light {
-    --petit-button-background-color: var(--indigo-10);
+    &::before {
+      transform: scale(1);
+    }
+    --petit-button-solid-background-color: var(--indigo-10);
     --petit-button-hover-background-color: var(--indigo-50);
     --petit-button-active-background-color: var(--indigo-50);
     --petit-button-label-color: var(--text-indigo-60);
