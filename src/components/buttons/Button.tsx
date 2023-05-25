@@ -267,7 +267,7 @@ export type ButtonPropsType = {
   | 'className'
   | 'target'
   | 'newTabLabel'
-  | 'undefined'
+  | 'aria-label'
   | 'type'
   | 'onClick'
 >;

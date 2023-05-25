@@ -27,7 +27,27 @@ type PetitButtonVariantType =
   | 'solid-light'
   | 'solid-indigo-light';
 
+type TargetType = '_self' | '_blank' | '_parent' | '_top';
+// const anchorRelatedProps = [
+//   'download',
+//   'hreflang',
+//   'ping',
+//   'referrerpolicy',
+//   'rel',
+// ];
+
 export type PetitButtonPropsType = {
+  /**
+   * Children to be rendered inside Button
+   * @example <Button
+   *           icon={<Icon type="answer" color="icon-white" size={24} />}
+   *           variant="solid"
+   *          >
+   *            button
+   *          </Button>
+   */
+  children?: React.ReactNode;
+
   /**
    * Specify variant of the button that you want to use
    * @example <PetitButton variant="solid-light">
@@ -36,6 +56,38 @@ export type PetitButtonPropsType = {
    *
    */
   variant?: PetitButtonVariantType;
+
+  /**
+   * Specify href for button, optional string
+   * @example <Button href="https://brainly.com/" size="m" variant="solid-indigo">
+   *            button
+   *          </Button>
+   */
+  href?: string;
+
+  /**
+   * Specifies where to display the linked URL.
+   */
+  target?: TargetType;
+
+  /**
+   * Accessible information that indicates opening in new tab.
+   */
+  newTabLabel?: string;
+
+  /**
+   * Accessible name for Button.
+   */
+  'aria-label'?: string;
+
+  onClick?: (
+    arg0: React.MouseEvent<HTMLButtonElement | HTMLAnchorElement>
+  ) => unknown;
+
+  /**
+   * The default behavior of the button.
+   */
+  type?: ButtonTypeType;
 
   /**
    * There are two sizes options for buttons, not need to be specify, default is s
@@ -86,7 +138,26 @@ export type PetitButtonPropsType = {
   reversedOrder?: boolean;
 
   className?: string;
-} & React.ButtonHTMLAttributes<HTMLButtonElement>;
+} & Omit<
+  React.AllHTMLAttributes<HTMLElement>,
+  | 'variant'
+  | 'icon'
+  | 'reversedOrder'
+  | 'children'
+  | 'size'
+  | 'href'
+  | 'disabled'
+  | 'loading'
+  | 'loadingAriaLive'
+  | 'loadingAriaLabel'
+  | 'fullWidth'
+  | 'className'
+  | 'target'
+  | 'newTabLabel'
+  | 'aria-label'
+  | 'type'
+  | 'onClick'
+>;
 
 const PetitButton = ({
   className,
@@ -99,6 +170,12 @@ const PetitButton = ({
   disabled,
   icon,
   reversedOrder,
+  href,
+  target,
+  newTabLabel = '(opens in a new tab)',
+  type,
+  onClick,
+  'aria-label': ariaLabel,
   ...rest
 }: PetitButtonPropsType) => {
   const buttonClass = cx(
@@ -112,10 +189,34 @@ const PetitButton = ({
     className
   );
 
+  const isDisabled = disabled || loading;
+  const isLink = !!href;
   const hasIcon = icon !== undefined && icon !== null;
 
+  const onButtonClick = e => {
+    if (isLink && isDisabled) {
+      return;
+    }
+
+    return onClick && onClick(e);
+  };
+
+  const TagToRender = isLink ? (isDisabled ? 'span' : 'a') : 'button';
+
   return (
-    <button {...rest} className={buttonClass} disabled={disabled || loading}>
+    <TagToRender
+      {...rest}
+      className={buttonClass}
+      disabled={isDisabled}
+      aria-label={ariaLabel}
+      type={type}
+      target={target}
+      href={href}
+      onClick={onButtonClick}
+      // On iOS the :active pseudo state is triggered only when there is a touch event set on the HTML element
+      // and we use active pseudo class to provide haptic feedback.
+      onTouchStart={() => null}
+    >
       {loading && (
         <Spinner
           aria-live={loadingAriaLive}
@@ -126,8 +227,11 @@ const PetitButton = ({
       {hasIcon && <span className="sg-petit-button__icon">{icon}</span>}
       <Text className="sg-petit-button__text" weight="bold" size="small">
         {children}
+        {target === '_blank' && (
+          <span className="sg-visually-hidden">{newTabLabel}</span>
+        )}
       </Text>
-    </button>
+    </TagToRender>
   );
 };
 
