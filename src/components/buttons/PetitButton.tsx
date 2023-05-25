@@ -2,6 +2,7 @@ import * as React from 'react';
 import cx from 'classnames';
 import Text from '../text/Text';
 import Spinner from '../spinner/Spinner';
+import {__DEV__, invariant} from '../utils';
 
 export const PETIT_BUTTON_SIZE = {
   XS: 'xs',
@@ -28,13 +29,14 @@ type PetitButtonVariantType =
   | 'solid-indigo-light';
 
 type TargetType = '_self' | '_blank' | '_parent' | '_top';
-// const anchorRelatedProps = [
-//   'download',
-//   'hreflang',
-//   'ping',
-//   'referrerpolicy',
-//   'rel',
-// ];
+
+const anchorRelatedProps = [
+  'download',
+  'hreflang',
+  'ping',
+  'referrerpolicy',
+  'rel',
+];
 
 export type PetitButtonPropsType = {
   /**
@@ -192,6 +194,26 @@ const PetitButton = ({
   const isDisabled = disabled || loading;
   const isLink = !!href;
   const hasIcon = icon !== undefined && icon !== null;
+
+  if (__DEV__) {
+    invariant(
+      !(reversedOrder && !icon),
+      `Using 'reversedOrder' property has no effect when 'icon' property is not set.`
+    );
+    invariant(
+      !(
+        !isLink &&
+        (target || Object.keys(rest).some(p => anchorRelatedProps.includes(p)))
+      ),
+      `An anchor-related prop is not working when "href" is not provided: ${Object.keys(
+        rest
+      )}`
+    );
+    invariant(
+      !(isLink && type),
+      '`type` prop is not working when href is provided'
+    );
+  }
 
   const onButtonClick = e => {
     if (isLink && isDisabled) {
