@@ -9,9 +9,12 @@ import userEvent from '@testing-library/user-event';
 import Tooltip from './Tooltip';
 import Button from '../buttons/Button';
 import Icon from '../icons/Icon';
-import ResizeObserver from 'resize-observer-polyfill';
 
-window.ResizeObserver = ResizeObserver; // set the observer
+global.ResizeObserver = jest.fn().mockImplementation(() => ({
+  observe: jest.fn(),
+  unobserve: jest.fn(),
+  disconnect: jest.fn(),
+}));
 
 export function RenderTooltip(props: {
   defaultOpen?: boolean;
