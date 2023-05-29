@@ -187,7 +187,55 @@ describe('<Tooltip />', () => {
     );
   });
 
-  it('hides tooltip when Esc key is hit', async () => {
+  it('hides tooltip when Esc key is hit, when tooltip is triggered by focus', async () => {
+    const tooltip = render(
+      <RenderTooltip>
+        <Button
+          data-testid="button1"
+          icon={<Icon color="adaptive" type="clipboard" />}
+          iconOnly
+          variant="solid-light"
+        >
+          button
+        </Button>
+      </RenderTooltip>
+    );
+    const button = screen.getByTestId('button1');
+
+    fireEvent.focus(button);
+    expect(tooltip.getByText('Copy to clipboard')).toBeInTheDocument();
+
+    fireEvent.keyDown(document.activeElement, {key: 'Escape'});
+    await waitForElementToBeRemoved(() =>
+      tooltip.queryByText('Copy to clipboard')
+    );
+  });
+
+  it('hides tooltip when Esc key is hit, when tooltip is triggered by hover', async () => {
+    const tooltip = render(
+      <RenderTooltip>
+        <Button
+          data-testid="button1"
+          icon={<Icon color="adaptive" type="clipboard" />}
+          iconOnly
+          variant="solid-light"
+        >
+          button
+        </Button>
+      </RenderTooltip>
+    );
+    const button = screen.getByTestId('button1');
+
+    userEvent.hover(button);
+    expect(tooltip.getByText('Copy to clipboard')).toBeInTheDocument();
+
+    fireEvent.keyDown(document.activeElement, {key: 'Escape'});
+    await waitForElementToBeRemoved(() =>
+      tooltip.queryByText('Copy to clipboard')
+    );
+  });
+
+  it('hides tooltip when Esc key is hit, when tooltip is both focused and hovered', async () => {
     const tooltip = render(
       <RenderTooltip>
         <Button
