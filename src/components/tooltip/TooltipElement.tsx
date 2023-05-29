@@ -71,6 +71,9 @@ const TooltipElement = React.forwardRef<
             position: context.strategy,
             top: context.y ?? 0,
             left: context.x ?? 0,
+            visibility: context.middlewareData.hide?.referenceHidden
+              ? 'hidden'
+              : 'visible',
             ...props.style,
           }}
           aria-hidden="true"

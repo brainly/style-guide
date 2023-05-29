@@ -13,6 +13,7 @@ import {
   shift,
   safePolygon,
   useTransitionStatus,
+  hide,
 } from '@floating-ui/react';
 import type {Placement} from '@floating-ui/react';
 import {generateId, isTouchScreen} from '../utils';
@@ -97,6 +98,9 @@ const useTooltip = ({
       arrow({
         element: arrowRef,
         padding: variantParams.arrowPadding,
+      }),
+      hide({
+        strategy: 'referenceHidden',
       }),
     ],
   });
