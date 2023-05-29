@@ -78,7 +78,7 @@
     }
   }
 
-  &:disabled:not(.sg-petit-button--loading) {
+  &:disabled {
     opacity: 0.45;
 
     @media (forced-colors: active) {
