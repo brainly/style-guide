@@ -87,7 +87,13 @@ const TOOLTIP_PLACEMENTS = [
           </div>
           <div>
             <Text weight="bold">{`<p>`} tag:</Text>
-            <RenderTooltip trigger={<p>Hover me to trigger the tooltip</p>} />
+            <RenderTooltip
+              trigger={
+                <p style={{background: 'lightgray'}}>
+                  Hover me to trigger the tooltip
+                </p>
+              }
+            />
           </div>
           <div>
             <Text weight="bold">Counter component:</Text>
