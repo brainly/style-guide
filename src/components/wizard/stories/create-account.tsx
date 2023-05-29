@@ -86,33 +86,30 @@ const AccountTypeCardRadio = ({
   );
 };
 
-const SuccessStep = ({avatarImage}: {avatarImage: string}) => {
-  const {currentStep, stepsLength} = useWizard();
+const SuccessScreen = ({avatarImage}: {avatarImage: string}) => {
   const [countdown, setCountdown] = React.useState(3);
   const confettiAnimationRef: LottieRef = React.useRef();
 
   React.useEffect(() => {
     let countdown = 3;
 
-    if (currentStep === stepsLength - 1) {
-      if (confettiAnimationRef.current) {
-        confettiAnimationRef.current.play();
+    if (confettiAnimationRef.current) {
+      confettiAnimationRef.current.play();
+    }
+
+    const intervalID = window.setInterval(() => {
+      if (countdown < 0) {
+        window.clearInterval(intervalID);
       }
 
-      const intervalID = window.setInterval(() => {
-        if (countdown === 0) {
-          window.clearInterval(intervalID);
-        }
+      setCountdown(countdown);
+      countdown = countdown - 1;
+    }, 1000);
 
-        setCountdown(countdown);
-        countdown = countdown - 1;
-      }, 1000);
-
-      return () => {
-        window.clearInterval(intervalID);
-      };
-    }
-  }, [currentStep, stepsLength]);
+    return () => {
+      window.clearInterval(intervalID);
+    };
+  }, []);
 
   return (
     <>
@@ -191,6 +188,7 @@ const SuccessStep = ({avatarImage}: {avatarImage: string}) => {
 };
 
 const CreateAccountStory = () => {
+  const [isCompleted, setIsCompleted] = React.useState(false);
   const years = React.useMemo(() => {
     const arr = [];
 
@@ -205,7 +203,7 @@ const CreateAccountStory = () => {
   }, []);
 
   const onComplete = () => {
-    alert('wizard form completed');
+    setIsCompleted(true);
   };
 
   const [age, setAge] = React.useState([]);
@@ -228,7 +226,9 @@ const CreateAccountStory = () => {
     setAvatarImage('images/cat.png');
   }, []);
 
-  return (
+  return isCompleted ? (
+    <SuccessScreen avatarImage={avatarImage} />
+  ) : (
     <Wizard onComplete={onComplete}>
       <Wizard.ProgressBar>Join Brainly</Wizard.ProgressBar>
       <WizardStep>
@@ -376,9 +376,6 @@ const CreateAccountStory = () => {
         <WizardStep.Submit variant="solid-indigo">
           create account
         </WizardStep.Submit>
-      </WizardStep>
-      <WizardStep>
-        <SuccessStep avatarImage={avatarImage} />
       </WizardStep>
     </Wizard>
   );
