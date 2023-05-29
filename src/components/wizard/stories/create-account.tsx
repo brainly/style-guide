@@ -13,8 +13,6 @@ import Icon from '../../icons/Icon';
 import Button from '../../buttons/Button';
 import Avatar from '../../avatar/Avatar';
 import SubjectIcon from '../../subject-icons/SubjectIcon';
-import Spinner from '../../spinner/Spinner';
-import FileHandler from '../../file-handler/FileHandler';
 import brandHeroesAnimation from './brand-heroes-lottie.json';
 import confettiAnimation from './confetti-lottie.json';
 
