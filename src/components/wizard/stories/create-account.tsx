@@ -1,6 +1,6 @@
 import React from 'react';
 import Lottie, {LottieRef} from 'lottie-react';
-import {Wizard, WizardStep, useWizard} from '../Wizard';
+import {Wizard, WizardStep} from '../Wizard';
 import Input from '../../form/Input';
 import Checkbox from '../../form/checkbox/Checkbox';
 import CardRadioGroup from '../../card-interactive/CardRadioGroup';

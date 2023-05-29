@@ -155,17 +155,42 @@ function attemptFocus(element: HTMLElement) {
   return document.activeElement === element;
 }
 
-function useControlTabbing({
-  wizardRef,
-  stepOuterRef,
-  stepInnerRef,
-  currentStep,
-}: {
-  wizardRef: React.MutableRefObject<HTMLDivElement>;
-  stepOuterRef: React.MutableRefObject<HTMLElement[]>;
-  stepInnerRef: React.MutableRefObject<HTMLElement[]>;
-  currentStep: number;
-}) {
+type WizardPropsType = {
+  onComplete?(): void;
+  children: React.ReactNode;
+};
+
+const Wizard = ({children, onComplete}: WizardPropsType) => {
+  const wizardRef = React.useRef<HTMLDivElement>();
+  const stepOuterRef = React.useRef<Array<HTMLElement>>([]);
+  const stepInnerRef = React.useRef<Array<HTMLElement>>([]);
+  const childrenArray = React.Children.toArray(children);
+  const stepElements = childrenArray.filter(reactNode => {
+    return React.isValidElement(reactNode) && reactNode.type === WizardStep;
+  });
+
+  const progressBarElement = childrenArray.find(reactNode => {
+    return (
+      React.isValidElement(reactNode) && reactNode.type === WizardProgressBar
+    );
+  });
+
+  const [currentStep, setCurrentStep] = React.useState<number>(0);
+
+  const next = React.useCallback(() => {
+    if (currentStep < stepElements.length - 1) {
+      setCurrentStep(currentStep + 1);
+    } else {
+      onComplete();
+    }
+  }, [currentStep, stepElements, onComplete]);
+
+  const prev = React.useCallback(() => {
+    if (currentStep > 0) {
+      setCurrentStep(currentStep - 1);
+    }
+  }, [currentStep]);
+
   React.useEffect(() => {
     if (!stepInnerRef.current[currentStep]) {
       return;
@@ -214,49 +239,45 @@ function useControlTabbing({
       wizardElement.removeEventListener('focusin', handleWizardFocusIn);
     };
   }, [currentStep, stepInnerRef, stepOuterRef, wizardRef]);
-}
 
-type WizardPropsType = {
-  onComplete?(): void;
-  children: React.ReactNode;
-};
+  const handleArrowNavigation = React.useCallback(
+    event => {
+      const target = event.target as HTMLElement;
+      const shouldIgnore = () => {
+        return ['TEXTAREA', 'INPUT'].some(
+          nodeName => target.nodeName === nodeName
+        );
+      };
 
-const Wizard = ({children, onComplete}: WizardPropsType) => {
-  const wizardRef = React.useRef<HTMLDivElement>();
-  const stepOuterRef = React.useRef<Array<HTMLElement>>([]);
-  const stepInnerRef = React.useRef<Array<HTMLElement>>([]);
-  const childrenArray = React.Children.toArray(children);
-  const stepElements = childrenArray.filter(reactNode => {
-    return React.isValidElement(reactNode) && reactNode.type === WizardStep;
-  });
+      switch (event.key) {
+        case 'ArrowUp': {
+          if (shouldIgnore()) {
+            return;
+          }
+          prev();
+          break;
+        }
+        case 'ArrowDown': {
+          if (shouldIgnore()) {
+            return;
+          }
+          next();
+          break;
+        }
+        default: {
+          //
+        }
+      }
+    },
+    [next, prev]
+  );
 
-  const progressBarElement = childrenArray.find(reactNode => {
-    return (
-      React.isValidElement(reactNode) && reactNode.type === WizardProgressBar
-    );
-  });
+  React.useEffect(() => {
+    window.addEventListener('keydown', handleArrowNavigation);
 
-  const [currentStep, setCurrentStep] = React.useState<number>(0);
-
-  const next = React.useCallback(() => {
-    if (currentStep < stepElements.length - 1) {
-      setCurrentStep(currentStep + 1);
-    } else {
-      onComplete();
-    }
-  }, [currentStep, stepElements, onComplete]);
-
-  const prev = React.useCallback(() => {
-    if (currentStep > 0) {
-      setCurrentStep(currentStep - 1);
-    }
-  }, [currentStep]);
-
-  useControlTabbing({
-    wizardRef,
-    stepOuterRef,
-    stepInnerRef,
-    currentStep,
+    return () => {
+      window.removeEventListener('keydown', handleArrowNavigation);
+    };
   });
 
   return (
