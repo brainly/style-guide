@@ -23,6 +23,7 @@ const MonetisationStory = () => {
         <Wizard.Title subtitle="Try out premium features for FREE and cancel anytime, we’ll remind you a day before the trial ends!">
           Get unlimited learning with Brainly Plus
         </Wizard.Title>
+        <WizardStep.Title>Claim your free trial</WizardStep.Title>
         <WizardStep.Submit variant="solid-indigo">
           claim your free trial
         </WizardStep.Submit>

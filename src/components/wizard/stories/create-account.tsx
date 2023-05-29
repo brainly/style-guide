@@ -1,10 +1,12 @@
 import React from 'react';
-import {Wizard, WizardStep} from '../Wizard';
+import Lottie, {LottieRef} from 'lottie-react';
+import {Wizard, WizardStep, useWizard} from '../Wizard';
 import Input from '../../form/Input';
 import Checkbox from '../../form/checkbox/Checkbox';
 import CardRadioGroup from '../../card-interactive/CardRadioGroup';
 import CardCheckbox from '../../card-interactive/CardCheckbox';
 import Text from '../../text/Text';
+import Headline from '../../text/Headline';
 import Flex from '../../flex/Flex';
 import SelectMenu from '../../select-menu/SelectMenu';
 import Icon from '../../icons/Icon';
@@ -13,6 +15,8 @@ import Avatar from '../../avatar/Avatar';
 import SubjectIcon from '../../subject-icons/SubjectIcon';
 import Spinner from '../../spinner/Spinner';
 import FileHandler from '../../file-handler/FileHandler';
+import brandHeroesAnimation from './brand-heroes-lottie.json';
+import confettiAnimation from './confetti-lottie.json';
 
 const SubjectCardCheckbox = ({
   name,
@@ -84,6 +88,95 @@ const AccountTypeCardRadio = ({
   );
 };
 
+const SuccessStep = ({avatarImage}: {avatarImage: string}) => {
+  const {currentStep, stepsLength} = useWizard();
+  const [countdown, setCountdown] = React.useState(3);
+  const confettiAnimationRef: LottieRef = React.useRef();
+
+  React.useEffect(() => {
+    let countdown = 3;
+
+    if (currentStep === stepsLength - 1) {
+      console.log(confettiAnimationRef.current);
+      if (confettiAnimationRef.current) {
+        confettiAnimationRef.current.play();
+      }
+
+      const intervalID = window.setInterval(() => {
+        if (countdown === 0) {
+          window.clearInterval(intervalID);
+        }
+
+        setCountdown(countdown);
+        countdown = countdown - 1;
+      }, 1000);
+
+      return () => {
+        window.clearInterval(intervalID);
+      };
+    }
+  }, [currentStep, stepsLength]);
+
+  return (
+    <>
+      <div
+        style={{
+          position: 'absolute',
+          height: '30%',
+          top: '10%',
+          left: 0,
+          width: '100%',
+        }}
+      >
+        <Flex
+          direction="column"
+          alignItems="center"
+          fullWidth
+          fullHeight
+          gap="s"
+        >
+          <Avatar imgSrc={avatarImage} size="xl" />
+          <Headline align="to-center" size="large">
+            Welcome to Brainly, YourUsername
+          </Headline>
+          <Text align="to-center" color="text-gray-50" weight="bold">
+            {countdown > 0
+              ? `Redirecting to your question in... ${countdown}s`
+              : null}
+          </Text>
+        </Flex>
+      </div>
+      <div
+        style={{
+          position: 'absolute',
+          height: '70%',
+          width: '80%',
+          top: '20%',
+          left: '10%',
+        }}
+      >
+        <Lottie animationData={brandHeroesAnimation} />
+      </div>
+      <div
+        style={{
+          position: 'absolute',
+          height: '80%',
+          width: '80%',
+          top: 0,
+          left: '10%',
+        }}
+      >
+        <Lottie
+          lottieRef={confettiAnimationRef}
+          animationData={confettiAnimation}
+          loop={false}
+          autoplay={false}
+        />
+      </div>
+    </>
+  );
+};
+
 const CreateAccountStory = () => {
   const years = React.useMemo(() => {
     const arr = [];
@@ -114,14 +207,12 @@ const CreateAccountStory = () => {
     setCountry([option]);
   }, []);
 
-  const [uploadStatus, setUploadStatus] = React.useState('idle');
+  const [avatarImage, setAvatarImage] = React.useState(
+    'images/pinguin_avatar.png'
+  );
 
-  const handleUpload = React.useCallback(() => {
-    setUploadStatus('in_progress');
-
-    setTimeout(() => {
-      setUploadStatus('completed');
-    }, 2000);
+  const handleRandomize = React.useCallback(() => {
+    setAvatarImage('images/cat.png');
   }, []);
 
   return (
@@ -201,27 +292,24 @@ const CreateAccountStory = () => {
       <WizardStep>
         <WizardStep.Title>Set your profile picture</WizardStep.Title>
         <Flex gap="l" marginBottom="m">
-          <Avatar imgSrc="images/pinguin_avatar.png" size="xl" />
+          <Avatar imgSrc={avatarImage} size="xl" />
           <Flex direction="column" gap="s">
             <Flex gap="xs">
               <Button
                 variant="solid-light"
                 icon={<Icon color="icon-black" type="reload" />}
                 type="button"
+                onClick={handleRandomize}
               >
                 Randomize
               </Button>
-              {uploadStatus === 'idle' || uploadStatus === 'completed' ? (
-                <Button
-                  variant="solid-light"
-                  icon={<Icon color="icon-black" type="arrow_up" />}
-                  type="button"
-                  onClick={handleUpload}
-                >
-                  Upload
-                </Button>
-              ) : null}
-              {uploadStatus === 'in_progress' ? <Spinner /> : null}
+              <Button
+                variant="solid-light"
+                icon={<Icon color="icon-black" type="arrow_up" />}
+                type="button"
+              >
+                Upload
+              </Button>
             </Flex>
             <Text size="small">
               File that is{' '}
@@ -239,11 +327,6 @@ const CreateAccountStory = () => {
             </Text>
           </Flex>
         </Flex>
-        {uploadStatus === 'completed' ? (
-          <Flex>
-            <FileHandler>avatar.jpg</FileHandler>
-          </Flex>
-        ) : null}
         <WizardStep.Submit variant="solid-indigo">next</WizardStep.Submit>
       </WizardStep>
       <WizardStep>
@@ -280,6 +363,9 @@ const CreateAccountStory = () => {
         <WizardStep.Submit variant="solid-indigo">
           create account
         </WizardStep.Submit>
+      </WizardStep>
+      <WizardStep>
+        <SuccessStep avatarImage={avatarImage} />
       </WizardStep>
     </Wizard>
   );
