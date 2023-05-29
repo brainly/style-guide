@@ -155,7 +155,15 @@ const SuccessStep = ({avatarImage}: {avatarImage: string}) => {
           left: '10%',
         }}
       >
-        <Lottie animationData={brandHeroesAnimation} />
+        <div
+          style={{
+            margin: '0 auto',
+            width: '100%',
+            maxWidth: '1000px',
+          }}
+        >
+          <Lottie animationData={brandHeroesAnimation} />
+        </div>
       </div>
       <div
         style={{
@@ -166,12 +174,20 @@ const SuccessStep = ({avatarImage}: {avatarImage: string}) => {
           left: '10%',
         }}
       >
-        <Lottie
-          lottieRef={confettiAnimationRef}
-          animationData={confettiAnimation}
-          loop={false}
-          autoplay={false}
-        />
+        <div
+          style={{
+            margin: '0 auto',
+            width: '100%',
+            maxWidth: '1000px',
+          }}
+        >
+          <Lottie
+            lottieRef={confettiAnimationRef}
+            animationData={confettiAnimation}
+            loop={false}
+            autoplay={false}
+          />
+        </div>
       </div>
     </>
   );
