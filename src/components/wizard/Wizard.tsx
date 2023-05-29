@@ -1,9 +1,8 @@
 import React from 'react';
-import Button from '../buttons/Button';
+import Button, {ButtonPropsType} from '../buttons/Button';
 import Icon, {TYPE} from '../icons/Icon';
 import Flex from '../flex/Flex';
 import ProgressBar from '../progress-bar/ProgressBar';
-import classNames from 'classnames';
 import Text from '../text/Text';
 import Box from '../box/Box';
 import Headline from '../text/Headline';
@@ -354,7 +353,7 @@ const WizardStep: React.FunctionComponent<
 
 const WizardStepSubmit: React.FunctionComponent<{
   hint?: string;
-  variant?: ButtonVariantType;
+  variant?: ButtonPropsType['variant'];
 }> = ({variant = 'solid', hint = 'press', children}) => {
   return (
     <Flex marginTop="l">

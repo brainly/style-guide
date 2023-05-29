@@ -59,7 +59,7 @@ export function useBrainlyForm<T extends FormFields = FormFields>(
       // @ts-ignore
       return form.setError(field, {type: 'custom', message});
     },
-    [form.setError]
+    [form]
   );
 
   const errors = React.useMemo(() => {
@@ -105,7 +105,7 @@ export function useBrainlyForm<T extends FormFields = FormFields>(
         disabled,
       };
     },
-    [form.register]
+    [form]
   );
 
   return {

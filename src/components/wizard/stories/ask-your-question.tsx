@@ -5,7 +5,7 @@ import Text from '../../text/Text';
 import Flex from '../../flex/Flex';
 import Icon from '../../icons/Icon';
 import Button from '../../buttons/Button';
-import SubjectIcon from '../../subject-icons/SubjectIcon';
+import SubjectIcon, {IconTypeType} from '../../subject-icons/SubjectIcon';
 import FileHandler from '../../file-handler/FileHandler';
 import Textarea from '../../form/Textarea';
 
@@ -14,7 +14,7 @@ const SubjectCardRadioItem = ({
   label,
   value,
 }: {
-  icon: SubjectIconType;
+  icon: IconTypeType;
   label: string;
   value: string;
 }) => {

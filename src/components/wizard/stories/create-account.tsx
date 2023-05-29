@@ -12,7 +12,7 @@ import SelectMenu from '../../select-menu/SelectMenu';
 import Icon from '../../icons/Icon';
 import Button from '../../buttons/Button';
 import Avatar from '../../avatar/Avatar';
-import SubjectIcon from '../../subject-icons/SubjectIcon';
+import SubjectIcon, {IconTypeType} from '../../subject-icons/SubjectIcon';
 import brandHeroesAnimation from './brand-heroes-lottie.json';
 import confettiAnimation from './confetti-lottie.json';
 
@@ -22,7 +22,7 @@ const SubjectCardCheckbox = ({
   label,
 }: {
   name: string;
-  icon: SubjectIconType;
+  icon: IconTypeType;
   label: string;
 }) => {
   return (
@@ -95,7 +95,6 @@ const SuccessStep = ({avatarImage}: {avatarImage: string}) => {
     let countdown = 3;
 
     if (currentStep === stepsLength - 1) {
-      console.log(confettiAnimationRef.current);
       if (confettiAnimationRef.current) {
         confettiAnimationRef.current.play();
       }
