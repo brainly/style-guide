@@ -29,6 +29,8 @@ type PetitButtonVariantType =
   | 'solid-indigo-light';
 
 type TargetType = '_self' | '_blank' | '_parent' | '_top';
+export type AriaLiveType = 'off' | 'polite' | 'assertive';
+export type PetitButtonTypeType = 'button' | 'submit' | 'reset';
 
 const anchorRelatedProps = [
   'download',
@@ -89,7 +91,7 @@ export type PetitButtonPropsType = {
   /**
    * The default behavior of the button.
    */
-  type?: ButtonTypeType;
+  type?: PetitButtonTypeType;
 
   /**
    * There are two sizes options for buttons, not need to be specify, default is s
