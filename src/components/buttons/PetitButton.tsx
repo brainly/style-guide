@@ -244,6 +244,7 @@ const PetitButton = ({
           aria-live={loadingAriaLive}
           aria-label={loadingAriaLabel}
           className="sg-petit-button__spinner"
+          size={size === 'xs' ? 'xxsmall' : 'xsmall'}
         />
       )}
       {hasIcon && <span className="sg-petit-button__icon">{icon}</span>}

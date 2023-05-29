@@ -7,7 +7,6 @@
 
   // size & spacing variables
   --petit-button-height: 32px;
-  --petit-button-spinner-size: 24px;
   --petit-button-icon-margin-left: -4px;
   --petit-button-icon-margin-right: 8px;
 
@@ -50,8 +49,6 @@
 
     border-bottom-color: var(--petit-button-label-color);
     border-left-color: var(--petit-button-label-color);
-    width: var(--petit-button-spinner-size);
-    height: var(--petit-button-spinner-size);
 
     @media (forced-colors: active) {
       border-bottom-color: CanvasText;
@@ -98,7 +95,6 @@
 
   &--xs {
     --petit-button-height: 24px;
-    --petit-button-spinner-size: 16px;
     --petit-button-icon-margin-right: 6px;
 
     padding: 0 8px;
