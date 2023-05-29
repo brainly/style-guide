@@ -7,6 +7,7 @@ import Text from '../text/Text';
 import Box from '../box/Box';
 import Headline from '../text/Headline';
 import Counter from '../counters/Counter';
+import UnstyledButton from '../buttons/UnstyledButton';
 
 const WizardContext = React.createContext<{
   currentStep: number;
@@ -63,20 +64,21 @@ const WizardNavigation = () => {
 
   return (
     <Flex className="sg-wizard-navigation">
-      <Button
-        variant="transparent"
-        iconOnly
-        icon={<Icon type={TYPE.ARROW_UP} color="icon-black" />}
+      <UnstyledButton
+        className="sg-wizard-navigation__button"
         onClick={handleUp}
         disabled={currentStep === 0}
-      />
-      <Button
-        variant="transparent"
-        iconOnly
-        icon={<Icon type={TYPE.ARROW_DOWN} color="icon-black" />}
+      >
+        <Icon type={TYPE.ARROW_UP} color="icon-black" />
+      </UnstyledButton>
+      <div className="sg-wizard-navigation__separator" />
+      <UnstyledButton
+        className="sg-wizard-navigation__button"
         onClick={handleDown}
         disabled={currentStep === stepsLength - 1}
-      />
+      >
+        <Icon type={TYPE.ARROW_DOWN} color="icon-black" />
+      </UnstyledButton>
     </Flex>
   );
 };

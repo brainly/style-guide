@@ -7,6 +7,21 @@
     position: absolute;
     right: 24px;
     bottom: 24px;
+    box-shadow: $shadowSmall;
+    border-radius: $borderRadiusXS;
+
+    &__button {
+      padding: 12px;
+
+      &:disabled {
+        opacity: 0.45;
+      }
+    }
+
+    &__separator {
+      width: 2px;
+      background-color: $gray-30;
+    }
   }
 
   &-steps {
