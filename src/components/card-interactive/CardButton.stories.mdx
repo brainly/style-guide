@@ -1,0 +1,56 @@
+import {ArgsTable, Meta, Story, Canvas} from '@storybook/addon-docs';
+import {StoryVariantTable} from '../../docs/utils';
+import PageHeader from 'blocks/PageHeader';
+
+import Flex from '../flex/Flex';
+import Text from '../text/Text';
+
+import CardButton from './CardButton';
+
+<Meta
+  title="Components/CardButton"
+  component={CardButton}
+  subcomponents={{Indicator: CardButton.Indicator}}
+/>
+
+<PageHeader>CardButton</PageHeader>
+
+- [Stories](#stories)
+- [Accessibility](#accessibility)
+
+## Overview
+
+<Canvas>
+  <Story
+    name="Default"
+    decorators={[
+      Story => (
+        <div
+          style={{
+            background: 'var(--gray-30)',
+            padding: 96,
+            display: 'flex',
+            justifyContent: 'space-evenly',
+          }}
+        >
+          <Story />
+        </div>
+      ),
+    ]}
+  >
+    {args => (
+      <CardButton {...args} width="150px" height="150px">
+        <CardButton.Indicator slot="top-left" />
+        <Flex justifyContent="center" alignItems="center" fullHeight>
+          <Text color="text-gray-50" size="xsmall" weight="bold">
+            Placeholder
+          </Text>
+        </Flex>
+      </CardButton>
+    )}
+  </Story>
+</Canvas>
+
+<ArgsTable story="Default" />
+
+## Stories
