@@ -8,13 +8,13 @@ describe('PetitButton', () => {
   it('render', () => {
     const button = render(<PetitButton>Some text</PetitButton>);
 
-    expect(button.getByRole('button', {name: 'Some text'})).toBeTruthy();
+    expect(button.getByRole('button', {name: 'Some text'})).toBeInTheDocument();
   });
 
   it('disabled', () => {
     const button = render(<PetitButton disabled>Some text</PetitButton>);
 
-    expect(button.getByRole('button').hasAttribute('disabled')).toEqual(true);
+    expect(button.getByRole('button')).toHaveProperty('disabled', true);
   });
 
   describe('without `href`', () => {
@@ -28,14 +28,14 @@ describe('PetitButton', () => {
         button.getByRole('button', {
           name: label,
         })
-      ).toBeTruthy();
+      ).toBeInTheDocument();
     });
 
     it('is focusable', () => {
       const button = render(<PetitButton>Read more</PetitButton>);
 
       button.getByRole('button').focus();
-      expect(button.getByRole('button').hasAttribute('disabled')).toEqual(true);
+      expect(button.getByRole('button')).toBe(document.activeElement);
     });
 
     it('is has reset type', () => {
@@ -94,7 +94,7 @@ describe('PetitButton', () => {
       const status = button.getByRole('status');
 
       expect(status.getAttribute('aria-live')).toBe('assertive');
-      expect(within(status).getByText(loadingAriaLabel)).toBeTruthy();
+      expect(within(status).getByText(loadingAriaLabel)).toBeInTheDocument();
       expect(button.getByRole('button')).toHaveProperty('disabled', true);
     });
   });
@@ -112,7 +112,7 @@ describe('PetitButton', () => {
         button.getByRole('link', {
           name: label,
         })
-      ).toBeTruthy();
+      ).toBeInTheDocument();
       expect(button.getByRole('link').getAttribute('href')).toBe(
         'https://example.com/'
       );
@@ -155,7 +155,7 @@ describe('PetitButton', () => {
         </PetitButton>
       );
 
-      expect(button.getByText(newTabLabel)).toBeTruthy();
+      expect(button.getByText(newTabLabel)).toBeInTheDocument();
     });
   });
 
