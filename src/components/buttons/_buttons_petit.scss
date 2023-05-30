@@ -33,8 +33,9 @@
     border-radius: inherit;
     transform: scale(0.5);
     opacity: 0;
-    transition: transform $durationModerate2 cubic-bezier(0.3, 0, 1, 0.8),
-      opacity $durationModerate1 linear;
+    transition-property: transform, opacity;
+    transition-duration: $durationModerate2, $durationModerate1;
+    transition-timing-function: $easingExit, $easingLinear;
   }
 
   &__text {
@@ -66,6 +67,7 @@
     &:hover::before {
       opacity: 0.12;
       transform: scale(1);
+      transition-timing-function: $easingEntry, $easingLinear;
     }
 
     &:active {
@@ -74,6 +76,7 @@
       &::before {
         background: var(--petit-button-active-background-color);
         opacity: 0.2;
+        transition-timing-function: $easingEntry, $easingLinear;
       }
     }
   }
