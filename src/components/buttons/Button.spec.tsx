@@ -20,11 +20,7 @@ describe('Button', () => {
   describe('without `href`', () => {
     it('has a button role and an accessible label', () => {
       const label = 'Load more Mathematic questions';
-      const button = render(
-        <Button as="button" aria-label={label}>
-          Load more
-        </Button>
-      );
+      const button = render(<Button aria-label={label}>Load more</Button>);
 
       expect(
         button.getByRole('button', {
@@ -34,7 +30,7 @@ describe('Button', () => {
     });
 
     it('is focusable', () => {
-      const button = render(<Button as="button">Read more</Button>);
+      const button = render(<Button>Read more</Button>);
 
       button.getByRole('button').focus();
       expect(button.getByRole('button')).toBe(document.activeElement);
@@ -44,7 +40,7 @@ describe('Button', () => {
       const handleOnClick = jest.fn();
       const label = 'Load more';
       const button = render(
-        <Button as="button" disabled onClick={handleOnClick}>
+        <Button disabled onClick={handleOnClick}>
           {label}
         </Button>
       );
@@ -58,11 +54,7 @@ describe('Button', () => {
     it('fires onClick on click, space and enter', () => {
       const handleOnClick = jest.fn();
       const label = 'Load more';
-      const button = render(
-        <Button as="button" onClick={handleOnClick}>
-          {label}
-        </Button>
-      );
+      const button = render(<Button onClick={handleOnClick}>{label}</Button>);
 
       userEvent.click(
         button.getByRole('button', {
