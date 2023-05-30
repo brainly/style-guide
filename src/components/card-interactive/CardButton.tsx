@@ -2,16 +2,16 @@ import * as React from 'react';
 import cx from 'classnames';
 
 export interface CardButtonPropsType
-  extends React.ComponentPropsWithoutRef<'button'> {
+  extends React.ComponentPropsWithRef<'button'> {
   children?: React.ReactNode;
 }
 
 export const CardButtonRoot = React.forwardRef<
   HTMLButtonElement,
-  CardCheckboxPropsType
->(({children, ...rest}: CardButtonPropsType, ref) => {
+  CardButtonPropsType
+>(({children, ...rest}, ref) => {
   return (
-    <button className="card-interactive" {...rest}>
+    <button className="card-interactive" {...rest} ref={ref}>
       <div className="card-interactive__border">
         <div className="card-interactive__background">{children}</div>
       </div>
