@@ -15,6 +15,9 @@ import Avatar from '../../avatar/Avatar';
 import SubjectIcon, {IconTypeType} from '../../subject-icons/SubjectIcon';
 import brandHeroesAnimation from './brand-heroes-lottie.json';
 import confettiAnimation from './confetti-lottie.json';
+import studentAnimation from './student.json';
+import parentAnimation from './parent.json';
+import {useCardRadioGroupContext} from '../../card-interactive/CardRadioGroupContext';
 
 const SubjectCardCheckbox = ({
   name,
@@ -52,8 +55,24 @@ const AccountTypeCardRadio = ({
 }: {
   value: string;
   label: string;
-  image: string;
+  image: 'student' | 'parent';
 }) => {
+  const {value: contextRadioGroupValue} = useCardRadioGroupContext();
+  const lottieRef: LottieRef = React.useRef();
+  const animationsMap = {
+    student: studentAnimation,
+    parent: parentAnimation,
+  };
+
+  React.useEffect(() => {
+    if (contextRadioGroupValue === value) {
+      lottieRef.current.stop();
+      lottieRef.current.play();
+    } else {
+      lottieRef.current.stop();
+    }
+  }, [contextRadioGroupValue, value]);
+
   return (
     <CardRadioGroup.Item
       width="270px"
@@ -61,22 +80,115 @@ const AccountTypeCardRadio = ({
       variant="outline"
       id={value}
       value={value}
-      onMouseEnter={() => null}
-      onMouseLeave={() => null}
     >
       <CardRadioGroup.Indicator slot="top-right" />
       <Flex
         alignItems="center"
         direction="column"
-        style={{paddingTop: 24, paddingBottom: 24}}
+        style={{paddingTop: 38, position: 'relative'}}
+        fullHeight
       >
-        <img
+        <div
           style={{
-            width: '200px',
+            background:
+              image === 'student'
+                ? 'linear-gradient(180.0deg, rgba(255, 121, 104, 1.0) 0%, rgba(185, 226, 254, 1.0) 100%)'
+                : 'linear-gradient(180.0deg, rgba(109, 131, 243, 1.0) 0%, rgba(0, 103, 46, 1.0) 100%)',
+            borderRadius: 'var(--border-radius-xxs)',
+            position: 'relative',
+            top: 0,
+            left: 0,
+            height: 140,
+            width: 184,
+            overflow: 'visible',
           }}
-          src={`images/${image}.png`}
-        />
-        <Flex marginTop="s">
+        >
+          {value === 'student' ? (
+            <>
+              <SubjectIcon
+                type="language"
+                style={{
+                  position: 'absolute',
+                  bottom: -20,
+                  left: 8,
+                  transform: 'rotate(-16deg)',
+                }}
+              />
+              <SubjectIcon
+                type="biology"
+                style={{
+                  position: 'absolute',
+                  top: 20,
+                  right: -28,
+                  transform: 'rotate(16deg) scale(1.6)',
+                }}
+              />
+              <SubjectIcon
+                type="art"
+                style={{
+                  position: 'absolute',
+                  top: -34,
+                  right: 20,
+                }}
+              />
+            </>
+          ) : null}
+          {value === 'parent' ? (
+            <SubjectIcon
+              type="sociology"
+              style={{
+                position: 'absolute',
+                top: -24,
+                left: 6,
+                transform: 'rotate(-26deg) scale(0.75)',
+              }}
+            />
+          ) : null}
+          {value === 'parent' ? (
+            <SubjectIcon
+              type="geometry"
+              style={{
+                position: 'absolute',
+                top: 24,
+                left: 2,
+                transform: 'rotate(-17deg) scale(1.4)',
+              }}
+            />
+          ) : null}
+          <div
+            style={{
+              height: '120%',
+              width: '100%',
+              overflow: 'hidden',
+              position: 'absolute',
+              bottom: 0,
+            }}
+          >
+            <Lottie
+              lottieRef={lottieRef}
+              animationData={animationsMap[image]}
+              style={{
+                height: '110%',
+                position: 'absolute',
+                bottom: -15,
+              }}
+              autoplay={false}
+              loop={1}
+            />
+          </div>
+          {value === 'parent' ? (
+            <SubjectIcon
+              type="geography"
+              style={{
+                position: 'absolute',
+                bottom: -34,
+                left: -8,
+              }}
+            />
+          ) : null}
+        </div>
+
+        <Flex marginTop="l">
           <Text color="text-black" size="small" weight="bold">
             {label}
           </Text>
