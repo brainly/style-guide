@@ -5,6 +5,7 @@ import Link from '../../components/text/Link';
 import Button from '../../components/buttons/Button';
 import Flex from '../../components/flex/Flex';
 import PageHeader from 'blocks/PageHeader';
+import {styled} from '@storybook/theming';
 
 <Meta title="Foundation ✨/Focus" />
 
@@ -93,6 +94,38 @@ To use custom focus style, you can override following CSS variables:
 | --focusColor      | Main focus ring color               | indigo-40                  |
 | --focusInnerColor | Color between border and focus ring | white                      |
 | --focusOuterColor | Glow color of focus ring            | indigo-40 with 0.3 opacity |
+| --focusWidth      | Main focus ring width               | 2px                        |
+| --focusInnerWidth | Width between border and focus ring | 2px                        |
+| --focusOuterWidth | Glow width of focus ring            | 2px                        |
+
+### Example
+
+<Button
+  style={{
+    '--focusInnerColor': '#24a865',
+    '--focusInnerWidth': '6px',
+    '--focusColor': '#9ce8c2',
+    '--focusWidth': '4px',
+    '--focusOuterWidth': '0px',
+    margin: '24px 0',
+  }}
+>
+  Focus me!
+</Button>
+
+```jsx
+<Button
+  style={{
+    '--focusInnerColor': '#24a865',
+    '--focusInnerWidth': '6px',
+    '--focusColor': '#9ce8c2',
+    '--focusWidth': '4px',
+    '--focusOuterWidth': '0px',
+  }}
+>
+  Focus me!
+</Button>
+```
 
 ## High Contrast Mode
 
