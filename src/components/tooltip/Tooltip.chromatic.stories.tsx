@@ -10,9 +10,9 @@ import Counter from '../counters/Counter';
 import Checkbox from '../form-elements/checkbox/Checkbox';
 import Button from '../buttons/Button';
 
-export const Placement = args => {
+const Placement = () => {
   const RenderTooltip = ({placement}) => (
-    <Tooltip {...args} placement={placement} defaultOpen>
+    <Tooltip placement={placement} defaultOpen>
       <Tooltip.Element label="Report this" />
       <Tooltip.Trigger>
         <Button
@@ -53,9 +53,9 @@ export const Placement = args => {
   );
 };
 
-export const TypesOfTriggers = args => {
+const TypesOfTriggers = () => {
   const RenderTooltip = ({trigger}) => (
-    <Tooltip {...args} defaultOpen>
+    <Tooltip defaultOpen>
       <Tooltip.Element label="Here's tooltip" />
       <Tooltip.Trigger>{trigger}</Tooltip.Trigger>
     </Tooltip>
@@ -105,9 +105,10 @@ export const TypesOfTriggers = args => {
     </Flex>
   );
 };
-export const TextLengths = args => {
+
+const TextLengths = () => {
   const RenderShortTooltip = ({placement}) => (
-    <Tooltip {...args} placement={placement} defaultOpen>
+    <Tooltip placement={placement} defaultOpen>
       <Tooltip.Element label="0" />
       <Tooltip.Trigger>
         <Button
@@ -120,7 +121,7 @@ export const TextLengths = args => {
   );
 
   const RenderLongTooltip = ({placement}) => (
-    <Tooltip {...args} placement={placement} defaultOpen>
+    <Tooltip placement={placement} defaultOpen>
       <Tooltip.Element
         label="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
             tempor incididunt ut labore et dolore magna aliqua.
@@ -193,9 +194,15 @@ export const TextLengths = args => {
   );
 };
 
+const {placement, controlled, ...restStories} = TooltipStories;
+
 export const Default = generateChromaticStory({
-  ...TooltipStories,
+  ...restStories,
+  TypesOfTriggers,
+  Placement,
+  TextLengths,
 });
 const {includeStories, ...meta} = TooltipStories.default;
 
 export default meta;
+export {placement, controlled};
