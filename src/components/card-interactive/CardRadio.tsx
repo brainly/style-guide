@@ -1,6 +1,6 @@
 import * as React from 'react';
 import cx from 'classnames';
-import Radio from '../form-elements/radio/Radio';
+import Radio from '../form/radio/Radio';
 import generateRandomString from '../../js/generateRandomString';
 import {useCardRadioGroupContext} from './CardRadioGroupContext';
 import type {StyleType} from './types';

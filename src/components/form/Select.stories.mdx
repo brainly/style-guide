@@ -1,34 +1,43 @@
 import {ArgsTable, Meta, Story, Canvas} from '@storybook/addon-docs';
-import {StoryVariantBorderBox, StoryVariantTable} from '../../docs/utils';
-import hex from '../colors/hex';
+import Select, {SIZE} from './Select';
+import {StoryVariantTable} from '../../docs/utils';
 import PageHeader from 'blocks/PageHeader';
-
+import hex from '../colors/hex';
 import Headline from '../text/Headline';
-import Input, {SIZE, COLOR} from './Input';
-import Flex from '../flex/Flex';
 
 <Meta
-  title="Components/form/Input"
-  component={Input}
+  title="Components/Form Elements/Select"
+  component={Select}
   argTypes={{
-    value: {
-      type: {name: 'string', required: false},
-    },
-    errorMessage: {
-      type: {name: 'string', required: false},
+    options: {
+      control: {
+        disable: true,
+      },
     },
   }}
-  args={{value: 'Some input value', type: 'text', placeholder: 'placeholder'}}
+  args={{
+    options: [
+      {
+        value: '1',
+        text: 'option 1',
+      },
+      {
+        value: '2',
+        text: 'option 2',
+      },
+    ],
+    fullWidth: true,
+  }}
 />
 
-<PageHeader>Input</PageHeader>
+<PageHeader>Select</PageHeader>
 
 - [Stories](#stories)
 
 ## Overview
 
 <Canvas>
-  <Story name="Default">{args => <Input {...args} />}</Story>
+  <Story name="Default">{args => <Select {...args} />}</Story>
 </Canvas>
 
 <ArgsTable story="Default" />
@@ -42,21 +51,6 @@ import Flex from '../flex/Flex';
     {args => (
       <StoryVariantTable>
         <tbody>
-          <tr>
-            <td />
-            <td>
-              <Headline
-                extraBold
-                transform="uppercase"
-                as="span"
-                color="text-gray-40"
-                size="medium"
-                align="to-center"
-              >
-                default
-              </Headline>
-            </td>
-          </tr>
           {Object.values(SIZE).map(size => (
             <tr key={size}>
               <td>
@@ -71,7 +65,7 @@ import Flex from '../flex/Flex';
                 </Headline>
               </td>
               <td>
-                <Input {...args} size={size} />
+                <Select {...args} size={size} />
               </td>
             </tr>
           ))}
@@ -81,12 +75,12 @@ import Flex from '../flex/Flex';
   </Story>
 </Canvas>
 
-### Styles and types
+### Styles and States
 
 <Canvas>
-  <Story name="Styles and types">
+  <Story name="Styles and States">
     {args => (
-      <StoryVariantTable alignTop>
+      <StoryVariantTable>
         <tbody>
           <tr>
             <td />
@@ -97,7 +91,6 @@ import Flex from '../flex/Flex';
                 as="span"
                 color="text-gray-40"
                 size="medium"
-                align="to-center"
               >
                 neutral state
               </Headline>
@@ -109,9 +102,8 @@ import Flex from '../flex/Flex';
                 as="span"
                 color="text-gray-40"
                 size="medium"
-                align="to-center"
               >
-                filled state
+                selected state
               </Headline>
             </td>
             <td>
@@ -121,7 +113,6 @@ import Flex from '../flex/Flex';
                 as="span"
                 color="text-gray-40"
                 size="medium"
-                align="to-center"
               >
                 disabled state
               </Headline>
@@ -135,24 +126,18 @@ import Flex from '../flex/Flex';
                 as="span"
                 color="text-gray-40"
                 size="medium"
-                align="to-right"
               >
                 default
               </Headline>
             </td>
             <td>
-              <Input {...args} value="" />
+              <Select {...args} />
             </td>
             <td>
-              <Input {...args} />
+              <Select {...args} value="1" />
             </td>
             <td>
-              <Flex direction="column">
-                <Input {...args} value="" disabled />
-                <Flex marginTop="s">
-                  <Input {...args} disabled />
-                </Flex>
-              </Flex>
+              <Select {...args} disabled />
             </td>
           </tr>
           <tr style={{backgroundColor: hex.black}}>
@@ -161,26 +146,20 @@ import Flex from '../flex/Flex';
                 extraBold
                 transform="uppercase"
                 as="span"
-                color="text-gray-40"
+                color="text-white"
                 size="medium"
-                align="to-right"
               >
                 white
               </Headline>
             </td>
             <td>
-              <Input {...args} value="" color={COLOR.WHITE} />
+              <Select {...args} color="white" />
             </td>
             <td>
-              <Input {...args} color={COLOR.WHITE} />
+              <Select {...args} color="white" value="1" />
             </td>
             <td>
-              <Flex direction="column">
-                <Input {...args} disabled color={COLOR.WHITE} value="" />
-                <Flex marginTop="s">
-                  <Input {...args} disabled color={COLOR.WHITE} />
-                </Flex>
-              </Flex>
+              <Select {...args} color="white" disabled />
             </td>
           </tr>
           <tr>
@@ -191,24 +170,18 @@ import Flex from '../flex/Flex';
                 as="span"
                 color="text-gray-40"
                 size="medium"
-                align="to-right"
               >
                 valid
               </Headline>
             </td>
             <td>
-              <Input {...args} value="" valid />
+              <Select {...args} valid />
             </td>
             <td>
-              <Input {...args} valid />
+              <Select {...args} valid value="1" />
             </td>
             <td>
-              <Flex direction="column">
-                <Input {...args} valid disabled value="" />
-                <Flex marginTop="s">
-                  <Input {...args} valid disabled />
-                </Flex>
-              </Flex>
+              <Select {...args} valid disabled />
             </td>
           </tr>
           <tr>
@@ -219,24 +192,18 @@ import Flex from '../flex/Flex';
                 as="span"
                 color="text-gray-40"
                 size="medium"
-                align="to-right"
               >
                 invalid
               </Headline>
             </td>
             <td>
-              <Input {...args} value="" invalid />
+              <Select {...args} invalid />
             </td>
             <td>
-              <Input {...args} invalid />
+              <Select {...args} invalid value="1" />
             </td>
             <td>
-              <Flex direction="column">
-                <Input {...args} invalid disabled value="" />
-                <Flex marginTop="s">
-                  <Input {...args} invalid disabled />
-                </Flex>
-              </Flex>
+              <Select {...args} invalid disabled />
             </td>
           </tr>
           <tr>
@@ -247,40 +214,18 @@ import Flex from '../flex/Flex';
                 as="span"
                 color="text-gray-40"
                 size="medium"
-                align="to-right"
               >
-                invalid with message
+                capitalized
               </Headline>
             </td>
             <td>
-              <Input
-                {...args}
-                value=""
-                invalid
-                errorMessage="Something went wrong"
-              />
+              <Select {...args} capitalized />
             </td>
             <td>
-              <Input {...args} invalid errorMessage="Something went wrong" />
+              <Select {...args} capitalized value="1" />
             </td>
             <td>
-              <Flex direction="column">
-                <Input
-                  {...args}
-                  invalid
-                  disabled
-                  value=""
-                  errorMessage="Something went wrong"
-                />
-                <Flex marginTop="s">
-                  <Input
-                    {...args}
-                    invalid
-                    disabled
-                    errorMessage="Something went wrong"
-                  />
-                </Flex>
-              </Flex>
+              <Select {...args} capitalized disabled />
             </td>
           </tr>
         </tbody>
@@ -289,13 +234,14 @@ import Flex from '../flex/Flex';
   </Story>
 </Canvas>
 
-### FullWidth
+### Full width
 
 <Canvas>
-  <Story
-    name="FullWidth"
-    args={{value: 'Input takes full width of its container', fullWidth: true}}
-  >
-    {args => <Input {...args} />}
-  </Story>
+  <Story name="Full width">{args => <Select {...args} fullWidth />}</Story>
+</Canvas>
+
+### Capitalized
+
+<Canvas>
+  <Story name="Capitalized">{args => <Select {...args} capitalized />}</Story>
 </Canvas>

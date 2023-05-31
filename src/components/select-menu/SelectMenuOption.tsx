@@ -7,7 +7,7 @@ import type {IconTypeType} from '../icons/Icon';
 
 import SubjectIcon from '../subject-icons/SubjectIcon';
 import Icon from '../icons/Icon';
-import Checkbox from '../form-elements/checkbox/Checkbox';
+import Checkbox from '../form/checkbox/Checkbox';
 import Text from '../text/Text';
 
 export type SelectOptionElementPropsType = {

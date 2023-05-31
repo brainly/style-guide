@@ -1,43 +1,34 @@
 import {ArgsTable, Meta, Story, Canvas} from '@storybook/addon-docs';
-import Select, {SIZE} from './Select';
-import {StoryVariantTable} from '../../docs/utils';
-import PageHeader from 'blocks/PageHeader';
+import {StoryVariantBorderBox, StoryVariantTable} from '../../docs/utils';
 import hex from '../colors/hex';
+import PageHeader from 'blocks/PageHeader';
+
 import Headline from '../text/Headline';
+import Input, {SIZE, COLOR} from './Input';
+import Flex from '../flex/Flex';
 
 <Meta
-  title="Components/form/Select"
-  component={Select}
+  title="Components/Form Elements/Input"
+  component={Input}
   argTypes={{
-    options: {
-      control: {
-        disable: true,
-      },
+    value: {
+      type: {name: 'string', required: false},
+    },
+    errorMessage: {
+      type: {name: 'string', required: false},
     },
   }}
-  args={{
-    options: [
-      {
-        value: '1',
-        text: 'option 1',
-      },
-      {
-        value: '2',
-        text: 'option 2',
-      },
-    ],
-    fullWidth: true,
-  }}
+  args={{value: 'Some input value', type: 'text', placeholder: 'placeholder'}}
 />
 
-<PageHeader>Select</PageHeader>
+<PageHeader>Input</PageHeader>
 
 - [Stories](#stories)
 
 ## Overview
 
 <Canvas>
-  <Story name="Default">{args => <Select {...args} />}</Story>
+  <Story name="Default">{args => <Input {...args} />}</Story>
 </Canvas>
 
 <ArgsTable story="Default" />
@@ -51,6 +42,21 @@ import Headline from '../text/Headline';
     {args => (
       <StoryVariantTable>
         <tbody>
+          <tr>
+            <td />
+            <td>
+              <Headline
+                extraBold
+                transform="uppercase"
+                as="span"
+                color="text-gray-40"
+                size="medium"
+                align="to-center"
+              >
+                default
+              </Headline>
+            </td>
+          </tr>
           {Object.values(SIZE).map(size => (
             <tr key={size}>
               <td>
@@ -65,7 +71,7 @@ import Headline from '../text/Headline';
                 </Headline>
               </td>
               <td>
-                <Select {...args} size={size} />
+                <Input {...args} size={size} />
               </td>
             </tr>
           ))}
@@ -75,12 +81,12 @@ import Headline from '../text/Headline';
   </Story>
 </Canvas>
 
-### Styles and States
+### Styles and types
 
 <Canvas>
-  <Story name="Styles and States">
+  <Story name="Styles and types">
     {args => (
-      <StoryVariantTable>
+      <StoryVariantTable alignTop>
         <tbody>
           <tr>
             <td />
@@ -91,6 +97,7 @@ import Headline from '../text/Headline';
                 as="span"
                 color="text-gray-40"
                 size="medium"
+                align="to-center"
               >
                 neutral state
               </Headline>
@@ -102,8 +109,9 @@ import Headline from '../text/Headline';
                 as="span"
                 color="text-gray-40"
                 size="medium"
+                align="to-center"
               >
-                selected state
+                filled state
               </Headline>
             </td>
             <td>
@@ -113,6 +121,7 @@ import Headline from '../text/Headline';
                 as="span"
                 color="text-gray-40"
                 size="medium"
+                align="to-center"
               >
                 disabled state
               </Headline>
@@ -126,18 +135,24 @@ import Headline from '../text/Headline';
                 as="span"
                 color="text-gray-40"
                 size="medium"
+                align="to-right"
               >
                 default
               </Headline>
             </td>
             <td>
-              <Select {...args} />
+              <Input {...args} value="" />
             </td>
             <td>
-              <Select {...args} value="1" />
+              <Input {...args} />
             </td>
             <td>
-              <Select {...args} disabled />
+              <Flex direction="column">
+                <Input {...args} value="" disabled />
+                <Flex marginTop="s">
+                  <Input {...args} disabled />
+                </Flex>
+              </Flex>
             </td>
           </tr>
           <tr style={{backgroundColor: hex.black}}>
@@ -146,20 +161,26 @@ import Headline from '../text/Headline';
                 extraBold
                 transform="uppercase"
                 as="span"
-                color="text-white"
+                color="text-gray-40"
                 size="medium"
+                align="to-right"
               >
                 white
               </Headline>
             </td>
             <td>
-              <Select {...args} color="white" />
+              <Input {...args} value="" color={COLOR.WHITE} />
             </td>
             <td>
-              <Select {...args} color="white" value="1" />
+              <Input {...args} color={COLOR.WHITE} />
             </td>
             <td>
-              <Select {...args} color="white" disabled />
+              <Flex direction="column">
+                <Input {...args} disabled color={COLOR.WHITE} value="" />
+                <Flex marginTop="s">
+                  <Input {...args} disabled color={COLOR.WHITE} />
+                </Flex>
+              </Flex>
             </td>
           </tr>
           <tr>
@@ -170,18 +191,24 @@ import Headline from '../text/Headline';
                 as="span"
                 color="text-gray-40"
                 size="medium"
+                align="to-right"
               >
                 valid
               </Headline>
             </td>
             <td>
-              <Select {...args} valid />
+              <Input {...args} value="" valid />
             </td>
             <td>
-              <Select {...args} valid value="1" />
+              <Input {...args} valid />
             </td>
             <td>
-              <Select {...args} valid disabled />
+              <Flex direction="column">
+                <Input {...args} valid disabled value="" />
+                <Flex marginTop="s">
+                  <Input {...args} valid disabled />
+                </Flex>
+              </Flex>
             </td>
           </tr>
           <tr>
@@ -192,18 +219,24 @@ import Headline from '../text/Headline';
                 as="span"
                 color="text-gray-40"
                 size="medium"
+                align="to-right"
               >
                 invalid
               </Headline>
             </td>
             <td>
-              <Select {...args} invalid />
+              <Input {...args} value="" invalid />
             </td>
             <td>
-              <Select {...args} invalid value="1" />
+              <Input {...args} invalid />
             </td>
             <td>
-              <Select {...args} invalid disabled />
+              <Flex direction="column">
+                <Input {...args} invalid disabled value="" />
+                <Flex marginTop="s">
+                  <Input {...args} invalid disabled />
+                </Flex>
+              </Flex>
             </td>
           </tr>
           <tr>
@@ -214,18 +247,40 @@ import Headline from '../text/Headline';
                 as="span"
                 color="text-gray-40"
                 size="medium"
+                align="to-right"
               >
-                capitalized
+                invalid with message
               </Headline>
             </td>
             <td>
-              <Select {...args} capitalized />
+              <Input
+                {...args}
+                value=""
+                invalid
+                errorMessage="Something went wrong"
+              />
             </td>
             <td>
-              <Select {...args} capitalized value="1" />
+              <Input {...args} invalid errorMessage="Something went wrong" />
             </td>
             <td>
-              <Select {...args} capitalized disabled />
+              <Flex direction="column">
+                <Input
+                  {...args}
+                  invalid
+                  disabled
+                  value=""
+                  errorMessage="Something went wrong"
+                />
+                <Flex marginTop="s">
+                  <Input
+                    {...args}
+                    invalid
+                    disabled
+                    errorMessage="Something went wrong"
+                  />
+                </Flex>
+              </Flex>
             </td>
           </tr>
         </tbody>
@@ -234,14 +289,13 @@ import Headline from '../text/Headline';
   </Story>
 </Canvas>
 
-### Full width
+### FullWidth
 
 <Canvas>
-  <Story name="Full width">{args => <Select {...args} fullWidth />}</Story>
-</Canvas>
-
-### Capitalized
-
-<Canvas>
-  <Story name="Capitalized">{args => <Select {...args} capitalized />}</Story>
+  <Story
+    name="FullWidth"
+    args={{value: 'Input takes full width of its container', fullWidth: true}}
+  >
+    {args => <Input {...args} />}
+  </Story>
 </Canvas>
