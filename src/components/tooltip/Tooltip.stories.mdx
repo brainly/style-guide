@@ -153,7 +153,11 @@ const TOOLTIP_PLACEMENTS = [
         <Tooltip {...args} placement={placement} defaultOpen>
           <Tooltip.Element label={placement} />
           <Tooltip.Trigger>
-            <div>0</div>
+            <Button
+              icon={<Icon color="adaptive" type="report_flag_outlined" />}
+              iconOnly
+              variant="solid-light"
+            />
           </Tooltip.Trigger>
         </Tooltip>
       );
