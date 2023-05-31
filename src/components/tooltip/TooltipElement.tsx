@@ -48,7 +48,7 @@ const TooltipElement = React.forwardRef<
   const arrowOffset =
     isShorterThanArrowWithPadding &&
     (context.placement.includes('right') || context.placement.includes('left'))
-      ? `calc(50% - ${ARROW_SIZE_DEFAULT / 2}px)`
+      ? `calc(50% - ${arrowSize / 2}px)`
       : null;
 
   const tooltipClass = classNames(
