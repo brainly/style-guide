@@ -1,4 +1,4 @@
-import rules, {hrefRules, toggleRules} from './button.rules.a11y';
+import rules, {hrefRules} from './petitButton.rules.a11y';
 
 ### Rules
 
@@ -18,10 +18,6 @@ import rules, {hrefRules, toggleRules} from './button.rules.a11y';
   .
 </InfoBox>
 
-#### Button with `toggle`
-
-<AccessibilityList rules={toggleRules} />
-
 ### Usage
 
 #### Code examples
@@ -30,65 +26,40 @@ import rules, {hrefRules, toggleRules} from './button.rules.a11y';
 
 <!-- prettier-ignore -->
 ```jsx
-<Button href="https://example.com/">
+<PetitButton href="https://example.com/">
   Read more about our products
-</Button>
+</PetitButton>
 ```
 
 - with `onClick`
 
 <!-- prettier-ignore -->
 ```jsx
-<Button onClick={onClick}>
+<PetitButton onClick={onClick}>
   Send your comment
-</Button>
+</PetitButton>
 ```
 
 - with an icon
 
 ```jsx
-<Button
-  icon={<Icon aria-hidden type="report_flag_outlined" color="adaptive" />}
+<PetitButton
+  icon={<Icon aria-hidden type="report_flag_outlined" />}
   onClick={onClick}
 >
   Report this question
-</Button>
-```
-
-- iconOnly with an accessible name
-
-```jsx
-<Button
-  iconOnly
-  aria-label="Report this question"
-  icon={<Icon aria-hidden type="report_flag_outlined" color="adaptive" />}
-  onClick={onClick}
-/>
+</PetitButton>
 ```
 
 - loading state with an accessible information
 
 ```jsx
-<Button
+<PetitButton
   loading={isLoading}
   loadingAriaLive="assertive"
   loadingAriaLabel="Loading 10 more answers"
   onClick={onClick}
 >
   Load more answers
-</Button>
-```
-
-- toggle button
-
-```jsx
-<Button
-  toggle="red"
-  type="button"
-  icon={<Icon aria-hidden type="heart" color="adaptive" />}
-  aria-pressed="true"
-  onClick={onClick}
->
-  Thanks
-</Button>
+</PetitButton>
 ```

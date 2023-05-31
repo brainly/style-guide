@@ -21,6 +21,15 @@
   align-items: center;
   color: var(--petit-button-label-color);
   transition: transform $durationModerate2 $easingRegular;
+  touch-action: manipulation;
+  -webkit-user-select: none;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  user-select: none;
+  cursor: default;
+
+  &[href] {
+    cursor: pointer;
+  }
 
   &::before {
     background: var(--petit-button-hover-background-color);

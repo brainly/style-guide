@@ -46,6 +46,11 @@ $largeButtonSize: componentSize(l);
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
   user-select: none;
   transition: transform $durationModerate2 $easingRegular;
+  cursor: default;
+
+  &[href] {
+    cursor: pointer;
+  }
 
   &:active:not([disabled]) {
     transform: scale(0.96);
