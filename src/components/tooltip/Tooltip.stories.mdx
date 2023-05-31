@@ -38,7 +38,7 @@ const TOOLTIP_PLACEMENTS = [
 ## Overview
 
 <Canvas>
-  <Story name="Default" parameters={{layout: 'centered'}}>
+  <Story name="Default" parameters={{layout: 'fullscreen'}}>
     {args => (
       <Tooltip {...args} asLabel>
         <Tooltip.Element label="Copy to clipboard" />
@@ -131,11 +131,7 @@ const TOOLTIP_PLACEMENTS = [
         <Tooltip {...args} placement={placement} defaultOpen>
           <Tooltip.Element label={placement} />
           <Tooltip.Trigger>
-            <Button
-              icon={<Icon color="adaptive" type="report_flag_outlined" />}
-              iconOnly
-              variant="solid-light"
-            />
+            <div>0</div>
           </Tooltip.Trigger>
         </Tooltip>
       );

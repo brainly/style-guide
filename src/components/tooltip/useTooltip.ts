@@ -66,10 +66,9 @@ const useTooltip = ({
   // Get position and size specitic params
   const variantParams = React.useMemo(() => {
     const offsetMainAxis = size === 'small' ? 6 : 10;
-    const offsetAlignmentAxis = size === 'small' ? -4 : -8;
+    const offsetAlignmentAxis = size === 'small' ? -6 : -8;
     const padding = 5;
-    const arrowPadding =
-      placement.includes('top') || placement.includes('bottom') ? 16 : 0;
+    const arrowPadding = size === 'small' ? 6 : 16;
 
     return {
       offset: {
@@ -79,20 +78,17 @@ const useTooltip = ({
       padding,
       arrowPadding,
     };
-  }, [placement, size]);
+  }, [size]);
 
-  const data = useFloating({
-    open: enableTooltip ? isOpen : false,
-    onOpenChange: setIsOpen,
-    placement,
-    whileElementsMounted: autoUpdate,
-    middleware: [
+  const middleware = React.useMemo(() => {
+    return [
       offset({
         mainAxis: variantParams.offset.mainAxis,
         alignmentAxis: variantParams.offset.alignmentAxis,
       }),
       flip({
         fallbackAxisSideDirection: 'start',
+        fallbackPlacements: ['top', 'bottom', 'left', 'right'], // If it doesn't fit anywhere, apply fallback positions
       }),
       shift({padding: variantParams.padding}),
       arrow({
@@ -102,7 +98,20 @@ const useTooltip = ({
       hide({
         strategy: 'referenceHidden',
       }),
-    ],
+    ];
+  }, [
+    variantParams.arrowPadding,
+    variantParams.offset.alignmentAxis,
+    variantParams.offset.mainAxis,
+    variantParams.padding,
+  ]);
+
+  const data = useFloating({
+    open: enableTooltip ? isOpen : false,
+    onOpenChange: setIsOpen,
+    placement,
+    middleware,
+    whileElementsMounted: autoUpdate,
   });
 
   const hover = useHover(data.context, {
@@ -133,6 +142,7 @@ const useTooltip = ({
       isOpen,
       setIsOpen,
       arrowRef,
+      arrowPadding: variantParams.arrowPadding,
       placement,
       size,
       color,
@@ -147,6 +157,7 @@ const useTooltip = ({
       asLabel,
       isOpen,
       setIsOpen,
+      variantParams.arrowPadding,
       placement,
       size,
       color,
