@@ -1,21 +1,18 @@
 import {ArgsTable, Meta, Story, Canvas} from '@storybook/addon-docs';
-import PetitButton, {
-  PETIT_BUTTON_VARIANT,
-  PETIT_BUTTON_SIZE,
-} from './PetitButton';
+import ButtonLite, {BUTTON_LITE_VARIANT, BUTTON_LITE_SIZE} from './ButtonLite';
 import Icon, {TYPE as ICON_TYPES} from 'icons/Icon';
 import Headline from '../text/Headline';
 import PageHeader from 'blocks/PageHeader';
 import {StoryVariantTable} from '../../docs/utils';
-import PetitButtonA11y from './stories/PetitButton.a11y.mdx';
+import ButtonLiteA11y from './stories/ButtonLite.a11y.mdx';
 const iconSize = {
-  [PETIT_BUTTON_SIZE.XS]: 16,
-  [PETIT_BUTTON_SIZE.S]: 24,
+  [BUTTON_LITE_SIZE.XS]: 16,
+  [BUTTON_LITE_SIZE.S]: 24,
 };
 
 <Meta
-  title="Components/PetitButton"
-  component={PetitButton}
+  title="Components/ButtonLite"
+  component={ButtonLite}
   argTypes={{
     children: {
       control: {
@@ -40,7 +37,7 @@ const iconSize = {
   }}
 />
 
-<PageHeader>PetitButton</PageHeader>
+<PageHeader>ButtonLite</PageHeader>
 
 - [Stories](#stories)
 - [Accessibility](#accessibility)
@@ -50,7 +47,7 @@ const iconSize = {
 <Canvas>
   <Story name="Default">
     {args => (
-      <PetitButton
+      <ButtonLite
         {...args}
         icon={
           args.icon ? (
@@ -137,7 +134,7 @@ const iconSize = {
           </tr>
         </thead>
         <tbody>
-          {Object.values(PETIT_BUTTON_VARIANT).map(variant => (
+          {Object.values(BUTTON_LITE_VARIANT).map(variant => (
             <tr
               style={{
                 backgroundColor:
@@ -166,24 +163,24 @@ const iconSize = {
               </td>
               <td>
                 <div>
-                  <PetitButton {...args} variant={variant} />
+                  <ButtonLite {...args} variant={variant} />
                 </div>
               </td>
               <td>
-                <PetitButton {...args} variant={variant} disabled />
+                <ButtonLite {...args} variant={variant} disabled />
               </td>
               <td>
-                <PetitButton {...args} variant={variant} loading />
+                <ButtonLite {...args} variant={variant} loading />
               </td>
               <td>
-                <PetitButton
+                <ButtonLite
                   {...args}
                   variant={variant}
                   icon={<Icon type="arrow_up" color="adaptive" />}
                 />
               </td>
               <td>
-                <PetitButton
+                <ButtonLite
                   {...args}
                   variant={variant}
                   icon={<Icon type="arrow_right" color="adaptive" />}
@@ -205,7 +202,7 @@ const iconSize = {
     {args => (
       <StoryVariantTable>
         <tbody>
-          {Object.values(PETIT_BUTTON_SIZE).map(size => (
+          {Object.values(BUTTON_LITE_SIZE).map(size => (
             <tr key={size}>
               <td>
                 <Headline
@@ -219,10 +216,10 @@ const iconSize = {
                 </Headline>
               </td>
               <td>
-                <PetitButton {...args} size={size} variant="solid-light" />
+                <ButtonLite {...args} size={size} variant="solid-light" />
               </td>
               <td>
-                <PetitButton
+                <ButtonLite
                   {...args}
                   size={size}
                   icon={
@@ -236,7 +233,7 @@ const iconSize = {
                 />
               </td>
               <td>
-                <PetitButton
+                <ButtonLite
                   {...args}
                   size={size}
                   loading
@@ -253,4 +250,4 @@ const iconSize = {
 
 ## Accessibility
 
-<PetitButtonA11y />
+<ButtonLiteA11y />

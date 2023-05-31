@@ -1,4 +1,4 @@
-import rules, {hrefRules} from './petitButton.rules.a11y';
+import rules, {hrefRules} from './buttonLite.rules.a11y';
 
 ### Rules
 
@@ -26,40 +26,40 @@ import rules, {hrefRules} from './petitButton.rules.a11y';
 
 <!-- prettier-ignore -->
 ```jsx
-<PetitButton href="https://example.com/">
+<ButtonLite href="https://example.com/">
   Read more about our products
-</PetitButton>
+</ButtonLite>
 ```
 
 - with `onClick`
 
 <!-- prettier-ignore -->
 ```jsx
-<PetitButton onClick={onClick}>
+<ButtonLite onClick={onClick}>
   Send your comment
-</PetitButton>
+</ButtonLite>
 ```
 
 - with an icon
 
 ```jsx
-<PetitButton
+<ButtonLite
   icon={<Icon aria-hidden type="report_flag_outlined" />}
   onClick={onClick}
 >
   Report this question
-</PetitButton>
+</ButtonLite>
 ```
 
 - loading state with an accessible information
 
 ```jsx
-<PetitButton
+<ButtonLite
   loading={isLoading}
   loadingAriaLive="assertive"
   loadingAriaLabel="Loading 10 more answers"
   onClick={onClick}
 >
   Load more answers
-</PetitButton>
+</ButtonLite>
 ```

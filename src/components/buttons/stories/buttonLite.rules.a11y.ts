@@ -18,7 +18,7 @@ const rules = [
   },
   {
     pattern: '<b>Should</b> have a non-color indicator.',
-    comment: 'PetitButton uses bold font weight.',
+    comment: 'ButtonLite uses bold font weight.',
     status: 'DONE',
     tests: 'N/A',
   },

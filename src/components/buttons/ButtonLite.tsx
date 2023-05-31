@@ -4,14 +4,14 @@ import Text from '../text/Text';
 import Spinner from '../spinner/Spinner';
 import {__DEV__, invariant} from '../utils';
 
-export const PETIT_BUTTON_SIZE = {
+export const BUTTON_LITE_SIZE = {
   XS: 'xs',
   S: 's',
 } as const;
 
-type PetitButtonSizeType = 'xs' | 's';
+type ButtonLiteSizeType = 'xs' | 's';
 
-export const PETIT_BUTTON_VARIANT = {
+export const BUTTON_LITE_VARIANT = {
   TRANSPARENT: 'transparent',
   TRANSPARENT_INVERTED: 'transparent-inverted',
   TRANSPARENT_LIGHT: 'transparent-light',
@@ -20,7 +20,7 @@ export const PETIT_BUTTON_VARIANT = {
   SOLID_INDIGO_LIGHT: 'solid-indigo-light',
 } as const;
 
-type PetitButtonVariantType =
+type ButtonLiteVariantType =
   | 'transparent'
   | 'transparent-inverted'
   | 'transparent-light'
@@ -30,7 +30,7 @@ type PetitButtonVariantType =
 
 type TargetType = '_self' | '_blank' | '_parent' | '_top';
 export type AriaLiveType = 'off' | 'polite' | 'assertive';
-export type PetitButtonTypeType = 'button' | 'submit' | 'reset';
+export type ButtonLiteTypeType = 'button' | 'submit' | 'reset';
 
 const anchorRelatedProps = [
   'download',
@@ -40,7 +40,7 @@ const anchorRelatedProps = [
   'rel',
 ];
 
-export type PetitButtonPropsType = {
+export type ButtonLitePropsType = {
   /**
    * Children to be rendered inside Button
    * @example <Button
@@ -54,12 +54,12 @@ export type PetitButtonPropsType = {
 
   /**
    * Specify variant of the button that you want to use
-   * @example <PetitButton variant="solid-light">
+   * @example <ButtonLite variant="solid-light">
    *            button
-   *          </PetitButton>
+   *          </ButtonLite>
    *
    */
-  variant?: PetitButtonVariantType;
+  variant?: ButtonLiteVariantType;
 
   /**
    * Specify href for button, optional string
@@ -91,15 +91,15 @@ export type PetitButtonPropsType = {
   /**
    * The default behavior of the button.
    */
-  type?: PetitButtonTypeType;
+  type?: ButtonLiteTypeType;
 
   /**
    * There are two sizes options for buttons, not need to be specify, default is s
-   * @example <PetitButton  size="xs">
+   * @example <ButtonLite  size="xs">
    *            button
-   *          </PetitButton>
+   *          </ButtonLite>
    */
-  size?: PetitButtonSizeType;
+  size?: ButtonLiteSizeType;
 
   /**
    * Show loading state. By default loading state make button disabled while
@@ -127,12 +127,12 @@ export type PetitButtonPropsType = {
 
   /**
    * You can render icon inside each variant of button on the left side
-   * @example <PetitButton
+   * @example <ButtonLite
    *           icon={<Icon variant="facebook" color="icon-white" size={24} />}
    *           variant="facebook"
    *          >
    *            Login with Facebook
-   *          </PetitButton>
+   *          </ButtonLite>
    */
   icon?: React.ReactNode;
 
@@ -163,11 +163,11 @@ export type PetitButtonPropsType = {
   | 'onClick'
 >;
 
-const PetitButton = ({
+const ButtonLite = ({
   className,
-  variant = PETIT_BUTTON_VARIANT.TRANSPARENT,
+  variant = BUTTON_LITE_VARIANT.TRANSPARENT,
   children,
-  size = PETIT_BUTTON_SIZE.S,
+  size = BUTTON_LITE_SIZE.S,
   loading,
   loadingAriaLabel,
   loadingAriaLive,
@@ -181,14 +181,14 @@ const PetitButton = ({
   onClick,
   'aria-label': ariaLabel,
   ...rest
-}: PetitButtonPropsType) => {
+}: ButtonLitePropsType) => {
   const buttonClass = cx(
-    'sg-petit-button',
-    `sg-petit-button--${variant}`,
-    `sg-petit-button--${size}`,
+    'sg-button-lite',
+    `sg-button-lite--${variant}`,
+    `sg-button-lite--${size}`,
     {
-      'sg-petit-button--loading': loading,
-      'sg-petit-button--reversed-order': reversedOrder,
+      'sg-button-lite--loading': loading,
+      'sg-button-lite--reversed-order': reversedOrder,
     },
     className
   );
@@ -245,12 +245,12 @@ const PetitButton = ({
         <Spinner
           aria-live={loadingAriaLive}
           aria-label={loadingAriaLabel}
-          className="sg-petit-button__spinner"
+          className="sg-button-lite__spinner"
           size={size === 'xs' ? 'xxsmall' : 'xsmall'}
         />
       )}
-      {hasIcon && <span className="sg-petit-button__icon">{icon}</span>}
-      <Text className="sg-petit-button__text" weight="bold" size="small">
+      {hasIcon && <span className="sg-button-lite__icon">{icon}</span>}
+      <Text className="sg-button-lite__text" weight="bold" size="small">
         {children}
         {target === '_blank' && (
           <span className="sg-visually-hidden">{newTabLabel}</span>
@@ -260,4 +260,4 @@ const PetitButton = ({
   );
 };
 
-export default PetitButton;
+export default ButtonLite;

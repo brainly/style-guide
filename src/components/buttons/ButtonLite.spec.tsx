@@ -1,18 +1,18 @@
 import * as React from 'react';
-import PetitButton from './PetitButton';
+import ButtonLite from './ButtonLite';
 import {render, within} from '@testing-library/react';
 import {testA11y} from '../../axe';
 import userEvent from '@testing-library/user-event';
 
-describe('PetitButton', () => {
+describe('ButtonLite', () => {
   it('render', () => {
-    const button = render(<PetitButton>Some text</PetitButton>);
+    const button = render(<ButtonLite>Some text</ButtonLite>);
 
     expect(button.getByRole('button', {name: 'Some text'})).toBeInTheDocument();
   });
 
   it('disabled', () => {
-    const button = render(<PetitButton disabled>Some text</PetitButton>);
+    const button = render(<ButtonLite disabled>Some text</ButtonLite>);
 
     expect(button.getByRole('button')).toHaveProperty('disabled', true);
   });
@@ -21,7 +21,7 @@ describe('PetitButton', () => {
     it('has a button role and an accessible label', () => {
       const label = 'Load more Mathematic questions';
       const button = render(
-        <PetitButton aria-label={label}>Load more</PetitButton>
+        <ButtonLite aria-label={label}>Load more</ButtonLite>
       );
 
       expect(
@@ -32,14 +32,14 @@ describe('PetitButton', () => {
     });
 
     it('is focusable', () => {
-      const button = render(<PetitButton>Read more</PetitButton>);
+      const button = render(<ButtonLite>Read more</ButtonLite>);
 
       button.getByRole('button').focus();
       expect(button.getByRole('button')).toBe(document.activeElement);
     });
 
     it('is has reset type', () => {
-      const button = render(<PetitButton type="reset">Reset form</PetitButton>);
+      const button = render(<ButtonLite type="reset">Reset form</ButtonLite>);
 
       expect(button.getByRole('button').getAttribute('type')).toEqual('reset');
     });
@@ -48,9 +48,9 @@ describe('PetitButton', () => {
       const handleOnClick = jest.fn();
       const label = 'Load more';
       const button = render(
-        <PetitButton disabled onClick={handleOnClick}>
+        <ButtonLite disabled onClick={handleOnClick}>
           {label}
-        </PetitButton>
+        </ButtonLite>
       );
 
       button.getByText(label).focus();
@@ -63,7 +63,7 @@ describe('PetitButton', () => {
       const handleOnClick = jest.fn();
       const label = 'Load more';
       const button = render(
-        <PetitButton onClick={handleOnClick}>{label}</PetitButton>
+        <ButtonLite onClick={handleOnClick}>{label}</ButtonLite>
       );
 
       userEvent.click(
@@ -83,13 +83,13 @@ describe('PetitButton', () => {
       const label = 'Load more';
       const loadingAriaLabel = 'loading more';
       const button = render(
-        <PetitButton
+        <ButtonLite
           loadingAriaLabel={loadingAriaLabel}
           loadingAriaLive="assertive"
           loading
         >
           {label}
-        </PetitButton>
+        </ButtonLite>
       );
       const status = button.getByRole('status');
 
@@ -103,9 +103,9 @@ describe('PetitButton', () => {
     it('has a link role and an accessible label', () => {
       const label = 'read more about products';
       const button = render(
-        <PetitButton href="https://example.com/" aria-label={label}>
+        <ButtonLite href="https://example.com/" aria-label={label}>
           Read more
-        </PetitButton>
+        </ButtonLite>
       );
 
       expect(
@@ -120,7 +120,7 @@ describe('PetitButton', () => {
 
     it('is focusable', () => {
       const button = render(
-        <PetitButton href="https://example.com/">Read more</PetitButton>
+        <ButtonLite href="https://example.com/">Read more</ButtonLite>
       );
 
       button.getByRole('link').focus();
@@ -131,9 +131,9 @@ describe('PetitButton', () => {
       const label = 'read more';
       const onClick = jest.fn();
       const button = render(
-        <PetitButton href="https://example.com/" disabled onClick={onClick}>
+        <ButtonLite href="https://example.com/" disabled onClick={onClick}>
           {label}
-        </PetitButton>
+        </ButtonLite>
       );
 
       button.getByText(label).focus();
@@ -146,13 +146,13 @@ describe('PetitButton', () => {
       const label = 'read more';
       const newTabLabel = 'in new tab';
       const button = render(
-        <PetitButton
+        <ButtonLite
           href="https://example.com/"
           target="_blank"
           newTabLabel={newTabLabel}
         >
           {label}
-        </PetitButton>
+        </ButtonLite>
       );
 
       expect(button.getByText(newTabLabel)).toBeInTheDocument();
@@ -162,54 +162,54 @@ describe('PetitButton', () => {
   describe('a11y', () => {
     describe('without `href`', () => {
       it('should have no a11y violations', async () => {
-        await testA11y(<PetitButton>Read more</PetitButton>);
+        await testA11y(<ButtonLite>Read more</ButtonLite>);
       });
 
       it('should have no a11y violations when aria-label is provided', async () => {
         await testA11y(
-          <PetitButton aria-label="read more about us">Read more</PetitButton>
+          <ButtonLite aria-label="read more about us">Read more</ButtonLite>
         );
       });
 
       it('should have no a11y violations when disabled', async () => {
-        await testA11y(<PetitButton disabled>Read more</PetitButton>);
+        await testA11y(<ButtonLite disabled>Read more</ButtonLite>);
       });
 
       it('should have no a11y violations in loading state', async () => {
-        await testA11y(<PetitButton loading>Read more</PetitButton>);
+        await testA11y(<ButtonLite loading>Read more</ButtonLite>);
       });
     });
     describe('with `href`', () => {
       it('should have no a11y violations', async () => {
         await testA11y(
-          <PetitButton href="https://example.com/">Read more</PetitButton>
+          <ButtonLite href="https://example.com/">Read more</ButtonLite>
         );
       });
 
       it('should have no a11y violations when aria-label is provided', async () => {
         await testA11y(
-          <PetitButton
+          <ButtonLite
             href="https://example.com/"
             aria-label="read more about us"
           >
             Read more
-          </PetitButton>
+          </ButtonLite>
         );
       });
 
       it('should have no a11y violations when disabled', async () => {
         await testA11y(
-          <PetitButton href="https://example.com/" disabled>
+          <ButtonLite href="https://example.com/" disabled>
             Read more
-          </PetitButton>
+          </ButtonLite>
         );
       });
 
       it('should have no a11y violations when opens in a new tab', async () => {
         await testA11y(
-          <PetitButton href="https://example.com/" target="_blank">
+          <ButtonLite href="https://example.com/" target="_blank">
             Read more
-          </PetitButton>
+          </ButtonLite>
         );
       });
     });
