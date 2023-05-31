@@ -165,7 +165,14 @@ const Chip = ({
   };
 
   return (
-    <label className={chipClass} {...props} style={style}>
+    <label
+      className={chipClass}
+      {...props}
+      style={style}
+      // On iOS the :active pseudo state is triggered only when there is a touch event set on the HTML element
+      // and we use active pseudo class to provide press feedback.
+      onTouchStart={() => null}
+    >
       <input
         className={inputClass}
         type={inputType}

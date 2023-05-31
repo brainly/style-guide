@@ -52,7 +52,7 @@ const useFloatingSelectMenu = (props: UseFloatingSelectMenuPropsType) => {
     },
   });
 
-  const click = useClick(context, {event: 'mousedown'});
+  const click = useClick(context);
   const dismiss = useDismiss(context);
   const role = useRole(context, {role: 'listbox'});
 
