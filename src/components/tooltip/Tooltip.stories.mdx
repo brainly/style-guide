@@ -38,7 +38,7 @@ const TOOLTIP_PLACEMENTS = [
 ## Overview
 
 <Canvas>
-  <Story name="Default" parameters={{layout: 'fullscreen'}}>
+  <Story name="Default" parameters={{layout: 'centered'}}>
     {args => (
       <Tooltip {...args} asLabel>
         <Tooltip.Element label="Copy to clipboard" />
@@ -57,6 +57,28 @@ const TOOLTIP_PLACEMENTS = [
 <ArgsTable story="Default" />
 
 ## Stories
+
+### Controlled
+
+<Canvas>
+  <Story name="Controlled" parameters={{layout: 'centered'}}>
+    {args => {
+      const [isOpen, setIsOpen] = React.useState(false);
+      return (
+        <Tooltip {...args} asLabel onOpenChange={setIsOpen} open={isOpen}>
+          <Tooltip.Element label="Copy to clipboard" />
+          <Tooltip.Trigger>
+            <Button
+              icon={<Icon color="adaptive" type="clipboard" aria-hidden />}
+              iconOnly
+              variant="solid-light"
+            />
+          </Tooltip.Trigger>
+        </Tooltip>
+      );
+    }}
+  </Story>
+</Canvas>
 
 ### Types of triggers
 

@@ -33,9 +33,9 @@ interface UseTooltipPropTypes {
   size?: SizeType;
   color?: ColorType;
   defaultOpen?: boolean;
-  controlledOpen?: boolean;
+  open?: boolean;
   asLabel?: boolean;
-  setControlledOpen?: (arg0: boolean) => void;
+  onOpenChange?: (arg0: boolean) => void;
 }
 
 const useTooltip = ({
@@ -44,24 +44,28 @@ const useTooltip = ({
   size = 'default' as SizeType,
   color = 'dark' as ColorType,
   defaultOpen = false,
-  controlledOpen,
+  open,
   asLabel,
-  setControlledOpen,
+  onOpenChange,
 }: UseTooltipPropTypes) => {
   const {current: id} = React.useRef<string>(
     customId ?? `Tooltip_${generateId()}`
   );
 
   const {current: enableTooltip} = React.useRef(!isTouchScreen());
+  const arrowRef = React.useRef(null);
 
-  const [uncontrolledOpen, setUncontrolledOpen] = React.useState(
-    enableTooltip ? defaultOpen : false
+  const isControlled = open !== undefined;
+
+  const [isOpen, setIsOpen] = React.useState(
+    enableTooltip ? (isControlled ? open : defaultOpen) : false
   );
 
-  const isOpen = controlledOpen ?? uncontrolledOpen;
-  const setIsOpen = setControlledOpen ?? setUncontrolledOpen;
-
-  const arrowRef = React.useRef(null);
+  React.useEffect(() => {
+    if (isControlled && open !== isOpen) {
+      setIsOpen(open);
+    }
+  }, [open, isControlled, isOpen]);
 
   // Get position and size specitic params
   const variantParams = React.useMemo(() => {
@@ -106,9 +110,14 @@ const useTooltip = ({
     variantParams.padding,
   ]);
 
+  const handleOpenChange = isOpen => {
+    if (isControlled && onOpenChange) onOpenChange(isOpen);
+    else setIsOpen(isOpen);
+  };
+
   const data = useFloating({
     open: enableTooltip ? isOpen : false,
-    onOpenChange: setIsOpen,
+    onOpenChange: handleOpenChange,
     placement,
     middleware,
     whileElementsMounted: autoUpdate,

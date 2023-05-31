@@ -66,8 +66,8 @@ const Tooltip = ({
   color,
   asLabel,
   defaultOpen = false,
-  open: controlledOpen,
-  onOpenChange: setControlledOpen,
+  open,
+  onOpenChange,
 }: TooltipPropsType) => {
   const tooltip = useTooltip({
     placement,
@@ -75,8 +75,8 @@ const Tooltip = ({
     size,
     color,
     defaultOpen,
-    controlledOpen,
-    setControlledOpen,
+    open,
+    onOpenChange,
     asLabel,
   });
 
