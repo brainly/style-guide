@@ -4,7 +4,41 @@ import UnstyledButton from '../buttons/UnstyledButton';
 
 export interface CardButtonPropsType
   extends React.ComponentPropsWithRef<'button'> {
+  /**
+   * Optional string. Variant of the card. Default is 'outline'.
+   */
+  variant?: 'solid' | 'outline';
+
+  color?: 'light' | 'dark';
+
+  /**
+   * Optional React.ReactNode. Children of the CardButton.
+   * @example <CardButton>Card content</CardButton>
+   */
   children?: React.ReactNode;
+
+  /**
+   * Optional. Width of the card.
+   * @example <CardButton width="100px" />
+   */
+  width?: React.CSSProperties['width'];
+
+  /**
+   * Optional. Height of the card.
+   * @example <CardButton height="100px" />
+   */
+  height?: React.CSSProperties['height'];
+
+  /**
+   * Optional object. Inline styles.
+   * @example <CardCheckbox style={--card-background-color: var(--green-20)} />
+   */
+  style?: React.CSSProperties;
+
+  /**
+   * Optional string. ID of the CardButton.
+   */
+  id?: string;
 }
 
 export const CardButtonRoot = React.forwardRef<
