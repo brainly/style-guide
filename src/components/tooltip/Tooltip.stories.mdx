@@ -1,0 +1,359 @@
+import {ArgsTable, Meta, Story, Canvas} from '@storybook/addon-docs';
+import {StoryVariant, StoryVariantTable} from '../../docs/utils';
+import PageHeader from 'blocks/PageHeader';
+
+import Text from '../text/Text';
+import Button from '../buttons/Button';
+import Flex from '../flex/Flex';
+import Checkbox from '../form-elements/checkbox/Checkbox';
+import Radio from '../form-elements/radio/Radio';
+import Icon from '../icons/Icon';
+import Counter from '../counters/Counter';
+import Logo from '../logo/Logo';
+import Avatar from '../avatar/Avatar';
+import Tooltip from './Tooltip';
+import TooltipA11y from './stories/Tooltip.a11y.mdx';
+const TOOLTIP_PLACEMENTS = [
+  'top',
+  'top-start',
+  'top-end',
+  'bottom',
+  'bottom-start',
+  'bottom-end',
+  'left',
+  'right',
+];
+
+<Meta
+  title="Components/Tooltip"
+  component={Tooltip}
+  subcomponents={{Element: Tooltip.Element, Trigger: Tooltip.Trigger}}
+  parameters={{chromatic: {delay: 300}}}
+/>
+
+<PageHeader>Tooltip</PageHeader>
+
+- [Stories](#stories)
+- [Accessibility](#accessibility)
+
+## Overview
+
+<Canvas>
+  <Story name="Default" parameters={{layout: 'centered'}}>
+    {args => (
+      <Tooltip {...args} asLabel>
+        <Tooltip.Element label="Copy to clipboard" />
+        <Tooltip.Trigger>
+          <Button
+            icon={<Icon color="adaptive" type="clipboard" aria-hidden />}
+            iconOnly
+            variant="solid-light"
+          />
+        </Tooltip.Trigger>
+      </Tooltip>
+    )}
+  </Story>
+</Canvas>
+
+<ArgsTable story="Default" />
+
+## Stories
+
+### Controlled
+
+<Canvas>
+  <Story name="Controlled" parameters={{layout: 'centered'}}>
+    {args => {
+      const [isOpen, setIsOpen] = React.useState(false);
+      return (
+        <Tooltip {...args} asLabel onOpenChange={setIsOpen} open={isOpen}>
+          <Tooltip.Element label="Copy to clipboard" />
+          <Tooltip.Trigger>
+            <Button
+              icon={<Icon color="adaptive" type="clipboard" aria-hidden />}
+              iconOnly
+              variant="solid-light"
+            />
+          </Tooltip.Trigger>
+        </Tooltip>
+      );
+    }}
+  </Story>
+</Canvas>
+
+### Types of triggers
+
+<Canvas>
+  <Story name="Types of triggers">
+    {args => {
+      const RenderTooltip = ({trigger}) => (
+        <Tooltip {...args}>
+          <Tooltip.Element label="Here's tooltip" />
+          <Tooltip.Trigger>{trigger}</Tooltip.Trigger>
+        </Tooltip>
+      );
+      return (
+        <Flex direction="column" style={{gap: '20px'}}>
+          <div>
+            <Text weight="bold">Button component:</Text>
+            <RenderTooltip trigger={<Button>Hover me</Button>} />
+          </div>
+          <div>
+            <Text weight="bold">Checkbox component:</Text>
+            <RenderTooltip trigger={<Checkbox>Hover me</Checkbox>} />
+          </div>
+          <div>
+            <Text weight="bold">{`<button>`} tag:</Text>
+            <RenderTooltip
+              trigger={<button>Hover me to trigger the tooltip</button>}
+            />
+          </div>
+          <div>
+            <Text weight="bold">{`<p>`} tag:</Text>
+            <RenderTooltip
+              trigger={
+                <p style={{background: 'lightgray'}}>
+                  Hover me to trigger the tooltip
+                </p>
+              }
+            />
+          </div>
+          <div>
+            <Text weight="bold">Counter component:</Text>
+            <RenderTooltip
+              trigger={
+                <Counter icon="points" size="xs">
+                  +15
+                  <Text as="span" color="text-gray-60" inherited>
+                    {' '}
+                    pts{' '}
+                  </Text>
+                </Counter>
+              }
+            />
+          </div>
+          <div style={{maxWidth: '300px'}}>
+            <Text weight="bold">Plain text:</Text>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+            tempor incididunt ut labore et dolore magna aliqua. <RenderTooltip trigger="HOVER ME TO TRIGGER TOOLTIP" />{' '}
+            Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi
+            ut aliquip ex ea commodo consequat.
+          </div>
+        </Flex>
+      );
+    }}
+  </Story>
+</Canvas>
+
+### Placement
+
+<Canvas>
+  <Story name="Placement">
+    {args => {
+      const RenderTooltip = ({placement}) => (
+        <Tooltip {...args} placement={placement} defaultOpen>
+          <Tooltip.Element label={placement} />
+          <Tooltip.Trigger>
+            <Button
+              icon={<Icon color="adaptive" type="report_flag_outlined" />}
+              iconOnly
+              variant="solid-light"
+            />
+          </Tooltip.Trigger>
+        </Tooltip>
+      );
+      return (
+        <Flex justifyContent="center" style={{paddingTop: '100px'}}>
+          <Flex
+            direction="column"
+            alignItems="center"
+            style={{width: '300px', gap: '20px'}}
+          >
+            <RenderTooltip placement="top" />
+            <Flex direction="row" justifyContent="space-between" fullWidth>
+              {['top-end', 'top-start'].map(placement => (
+                <RenderTooltip placement={placement} />
+              ))}
+            </Flex>
+            <Flex direction="row" justifyContent="space-between" fullWidth>
+              {['left', 'right'].map(placement => (
+                <RenderTooltip placement={placement} />
+              ))}
+            </Flex>
+            <Flex direction="row" justifyContent="space-between" fullWidth>
+              {['bottom-end', 'bottom-start'].map(placement => (
+                <RenderTooltip placement={placement} />
+              ))}
+            </Flex>
+            <RenderTooltip placement="bottom" />
+          </Flex>
+        </Flex>
+      );
+    }}
+  </Story>
+</Canvas>
+
+### Sizes
+
+<Canvas>
+  <Story name="Sizes" args={{defaultOpen: true}}>
+    {args => {
+      return (
+        <Flex direction="column" style={{gap: '50px'}}>
+          <Flex justifyContent="center" style={{gap: '250px'}}>
+            {['default', 'small'].map(size => (
+              <Flex
+                direction="column"
+                alignItems="center"
+                style={{gap: '60px'}}
+              >
+                <Text>Size {size}</Text>
+                <Tooltip {...args} size={size}>
+                  <Tooltip.Element label="Tooltip content" />
+                  <Tooltip.Trigger>
+                    <Button
+                      icon={
+                        <Icon color="adaptive" type="report_flag_outlined" />
+                      }
+                      iconOnly
+                      variant="solid-light"
+                    >
+                      button
+                    </Button>
+                  </Tooltip.Trigger>
+                </Tooltip>
+              </Flex>
+            ))}
+          </Flex>
+          <Flex
+            justifyContent="center"
+            direction="column"
+            style={{gap: '60px'}}
+            alignItems="center"
+          >
+            {['default', 'small'].map(size => (
+              <Flex
+                direction="column"
+                style={{gap: '120px'}}
+                alignItems="center"
+              >
+                <Text>Long tooltip, size {size}</Text>
+                <Tooltip {...args} size={size}>
+                  <Tooltip.Element
+                    label="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
+            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+            aliquip ex ea commodo consequat."
+                  />
+                  <Tooltip.Trigger>
+                    <Button
+                      icon={
+                        <Icon color="adaptive" type="report_flag_outlined" />
+                      }
+                      iconOnly
+                      variant="solid-light"
+                    >
+                      button
+                    </Button>
+                  </Tooltip.Trigger>
+                </Tooltip>
+              </Flex>
+            ))}
+          </Flex>
+        </Flex>
+      );
+    }}
+  </Story>
+</Canvas>
+
+### Color
+
+<Canvas>
+  <Story name="Color" args={{defaultOpen: true}}>
+    {args => {
+      return (
+        <Flex justifyContent="center" style={{gap: '200px'}}>
+          {['dark', 'light'].map(color => (
+            <Flex direction="column" alignItems="center" style={{gap: '60px'}}>
+              <Text>Color {color}</Text>
+              <Tooltip {...args} color={color}>
+                <Tooltip.Element label="Tooltip content" />
+                <Tooltip.Trigger>
+                  <Button
+                    icon={<Icon color="adaptive" type="report_flag_outlined" />}
+                    iconOnly
+                    variant="solid-light"
+                  >
+                    button
+                  </Button>
+                </Tooltip.Trigger>
+              </Tooltip>
+            </Flex>
+          ))}
+        </Flex>
+      );
+    }}
+  </Story>
+</Canvas>
+
+### Usage example
+
+<Canvas>
+  <Story name="Usage example">
+    {args => {
+      return (
+        <Flex
+          alignItems="center"
+          justifyContent="center"
+          style={{padding: '60px 24px 16px 24px', gap: '15px'}}
+        >
+          <Button variant="transparent">Ask question</Button>
+          <Tooltip {...args}>
+            <Tooltip.Element label="Click to see notifications" />
+            <Tooltip.Trigger>
+              <Button
+                variant="transparent"
+                iconOnly
+                icon={
+                  <>
+                    <Icon color="adaptive" type="notifications" />
+                    <Counter
+                      size="xxs"
+                      style={{
+                        position: 'absolute',
+                        top: 0,
+                        right: 0,
+                        transform: 'translate(8px, -8px)',
+                      }}
+                    >
+                      2
+                    </Counter>
+                  </>
+                }
+              >
+                button
+              </Button>
+            </Tooltip.Trigger>
+          </Tooltip>
+          <Tooltip {...args}>
+            <Tooltip.Element label="Go to your profile" />
+            <Tooltip.Trigger>
+              <Button
+                variant="transparent"
+                iconOnly
+                icon={<Avatar imgSrc={null} link="#" size="xs" />}
+              >
+                button
+              </Button>
+            </Tooltip.Trigger>
+          </Tooltip>
+          <Button variant="solid-indigo">Start free trial</Button>
+        </Flex>
+      );
+    }}
+  </Story>
+</Canvas>
+
+## Accessibility
+
+<TooltipA11y />
