@@ -1,5 +1,6 @@
 import * as React from 'react';
 import cx from 'classnames';
+import UnstyledButton from '../buttons/UnstyledButton';
 
 export interface CardButtonPropsType
   extends React.ComponentPropsWithRef<'button'> {
@@ -9,15 +10,41 @@ export interface CardButtonPropsType
 export const CardButtonRoot = React.forwardRef<
   HTMLButtonElement,
   CardButtonPropsType
->(({children, ...rest}, ref) => {
-  return (
-    <button className="card-interactive" {...rest} ref={ref}>
-      <div className="card-interactive__border">
-        <div className="card-interactive__background">{children}</div>
-      </div>
-    </button>
-  );
-});
+>(
+  (
+    {
+      variant = 'outline',
+      color = 'dark',
+      className,
+      children,
+      width,
+      height,
+      style,
+      ...rest
+    },
+    ref
+  ) => {
+    const cssVariables = {
+      '--card-width': width,
+      '--card-height': height,
+    };
+
+    return (
+      <UnstyledButton
+        className={cx('sg-card-interactive', className)}
+        style={{...style, ...cssVariables}}
+        data-variant={variant}
+        data-color={color}
+        {...rest}
+        ref={ref}
+      >
+        <div className="sg-card-interactive__border">
+          <div className="sg-card-interactive__background">{children}</div>
+        </div>
+      </UnstyledButton>
+    );
+  }
+);
 
 export interface CardButtonIndicatorPropsType {
   slot?:

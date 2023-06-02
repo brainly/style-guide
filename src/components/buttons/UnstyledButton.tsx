@@ -5,11 +5,13 @@ export type UnstyledButtonPropsType = {
   className?: string;
 } & React.ButtonHTMLAttributes<HTMLButtonElement>;
 
-const UnstyledButton = (props: UnstyledButtonPropsType) => {
-  const {className, ...rest} = props;
-  const buttonClass = cx('sg-button-unstyled', className);
+const UnstyledButton = React.forwardRef<HTMLButtonElement, ButtonPropsType>(
+  (props, ref) => {
+    const {className, ...rest} = props;
+    const buttonClass = cx('sg-button-unstyled', className);
 
-  return <button {...rest} className={buttonClass} />;
-};
+    return <button {...rest} ref={ref} className={buttonClass} />;
+  }
+);
 
 export default UnstyledButton;
