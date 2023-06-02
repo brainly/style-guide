@@ -405,6 +405,7 @@ const SelectMenu = React.forwardRef<HTMLDivElement, SelectMenuPropsType>(
 
     // this is to not block clicking and hovering outside
     // when the exit animation plays
+    // and when on touch screen
     const overlayPointerEvents =
       status === 'open' || status === 'initial' ? 'all' : 'none';
     const interactionsFloatingProps = interactions.getFloatingProps();
@@ -416,7 +417,7 @@ const SelectMenu = React.forwardRef<HTMLDivElement, SelectMenuPropsType>(
           id={id}
           className={selectElementClassName}
           role="combobox"
-          tabIndex={disabled ? -1 : 0}
+          tabIndex={!disabled ? 0 : -1}
           aria-disabled={disabled}
           aria-invalid={invalid ? true : undefined}
           aria-controls={interactionsFloatingProps.id as string}
@@ -424,10 +425,6 @@ const SelectMenu = React.forwardRef<HTMLDivElement, SelectMenuPropsType>(
           aria-haspopup="listbox"
           data-status={status}
           {...interactions.getReferenceProps({
-            // Handle pointer
-            onClick() {
-              if (!disabled) onOpenChange(!isExpanded);
-            },
             // Handle keyboard
             onKeyDown(event) {
               if ((event.key === 'Enter' || event.key === ' ') && !disabled) {
@@ -460,6 +457,8 @@ const SelectMenu = React.forwardRef<HTMLDivElement, SelectMenuPropsType>(
               context={context}
               modal={false}
               visuallyHiddenDismiss
+              order={['reference', 'content']}
+              initialFocus={-1}
             >
               <div
                 ref={refs.setFloating}
@@ -472,6 +471,7 @@ const SelectMenu = React.forwardRef<HTMLDivElement, SelectMenuPropsType>(
                   width: 'max-content',
                   maxWidth: 320,
                   zIndex: 1,
+                  pointerEvents: 'auto',
                 }}
                 {...interactionsFloatingProps}
                 aria-labelledby={id}

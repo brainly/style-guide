@@ -4,23 +4,28 @@ import {getLogoUrl} from '../../logo-url';
 
 export type LogoTypeType =
   | 'brainly'
+  | 'brainly-inverse'
   | 'brainly-mobile'
+  | 'brainly-mobile-inverse'
   | 'eodev'
+  | 'eodev-inverse'
   | 'eodev-mobile'
+  | 'eodev-mobile-inverse'
   | 'nosdevoirs'
+  | 'nosdevoirs-inverse'
   | 'nosdevoirs-mobile'
+  | 'nosdevoirs-mobile-inverse'
   | 'znanija'
+  | 'znanija-inverse'
   | 'znanija-mobile'
+  | 'znanija-mobile-inverse'
   | 'znanija-plus'
   | 'znanija-plus-inverse'
   | 'znanija-plus-small'
   | 'brainly-plus'
-  | 'brainly-plus-var-a'
-  | 'brainly-plus-var-b'
   | 'brainly-plus-inverse'
-  | 'brainly-plus-small'
   | 'brainly-tutoring'
-  | 'brainly-tutoring-small'
+  | 'brainly-tutoring-inverse'
   | 'brainly-logotype-tutor'
   | 'logo-tutor'
   | 'logo-math-solver'
@@ -32,23 +37,28 @@ export type LogoTypeType =
 
 export const TYPE = {
   BRAINLY: 'brainly',
+  BRAINLY_INVERSE: 'brainly-inverse',
   BRAINLY_MOBILE: 'brainly-mobile',
+  BRAINLY_MOBILE_INVERSE: 'brainly-mobile-inverse',
   EODEV: 'eodev',
+  EODEV_INVERSE: 'eodev-inverse',
   EODEV_MOBILE: 'eodev-mobile',
+  EODEV_MOBILE_INVERSE: 'eodev-mobile-inverse',
   NOSDEVOIRS: 'nosdevoirs',
+  NOSDEVOIRS_INVERSE: 'nosdevoirs-inverse',
   NOSDEVOIRS_MOBILE: 'nosdevoirs-mobile',
+  NOSDEVOIRS_MOBILE_INVERSE: 'nosdevoirs-mobile-inverse',
   ZNANIJA: 'znanija',
+  ZNANIJA_INVERSE: 'znanija-inverse',
   ZNANIJA_MOBILE: 'znanija-mobile',
+  ZNANIJA_MOBILE_INVERSE: 'znanija-mobile-inverse',
   ZNANIJA_PLUS: 'znanija-plus',
   ZNANIJA_PLUS_INVERSE: 'znanija-plus-inverse',
   ZNANIJA_PLUS_SMALL: 'znanija-plus-small',
   BRAINLY_PLUS: 'brainly-plus',
-  BRAINLY_PLUS_VAR_A: 'brainly-plus-var-a',
-  BRAINLY_PLUS_VAR_B: 'brainly-plus-var-b',
   BRAINLY_PLUS_INVERSE: 'brainly-plus-inverse',
-  BRAINLY_PLUS_SMALL: 'brainly-plus-small',
   BRAINLY_TUTORING: 'brainly-tutoring',
-  BRAINLY_TUTORING_SMALL: 'brainly-tutoring-small',
+  BRAINLY_TUTORING_INVERSE: 'brainly-tutoring-inverse',
   LOGO_TUTOR: 'logo-tutor',
   LOGO_MATH_SOLVER: 'logo-math-solver',
   LOGO_COMMUNITY_QA: 'logo-community-qa',

@@ -1,16 +1,17 @@
 import {ArgsTable, Meta, Story, Canvas} from '@storybook/addon-docs';
 import {StoryVariant} from '../../docs/utils';
 import Flex, {
-  FLEX_DIRECTION,
-  FLEX_MARGINS,
-  FLEX_JUSTIFY_VALUES,
-  FLEX_GAP_VALUES,
+  DIRECTION,
+  MARGINS,
+  JUSTIFY_VALUES,
+  GAP_VALUES,
+  FLEX_VALUES,
 } from './Flex';
 import Text, {TEXT_SIZE} from '../text/Text';
 import SeparatorHorizontal from '../separators/SeparatorHorizontal';
 import Box from '../box/Box';
 import {formatTags} from '../../docs/utils';
-import {FLEX_ALIGNMENT_VALUES} from './FlexConsts';
+import {ALIGNMENT_VALUES} from './FlexConsts';
 import FlexA11y from './stories/Flex.a11y.mdx';
 import PageHeader from 'blocks/PageHeader';
 const blueBoxStyle = {
@@ -76,60 +77,60 @@ const indigoBoxStyle = {
       description: '(Responsive)',
       table: {
         type: {
-          summary: formatTags(Object.values(FLEX_DIRECTION)),
+          summary: formatTags(Object.values(DIRECTION)),
         },
       },
       control: {
         type: 'select',
-        options: Object.values(FLEX_DIRECTION),
+        options: Object.values(DIRECTION),
       },
     },
     justifyContent: {
       description: '(Responsive)',
       table: {
         type: {
-          summary: formatTags(Object.values(FLEX_JUSTIFY_VALUES)),
+          summary: formatTags(Object.values(JUSTIFY_VALUES)),
         },
       },
       control: {
         type: 'select',
-        options: Object.values(FLEX_JUSTIFY_VALUES),
+        options: Object.values(JUSTIFY_VALUES),
       },
     },
     alignContent: {
       description: '(Responsive)',
       table: {
         type: {
-          summary: formatTags(Object.values(FLEX_ALIGNMENT_VALUES)),
+          summary: formatTags(Object.values(ALIGNMENT_VALUES)),
         },
       },
       control: {
         type: 'select',
-        options: Object.values(FLEX_ALIGNMENT_VALUES),
+        options: Object.values(ALIGNMENT_VALUES),
       },
     },
     alignItems: {
       description: '(Responsive)',
       table: {
         type: {
-          summary: formatTags(Object.values(FLEX_ALIGNMENT_VALUES)),
+          summary: formatTags(Object.values(ALIGNMENT_VALUES)),
         },
       },
       control: {
         type: 'select',
-        options: Object.values(FLEX_ALIGNMENT_VALUES),
+        options: Object.values(ALIGNMENT_VALUES),
       },
     },
     alignSelf: {
       description: '(Responsive)',
       table: {
         type: {
-          summary: formatTags(Object.values(FLEX_ALIGNMENT_VALUES)),
+          summary: formatTags(Object.values(ALIGNMENT_VALUES)),
         },
       },
       control: {
         type: 'select',
-        options: Object.values(FLEX_ALIGNMENT_VALUES),
+        options: Object.values(ALIGNMENT_VALUES),
       },
     },
     inlineFlex: {
@@ -169,72 +170,84 @@ const indigoBoxStyle = {
       description: '(Responsive)',
       table: {
         type: {
-          summary: formatTags(Object.values(FLEX_MARGINS)),
+          summary: formatTags(Object.values(MARGINS)),
         },
       },
       control: {
         type: 'select',
-        options: Object.values(FLEX_MARGINS),
+        options: Object.values(MARGINS),
       },
     },
     marginTop: {
       description: '(Responsive)',
       table: {
         type: {
-          summary: formatTags(Object.values(FLEX_MARGINS)),
+          summary: formatTags(Object.values(MARGINS)),
         },
       },
       control: {
         type: 'select',
-        options: Object.values(FLEX_MARGINS),
+        options: Object.values(MARGINS),
       },
     },
     marginRight: {
       description: '(Responsive)',
       table: {
         type: {
-          summary: formatTags(Object.values(FLEX_MARGINS)),
+          summary: formatTags(Object.values(MARGINS)),
         },
       },
       control: {
         type: 'select',
-        options: Object.values(FLEX_MARGINS),
+        options: Object.values(MARGINS),
       },
     },
     marginBottom: {
       description: '(Responsive)',
       table: {
         type: {
-          summary: formatTags(Object.values(FLEX_MARGINS)),
+          summary: formatTags(Object.values(MARGINS)),
         },
       },
       control: {
         type: 'select',
-        options: Object.values(FLEX_MARGINS),
+        options: Object.values(MARGINS),
       },
     },
     marginLeft: {
       description: '(Responsive)',
       table: {
         type: {
-          summary: formatTags(Object.values(FLEX_MARGINS)),
+          summary: formatTags(Object.values(MARGINS)),
         },
       },
       control: {
         type: 'select',
-        options: Object.values(FLEX_MARGINS),
+        options: Object.values(MARGINS),
       },
     },
     gap: {
       description: '(Responsive)',
       table: {
         type: {
-          summary: formatTags(Object.values(FLEX_GAP_VALUES)),
+          summary: formatTags(Object.values(GAP_VALUES)),
         },
       },
       control: {
         type: 'select',
-        options: Object.values(FLEX_GAP_VALUES),
+        options: Object.values(GAP_VALUES),
+      },
+    },
+    flex: {
+      description: '(Responsive)',
+      table: {
+        type: {
+          summary: formatTags(Object.values(FLEX_VALUES)),
+        },
+      },
+      control: {
+        type: 'select',
+        options: Object.values(FLEX_VALUES),
       },
     },
   }}
@@ -273,7 +286,7 @@ const indigoBoxStyle = {
   <Story name="Column">
     {args => (
       <Box {...indigoBoxStyle}>
-        <Flex {...args} direction={FLEX_DIRECTION.COLUMN} fullWidth>
+        <Flex {...args} direction={DIRECTION.COLUMN} fullWidth>
           <Box {...blueBoxStyle} style={{marginBottom: 10}}>
             Flex child 1
           </Box>
@@ -290,7 +303,7 @@ const indigoBoxStyle = {
   <Story name="Row">
     {args => (
       <Box {...indigoBoxStyle}>
-        <Flex {...args} direction={FLEX_DIRECTION.ROW} fullWidth>
+        <Flex {...args} direction={DIRECTION.ROW} fullWidth>
           <Box {...blueBoxStyle} style={{marginRight: 10}}>
             Flex child 1
           </Box>
@@ -307,9 +320,9 @@ const indigoBoxStyle = {
   <Story name="Justify Content">
     {args => (
       <Flex {...args} fullWidth direction="column">
-        <Flex marginBottom={FLEX_MARGINS.MEDIUM}>
+        <Flex marginBottom={MARGINS.MEDIUM}>
           <Box {...indigoBoxStyle}>
-            <Flex justifyContent={FLEX_JUSTIFY_VALUES.SPACE_BETWEEN}>
+            <Flex justifyContent={JUSTIFY_VALUES.SPACE_BETWEEN}>
               <Flex>
                 <Box {...blueBoxStyle}>space between</Box>
               </Flex>
@@ -319,9 +332,9 @@ const indigoBoxStyle = {
             </Flex>
           </Box>
         </Flex>
-        <Flex marginBottom={FLEX_MARGINS.MEDIUM}>
+        <Flex marginBottom={MARGINS.MEDIUM}>
           <Box {...indigoBoxStyle}>
-            <Flex justifyContent={FLEX_JUSTIFY_VALUES.SPACE_AROUND}>
+            <Flex justifyContent={JUSTIFY_VALUES.SPACE_AROUND}>
               <Flex>
                 <Box {...blueBoxStyle}>space around</Box>
               </Flex>
@@ -331,10 +344,10 @@ const indigoBoxStyle = {
             </Flex>
           </Box>
         </Flex>
-        <Flex marginBottom={FLEX_MARGINS.MEDIUM}>
+        <Flex marginBottom={MARGINS.MEDIUM}>
           <Box {...indigoBoxStyle}>
-            <Flex justifyContent={FLEX_JUSTIFY_VALUES.FLEX_START}>
-              <Flex marginRight={FLEX_MARGINS.MEDIUM}>
+            <Flex justifyContent={JUSTIFY_VALUES.START}>
+              <Flex marginRight={MARGINS.MEDIUM}>
                 <Box {...blueBoxStyle}>flex start</Box>
               </Flex>
               <Flex>
@@ -343,10 +356,10 @@ const indigoBoxStyle = {
             </Flex>
           </Box>
         </Flex>
-        <Flex marginBottom={FLEX_MARGINS.MEDIUM}>
+        <Flex marginBottom={MARGINS.MEDIUM}>
           <Box {...indigoBoxStyle}>
-            <Flex justifyContent={FLEX_JUSTIFY_VALUES.FLEX_END}>
-              <Flex marginRight={FLEX_MARGINS.MEDIUM}>
+            <Flex justifyContent={JUSTIFY_VALUES.END}>
+              <Flex marginRight={MARGINS.MEDIUM}>
                 <Box {...blueBoxStyle}>flex end</Box>
               </Flex>
               <Flex>
@@ -389,31 +402,27 @@ const indigoBoxStyle = {
       return (
         <Flex {...args} fullWidth direction="column">
           <Box {...indigoBoxStyle} style={{height: 400, width: 400}}>
-            <Flex alignContent={FLEX_ALIGNMENT_VALUES.CENTER} wrap fullHeight>
+            <Flex alignContent={ALIGNMENT_VALUES.CENTER} wrap fullHeight>
               <FlexItems label="center" />
             </Flex>
           </Box>
           <Box {...indigoBoxStyle} style={{height: 400, width: 400}}>
-            <Flex
-              alignContent={FLEX_ALIGNMENT_VALUES.FLEX_START}
-              wrap
-              fullHeight
-            >
+            <Flex alignContent={ALIGNMENT_VALUES.START} wrap fullHeight>
               <FlexItems label="flex-start" />
             </Flex>
           </Box>
           <Box {...indigoBoxStyle} style={{height: 400, width: 400}}>
-            <Flex alignContent={FLEX_ALIGNMENT_VALUES.FLEX_END} wrap fullHeight>
+            <Flex alignContent={ALIGNMENT_VALUES.END} wrap fullHeight>
               <FlexItems label="flex-end" />
             </Flex>
           </Box>
           <Box {...indigoBoxStyle} style={{height: 400, width: 400}}>
-            <Flex alignContent={FLEX_ALIGNMENT_VALUES.BASELINE} wrap fullHeight>
+            <Flex alignContent={ALIGNMENT_VALUES.BASELINE} wrap fullHeight>
               <FlexItems label="baseline" baseline />
             </Flex>
           </Box>
           <Box {...indigoBoxStyle} style={{height: 400, width: 400}}>
-            <Flex alignContent={FLEX_ALIGNMENT_VALUES.STRETCH} wrap fullHeight>
+            <Flex alignContent={ALIGNMENT_VALUES.STRETCH} wrap fullHeight>
               <FlexItems label="stretch" />
             </Flex>
           </Box>
@@ -434,8 +443,8 @@ Use margins to make space around Flex. They work in single direction `marginTop=
       const marginTypeLabelBox = {style: {width: '100px', flexShrink: 0}};
       return (
         <Flex {...args} fullWidth direction="column">
-          {Object.values(FLEX_MARGINS).map(marginType => (
-            <Flex marginBottom={FLEX_MARGINS.SMALL}>
+          {Object.values(MARGINS).map(marginType => (
+            <Flex marginBottom={MARGINS.SMALL}>
               <Box {...marginTypeLabelBox}>
                 <Text>{marginType}</Text>
               </Box>

@@ -1,0 +1,344 @@
+import {ArgsTable, Meta, Story, Canvas} from '@storybook/addon-docs';
+import {StoryVariantTable} from '../../docs/utils';
+import PageHeader from 'blocks/PageHeader';
+import Icon from '../icons/Icon';
+import SubjectIcon from '../subject-icons/SubjectIcon';
+import Headline from '../text/Headline';
+import Text from '../text/Text';
+import Button from '../buttons/Button';
+import Box from '../box/Box';
+import Flex from '../flex/Flex';
+import Chip, {SIZE} from './Chip';
+import {styled} from '@storybook/theming';
+import ChipAccessibility from './stories/Chip.a11y.mdx';
+import ProgressBar from '../progress-bar/ProgressBar';
+const chips = [
+  {value: 'physics', label: 'Physics', icon: 'physics'},
+  {value: 'biology', label: 'Biology', icon: 'biology'},
+  {value: 'mathematics', label: 'Math', icon: 'logic'},
+];
+
+<Meta
+  title="Components/Chip"
+  component={Chip}
+  argTypes={{
+    children: {
+      type: 'string',
+    },
+    onChange: {
+      table: {
+        category: 'Events',
+      },
+    },
+  }}
+  args={{children: 'Physics'}}
+/>
+
+<PageHeader>Chip</PageHeader>
+
+- [Stories](#stories)
+- [Accessibility](#accessibility)
+
+## Overview
+
+<Canvas>
+  <Story name="Default">{args => <Chip {...args} />}</Story>
+</Canvas>
+
+<ArgsTable story="Default" />
+
+## Stories
+
+### Multi select
+
+<Canvas>
+  <Story name="Multi select">{args => <Chip {...args} multiSelect />}</Story>
+</Canvas>
+
+### With icon
+
+<Canvas>
+  <Story name="With icon">
+    {args => (
+      <Chip
+        {...args}
+        icon={<SubjectIcon type="physics" size="small" aria-hidden />}
+      />
+    )}
+  </Story>
+</Canvas>
+
+### Sizes
+
+<Canvas>
+  <Story name="Sizes">
+    {args => (
+      <StoryVariantTable>
+        <tbody>
+          {Object.values(SIZE).map(size => (
+            <tr key={size}>
+              <td>
+                <Headline
+                  extraBold
+                  transform="uppercase"
+                  as="span"
+                  color="text-gray-40"
+                  size="medium"
+                >
+                  {size}
+                </Headline>
+              </td>
+              <td>
+                <Chip {...args} size={size} />
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </StoryVariantTable>
+    )}
+  </Story>
+</Canvas>
+
+### Controlled / uncontrolled
+
+<Canvas>
+  <Story name="Controlled/Uncontrolled">
+    {args => {
+      const [selected, setSelected] = React.useState(chips[0].value);
+      const switchValue = () =>
+        setSelected(chips[Math.floor(Math.random() * 3)].value);
+      return (
+        <StoryVariantTable>
+          <tbody>
+            <tr>
+              <td>
+                <Headline
+                  extraBold
+                  transform="uppercase"
+                  as="span"
+                  color="text-gray-40"
+                  size="medium"
+                >
+                  Controlled
+                </Headline>
+              </td>
+              <td>
+                <Flex gap="s">
+                  {chips.map(({value, icon, label}) => (
+                    <Chip
+                      {...args}
+                      icon={
+                        <SubjectIcon type={icon} size="small" aria-hidden />
+                      }
+                      checked={value === selected}
+                      onChange={() => setSelected(value)}
+                      value={value}
+                      name="con"
+                    >
+                      {label}
+                    </Chip>
+                  ))}
+                </Flex>
+              </td>
+              <td>
+                <Button onClick={switchValue}>Switch value</Button>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <Headline
+                  extraBold
+                  transform="uppercase"
+                  as="span"
+                  color="text-gray-40"
+                  size="medium"
+                >
+                  Uncontrolled
+                </Headline>
+              </td>
+              <td>
+                <Flex gap="s">
+                  {chips.map(({value, icon, label}) => (
+                    <Chip
+                      {...args}
+                      icon={
+                        <SubjectIcon type={icon} size="small" aria-hidden />
+                      }
+                      value={value}
+                      name="uncon"
+                    >
+                      {label}
+                    </Chip>
+                  ))}
+                </Flex>
+              </td>
+            </tr>
+          </tbody>
+        </StoryVariantTable>
+      );
+    }}
+  </Story>
+</Canvas>
+
+### With custom theme
+
+To use custom theme for `Chip`, you can override following CSS variables:
+
+| Css variable name        | Explanation               |
+| ------------------------ | ------------------------- |
+| --chipBorderColor        | Chip border color         |
+| --chipCheckedBorderColor | Checked chip border color |
+
+There are two ways of achieving custom theming:
+
+1. Change CSS variables for particular `Chip` by defining them inline in the `style` attribute. Example:
+
+```jsx
+<Chip style={{'--chipBorderColor': 'green'}}>Chip label</Chip>
+```
+
+2. Or, you can use `className` and define variables replacements in your CSS file. Example:
+
+```css
+.sg-chip--custom-theme {
+  --chipBorderColor: #fbbe2e;
+  --chipCheckedBorderColor: #c98600;
+}
+```
+
+In the following example, className `sg-chip--custom-theme` was applied to all `Chip` components. The last component has inline variable override:
+
+<Canvas>
+  <Story name="With custom theme" args={{className: 'sg-chip--custom-theme'}}>
+    {args => {
+      const StyledChips = styled(Flex)`
+        display: flex;
+        flex-direction: column;
+        .sg-chip--custom-theme {
+          --chipBorderColor: #fbbe2e;
+          --chipCheckedBorderColor: #c98600;
+        }
+      `;
+      return (
+        <StyledChips gap="s">
+          <Chip {...args} name="custom">
+            Custom
+          </Chip>
+          <Chip
+            {...args}
+            name="custom"
+            style={{'--chipBorderColor': '#24a865'}}
+          >
+            With inline color override
+          </Chip>
+        </StyledChips>
+      );
+    }}
+  </Story>
+</Canvas>
+
+### Filtering
+
+<Canvas>
+  <Story name="Filtering">
+    {() => {
+      const chipValues = ['Sophomore year', 'Junior year', 'Senior year'];
+      const books = [
+        {
+          name: 'Linear algebra, 4th edition',
+          author: 'Stephen H. Friedberg',
+          color: 'blue-40',
+          filter: 'Sophomore year',
+        },
+        {
+          name: 'Differential Equations, 5th edition',
+          author: 'Edwards, Penny Calvis',
+          color: 'green-40',
+          filter: 'Junior year',
+        },
+        {
+          name: 'Linear Algebra With Applications, 8th edition',
+          author: 'Gareth Williams',
+          color: 'yellow-40',
+          filter: 'Senior year',
+        },
+      ];
+      const [filter, setFilter] = React.useState();
+      const filteredBooks = filter
+        ? books.filter(book => book.filter === filter)
+        : books;
+      return (
+        <Flex gap="m" direction="column">
+          <Flex gap="s">
+            {chipValues.map(c => (
+              <Chip
+                value={c}
+                key={c}
+                name="filtering"
+                onChange={() => setFilter(c)}
+              >
+                {c}
+              </Chip>
+            ))}
+            <Button onClick={() => setFilter()}>reset</Button>
+          </Flex>
+          <Flex gap="m" margin="m">
+            {filteredBooks.map(f => (
+              <Flex
+                gap="s"
+                direction="column"
+                alignItems="center"
+                style={{width: '230px', flex: 'none'}}
+              >
+                <Box
+                  color={f.color}
+                  style={{width: '144px', height: '206px'}}
+                />
+                <Headline weight="bold" size="small" align="to-center">
+                  {f.name}
+                </Headline>
+                <Text size="xsmall" color="text-color-60" align="to-center">
+                  {f.author}
+                </Text>
+              </Flex>
+            ))}
+          </Flex>
+        </Flex>
+      );
+    }}
+  </Story>
+</Canvas>
+
+### Selecting
+
+<Canvas>
+  <Story name="Selecting">
+    {() => {
+      const chipValues = ['Algebra 1', 'Geometry', 'Intro to Logic', 'Course'];
+      return (
+        <Flex gap="m" direction="column">
+          <Headline size="xsmall">
+            Select courses you take this semester
+          </Headline>
+          <Flex gap="s">
+            {chipValues.map(c => (
+              <Chip value={c} key={c} name="selecting" multiSelect>
+                {c}
+              </Chip>
+            ))}
+          </Flex>
+          <Flex gap="xs" direction="column">
+            <Text weight="bold" size="xsmall" transform="uppercase">
+              1 / 4 STEPS
+            </Text>
+            <ProgressBar maxValue={4} value={1} />
+          </Flex>
+        </Flex>
+      );
+    }}
+  </Story>
+</Canvas>
+
+## Accessibility
+
+<ChipAccessibility />

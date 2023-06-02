@@ -127,6 +127,24 @@ $flexAlignmentValues: (center flex-start flex-end baseline stretch);
       }
     }
 
+    @include makeResponsive($variant, 'sg-flex--flex-auto') {
+      flex: auto;
+    }
+
+    @include makeResponsive($variant, 'sg-flex--flex-initial') {
+      flex: initial;
+    }
+
+    @include makeResponsive($variant, 'sg-flex--flex-none') {
+      flex: none;
+    }
+
+    @for $value from 1 through 12 {
+      @include makeResponsive($variant, 'sg-flex--flex-#{$value}') {
+        flex: #{$value};
+      }
+    }
+
     @each $sizeName, $size in $flexSpacingsMap {
       @each $side in $marginSides {
         @include makeResponsive(

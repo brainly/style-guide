@@ -171,13 +171,13 @@ $checkboxClickableArea: 32px;
 
   &__icon-wrapper {
     display: inline-flex;
-    border-radius: $borderRadiusSmall;
+    border-radius: var(--border-radius-xxxs);
   }
 
   &__icon {
     width: $checkboxSize;
     height: $checkboxSize;
-    border-radius: $borderRadiusSmall;
+    border-radius: var(--border-radius-xxxs);
     border: 2px solid var(--checkboxColor);
 
     animation-duration: $durationQuick1, $durationModerate1;

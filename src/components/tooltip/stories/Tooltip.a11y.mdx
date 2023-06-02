@@ -1,0 +1,33 @@
+import rules from './rules.a11y';
+
+### Rules
+
+<AccessibilityList rules={rules} />
+
+### Usage
+
+#### Code examples
+
+- basic (abbreviation extension)
+
+```jsx
+<Tooltip>
+  <Tooltip.Element label="United States of America" />
+  <Tooltip.Trigger>USA</Tooltip.Trigger>
+</Tooltip>
+```
+
+- as button label
+
+```jsx
+<Tooltip>
+  <Tooltip.Element label="Copy to clipboard" asLabel />
+  <Tooltip.Trigger>
+    <Button
+      icon={<Icon color="adaptive" type="clipboard" aria-hidden />}
+      iconOnly
+      variant="solid-light"
+    />
+  </Tooltip.Trigger>
+</Tooltip>
+```

@@ -124,7 +124,7 @@ $includeHtml: false !default;
       .sg-select__element {
         height: $formElementSizeS;
         font-size: $formElementSmallFontSize;
-        border-radius: $formElementSmallBorderRadius;
+        border-radius: var(--border-radius-m);
         padding: 0 26px 0 (spacing(xs) + 6px);
 
         &::-ms-expand {

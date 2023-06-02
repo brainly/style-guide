@@ -39,7 +39,7 @@ const ICONS_MAP: {
 
 export const InfoBox = ({children, type = 'info'}: InfoBoxProps) => {
   return (
-    <Flex marginBottom="l">
+    <Flex marginBottom="s">
       <Box padding="s" color={COLORS_MAP[type]} role="alert">
         <Flex>
           <Icon

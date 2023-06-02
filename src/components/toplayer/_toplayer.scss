@@ -11,7 +11,7 @@ $includeHtml: false !default;
     display: flex;
     flex-direction: column;
     overflow: visible;
-    border-radius: $borderRadiusDefault;
+    border-radius: var(--border-radius-xs);
     width: 100%;
     box-shadow: $shadowLarge;
     background-color: $toplayerBackgroundColor;

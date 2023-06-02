@@ -70,7 +70,39 @@ const Container = (Story, options) => {
 
 <PageHeader>SelectMenu</PageHeader>
 
-This component is a controlled component, so you have to handle selecting options.
+- [Stories](#stories)
+- [Accessibility](#accessibility)
+
+## Overview
+
+<Canvas>
+  <Story
+    name="Default"
+    parameters={{
+      chromatic: {disableSnapshot: true},
+    }}
+  >
+    {args => {
+      const [selectedOptions, setSelectedOptions] = React.useState([]);
+      return (
+        <div style={{width: '200px'}}>
+          <SelectMenu
+            {...args}
+            selectedOptions={selectedOptions}
+            onOptionChange={option => {
+              setSelectedOptions([option]);
+            }}
+          />
+        </div>
+      );
+    }}
+  </Story>
+</Canvas>
+
+<ArgsTable story="Default" />
+
+Note: This component is a controlled component, so you have to handle selecting options.
+Example:
 
 ```jsx
 const [selectedOptions, setSelectedOptions] = React.useState([]);
@@ -88,24 +120,6 @@ return (
   />
 );
 ```
-
-- [Stories](#stories)
-- [Accessibility](#accessibility)
-
-## Overview
-
-<Canvas>
-  <Story
-    name="Default"
-    parameters={{
-      chromatic: {disableSnapshot: true},
-    }}
-  >
-    {args => <SelectMenu {...args} />}
-  </Story>
-</Canvas>
-
-<ArgsTable story="Default" />
 
 ## Stories
 

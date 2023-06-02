@@ -8,12 +8,14 @@ import classNames from 'classnames';
 import Text from '../../text/Text';
 import generateRandomString from '../../../js/generateRandomString';
 import useRadioContext from './useRadioContext';
+import {useFirstPaint} from '../../utils/useFirstPaint';
 
 export type RadioColorType = 'light' | 'dark';
 type RadioLabelSizeType = 'medium' | 'small';
 type StyleType = Partial<
   React.CSSProperties & {
     '--radioColor'?: string;
+    '--radioRingInsideColor'?: string;
     '--radioHoverColor'?: string;
     '--radioInvalidColor'?: string;
     '--radioInvalidHoverColor'?: string;
@@ -159,6 +161,7 @@ const Radio = ({
   'aria-describedby': ariaDescribedBy,
   ...props
 }: RadioPropsType) => {
+  const circleRef = React.useRef<HTMLSpanElement>();
   const {current: radioId} = useRef(
     id === undefined || id === '' ? generateRandomString() : id
   );
@@ -166,11 +169,13 @@ const Radio = ({
   const isWithinRadioGroup = Boolean(
     radioGroupContext && Object.keys(radioGroupContext).length
   );
-  const [isPristine, setIsPristine] = React.useState(true);
-  const shouldAnimate =
-    (isWithinRadioGroup && !radioGroupContext.isPristine) || !isPristine;
+  const shouldAnimateRef = React.useRef(false);
   const isControlled = checked !== undefined || isWithinRadioGroup;
   let isChecked: boolean | undefined = undefined;
+
+  useFirstPaint(() => {
+    shouldAnimateRef.current = true;
+  });
 
   if (isControlled) {
     // Radio can either be directly set as checked, or be controlled by a RadioGroup
@@ -179,6 +184,10 @@ const Radio = ({
         ? checked
         : Boolean(radioGroupContext.selectedValue) &&
           radioGroupContext.selectedValue === value;
+
+    if (shouldAnimateRef.current && circleRef.current) {
+      circleRef.current.classList.add('sg-radio__circle--with-animation');
+    }
   }
 
   const colorName = radioGroupContext.color || color;
@@ -202,9 +211,7 @@ const Radio = ({
     'sg-radio__label--with-padding-bottom': description,
     [`sg-radio__label--${String(labelSize)}`]: labelSize,
   });
-  const circleClass = classNames('sg-radio__circle', {
-    'sg-radio__circle--with-animation': shouldAnimate,
-  });
+  const circleClass = classNames('sg-radio__circle');
   const labelId = ariaLabelledBy || `${radioId}-label`;
   const isInvalid = invalid !== undefined ? invalid : radioGroupContext.invalid;
 
@@ -212,12 +219,14 @@ const Radio = ({
     if (isWithinRadioGroup) {
       radioGroupContext.setLastFocusedValue(value);
       radioGroupContext.setSelectedValue(e, value);
-    } else {
-      setIsPristine(false);
     }
 
     if (onChange) {
       onChange(e);
+    }
+
+    if (circleRef.current && shouldAnimateRef.current) {
+      circleRef.current.classList.add('sg-radio__circle--with-animation');
     }
   };
 
@@ -241,6 +250,7 @@ const Radio = ({
             aria-invalid={isInvalid ? true : undefined}
           />
           <span
+            ref={circleRef}
             className={circleClass} // This element is purely decorative so
             // we hide it for screen readers
             aria-hidden="true"

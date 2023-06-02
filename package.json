@@ -1,6 +1,6 @@
 {
   "name": "brainly-style-guide",
-  "version": "224.0.0",
+  "version": "225.0.0",
   "description": "Brainly Front-End Style Guide",
   "repository": "https://github.com/brainly/style-guide.git",
   "author": "Brainly Team",
@@ -54,6 +54,7 @@
     "@hot-loader/react-dom": "^16.8.6",
     "@khanacademy/flow-to-ts": "^0.5.2",
     "@microsoft/api-extractor": "^7.33.8",
+    "@rive-app/react-canvas": "^3.0.38",
     "@storybook/addon-a11y": "^6.5.13",
     "@storybook/addon-actions": "^6.5.13",
     "@storybook/addon-docs": "^6.5.13",

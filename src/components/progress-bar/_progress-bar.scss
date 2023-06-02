@@ -4,13 +4,13 @@
 
   width: 100%;
   min-width: 120px;
-  border-radius: 8px;
+  border-radius: var(--border-radius-xs);
   background: var(--track-color);
   position: relative;
   overflow: hidden;
 
   &--no-border-radius {
-    border-radius: 0;
+    border-radius: var(--border-radius-none);
   }
 
   &--invisible-track {
