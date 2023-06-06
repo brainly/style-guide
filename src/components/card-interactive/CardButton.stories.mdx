@@ -94,3 +94,172 @@ import CardButton from './CardButton';
     )}
   </Story>
 </Canvas>
+
+### States
+
+#### Dark
+
+<Canvas>
+  <Story name="States Dark">
+    {args => (
+      <StoryVariantTable>
+        <thead>
+          <tr>
+            <th />
+            <th>
+              <Text weight="bold" transform="capitalize" size="medium">
+                default
+              </Text>
+            </th>
+            <th>
+              <Text weight="bold" transform="capitalize" size="medium">
+                disabled
+              </Text>
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          {['outline', 'solid'].map(variant => {
+            return [false, true].map(indicator => {
+              const states = ['default', 'disabled'].map(states => (
+                <td>
+                  <CardButton
+                    {...args}
+                    variant={variant}
+                    width="120px"
+                    height="64px"
+                    disabled={states === 'disabled'}
+                  >
+                    {indicator && (
+                      <CardButton.Indicator size="16" slot="top-left" />
+                    )}
+                    <Flex
+                      justifyContent="center"
+                      alignItems="center"
+                      fullHeight
+                    >
+                      <Text color="text-gray-50" size="xsmall" weight="bold">
+                        Placeholder
+                      </Text>
+                    </Flex>
+                  </CardButton>
+                </td>
+              ));
+              return (
+                <tr>
+                  <td>
+                    <Text weight="bold" size="small" transform="capitalize">
+                      {variant}
+                      <br />
+                      {indicator ? 'with indicator' : 'without indicator'}{' '}
+                      <br />
+                    </Text>
+                  </td>
+                  {states}
+                </tr>
+              );
+            });
+          })}
+        </tbody>
+      </StoryVariantTable>
+    )}
+  </Story>
+</Canvas>
+
+#### Light
+
+<Canvas>
+  <Story
+    name="States Light"
+    decorators={[
+      Story => (
+        <div
+          style={{
+            background: 'var(--black)',
+          }}
+        >
+          <Story />
+        </div>
+      ),
+    ]}
+  >
+    {args => (
+      <StoryVariantTable>
+        <thead>
+          <tr>
+            <th />
+            <th>
+              <Text
+                color="text-white"
+                weight="bold"
+                transform="capitalize"
+                size="medium"
+              >
+                default
+              </Text>
+            </th>
+            <th>
+              <Text
+                color="text-white"
+                weight="bold"
+                transform="capitalize"
+                size="medium"
+              >
+                disabled
+              </Text>
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          {['outline', 'solid'].map(variant => {
+            return [false, true].map(indicator => {
+              const states = ['default', 'disabled'].map(states => (
+                <td>
+                  <CardButton
+                    {...args}
+                    variant={variant}
+                    width="120px"
+                    height="64px"
+                    disabled={states === 'disabled'}
+                    color="light"
+                  >
+                    {indicator && (
+                      <CardButton.Indicator size="16" slot="top-left" />
+                    )}
+                    <Flex
+                      justifyContent="center"
+                      alignItems="center"
+                      fullHeight
+                    >
+                      <Text color="text-gray-50" size="xsmall" weight="bold">
+                        Placeholder
+                      </Text>
+                    </Flex>
+                  </CardButton>
+                </td>
+              ));
+              return (
+                <tr>
+                  <td>
+                    <Text
+                      color="text-white"
+                      weight="bold"
+                      size="small"
+                      transform="capitalize"
+                    >
+                      {variant}
+                      <br />
+                      {indicator ? 'with indicator' : 'without indicator'}{' '}
+                      <br />
+                    </Text>
+                  </td>
+                  {states}
+                </tr>
+              );
+            });
+          })}
+        </tbody>
+      </StoryVariantTable>
+    )}
+  </Story>
+</Canvas>

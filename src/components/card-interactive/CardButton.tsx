@@ -105,10 +105,12 @@ export interface CardButtonIndicatorPropsType {
     | 'bottom-right';
   style?: React.CSSProperties;
   className?: string;
+  size?: 16 | 24;
 }
 
 export const CardButtonIndicator = ({
   slot = 'top-left',
+  size = 24,
   style,
   className,
 }: CardButtonIndicatorPropsType) => {
@@ -126,7 +128,7 @@ export const CardButtonIndicator = ({
       style={style}
     >
       <div className="sg-card-interactive__icon">
-        <Icon type="arrow_right" color={iconColor} size={24} />
+        <Icon type="arrow_right" color={iconColor} size={size} />
       </div>
     </div>
   );
