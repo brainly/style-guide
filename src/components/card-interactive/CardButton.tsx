@@ -42,6 +42,14 @@ export interface CardButtonPropsType
   id?: string;
 }
 
+type CardButtonContextType = {
+  color: 'light' | 'dark';
+};
+
+export const CardButtonContext = React.createContext<CardButtonContextType>({
+  color: 'dark',
+});
+
 export const CardButtonRoot = React.forwardRef<
   HTMLButtonElement,
   CardButtonPropsType
@@ -65,18 +73,24 @@ export const CardButtonRoot = React.forwardRef<
     };
 
     return (
-      <UnstyledButton
-        className={cx('sg-card-interactive', className)}
-        style={{...style, ...cssVariables}}
-        data-variant={variant}
-        data-color={color}
-        {...rest}
-        ref={ref}
+      <CardButtonContext.Provider
+        value={{
+          color,
+        }}
       >
-        <div className="sg-card-interactive__border">
-          <div className="sg-card-interactive__background">{children}</div>
-        </div>
-      </UnstyledButton>
+        <UnstyledButton
+          className={cx('sg-card-interactive', className)}
+          style={{...style, ...cssVariables}}
+          data-variant={variant}
+          data-color={color}
+          {...rest}
+          ref={ref}
+        >
+          <div className="sg-card-interactive__border">
+            <div className="sg-card-interactive__background">{children}</div>
+          </div>
+        </UnstyledButton>
+      </CardButtonContext.Provider>
     );
   }
 );
@@ -98,6 +112,10 @@ export const CardButtonIndicator = ({
   style,
   className,
 }: CardButtonIndicatorPropsType) => {
+  const {color} = React.useContext(CardButtonContext);
+
+  const iconColor = color === 'light' ? 'icon-white' : 'icon-black';
+
   return (
     <div
       className={cx(
@@ -108,7 +126,7 @@ export const CardButtonIndicator = ({
       style={style}
     >
       <div className="sg-card-interactive__icon">
-        <Icon type="arrow_right" color="icon-black" size={24} />
+        <Icon type="arrow_right" color={iconColor} size={24} />
       </div>
     </div>
   );

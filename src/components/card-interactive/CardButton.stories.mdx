@@ -27,7 +27,7 @@ import CardButton from './CardButton';
       Story => (
         <div
           style={{
-            background: 'var(--gray-30)',
+            background: 'var(--gray-20)',
             padding: 96,
             display: 'flex',
             justifyContent: 'space-evenly',
@@ -54,3 +54,43 @@ import CardButton from './CardButton';
 <ArgsTable story="Default" />
 
 ## Stories
+
+### Indicator position
+
+<Canvas>
+  <Story
+    name="Indicator position"
+    decorators={[
+      Story => (
+        <div
+          style={{
+            background: 'var(--gray-30)',
+            padding: 96,
+            display: 'flex',
+            justifyContent: 'space-evenly',
+            flexWrap: 'wrap',
+            gap: 32,
+          }}
+        >
+          <Story />
+        </div>
+      ),
+    ]}
+  >
+    {args => (
+      <CardButton {...args} width="150px" height="150px" defaultChecked={true}>
+        <CardButton.Indicator slot="top-left" />
+        <CardButton.Indicator slot="center-left" />
+        <CardButton.Indicator slot="bottom-left" />
+        <CardButton.Indicator slot="top-right" />
+        <CardButton.Indicator slot="center-right" />
+        <CardButton.Indicator slot="bottom-right" />
+        <Flex justifyContent="center" alignItems="center" fullHeight>
+          <Text color="text-gray-50" size="xsmall" weight="bold">
+            Placeholder
+          </Text>
+        </Flex>
+      </CardButton>
+    )}
+  </Story>
+</Canvas>
