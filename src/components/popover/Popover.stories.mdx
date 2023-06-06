@@ -1,0 +1,354 @@
+import {ArgsTable, Meta, Story, Canvas} from '@storybook/addon-docs';
+import {StoryVariant, StoryVariantTable} from '../../docs/utils';
+import PageHeader from 'blocks/PageHeader';
+
+import Text from '../text/Text';
+import Button from '../buttons/Button';
+import Flex from '../flex/Flex';
+import Checkbox from '../form-elements/checkbox/Checkbox';
+import Radio from '../form-elements/radio/Radio';
+import Icon from '../icons/Icon';
+import Counter from '../counters/Counter';
+import Logo from '../logo/Logo';
+import Avatar from '../avatar/Avatar';
+import Popover from './Popover';
+const TOOLTIP_PLACEMENTS = [
+  'top',
+  'top-start',
+  'top-end',
+  'bottom',
+  'bottom-start',
+  'bottom-end',
+  'left',
+  'right',
+];
+
+<Meta
+  title="Components/Popover"
+  component={Popover}
+  subcomponents={{Element: Popover.Element, Trigger: Popover.Trigger}}
+  parameters={{chromatic: {delay: 300}}}
+/>
+
+<PageHeader>Popover</PageHeader>
+
+- [Stories](#stories)
+- [Accessibility](#accessibility)
+
+## Overview
+
+<Canvas>
+  <Story name="Default" parameters={{layout: 'centered'}}>
+    {args => (
+      <Popover {...args} asLabel>
+        <Popover.Element label="Copy to clipboard" />
+        <Popover.Trigger>
+          <Button
+            icon={<Icon color="adaptive" type="clipboard" aria-hidden />}
+            iconOnly
+            variant="solid-light"
+          />
+        </Popover.Trigger>
+      </Popover>
+    )}
+  </Story>
+</Canvas>
+
+<ArgsTable story="Default" />
+
+## Stories
+
+### Controlled
+
+<Canvas>
+  <Story name="Controlled" parameters={{layout: 'centered'}}>
+    {args => {
+      const [isOpen, setIsOpen] = React.useState(false);
+      return (
+        <Popover {...args} asLabel onOpenChange={setIsOpen} open={isOpen}>
+          <Popover.Element label="Copy to clipboard" />
+          <Popover.Trigger>
+            <Button
+              icon={<Icon color="adaptive" type="clipboard" aria-hidden />}
+              iconOnly
+              variant="solid-light"
+            />
+          </Popover.Trigger>
+        </Popover>
+      );
+    }}
+  </Story>
+</Canvas>
+
+### Types of triggers
+
+<Canvas>
+  <Story name="Types of triggers">
+    {args => {
+      const RenderPopover = ({trigger}) => (
+        <Popover {...args}>
+          <Popover.Element label="Here's popover" />
+          <Popover.Trigger>{trigger}</Popover.Trigger>
+        </Popover>
+      );
+      return (
+        <Flex direction="column" style={{gap: '20px'}}>
+          <div>
+            <Text weight="bold">Button component:</Text>
+            <RenderPopover trigger={<Button>Hover me</Button>} />
+          </div>
+          <div>
+            <Text weight="bold">Checkbox component:</Text>
+            <RenderPopover trigger={<Checkbox>Hover me</Checkbox>} />
+          </div>
+          <div>
+            <Text weight="bold">{`<button>`} tag:</Text>
+            <RenderPopover
+              trigger={<button>Hover me to trigger the popover</button>}
+            />
+          </div>
+          <div>
+            <Text weight="bold">{`<p>`} tag:</Text>
+            <RenderPopover
+              trigger={
+                <p style={{background: 'lightgray'}}>
+                  Hover me to trigger the popover
+                </p>
+              }
+            />
+          </div>
+          <div>
+            <Text weight="bold">Counter component:</Text>
+            <RenderPopover
+              trigger={
+                <Counter icon="points" size="xs">
+                  +15
+                  <Text as="span" color="text-gray-60" inherited>
+                    {' '}
+                    pts{' '}
+                  </Text>
+                </Counter>
+              }
+            />
+          </div>
+          <div style={{maxWidth: '300px'}}>
+            <Text weight="bold">Plain text:</Text>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+            tempor incididunt ut labore et dolore magna aliqua. <RenderPopover trigger="HOVER ME TO TRIGGER TOOLTIP" />{' '}
+            Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi
+            ut aliquip ex ea commodo consequat.
+          </div>
+        </Flex>
+      );
+    }}
+  </Story>
+</Canvas>
+
+### Placement
+
+<Canvas>
+  <Story name="Placement">
+    {args => {
+      const RenderPopover = ({placement}) => (
+        <Popover {...args} placement={placement} defaultOpen>
+          <Popover.Element label={placement} />
+          <Popover.Trigger>
+            <Button
+              icon={<Icon color="adaptive" type="report_flag_outlined" />}
+              iconOnly
+              variant="solid-light"
+            />
+          </Popover.Trigger>
+        </Popover>
+      );
+      return (
+        <Flex justifyContent="center" style={{paddingTop: '100px'}}>
+          <Flex
+            direction="column"
+            alignItems="center"
+            style={{width: '300px', gap: '20px'}}
+          >
+            <RenderPopover placement="top" />
+            <Flex direction="row" justifyContent="space-between" fullWidth>
+              {['top-end', 'top-start'].map(placement => (
+                <RenderPopover placement={placement} />
+              ))}
+            </Flex>
+            <Flex direction="row" justifyContent="space-between" fullWidth>
+              {['left', 'right'].map(placement => (
+                <RenderPopover placement={placement} />
+              ))}
+            </Flex>
+            <Flex direction="row" justifyContent="space-between" fullWidth>
+              {['bottom-end', 'bottom-start'].map(placement => (
+                <RenderPopover placement={placement} />
+              ))}
+            </Flex>
+            <RenderPopover placement="bottom" />
+          </Flex>
+        </Flex>
+      );
+    }}
+  </Story>
+</Canvas>
+
+### Sizes
+
+<Canvas>
+  <Story name="Sizes" args={{defaultOpen: true}}>
+    {args => {
+      return (
+        <Flex direction="column" style={{gap: '50px'}}>
+          <Flex justifyContent="center" style={{gap: '250px'}}>
+            {['default', 'small'].map(size => (
+              <Flex
+                direction="column"
+                alignItems="center"
+                style={{gap: '60px'}}
+              >
+                <Text>Size {size}</Text>
+                <Popover {...args} size={size}>
+                  <Popover.Element label="Popover content" />
+                  <Popover.Trigger>
+                    <Button
+                      icon={
+                        <Icon color="adaptive" type="report_flag_outlined" />
+                      }
+                      iconOnly
+                      variant="solid-light"
+                    >
+                      button
+                    </Button>
+                  </Popover.Trigger>
+                </Popover>
+              </Flex>
+            ))}
+          </Flex>
+          <Flex
+            justifyContent="center"
+            direction="column"
+            style={{gap: '60px'}}
+            alignItems="center"
+          >
+            {['default', 'small'].map(size => (
+              <Flex
+                direction="column"
+                style={{gap: '120px'}}
+                alignItems="center"
+              >
+                <Text>Long popover, size {size}</Text>
+                <Popover {...args} size={size}>
+                  <Popover.Element
+                    label="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
+            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+            aliquip ex ea commodo consequat."
+                  />
+                  <Popover.Trigger>
+                    <Button
+                      icon={
+                        <Icon color="adaptive" type="report_flag_outlined" />
+                      }
+                      iconOnly
+                      variant="solid-light"
+                    >
+                      button
+                    </Button>
+                  </Popover.Trigger>
+                </Popover>
+              </Flex>
+            ))}
+          </Flex>
+        </Flex>
+      );
+    }}
+  </Story>
+</Canvas>
+
+### Color
+
+<Canvas>
+  <Story name="Color" args={{defaultOpen: true}}>
+    {args => {
+      return (
+        <Flex justifyContent="center" style={{gap: '200px'}}>
+          {['dark', 'light'].map(color => (
+            <Flex direction="column" alignItems="center" style={{gap: '60px'}}>
+              <Text>Color {color}</Text>
+              <Popover {...args} color={color}>
+                <Popover.Element label="Popover content" />
+                <Popover.Trigger>
+                  <Button
+                    icon={<Icon color="adaptive" type="report_flag_outlined" />}
+                    iconOnly
+                    variant="solid-light"
+                  >
+                    button
+                  </Button>
+                </Popover.Trigger>
+              </Popover>
+            </Flex>
+          ))}
+        </Flex>
+      );
+    }}
+  </Story>
+</Canvas>
+
+### Usage example
+
+<Canvas>
+  <Story name="Usage example">
+    {args => {
+      return (
+        <Flex
+          alignItems="center"
+          justifyContent="center"
+          style={{padding: '60px 24px 16px 24px', gap: '15px'}}
+        >
+          <Button variant="transparent">Ask question</Button>
+          <Popover {...args}>
+            <Popover.Element label="Click to see notifications" />
+            <Popover.Trigger>
+              <Button
+                variant="transparent"
+                iconOnly
+                icon={
+                  <>
+                    <Icon color="adaptive" type="notifications" />
+                    <Counter
+                      size="xxs"
+                      style={{
+                        position: 'absolute',
+                        top: 0,
+                        right: 0,
+                        transform: 'translate(8px, -8px)',
+                      }}
+                    >
+                      2
+                    </Counter>
+                  </>
+                }
+              >
+                button
+              </Button>
+            </Popover.Trigger>
+          </Popover>
+          <Popover {...args}>
+            <Popover.Element label="Go to your profile" />
+            <Popover.Trigger>
+              <Button
+                variant="transparent"
+                iconOnly
+                icon={<Avatar imgSrc={null} link="#" size="xs" />}
+              >
+                button
+              </Button>
+            </Popover.Trigger>
+          </Popover>
+          <Button variant="solid-indigo">Start free trial</Button>
+        </Flex>
+      );
+    }}
+  </Story>
+</Canvas>
