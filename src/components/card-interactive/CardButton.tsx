@@ -1,6 +1,7 @@
 import * as React from 'react';
 import cx from 'classnames';
 import UnstyledButton from '../buttons/UnstyledButton';
+import Icon from '../icons/Icon';
 
 export interface CardButtonPropsType
   extends React.ComponentPropsWithRef<'button'> {
@@ -106,7 +107,9 @@ export const CardButtonIndicator = ({
       )}
       style={style}
     >
-      <div className="sg-card-interactive__icon">icon</div>
+      <div className="sg-card-interactive__icon">
+        <Icon type="arrow_right" color="icon-black" size={24} />
+      </div>
     </div>
   );
 };
