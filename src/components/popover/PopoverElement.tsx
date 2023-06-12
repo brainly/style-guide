@@ -6,10 +6,10 @@ import usePopoverContext from './usePopoverContext';
 
 export type PopoverElementPropsType = {
   /**
-   * Popover text.
-   * @example <PopoverElement label="My popover" />
+   * Popover content.
+   * @example <PopoverElement>Some text</PopoverElement>
    */
-  label: string;
+  children: React.ReactNode;
 
   /**
    * Optional string. Additional classnames.
@@ -30,7 +30,7 @@ const PopoverElement = React.forwardRef<
   HTMLDivElement,
   PopoverElementPropsType
 >((props: PopoverElementPropsType, ref) => {
-  const {className, label, withArrow = true} = props;
+  const {className, children, withArrow = true} = props;
   const context = usePopoverContext();
   const elementRef = useMergeRefs([context.refs.setFloating, ref]);
 
@@ -89,7 +89,7 @@ const PopoverElement = React.forwardRef<
             color="text-black"
             size="small"
           >
-            {label}
+            {children}
           </Text>
           {withArrow && (
             <FloatingArrow

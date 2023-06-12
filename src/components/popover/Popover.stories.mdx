@@ -41,7 +41,7 @@ const TOOLTIP_PLACEMENTS = [
   <Story name="Default" parameters={{layout: 'centered'}}>
     {args => (
       <Popover {...args} asLabel>
-        <Popover.Element label="Copy to clipboard" />
+        <Popover.Element>Copy to clipboard</Popover.Element>
         <Popover.Trigger>
           <Button
             icon={<Icon color="adaptive" type="clipboard" aria-hidden />}
@@ -66,7 +66,7 @@ const TOOLTIP_PLACEMENTS = [
       const [isOpen, setIsOpen] = React.useState(false);
       return (
         <Popover {...args} asLabel onOpenChange={setIsOpen} open={isOpen}>
-          <Popover.Element label="Copy to clipboard" />
+          <Popover.Element>Copy to clipboard</Popover.Element>
           <Popover.Trigger>
             <Button
               icon={<Icon color="adaptive" type="clipboard" aria-hidden />}
@@ -87,7 +87,7 @@ const TOOLTIP_PLACEMENTS = [
     {args => {
       const RenderPopover = ({trigger}) => (
         <Popover {...args}>
-          <Popover.Element label="Here's popover" />
+          <Popover.Element>Here's a popover</Popover.Element>
           <Popover.Trigger>{trigger}</Popover.Trigger>
         </Popover>
       );
@@ -151,7 +151,7 @@ const TOOLTIP_PLACEMENTS = [
     {args => {
       const RenderPopover = ({placement}) => (
         <Popover {...args} placement={placement} defaultOpen>
-          <Popover.Element label={placement} />
+          <Popover.Element>{placement}</Popover.Element>
           <Popover.Trigger>
             <Button
               icon={<Icon color="adaptive" type="report_flag_outlined" />}
@@ -208,7 +208,7 @@ const TOOLTIP_PLACEMENTS = [
               >
                 <Text>Size {size}</Text>
                 <Popover {...args} size={size}>
-                  <Popover.Element label="Popover content" />
+                  <Popover.Element>Popover content</Popover.Element>
                   <Popover.Trigger>
                     <Button
                       icon={
@@ -238,12 +238,12 @@ const TOOLTIP_PLACEMENTS = [
               >
                 <Text>Long popover, size {size}</Text>
                 <Popover {...args} size={size}>
-                  <Popover.Element
-                    label="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-            aliquip ex ea commodo consequat."
-                  />
+                  <Popover.Element>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
+                    do eiusmod tempor incididunt ut labore et dolore magna
+                    aliqua. Ut enim ad minim veniam, quis nostrud exercitation
+                    ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                  </Popover.Element>
                   <Popover.Trigger>
                     <Button
                       icon={
@@ -265,36 +265,6 @@ const TOOLTIP_PLACEMENTS = [
   </Story>
 </Canvas>
 
-### Color
-
-<Canvas>
-  <Story name="Color" args={{defaultOpen: true}}>
-    {args => {
-      return (
-        <Flex justifyContent="center" style={{gap: '200px'}}>
-          {['dark', 'light'].map(color => (
-            <Flex direction="column" alignItems="center" style={{gap: '60px'}}>
-              <Text>Color {color}</Text>
-              <Popover {...args} color={color}>
-                <Popover.Element label="Popover content" />
-                <Popover.Trigger>
-                  <Button
-                    icon={<Icon color="adaptive" type="report_flag_outlined" />}
-                    iconOnly
-                    variant="solid-light"
-                  >
-                    button
-                  </Button>
-                </Popover.Trigger>
-              </Popover>
-            </Flex>
-          ))}
-        </Flex>
-      );
-    }}
-  </Story>
-</Canvas>
-
 ### Usage example
 
 <Canvas>
@@ -308,7 +278,7 @@ const TOOLTIP_PLACEMENTS = [
         >
           <Button variant="transparent">Ask question</Button>
           <Popover {...args}>
-            <Popover.Element label="Click to see notifications" />
+            <Popover.Element>Click to see notifications</Popover.Element>
             <Popover.Trigger>
               <Button
                 variant="transparent"
@@ -335,7 +305,7 @@ const TOOLTIP_PLACEMENTS = [
             </Popover.Trigger>
           </Popover>
           <Popover {...args}>
-            <Popover.Element label="Go to your profile" />
+            <Popover.Element>Go to your profile</Popover.Element>
             <Popover.Trigger>
               <Button
                 variant="transparent"
