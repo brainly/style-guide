@@ -57,7 +57,6 @@ const PopoverElement = React.forwardRef<
     'sg-popover',
     {
       [`sg-popover--${String(context.size)}`]: context.size,
-      [`sg-popover--${String(context.color)}`]: context.color,
     },
     className
   );

@@ -2,7 +2,7 @@ import * as React from 'react';
 import PopoverElement from './PopoverElement';
 import PopoverTrigger from './PopoverTrigger';
 import {PopoverContext} from './usePopoverContext';
-import usePopover, {PopoverPlacement, SizeType, ColorType} from './usePopover';
+import usePopover, {PopoverPlacement, SizeType} from './usePopover';
 
 export type PopoverPropsType = {
   /**
