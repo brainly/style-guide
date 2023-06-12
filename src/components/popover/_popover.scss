@@ -1,5 +1,5 @@
 .sg-popover {
-  --popover-color: var(--black);
+  --popover-color: var(--white);
 
   box-shadow: $shadowSmall !important;
   background-color: var(--popover-color);
@@ -77,10 +77,6 @@
     padding: 2px 8px;
     min-height: 24px;
     min-width: 44px; // 12px of arrow width + 16px padding on each side
-  }
-
-  &--light {
-    --popover-color: var(--white);
   }
 
   &__label {

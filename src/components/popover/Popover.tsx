@@ -32,12 +32,6 @@ export type PopoverPropsType = {
   size?: SizeType;
 
   /**
-   * Specify color variant of the Popover.
-   * @example <Popover color="dark">...</Popover>
-   */
-  color?: ColorType;
-
-  /**
    * Set if Popover should be displayed by default.
    */
   defaultOpen?: boolean;
@@ -63,7 +57,6 @@ const Popover = ({
   placement,
   id,
   size,
-  color,
   asLabel,
   defaultOpen = false,
   open,
@@ -73,7 +66,6 @@ const Popover = ({
     placement,
     customId: id,
     size,
-    color,
     defaultOpen,
     open,
     onOpenChange,

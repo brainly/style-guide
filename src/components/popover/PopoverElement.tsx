@@ -15,6 +15,8 @@ export type PopoverElementPropsType = {
    * Optional string. Additional classnames.
    */
   className?: string | null | undefined;
+
+  withArrow?: boolean;
 } & Omit<React.AllHTMLAttributes<HTMLElement>, 'children' | 'className'>;
 
 const ARROW_SIZE_DEFAULT = 24;
@@ -28,7 +30,7 @@ const PopoverElement = React.forwardRef<
   HTMLDivElement,
   PopoverElementPropsType
 >((props: PopoverElementPropsType, ref) => {
-  const {className, label} = props;
+  const {className, label, withArrow = true} = props;
   const context = usePopoverContext();
   const elementRef = useMergeRefs([context.refs.setFloating, ref]);
 
@@ -85,20 +87,22 @@ const PopoverElement = React.forwardRef<
           <Text
             className="sg-popover__label"
             align="to-center"
-            color={context.color === 'dark' ? 'text-white' : 'text-black'}
+            color="text-black"
             size="small"
           >
             {label}
           </Text>
-          <FloatingArrow
-            ref={context.arrowRef}
-            className="sg-popover__arrow"
-            context={context.context}
-            width={arrowSize}
-            height={arrowSize}
-            staticOffset={arrowOffset}
-            d={arrowSVGPath}
-          />
+          {withArrow && (
+            <FloatingArrow
+              ref={context.arrowRef}
+              className="sg-popover__arrow"
+              context={context.context}
+              width={arrowSize}
+              height={arrowSize}
+              staticOffset={arrowOffset}
+              d={arrowSVGPath}
+            />
+          )}
         </div>
       </FloatingPortal>
     )

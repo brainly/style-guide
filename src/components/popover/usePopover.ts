@@ -20,8 +20,6 @@ import {generateId, isTouchScreen} from '../utils';
 
 export type SizeType = 'default' | 'small';
 
-export type ColorType = 'dark' | 'light';
-
 export type PopoverPlacement = Exclude<
   Placement,
   'left-start' | 'left-end' | 'right-start' | 'right-end'
@@ -31,7 +29,6 @@ interface UsePopoverPropTypes {
   placement?: PopoverPlacement;
   customId?: string;
   size?: SizeType;
-  color?: ColorType;
   defaultOpen?: boolean;
   open?: boolean;
   asLabel?: boolean;
@@ -42,7 +39,6 @@ const usePopover = ({
   placement = 'top',
   customId,
   size = 'default' as SizeType,
-  color = 'dark' as ColorType,
   defaultOpen = false,
   open,
   asLabel,
@@ -153,7 +149,6 @@ const usePopover = ({
       arrowPadding: variantParams.arrowPadding,
       placement,
       size,
-      color,
       isMounted,
       status,
       floatingPlacement: data.placement,
@@ -168,7 +163,6 @@ const usePopover = ({
       variantParams.arrowPadding,
       placement,
       size,
-      color,
       isMounted,
       status,
       data,
