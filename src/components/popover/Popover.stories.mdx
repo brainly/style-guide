@@ -147,6 +147,36 @@ const TOOLTIP_PLACEMENTS = [
   </Story>
 </Canvas>
 
+### Interactive content
+
+<Canvas>
+  <Story name="Interactive content" parameters={{layout: 'centered'}}>
+    {args => (
+      <Popover {...args}>
+        <Popover.Element>
+          <Flex direction="column" style={{gap: '10px'}}>
+            <Text weight="bold" align="to-left">
+              Get your badge on!
+            </Text>
+            <Text align="to-left">
+              Now you can show off your brain power with flashy badges. Complete
+              achievements to claim new badges.
+            </Text>
+            <Button variant="solid">CHECK IT OUT</Button>
+          </Flex>
+        </Popover.Element>
+        <Popover.Trigger>
+          <Button
+            icon={<Icon color="adaptive" type="options" aria-hidden />}
+            iconOnly
+            variant="solid-light"
+          />
+        </Popover.Trigger>
+      </Popover>
+    )}
+  </Story>
+</Canvas>
+
 ### Types of triggers
 
 <Canvas>
