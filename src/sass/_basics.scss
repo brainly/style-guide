@@ -36,6 +36,13 @@ $includeHtml: false !default;
     --focusInnerWidth: 2px;
     --focusOuterWidth: 2px;
 
+    --pressTransitionDuration: #{$durationModerate2};
+    --pressTransitionEasing: #{$easingRegular};
+    --pressScale: 0.96;
+    @media (prefers-reduced-motion) {
+      --pressScale: 1;
+    }
+
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 
