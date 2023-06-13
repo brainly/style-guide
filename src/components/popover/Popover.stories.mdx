@@ -11,6 +11,10 @@ import Icon from '../icons/Icon';
 import Counter from '../counters/Counter';
 import Logo from '../logo/Logo';
 import Avatar from '../avatar/Avatar';
+import Link from '../text/Link';
+import List from '../list/List';
+import ListItem from '../list/ListItem';
+import ListItemIcon from '../list/ListItemIcon';
 import Popover from './Popover';
 const TOOLTIP_PLACEMENTS = [
   'top',
@@ -40,8 +44,71 @@ const TOOLTIP_PLACEMENTS = [
 <Canvas>
   <Story name="Default" parameters={{layout: 'centered'}}>
     {args => (
-      <Popover {...args} asLabel>
-        <Popover.Element>Copy to clipboard</Popover.Element>
+      <Popover {...args}>
+        <Popover.Element>
+          <List spaced>
+            <ListItem>
+              <a>
+                <Flex
+                  justifyContent="space-between"
+                  alignItems="center"
+                  margin="xs"
+                >
+                  <Flex alignItems="center">
+                    <Flex marginRight="s">
+                      <Icon color="adaptive" type="profile_view" />
+                    </Flex>
+                    <Flex direction="column">
+                      <Text size="small" weight="bold">
+                        Go to profile
+                      </Text>
+                    </Flex>
+                  </Flex>
+                </Flex>
+              </a>
+            </ListItem>
+            <ListItem>
+              <a>
+                <Flex
+                  justifyContent="space-between"
+                  alignItems="center"
+                  margin="xs"
+                >
+                  <Flex alignItems="center">
+                    <Flex marginRight="s">
+                      <Icon color="adaptive" type="pencil" />
+                    </Flex>
+                    <Flex direction="column">
+                      <Text size="small" weight="bold">
+                        Edit profile
+                      </Text>
+                    </Flex>
+                  </Flex>
+                </Flex>
+              </a>
+            </ListItem>
+            <ListItem>
+              <a>
+                <Flex
+                  justifyContent="space-between"
+                  alignItems="center"
+                  margin="xs"
+                >
+                  <Flex alignItems="center">
+                    <Flex marginRight="s">
+                      <Icon color="adaptive" type="settings" />
+                    </Flex>
+                    <Flex direction="column">
+                      <Text size="small" weight="bold">
+                        Account settings
+                      </Text>
+                    </Flex>
+                  </Flex>
+                </Flex>
+              </a>
+            </ListItem>
+          </List>
+        </Popover.Element>
         <Popover.Trigger>
           <Button
             icon={<Icon color="adaptive" type="clipboard" aria-hidden />}
@@ -65,7 +132,7 @@ const TOOLTIP_PLACEMENTS = [
     {args => {
       const [isOpen, setIsOpen] = React.useState(false);
       return (
-        <Popover {...args} asLabel onOpenChange={setIsOpen} open={isOpen}>
+        <Popover {...args} onOpenChange={setIsOpen} open={isOpen}>
           <Popover.Element>Copy to clipboard</Popover.Element>
           <Popover.Trigger>
             <Button
