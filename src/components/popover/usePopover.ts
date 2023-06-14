@@ -18,14 +18,11 @@ import {
 import type {Placement} from '@floating-ui/react';
 import {generateId, isTouchScreen} from '../utils';
 
-export type SizeType = 'default' | 'small';
-
 export type PopoverPlacement = Placement;
 
 interface UsePopoverPropTypes {
   placement?: PopoverPlacement;
   customId?: string;
-  size?: SizeType;
   defaultOpen?: boolean;
   open?: boolean;
   asLabel?: boolean;
@@ -35,7 +32,6 @@ interface UsePopoverPropTypes {
 const usePopover = ({
   placement = 'top',
   customId,
-  size = 'default' as SizeType,
   defaultOpen = false,
   open,
   asLabel,
@@ -61,15 +57,16 @@ const usePopover = ({
     }
   }, [open, isControlled, isOpen]);
 
-  // Get position and size specitic params
+  // Get position specitic params
   const variantParams = React.useMemo(() => {
-    const offsetMainAxis = size === 'small' ? 6 : 10;
+    let offsetMainAxis = 8;
     let offsetAlignmentAxis = 0;
     const padding = 5;
-    const arrowPadding = size === 'small' ? 6 : 16;
+    const arrowPadding = 16;
 
     if (hasArrow) {
-      offsetAlignmentAxis = size === 'small' ? -6 : -8;
+      offsetMainAxis = 12;
+      offsetAlignmentAxis = -8;
     }
 
     return {
@@ -80,7 +77,7 @@ const usePopover = ({
       padding,
       arrowPadding,
     };
-  }, [size, hasArrow]);
+  }, [hasArrow]);
 
   const middleware = React.useMemo(() => {
     return [
@@ -152,7 +149,6 @@ const usePopover = ({
       hasArrow,
       setHasArrow,
       placement,
-      size,
       isMounted,
       status,
       floatingPlacement: data.placement,
@@ -166,7 +162,6 @@ const usePopover = ({
       variantParams.arrowPadding,
       hasArrow,
       placement,
-      size,
       isMounted,
       status,
       data,

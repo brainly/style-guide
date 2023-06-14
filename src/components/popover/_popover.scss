@@ -73,12 +73,6 @@
     @include initialState();
   }
 
-  &--small {
-    padding: 2px 8px;
-    min-height: 24px;
-    min-width: 44px; // 12px of arrow width + 16px padding on each side
-  }
-
   &__label {
     word-break: normal;
     overflow-wrap: anywhere;

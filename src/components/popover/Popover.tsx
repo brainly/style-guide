@@ -2,7 +2,7 @@ import * as React from 'react';
 import PopoverElement from './PopoverElement';
 import PopoverTrigger from './PopoverTrigger';
 import {PopoverContext} from './usePopoverContext';
-import usePopover, {PopoverPlacement, SizeType} from './usePopover';
+import usePopover, {PopoverPlacement} from './usePopover';
 
 export type PopoverPropsType = {
   /**
@@ -27,11 +27,6 @@ export type PopoverPropsType = {
   placement?: PopoverPlacement;
 
   /**
-   * Popover size.
-   */
-  size?: SizeType;
-
-  /**
    * Set if Popover should be displayed by default.
    */
   defaultOpen?: boolean;
@@ -49,14 +44,13 @@ export type PopoverPropsType = {
   onOpenChange?: (arg0: boolean) => void;
 } & Omit<
   React.AllHTMLAttributes<HTMLElement>,
-  'children' | 'className' | 'size' | 'placement'
+  'children' | 'className' | 'placement'
 >;
 
 const Popover = ({
   children,
   placement,
   id,
-  size,
   asLabel,
   defaultOpen = false,
   open,
@@ -65,7 +59,6 @@ const Popover = ({
   const popover = usePopover({
     placement,
     customId: id,
-    size,
     defaultOpen,
     open,
     onOpenChange,
