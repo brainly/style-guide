@@ -3,8 +3,8 @@ import {
   useFloating,
   useInteractions,
   useDismiss,
-  useClick,
-  useHover,
+  useClick as useFloatingClick,
+  useHover as useFloatingHover,
   useFocus,
   offset,
   flip,
@@ -26,6 +26,8 @@ interface UsePopoverPropTypes {
   defaultOpen?: boolean;
   open?: boolean;
   asLabel?: boolean;
+  useHover?: boolean;
+  useClick?: boolean;
   onOpenChange?: (arg0: boolean) => void;
 }
 
@@ -35,6 +37,8 @@ const usePopover = ({
   defaultOpen = false,
   open,
   asLabel,
+  useHover = true,
+  useClick = true,
   onOpenChange,
 }: UsePopoverPropTypes) => {
   const {current: id} = React.useRef<string>(
@@ -118,7 +122,8 @@ const usePopover = ({
     whileElementsMounted: autoUpdate,
   });
 
-  const hover = useHover(data.context, {
+  const hover = useFloatingHover(data.context, {
+    enabled: useHover,
     move: false,
     mouseOnly: true,
     handleClose: safePolygon({
@@ -128,7 +133,9 @@ const usePopover = ({
   const focus = useFocus(data.context, {
     enabled: enablePopover,
   });
-  const click = useClick(data.context);
+  const click = useFloatingClick(data.context, {
+    enabled: useClick,
+  });
   const dismiss = useDismiss(data.context);
   const interactions = useInteractions([hover, focus, click, dismiss]);
 

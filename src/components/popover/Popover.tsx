@@ -39,6 +39,16 @@ export type PopoverPropsType = {
   asLabel?: boolean;
 
   /**
+   * Determine if hover should affect popover visibility.
+   */
+  useHover?: boolean;
+
+  /**
+   * Determine if click should affect popover visibility.
+   */
+  useClick?: boolean;
+
+  /**
    * Only controlled component. Handle Popover open state change.
    */
   onOpenChange?: (arg0: boolean) => void;
@@ -52,6 +62,8 @@ const Popover = ({
   placement,
   id,
   asLabel,
+  useHover,
+  useClick,
   defaultOpen = false,
   open,
   onOpenChange,
@@ -63,6 +75,8 @@ const Popover = ({
     open,
     onOpenChange,
     asLabel,
+    useHover,
+    useClick,
   });
 
   return (
