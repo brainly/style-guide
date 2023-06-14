@@ -3,7 +3,7 @@ import {
   useFloating,
   useInteractions,
   useDismiss,
-  useRole,
+  useClick,
   useHover,
   useFocus,
   offset,
@@ -128,8 +128,9 @@ const usePopover = ({
   const focus = useFocus(data.context, {
     enabled: enablePopover,
   });
+  const click = useClick(data.context);
   const dismiss = useDismiss(data.context);
-  const interactions = useInteractions([hover, focus, dismiss]);
+  const interactions = useInteractions([hover, focus, click, dismiss]);
 
   const {isMounted, status} = useTransitionStatus(data.context, {
     duration: {
