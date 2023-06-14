@@ -4,8 +4,6 @@ import Input from '../form/Input';
 import RadioGroup from '../form/radio/RadioGroup';
 import Radio from '../form/radio/Radio';
 import Dialog from '../dialog/Dialog';
-import {useBrainlyForm} from './_dev_utils/useBrainlyForm';
-import {useBrainlyFormField} from './_dev_utils/useBrainlyFormField';
 import './_wizard-stories.scss';
 import CreateAccountStory from './stories/create-account';
 import AskYourQuestionStory from './stories/ask-your-question';
@@ -23,17 +21,14 @@ export default {
 };
 
 const InputField = ({name}) => {
-  const firstNameFieldProps = useBrainlyFormField({name});
-
-  return <Input {...firstNameFieldProps} />;
+  return <Input name={name} />;
 };
 
 const FirstStepForm = () => {
   const {next} = useWizard();
-  const {Form} = useBrainlyForm();
 
   return (
-    <Form
+    <form
       onSubmit={() => {
         next();
       }}
@@ -41,7 +36,7 @@ const FirstStepForm = () => {
       <WizardStep.Title>step 1 title</WizardStep.Title>
       <InputField name="first_name" />
       <WizardStep.Submit>next</WizardStep.Submit>
-    </Form>
+    </form>
   );
 };
 
