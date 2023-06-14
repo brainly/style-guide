@@ -16,6 +16,8 @@ export type PopoverElementPropsType = {
    */
   className?: string | null | undefined;
 
+  padding?: string;
+
   withArrow?: boolean;
 } & Omit<React.AllHTMLAttributes<HTMLElement>, 'children' | 'className'>;
 
@@ -30,7 +32,7 @@ const PopoverElement = React.forwardRef<
   HTMLDivElement,
   PopoverElementPropsType
 >((props: PopoverElementPropsType, ref) => {
-  const {className, children, withArrow = true} = props;
+  const {className, children, padding, withArrow = true} = props;
   const context = usePopoverContext();
   const elementRef = useMergeRefs([context.refs.setFloating, ref]);
 
@@ -78,6 +80,7 @@ const PopoverElement = React.forwardRef<
               ? 'hidden'
               : 'visible',
             ...props.style,
+            padding,
           }}
           aria-hidden="true"
           {...context.getFloatingProps()}
