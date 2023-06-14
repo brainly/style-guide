@@ -16,7 +16,7 @@ import List from '../list/List';
 import ListItem from '../list/ListItem';
 import ListItemIcon from '../list/ListItemIcon';
 import Popover from './Popover';
-const TOOLTIP_PLACEMENTS = [
+const PLACEMENTS = [
   'top',
   'top-start',
   'top-end',
@@ -24,7 +24,11 @@ const TOOLTIP_PLACEMENTS = [
   'bottom-start',
   'bottom-end',
   'left',
+  'left-start',
+  'left-end',
   'right',
+  'right-start',
+  'right-end',
 ];
 
 <Meta
@@ -246,42 +250,141 @@ const TOOLTIP_PLACEMENTS = [
 <Canvas>
   <Story name="Placement">
     {args => {
-      const RenderPopover = ({placement}) => (
-        <Popover {...args} placement={placement} defaultOpen>
-          <Popover.Element>{placement}</Popover.Element>
-          <Popover.Trigger>
-            <Button
-              icon={<Icon color="adaptive" type="report_flag_outlined" />}
-              iconOnly
-              variant="solid-light"
-            />
-          </Popover.Trigger>
-        </Popover>
-      );
-      return (
-        <Flex justifyContent="center" style={{paddingTop: '100px'}}>
+      const RenderPopover = ({placement, withArrow = true}) => {
+        const triggerPlacement = {
+          top: {
+            justifyContent: 'flex-end',
+            alignItems: 'center',
+          },
+          'top-start': {
+            justifyContent: 'flex-end',
+            alignItems: 'flex-start',
+          },
+          'top-end': {
+            justifyContent: 'flex-end',
+            alignItems: 'flex-end',
+          },
+          bottom: {
+            justifyContent: 'flex-start',
+            alignItems: 'center',
+          },
+          'bottom-start': {
+            justifyContent: 'flex-start',
+            alignItems: 'flex-start',
+          },
+          'bottom-end': {
+            justifyContent: 'flex-start',
+            alignItems: 'flex-end',
+          },
+          left: {
+            justifyContent: 'center',
+            alignItems: 'flex-end',
+          },
+          'left-start': {
+            justifyContent: 'flex-start',
+            alignItems: 'flex-end',
+          },
+          'left-end': {
+            justifyContent: 'flex-end',
+            alignItems: 'flex-end',
+          },
+          right: {
+            justifyContent: 'center',
+            alignItems: 'flex-start',
+          },
+          'right-start': {
+            justifyContent: 'flex-start',
+            alignItems: 'flex-start',
+          },
+          'right-end': {
+            justifyContent: 'flex-end',
+            alignItems: 'flex-start',
+          },
+        };
+        return (
           <Flex
             direction="column"
-            alignItems="center"
-            style={{width: '300px', gap: '20px'}}
+            style={{
+              flexBasis: 'calc(33% - 30px)',
+              padding: '20px 0',
+            }}
           >
-            <RenderPopover placement="top" />
-            <Flex direction="row" justifyContent="space-between" fullWidth>
-              {['top-end', 'top-start'].map(placement => (
-                <RenderPopover placement={placement} />
-              ))}
+            <Text weight="bold">{placement}</Text>
+            <Flex
+              direction="column"
+              style={{
+                backgroundColor: '#f5f8fa',
+                borderRadius: '16px',
+                padding: '20px',
+                height: '240px',
+                ...triggerPlacement[placement],
+              }}
+            >
+              <Popover {...args} placement={placement} defaultOpen>
+                <Popover.Element
+                  withArrow={withArrow}
+                  maxWidth="216px"
+                  padding="12px"
+                >
+                  <Flex direction="column">
+                    <Flex style={{paddingBottom: '6px'}}>
+                      <Icon color="icon-green-50" type="verified" />
+                      <Text
+                        size="small"
+                        weight="bold"
+                        style={{paddingLeft: '6px'}}
+                      >
+                        Expert-Verified Answer
+                      </Text>
+                    </Flex>
+                    <Text size="xsmall">
+                      Brainly has millions of high quality answers, all of them
+                      carefully moderated by our most trusted community members,
+                      but Verified Answers are the finest of the finest.
+                    </Text>
+                  </Flex>
+                </Popover.Element>
+                <Popover.Trigger>
+                  <Button
+                    icon={<Icon color="adaptive" type="report_flag_outlined" />}
+                    iconOnly
+                    variant="solid-light"
+                  />
+                </Popover.Trigger>
+              </Popover>
             </Flex>
-            <Flex direction="row" justifyContent="space-between" fullWidth>
-              {['left', 'right'].map(placement => (
-                <RenderPopover placement={placement} />
-              ))}
-            </Flex>
-            <Flex direction="row" justifyContent="space-between" fullWidth>
-              {['bottom-end', 'bottom-start'].map(placement => (
-                <RenderPopover placement={placement} />
-              ))}
-            </Flex>
-            <RenderPopover placement="bottom" />
+          </Flex>
+        );
+      };
+      return (
+        <Flex direction="column" alignItems="center">
+          <Text weight="bold">With arrow</Text>
+          <Flex
+            direction="row"
+            alignItems="center"
+            wrap
+            style={{
+              gap: '0 30px',
+            }}
+          >
+            {PLACEMENTS.map(placement => (
+              <RenderPopover placement={placement} />
+            ))}
+          </Flex>
+          <Text weight="bold" style={{paddingTop: '40px'}}>
+            Without arrow
+          </Text>
+          <Flex
+            direction="row"
+            alignItems="center"
+            wrap
+            style={{
+              gap: '30px',
+            }}
+          >
+            {PLACEMENTS.map(placement => (
+              <RenderPopover placement={placement} withArrow={false} />
+            ))}
           </Flex>
         </Flex>
       );
