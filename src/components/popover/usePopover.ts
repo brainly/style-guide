@@ -20,10 +20,7 @@ import {generateId, isTouchScreen} from '../utils';
 
 export type SizeType = 'default' | 'small';
 
-export type PopoverPlacement = Exclude<
-  Placement,
-  'left-start' | 'left-end' | 'right-start' | 'right-end'
->;
+export type PopoverPlacement = Placement;
 
 interface UsePopoverPropTypes {
   placement?: PopoverPlacement;
@@ -56,6 +53,7 @@ const usePopover = ({
   const [isOpen, setIsOpen] = React.useState(
     enablePopover ? (isControlled ? open : defaultOpen) : false
   );
+  const [hasArrow, setHasArrow] = React.useState<boolean>(true);
 
   React.useEffect(() => {
     if (isControlled && open !== isOpen) {
@@ -66,9 +64,13 @@ const usePopover = ({
   // Get position and size specitic params
   const variantParams = React.useMemo(() => {
     const offsetMainAxis = size === 'small' ? 6 : 10;
-    const offsetAlignmentAxis = size === 'small' ? -6 : -8;
+    let offsetAlignmentAxis = 0;
     const padding = 5;
     const arrowPadding = size === 'small' ? 6 : 16;
+
+    if (hasArrow) {
+      offsetAlignmentAxis = size === 'small' ? -6 : -8;
+    }
 
     return {
       offset: {
@@ -78,7 +80,7 @@ const usePopover = ({
       padding,
       arrowPadding,
     };
-  }, [size]);
+  }, [size, hasArrow]);
 
   const middleware = React.useMemo(() => {
     return [
@@ -147,6 +149,8 @@ const usePopover = ({
       setIsOpen,
       arrowRef,
       arrowPadding: variantParams.arrowPadding,
+      hasArrow,
+      setHasArrow,
       placement,
       size,
       isMounted,
@@ -159,8 +163,8 @@ const usePopover = ({
       id,
       asLabel,
       isOpen,
-      setIsOpen,
       variantParams.arrowPadding,
+      hasArrow,
       placement,
       size,
       isMounted,

@@ -36,6 +36,8 @@ const PopoverElement = React.forwardRef<
   const context = usePopoverContext();
   const elementRef = useMergeRefs([context.refs.setFloating, ref]);
 
+  if (context.hasArrow !== withArrow) context.setHasArrow(withArrow);
+
   const arrowSize =
     context.size === 'small' ? ARROW_SIZE_SMALL : ARROW_SIZE_DEFAULT;
   const arrowSVGPath =
