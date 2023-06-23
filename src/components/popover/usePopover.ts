@@ -16,7 +16,7 @@ import {
   hide,
 } from '@floating-ui/react';
 import type {Placement} from '@floating-ui/react';
-import {generateId, isTouchScreen} from '../utils';
+import {generateId} from '../utils';
 
 export type PopoverPlacement = Placement;
 
@@ -45,14 +45,11 @@ const usePopover = ({
     customId ?? `Popover_${generateId()}`
   );
 
-  const {current: enablePopover} = React.useRef(!isTouchScreen());
   const arrowRef = React.useRef(null);
 
   const isControlled = open !== undefined;
 
-  const [isOpen, setIsOpen] = React.useState(
-    enablePopover ? (isControlled ? open : defaultOpen) : false
-  );
+  const [isOpen, setIsOpen] = React.useState(isControlled ? open : defaultOpen);
   const [hasArrow, setHasArrow] = React.useState<boolean>(true);
 
   React.useEffect(() => {
@@ -115,7 +112,7 @@ const usePopover = ({
   };
 
   const data = useFloating({
-    open: enablePopover ? isOpen : false,
+    open: isOpen,
     onOpenChange: handleOpenChange,
     placement,
     middleware,
@@ -130,9 +127,7 @@ const usePopover = ({
       blockPointerEvents: true,
     }),
   });
-  const focus = useFocus(data.context, {
-    enabled: enablePopover,
-  });
+  const focus = useFocus(data.context);
   const click = useFloatingClick(data.context, {
     enabled: useClick,
   });
