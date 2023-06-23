@@ -2,7 +2,7 @@ import * as React from 'react';
 import PopoverElement from './PopoverElement';
 import PopoverTrigger from './PopoverTrigger';
 import {PopoverContext} from './usePopoverContext';
-import usePopover, {PopoverPlacement} from './usePopover';
+import usePopover, {PopoverPlacement, PopoverRole} from './usePopover';
 
 export type PopoverPropsType = {
   /**
@@ -36,7 +36,7 @@ export type PopoverPropsType = {
    */
   open?: boolean;
 
-  asLabel?: boolean;
+  role?: PopoverRole;
 
   /**
    * Determine if hover should affect popover visibility.
@@ -61,11 +61,11 @@ const Popover = ({
   children,
   placement,
   id,
-  asLabel,
   useHover,
   useClick,
   defaultOpen = false,
   open,
+  role,
   onOpenChange,
 }: PopoverPropsType) => {
   const popover = usePopover({
@@ -74,9 +74,9 @@ const Popover = ({
     defaultOpen,
     open,
     onOpenChange,
-    asLabel,
     useHover,
     useClick,
+    role,
   });
 
   return (

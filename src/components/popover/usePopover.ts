@@ -5,6 +5,7 @@ import {
   useDismiss,
   useClick as useFloatingClick,
   useHover as useFloatingHover,
+  useRole,
   useFocus,
   offset,
   flip,
@@ -19,15 +20,16 @@ import type {Placement} from '@floating-ui/react';
 import {generateId} from '../utils';
 
 export type PopoverPlacement = Placement;
+export type PopoverRole = 'listbox' | 'dialog';
 
 interface UsePopoverPropTypes {
   placement?: PopoverPlacement;
   customId?: string;
   defaultOpen?: boolean;
   open?: boolean;
-  asLabel?: boolean;
   useHover?: boolean;
   useClick?: boolean;
+  role?: PopoverRole;
   onOpenChange?: (arg0: boolean) => void;
 }
 
@@ -36,9 +38,9 @@ const usePopover = ({
   customId,
   defaultOpen = false,
   open,
-  asLabel,
   useHover = true,
   useClick = true,
+  role = 'dialog',
   onOpenChange,
 }: UsePopoverPropTypes) => {
   const {current: id} = React.useRef<string>(
@@ -132,7 +134,14 @@ const usePopover = ({
     enabled: useClick,
   });
   const dismiss = useDismiss(data.context);
-  const interactions = useInteractions([hover, focus, click, dismiss]);
+  const roleInteractions = useRole(data.context, {role});
+  const interactions = useInteractions([
+    hover,
+    focus,
+    click,
+    dismiss,
+    roleInteractions,
+  ]);
 
   const {isMounted, status} = useTransitionStatus(data.context, {
     duration: {
@@ -144,7 +153,6 @@ const usePopover = ({
   return React.useMemo(
     () => ({
       id,
-      asLabel,
       isOpen,
       setIsOpen,
       arrowRef,
@@ -154,13 +162,13 @@ const usePopover = ({
       placement,
       isMounted,
       status,
+      role,
       floatingPlacement: data.placement,
       ...interactions,
       ...data,
     }),
     [
       id,
-      asLabel,
       isOpen,
       variantParams.arrowPadding,
       hasArrow,
@@ -169,6 +177,7 @@ const usePopover = ({
       status,
       data,
       interactions,
+      role,
     ]
   );
 };
