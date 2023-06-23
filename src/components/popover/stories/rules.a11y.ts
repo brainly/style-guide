@@ -9,7 +9,7 @@ const rules = [
   {
     pattern: '<b>Should</b> be accessible for accessibility tree.',
     description: 'Children should be focusable and tabable',
-    status: 'TO DO',
+    status: 'DONE',
     tests: 'TO DO',
   },
   {
