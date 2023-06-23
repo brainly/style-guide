@@ -29,14 +29,13 @@ const rules = [
   },
   {
     pattern: '<b>Should</b> be linked to the trigger.',
-    comment:
-      'Popovercontent is linked to the trigger by <code>??</code> or <code>??</code>.',
-    status: 'TO DO',
+    comment: 'Trugger is linking popover by <code>aria-controls</code>.',
+    status: 'DONE',
     tests: 'TO DO',
   },
   {
     pattern: '<b>Should</b> respect Windows High Contrast mode.',
-    status: 'TO DO',
+    status: 'DONE',
     tests: 'N/A',
   },
   {
@@ -59,7 +58,7 @@ const rules = [
   {
     pattern: '<b>Should</b> provide information if is expanded.',
     comment: `The <code>aria-expanded</code> should have <code>true</code> value when it is expanded.`,
-    status: 'TO DO',
+    status: 'DONE',
     tests: 'TO DO',
   },
   {
@@ -71,8 +70,8 @@ const rules = [
   {
     pattern: '<b>Can</b> have an accessible description.',
     comment: `Can be described by a value (<code>IDREF</code>) set for the <code>aria-describedby</code> 
-      prop that refers to a visible dialog description.`,
-    status: 'TO DO',
+      prop that refers to a description, or by <code>aria-description</code>`,
+    status: 'DONE',
     tests: 'TO DO',
   },
 ];
@@ -81,7 +80,7 @@ export const listboxRules = [
   {
     pattern: '<b>Should</b> be linked to the trigger.',
     comment: `The <code>aria-haspopup="listbox"</code> and <code>aria-controls</code> attributed should reference element with role <code>listbox</code>.`,
-    status: 'TO DO',
+    status: 'DONE',
     tests: 'TO DO',
   },
   {
@@ -110,18 +109,12 @@ export const dialogRules = [
     comment: `Can be named by a label specified by <code>aria-label</code> prop 
     or a value (<code>IDREF</code>) set for the <code>aria-labelledby</code> 
     prop that refers to a visible dialog title.`,
-    status: 'TO DO',
-    tests: 'TO DO',
-  },
-  {
-    pattern: '<b>Should</b> get focus when it opens.',
-    status: 'TO DO',
+    status: 'DONE',
     tests: 'TO DO',
   },
   {
     pattern: '<b>Should</b> have focus trap.',
-    description: 'Should be implemented by the developer.',
-    status: 'N/A',
+    status: 'DONE',
     tests: 'N/A',
   },
 ];
