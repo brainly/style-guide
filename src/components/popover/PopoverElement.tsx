@@ -83,9 +83,7 @@ const PopoverElement = React.forwardRef<
               padding,
               maxWidth,
             }}
-            aria-hidden="true"
             {...context.getFloatingProps()}
-            role="none"
           >
             {children}
             {withArrow && (

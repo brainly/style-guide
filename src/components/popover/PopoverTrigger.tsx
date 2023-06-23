@@ -36,9 +36,6 @@ const PopoverTrigger = React.forwardRef<
 
   const className = 'sg-popover-trigger';
   const popoverId = context.getFloatingProps().id as string;
-  const ariaLink = context.asLabel
-    ? {'aria-labeledby': popoverId}
-    : {'aria-describedby': popoverId};
 
   // If children is valid element, i.e. <p>, <Checkbox> etc.
   // and if the element is forward ref type (otherwise we cannot pass ref).
@@ -52,7 +49,6 @@ const PopoverTrigger = React.forwardRef<
         ref: triggerRef, // override forwarded ref with merged refs
         'data-state': context.isOpen ? 'open' : 'closed',
       }),
-      ...ariaLink,
     });
   }
 

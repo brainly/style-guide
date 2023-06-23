@@ -1,0 +1,44 @@
+import rules, {listboxRules, dialogRules} from './rules.a11y';
+
+### Rules
+
+<AccessibilityList rules={rules} />
+
+#### `role="dialog"`
+
+<AccessibilityList rules={dialogRules} />
+
+#### `role="listbox"`
+
+<AccessibilityList rules={listboxRules} />
+
+<InfoBox>If content should not be interactive, use Tooltip instead.</InfoBox>
+
+### Usage
+
+#### Code examples
+
+- basic
+
+```jsx
+<Popover {...args}>
+  <Popover.Element padding="24px">
+    <Text weight="bold" as="h4">
+      Get your badge on!
+    </Text>
+    <Text>
+      Now you can show off your brain power with flashy badges. Complete
+      achievements to claim new badges.
+    </Text>
+    <Button variant="solid">Check it out</Button>
+  </Popover.Element>
+  <Popover.Trigger>
+    <Button
+      icon={<Icon color="adaptive" type="options" aria-hidden />}
+      iconOnly
+      variant="solid-light"
+      aria-label="menu"
+    />
+  </Popover.Trigger>
+</Popover>
+```
