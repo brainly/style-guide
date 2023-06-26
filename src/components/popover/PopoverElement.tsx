@@ -1,6 +1,11 @@
 import * as React from 'react';
 import classNames from 'classnames';
-import {FloatingPortal, useMergeRefs, FloatingArrow} from '@floating-ui/react';
+import {
+  FloatingPortal,
+  useMergeRefs,
+  FloatingArrow,
+  FloatingFocusManager,
+} from '@floating-ui/react';
 import usePopoverContext from './usePopoverContext';
 
 export type PopoverElementPropsType = {
@@ -55,40 +60,45 @@ const PopoverElement = React.forwardRef<
   return (
     context.isMounted && (
       <FloatingPortal>
-        <div
-          ref={elementRef}
-          className={popoverClass}
-          data-popover-id={context.id}
-          data-placement={context.floatingPlacement}
-          data-status={context.status}
-          style={{
-            position: context.strategy,
-            top: context.y ?? 0,
-            left: context.x ?? 0,
-            visibility: context.middlewareData.hide?.referenceHidden
-              ? 'hidden'
-              : 'visible',
-            ...props.style,
-            padding,
-            maxWidth,
-          }}
-          aria-hidden="true"
-          {...context.getFloatingProps()}
-          role="none"
+        <FloatingFocusManager
+          context={context.context}
+          order={['reference', 'content']}
         >
-          {children}
-          {withArrow && (
-            <FloatingArrow
-              ref={context.arrowRef}
-              className="sg-popover__arrow"
-              context={context.context}
-              width={ARROW_SIZE}
-              height={ARROW_SIZE}
-              staticOffset={arrowOffset}
-              d={ARROW_SVG_PATH}
-            />
-          )}
-        </div>
+          <div
+            ref={elementRef}
+            className={popoverClass}
+            data-popover-id={context.id}
+            data-placement={context.floatingPlacement}
+            data-status={context.status}
+            style={{
+              position: context.strategy,
+              top: context.y ?? 0,
+              left: context.x ?? 0,
+              visibility: context.middlewareData.hide?.referenceHidden
+                ? 'hidden'
+                : 'visible',
+              ...props.style,
+              padding,
+              maxWidth,
+            }}
+            aria-hidden="true"
+            {...context.getFloatingProps()}
+            role="none"
+          >
+            {children}
+            {withArrow && (
+              <FloatingArrow
+                ref={context.arrowRef}
+                className="sg-popover__arrow"
+                context={context.context}
+                width={ARROW_SIZE}
+                height={ARROW_SIZE}
+                staticOffset={arrowOffset}
+                d={ARROW_SVG_PATH}
+              />
+            )}
+          </div>
+        </FloatingFocusManager>
       </FloatingPortal>
     )
   );

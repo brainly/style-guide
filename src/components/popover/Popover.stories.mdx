@@ -156,27 +156,47 @@ const PLACEMENTS = [
 <Canvas>
   <Story name="Interactive content" parameters={{layout: 'centered'}}>
     {args => (
-      <Popover {...args}>
-        <Popover.Element padding="24px">
-          <Flex direction="column" style={{gap: '10px'}}>
-            <Text weight="bold" align="to-left">
-              Get your badge on!
-            </Text>
-            <Text align="to-left">
-              Now you can show off your brain power with flashy badges. Complete
-              achievements to claim new badges.
-            </Text>
-            <Button variant="solid">CHECK IT OUT</Button>
-          </Flex>
-        </Popover.Element>
-        <Popover.Trigger>
-          <Button
-            icon={<Icon color="adaptive" type="options" aria-hidden />}
-            iconOnly
-            variant="solid-light"
-          />
-        </Popover.Trigger>
-      </Popover>
+      <Flex style={{gap: '20px'}}>
+        <Popover {...args}>
+          <Popover.Element maxWidth="300px" padding="24px">
+            <Flex direction="column" style={{gap: '10px'}}>
+              <Text weight="bold" align="to-left">
+                Get your badge on!
+              </Text>
+              <Text align="to-left">
+                Now you can show off your brain power with flashy badges.
+                Complete achievements to claim new badges.
+              </Text>
+              <Button variant="solid">CHECK IT OUT</Button>
+            </Flex>
+          </Popover.Element>
+          <Popover.Trigger>
+            <Button
+              icon={<Icon color="adaptive" type="options" aria-hidden />}
+              iconOnly
+              variant="solid-light"
+            />
+          </Popover.Trigger>
+        </Popover>
+        <Popover {...args}>
+          <Popover.Element maxWidth="300px" padding="24px">
+            <Flex direction="column" style={{gap: '10px'}}>
+              <Text weight="bold" align="to-left">
+                You've got 2138 points!
+              </Text>
+              <Text align="to-left">Great job!</Text>
+              <Button variant="solid">See your achievements</Button>
+            </Flex>
+          </Popover.Element>
+          <Popover.Trigger>
+            <Button
+              icon={<Icon color="adaptive" type="profile" aria-hidden />}
+              iconOnly
+              variant="solid-light"
+            />
+          </Popover.Trigger>
+        </Popover>
+      </Flex>
     )}
   </Story>
 </Canvas>
