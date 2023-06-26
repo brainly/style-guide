@@ -63,6 +63,8 @@ const PopoverElement = React.forwardRef<
         <FloatingFocusManager
           context={context.context}
           order={['reference', 'content']}
+          visuallyHiddenDismiss
+          initialFocus={-1}
         >
           <div
             ref={elementRef}

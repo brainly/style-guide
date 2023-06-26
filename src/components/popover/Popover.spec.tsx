@@ -199,7 +199,7 @@ describe('<Popover />', () => {
   });
 
   it('can hide default open popover by clicking somewhere in the document', async () => {
-    const {queryByText} = render(<RenderPopover />);
+    const {queryByText} = render(<RenderPopover defaultOpen />);
 
     userEvent.click(document.body);
     await waitForElementToBeRemoved(() => queryByText(POPOVER_TEXT));
