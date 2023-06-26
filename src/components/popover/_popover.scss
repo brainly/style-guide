@@ -1,0 +1,94 @@
+.sg-popover {
+  --popover-color: var(--white);
+
+  box-shadow: $shadowSmall !important;
+  background-color: var(--popover-color);
+  padding: 16px;
+  border-radius: $borderRadiusM;
+  min-width: 56px; // 24px of arrow width + 16px padding on each side
+  min-height: 36px;
+
+  transition: opacity $durationQuick2 $easingLinear,
+    transform $durationModerate2 $easingEntry;
+
+  @media (prefers-reduced-motion) {
+    transition: opacity $durationQuick2 $easingLinear;
+  }
+
+  @media (forced-colors: active) {
+    border: 2px solid CanvasText;
+  }
+
+  @mixin initialState() {
+    opacity: 0;
+
+    &[data-placement^='top'] {
+      transform: translateY(8px);
+    }
+
+    &[data-placement^='bottom'] {
+      transform: translateY(-8px);
+    }
+
+    &[data-placement^='left'] {
+      transform: translateX(8px);
+    }
+
+    &[data-placement^='right'] {
+      transform: translateX(-8px);
+    }
+
+    &[data-placement] {
+      @media (prefers-reduced-motion) {
+        transform: none;
+      }
+    }
+  }
+
+  @include initialState();
+
+  &[data-status='open'] {
+    opacity: 1;
+
+    &[data-placement^='top'],
+    &[data-placement^='bottom'] {
+      transform: translateY(0);
+    }
+
+    &[data-placement^='left'],
+    &[data-placement^='right'] {
+      transform: translateX(0);
+    }
+  }
+
+  &[data-status='close'] {
+    transition-duration: $durationQuick2, $durationModerate1;
+    transition-timing-function: $easingLinear, $easingExit;
+    transition-delay: 0.06s, 0;
+
+    @media (prefers-reduced-motion) {
+      transition-delay: 0, 0;
+    }
+
+    @include initialState();
+  }
+
+  &__label {
+    word-break: normal;
+    overflow-wrap: anywhere;
+  }
+
+  &__arrow {
+    fill: var(--popover-color);
+    filter: drop-shadow(2px 0 8px rgba($gray-70, 0.2));
+
+    & path {
+      @media (forced-colors: active) {
+        stroke: CanvasText;
+        stroke-width: 2px;
+        stroke-dasharray: 23 28;
+        stroke-dashoffset: -3;
+      }
+    }
+  }
+}
