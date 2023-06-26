@@ -1,6 +1,6 @@
 {
   "name": "brainly-style-guide",
-  "version": "225.1.0",
+  "version": "225.2.0",
   "description": "Brainly Front-End Style Guide",
   "repository": "https://github.com/brainly/style-guide.git",
   "author": "Brainly Team",
@@ -111,7 +111,7 @@
     "http-server": "^0.9.0",
     "husky": "^0.11.3",
     "jest": "^24.0.0",
-    "jest-axe": "^5.0.1",
+    "jest-axe": "^7.0.0",
     "mini-css-extract-plugin": "1.6.2",
     "mutationobserver-shim": "^0.3.7",
     "polished": "^4.0.3",

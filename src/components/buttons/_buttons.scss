@@ -19,6 +19,7 @@ $largeButtonSize: componentSize(l);
 
 .sg-button {
   @include applyFocus();
+  @include applyPressEffect();
 
   position: relative;
   display: inline-flex;
@@ -36,19 +37,21 @@ $largeButtonSize: componentSize(l);
   color: $white;
   text-transform: uppercase;
   padding: 0 20px;
-  will-change: background-color, border-color;
-  transition-property: background-color, border-color;
-  transition-duration: 0.2s;
-  transition-timing-function: ease-in-out;
   box-sizing: border-box;
   touch-action: manipulation;
   -webkit-user-select: none;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
   user-select: none;
-  transition: transform $durationModerate2 $easingRegular;
+  cursor: default;
 
-  &:active:not([disabled]) {
-    transform: scale(0.96);
+  &[href] {
+    cursor: pointer;
+  }
+
+  &:disabled {
+    @media (forced-colors: active) {
+      color: GrayText;
+    }
   }
 
   &__text {
@@ -390,6 +393,7 @@ $largeButtonSize: componentSize(l);
   &--icon-only {
     padding: 0;
     width: $mediumButtonSize;
+    --pressScale: 0.92;
 
     &.sg-button--s {
       width: $smallButtonSize;
@@ -417,10 +421,6 @@ $largeButtonSize: componentSize(l);
       overflow: hidden;
       clip: rect(0, 0, 0, 0);
       border: none;
-    }
-
-    &:active:not([disabled]) {
-      transform: scale(0.92);
     }
   }
 

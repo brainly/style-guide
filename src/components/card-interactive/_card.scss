@@ -40,6 +40,7 @@
   width: var(--card-width, auto);
   height: var(--card-height, auto);
   user-select: none;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 
   &__border {
     display: block;
@@ -57,7 +58,6 @@
   }
 
   &__background {
-    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
     position: absolute;
     inset: var(--card-border-width);
     border-radius: calc(var(--card-border-radius) - var(--card-border-width));
@@ -185,6 +185,14 @@
 
   & .sg-radio__circle {
     transition: all $durationModerate1 $easingLinear;
+  }
+
+  &__icon {
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 
   /* Focus styles */

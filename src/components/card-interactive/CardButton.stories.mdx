@@ -1,0 +1,477 @@
+import {ArgsTable, Meta, Story, Canvas} from '@storybook/addon-docs';
+import {StoryVariantTable} from '../../docs/utils';
+import PageHeader from 'blocks/PageHeader';
+
+import Flex from '../flex/Flex';
+import Text from '../text/Text';
+import Headline from '../text/Headline';
+import SubjectIcon from '../subject-icons/SubjectIcon';
+
+import CardButton from './CardButton';
+
+<Meta
+  title="Components/CardButton"
+  component={CardButton}
+  subcomponents={{Indicator: CardButton.Indicator}}
+/>
+
+<PageHeader>CardButton</PageHeader>§ - [Stories](#stories) -
+[Accessibility](#accessibility)
+
+## Overview
+
+<Canvas>
+  <Story
+    name="Default"
+    decorators={[
+      Story => (
+        <div
+          style={{
+            background: 'var(--gray-20)',
+            padding: 96,
+            display: 'flex',
+            justifyContent: 'space-evenly',
+          }}
+        >
+          <Story />
+        </div>
+      ),
+    ]}
+  >
+    {args => (
+      <CardButton {...args} width="150px" height="150px">
+        <CardButton.Indicator slot="top-left" />
+        <Flex justifyContent="center" alignItems="center" fullHeight>
+          <Text color="text-gray-50" size="xsmall" weight="bold">
+            Placeholder
+          </Text>
+        </Flex>
+      </CardButton>
+    )}
+  </Story>
+</Canvas>
+
+<ArgsTable story="Default" />
+
+## Stories
+
+### Variants
+
+#### Solid
+
+<Canvas>
+  <Story
+    name="Solid"
+    decorators={[
+      Story => (
+        <div
+          style={{
+            display: 'flex',
+            justifyContent: 'space-evenly',
+            flexWrap: 'wrap',
+          }}
+        >
+          <Story />
+        </div>
+      ),
+    ]}
+  >
+    {args => (
+      <>
+        <Flex
+          flex="1"
+          justifyContent="center"
+          alignItems="center"
+          gap="s"
+          direction="column"
+          style={{padding: 96}}
+        >
+          <Headline color="text-black" size="small" extraBold>
+            DARK
+          </Headline>
+          <CardButton
+            {...args}
+            variant="solid"
+            width="150px"
+            height="171px"
+            defaultChecked={true}
+            style={{
+              '--card-background-color': 'var(--yellow-10)',
+            }}
+          >
+            <CardButton.Indicator slot="top-left" />
+            <Flex
+              justifyContent="space-between"
+              alignItems="center"
+              fullHeight
+              direction="column"
+              style={{paddingBottom: '24px'}}
+            >
+              <img
+                src="images/avatar_18.png"
+                width="100%"
+                height="103"
+                style={{objectFit: 'cover'}}
+              />
+              <Text color="text-black" size="small" weight="bold">
+                Dino
+              </Text>
+            </Flex>
+          </CardButton>
+        </Flex>
+        <Flex
+          flex="1"
+          justifyContent="center"
+          alignItems="center"
+          gap="s"
+          direction="column"
+          style={{background: 'var(--gray-20)', padding: 96}}
+        >
+          <Headline color="text-black" size="small" extraBold>
+            LIGHT
+          </Headline>
+          <CardButton
+            {...args}
+            variant="solid"
+            width="150px"
+            height="171px"
+            defaultChecked={true}
+            color="light"
+            style={{
+              '--card-background-color': 'var(--blue-60)',
+            }}
+          >
+            <CardButton.Indicator slot="top-left" />
+            <Flex
+              justifyContent="space-between"
+              alignItems="center"
+              fullHeight
+              direction="column"
+              gap="none"
+              style={{paddingBottom: '24px'}}
+            >
+              <div style={{width: 150, height: 150}}>
+                <img
+                  src="images/avatar_06.png"
+                  width="100%"
+                  height="103"
+                  style={{objectFit: 'cover'}}
+                />
+              </div>
+              <Flex flex="1" alignItems="center">
+                <Text color="text-white" size="small" weight="bold">
+                  Underwater
+                </Text>
+              </Flex>
+            </Flex>
+          </CardButton>
+        </Flex>
+      </>
+    )}
+  </Story>
+</Canvas>
+
+#### Outline
+
+<Canvas>
+  <Story
+    name="Outline"
+    decorators={[
+      Story => (
+        <div
+          style={{
+            display: 'flex',
+            justifyContent: 'space-evenly',
+            flexWrap: 'wrap',
+          }}
+        >
+          <Story />
+        </div>
+      ),
+    ]}
+  >
+    {args => (
+      <>
+        <Flex
+          flex="1"
+          justifyContent="center"
+          alignItems="center"
+          gap="s"
+          direction="column"
+          style={{padding: 96}}
+        >
+          <Headline color="text-black" size="small" extraBold>
+            DARK
+          </Headline>
+          <CardButton
+            {...args}
+            variant="outline"
+            width="150px"
+            height="150px"
+            defaultChecked={true}
+          >
+            <CardButton.Indicator slot="top-left" />
+            <Flex
+              justifyContent="center"
+              alignItems="center"
+              fullHeight
+              direction="column"
+              gap="s"
+            >
+              <SubjectIcon type="life-science" />
+              <Text color="text-black" size="small" weight="bold">
+                Life Science
+              </Text>
+            </Flex>
+          </CardButton>
+        </Flex>
+        <Flex
+          flex="1"
+          justifyContent="center"
+          alignItems="center"
+          gap="s"
+          direction="column"
+          style={{background: 'var(--gray-20)', padding: 96}}
+        >
+          <Headline color="text-black" size="small" extraBold>
+            LIGHT
+          </Headline>
+          <CardButton
+            {...args}
+            variant="outline"
+            width="150px"
+            height="150px"
+            defaultChecked={true}
+            color="light"
+            style={{
+              '--card-background-color': 'var(--indigo-60)',
+            }}
+          >
+            <CardButton.Indicator slot="top-left" />
+            <Flex
+              justifyContent="center"
+              alignItems="center"
+              fullHeight
+              direction="column"
+              gap="s"
+            >
+              <SubjectIcon type="sociology" />
+              <Text color="text-white" size="small" weight="bold">
+                Geo Classes
+              </Text>
+            </Flex>
+          </CardButton>
+        </Flex>
+      </>
+    )}
+  </Story>
+</Canvas>
+
+### Indicator position
+
+<Canvas>
+  <Story
+    name="Indicator position"
+    decorators={[
+      Story => (
+        <div
+          style={{
+            background: 'var(--gray-30)',
+            padding: 96,
+            display: 'flex',
+            justifyContent: 'space-evenly',
+            flexWrap: 'wrap',
+            gap: 32,
+          }}
+        >
+          <Story />
+        </div>
+      ),
+    ]}
+  >
+    {args => (
+      <CardButton {...args} width="150px" height="150px" defaultChecked={true}>
+        <CardButton.Indicator slot="top-left" />
+        <CardButton.Indicator slot="center-left" />
+        <CardButton.Indicator slot="bottom-left" />
+        <CardButton.Indicator slot="top-right" />
+        <CardButton.Indicator slot="center-right" />
+        <CardButton.Indicator slot="bottom-right" />
+        <Flex justifyContent="center" alignItems="center" fullHeight>
+          <Text color="text-gray-50" size="xsmall" weight="bold">
+            Placeholder
+          </Text>
+        </Flex>
+      </CardButton>
+    )}
+  </Story>
+</Canvas>
+
+### States
+
+#### Dark
+
+<Canvas>
+  <Story name="States Dark">
+    {args => (
+      <StoryVariantTable>
+        <thead>
+          <tr>
+            <th />
+            <th>
+              <Text weight="bold" transform="capitalize" size="medium">
+                default
+              </Text>
+            </th>
+            <th>
+              <Text weight="bold" transform="capitalize" size="medium">
+                disabled
+              </Text>
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          {['outline', 'solid'].map(variant => {
+            return [false, true].map(indicator => {
+              const states = ['default', 'disabled'].map(states => (
+                <td>
+                  <CardButton
+                    {...args}
+                    variant={variant}
+                    width="120px"
+                    height="64px"
+                    disabled={states === 'disabled'}
+                  >
+                    {indicator && (
+                      <CardButton.Indicator size="16" slot="top-left" />
+                    )}
+                    <Flex
+                      justifyContent="center"
+                      alignItems="center"
+                      fullHeight
+                    >
+                      <Text color="text-gray-50" size="xsmall" weight="bold">
+                        Placeholder
+                      </Text>
+                    </Flex>
+                  </CardButton>
+                </td>
+              ));
+              return (
+                <tr>
+                  <td>
+                    <Text weight="bold" size="small" transform="capitalize">
+                      {variant}
+                      <br />
+                      {indicator ? 'with indicator' : 'without indicator'}{' '}
+                      <br />
+                    </Text>
+                  </td>
+                  {states}
+                </tr>
+              );
+            });
+          })}
+        </tbody>
+      </StoryVariantTable>
+    )}
+  </Story>
+</Canvas>
+
+#### Light
+
+<Canvas>
+  <Story
+    name="States Light"
+    decorators={[
+      Story => (
+        <div
+          style={{
+            background: 'var(--black)',
+          }}
+        >
+          <Story />
+        </div>
+      ),
+    ]}
+  >
+    {args => (
+      <StoryVariantTable>
+        <thead>
+          <tr>
+            <th />
+            <th>
+              <Text
+                color="text-white"
+                weight="bold"
+                transform="capitalize"
+                size="medium"
+              >
+                default
+              </Text>
+            </th>
+            <th>
+              <Text
+                color="text-white"
+                weight="bold"
+                transform="capitalize"
+                size="medium"
+              >
+                disabled
+              </Text>
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          {['outline', 'solid'].map(variant => {
+            return [false, true].map(indicator => {
+              const states = ['default', 'disabled'].map(states => (
+                <td>
+                  <CardButton
+                    {...args}
+                    variant={variant}
+                    width="120px"
+                    height="64px"
+                    disabled={states === 'disabled'}
+                    color="light"
+                  >
+                    {indicator && (
+                      <CardButton.Indicator size="16" slot="top-left" />
+                    )}
+                    <Flex
+                      justifyContent="center"
+                      alignItems="center"
+                      fullHeight
+                    >
+                      <Text color="text-gray-50" size="xsmall" weight="bold">
+                        Placeholder
+                      </Text>
+                    </Flex>
+                  </CardButton>
+                </td>
+              ));
+              return (
+                <tr>
+                  <td>
+                    <Text
+                      color="text-white"
+                      weight="bold"
+                      size="small"
+                      transform="capitalize"
+                    >
+                      {variant}
+                      <br />
+                      {indicator ? 'with indicator' : 'without indicator'}{' '}
+                      <br />
+                    </Text>
+                  </td>
+                  {states}
+                </tr>
+              );
+            });
+          })}
+        </tbody>
+      </StoryVariantTable>
+    )}
+  </Story>
+</Canvas>

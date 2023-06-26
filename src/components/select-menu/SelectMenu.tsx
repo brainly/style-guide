@@ -407,9 +407,8 @@ const SelectMenu = React.forwardRef<HTMLDivElement, SelectMenuPropsType>(
     // when the exit animation plays
     // and when on touch screen
     const overlayPointerEvents =
-      (status === 'open' || status === 'initial') && !isTouchScreen()
-        ? 'auto'
-        : 'none';
+      status === 'open' || status === 'initial' ? 'all' : 'none';
+    const interactionsFloatingProps = interactions.getFloatingProps();
 
     return (
       <div id={wrapperId} className={selectClass} onClick={onClick}>
@@ -421,10 +420,9 @@ const SelectMenu = React.forwardRef<HTMLDivElement, SelectMenuPropsType>(
           tabIndex={!disabled ? 0 : -1}
           aria-disabled={disabled}
           aria-invalid={invalid ? true : undefined}
-          aria-controls={`${id}-listbox`}
+          aria-controls={interactionsFloatingProps.id as string}
           aria-expanded={isExpanded}
           aria-haspopup="listbox"
-          aria-multiselectable={multiSelect}
           data-status={status}
           {...interactions.getReferenceProps({
             // Handle keyboard
@@ -443,6 +441,7 @@ const SelectMenu = React.forwardRef<HTMLDivElement, SelectMenuPropsType>(
               type="caret_down"
               size={ICON_SIZE_MAP[size]}
               color="icon-gray-70"
+              aria-hidden
             />
           </div>
         </div>
@@ -474,19 +473,19 @@ const SelectMenu = React.forwardRef<HTMLDivElement, SelectMenuPropsType>(
                   zIndex: 1,
                   pointerEvents: 'auto',
                 }}
-                {...interactions.getFloatingProps()}
+                {...interactionsFloatingProps}
+                aria-labelledby={id}
+                tabIndex={-1}
                 data-placement={floatingProps.placement}
+                aria-multiselectable={multiSelect}
               >
                 <div
                   className={popupClassName}
                   data-placement={floatingProps.placement}
-                  role="presentation"
+                  tabIndex={activeIndex === null ? 0 : -1}
+                  role="none"
                 >
-                  <div
-                    className={popupContentClassName}
-                    id={`${id}-listbox`}
-                    role="presentation"
-                  >
+                  <div className={popupContentClassName} role="none">
                     {optionsElements}
                   </div>
                 </div>

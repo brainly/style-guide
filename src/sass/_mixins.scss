@@ -151,3 +151,25 @@
 @mixin sgButtonHoverMix($color1, $color2, $percent) {
   background-color: mix($color1, $color2, $percent);
 }
+
+@mixin applyPressEffect($nestingSelector: null) {
+  @if ($nestingSelector) {
+    & #{$nestingSelector} {
+      transition-property: transform;
+      transition-duration: var(--pressTransitionDuration);
+      transition-timing-function: var(--pressTransitionEasing);
+    }
+
+    &:active:not([disabled]) #{$nestingSelector} {
+      transform: scale(var(--pressScale));
+    }
+  } @else {
+    transition-property: transform;
+    transition-duration: var(--pressTransitionDuration);
+    transition-timing-function: var(--pressTransitionEasing);
+
+    &:active:not([disabled]) {
+      transform: scale(var(--pressScale));
+    }
+  }
+}

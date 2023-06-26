@@ -1,0 +1,171 @@
+.sg-button-lite {
+  @include applyPressEffect();
+
+  // color variables
+  --button-lite-solid-background-color: transparent;
+  --button-lite-hover-background-color: var(--gray-50);
+  --button-lite-active-background-color: var(--gray-50);
+  --button-lite-label-color: var(--text-black);
+
+  // size & spacing variables
+  --button-lite-height: 32px;
+  --button-lite-icon-margin-left: -4px;
+  --button-lite-icon-margin-right: 8px;
+
+  padding: 0 10px;
+  position: relative;
+  height: var(--button-lite-height);
+  border-radius: var(--button-lite-height);
+  border: none;
+  background: var(--button-lite-solid-background-color);
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--button-lite-label-color);
+  touch-action: manipulation;
+  -webkit-user-select: none;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  user-select: none;
+  cursor: default;
+
+  &[href] {
+    cursor: pointer;
+  }
+
+  &::before {
+    background: var(--button-lite-hover-background-color);
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: inherit;
+    transform: scale(0.5);
+    opacity: 0;
+    transition-property: transform, opacity;
+    transition-duration: $durationModerate2, $durationModerate1;
+    transition-timing-function: $easingExit, $easingLinear;
+  }
+
+  &__text {
+    color: inherit;
+    z-index: 1;
+    white-space: nowrap;
+    text-decoration: none;
+  }
+
+  &__spinner.sg-spinner {
+    position: absolute;
+
+    border-bottom-color: var(--button-lite-label-color);
+    border-left-color: var(--button-lite-label-color);
+
+    @media (forced-colors: active) {
+      border-bottom-color: CanvasText;
+      border-left-color: CanvasText;
+    }
+  }
+
+  &__icon {
+    z-index: 1;
+    margin-left: var(--button-lite-icon-margin-left);
+    margin-right: var(--button-lite-icon-margin-right);
+  }
+
+  &:not([disabled]) {
+    &:hover::before {
+      opacity: 0.12;
+      transform: scale(1);
+      transition-timing-function: $easingEntry, $easingLinear;
+    }
+
+    &:active {
+      &::before {
+        background: var(--button-lite-active-background-color);
+        opacity: 0.2;
+        transition-timing-function: $easingEntry, $easingLinear;
+      }
+    }
+  }
+
+  &:disabled {
+    opacity: 0.45;
+
+    @media (forced-colors: active) {
+      --button-lite-label-color: GrayText;
+    }
+  }
+
+  &--loading {
+    & .sg-button-lite__text,
+    .sg-button-lite__icon {
+      opacity: 0;
+    }
+  }
+
+  &--xs {
+    --button-lite-height: 24px;
+    --button-lite-icon-margin-right: 6px;
+
+    padding: 0 8px;
+
+    @media (forced-colors: active) {
+      padding: 0 6px;
+    }
+  }
+
+  &--reversed-order {
+    --button-lite-icon-margin-left: 8px;
+    --button-lite-icon-margin-right: -4px;
+
+    flex-direction: row-reverse;
+
+    &.sg-button-lite--xs {
+      --button-lite-icon-margin-left: 6px;
+    }
+  }
+
+  &--transparent-inverted {
+    --button-lite-hover-background-color: var(--white);
+    --button-lite-active-background-color: var(--white);
+    --button-lite-label-color: var(--text-white);
+  }
+
+  &--transparent-light {
+    --button-lite-hover-background-color: var(--gray-50);
+    --button-lite-active-background-color: var(--gray-50);
+    --button-lite-label-color: var(--text-gray-60);
+  }
+
+  &--transparent-indigo {
+    --button-lite-hover-background-color: var(--indigo-50);
+    --button-lite-active-background-color: var(--indigo-50);
+    --button-lite-label-color: var(--text-indigo-60);
+  }
+
+  &--solid-light {
+    &::before {
+      transform: scale(1);
+    }
+    --button-lite-solid-background-color: var(--gray-20);
+    --button-lite-hover-background-color: var(--gray-50);
+    --button-lite-active-background-color: var(--gray-50);
+    --button-lite-label-color: var(--text-black);
+  }
+
+  &--solid-indigo-light {
+    &::before {
+      transform: scale(1);
+    }
+    --button-lite-solid-background-color: var(--indigo-10);
+    --button-lite-hover-background-color: var(--indigo-50);
+    --button-lite-active-background-color: var(--indigo-50);
+    --button-lite-label-color: var(--text-indigo-60);
+  }
+
+  @media (forced-colors: active) {
+    border: 2px solid CanvasText;
+    padding: 0 8px;
+  }
+}

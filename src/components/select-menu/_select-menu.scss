@@ -292,6 +292,8 @@
     }
 
     &__option {
+      @include applyPressEffect();
+
       padding: 8px 12px;
       width: 100%;
       display: flex;
@@ -301,11 +303,7 @@
       border-radius: var(--border-radius-xs);
       cursor: default;
       transition: background-color $durationModerate1 $easingLinear,
-        transform $durationModerate2 $easingRegular;
-
-      &:active:not([disabled]) {
-        transform: scale(0.96);
-      }
+        transform var(--pressTransitionDuration) var(--pressTransitionEasing);
 
       &:hover {
         background-color: var(--gray-10);

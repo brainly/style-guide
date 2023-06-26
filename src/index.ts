@@ -185,3 +185,5 @@ export type {CardCheckboxPropsType} from './components/card-interactive/CardChec
 export {default as Popover} from './components/popover/Popover';
 export type {PopoverPropsType} from './components/popover/Popover';
 export {default as usePopoverContext} from './components/popover/usePopoverContext';
+export {default as CardButton} from './components/card-interactive/CardButton';
+export type {CardButtonPropsType} from './components/card-interactive/CardButton';

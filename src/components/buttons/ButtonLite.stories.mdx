@@ -1,0 +1,253 @@
+import {ArgsTable, Meta, Story, Canvas} from '@storybook/addon-docs';
+import ButtonLite, {BUTTON_LITE_VARIANT, BUTTON_LITE_SIZE} from './ButtonLite';
+import Icon, {TYPE as ICON_TYPES} from 'icons/Icon';
+import Headline from '../text/Headline';
+import PageHeader from 'blocks/PageHeader';
+import {StoryVariantTable} from '../../docs/utils';
+import ButtonLiteA11y from './stories/ButtonLite.a11y.mdx';
+const iconSize = {
+  [BUTTON_LITE_SIZE.XS]: 16,
+  [BUTTON_LITE_SIZE.S]: 24,
+};
+
+<Meta
+  title="Components/ButtonLite"
+  component={ButtonLite}
+  argTypes={{
+    children: {
+      control: {
+        type: 'text',
+      },
+    },
+    icon: {
+      control: {
+        type: 'select',
+        options: ICON_TYPES,
+      },
+    },
+    onClick: {
+      table: {
+        category: 'Events',
+      },
+    },
+  }}
+  args={{
+    children: 'Link button',
+    onClick: () => console.log('button clicked'),
+  }}
+/>
+
+<PageHeader>ButtonLite</PageHeader>
+
+- [Stories](#stories)
+- [Accessibility](#accessibility)
+
+## Overview
+
+<Canvas>
+  <Story name="Default">
+    {args => (
+      <ButtonLite
+        {...args}
+        icon={
+          args.icon ? (
+            <Icon
+              size={iconSize[args.size]}
+              type={args.icon}
+              color="adaptive"
+            />
+          ) : null
+        }
+      />
+    )}
+  </Story>
+</Canvas>
+
+<ArgsTable story="Default" />
+
+## Stories
+
+### Variants
+
+<Canvas>
+  <Story name="Variants">
+    {args => (
+      <StoryVariantTable className="sg-button-stories-table">
+        <thead>
+          <tr>
+            <th />
+            <th>
+              <Headline
+                extraBold
+                transform="uppercase"
+                as="span"
+                color="text-gray-40"
+                size="medium"
+              >
+                default
+              </Headline>
+            </th>
+            <th>
+              <Headline
+                extraBold
+                transform="uppercase"
+                as="span"
+                color="text-gray-40"
+                size="medium"
+              >
+                disabled
+              </Headline>
+            </th>
+            <th>
+              <Headline
+                extraBold
+                transform="uppercase"
+                as="span"
+                color="text-gray-40"
+                size="medium"
+              >
+                loading
+              </Headline>
+            </th>
+            <th>
+              <Headline
+                extraBold
+                transform="uppercase"
+                as="span"
+                color="text-gray-40"
+                size="medium"
+              >
+                with icon
+              </Headline>
+            </th>
+            <th>
+              <Headline
+                extraBold
+                transform="uppercase"
+                as="span"
+                color="text-gray-40"
+                size="medium"
+              >
+                with icon - reversed order
+              </Headline>
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          {Object.values(BUTTON_LITE_VARIANT).map(variant => (
+            <tr
+              style={{
+                backgroundColor:
+                  'transparent-inverted' === variant ? 'black' : 'transparent',
+              }}
+              key={variant}
+            >
+              <td>
+                <div
+                  style={{
+                    height: 40,
+                    display: 'flex',
+                    alignItems: 'center',
+                  }}
+                >
+                  <Headline
+                    extraBold
+                    transform="uppercase"
+                    as="span"
+                    color="text-gray-40"
+                    size="medium"
+                  >
+                    {variant}
+                  </Headline>
+                </div>
+              </td>
+              <td>
+                <div>
+                  <ButtonLite {...args} variant={variant} />
+                </div>
+              </td>
+              <td>
+                <ButtonLite {...args} variant={variant} disabled />
+              </td>
+              <td>
+                <ButtonLite {...args} variant={variant} loading />
+              </td>
+              <td>
+                <ButtonLite
+                  {...args}
+                  variant={variant}
+                  icon={<Icon type="arrow_up" color="adaptive" />}
+                />
+              </td>
+              <td>
+                <ButtonLite
+                  {...args}
+                  variant={variant}
+                  icon={<Icon type="arrow_right" color="adaptive" />}
+                  reversedOrder
+                />
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </StoryVariantTable>
+    )}
+  </Story>
+</Canvas>
+
+### Sizes
+
+<Canvas>
+  <Story name="Sizes">
+    {args => (
+      <StoryVariantTable>
+        <tbody>
+          {Object.values(BUTTON_LITE_SIZE).map(size => (
+            <tr key={size}>
+              <td>
+                <Headline
+                  extraBold
+                  transform="uppercase"
+                  as="span"
+                  color="text-gray-40"
+                  size="medium"
+                >
+                  {size}
+                </Headline>
+              </td>
+              <td>
+                <ButtonLite {...args} size={size} variant="solid-light" />
+              </td>
+              <td>
+                <ButtonLite
+                  {...args}
+                  size={size}
+                  icon={
+                    <Icon
+                      type="arrow_up"
+                      color="adaptive"
+                      size={iconSize[size]}
+                    />
+                  }
+                  variant="solid-light"
+                />
+              </td>
+              <td>
+                <ButtonLite
+                  {...args}
+                  size={size}
+                  loading
+                  variant="solid-light"
+                />
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </StoryVariantTable>
+    )}
+  </Story>
+</Canvas>
+
+## Accessibility
+
+<ButtonLiteA11y />
