@@ -187,3 +187,8 @@ export type {PopoverPropsType} from './components/popover/Popover';
 export {default as usePopoverContext} from './components/popover/usePopoverContext';
 export {default as CardButton} from './components/card-interactive/CardButton';
 export type {CardButtonPropsType} from './components/card-interactive/CardButton';
+export {default as Chip} from './components/chip/Chip';
+export type {ChipPropsType} from './components/chip/Chip';
+export {default as ChipGroup} from './components/chip/ChipGroup';
+export type {ChipGroupPropsType} from './components/chip/ChipGroup';
+export {default as useChipContext} from './components/chip/useChipContext';
