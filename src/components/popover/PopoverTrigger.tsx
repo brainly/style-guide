@@ -55,7 +55,7 @@ const PopoverTrigger = React.forwardRef<
   return (
     <span
       ref={triggerRef}
-      tabIndex={context.isOpen ? 1 : 0} // ensure the element tabindex is set, but allow overriding with children props
+      tabIndex={0} // ensure the element tabindex is set, but allow overriding with children props
       className={className}
       // The user can style the trigger based on the state
       data-state={context.isOpen ? 'open' : 'closed'}
