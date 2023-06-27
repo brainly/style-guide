@@ -16,6 +16,7 @@ import List from '../list/List';
 import ListItem from '../list/ListItem';
 import ListItemIcon from '../list/ListItemIcon';
 import Popover from './Popover';
+import PopoverA11y from './stories/Popover.a11y.mdx';
 const PLACEMENTS = [
   'top',
   'top-start',
@@ -175,6 +176,7 @@ const PLACEMENTS = [
               icon={<Icon color="adaptive" type="options" aria-hidden />}
               iconOnly
               variant="solid-light"
+              aria-label="profile options"
             />
           </Popover.Trigger>
         </Popover>
@@ -193,6 +195,7 @@ const PLACEMENTS = [
               icon={<Icon color="adaptive" type="profile" aria-hidden />}
               iconOnly
               variant="solid-light"
+              aria-label="your profile"
             />
           </Popover.Trigger>
         </Popover>
@@ -411,3 +414,7 @@ const PLACEMENTS = [
     }}
   </Story>
 </Canvas>
+
+## Accessibility
+
+<PopoverA11y />

@@ -35,7 +35,14 @@ const PopoverElement = React.forwardRef<
   HTMLDivElement,
   PopoverElementPropsType
 >((props: PopoverElementPropsType, ref) => {
-  const {className, children, padding, maxWidth, withArrow = true} = props;
+  const {
+    className,
+    children,
+    padding,
+    maxWidth,
+    withArrow = true,
+    ...rest
+  } = props;
   const context = usePopoverContext();
   const elementRef = useMergeRefs([context.refs.setFloating, ref]);
 
@@ -83,9 +90,8 @@ const PopoverElement = React.forwardRef<
               padding,
               maxWidth,
             }}
-            aria-hidden="true"
             {...context.getFloatingProps()}
-            role="none"
+            {...rest}
           >
             {children}
             {withArrow && (
