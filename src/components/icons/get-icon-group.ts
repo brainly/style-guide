@@ -67,6 +67,7 @@ const iconMap = {
     'heart',
     'influence',
     'megaphone',
+    'message_new',
     'messages',
     'notifications',
     'points',
@@ -172,6 +173,8 @@ const iconMap = {
     'plus',
     'reload',
     'search',
+    'sidebar_left',
+    'sidebar_right',
   ],
   'Social Media': [
     'apple',

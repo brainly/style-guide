@@ -94,6 +94,7 @@ export type IconTypeType =
   | 'medium'
   | 'megaphone'
   | 'menu'
+  | 'message_new'
   | 'messages'
   | 'mic'
   | 'mic_muted'
@@ -130,6 +131,8 @@ export type IconTypeType =
   | 'settings'
   | 'share'
   | 'shield'
+  | 'sidebar_left'
+  | 'sidebar_right'
   | 'sms'
   | 'spark'
   | 'star_half_outlined'
@@ -271,6 +274,7 @@ export const TYPE = {
   MEDIUM: 'medium',
   MEGAPHONE: 'megaphone',
   MENU: 'menu',
+  MESSAGE_NEW: 'message_new',
   MESSAGES: 'messages',
   MIC: 'mic',
   MIC_MUTED: 'mic_muted',
@@ -307,6 +311,8 @@ export const TYPE = {
   SETTINGS: 'settings',
   SHARE: 'share',
   SHIELD: 'shield',
+  SIDEBAR_LEFT: 'sidebar_left',
+  SIDEBAR_RIGHT: 'sidebar_right',
   SMS: 'sms',
   SPARK: 'spark',
   STAR_HALF_OUTLINED: 'star_half_outlined',
