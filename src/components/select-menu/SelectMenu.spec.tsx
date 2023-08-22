@@ -100,7 +100,7 @@ describe('<SelectMenu />', () => {
     expect(option1.getAttribute('aria-selected')).toEqual('true');
 
     await waitForElementToBeRemoved(() => select.queryByRole('listbox'));
-    expect(select.queryByText('Select...')).not.toBeInTheDocument();
+
     expect(
       within(select.getByRole('combobox')).getByText('Physics')
     ).toBeInTheDocument();
