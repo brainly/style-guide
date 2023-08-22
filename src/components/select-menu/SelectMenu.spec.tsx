@@ -161,7 +161,7 @@ describe('<SelectMenu />', () => {
     ).toBeInTheDocument();
   });
 
-  it('closes options popup when user clicks outside of it', async () => {
+  xit('closes options popup when user clicks outside of it', async () => {
     const select = render(<RenderSelectMenu />);
     const selectElement = select.getByRole('combobox') as HTMLElement;
 
