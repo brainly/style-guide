@@ -53,7 +53,10 @@ const useFloatingSelectMenu = (props: UseFloatingSelectMenuPropsType) => {
   });
 
   const click = useClick(context);
-  const dismiss = useDismiss(context);
+  const dismiss = useDismiss(context, {
+    referencePress: true,
+    referencePressEvent: 'click',
+  });
   const role = useRole(context, {role: 'listbox'});
 
   const listNav = useListNavigation(context, {

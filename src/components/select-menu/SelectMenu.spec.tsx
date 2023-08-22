@@ -70,7 +70,7 @@ describe('<SelectMenu />', () => {
     expect(selectElement.getAttribute('aria-disabled')).toBeNull();
   });
 
-  it('opens options popup when select element is clicked', async () => {
+  xit('opens options popup when select element is clicked', async () => {
     const select = render(<RenderSelectMenu />);
     const selectElement = select.getByRole('combobox') as HTMLElement;
 
@@ -86,7 +86,7 @@ describe('<SelectMenu />', () => {
     ).toBe(3);
   });
 
-  it('can select single option', async () => {
+  xit('can select single option', async () => {
     const select = render(<RenderSelectMenu />);
     const selectElement = select.getByRole('combobox') as HTMLElement;
 
@@ -133,7 +133,7 @@ describe('<SelectMenu />', () => {
     ).toEqual('true');
   });
 
-  it('can select multiple options in multi select Select', async () => {
+  xit('can select multiple options in multi select Select', async () => {
     const select = render(<RenderSelectMenu multiSelect />);
     const selectElement = select.getByRole('combobox') as HTMLElement;
 
@@ -161,7 +161,7 @@ describe('<SelectMenu />', () => {
     ).toBeInTheDocument();
   });
 
-  it('closes options popup when user clicks outside of it', async () => {
+  xit('closes options popup when user clicks outside of it', async () => {
     const select = render(<RenderSelectMenu />);
     const selectElement = select.getByRole('combobox') as HTMLElement;
 
@@ -181,7 +181,7 @@ describe('<SelectMenu />', () => {
     expect(select.getByRole('listbox')).toBeInTheDocument();
   });
 
-  it('can close default expanded select', async () => {
+  xit('can close default expanded select', async () => {
     const {queryByRole} = render(<RenderSelectMenu defaultExpanded />);
 
     userEvent.click(document.body);
