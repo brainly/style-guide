@@ -29,28 +29,30 @@ const useSelectMenuAnimations = (props: UseSelectMenuAnimationsPropsType) => {
   const hasReduceMotion = useReducedMotion();
 
   const animateExit = ({callback}) => {
-    const select = document.getElementById(selectId);
-    const popupContainer = select.getElementsByClassName(
-      popupClassName
-    )[0] as HTMLDivElement;
-    const floatingContainer = select.getElementsByClassName(
-      floatingContainerClassName
-    )[0] as HTMLDivElement;
-    const popupContent = select.getElementsByClassName(
-      popupContentClassName
-    )[0] as HTMLDivElement;
+    try {
+      const select = document.getElementById(selectId);
+      const popupContainer = select.getElementsByClassName(
+        popupClassName
+      )[0] as HTMLDivElement;
+      const floatingContainer = select.getElementsByClassName(
+        floatingContainerClassName
+      )[0] as HTMLDivElement;
+      const popupContent = select.getElementsByClassName(
+        popupContentClassName
+      )[0] as HTMLDivElement;
 
-    popupContainer.style.opacity = `0`;
-    popupContainer.style.height = `0px`;
-    if (selectRef.current)
-      popupContainer.style.width = `${selectRef.current.width}px`;
-    popupContent.classList.add(SCROLL_HIDE_CLASSNAME);
+      popupContainer.style.opacity = `0`;
+      popupContainer.style.height = `0px`;
+      if (selectRef.current)
+        popupContainer.style.width = `${selectRef.current.width}px`;
+      popupContent.classList.add(SCROLL_HIDE_CLASSNAME);
 
-    popupContainer.classList.add(EXIT_STATE_CLASSNAME);
-    floatingContainer.classList.add(EXIT_STATE_CLASSNAME);
-    requestAnimationFrame(() => {
-      if (callback) callback();
-    });
+      popupContainer.classList.add(EXIT_STATE_CLASSNAME);
+      floatingContainer.classList.add(EXIT_STATE_CLASSNAME);
+      requestAnimationFrame(() => {
+        if (callback) callback();
+      });
+    } catch {}
   };
 
   const animateEntry = () => {
