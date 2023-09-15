@@ -1,6 +1,3 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
-  <title>
-    subtitle
-  </title>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" aria-labelledby="subtitle">
   <path d="M341.33 170.67H170.67a32 32 0 1 0 0 64H224v160a32 32 0 1 0 64 0v-160h53.33a32 32 0 1 0 0-64z"/>
 </svg>

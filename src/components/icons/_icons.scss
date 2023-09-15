@@ -6,7 +6,7 @@ $iconSizes: 16, 24, 32, 40, 56, 80, 104;
 
 @if ($includeHtml) {
   .sg-icon {
-    @include iconColor();
+    // @include iconColor();
 
     max-width: 24px;
     max-height: 24px;
