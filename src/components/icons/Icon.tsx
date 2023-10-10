@@ -43,6 +43,7 @@ export type IconTypeType =
   | 'circle'
   | 'clear'
   | 'clipboard'
+  | 'clipboard_outlined'
   | 'close'
   | 'collapse'
   | 'comment_outlined'
@@ -223,6 +224,7 @@ export const TYPE = {
   CIRCLE: 'circle',
   CLEAR: 'clear',
   CLIPBOARD: 'clipboard',
+  CLIPBOARD_OUTLINED: 'clipboard_outlined',
   CLOSE: 'close',
   COLLAPSE: 'collapse',
   COMMENT_OUTLINED: 'comment_outlined',
