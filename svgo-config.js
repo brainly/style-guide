@@ -12,15 +12,15 @@ module.exports = {
     plugins: ['removeTitle'],
   },
   subjectMonoIcons: {
-    plugins: [removeClass, removeFillNonFixedColors, 'removeTitle'],
+    plugins: [removeClass, removeFillNonFixedColors, 'removeTitle', 'convertPathData'],
   },
   icons: {
-    plugins: [removeClass, removeFillNonFixedColors, 'removeTitle'],
+    plugins: [removeClass, removeFillNonFixedColors, 'removeTitle', 'convertPathData'],
   },
   mathSymbols: {
-    plugins: [removeClass, removeFillNonFixedColors, 'removeTitle'],
+    plugins: [removeClass, removeFillNonFixedColors, 'removeTitle', 'convertPathData'],
   },
   mobileIcons: {
-    plugins: [removeClass, removeFillNonFixedColors, 'removeTitle'],
+    plugins: [removeClass, removeFillNonFixedColors, 'removeTitle', 'convertPathData'],
   },
 };
