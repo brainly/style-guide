@@ -14,6 +14,7 @@ const iconMap = {
     'chapter',
     'chapter',
     'clipboard',
+    'clipboard_outlined',
     'counter',
     'credit_card',
     'cursor_select',

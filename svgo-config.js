@@ -9,7 +9,7 @@ const removeClass = {
 
 module.exports = {
   subjectIcons: {
-    plugins: ['removeTitle'],
+    plugins: ['removeTitle', 'convertPathData'],
   },
   subjectMonoIcons: {
     plugins: [removeClass, removeFillNonFixedColors, 'removeTitle', 'convertPathData'],
