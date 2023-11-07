@@ -31,6 +31,7 @@ const iconMap = {
     'multiselect_checked',
     'multiselect_unchecked',
     'padlock',
+    'printer',
     'question',
     'recent_questions',
     'seen',
