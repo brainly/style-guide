@@ -114,6 +114,7 @@ export type IconTypeType =
   | 'play'
   | 'plus'
   | 'points'
+  | 'printer'
   | 'profile_settings'
   | 'profile_view'
   | 'profile'
@@ -295,6 +296,7 @@ export const TYPE = {
   PLAY: 'play',
   PLUS: 'plus',
   POINTS: 'points',
+  PRINTER: 'printer',
   PROFILE_SETTINGS: 'profile_settings',
   PROFILE_VIEW: 'profile_view',
   PROFILE: 'profile',
