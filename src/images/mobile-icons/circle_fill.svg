@@ -1,4 +1,3 @@
-<svg viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
-  <title>circle fill</title>
+<svg viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg" aria-label="circle fill">
   <ellipse cx="256" cy="256.004" rx="157.538" ry="157.541" fill="black"/>
 </svg>
