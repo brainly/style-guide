@@ -1,4 +1,3 @@
-<svg viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
-  <title>circle fill</title>
-  <ellipse cx="256" cy="256.004" rx="157.538" ry="157.541" fill="black"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+<path d="M469.334 256C469.334 373.821 373.821 469.333 256 469.333C138.18 469.333 42.667 373.821 42.667 256C42.667 138.179 138.18 42.6665 256 42.6665C373.821 42.6665 469.334 138.179 469.334 256Z" fill="black"/>
 </svg>

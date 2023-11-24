@@ -74,6 +74,7 @@ export type IconTypeType =
   | 'exclamation_mark'
   | 'facebook'
   | 'filters'
+  | 'forwad'
   | 'friend_add'
   | 'friend_checked'
   | 'friend_pending'
@@ -84,6 +85,7 @@ export type IconTypeType =
   | 'ginny'
   | 'globe'
   | 'google'
+  | 'graph'
   | 'greek'
   | 'heading'
   | 'heart_outlined'
@@ -91,6 +93,7 @@ export type IconTypeType =
   | 'highlight'
   | 'home'
   | 'how_to_scan'
+  | 'image_library'
   | 'image'
   | 'influence'
   | 'info_outlined'
@@ -278,6 +281,7 @@ export const TYPE = {
   EXCLAMATION_MARK: 'exclamation_mark',
   FACEBOOK: 'facebook',
   FILTERS: 'filters',
+  FORWARD: 'forward',
   FRIEND_ADD: 'friend_add',
   FRIEND_CHECKED: 'friend_checked',
   FRIEND_PENDING: 'friend_pending',
@@ -288,6 +292,7 @@ export const TYPE = {
   GINNY: 'ginny',
   GLOBE: 'globe',
   GOOGLE: 'google',
+  GRAPH: 'graph',
   GREEK: 'greek',
   HEADING: 'heading',
   HEART_OUTLINED: 'heart_outlined',
@@ -295,6 +300,7 @@ export const TYPE = {
   HIGHLIGHT: 'highlight',
   HOME: 'home',
   HOW_TO_SCAN: 'how_to_scan',
+  IMAGE_LIBRARY: 'image_library',
   IMAGE: 'image',
   INFLUENCE: 'influence',
   INFO_OUTLINED: 'info_outlined',
