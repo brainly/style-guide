@@ -43,6 +43,7 @@ export type IconTypeType =
   | 'chevron_left'
   | 'chevron_right'
   | 'chevron_up'
+  | 'chevrons_horizontal'
   | 'circle'
   | 'clear'
   | 'clipboard'
@@ -102,6 +103,7 @@ export type IconTypeType =
   | 'messages'
   | 'mic'
   | 'mic_muted'
+  | 'minus_in_circle_outlined'
   | 'money_transfer'
   | 'more'
   | 'multiselect_checked'
@@ -131,6 +133,7 @@ export type IconTypeType =
   | 'rotate_90'
   | 'rotate'
   | 'search'
+  | 'search_add'
   | 'seen'
   | 'send'
   | 'settings'
@@ -228,6 +231,7 @@ export const TYPE = {
   CHEVRON_LEFT: 'chevron_left',
   CHEVRON_RIGHT: 'chevron_right',
   CHEVRON_UP: 'chevron_up',
+  CHEVRONS_HORIZONTAL: 'chevrons_horizontal',
   CIRCLE: 'circle',
   CLEAR: 'clear',
   CLIPBOARD: 'clipboard',
@@ -287,6 +291,7 @@ export const TYPE = {
   MESSAGES: 'messages',
   MIC: 'mic',
   MIC_MUTED: 'mic_muted',
+  MINUS_IN_CIRCLE_OUTLIEND: 'minus_in_circle_outlined',
   MONEY_TRANSFER: 'money_transfer',
   MORE: 'more',
   MULTISELECT_CHECKED: 'multiselect_checked',
@@ -316,6 +321,7 @@ export const TYPE = {
   ROTATE_90: 'rotate_90',
   ROTATE: 'rotate',
   SEARCH: 'search',
+  SEARCH_ADD: 'search_add',
   SEEN: 'seen',
   SEND: 'send',
   SETTINGS: 'settings',
