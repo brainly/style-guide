@@ -22,8 +22,11 @@ export type IconTypeType =
   | 'attachment'
   | 'bell_checked'
   | 'bell_outlined'
+  | 'best_answer'
   | 'block'
   | 'bold'
+  | 'brainly_oval'
+  | 'brainly_parallelogram'
   | 'bulb_checked'
   | 'bulb'
   | 'bulleted_list'
@@ -204,8 +207,11 @@ export const TYPE = {
   ATTACHMENT: 'attachment',
   BELL_CHECKED: 'bell_checked',
   BELL_OUTLINED: 'bell_outlined',
+  BEST_ANSWER: 'best_answer',
   BLOCK: 'block',
   BOLD: 'bold',
+  BRAINLY_OVAL: 'brainly_oval',
+  BRAINLY_PARALLELOGRAM: 'brainly_parallelogram',
   BULB_CHECKED: 'bulb_checked',
   BULB: 'bulb',
   BULLETED_LIST: 'bulleted_list',

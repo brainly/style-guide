@@ -10,6 +10,7 @@ export type IconTypeType =
   | 'backward_end'
   | 'barcode_scanner'
   | 'bookmark'
+  | 'bookmark_checked'
   | 'bookmark_outlined'
   | 'chapter'
   | 'circle_fill'
@@ -68,6 +69,7 @@ export const TYPE: Record<string, IconTypeType> = {
   BACKWARD_END: 'backward_end',
   BARCODE_SCANNER: 'barcode_scanner',
   BOOKMARK: 'bookmark',
+  BOOKMARK_CHECKED: 'bookmark_checked',
   BOOKMARK_OUTLINED: 'bookmark_outlined',
   CHAPTER: 'chapter',
   CIRCLE_FILL: 'circle_fill',

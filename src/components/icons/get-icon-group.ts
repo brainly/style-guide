@@ -50,6 +50,8 @@ const iconMap = {
     'ask_parent_to_pay',
     'bell_checked',
     'bell_outlined',
+    'best_answer',
+    'bookmark_checked',
     'bookmark_outlined',
     'bookmark',
     'check',
@@ -180,6 +182,8 @@ const iconMap = {
   ],
   'Social Media': [
     'apple',
+    'brainly_oval',
+    'brainly_parallelogram',
     'facebook',
     'google',
     'instagram',
