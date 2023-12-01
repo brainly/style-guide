@@ -186,6 +186,7 @@ const iconMap = {
     'clear',
     'close',
     'collapse',
+    'expand',
     'filters',
     'fullscreen',
     'less',

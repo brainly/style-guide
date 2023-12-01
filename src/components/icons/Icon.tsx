@@ -72,6 +72,7 @@ export type IconTypeType =
   | 'eraser'
   | 'european'
   | 'exclamation_mark'
+  | 'expand'
   | 'facebook'
   | 'filters'
   | 'forwad'
@@ -279,6 +280,7 @@ export const TYPE = {
   ERASER: 'eraser',
   EUROPEAN: 'european',
   EXCLAMATION_MARK: 'exclamation_mark',
+  EXPAND: 'expand',
   FACEBOOK: 'facebook',
   FILTERS: 'filters',
   FORWARD: 'forward',
