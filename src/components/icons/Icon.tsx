@@ -4,12 +4,15 @@ import {generateId} from '../utils';
 
 export type IconTypeType =
   | 'academic_cap'
+  | 'achievement'
   | 'add_more'
+  | 'ai'
   | 'all_questions'
   | 'answer_bubble'
   | 'answer'
   | 'answers'
   | 'apple'
+  | 'archive_checked'
   | 'archive'
   | 'arrow_double_right'
   | 'arrow_down'
@@ -22,9 +25,13 @@ export type IconTypeType =
   | 'attachment'
   | 'bell_checked'
   | 'bell_outlined'
+  | 'best_answer'
   | 'block'
   | 'bold'
+  | 'brainly_oval'
+  | 'brainly_parallelogram'
   | 'bulb_checked'
+  | 'bulb_filled'
   | 'bulb'
   | 'bulleted_list'
   | 'calendar'
@@ -40,6 +47,7 @@ export type IconTypeType =
   | 'chevron_left'
   | 'chevron_right'
   | 'chevron_up'
+  | 'chevrons_horizontal'
   | 'circle'
   | 'clear'
   | 'clipboard'
@@ -64,8 +72,10 @@ export type IconTypeType =
   | 'eraser'
   | 'european'
   | 'exclamation_mark'
+  | 'expand'
   | 'facebook'
   | 'filters'
+  | 'forwad'
   | 'friend_add'
   | 'friend_checked'
   | 'friend_pending'
@@ -76,22 +86,29 @@ export type IconTypeType =
   | 'ginny'
   | 'globe'
   | 'google'
+  | 'graph'
   | 'greek'
   | 'heading'
   | 'heart_outlined'
   | 'heart'
   | 'highlight'
+  | 'home'
+  | 'how_to_scan'
+  | 'image_library'
   | 'image'
   | 'influence'
+  | 'info_outlined'
   | 'info'
   | 'instagram'
   | 'italic'
   | 'keyboard'
   | 'less'
   | 'line'
+  | 'link'
   | 'linkedin'
   | 'lock_with_play'
   | 'logout'
+  | 'math_scan'
   | 'medium'
   | 'megaphone'
   | 'menu'
@@ -99,6 +116,7 @@ export type IconTypeType =
   | 'messages'
   | 'mic'
   | 'mic_muted'
+  | 'minus_in_circle_outlined'
   | 'money_transfer'
   | 'more'
   | 'multiselect_checked'
@@ -107,6 +125,7 @@ export type IconTypeType =
   | 'numbered_list'
   | 'open_in_new_tab'
   | 'options'
+  | 'padlock_open'
   | 'padlock'
   | 'pause'
   | 'pencil'
@@ -118,8 +137,10 @@ export type IconTypeType =
   | 'profile_settings'
   | 'profile_view'
   | 'profile'
+  | 'question_alt'
   | 'question'
   | 'quote'
+  | 'recent_questions_alt'
   | 'recent_questions'
   | 'rectangle'
   | 'reload'
@@ -128,6 +149,7 @@ export type IconTypeType =
   | 'rotate_90'
   | 'rotate'
   | 'search'
+  | 'search_add'
   | 'seen'
   | 'send'
   | 'settings'
@@ -135,8 +157,10 @@ export type IconTypeType =
   | 'shield'
   | 'sidebar_left'
   | 'sidebar_right'
+  | 'smartphone'
   | 'sms'
   | 'spark'
+  | 'sparks'
   | 'star_half_outlined'
   | 'star_half'
   | 'star_outlined'
@@ -150,6 +174,7 @@ export type IconTypeType =
   | 'thumb_up_outlined'
   | 'thumb_up'
   | 'title'
+  | 'toughest_questions_alt'
   | 'toughest_questions'
   | 'trash'
   | 'triangle'
@@ -158,6 +183,7 @@ export type IconTypeType =
   | 'unseen'
   | 'user_block'
   | 'verified'
+  | 'view_checked'
   | 'warning'
   | 'youtube'
   | 'gift';
@@ -186,12 +212,15 @@ export type IconSizeType = 16 | 24 | 32 | 40 | 56 | 80 | 104;
 
 export const TYPE = {
   ACADEMIC_CAP: 'academic_cap',
+  ACHIEVEMENT: 'achievement',
   ADD_MORE: 'add_more',
+  AI: 'ai',
   ALL_QUESTIONS: 'all_questions',
   ANSWER_BUBBLE: 'answer_bubble',
   ANSWER: 'answer',
   ANSWERS: 'answers',
   APPLE: 'apple',
+  ARCHIVE_CHECKED: 'archive_checked',
   ARCHIVE: 'archive',
   ARROW_DOUBLE_RIGHT: 'arrow_double_right',
   ARROW_DOWN: 'arrow_down',
@@ -204,9 +233,13 @@ export const TYPE = {
   ATTACHMENT: 'attachment',
   BELL_CHECKED: 'bell_checked',
   BELL_OUTLINED: 'bell_outlined',
+  BEST_ANSWER: 'best_answer',
   BLOCK: 'block',
   BOLD: 'bold',
+  BRAINLY_OVAL: 'brainly_oval',
+  BRAINLY_PARALLELOGRAM: 'brainly_parallelogram',
   BULB_CHECKED: 'bulb_checked',
+  BULB_FILLED: 'bulb_filled',
   BULB: 'bulb',
   BULLETED_LIST: 'bulleted_list',
   CALENDAR: 'calendar',
@@ -222,6 +255,7 @@ export const TYPE = {
   CHEVRON_LEFT: 'chevron_left',
   CHEVRON_RIGHT: 'chevron_right',
   CHEVRON_UP: 'chevron_up',
+  CHEVRONS_HORIZONTAL: 'chevrons_horizontal',
   CIRCLE: 'circle',
   CLEAR: 'clear',
   CLIPBOARD: 'clipboard',
@@ -246,8 +280,10 @@ export const TYPE = {
   ERASER: 'eraser',
   EUROPEAN: 'european',
   EXCLAMATION_MARK: 'exclamation_mark',
+  EXPAND: 'expand',
   FACEBOOK: 'facebook',
   FILTERS: 'filters',
+  FORWARD: 'forward',
   FRIEND_ADD: 'friend_add',
   FRIEND_CHECKED: 'friend_checked',
   FRIEND_PENDING: 'friend_pending',
@@ -258,22 +294,29 @@ export const TYPE = {
   GINNY: 'ginny',
   GLOBE: 'globe',
   GOOGLE: 'google',
+  GRAPH: 'graph',
   GREEK: 'greek',
   HEADING: 'heading',
   HEART_OUTLINED: 'heart_outlined',
   HEART: 'heart',
   HIGHLIGHT: 'highlight',
+  HOME: 'home',
+  HOW_TO_SCAN: 'how_to_scan',
+  IMAGE_LIBRARY: 'image_library',
   IMAGE: 'image',
   INFLUENCE: 'influence',
+  INFO_OUTLINED: 'info_outlined',
   INFO: 'info',
   INSTRAGRAM: 'instagram',
   ITALIC: 'italic',
   KEYBOARD: 'keyboard',
   LESS: 'less',
   LINE: 'line',
+  LINK: 'link',
   LINKEDIN: 'linkedin',
   LOCK_WITH_PLAY: 'lock_with_play',
   LOGOUT: 'logout',
+  MATH_SCAN: 'math_scan',
   MEDIUM: 'medium',
   MEGAPHONE: 'megaphone',
   MENU: 'menu',
@@ -281,6 +324,7 @@ export const TYPE = {
   MESSAGES: 'messages',
   MIC: 'mic',
   MIC_MUTED: 'mic_muted',
+  MINUS_IN_CIRCLE_OUTLIEND: 'minus_in_circle_outlined',
   MONEY_TRANSFER: 'money_transfer',
   MORE: 'more',
   MULTISELECT_CHECKED: 'multiselect_checked',
@@ -289,6 +333,7 @@ export const TYPE = {
   NUMBERED_LIST: 'numbered_list',
   OPEN_IN_NEW_TAB: 'open_in_new_tab',
   OPTIONS: 'options',
+  PADLOCK_OPEN: 'padlock_open',
   PADLOCK: 'padlock',
   PAUSE: 'pause',
   PENCIL: 'pencil',
@@ -300,8 +345,10 @@ export const TYPE = {
   PROFILE_SETTINGS: 'profile_settings',
   PROFILE_VIEW: 'profile_view',
   PROFILE: 'profile',
+  QUESTION_ALT: 'question_alt',
   QUESTION: 'question',
   QUOTE: 'quote',
+  RECENT_QUESTIONS_ALT: 'recent_questions_alt',
   RECENT_QUESTIONS: 'recent_questions',
   RECTANGLE: 'rectangle',
   RELOAD: 'reload',
@@ -310,6 +357,7 @@ export const TYPE = {
   ROTATE_90: 'rotate_90',
   ROTATE: 'rotate',
   SEARCH: 'search',
+  SEARCH_ADD: 'search_add',
   SEEN: 'seen',
   SEND: 'send',
   SETTINGS: 'settings',
@@ -317,8 +365,10 @@ export const TYPE = {
   SHIELD: 'shield',
   SIDEBAR_LEFT: 'sidebar_left',
   SIDEBAR_RIGHT: 'sidebar_right',
+  SMARTPHONE: 'smartphone',
   SMS: 'sms',
   SPARK: 'spark',
+  SPARKS: 'sparks',
   STAR_HALF_OUTLINED: 'star_half_outlined',
   STAR_HALF: 'star_half',
   STAR_OUTLINED: 'star_outlined',
@@ -332,6 +382,7 @@ export const TYPE = {
   THUMB_UP_OUTLINED: 'thumb_up_outlined',
   THUMB_UP: 'thumb_up',
   TITLE: 'title',
+  TOUGHEST_QUESTIONS_ALT: 'toughest_questions_alt',
   TOUGHEST_QUESTIONS: 'toughest_questions',
   TRASH: 'trash',
   TRIANGLE: 'triangle',
@@ -340,6 +391,7 @@ export const TYPE = {
   UNSEEN: 'unseen',
   USER_BLOCK: 'user_block',
   VERIFIED: 'verified',
+  VIEW_CHECKED: 'view_checked',
   WARNING: 'warning',
   YOUTUBE: 'youtube',
   GIFT: 'gift',
