@@ -2,7 +2,8 @@ $dialogSmallPadding: spacing(m);
 $dialogMediumPadding: spacing(l);
 $dialogOffsetForCloseButton: 48px;
 $dialogBoxShadow: $shadowLarge;
-$dialogOverlayBackgroundColor: rgba(0, 0, 0, 0.3);
+$dialogOverlayBackgroundColorLight: rgba(0, 0, 0, 0.3);
+$dialogOverlayBackgroundColorDark: rgba(0, 0, 0, 0.7);
 
 $dialogSlideWindowDistance: 32px;
 $dialogSlideFullscreenSmallDistance: 88px;
@@ -37,7 +38,12 @@ $dialogMaxWidthMap: (
     }
 
     &--open {
-      background-color: $dialogOverlayBackgroundColor;
+      &--light {
+        background-color: $dialogOverlayBackgroundColorLight;
+      }
+      &--dark {
+        background-color: $dialogOverlayBackgroundColorDark;
+      }
     }
 
     &--scroll {
