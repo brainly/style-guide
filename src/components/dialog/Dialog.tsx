@@ -41,6 +41,7 @@ export type DialogPropsType = Readonly<{
   onExitTransitionEnd?: () => void;
   'data-testid'?: string;
   position?: 'center' | 'top';
+  overlay?: 'light' | 'dark';
   appearance?: 'none' | 'dialog';
 }>;
 
@@ -53,6 +54,7 @@ Dialog.defaultProps = {
   size: 'm',
   scroll: 'outside',
   position: 'center',
+  overlay: 'light',
   appearance: 'dialog',
 } as Partial<DialogPropsType>;
 
@@ -77,6 +79,7 @@ function BaseDialog({
   onExitTransitionEnd,
   'data-testid': dataTestId,
   position = 'center',
+  overlay = 'light',
   appearance = 'dialog',
 }: DialogPropsType) {
   const overlayRef = React.useRef<HTMLDivElement>(null);
@@ -185,6 +188,7 @@ function BaseDialog({
     'js-dialog',
     'sg-dialog__overlay',
     `sg-dialog__overlay--size-${size}`,
+    `sg-dialog__overlay--open--${overlay}`,
     `sg-dialog__overlay--motion-${motionPreset}`,
     {
       'sg-dialog__overlay--scroll':
