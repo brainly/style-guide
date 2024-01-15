@@ -15,7 +15,7 @@ export function useBodyNoScroll(overlayRef: {current: HTMLDivElement | null}) {
 
     if (isNestedDialog) {
       // if dialog is nested, this logic was already fired by parent dialog
-      // it prevents an issue with no cleanup on nested dialogs
+      // it prevents an issue with no cleanup when nested dialogs
       return;
     }
 
@@ -36,7 +36,7 @@ export function useBodyNoScroll(overlayRef: {current: HTMLDivElement | null}) {
         overlayRef.current?.querySelectorAll(DIALOG_SELECTOR).length | 0;
 
       // nested dialogs shouldn't be counted
-      // as a parent for nested dialogs, this particular can perfrom the cleanup
+      // as a parent for nested dialogs, this particular one should perfrom the cleanup
       const notNestedDialogsOpenCount =
         dialogsOpenCount - nestedOpenDialogsCount;
 
