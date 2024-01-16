@@ -517,6 +517,10 @@ import {fireEvent, within} from '@testing-library/react';
       const handleDismissAnother = () => {
         setAnotherOpen(false);
       };
+      const handleCloseAll = () => {
+        setAnotherOpen(false);
+        setOpen(false);
+      };
       const headerId = 'dialog-header';
       const anotherHeaderId = 'another-dialog-header';
       return (
@@ -583,7 +587,9 @@ import {fireEvent, within} from '@testing-library/react';
                   <Button variant="outline" onClick={handleDismissAnother}>
                     cancel
                   </Button>
-                  <Button variant="solid">proceed</Button>
+                  <Button variant="solid" onClick={handleCloseAll}>
+                    proceed
+                  </Button>
                 </Flex>
               </DialogBody>
             </Dialog>

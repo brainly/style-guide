@@ -106,7 +106,7 @@ function BaseDialog({
   const [isDialogHigherThanOverlay, setIsDialogHigherThanOverlay] =
     React.useState<boolean>(false);
   const hasAnimations = supportsTransitions() && motionPreset !== 'none';
-  const cleanupBodyNoScroll = useBodyNoScroll();
+  const cleanupBodyNoScroll = useBodyNoScroll(overlayRef);
   const fireTransitionEndCallbacks = React.useCallback(() => {
     setHasFinishedTransition(true);
 
