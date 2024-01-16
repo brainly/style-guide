@@ -10,6 +10,8 @@ export function useBodyNoScroll(overlayRef: {current: HTMLDivElement | null}) {
   }, []);
 
   React.useEffect(() => {
+    // @todo Use React Context API for detecting nested components
+    // https://github.com/brainly/style-guide/issues/2795
     const isNestedDialog =
       overlayRef.current?.parentElement?.closest(DIALOG_SELECTOR);
 
