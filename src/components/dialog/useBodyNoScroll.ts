@@ -53,6 +53,6 @@ export function useBodyNoScroll(overlayRef: {current: HTMLDivElement | null}) {
 
     cleanupRef.current = cleanup;
     return cleanup;
-  }, []);
+  }, [overlayRef]);
   return forceCleanup;
 }
