@@ -64,6 +64,7 @@ export type IconTypeType =
   | 'cup'
   | 'cursor_select'
   | 'cyrillic'
+  | 'document'
   | 'dot'
   | 'draw'
   | 'drawing_mode'
@@ -128,6 +129,7 @@ export type IconTypeType =
   | 'padlock_open'
   | 'padlock'
   | 'pause'
+  | 'pdf'
   | 'pencil'
   | 'pi'
   | 'play'
@@ -181,6 +183,7 @@ export type IconTypeType =
   | 'twitter'
   | 'underlined'
   | 'unseen'
+  | 'upload'
   | 'user_block'
   | 'verified'
   | 'view_checked'
@@ -272,6 +275,7 @@ export const TYPE = {
   CUP: 'cup',
   CURSOR_SELECT: 'cursor_select',
   CYRILLIC: 'cyrillic',
+  DOCUMENT: 'document',
   DOT: 'dot',
   DRAW: 'draw',
   DRAWING_MODE: 'drawing_mode',
@@ -336,6 +340,7 @@ export const TYPE = {
   PADLOCK_OPEN: 'padlock_open',
   PADLOCK: 'padlock',
   PAUSE: 'pause',
+  PDF: 'pdf',
   PENCIL: 'pencil',
   PI: 'pi',
   PLAY: 'play',
@@ -389,6 +394,7 @@ export const TYPE = {
   TWITTER: 'twitter',
   UNDERLINED: 'underlined',
   UNSEEN: 'unseen',
+  UPLOAD: 'upload',
   USER_BLOCK: 'user_block',
   VERIFIED: 'verified',
   VIEW_CHECKED: 'view_checked',
