@@ -22,6 +22,7 @@ const iconMap = {
     'counter',
     'credit_card',
     'cursor_select',
+    'document',
     'dot',
     'envelope',
     'exclamation_mark',
@@ -148,6 +149,7 @@ const iconMap = {
     'mic_muted',
     'numbered_list',
     'pause',
+    'pdf',
     'pencil',
     'pi',
     'play',
@@ -166,6 +168,7 @@ const iconMap = {
     'trash',
     'triangle',
     'underlined',
+    'upload',
   ],
   Navigation: [
     'add_more',
