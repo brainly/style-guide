@@ -172,7 +172,10 @@ const iconMap = {
   ],
   Navigation: [
     'add_more',
+    'arrow_double_down',
+    'arrow_double_left',
     'arrow_double_right',
+    'arrow_double_up',
     'arrow_down',
     'arrow_left',
     'arrow_right',
