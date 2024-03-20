@@ -411,7 +411,12 @@ const SelectMenu = React.forwardRef<HTMLDivElement, SelectMenuPropsType>(
     const interactionsFloatingProps = interactions.getFloatingProps();
 
     return (
-      <div id={wrapperId} className={selectClass} onClick={onClick}>
+      <div
+        id={wrapperId}
+        className={selectClass}
+        onClick={onClick}
+        suppressHydrationWarning
+      >
         <div
           ref={selectRef}
           id={id}
@@ -424,6 +429,7 @@ const SelectMenu = React.forwardRef<HTMLDivElement, SelectMenuPropsType>(
           aria-expanded={isExpanded}
           aria-haspopup="listbox"
           data-status={status}
+          suppressHydrationWarning
           {...interactions.getReferenceProps({
             // Handle keyboard
             onKeyDown(event) {
