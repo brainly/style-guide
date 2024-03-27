@@ -31,6 +31,7 @@
     "@types/react": "^16.2.0",
     "chalk": "4.1.2",
     "classnames": "^2.3.2",
+    "express": "^4.19.2",
     "glob": "^7.2.0",
     "inquirer": "^8.2.0",
     "jscodeshift": "^0.13.1",
