@@ -14,7 +14,10 @@ export type IconTypeType =
   | 'apple'
   | 'archive_checked'
   | 'archive'
+  | 'arrow_double_down'
+  | 'arrow_double_left'
   | 'arrow_double_right'
+  | 'arrow_double_up'
   | 'arrow_down'
   | 'arrow_left'
   | 'arrow_right'
@@ -225,7 +228,10 @@ export const TYPE = {
   APPLE: 'apple',
   ARCHIVE_CHECKED: 'archive_checked',
   ARCHIVE: 'archive',
+  ARROW_DOUBLE_DOWN: 'arrow_double_down',
+  ARROW_DOUBLE_LEFT: 'arrow_double_left',
   ARROW_DOUBLE_RIGHT: 'arrow_double_right',
+  ARROW_DOUBLE_UP: 'arrow_double_up',
   ARROW_DOWN: 'arrow_down',
   ARROW_LEFT: 'arrow_left',
   ARROW_RIGHT: 'arrow_right',
