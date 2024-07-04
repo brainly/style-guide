@@ -226,7 +226,14 @@ describe('<Accordion>', () => {
 
     expect(item.getAttribute('aria-expanded')).toEqual('false');
     expect(accordion.queryByRole('region')).toBeNull();
+
+    // This one does not trigger onFocus method in React 17
     accordion.getByRole('button').focus();
+
+    // This one does not set document.activeElement
+    // https://github.com/jsdom/jsdom/issues/2586
+    fireEvent.focus(accordion.getByRole('button'));
+
     expect(item).toEqual(document.activeElement);
     userEvent.keyboard('{enter}');
     expect(item.getAttribute('aria-expanded')).toEqual('true');

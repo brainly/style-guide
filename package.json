@@ -23,6 +23,9 @@
     "node": ">=8.0.0",
     "yarn": "^1.0.0"
   },
+  "resolutions": {
+    "@types/react": "^17.0.40"
+  },
   "dependencies": {
     "@aws-sdk/client-lambda": "^3.210.0",
     "@codesandbox/sandpack-react": "^1.17.0",
