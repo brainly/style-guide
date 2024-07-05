@@ -2,7 +2,6 @@ import * as React from 'react';
 import Accordion from './Accordion';
 import AccordionItem from './AccordionItem';
 import {render, fireEvent, waitFor, screen} from '@testing-library/react';
-import userEvent from '@testing-library/user-event';
 import {testA11y} from '../../axe';
 
 describe('<Accordion>', () => {
@@ -215,6 +214,7 @@ describe('<Accordion>', () => {
 
   it('expands and collapses item on Enter/Space keydown when motion is reduced', async () => {
     const accordionId = 'id-1';
+
     render(
       <Accordion reduceMotion>
         <AccordionItem title={accordionId} id={accordionId} tabIndex={1}>
