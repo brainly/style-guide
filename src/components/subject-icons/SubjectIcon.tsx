@@ -205,15 +205,9 @@ const SubjectIcon = ({
       className={iconClass}
       aria-labelledby={titleId}
       role="img"
-      /* @ts-expect-error */
       suppressHydrationWarning
     >
-      <text
-        id={titleId}
-        visibility="hidden"
-        /* @ts-expect-error */
-        suppressHydrationWarning
-      >
+      <text id={titleId} visibility="hidden" suppressHydrationWarning>
         {title || defaultTitle}
       </text>
       <use xlinkHref={iconType} aria-hidden="true" />

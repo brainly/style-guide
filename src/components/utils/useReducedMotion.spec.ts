@@ -1,5 +1,5 @@
 import useReducedMotion from './useReducedMotion';
-import {act, renderHook} from '@testing-library/react-hooks';
+import {act, renderHook} from '@testing-library/react';
 import MatchMedia from './__mocks__/mq';
 
 const MOTION_MQ = {

@@ -590,15 +590,9 @@ const Icon = ({
           role="img"
           aria-labelledby={labelledBy}
           focusable="false"
-          // @ts-expect-error
           suppressHydrationWarning
         >
-          <text
-            id={titleId}
-            visibility="hidden"
-            /* @ts-expect-error */
-            suppressHydrationWarning
-          >
+          <text id={titleId} visibility="hidden" suppressHydrationWarning>
             {title || defaultTitle}
           </text>
           {description && <desc id={descId}>{description}</desc>}

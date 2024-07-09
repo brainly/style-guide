@@ -143,8 +143,8 @@ describe('<Transition />', () => {
             active
           />
         );
-        fireEvent.transitionEnd(wrapper.container.firstElementChild);
       });
+      fireEvent.transitionEnd(wrapper.container.firstElementChild);
       expect(
         (wrapper.container.firstElementChild as HTMLElement).style.opacity
       ).toBe(`${after}`);
