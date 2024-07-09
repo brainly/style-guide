@@ -1,6 +1,5 @@
 import * as React from 'react';
-import {fireEvent, render} from '@testing-library/react';
-import {act} from 'react-dom/test-utils';
+import {act, fireEvent, render} from '@testing-library/react';
 import Transition from './Transition'; // https://github.com/jsdom/jsdom/issues/1781
 // https://github.com/testing-library/dom-testing-library/pull/865
 
