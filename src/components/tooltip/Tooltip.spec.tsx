@@ -46,7 +46,7 @@ describe('<Tooltip />', () => {
   });
 
   it('displays tooltip when trigger is hovered', async () => {
-    const tooltip = render(
+    render(
       <RenderTooltip>
         <Button
           data-testid="button1"
@@ -64,11 +64,11 @@ describe('<Tooltip />', () => {
     expect(button).toBeInTheDocument();
 
     userEvent.hover(button);
-    expect(tooltip.getByText('Copy to clipboard')).toBeInTheDocument();
+    expect(await screen.findByText('Copy to clipboard')).toBeInTheDocument();
   });
 
   it('hides tooltip when trigger is no longer hovered', async () => {
-    const tooltip = render(
+    render(
       <RenderTooltip>
         <Button
           data-testid="button1"
@@ -84,16 +84,16 @@ describe('<Tooltip />', () => {
     const button = screen.getByTestId('button1');
 
     userEvent.hover(button);
-    expect(tooltip.getByText('Copy to clipboard')).toBeInTheDocument();
+    expect(await screen.findByText('Copy to clipboard')).toBeInTheDocument();
 
     userEvent.unhover(button);
     await waitForElementToBeRemoved(() =>
-      tooltip.queryByText('Copy to clipboard')
+      screen.queryByText('Copy to clipboard')
     );
   });
 
-  it('displays tooltip when trigger is focused', () => {
-    const tooltip = render(
+  it('displays tooltip when trigger is focused', async () => {
+    render(
       <RenderTooltip>
         <Button
           data-testid="button1"
@@ -108,11 +108,11 @@ describe('<Tooltip />', () => {
     const button = screen.getByTestId('button1');
 
     fireEvent.focus(button);
-    expect(tooltip.getByText('Copy to clipboard')).toBeInTheDocument();
+    expect(await screen.findByText('Copy to clipboard')).toBeInTheDocument();
   });
 
   it('hides tooltip when trigger loses focus', async () => {
-    const tooltip = render(
+    render(
       <RenderTooltip>
         <Button
           data-testid="button1"
@@ -127,16 +127,16 @@ describe('<Tooltip />', () => {
     const button = screen.getByTestId('button1');
 
     fireEvent.focus(button);
-    expect(tooltip.getByText('Copy to clipboard')).toBeInTheDocument();
+    expect(await screen.findByText('Copy to clipboard')).toBeInTheDocument();
 
     fireEvent.blur(button);
     await waitForElementToBeRemoved(() =>
-      tooltip.queryByText('Copy to clipboard')
+      screen.queryByText('Copy to clipboard')
     );
   });
 
-  it('hides tooltip if hover leaves, even when trigger is focused, ', async () => {
-    const tooltip = render(
+  it('hides tooltip if hover leaves, even when trigger is focused', async () => {
+    render(
       <RenderTooltip>
         <Button
           data-testid="button1"
@@ -151,19 +151,19 @@ describe('<Tooltip />', () => {
     const button = screen.getByTestId('button1');
 
     fireEvent.focus(button);
-    expect(tooltip.getByText('Copy to clipboard')).toBeInTheDocument();
+    expect(await screen.findByText('Copy to clipboard')).toBeInTheDocument();
 
     userEvent.hover(button);
-    expect(tooltip.getByText('Copy to clipboard')).toBeInTheDocument();
+    expect(await screen.findByText('Copy to clipboard')).toBeInTheDocument();
 
     userEvent.unhover(button);
     await waitForElementToBeRemoved(() =>
-      tooltip.queryByText('Copy to clipboard')
+      screen.queryByText('Copy to clipboard')
     );
   });
 
-  it('hides tooltip if focus leaves, even when trigger is hovered, ', async () => {
-    const tooltip = render(
+  it('hides tooltip if focus leaves, even when trigger is hovered', async () => {
+    render(
       <RenderTooltip>
         <Button
           data-testid="button1"
@@ -179,16 +179,16 @@ describe('<Tooltip />', () => {
 
     fireEvent.focus(button);
     userEvent.hover(button);
-    expect(tooltip.getByText('Copy to clipboard')).toBeInTheDocument();
+    expect(await screen.findByText('Copy to clipboard')).toBeInTheDocument();
 
     fireEvent.blur(button);
     await waitForElementToBeRemoved(() =>
-      tooltip.queryByText('Copy to clipboard')
+      screen.queryByText('Copy to clipboard')
     );
   });
 
   it('hides tooltip when Esc key is hit, when tooltip is triggered by focus', async () => {
-    const tooltip = render(
+    render(
       <RenderTooltip>
         <Button
           data-testid="button1"
@@ -203,16 +203,16 @@ describe('<Tooltip />', () => {
     const button = screen.getByTestId('button1');
 
     fireEvent.focus(button);
-    expect(tooltip.getByText('Copy to clipboard')).toBeInTheDocument();
+    expect(await screen.findByText('Copy to clipboard')).toBeInTheDocument();
 
     fireEvent.keyDown(document.activeElement, {key: 'Escape'});
     await waitForElementToBeRemoved(() =>
-      tooltip.queryByText('Copy to clipboard')
+      screen.queryByText('Copy to clipboard')
     );
   });
 
   it('hides tooltip when Esc key is hit, when tooltip is triggered by hover', async () => {
-    const tooltip = render(
+    render(
       <RenderTooltip>
         <Button
           data-testid="button1"
@@ -227,16 +227,16 @@ describe('<Tooltip />', () => {
     const button = screen.getByTestId('button1');
 
     userEvent.hover(button);
-    expect(tooltip.getByText('Copy to clipboard')).toBeInTheDocument();
+    expect(await screen.findByText('Copy to clipboard')).toBeInTheDocument();
 
     fireEvent.keyDown(document.activeElement, {key: 'Escape'});
     await waitForElementToBeRemoved(() =>
-      tooltip.queryByText('Copy to clipboard')
+      screen.queryByText('Copy to clipboard')
     );
   });
 
   it('hides tooltip when Esc key is hit, when tooltip is both focused and hovered', async () => {
-    const tooltip = render(
+    render(
       <RenderTooltip>
         <Button
           data-testid="button1"
@@ -252,16 +252,16 @@ describe('<Tooltip />', () => {
 
     fireEvent.focus(button);
     userEvent.hover(button);
-    expect(tooltip.getByText('Copy to clipboard')).toBeInTheDocument();
+    expect(await screen.findByText('Copy to clipboard')).toBeInTheDocument();
 
     fireEvent.keyDown(document.activeElement, {key: 'Escape'});
     await waitForElementToBeRemoved(() =>
-      tooltip.queryByText('Copy to clipboard')
+      screen.queryByText('Copy to clipboard')
     );
   });
 
-  it('displays tooltip initally when set as default open', async () => {
-    const tooltip = render(
+  it('displays tooltip initially when set as default open', async () => {
+    render(
       <RenderTooltip defaultOpen>
         <Button
           data-testid="button1"
@@ -274,11 +274,11 @@ describe('<Tooltip />', () => {
       </RenderTooltip>
     );
 
-    expect(tooltip.getByText('Copy to clipboard')).toBeInTheDocument();
+    expect(await screen.findByText('Copy to clipboard')).toBeInTheDocument();
   });
 
   it('can hide default open tooltip by clicking somewhere in the document', async () => {
-    const {queryByText} = render(
+    render(
       <RenderTooltip defaultOpen>
         <Button
           data-testid="button1"
@@ -292,11 +292,13 @@ describe('<Tooltip />', () => {
     );
 
     userEvent.click(document.body);
-    await waitForElementToBeRemoved(() => queryByText('Copy to clipboard'));
+    await waitForElementToBeRemoved(() =>
+      screen.queryByText('Copy to clipboard')
+    );
   });
 
   it('tooltip shows up and hides properly when set as default open', async () => {
-    const tooltip = render(
+    render(
       <RenderTooltip defaultOpen>
         <Button
           data-testid="button1"
@@ -312,17 +314,17 @@ describe('<Tooltip />', () => {
     const button = screen.getByTestId('button1');
 
     expect(button).toBeInTheDocument();
-    expect(tooltip.getByText('Copy to clipboard')).toBeInTheDocument();
+    expect(await screen.findByText('Copy to clipboard')).toBeInTheDocument();
 
     userEvent.hover(button);
-    expect(tooltip.getByText('Copy to clipboard')).toBeInTheDocument();
+    expect(await screen.findByText('Copy to clipboard')).toBeInTheDocument();
 
     userEvent.unhover(button);
     await waitForElementToBeRemoved(() =>
-      tooltip.queryByText('Copy to clipboard')
+      screen.queryByText('Copy to clipboard')
     );
 
     userEvent.hover(button);
-    expect(tooltip.getByText('Copy to clipboard')).toBeInTheDocument();
+    expect(await screen.findByText('Copy to clipboard')).toBeInTheDocument();
   });
 });

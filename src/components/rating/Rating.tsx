@@ -83,6 +83,7 @@ class Rating extends React.Component<RatingPropsType> {
     (arg0: React.MouseEvent<HTMLSpanElement>) => unknown
   > = [];
 
+  // It's a typo, should be componentWillReceiveProps (UNSAFE_componentWillReceiveProps)
   componentWillReciveProps(nextProps: RatingPropsType) {
     if (this.props.metricSize !== nextProps.metricSize) {
       this.createStarsOnChangeFunctions(nextProps.metricSize);
