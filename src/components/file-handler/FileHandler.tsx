@@ -160,8 +160,6 @@ const FileHandler = ({
       }
     : ({
         href: src,
-        target: '_blank',
-        rel: 'noopener noreferrer',
       } as const);
   const role = clickProps.onClick && 'button';
   const asLink = clickProps.onClick ? 'button' : 'a';
