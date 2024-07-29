@@ -2,7 +2,6 @@ import * as React from 'react';
 import classNames from 'classnames';
 import type {IconColorType} from '../icons/Icon';
 import {ICON_COLOR} from '../icons/Icon';
-import {generateId} from '../utils';
 
 export type IconTypeType =
   | 'accountancy'
@@ -185,7 +184,7 @@ const SubjectIcon = ({
   title,
   ...props
 }: SubjectIconPropsType) => {
-  const {current: id} = React.useRef(generateId());
+  const id = React.useId()
   const iconClass = classNames(
     'sg-subject-icon',
     {
@@ -205,9 +204,8 @@ const SubjectIcon = ({
       className={iconClass}
       aria-labelledby={titleId}
       role="img"
-      suppressHydrationWarning
     >
-      <text id={titleId} visibility="hidden" suppressHydrationWarning>
+      <text id={titleId} visibility="hidden">
         {title || defaultTitle}
       </text>
       <use xlinkHref={iconType} aria-hidden="true" />
