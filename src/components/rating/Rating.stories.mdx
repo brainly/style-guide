@@ -13,19 +13,49 @@ import RatingA11y from './stories/Rating.a11y.mdx';
     size: {
       table: {defaultValue: {summary: RATING_SIZE.XS}},
     },
+    rate: {
+      table: {
+        defaultValue: {
+          summary: 0,
+        },
+      },
+    },
+    metricSize: {
+      table: {
+        defaultValue: {
+          summary: 5,
+        },
+      },
+    },
+    'aria-label': {
+      table: {
+        defaultValue: {
+          summary: 'current rate',
+        },
+      },
+    },
     onMouseLeave: {
       table: {
         category: 'Events',
+        defaultValue: {
+          summary: '() => undefined',
+        },
       },
     },
     onStarMouseEnter: {
       table: {
         category: 'Events',
+        defaultValue: {
+          summary: '() => undefined',
+        },
       },
     },
     onChange: {
       table: {
         category: 'Events',
+        defaultValue: {
+          summary: '() => undefined',
+        },
       },
     },
   }}
