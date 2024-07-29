@@ -60,17 +60,17 @@ export type RatingPropsType = {
 /* eslint-disable react/default-props-match-prop-types */
 // legacy files without proper flow checks can suffer from this
 
-const defaultProps: RatingPropsType = {
-  onChange: () => undefined,
-  onStarMouseEnter: () => undefined,
-  onMouseLeave: () => undefined,
-  metricSize: 5,
-  rate: 0,
-  'aria-label': 'current rate',
-};
-
 class Rating extends React.Component<RatingPropsType> {
-  constructor(props = defaultProps) {
+  static defaultProps = {
+    onChange: () => undefined,
+    onStarMouseEnter: () => undefined,
+    onMouseLeave: () => undefined,
+    metricSize: 5,
+    rate: 0,
+    'aria-label': 'current rate',
+  };
+
+  constructor(props: RatingPropsType) {
     super(props);
     this.createStarsOnChangeFunctions(this.props.metricSize);
     this.createStarsMouseEnterFunctions(this.props.metricSize);
