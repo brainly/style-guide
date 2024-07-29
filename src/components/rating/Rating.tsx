@@ -70,7 +70,6 @@ const defaultProps: RatingPropsType = {
 };
 
 class Rating extends React.Component<RatingPropsType> {
-
   constructor(props = defaultProps) {
     super(props);
     this.createStarsOnChangeFunctions(this.props.metricSize);

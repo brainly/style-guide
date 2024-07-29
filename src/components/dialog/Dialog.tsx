@@ -45,7 +45,6 @@ export type DialogPropsType = Readonly<{
   appearance?: 'none' | 'dialog';
 }>;
 
-
 /**
  * The Dialog component controls mounting
  * when BaseDialog controls its own states.
