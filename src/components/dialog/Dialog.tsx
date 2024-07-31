@@ -46,23 +46,10 @@ export type DialogPropsType = Readonly<{
 }>;
 
 /**
- * The react-docgen has a problem with default values
- * of nested components (see BaseDialog inside the
- * Dialog) and this is for documentation purposes.
- */
-Dialog.defaultProps = {
-  size: 'm',
-  scroll: 'outside',
-  position: 'center',
-  overlay: 'light',
-  appearance: 'dialog',
-} as Partial<DialogPropsType>;
-
-/**
  * The Dialog component controls mounting
  * when BaseDialog controls its own states.
  */
-function BaseDialog({
+const BaseDialog = ({
   open,
   children,
   size = 'm',
@@ -81,7 +68,7 @@ function BaseDialog({
   position = 'center',
   overlay = 'light',
   appearance = 'dialog',
-}: DialogPropsType) {
+}: DialogPropsType) => {
   const overlayRef = React.useRef<HTMLDivElement>(null);
   const containerRef = React.useRef<HTMLDivElement>(null);
   const [exiting, setExiting] = React.useState<boolean>(false);
@@ -311,9 +298,13 @@ function BaseDialog({
       <div tabIndex={0} />
     </div>
   );
-}
+};
 
-function Dialog({open, onExitTransitionEnd, ...otherProps}: DialogPropsType) {
+const Dialog = ({
+  open,
+  onExitTransitionEnd,
+  ...otherProps
+}: DialogPropsType) => {
   const [mounted, setMounted] = React.useState<boolean>(open);
 
   if (open && !mounted) {
@@ -336,7 +327,7 @@ function Dialog({open, onExitTransitionEnd, ...otherProps}: DialogPropsType) {
       open={open}
     />
   ) : null;
-}
+};
 
 Dialog.Overlay = DialogOverlay;
 export default Dialog;

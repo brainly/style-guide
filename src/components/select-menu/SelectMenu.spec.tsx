@@ -192,7 +192,7 @@ describe('<SelectMenu />', () => {
     const select = render(<RenderSelectMenu />);
     const selectElement = select.getByRole('combobox') as HTMLElement;
 
-    selectElement.focus();
+    userEvent.tab();
     expect(selectElement).toEqual(document.activeElement);
     expect(selectElement.getAttribute('aria-expanded')).toBe('false');
 
@@ -201,6 +201,8 @@ describe('<SelectMenu />', () => {
       expect(selectElement.getAttribute('aria-expanded')).toEqual('true')
     );
     const option1 = select.getByRole('option', {name: 'Physics'});
+
+    userEvent.tab();
 
     expect(option1).toHaveFocus();
     expect(option1).toEqual(document.activeElement);

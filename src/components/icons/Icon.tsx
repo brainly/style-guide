@@ -590,14 +590,22 @@ const Icon = ({
           role="img"
           aria-labelledby={labelledBy}
           focusable="false"
-          // @ts-expect-error
-          suppressHydrationWarning
+          // fix for Property 'suppressHydrationWarning' does not exist on type 'SVGProps<SVGSVGElement>'
+          {...{
+            ...(React.version.startsWith('18') && {
+              suppressHydrationWarning: true,
+            }),
+          }}
         >
           <text
             id={titleId}
             visibility="hidden"
-            /* @ts-expect-error */
-            suppressHydrationWarning
+            // fix for Property 'suppressHydrationWarning' does not exist on type 'SVGProps<SVGSVGTextElement>'
+            {...{
+              ...(React.version.startsWith('18') && {
+                suppressHydrationWarning: true,
+              }),
+            }}
           >
             {title || defaultTitle}
           </text>

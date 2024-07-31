@@ -204,10 +204,14 @@ describe('<Accordion>', () => {
     expect(item.getAttribute('aria-expanded')).toEqual('false');
     expect(accordion.queryByRole('region')).toBeNull();
     accordion.getByRole('button').click();
-    expect(item.getAttribute('aria-expanded')).toEqual('true');
+    await waitFor(() =>
+      expect(item.getAttribute('aria-expanded')).toEqual('true')
+    );
     await waitFor(() => expect(accordion.getByRole('region')).toBeTruthy());
     accordion.getByRole('button').click();
-    expect(item.getAttribute('aria-expanded')).toEqual('false');
+    await waitFor(() =>
+      expect(item.getAttribute('aria-expanded')).toEqual('false')
+    );
     fireEvent(accordion.getByRole('region'), new Event('transitionend'));
     await waitFor(() => expect(accordion.queryByRole('region')).toBeNull());
   });
