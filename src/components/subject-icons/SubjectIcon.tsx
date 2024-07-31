@@ -205,7 +205,12 @@ const SubjectIcon = ({
       className={iconClass}
       aria-labelledby={titleId}
       role="img"
-      suppressHydrationWarning
+      // fix for Property 'suppressHydrationWarning' does not exist on type 'SVGProps<SVGSVGElement>'
+      {...{
+        ...(React.version.startsWith('18') && {
+          suppressHydrationWarning: true,
+        }),
+      }}
     >
       <text id={titleId} visibility="hidden" suppressHydrationWarning>
         {title || defaultTitle}

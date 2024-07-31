@@ -590,7 +590,12 @@ const Icon = ({
           role="img"
           aria-labelledby={labelledBy}
           focusable="false"
-          suppressHydrationWarning
+          // fix for Property 'suppressHydrationWarning' does not exist on type 'SVGProps<SVGSVGElement>'
+          {...{
+            ...(React.version.startsWith('18') && {
+              suppressHydrationWarning: true,
+            }),
+          }}
         >
           <text id={titleId} visibility="hidden" suppressHydrationWarning>
             {title || defaultTitle}
