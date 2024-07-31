@@ -149,6 +149,10 @@
     "yaml": "^1.10.2",
     "yargs": "^4.3.1"
   },
+  "peerDependencies": {
+    "react": "^17.0.0 || ^18.0.0",
+    "react-dom": "^17.0.0 || ^18.0.0"
+  },
   "scripts": {
     "build": "./scripts/build.sh",
     "build-chromatic": "NODE_ENV=production PUBLIC_PATH=/ STORYBOOK_ENV=chromatic yarn build-storybook",
