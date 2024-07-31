@@ -1,7 +1,6 @@
 import * as React from 'react';
 import cx from 'classnames';
 import Radio from '../form-elements/radio/Radio';
-import generateRandomString from '../../js/generateRandomString';
 import {useCardRadioGroupContext} from './CardRadioGroupContext';
 import type {StyleType} from './types';
 
@@ -128,7 +127,8 @@ const CardRadio = React.forwardRef<HTMLInputElement, CardRadioPropsType>(
   ) => {
     const context = useCardRadioGroupContext();
 
-    const cardId = React.useMemo(() => id || generateRandomString(), [id]);
+    const genId = React.useId();
+    const cardId = id || genId;
     const isChecked = context.value === value;
     const isRequired = context.required || required;
     const isDisabled = context.disabled || disabled;
@@ -169,7 +169,6 @@ const CardRadio = React.forwardRef<HTMLInputElement, CardRadioPropsType>(
           // On iOS the :active pseudo state is triggered only when there is a touch event set on the HTML element
           // and we use active pseudo class to provide press feedback.
           onTouchStart={() => null}
-          suppressHydrationWarning
           {...props}
         >
           <input
@@ -186,7 +185,6 @@ const CardRadio = React.forwardRef<HTMLInputElement, CardRadioPropsType>(
             aria-invalid={isInvalid}
             aria-labelledby={ariaLabelledBy || `label-${cardId}`}
             aria-describedby={ariaDescribedBy}
-            suppressHydrationWarning
           />
           <div className="sg-card-interactive__border">
             <div className="sg-card-interactive__background">{children}</div>

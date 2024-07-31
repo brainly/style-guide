@@ -1,6 +1,6 @@
 import * as React from 'react';
 import classNames from 'classnames';
-import {__DEV__, invariant, generateId} from '../utils';
+import {__DEV__, invariant} from '../utils';
 import Text from './Text';
 import type {TextColorType, TextSizeType} from './Text';
 import {
@@ -111,7 +111,7 @@ const Link = (props: LinkPropsType) => {
     hideNewTabIndicator = false,
     ...additionalProps
   } = props;
-  const {current: labelId} = React.useRef(generateId());
+  const labelId = React.useId();
   let textSize: ResponsivePropType<TextSizeType> | undefined;
 
   if (typeof size === 'object') {
@@ -163,7 +163,6 @@ const Link = (props: LinkPropsType) => {
     className
   );
 
-  // suppressHydrationWarning is used until 'useId' hook is available
   if (as === 'button') {
     return (
       <Text
@@ -172,12 +171,7 @@ const Link = (props: LinkPropsType) => {
         className={linkClass}
         size={textSize}
       >
-        <span
-          id={labelId}
-          aria-label={ariaLabel}
-          aria-hidden
-          suppressHydrationWarning
-        >
+        <span id={labelId} aria-label={ariaLabel} aria-hidden>
           {children}
         </span>
         <button
@@ -186,7 +180,6 @@ const Link = (props: LinkPropsType) => {
           disabled={disabled}
           type="button"
           aria-labelledby={labelId}
-          suppressHydrationWarning
         />
       </Text>
     );

@@ -1,7 +1,6 @@
 import * as React from 'react';
 import cx from 'classnames';
 import Checkbox from '../form-elements/checkbox/Checkbox';
-import generateRandomString from '../../js/generateRandomString';
 
 export interface CardCheckboxPropsType
   extends Omit<React.ComponentPropsWithoutRef<'label'>, 'onChange'> {
@@ -160,7 +159,8 @@ export const CardCheckboxRoot = React.forwardRef<
       isControlled ? checked : defaultChecked
     );
 
-    const cardId = React.useMemo(() => id || generateRandomString(), [id]);
+    const genId = React.useId();
+    const cardId = id || genId;
 
     const cssVariables = {
       '--card-width': width,
@@ -205,7 +205,6 @@ export const CardCheckboxRoot = React.forwardRef<
           // On iOS the :active pseudo state is triggered only when there is a touch event set on the HTML element
           // and we use active pseudo class to provide press feedback.
           onTouchStart={() => null}
-          suppressHydrationWarning
           {...props}
         >
           <input
@@ -223,7 +222,6 @@ export const CardCheckboxRoot = React.forwardRef<
             aria-invalid={invalid ? true : undefined}
             aria-labelledby={ariaLabelledBy || `label-${cardId}`}
             aria-describedby={ariaDescribedBy}
-            suppressHydrationWarning
           />
           <div className="sg-card-interactive__border">
             <div className="sg-card-interactive__background">{children}</div>

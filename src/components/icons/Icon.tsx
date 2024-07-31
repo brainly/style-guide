@@ -1,6 +1,5 @@
 import * as React from 'react';
 import classNames from 'classnames';
-import {generateId} from '../utils';
 
 export type IconTypeType =
   | 'academic_cap'
@@ -547,10 +546,6 @@ export type IconPropsType =
       | 'description'
     >);
 
-function generateIdSuffix(type: string) {
-  return `${type}-${generateId()}`;
-}
-
 const Icon = ({
   color = ICON_COLOR['icon-white'],
   size = 24,
@@ -572,7 +567,9 @@ const Icon = ({
   );
   const iconType = `#icon-${type}`;
   const Tag = as;
-  const idSuffix = generateIdSuffix(type);
+
+  const id = React.useId();
+  const idSuffix = `${type}-${id}`;
   const titleId = `title-${idSuffix}`;
   const defaultTitle = String(type).replace(/_/g, ' ');
   const descId = `desc-${idSuffix}`;
@@ -581,7 +578,6 @@ const Icon = ({
     ? undefined
     : [title, description].filter(Boolean).join(', ');
 
-  // suppressHydrationWarning is used until 'useId' hook is available
   return (
     <Tag {...props} className={iconClass} aria-label={ariaLabel}>
       {type ? (
@@ -590,9 +586,8 @@ const Icon = ({
           role="img"
           aria-labelledby={labelledBy}
           focusable="false"
-          suppressHydrationWarning
         >
-          <text id={titleId} visibility="hidden" suppressHydrationWarning>
+          <text id={titleId} visibility="hidden">
             {title || defaultTitle}
           </text>
           {description && <desc id={descId}>{description}</desc>}

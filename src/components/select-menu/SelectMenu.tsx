@@ -6,7 +6,7 @@ import {
   useMergeRefs,
 } from '@floating-ui/react';
 
-import {isTouchScreen, __DEV__, invariant, generateId} from '../utils';
+import {isTouchScreen, __DEV__, invariant} from '../utils';
 import Icon from '../icons/Icon';
 import SubjectIcon from '../subject-icons/SubjectIcon';
 import type {IconTypeType as SubjectIconTypeType} from '../subject-icons/SubjectIcon';
@@ -208,7 +208,9 @@ const SelectMenu = React.forwardRef<HTMLDivElement, SelectMenuPropsType>(
       ...additionalProps
     } = props;
 
-    const {current: id} = React.useRef<string>(`select-${generateId()}`);
+    const id = React.useId();
+
+    const selectId = `select-${id}`;
 
     if (__DEV__) {
       invariant(
@@ -216,7 +218,7 @@ const SelectMenu = React.forwardRef<HTMLDivElement, SelectMenuPropsType>(
         `Select cannot be valid and invalid at the same time.`
       );
     }
-    const wrapperId = `${id}-wrapper`;
+    const wrapperId = `${selectId}-wrapper`;
     const popupClassName = 'sg-select-menu__popup';
     const popupContentClassName = 'sg-select-menu__options-wrapper';
     const selectElementClassName = 'sg-select-menu__element';
@@ -232,7 +234,7 @@ const SelectMenu = React.forwardRef<HTMLDivElement, SelectMenuPropsType>(
     });
 
     const {isExpanded, onOpenChange, handleOptionSelect} = useSelectMenu({
-      id,
+      id: selectId,
       valid,
       invalid,
       expanded,
@@ -411,15 +413,10 @@ const SelectMenu = React.forwardRef<HTMLDivElement, SelectMenuPropsType>(
     const interactionsFloatingProps = interactions.getFloatingProps();
 
     return (
-      <div
-        id={wrapperId}
-        className={selectClass}
-        onClick={onClick}
-        suppressHydrationWarning
-      >
+      <div id={wrapperId} className={selectClass} onClick={onClick}>
         <div
           ref={selectRef}
-          id={id}
+          id={selectId}
           className={selectElementClassName}
           role="combobox"
           tabIndex={!disabled ? 0 : -1}
@@ -429,7 +426,6 @@ const SelectMenu = React.forwardRef<HTMLDivElement, SelectMenuPropsType>(
           aria-expanded={isExpanded}
           aria-haspopup="listbox"
           data-status={status}
-          suppressHydrationWarning
           {...interactions.getReferenceProps({
             // Handle keyboard
             onKeyDown(event) {
@@ -480,7 +476,7 @@ const SelectMenu = React.forwardRef<HTMLDivElement, SelectMenuPropsType>(
                   pointerEvents: 'auto',
                 }}
                 {...interactionsFloatingProps}
-                aria-labelledby={id}
+                aria-labelledby={selectId}
                 tabIndex={-1}
                 data-placement={floatingProps.placement}
                 aria-multiselectable={multiSelect}
