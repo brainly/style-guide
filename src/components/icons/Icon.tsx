@@ -23,6 +23,7 @@ export type IconTypeType =
   | 'ask_bubble'
   | 'ask_parent_to_pay'
   | 'attachment'
+  | 'autopublish'
   | 'bell_checked'
   | 'bell_outlined'
   | 'best_answer'
@@ -116,6 +117,7 @@ export type IconTypeType =
   | 'message_new'
   | 'messages'
   | 'mic'
+  | 'minimize'
   | 'mic_muted'
   | 'minus_in_circle_outlined'
   | 'money_transfer'
@@ -234,6 +236,7 @@ export const TYPE = {
   ASK_BUBBLE: 'ask_bubble',
   ASK_PARENT_TO_PAY: 'ask_parent_to_pay',
   ATTACHMENT: 'attachment',
+  AUTOPUBLISH: 'autopublish',
   BELL_CHECKED: 'bell_checked',
   BELL_OUTLINED: 'bell_outlined',
   BEST_ANSWER: 'best_answer',
@@ -327,6 +330,7 @@ export const TYPE = {
   MESSAGE_NEW: 'message_new',
   MESSAGES: 'messages',
   MIC: 'mic',
+  MINIMIZE: 'minimize',
   MIC_MUTED: 'mic_muted',
   MINUS_IN_CIRCLE_OUTLIEND: 'minus_in_circle_outlined',
   MONEY_TRANSFER: 'money_transfer',
