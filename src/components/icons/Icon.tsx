@@ -597,7 +597,16 @@ const Icon = ({
             }),
           }}
         >
-          <text id={titleId} visibility="hidden" suppressHydrationWarning>
+          <text
+            id={titleId}
+            visibility="hidden"
+            // fix for Property 'suppressHydrationWarning' does not exist on type 'SVGProps<SVGSVGTextElement>'
+            {...{
+              ...(React.version.startsWith('18') && {
+                suppressHydrationWarning: true,
+              }),
+            }}
+          >
             {title || defaultTitle}
           </text>
           {description && <desc id={descId}>{description}</desc>}

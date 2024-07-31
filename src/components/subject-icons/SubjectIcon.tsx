@@ -212,7 +212,16 @@ const SubjectIcon = ({
         }),
       }}
     >
-      <text id={titleId} visibility="hidden" suppressHydrationWarning>
+      <text
+        id={titleId}
+        visibility="hidden"
+        // fix for Property 'suppressHydrationWarning' does not exist on type 'SVGProps<SVGSVGTextElement>'
+        {...{
+          ...(React.version.startsWith('18') && {
+            suppressHydrationWarning: true,
+          }),
+        }}
+      >
         {title || defaultTitle}
       </text>
       <use xlinkHref={iconType} aria-hidden="true" />
