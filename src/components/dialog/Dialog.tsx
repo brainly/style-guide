@@ -289,6 +289,7 @@ const BaseDialog = ({
         aria-label={ariaLabel}
         aria-describedby={ariaDescribedBy}
         aria-description={ariaDescription}
+        tabIndex={-1}
         data-testid={dataTestId}
         data-animating={!hasFinishedTransition}
       >

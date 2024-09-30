@@ -204,6 +204,10 @@ $dialogMaxWidthMap: (
     &--motion-none {
       transition-duration: 0s;
     }
+
+    &:focus:not(:focus-visible) {
+      box-shadow: $dialogBoxShadow;
+    }
   }
 
   &__header {
