@@ -8,6 +8,7 @@ describe('Header', () => {
     const header = render(<Header>some text</Header>);
 
     expect(
+      // @ts-expect-error TS18047
       header.container.firstElementChild.classList.contains('sg-header')
     ).toEqual(true);
   });
@@ -15,6 +16,7 @@ describe('Header', () => {
     const header = render(<Header fixed>some text</Header>);
 
     expect(
+      // @ts-expect-error TS18047
       header.container.firstElementChild.classList.contains('sg-header--fixed')
     ).toEqual(true);
   });
@@ -22,6 +24,7 @@ describe('Header', () => {
     const header = render(<Header withDivider>some text</Header>);
 
     expect(
+      // @ts-expect-error TS18047
       header.container.firstElementChild.classList.contains(
         'sg-header--with-divider'
       )

@@ -136,6 +136,7 @@ const RadioGroup = ({
     if (selectedValue !== initialValue && isPristine) setIsPristine(false);
   }, [selectedValue, initialValue, isPristine]);
 
+  // @ts-expect-error TS7006
   const updateValue = (event, value) => {
     setSelectedValue(value);
     if (onChange) onChange(event);

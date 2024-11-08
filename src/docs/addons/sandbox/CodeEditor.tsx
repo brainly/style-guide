@@ -12,6 +12,7 @@ import {
   createVirtualTypeScriptEnvironment,
   VirtualTypeScriptEnvironment,
 } from '@typescript/vfs';
+// @ts-expect-error TS7016
 import lzstring from 'lz-string';
 import {useActiveCode, SandpackCodeEditor} from '@codesandbox/sandpack-react';
 // @ts-expect-error
@@ -86,6 +87,7 @@ export const CodeEditor = ({code}: CodeEditorPropsType) => {
       ];
 
       setTsEnv(env);
+      // @ts-expect-error TS2345
       setExtensions(extensions);
     };
 

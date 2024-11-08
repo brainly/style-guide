@@ -8,6 +8,7 @@ import Text, {TEXT_ALIGN, TEXT_SIZE, TEXT_TRANSFORM, TEXT_WEIGHT} from './Text';
 import hex from '../colors/hex';
 import Flex from '../flex/Flex';
 
+// @ts-expect-error TS7006
 export const ResponsiveProps = args => {
   return (
     <div>

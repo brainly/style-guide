@@ -6,6 +6,7 @@ import {
 import React from 'react';
 import Link, {LINK_ALIGN, LINK_SIZE, LINK_WEIGHT, LINK_TRANSFORM} from './Link';
 
+// @ts-expect-error TS7006
 export const ResponsiveProps = args => {
   return (
     <div>

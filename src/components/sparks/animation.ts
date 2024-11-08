@@ -96,12 +96,14 @@ function useAnimation(config: AnimationConfig) {
           const {index, overrides = {}} = parameters.current.get(ref);
           const entry = entryAnimations.current.get(ref) ?? [];
 
+          // @ts-expect-error TS7006
           ref.getAnimations().forEach(animation => animation.cancel());
 
           configRef.current.entry?.forEach((keyframesConfig, i) => {
             const id = keyframesConfig.id;
             let {keyframes, options = {}} = keyframesConfig;
 
+            // @ts-expect-error TS2538
             const override = overrides[id];
 
             if (override) {
@@ -143,6 +145,7 @@ function useAnimation(config: AnimationConfig) {
             const id = keyframesConfig.id;
             let {keyframes, options = {}} = keyframesConfig;
 
+            // @ts-expect-error TS2538
             const override = overrides[id];
 
             if (override) {

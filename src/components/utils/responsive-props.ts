@@ -55,6 +55,7 @@ export function mergeResponsiveProps(
     }
   });
   // fill empty breakpoints when other props have values
+  // @ts-expect-error TS7034
   let lastRowValues = [];
 
   breakpoints.forEach(breakpoint => {
@@ -66,7 +67,9 @@ export function mergeResponsiveProps(
     if (valueBreakpointExist) {
       // eslint-disable-next-line no-loop-func
       propObjects.forEach((propObject, propObjectsIndex) => {
+        // @ts-expect-error TS7005
         if (lastRowValues[propObjectsIndex] && !propObject[breakpoint]) {
+          // @ts-expect-error TS7005
           propObject[breakpoint] = lastRowValues[propObjectsIndex];
         }
       });
@@ -84,6 +87,7 @@ export function mergeResponsiveProps(
           propObject[breakpoint] !== undefined
       )
     ) {
+      // @ts-expect-error TS7053
       acc[breakpoint] = propObjects.map<unknown>(
         propObject => propObject[breakpoint]
       );
@@ -113,6 +117,7 @@ export function generateResponsiveClassNames<T>(
           return acc;
         } else {
           acc.push(
+            // @ts-expect-error TS2345
             `${
               responsivePrefixes[index] ? `${responsivePrefixes[index]}:` : ''
             }${createBaseClassName(propBreakpointValue)}`
@@ -126,14 +131,18 @@ export function generateResponsiveClassNames<T>(
 
   return breakpoints
     .map(breakpoint => {
+      // @ts-expect-error TS7053
       if (prop[breakpoint] === null || prop[breakpoint] === undefined) {
         return '';
+        // @ts-expect-error TS7053
       } else if (!createBaseClassName(prop[breakpoint])) {
         return '';
       } else {
         return breakpoint === 'sm'
-          ? createBaseClassName(prop[breakpoint])
-          : `${breakpoint}:${createBaseClassName(prop[breakpoint])}`;
+          ? // @ts-expect-error TS7053
+            createBaseClassName(prop[breakpoint])
+          : // @ts-expect-error TS7053
+            `${breakpoint}:${createBaseClassName(prop[breakpoint])}`;
       }
     })
     .filter(className => className);

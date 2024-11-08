@@ -85,10 +85,12 @@ const ProgressBar = ({
 }: ProgressBarPropsType) => {
   const trackRef = React.useRef<HTMLDivElement>(null);
   const [transitionDuration, setTransitionDuration] = React.useState(() => {
+    // @ts-expect-error TS2345
     return getTransitionDuration(minValue, maxValue, trackRef);
   });
 
   React.useEffect(() => {
+    // @ts-expect-error TS2345
     setTransitionDuration(getTransitionDuration(minValue, maxValue, trackRef));
   }, [minValue, maxValue]);
 

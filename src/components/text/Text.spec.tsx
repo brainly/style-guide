@@ -15,6 +15,7 @@ describe('Text', () => {
     const text = 'random text';
     const component = render(<Text as={TEXT_AS.SPAN}>{text}</Text>);
 
+    // @ts-expect-error TS2531
     expect(component.queryByText(text).tagName).toEqual('SPAN');
   });
 

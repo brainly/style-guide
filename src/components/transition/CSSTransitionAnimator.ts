@@ -33,6 +33,7 @@ export function createCSSTransitionAnimator(
   };
 
   const hasLastChangedValue = (prop: string) =>
+    // @ts-expect-error TS7053
     history[0][prop].value !== history[1][prop].value;
 
   const getWillChangeProps = () => ({
@@ -73,6 +74,7 @@ export function createCSSTransitionAnimator(
     const combine = (a: Array<string>) => a.join(', ');
 
     const willChangePropsArray = Object.keys(willChangeProps).filter(
+      // @ts-expect-error TS7053
       prop => willChangeProps[prop]
     );
 
@@ -83,6 +85,7 @@ export function createCSSTransitionAnimator(
     if (transitioned) {
       const transitionProperty: string[] = [];
       const transitionDuration: string[] = [];
+      // @ts-expect-error TS7034
       const transitionTimingFunction = [];
 
       /**
@@ -91,12 +94,15 @@ export function createCSSTransitionAnimator(
        */
       willChangePropsArray.forEach(prop => {
         transitionProperty.push(prop);
+        // @ts-expect-error TS7053
         transitionDuration.push(applySpeed(parsedProps[prop].duration, speed));
+        // @ts-expect-error TS7053
         transitionTimingFunction.push(parsedProps[prop].easing);
       });
       element.style.transitionProperty = combine(transitionProperty);
       element.style.transitionDuration = combine(oneOrAll(transitionDuration));
       element.style.transitionTimingFunction = combine(
+        // @ts-expect-error TS7005
         oneOrAll(transitionTimingFunction)
       );
     }
@@ -172,6 +178,7 @@ export function createCSSTransitionAnimator(
   ) {
     if (parsedProps !== undefined) {
       return !Object.keys(willChangeProps).some(
+        // @ts-expect-error TS7053
         prop => parsedProps[prop].duration !== '0ms'
       );
     }
@@ -205,6 +212,7 @@ export function createCSSTransitionAnimator(
       const willChangeProps = getWillChangeProps();
 
       remainingPropsToChange = Object.keys(willChangeProps).reduce(
+        // @ts-expect-error TS7053
         (sum, prop) => sum + Number(willChangeProps[prop]),
         0
       );

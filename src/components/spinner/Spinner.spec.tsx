@@ -15,6 +15,7 @@ describe('Spinner', () => {
     const component = render(<Spinner className={testclass} />);
 
     expect(
+      // @ts-expect-error TS18047
       component.container.firstElementChild.classList.contains(`${testclass}`)
     ).toEqual(true);
   });

@@ -28,15 +28,19 @@ const useSelectMenuAnimations = (props: UseSelectMenuAnimationsPropsType) => {
   const selectRef = React.useRef<DOMRect>();
   const hasReduceMotion = useReducedMotion();
 
+  // @ts-expect-error TS7031
   const animateExit = ({callback}) => {
     try {
       const select = document.getElementById(selectId);
+      // @ts-expect-error TS18047
       const popupContainer = select.getElementsByClassName(
         popupClassName
       )[0] as HTMLDivElement;
+      // @ts-expect-error TS18047
       const floatingContainer = select.getElementsByClassName(
         floatingContainerClassName
       )[0] as HTMLDivElement;
+      // @ts-expect-error TS18047
       const popupContent = select.getElementsByClassName(
         popupContentClassName
       )[0] as HTMLDivElement;
@@ -137,10 +141,12 @@ const useSelectMenuAnimations = (props: UseSelectMenuAnimationsPropsType) => {
           });
         }
 
+        // @ts-expect-error TS7006
         const cleanupAfterTransition = popupContent => {
           popupContent.classList.remove(SCROLL_HIDE_CLASSNAME);
         };
 
+        // @ts-expect-error TS7006
         const handleTransitionEnd = e => {
           // Once height finishes transition
           // we are sure the component is fully visible

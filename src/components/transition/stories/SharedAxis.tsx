@@ -50,12 +50,15 @@ export const SharedAxis = () => {
       const direction = currentViewIndex < viewIndex ? 'left' : 'right';
 
       // hide previous view
+      // @ts-expect-error TS2345
       setEffect(createSlideOutEffect(direction));
 
       // show the next view
       nextTransitionCallback.current = () => {
         setCurrentViewIndex(viewIndex);
+        // @ts-expect-error TS2345
         setEffect(createSlideInEffect(direction));
+        // @ts-expect-error TS2322
         nextTransitionCallback.current = null;
       };
     }

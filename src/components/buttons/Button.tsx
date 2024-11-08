@@ -369,6 +369,7 @@ const Button = React.forwardRef(
       ico = <span className={iconClass}>{icon}</span>;
     }
 
+    // @ts-expect-error TS7006
     const onButtonClick = e => {
       if (isLink && isDisabled) {
         return;

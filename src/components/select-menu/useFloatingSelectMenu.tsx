@@ -18,6 +18,7 @@ const MAX_POPUP_WIDTH = 320;
 
 type UseFloatingSelectMenuPropsType = {
   isExpanded: boolean;
+  // @ts-expect-error TS7051
   onOpenChange: (string) => void;
 };
 

@@ -18,6 +18,7 @@ describe('ActionList', () => {
     );
     const root = actionList.container.firstElementChild;
 
+    // @ts-expect-error TS18047
     expect(root.classList.contains('sg-actions-list')).toEqual(true);
   });
 
@@ -25,6 +26,7 @@ describe('ActionList', () => {
     const actionList = render(<ActionList direction={DIRECTION.TO_RIGHT} />);
     const root = actionList.container.firstElementChild;
 
+    // @ts-expect-error TS18047
     expect(root.classList.contains('sg-actions-list--to-right')).toEqual(true);
   });
 
@@ -32,6 +34,7 @@ describe('ActionList', () => {
     const actionList = render(<ActionList toTop />);
     const root = actionList.container.firstElementChild;
 
+    // @ts-expect-error TS18047
     expect(root.classList.contains('sg-actions-list--to-top')).toEqual(true);
   });
 
@@ -39,6 +42,7 @@ describe('ActionList', () => {
     const actionList = render(<ActionList align={ALIGNMENT.BASELINE} />);
     const root = actionList.container.firstElementChild;
 
+    // @ts-expect-error TS18047
     expect(root.classList.contains('sg-actions-list--align-baseline')).toEqual(
       true
     );
@@ -48,6 +52,7 @@ describe('ActionList', () => {
     const actionList = render(<ActionList direction={DIRECTION.CENTERED} />);
     const root = actionList.container.firstElementChild;
 
+    // @ts-expect-error TS18047
     expect(root.classList.contains('sg-actions-list--centered')).toEqual(true);
   });
 
@@ -57,6 +62,7 @@ describe('ActionList', () => {
     );
     const root = actionList.container.firstElementChild;
 
+    // @ts-expect-error TS18047
     expect(root.classList.contains('sg-actions-list--space-between')).toEqual(
       true
     );
@@ -68,6 +74,7 @@ describe('ActionList', () => {
     );
     const root = actionList.container.firstElementChild;
 
+    // @ts-expect-error TS18047
     expect(root.classList.contains('sg-actions-list--space-around')).toEqual(
       true
     );
@@ -79,6 +86,7 @@ describe('ActionList', () => {
     );
     const root = actionList.container.firstElementChild;
 
+    // @ts-expect-error TS18047
     expect(root.classList.contains('sg-actions-list--space-evenly')).toEqual(
       true
     );
@@ -88,6 +96,7 @@ describe('ActionList', () => {
     const actionList = render(<ActionList noWrap />);
     const root = actionList.container.firstElementChild;
 
+    // @ts-expect-error TS18047
     expect(root.classList.contains('sg-actions-list--no-wrap')).toEqual(true);
   });
 });

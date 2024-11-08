@@ -163,6 +163,7 @@ describe('<Popover />', () => {
     fireEvent.focus(button);
     expect(await screen.findByText(POPOVER_TEXT)).toBeInTheDocument();
 
+    // @ts-expect-error TS2345
     fireEvent.keyDown(document.activeElement, {key: 'Escape'});
     await waitForElementToBeRemoved(() => screen.queryByText(POPOVER_TEXT));
   });
@@ -174,6 +175,7 @@ describe('<Popover />', () => {
     userEvent.hover(button);
     expect(await screen.findByText(POPOVER_TEXT)).toBeInTheDocument();
 
+    // @ts-expect-error TS2345
     fireEvent.keyDown(document.activeElement, {key: 'Escape'});
     await waitForElementToBeRemoved(() => screen.queryByText(POPOVER_TEXT));
   });
@@ -186,6 +188,7 @@ describe('<Popover />', () => {
     userEvent.hover(button);
     expect(await screen.findByText(POPOVER_TEXT)).toBeInTheDocument();
 
+    // @ts-expect-error TS2345
     fireEvent.keyDown(document.activeElement, {key: 'Escape'});
     await waitForElementToBeRemoved(() => screen.queryByText(POPOVER_TEXT));
   });

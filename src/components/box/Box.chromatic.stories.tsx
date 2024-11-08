@@ -6,6 +6,7 @@ import {
   responsivePropsStoryLabel,
 } from '../../chromatic/utils';
 
+// @ts-expect-error TS7006
 export const ResponsiveProps = args => {
   return (
     <div>

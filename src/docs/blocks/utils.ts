@@ -1,3 +1,4 @@
+// @ts-expect-error TS7006
 const getBlockBackgroundStyle = theme => {
   return {
     borderRadius: theme.appBorderRadius,

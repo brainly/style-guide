@@ -110,6 +110,7 @@ const useTooltip = ({
     variantParams.padding,
   ]);
 
+  // @ts-expect-error TS7006
   const handleOpenChange = isOpen => {
     if (isControlled && onOpenChange) onOpenChange(isOpen);
     else setIsOpen(isOpen);
@@ -152,6 +153,7 @@ const useTooltip = ({
       setIsOpen,
       arrowRef,
       arrowPadding: variantParams.arrowPadding,
+      // @ts-expect-error TS2783
       placement,
       size,
       color,

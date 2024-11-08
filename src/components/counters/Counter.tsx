@@ -147,8 +147,10 @@ const Counter = ({
 }: CounterPropsType) => {
   const backgroundColor =
     variant === 'solid'
-      ? SOLID_COLOR_BACKGROUND_MAP[color]
-      : LIGHT_COLOR_BACKGROUND_MAP[color];
+      ? // @ts-expect-error TS2538
+        SOLID_COLOR_BACKGROUND_MAP[color]
+      : // @ts-expect-error TS2538
+        LIGHT_COLOR_BACKGROUND_MAP[color];
   const counterClass = cx(
     'sg-counter',
     {
@@ -161,6 +163,7 @@ const Counter = ({
   );
 
   const textColor =
+    // @ts-expect-error TS2538
     variant === 'solid' ? SOLID_COLOR_TEXT_MAP[color] : 'text-black';
 
   let content;

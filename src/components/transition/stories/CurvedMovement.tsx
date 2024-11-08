@@ -110,6 +110,7 @@ export const CurvedMovement = () => {
   );
 };
 
+// @ts-expect-error TS7006
 const getBoxStyle = expanded => {
   if (!expanded) {
     return {

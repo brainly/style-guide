@@ -21,6 +21,7 @@ addons.register('sandbox', () => {
       });
 
       return (
+        // @ts-expect-error TS2322
         <AddonPanel key={key} active={active}>
           {active && state.layout.showPanel && state.viewMode !== 'docs' ? (
             <Sandbox code={code} />

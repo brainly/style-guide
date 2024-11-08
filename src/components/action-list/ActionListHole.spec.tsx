@@ -14,6 +14,7 @@ describe('<ActionListHole />', () => {
     );
 
     expect(
+      // @ts-expect-error TS18047
       actionListHole.container.firstElementChild.classList.contains(
         'sg-actions-list__hole'
       )
@@ -26,6 +27,7 @@ describe('<ActionListHole />', () => {
     );
 
     expect(
+      // @ts-expect-error TS18047
       actionListHole.container.firstElementChild.classList.contains(
         'sg-actions-list__hole--container'
       )
@@ -37,6 +39,7 @@ describe('<ActionListHole />', () => {
     );
 
     expect(
+      // @ts-expect-error TS18047
       actionListHole.container.firstElementChild.classList.contains(
         'sg-actions-list__hole--no-spacing'
       )
@@ -48,6 +51,7 @@ describe('<ActionListHole />', () => {
     );
 
     expect(
+      // @ts-expect-error TS18047
       actionListHole.container.firstElementChild.classList.contains(
         'sg-actions-list__hole--space-bellow'
       )
@@ -59,6 +63,7 @@ describe('<ActionListHole />', () => {
     );
 
     expect(
+      // @ts-expect-error TS18047
       actionListHole.container.firstElementChild.classList.contains(
         'sg-actions-list__hole--no-shrink'
       )
@@ -68,6 +73,7 @@ describe('<ActionListHole />', () => {
     const actionListHole = render(<ActionListHole grow>test</ActionListHole>);
 
     expect(
+      // @ts-expect-error TS18047
       actionListHole.container.firstElementChild.classList.contains(
         'sg-actions-list__hole--grow'
       )
@@ -77,6 +83,7 @@ describe('<ActionListHole />', () => {
     const actionListHole = render(<ActionListHole toEnd>test</ActionListHole>);
 
     expect(
+      // @ts-expect-error TS18047
       actionListHole.container.firstElementChild.classList.contains(
         'sg-actions-list__hole--to-end'
       )
@@ -88,6 +95,7 @@ describe('<ActionListHole />', () => {
     );
 
     expect(
+      // @ts-expect-error TS18047
       actionListHole.container.firstElementChild.classList.contains(
         'sg-actions-list__hole--to-right'
       )
@@ -99,6 +107,7 @@ describe('<ActionListHole />', () => {
     );
 
     expect(
+      // @ts-expect-error TS18047
       actionListHole.container.firstElementChild.classList.contains(
         'sg-actions-list__hole--to-right'
       )
@@ -112,6 +121,7 @@ describe('<ActionListHole />', () => {
     );
 
     expect(
+      // @ts-expect-error TS18047
       actionListHole.container.firstElementChild.classList.contains(
         'sg-actions-list__hole--spaced-small'
       )
@@ -125,6 +135,7 @@ describe('<ActionListHole />', () => {
     );
 
     expect(
+      // @ts-expect-error TS18047
       actionListHole.container.firstElementChild.classList.contains(
         'sg-actions-list__hole--spaced-xsmall'
       )
@@ -136,6 +147,7 @@ describe('<ActionListHole />', () => {
     );
 
     expect(
+      // @ts-expect-error TS18047
       actionListHole.container.firstElementChild.classList.contains(
         'sg-actions-list__hole--equal-width'
       )

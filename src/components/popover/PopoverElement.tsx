@@ -34,6 +34,7 @@ const ARROW_SVG_PATH =
 const PopoverElement = React.forwardRef<
   HTMLDivElement,
   PopoverElementPropsType
+  // @ts-expect-error
 >((props: PopoverElementPropsType, ref) => {
   const {
     className,
@@ -44,12 +45,16 @@ const PopoverElement = React.forwardRef<
     ...rest
   } = props;
   const context = usePopoverContext();
+  // @ts-expect-error TS18047
   const elementRef = useMergeRefs([context.refs.setFloating, ref]);
 
+  // @ts-expect-error TS18047
   if (context.hasArrow !== withArrow) context.setHasArrow(withArrow);
 
   const isShorterThanArrowWithPadding =
+    // @ts-expect-error TS18047
     ARROW_SIZE + 2 * context.arrowPadding >
+    // @ts-expect-error TS18047
     context.refs.floating.current?.offsetHeight;
 
   // If the placement is right or left
@@ -58,6 +63,7 @@ const PopoverElement = React.forwardRef<
   // We don't care for top and bottom, because the component min width is enough to fit both arrow and it's padding.
   const arrowOffset =
     isShorterThanArrowWithPadding &&
+    // @ts-expect-error TS18047
     (context.placement.includes('right') || context.placement.includes('left'))
       ? `calc(50% - ${ARROW_SIZE / 2}px)`
       : null;
@@ -65,9 +71,11 @@ const PopoverElement = React.forwardRef<
   const popoverClass = classNames('sg-popover', className);
 
   return (
+    // @ts-expect-error TS18047
     context.isMounted && (
       <FloatingPortal>
         <FloatingFocusManager
+          // @ts-expect-error TS18047
           context={context.context}
           order={['reference', 'content']}
           visuallyHiddenDismiss
@@ -76,13 +84,20 @@ const PopoverElement = React.forwardRef<
           <div
             ref={elementRef}
             className={popoverClass}
+            // @ts-expect-error TS18047
             data-popover-id={context.id}
+            // @ts-expect-error TS18047
             data-placement={context.floatingPlacement}
+            // @ts-expect-error TS18047
             data-status={context.status}
             style={{
+              // @ts-expect-error TS18047
               position: context.strategy,
+              // @ts-expect-error TS18047
               top: context.y ?? 0,
+              // @ts-expect-error TS18047
               left: context.x ?? 0,
+              // @ts-expect-error TS18047
               visibility: context.middlewareData.hide?.referenceHidden
                 ? 'hidden'
                 : 'visible',
@@ -90,14 +105,17 @@ const PopoverElement = React.forwardRef<
               padding,
               maxWidth,
             }}
+            // @ts-expect-error TS18047
             {...context.getFloatingProps()}
             {...rest}
           >
             {children}
             {withArrow && (
               <FloatingArrow
+                // @ts-expect-error TS18047
                 ref={context.arrowRef}
                 className="sg-popover__arrow"
+                // @ts-expect-error TS18047
                 context={context.context}
                 width={ARROW_SIZE}
                 height={ARROW_SIZE}

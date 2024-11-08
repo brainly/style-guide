@@ -6,6 +6,7 @@ const DIALOG_SELECTOR = '.js-dialog';
 export function useBodyNoScroll(overlayRef: {current: HTMLDivElement | null}) {
   const cleanupRef = React.useRef(null);
   const forceCleanup = React.useCallback(() => {
+    // @ts-expect-error TS2349
     if (cleanupRef.current) cleanupRef.current();
   }, []);
 
@@ -35,6 +36,7 @@ export function useBodyNoScroll(overlayRef: {current: HTMLDivElement | null}) {
       const dialogsOpenCount =
         document.querySelectorAll(DIALOG_SELECTOR).length;
       const nestedOpenDialogsCount =
+        // @ts-expect-error TS2532
         overlayRef.current?.querySelectorAll(DIALOG_SELECTOR).length | 0;
 
       // nested dialogs shouldn't be counted
@@ -53,6 +55,7 @@ export function useBodyNoScroll(overlayRef: {current: HTMLDivElement | null}) {
       window.scrollTo(0, scrollY);
     };
 
+    // @ts-expect-error TS2322
     cleanupRef.current = cleanup;
     return cleanup;
   }, [overlayRef]);

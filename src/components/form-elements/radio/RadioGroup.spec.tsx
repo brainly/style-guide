@@ -5,6 +5,7 @@ import {render, waitFor} from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
 describe('<RadioGroup />', () => {
+  // @ts-expect-error TS7006
   const renderRadioGroup = props =>
     render(
       <RadioGroup {...props}>

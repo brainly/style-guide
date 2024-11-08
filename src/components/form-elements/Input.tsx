@@ -199,7 +199,9 @@ const Input = (props: InputPropsType) => {
     <div className={wrapperClass}>
       <input
         {...additionalProps}
+        // @ts-expect-error TS2322
         type={type}
+        // @ts-expect-error TS2322
         ref={setInputRef}
         className={inputClass}
         value={value}
