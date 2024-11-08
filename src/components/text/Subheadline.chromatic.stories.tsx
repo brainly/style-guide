@@ -10,6 +10,7 @@ import Subheadline, {
 } from './Subheadline';
 import React from 'react';
 
+// @ts-expect-error TS7006
 export const ResponsiveProps = args => {
   return (
     <div>

@@ -205,6 +205,7 @@ describe('<Tooltip />', () => {
     fireEvent.focus(button);
     expect(await screen.findByText('Copy to clipboard')).toBeInTheDocument();
 
+    // @ts-expect-error TS2345
     fireEvent.keyDown(document.activeElement, {key: 'Escape'});
     await waitForElementToBeRemoved(() =>
       screen.queryByText('Copy to clipboard')
@@ -229,6 +230,7 @@ describe('<Tooltip />', () => {
     userEvent.hover(button);
     expect(await screen.findByText('Copy to clipboard')).toBeInTheDocument();
 
+    // @ts-expect-error TS2345
     fireEvent.keyDown(document.activeElement, {key: 'Escape'});
     await waitForElementToBeRemoved(() =>
       screen.queryByText('Copy to clipboard')
@@ -254,6 +256,7 @@ describe('<Tooltip />', () => {
     userEvent.hover(button);
     expect(await screen.findByText('Copy to clipboard')).toBeInTheDocument();
 
+    // @ts-expect-error TS2345
     fireEvent.keyDown(document.activeElement, {key: 'Escape'});
     await waitForElementToBeRemoved(() =>
       screen.queryByText('Copy to clipboard')

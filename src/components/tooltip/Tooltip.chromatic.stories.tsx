@@ -11,6 +11,7 @@ import Checkbox from '../form-elements/checkbox/Checkbox';
 import Button from '../buttons/Button';
 
 const Placement = () => {
+  // @ts-expect-error TS7031
   const RenderTooltip = ({placement}) => (
     <Tooltip placement={placement} defaultOpen>
       <Tooltip.Element label="Report this" />
@@ -54,6 +55,7 @@ const Placement = () => {
 };
 
 const TypesOfTriggers = () => {
+  // @ts-expect-error TS7031
   const RenderTooltip = ({trigger}) => (
     <Tooltip defaultOpen>
       <Tooltip.Element label="Here's tooltip" />
@@ -107,6 +109,7 @@ const TypesOfTriggers = () => {
 };
 
 const TextLengths = () => {
+  // @ts-expect-error TS7031
   const RenderShortTooltip = ({placement}) => (
     <Tooltip placement={placement} defaultOpen>
       <Tooltip.Element label="0" />
@@ -120,6 +123,7 @@ const TextLengths = () => {
     </Tooltip>
   );
 
+  // @ts-expect-error TS7031
   const RenderLongTooltip = ({placement}) => (
     <Tooltip placement={placement} defaultOpen>
       <Tooltip.Element

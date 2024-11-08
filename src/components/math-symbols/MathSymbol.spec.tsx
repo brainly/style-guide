@@ -19,6 +19,7 @@ describe('MathSymbol', () => {
     const icon = render(<MathSymbol type={MATH_SYMBOL_TYPE.SQUERE_ROOT} />);
 
     expect(icon.getByRole('img')).toBeTruthy();
+    // @ts-expect-error TS18047
     expect(icon.container.firstElementChild.querySelector('use')).toBeTruthy();
   });
 
@@ -26,6 +27,7 @@ describe('MathSymbol', () => {
     const type = MATH_SYMBOL_TYPE.SQUERE_ROOT;
     const icon = render(<MathSymbol type={type} data-foo="bar" />);
 
+    // @ts-expect-error TS18047
     expect(icon.container.firstElementChild.getAttribute('data-foo')).toEqual(
       'bar'
     );

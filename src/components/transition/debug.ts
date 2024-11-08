@@ -3,6 +3,7 @@ type DebugOptionsType = {
   outlines: boolean;
 };
 
+// @ts-expect-error TS7034
 let batchTimeoutId = null;
 
 export function getDebugOptions(): DebugOptionsType {
@@ -37,6 +38,7 @@ export function getDebugOptions(): DebugOptionsType {
    * therefore multiple references to this function should not
    * immediately print a warning.
    */
+  // @ts-expect-error TS7005
   clearTimeout(batchTimeoutId);
   batchTimeoutId = setTimeout(printWarning, 100);
   return options;

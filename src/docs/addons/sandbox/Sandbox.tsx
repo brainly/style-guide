@@ -1,4 +1,5 @@
 import {SandpackProvider, SandpackPreview} from '@codesandbox/sandpack-react';
+// @ts-expect-error TS7016
 import styleguideJsCode from '!!raw-loader!../../../../dist/sandbox/sandbox';
 import * as React from 'react';
 import {CodeEditor} from './CodeEditor';

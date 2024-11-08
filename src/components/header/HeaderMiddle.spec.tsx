@@ -6,6 +6,7 @@ it('render', () => {
   const header = render(<HeaderMiddle>some text</HeaderMiddle>);
 
   expect(
+    // @ts-expect-error TS18047
     header.container.firstElementChild.classList.contains('sg-header__middle')
   ).toEqual(true);
 });

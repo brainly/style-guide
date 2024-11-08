@@ -5,6 +5,7 @@ import userEvent from '@testing-library/user-event';
 import {testA11y} from '../../../axe';
 
 describe('<Checkbox />', () => {
+  // @ts-expect-error TS7006
   const renderCheckbox = props =>
     render(<Checkbox onChange={() => jest.fn()} {...props} />);
 

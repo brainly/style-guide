@@ -5,6 +5,7 @@ import userEvent from '@testing-library/user-event';
 import {testA11y} from '../../../axe';
 
 describe('<Radio />', () => {
+  // @ts-expect-error TS7006
   const renderRadio = props =>
     render(<Radio onChange={() => jest.fn()} {...props} />);
 

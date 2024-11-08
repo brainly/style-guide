@@ -154,6 +154,7 @@ export type SelectMenuPropsType = {
    *           options={[{value: 'option1', label: 'Option1'},{value: 'option2', label: 'Select selector'}]}
    *          />
    */
+  // @ts-expect-error TS7051
   onOptionChange: (SelectMenuOptionType) => unknown;
 
   /**
@@ -165,6 +166,7 @@ export type SelectMenuPropsType = {
    *           options={[{value: 'option1', label: 'Option1'},{value: 'option2', label: 'Select selector'}]}
    *          />
    */
+  // @ts-expect-error TS7051
   onToggle?: (boolean) => unknown;
 } & Omit<
   React.AllHTMLAttributes<HTMLElement>,
@@ -240,6 +242,7 @@ const SelectMenu = React.forwardRef<HTMLDivElement, SelectMenuPropsType>(
       disabled,
       multiSelect,
       onEntry: animateEntry,
+      // @ts-expect-error TS2322
       onExit: animateExit,
       onToggle,
       onOptionChange,
@@ -371,9 +374,11 @@ const SelectMenu = React.forwardRef<HTMLDivElement, SelectMenuPropsType>(
 
         return displayLabel;
       } else {
+        // @ts-expect-error TS7034
         const label = [];
 
         selectedOptions.map(option => label.push(option.label));
+        // @ts-expect-error TS7005
         const labelString = label.join(', ');
 
         return (

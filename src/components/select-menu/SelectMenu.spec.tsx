@@ -19,6 +19,7 @@ export function RenderSelectMenu(props: {
 }) {
   const {selected, ...restProps} = props;
   const [selectedOptions, setSelectedOptions] = React.useState(selected || []);
+  // @ts-expect-error TS7006
   const handleOptionChange = option => {
     if (props.multiSelect) {
       if (!selectedOptions.find(item => item.value === option.value))

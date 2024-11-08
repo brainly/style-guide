@@ -30,6 +30,7 @@ describe('<Dialog>', () => {
       </Dialog>
     );
 
+    // @ts-expect-error TS2345
     fireEvent.keyUp(wrapper.container.firstChild, {
       key: 'Escape',
     });
@@ -44,6 +45,7 @@ describe('<Dialog>', () => {
       </Dialog>
     );
 
+    // @ts-expect-error TS2345
     fireEvent.click(wrapper.container.firstChild);
     expect(onDismiss).toHaveBeenCalledTimes(1);
   });

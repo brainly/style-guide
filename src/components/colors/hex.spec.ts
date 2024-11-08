@@ -1,3 +1,4 @@
+// @ts-expect-error TS7016
 import colors from './colors';
 import hex from './hex';
 

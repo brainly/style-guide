@@ -236,6 +236,7 @@ const Sparks = React.forwardRef<HTMLDivElement, SparksPropsType>(
               <Particle
                 key={index}
                 shape={shape}
+                // @ts-expect-error TS2322
                 style={{
                   ...style,
                   color: colors?.[colorIndex] || shapeColor[colorIndex],

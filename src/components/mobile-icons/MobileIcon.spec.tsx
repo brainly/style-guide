@@ -5,7 +5,9 @@ import {render} from '@testing-library/react';
 it('render if type', () => {
   const icon = render(<MobileIcon type={TYPE.ANSWER_BUBBLE} />);
 
+  // @ts-expect-error TS18047
   expect(icon.container.firstElementChild.tagName).toEqual('svg');
+  // @ts-expect-error TS18047
   expect(icon.container.firstElementChild.querySelector('use')).toBeTruthy();
 });
 

@@ -3,6 +3,7 @@ import * as RadioStories from './Radio.stories.mdx';
 import {generateChromaticStory} from '../../../chromatic/utils';
 import Radio from './Radio';
 
+// @ts-expect-error TS7006
 const Hovers = args => {
   const types = [
     {name: 'unchecked', checked: false},

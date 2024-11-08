@@ -85,10 +85,12 @@ const Subheadline = ({
     ),
     ...generateResponsiveClassNames(
       (propValue: string) => `sg-subheadline--${propValue}`,
+      // @ts-expect-error TS2345
       transform
     ),
     ...generateResponsiveClassNames(
       (propValue: string) => `sg-subheadline--${propValue}`,
+      // @ts-expect-error TS2345
       align
     ),
     className

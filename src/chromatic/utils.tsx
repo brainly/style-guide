@@ -27,6 +27,7 @@ export const generateChromaticStory: any = (
           const storyName = !isNew && storyToHover;
 
           return (
+            // @ts-expect-error TS2322
             <HoverStyle storyName={storyName} key={storyName || i}>
               <HoverStory {...module.default.args} {...HoverStory.args} />
             </HoverStyle>
@@ -36,6 +37,7 @@ export const generateChromaticStory: any = (
   );
 };
 
+// @ts-expect-error TS7006
 const mergeStories: any = module => {
   const stories = Object.keys(module)
     .filter(

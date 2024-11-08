@@ -2,6 +2,7 @@ import './main.scss';
 import * as styleguide from './index';
 import * as docsUtils from './docs/utils';
 
+// @ts-expect-error TS7006
 function importAll(r) {
   r.keys().forEach(r);
 }
@@ -15,9 +16,11 @@ importAll(require.context('./images/math-symbols', true, /\.svg$/));
 importAll(require.context('./images/mobile-icons', true, /\.svg$/));
 
 Object.keys(styleguide).forEach(exportName => {
+  // @ts-expect-error TS7015
   window[exportName] = styleguide[exportName];
 });
 
 Object.keys(docsUtils).forEach(exportName => {
+  // @ts-expect-error TS7015
   window[exportName] = docsUtils[exportName];
 });

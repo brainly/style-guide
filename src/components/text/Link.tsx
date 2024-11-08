@@ -194,6 +194,7 @@ const Link = (props: LinkPropsType) => {
 
   const linkType = disabled ? 'span' : 'a';
 
+  // @ts-expect-error TS7006
   const onLinkClick = e => {
     if (!disabled && onClick) {
       return onClick(e);

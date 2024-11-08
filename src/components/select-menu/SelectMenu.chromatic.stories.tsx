@@ -8,6 +8,7 @@ import Flex from '../flex/Flex';
 
 const onOptionChange = () => null;
 
+// @ts-expect-error TS7006
 export const Sizes = args => {
   return (
     <div style={{display: 'flex', flexDirection: 'row'}}>
@@ -25,6 +26,7 @@ export const Sizes = args => {
   );
 };
 
+// @ts-expect-error TS7006
 export const DifferentPopupLenghts = args => {
   return (
     <Flex direction="row" style={{gap: '40px'}}>
@@ -113,6 +115,7 @@ export const DifferentPopupLenghts = args => {
   );
 };
 
+// @ts-expect-error TS7006
 const Hovers = args => {
   const types = [{name: 'default'}, {disabled: true, name: 'disabled'}];
 

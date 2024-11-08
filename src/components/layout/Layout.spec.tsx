@@ -12,6 +12,7 @@ describe('Layout', () => {
     const layout = render(<Layout footer={footer}>Content</Layout>);
 
     expect(
+      // @ts-expect-error TS18047
       layout.container.firstElementChild.querySelector('.sg-layout__footer')
     ).toBeTruthy();
   });
@@ -20,6 +21,7 @@ describe('Layout', () => {
     const layout = render(<Layout noMaxWidth>Content</Layout>);
 
     expect(
+      // @ts-expect-error TS18047
       layout.container.firstElementChild.querySelector(
         '.sg-layout__container--no-max-width'
       )
@@ -46,6 +48,7 @@ describe('LayoutContent', () => {
     );
 
     expect(
+      // @ts-expect-error TS18047
       layoutContent.container.firstElementChild.classList.contains(
         'sg-layout__content--no-max-width'
       )
