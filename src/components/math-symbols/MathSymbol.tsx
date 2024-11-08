@@ -90,9 +90,9 @@ const MathSymbol = ({
   const defaultTitle = type.replace(/-/g, ' ');
 
   return (
-    // @ts-expect-error ts migration
+    // @ts-ignore ts migration
     <svg {...props} className={iconClass} aria-labelledby={titleId} role="img">
-      {/* @ts-expect-error ts migration */}
+      {/* @ts-ignore ts migration */}
       <text id={titleId} hidden>
         {title || defaultTitle}
       </text>

@@ -35,13 +35,13 @@ export function useFocusTrap({
     function handleFocusTrap(event: FocusEvent) {
       if (
         event.target instanceof Node &&
-        // @ts-expect-error TS18047
+        // @ts-ignore TS18047
         dialogElement.contains(event.target)
       ) {
         return;
       }
 
-      // @ts-expect-error TS2345
+      // @ts-ignore TS2345
       focusDescendant(dialogElement, isTabbingForward);
     }
 

@@ -15,7 +15,7 @@ it('error when both valid and invalid', () => {
 });
 
 it('Type', () => {
-  // @ts-expect-error TS7006
+  // @ts-ignore TS7006
   const CustomTextarea = props => (
     <label>
       superCustom

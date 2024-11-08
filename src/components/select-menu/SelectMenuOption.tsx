@@ -53,7 +53,7 @@ const SelectMenuOption = React.forwardRef<
         return (
           <SubjectIcon
             size="small"
-            // @ts-expect-error TS2322
+            // @ts-ignore TS2322
             monoColor={isSelected || isHovered ? null : 'icon-gray-50'}
             type={subjectIconName}
           />

@@ -54,7 +54,7 @@ describe('mergeResponsiveProps', () => {
   });
 });
 describe('generateResponsiveClassNames', () => {
-  // @ts-expect-error TS7006
+  // @ts-ignore TS7006
   const generateClass = prop => (prop ? 'foo' : 'bar');
 
   const responsivePropsCases = [
@@ -123,7 +123,7 @@ describe('generateResponsiveClassNames', () => {
 
   it.each(responsivePropsCases)(
     'renders responsive classNames when prop passed as %s with %s',
-    // @ts-expect-error TS2345
+    // @ts-ignore TS2345
     (type, testCase, prop, classNames) => {
       expect(generateResponsiveClassNames(generateClass, prop)).toEqual(
         classNames

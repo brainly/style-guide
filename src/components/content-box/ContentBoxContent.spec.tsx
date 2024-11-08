@@ -8,7 +8,7 @@ describe('<ContentBoxContent />', () => {
     const testBox = render(<ContentBoxContent>test</ContentBoxContent>);
 
     expect(
-      // @ts-expect-error TS18047
+      // @ts-ignore TS18047
       testBox.container.firstElementChild.classList.contains(
         'sg-content-box__content'
       )
@@ -18,7 +18,7 @@ describe('<ContentBoxContent />', () => {
     const testBox = render(<ContentBoxContent full>test</ContentBoxContent>);
 
     expect(
-      // @ts-expect-error TS18047
+      // @ts-ignore TS18047
       testBox.container.firstElementChild.classList.contains(
         'sg-content-box__content--full'
       )
@@ -30,7 +30,7 @@ describe('<ContentBoxContent />', () => {
     );
 
     expect(
-      // @ts-expect-error TS18047
+      // @ts-ignore TS18047
       testBox.container.firstElementChild.classList.contains(
         'sg-content-box__content--with-elements-to-right'
       )
@@ -42,7 +42,7 @@ describe('<ContentBoxContent />', () => {
     );
 
     expect(
-      // @ts-expect-error TS18047
+      // @ts-ignore TS18047
       testBox.container.firstElementChild.classList.contains(
         'sg-content-box__content--with-centered-text'
       )
@@ -54,13 +54,13 @@ describe('<ContentBoxContent />', () => {
     );
 
     expect(
-      // @ts-expect-error TS18047
+      // @ts-ignore TS18047
       testBox.container.firstElementChild.classList.contains(
         'sg-content-box__content--spaced-top'
       )
     ).toBeTruthy();
     expect(
-      // @ts-expect-error TS18047
+      // @ts-ignore TS18047
       testBox.container.firstElementChild.classList.contains(
         'sg-content-box__content--spaced-top-normal'
       )
@@ -72,7 +72,7 @@ describe('<ContentBoxContent />', () => {
     );
 
     expect(
-      // @ts-expect-error TS18047
+      // @ts-ignore TS18047
       testBox.container.firstElementChild.classList.contains(
         'sg-content-box__content--spaced-top-xsmall'
       )
@@ -84,13 +84,13 @@ describe('<ContentBoxContent />', () => {
     );
 
     expect(
-      // @ts-expect-error TS18047
+      // @ts-ignore TS18047
       testBox.container.firstElementChild.classList.contains(
         'sg-content-box__content--spaced-bottom'
       )
     ).toBeTruthy();
     expect(
-      // @ts-expect-error TS18047
+      // @ts-ignore TS18047
       testBox.container.firstElementChild.classList.contains(
         'sg-content-box__content--spaced-bottom-normal'
       )
@@ -102,7 +102,7 @@ describe('<ContentBoxContent />', () => {
     );
 
     expect(
-      // @ts-expect-error TS18047
+      // @ts-ignore TS18047
       testBox.container.firstElementChild.classList.contains(
         'sg-content-box__content--spaced-bottom-xsmall'
       )

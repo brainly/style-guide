@@ -132,7 +132,7 @@ const FluidListItem = ({
        * https://css-tricks.com/animating-layouts-with-the-flip-technique/
        */
       setMovementEffect({
-        // @ts-expect-error TS2353
+        // @ts-ignore TS2353
         initial: {
           transform: {
             translateY: -transformation.diffTop,
@@ -151,7 +151,7 @@ const FluidListItem = ({
     <div ref={elementRef}>
       <Transition
         active
-        // @ts-expect-error TS2322
+        // @ts-ignore TS2322
         effect={getTransitionEffect()}
         delay={getTransitionDelay()}
         onTransitionEnd={removing ? onRemove : undefined}

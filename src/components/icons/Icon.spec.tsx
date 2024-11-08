@@ -29,7 +29,7 @@ describe('Icon', () => {
   it('tag type', () => {
     const component = render(<Icon type={TYPE.ANSWER} size={16} as="span" />);
 
-    // @ts-expect-error TS18047
+    // @ts-ignore TS18047
     expect(component.container.firstElementChild.tagName).toEqual('SPAN');
   });
 

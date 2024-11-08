@@ -576,7 +576,7 @@ const Icon = ({
   );
   const iconType = `#icon-${type}`;
   const Tag = as;
-  // @ts-expect-error TS2345
+  // @ts-ignore TS2345
   const idSuffix = generateIdSuffix(type);
   const titleId = `title-${idSuffix}`;
   const defaultTitle = String(type).replace(/_/g, ' ');

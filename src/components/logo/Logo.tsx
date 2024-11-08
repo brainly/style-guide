@@ -98,7 +98,7 @@ function getDefaultAlt(type: LogoTypeType) {
   ];
 
   return replacers.reduce(
-    // @ts-expect-error TS2769
+    // @ts-ignore TS2769
     (alt, {regexp, newSubstr}) => alt.replace(regexp, newSubstr),
     type
   );
@@ -129,7 +129,7 @@ const Logo = ({
   return (
     <div {...props} className={logoClass} data-logotype={type}>
       {/*
-       // @ts-expect-error TS2322 */}
+       // @ts-ignore TS2322 */}
       <img className="sg-logo__image" src={logoPath} alt={alt ?? defaultAlt} />
     </div>
   );

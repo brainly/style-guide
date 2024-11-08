@@ -10,7 +10,7 @@ describe('Rating', () => {
     const rating = render(<Rating active />);
 
     expect(
-      // @ts-expect-error TS18047
+      // @ts-ignore TS18047
       rating.container.firstElementChild.classList.contains(
         'sg-rate-box--active'
       )
@@ -37,16 +37,16 @@ describe('Rating', () => {
 
   it('renders active text when active and mouse over stars', () => {
     const rating = render(<Rating rate={3} activeText="foo" active />);
-    // @ts-expect-error TS18047
+    // @ts-ignore TS18047
     const stars = rating.container.firstElementChild.querySelector(
       '.sg-rate-box__stars-container'
     );
 
     expect(rating.getAllByText('foo')).toHaveLength(2);
-    // @ts-expect-error TS2345
+    // @ts-ignore TS2345
     fireEvent.mouseEnter(stars);
     expect(rating.getAllByText('foo')).toHaveLength(2);
-    // @ts-expect-error TS2345
+    // @ts-ignore TS2345
     fireEvent.mouseLeave(stars);
     expect(rating.getAllByText('foo')).toHaveLength(2);
   });

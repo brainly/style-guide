@@ -3,7 +3,7 @@ import * as CheckboxStories from './Checkbox.stories.mdx';
 import {generateChromaticStory} from '../../../chromatic/utils';
 import Checkbox from './Checkbox';
 
-// @ts-expect-error TS7006
+// @ts-ignore TS7006
 const Hovers = args => {
   const types = [
     {name: 'unchecked'},

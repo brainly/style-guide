@@ -5,7 +5,7 @@ const Status = styled.span`
   margin-left: 8px;
 `;
 
-// @ts-expect-error TS7031
+// @ts-ignore TS7031
 // eslint-disable-next-line react/prop-types
 const Label = ({children, status}) => {
   return (

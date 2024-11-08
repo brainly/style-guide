@@ -14,7 +14,7 @@ const copy = {
     "Now your family member just needs to open the link and hit 'accept'. If they aren't already on Brainly",
 };
 
-// @ts-expect-error TS7006
+// @ts-ignore TS7006
 const WithTooltip = args => {
   const handleChange = () => null;
 

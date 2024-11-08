@@ -36,7 +36,7 @@ export const InTextCounter = () => {
   const [index, setIndex] = React.useState(0);
   const currentEffect = cycle[index % cycle.length];
 
-  // @ts-expect-error TS7006
+  // @ts-ignore TS7006
   const handleTransitionEnd = effect => {
     setIndex(increment);
 

@@ -12,10 +12,10 @@ import {getDebugOptions} from './debug';
 
 Transition.createEffect = predefinedEffects.createEffect;
 
-// @ts-expect-error TS7006
+// @ts-ignore TS7006
 const isFillModeBackwards = mode => mode === 'backwards' || mode === 'both';
 
-// @ts-expect-error TS7006
+// @ts-ignore TS7006
 const isFillModeForwards = mode => mode === 'forwards' || mode === 'both';
 
 // https://github.com/jsdom/jsdom/issues/1781
@@ -201,7 +201,7 @@ function BaseTransition({
     const container = containerRef.current;
 
     if (container) {
-      // @ts-expect-error TS2339
+      // @ts-ignore TS2339
       container.className = classNamesRegistry.toString();
     }
   }, [classNamesRegistry, baseClassName]);

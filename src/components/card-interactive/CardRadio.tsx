@@ -153,7 +153,7 @@ const CardRadio = React.forwardRef<HTMLInputElement, CardRadioPropsType>(
       <CardRadioContext.Provider
         value={{
           checked: isChecked,
-          // @ts-expect-error TS2322
+          // @ts-ignore TS2322
           disabled,
         }}
       >

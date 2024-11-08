@@ -215,7 +215,7 @@ const Radio = ({
   const labelId = ariaLabelledBy || `${radioId}-label`;
   const isInvalid = invalid !== undefined ? invalid : radioGroupContext.invalid;
 
-  // @ts-expect-error TS7006
+  // @ts-ignore TS7006
   const onInputChange = e => {
     if (isWithinRadioGroup) {
       radioGroupContext.setLastFocusedValue(value);
@@ -245,14 +245,14 @@ const Radio = ({
             name={name || radioGroupContext.name}
             onChange={onInputChange}
             required={required}
-            // @ts-expect-error TS2322
+            // @ts-ignore TS2322
             value={value}
             aria-labelledby={labelId}
             aria-describedby={descriptionId}
             aria-invalid={isInvalid ? true : undefined}
           />
           <span
-            // @ts-expect-error TS2322
+            // @ts-ignore TS2322
             ref={circleRef}
             className={circleClass} // This element is purely decorative so
             // we hide it for screen readers
@@ -274,7 +274,7 @@ const Radio = ({
       </div>
       {description && (
         <Text
-          // @ts-expect-error TS2322
+          // @ts-ignore TS2322
           id={descriptionId}
           className="sg-radio__description"
           size="small"

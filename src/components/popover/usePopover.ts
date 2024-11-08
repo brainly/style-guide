@@ -108,7 +108,7 @@ const usePopover = ({
     variantParams.padding,
   ]);
 
-  // @ts-expect-error TS7006
+  // @ts-ignore TS7006
   const handleOpenChange = isOpen => {
     if (isControlled && onOpenChange) onOpenChange(isOpen);
     else setIsOpen(isOpen);
@@ -160,7 +160,7 @@ const usePopover = ({
       arrowPadding: variantParams.arrowPadding,
       hasArrow,
       setHasArrow,
-      // @ts-expect-error TS2783
+      // @ts-ignore TS2783
       placement,
       isMounted,
       status,

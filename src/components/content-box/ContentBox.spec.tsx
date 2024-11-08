@@ -7,7 +7,7 @@ describe('<ContentBox />', () => {
     const contentBox = render(<ContentBox>test</ContentBox>);
 
     expect(
-      // @ts-expect-error TS18047
+      // @ts-ignore TS18047
       contentBox.container.firstElementChild.classList.contains(
         'sg-content-box'
       )
@@ -17,7 +17,7 @@ describe('<ContentBox />', () => {
     const contentBox = render(<ContentBox full>test</ContentBox>);
 
     expect(
-      // @ts-expect-error TS18047
+      // @ts-ignore TS18047
       contentBox.container.firstElementChild.classList.contains(
         'sg-content-box--full'
       )
@@ -28,13 +28,13 @@ describe('<ContentBox />', () => {
     const contentBox2 = render(<ContentBox spacedSmall>test</ContentBox>);
 
     expect(
-      // @ts-expect-error TS18047
+      // @ts-ignore TS18047
       contentBox.container.firstElementChild.classList.contains(
         'sg-content-box--spaced'
       )
     ).toEqual(true);
     expect(
-      // @ts-expect-error TS18047
+      // @ts-ignore TS18047
       contentBox2.container.firstElementChild.classList.contains(
         'sg-content-box--spaced-small'
       )
@@ -48,13 +48,13 @@ describe('<ContentBox />', () => {
     );
 
     expect(
-      // @ts-expect-error TS18047
+      // @ts-ignore TS18047
       testBox.container.firstElementChild.classList.contains(
         'sg-content-box--spaced-bottom'
       )
     ).toEqual(true);
     expect(
-      // @ts-expect-error TS18047
+      // @ts-ignore TS18047
       testBox.container.firstElementChild.classList.contains(
         'sg-content-box--spaced-bottom-normal'
       )
@@ -68,7 +68,7 @@ describe('<ContentBox />', () => {
     );
 
     expect(
-      // @ts-expect-error TS18047
+      // @ts-ignore TS18047
       testBox.container.firstElementChild.classList.contains(
         'sg-content-box--spaced-bottom-xsmall'
       )
@@ -80,13 +80,13 @@ describe('<ContentBox />', () => {
     );
 
     expect(
-      // @ts-expect-error TS18047
+      // @ts-ignore TS18047
       testBox.container.firstElementChild.classList.contains(
         'sg-content-box--spaced-top'
       )
     ).toEqual(true);
     expect(
-      // @ts-expect-error TS18047
+      // @ts-ignore TS18047
       testBox.container.firstElementChild.classList.contains(
         'sg-content-box--spaced-top-normal'
       )
@@ -98,7 +98,7 @@ describe('<ContentBox />', () => {
     );
 
     expect(
-      // @ts-expect-error TS18047
+      // @ts-ignore TS18047
       testBox.container.firstElementChild.classList.contains(
         'sg-content-box--spaced-top-xsmall'
       )

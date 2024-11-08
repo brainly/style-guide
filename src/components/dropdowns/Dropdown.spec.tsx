@@ -31,7 +31,7 @@ describe('<Dropdown />', () => {
   it('should render links with proper data', () => {
     const component = render(<Dropdown {...testProps} />);
 
-    // @ts-expect-error TS2345
+    // @ts-ignore TS2345
     fireEvent.click(component.container.firstElementChild);
 
     expect(component.getAllByRole('link')[0].getAttribute('href')).toEqual(
@@ -48,7 +48,7 @@ describe('<Dropdown />', () => {
   it('should open dropdown on click', () => {
     const component = render(<Dropdown {...testProps} />);
 
-    // @ts-expect-error TS2345
+    // @ts-ignore TS2345
     fireEvent.click(component.container.firstElementChild);
     expect(component.getAllByRole('link')).toHaveLength(3);
   });
@@ -56,7 +56,7 @@ describe('<Dropdown />', () => {
   it('should close dropdown when click outside', () => {
     const component = render(<Dropdown {...testProps} />);
 
-    // @ts-expect-error TS2345
+    // @ts-ignore TS2345
     fireEvent.click(component.container.firstElementChild);
     expect(component.getAllByRole('link')).toHaveLength(3);
 
@@ -70,7 +70,7 @@ describe('<Dropdown />', () => {
       <Dropdown {...testProps} onItemSelect={onItemSelect} />
     );
 
-    // @ts-expect-error TS2345
+    // @ts-ignore TS2345
     fireEvent.click(component.container.firstElementChild);
     const link = component.getAllByRole('link')[0];
 

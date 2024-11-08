@@ -20,7 +20,7 @@ const indigoBoxStyle = {
   color: COLOR['indigo-20'],
 };
 
-// @ts-expect-error TS7006
+// @ts-ignore TS7006
 export const ResponsiveProps = args => {
   return (
     <div>

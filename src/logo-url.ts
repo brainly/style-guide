@@ -1,4 +1,4 @@
-// @ts-expect-error
+// @ts-ignore
 import LOGO_SOURCE_PATHS from './logos';
 
 declare let LOGO_BASE_URL: string;

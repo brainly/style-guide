@@ -93,7 +93,7 @@ const ExpandableBox = ({
      * https://css-tricks.com/animating-layouts-with-the-flip-technique/
      */
     setEffects({
-      // @ts-expect-error TS2322
+      // @ts-ignore TS2322
       expandingBox: {
         initial: {
           transform: {
@@ -110,7 +110,7 @@ const ExpandableBox = ({
           duration: 'gentle1',
         },
       },
-      // @ts-expect-error TS2322
+      // @ts-ignore TS2322
       appearingContent: {
         initial: {
           opacity: 0,
@@ -268,7 +268,7 @@ const exampleData: ExampleDataType = [
   },
 ];
 
-// @ts-expect-error TS7006
+// @ts-ignore TS7006
 const getElementStyle = (expanded, animating) => {
   if (expanded) {
     return {
@@ -294,7 +294,7 @@ const getElementStyle = (expanded, animating) => {
   } as const;
 };
 
-// @ts-expect-error TS7006
+// @ts-ignore TS7006
 const getBoxStylingProps = color => {
   const colorsMap = {
     red: {
@@ -317,9 +317,9 @@ const getBoxStylingProps = color => {
       position: 'relative',
       overflow: 'hidden',
     },
-    // @ts-expect-error TS7053
+    // @ts-ignore TS7053
     color: colorsMap[color].backgroundColor,
-    // @ts-expect-error TS7053
+    // @ts-ignore TS7053
     borderColor: colorsMap[color].borderColor,
     border: true,
   } as const;

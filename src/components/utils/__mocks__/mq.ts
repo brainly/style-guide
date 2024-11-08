@@ -20,7 +20,7 @@ type MediaQueryListenerType = (
 ) => void;
 export default class MatchMedia {
   mediaQueries: Record<string, Array<MediaQueryListenerType>> = {};
-  // @ts-expect-error TS2564
+  // @ts-ignore TS2564
   mediaQueryList: MediaQueryList;
   userCurrentMediaQuery: string;
 
@@ -87,7 +87,7 @@ export default class MatchMedia {
 
     this.mediaQueries[MEDIA_QUERY].forEach(listener => {
       listener // $FlowFixMe
-        // @ts-expect-error TS2554
+        // @ts-ignore TS2554
         .call(this.mediaQueryList, mqListEvent);
     });
   }
@@ -98,7 +98,7 @@ export default class MatchMedia {
 
   destroy(): void {
     this.clear();
-    // @ts-expect-error TS2790
+    // @ts-ignore TS2790
     delete window.matchMedia;
   }
 }

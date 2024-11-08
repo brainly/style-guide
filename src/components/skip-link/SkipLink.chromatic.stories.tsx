@@ -2,7 +2,7 @@ import * as SkipLink from './SkipLink.stories.mdx';
 import {generateChromaticStory} from '../../chromatic/utils';
 import {within} from '@storybook/testing-library';
 
-// @ts-expect-error TS7031
+// @ts-ignore TS7031
 const play = async ({canvasElement}) => {
   const canvas = within(canvasElement);
   const link = canvas.getByRole('link', {
