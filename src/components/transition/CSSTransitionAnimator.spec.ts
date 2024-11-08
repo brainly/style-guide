@@ -7,7 +7,7 @@ const classNamesRegistry = {
 
 const createMockedElement = () => {
   const element = document.createElement('div');
-  // @ts-expect-error TS7034
+  // @ts-ignore TS7034
   const styleChanges = [];
 
   Object.defineProperty(element, 'style', {
@@ -20,7 +20,7 @@ const createMockedElement = () => {
   });
   return {
     element,
-    // @ts-expect-error TS7005
+    // @ts-ignore TS7005
     styleChanges,
   };
 };

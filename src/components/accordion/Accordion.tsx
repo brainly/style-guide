@@ -167,7 +167,7 @@ const Accordion = ({
     const wrapper = wrapperRef.current;
 
     function handleKeyDown(event: KeyboardEvent) {
-      // @ts-expect-error TS7053
+      // @ts-ignore TS7053
       const key = KEY_CODES[event.keyCode];
 
       if (['space', 'enter'].includes(key)) {

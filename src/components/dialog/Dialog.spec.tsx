@@ -30,7 +30,7 @@ describe('<Dialog>', () => {
       </Dialog>
     );
 
-    // @ts-expect-error TS2345
+    // @ts-ignore TS2345
     fireEvent.keyUp(wrapper.container.firstChild, {
       key: 'Escape',
     });
@@ -45,7 +45,7 @@ describe('<Dialog>', () => {
       </Dialog>
     );
 
-    // @ts-expect-error TS2345
+    // @ts-ignore TS2345
     fireEvent.click(wrapper.container.firstChild);
     expect(onDismiss).toHaveBeenCalledTimes(1);
   });
@@ -202,7 +202,7 @@ describe('<Dialog>', () => {
     const descId = 'desc-id';
     const dialog = render(
       <Dialog open aria-describedby={descId} aria-label="Dialog label">
-        {/*@ts-expect-error to be fixed, dialog body doesn't expose id*/}
+        {/*@ts-ignore to be fixed, dialog body doesn't expose id*/}
         <DialogBody id={descId}>
           Information you provide to us directly.
         </DialogBody>

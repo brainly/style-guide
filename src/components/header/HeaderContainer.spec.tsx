@@ -6,7 +6,7 @@ it('render', () => {
   const headerContainer = render(<HeaderContainer>some text</HeaderContainer>);
 
   expect(
-    // @ts-expect-error TS18047
+    // @ts-ignore TS18047
     headerContainer.container.firstElementChild.classList.contains(
       'sg-header__container'
     )

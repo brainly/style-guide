@@ -15,7 +15,7 @@ it('colors', () => {
   const iconAsButton = render(<IconAsButton type={type} color={color} />);
 
   expect(
-    // @ts-expect-error TS18047
+    // @ts-ignore TS18047
     iconAsButton.container.firstElementChild.classList.contains(
       'sg-icon-as-button--icon-black'
     )
@@ -28,7 +28,7 @@ it('size', () => {
   const iconAsButton = render(<IconAsButton type={type} size={size} />);
 
   expect(
-    // @ts-expect-error TS18047
+    // @ts-ignore TS18047
     iconAsButton.container.firstElementChild.classList.contains(
       'sg-icon-as-button--small'
     )
@@ -40,7 +40,7 @@ it('default size', () => {
   const iconAsButton = render(<IconAsButton type={type} />);
 
   expect(
-    // @ts-expect-error TS18047
+    // @ts-ignore TS18047
     iconAsButton.container.firstElementChild.classList.contains(
       'sg-icon-as-button--normal'
     )
@@ -52,7 +52,7 @@ it('border', () => {
   const iconAsButton = render(<IconAsButton type={type} border />);
 
   expect(
-    // @ts-expect-error TS18047
+    // @ts-ignore TS18047
     iconAsButton.container.firstElementChild.classList.contains(
       'sg-icon-as-button--with-border'
     )
@@ -64,7 +64,7 @@ it('transparent', () => {
   const iconAsButton = render(<IconAsButton type={type} transparent />);
 
   expect(
-    // @ts-expect-error TS18047
+    // @ts-ignore TS18047
     iconAsButton.container.firstElementChild.classList.contains(
       'sg-icon-as-button--transparent'
     )
@@ -76,13 +76,13 @@ it('transparent active', () => {
   const iconAsButton = render(<IconAsButton type={type} transparent active />);
 
   expect(
-    // @ts-expect-error TS18047
+    // @ts-ignore TS18047
     iconAsButton.container.firstElementChild.classList.contains(
       'sg-icon-as-button--transparent'
     )
   ).toEqual(true);
   expect(
-    // @ts-expect-error TS18047
+    // @ts-ignore TS18047
     iconAsButton.container.firstElementChild.classList.contains(
       'sg-icon-as-button--transparent-active'
     )
@@ -94,7 +94,7 @@ it('action', () => {
   const iconAsButton = render(<IconAsButton type={type} action />);
 
   expect(
-    // @ts-expect-error TS18047
+    // @ts-ignore TS18047
     iconAsButton.container.firstElementChild.classList.contains(
       'sg-icon-as-button--action'
     )
@@ -106,13 +106,13 @@ it('action active', () => {
   const iconAsButton = render(<IconAsButton type={type} action active />);
 
   expect(
-    // @ts-expect-error TS18047
+    // @ts-ignore TS18047
     iconAsButton.container.firstElementChild.classList.contains(
       'sg-icon-as-button--action'
     )
   ).toEqual(true);
   expect(
-    // @ts-expect-error TS18047
+    // @ts-ignore TS18047
     iconAsButton.container.firstElementChild.classList.contains(
       'sg-icon-as-button--action-active'
     )

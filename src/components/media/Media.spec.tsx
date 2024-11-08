@@ -33,19 +33,19 @@ describe('Media', () => {
         spacedBottom
       />
     );
-    // @ts-expect-error TS18047
+    // @ts-ignore TS18047
     const rootClasses = media.container.firstElementChild.classList;
 
     expect(rootClasses.contains('sg-media--clickable')).toEqual(true);
     expect(rootClasses.contains('sg-media--no-padding')).toEqual(true);
     expect(
-      // @ts-expect-error TS18047
+      // @ts-ignore TS18047
       media.container.firstElementChild.querySelectorAll(
         '.sg-media__content--spaced-bottom'
       )
     ).toHaveLength(defaultProps.contentArray.length);
     expect(
-      // @ts-expect-error TS18047
+      // @ts-ignore TS18047
       media.container.firstElementChild.querySelectorAll(
         '.sg-media__content--small'
       )
@@ -54,7 +54,7 @@ describe('Media', () => {
 
   it('testing modifications - all off', () => {
     const media = render(<Media {...defaultProps} />);
-    // @ts-expect-error TS18047
+    // @ts-ignore TS18047
     const rootClasses = media.container.firstElementChild.classList;
 
     expect(rootClasses.contains('sg-media--clickable')).toEqual(false);

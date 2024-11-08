@@ -8,7 +8,7 @@ class TransitionEvent extends Event {
   propertyName: string;
   pseudoElement: string;
 
-  // @ts-expect-error TS7006
+  // @ts-ignore TS7006
   constructor(type, init: {[key: string]: any} = {}) {
     super(type, init);
     this.elapsedTime = init.elapsedTime || 0.0;
@@ -69,7 +69,7 @@ describe('<Transition />', () => {
   });
 
   it('does not apply any style when not support transition', () => {
-    // @ts-expect-error TS2322
+    // @ts-ignore TS2322
     global.TransitionEvent = undefined;
     const wrapper = render(<Transition effect={testEffect} active />);
 
@@ -79,7 +79,7 @@ describe('<Transition />', () => {
   });
 
   it('fires onTransitionStart as a fallback when not support transition', () => {
-    // @ts-expect-error TS2322
+    // @ts-ignore TS2322
     global.TransitionEvent = undefined;
     const onTransitionStart = jest.fn();
 
@@ -94,7 +94,7 @@ describe('<Transition />', () => {
   });
 
   it('fires onTransitionEnd as a fallback when not support transition', () => {
-    // @ts-expect-error TS2322
+    // @ts-ignore TS2322
     global.TransitionEvent = undefined;
     const onTransitionEnd = jest.fn();
 
@@ -147,7 +147,7 @@ describe('<Transition />', () => {
           />
         );
       });
-      // @ts-expect-error TS2345
+      // @ts-ignore TS2345
       fireEvent.transitionEnd(wrapper.container.firstElementChild);
       expect(
         (wrapper.container.firstElementChild as HTMLElement).style.opacity

@@ -6,7 +6,7 @@ it('render', () => {
   const headerContent = render(<HeaderContent>some text</HeaderContent>);
 
   expect(
-    // @ts-expect-error TS18047
+    // @ts-ignore TS18047
     headerContent.container.firstElementChild.classList.contains(
       'sg-header__content'
     )
@@ -18,7 +18,7 @@ it('auto-height', () => {
   );
 
   expect(
-    // @ts-expect-error TS18047
+    // @ts-ignore TS18047
     headerContent.container.firstElementChild.classList.contains(
       'sg-header__content--auto-height'
     )

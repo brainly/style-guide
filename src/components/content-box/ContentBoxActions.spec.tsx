@@ -8,7 +8,7 @@ describe('<ContentBoxActions />', () => {
     const testBox = render(<ContentBoxActions>test</ContentBoxActions>);
 
     expect(
-      // @ts-expect-error TS18047
+      // @ts-ignore TS18047
       testBox.container.firstElementChild.classList.contains(
         'sg-content-box__actions'
       )
@@ -21,7 +21,7 @@ describe('<ContentBoxActions />', () => {
     );
 
     expect(
-      // @ts-expect-error TS18047
+      // @ts-ignore TS18047
       testBox.container.firstElementChild.classList.contains(
         'sg-content-box__actions--with-centered-elements'
       )
@@ -34,7 +34,7 @@ describe('<ContentBoxActions />', () => {
     );
 
     expect(
-      // @ts-expect-error TS18047
+      // @ts-ignore TS18047
       testBox.container.firstElementChild.classList.contains(
         'sg-content-box__actions--with-elements-to-right'
       )
@@ -47,7 +47,7 @@ describe('<ContentBoxActions />', () => {
     );
 
     expect(
-      // @ts-expect-error TS18047
+      // @ts-ignore TS18047
       testBox.container.firstElementChild.classList.contains(
         'sg-content-box__actions--spaced-top-xsmall'
       )
@@ -60,7 +60,7 @@ describe('<ContentBoxActions />', () => {
     );
 
     expect(
-      // @ts-expect-error TS18047
+      // @ts-ignore TS18047
       testBox.container.firstElementChild.classList.contains(
         'sg-content-box__actions--spaced-bottom-xsmall'
       )

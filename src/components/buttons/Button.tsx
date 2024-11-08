@@ -369,7 +369,7 @@ const Button = React.forwardRef(
       ico = <span className={iconClass}>{icon}</span>;
     }
 
-    // @ts-expect-error TS7006
+    // @ts-ignore TS7006
     const onButtonClick = e => {
       if (isLink && isDisabled) {
         return;
@@ -386,7 +386,7 @@ const Button = React.forwardRef(
         className={btnClass}
         href={href}
         disabled={isDisabled}
-        // @ts-expect-error generics while using React.forwardRef
+        // @ts-ignore generics while using React.forwardRef
         ref={ref}
         target={target}
         aria-label={ariaLabel}

@@ -22,7 +22,7 @@ import {render} from '@testing-library/react';
  * ```
  */
 
-// @ts-expect-error TS7006
+// @ts-ignore TS7006
 export default async function testA11y(node, axeOptions?) {
   const container = React.isValidElement(node)
     ? render(node, axeOptions).container

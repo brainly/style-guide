@@ -168,7 +168,7 @@ export const CardCheckboxRoot = React.forwardRef<
     };
 
     const onInputChange = React.useCallback(
-      // @ts-expect-error TS7006
+      // @ts-ignore TS7006
       e => {
         if (!isControlled) {
           setIsChecked(val => !val);
@@ -189,9 +189,9 @@ export const CardCheckboxRoot = React.forwardRef<
       <CardCheckboxContext.Provider
         value={{
           checked: isChecked,
-          // @ts-expect-error TS2322
+          // @ts-ignore TS2322
           indeterminate,
-          // @ts-expect-error TS2322
+          // @ts-ignore TS2322
           disabled,
         }}
       >

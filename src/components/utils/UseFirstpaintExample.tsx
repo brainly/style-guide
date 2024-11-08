@@ -11,13 +11,13 @@ export const Example = () => {
     setIsToggled(!isToggled);
 
     if (shouldAnimateRef.current) {
-      // @ts-expect-error TS18048
+      // @ts-ignore TS18048
       animatedElementRef.current.style.animationDuration = '';
     }
   }, [isToggled]);
 
   React.useLayoutEffect(() => {
-    // @ts-expect-error TS18048
+    // @ts-ignore TS18048
     animatedElementRef.current.style.animationDuration = '0ms';
   }, []);
 
@@ -33,7 +33,7 @@ export const Example = () => {
             'use-first-paint-example-box--toggled': isToggled,
           })}
           onClick={handleClick}
-          // @ts-expect-error TS2322
+          // @ts-ignore TS2322
           ref={animatedElementRef}
         >
           Click me

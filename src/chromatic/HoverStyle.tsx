@@ -48,17 +48,17 @@ const applyHoverStates = (
 
   const hoverStylesheet = hStylesheet.sheet;
 
-  // @ts-expect-error TS18047
+  // @ts-ignore TS18047
   if (!hoverStylesheet.cssRules || hoverStylesheet.cssRules.length !== 0) {
     return;
   }
 
   const insertUnhoveredRule = (unhoveredSelector: string) => {
     if (unhoveredSelector) {
-      // @ts-expect-error TS18047
+      // @ts-ignore TS18047
       hoverStylesheet.insertRule(
         unhoveredSelector,
-        // @ts-expect-error TS18047
+        // @ts-ignore TS18047
         hoverStylesheet.cssRules.length
       );
     }
@@ -72,7 +72,7 @@ const applyHoverStates = (
       if (conditionText) {
         Array.from((rule as CSSGroupingRule).cssRules).forEach(r => {
           insertUnhoveredRule(
-            // @ts-expect-error TS2345
+            // @ts-ignore TS2345
             generateUnhoveredSelector(
               r as CSSStyleRule,
               hoverContainerId,
@@ -82,7 +82,7 @@ const applyHoverStates = (
         });
       } else {
         insertUnhoveredRule(
-          // @ts-expect-error TS2345
+          // @ts-ignore TS2345
           generateUnhoveredSelector(rule as CSSStyleRule, hoverContainerId)
         );
       }
@@ -103,7 +103,7 @@ const HoverStyle = ({
   const hoverContainerId = 'hover-container';
 
   React.useEffect(() => {
-    // @ts-expect-error TS2345
+    // @ts-ignore TS2345
     applyHoverStates(hoverContainerId, styleheetRef.current);
   }, []);
 

@@ -8,7 +8,7 @@ import {testA11y} from '../../axe';
 const chips = ['option-a', 'option-b'];
 
 describe('<ChipGroup />', () => {
-  // @ts-expect-error TS7006
+  // @ts-ignore TS7006
   const renderChipGroup = props =>
     render(
       <ChipGroup {...props} name="chipgroup">

@@ -72,7 +72,7 @@ const useSelectMenu = (props: UseSelectMenuPropsType) => {
   const onOpenChange = (isOpen: boolean) => {
     if (disabled) return;
 
-    // @ts-expect-error TS7006
+    // @ts-ignore TS7006
     const handleOpenChange = isOpen => {
       if (isExpandedControlled && onToggle) onToggle(isOpen);
       else setIsExpanded(isOpen);

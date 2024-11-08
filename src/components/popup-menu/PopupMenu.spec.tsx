@@ -8,7 +8,7 @@ it('render', () => {
   const popupMenu = render(<PopupMenu items={items} />);
 
   expect(
-    // @ts-expect-error TS18047
+    // @ts-ignore TS18047
     popupMenu.container.firstElementChild.classList.contains('sg-popup-menu')
   ).toEqual(true);
 });
@@ -25,7 +25,7 @@ it('extra spacing', () => {
   const popupMenu = render(<PopupMenu items={items} extraSpacing />);
 
   expect(
-    // @ts-expect-error TS18047
+    // @ts-ignore TS18047
     popupMenu.container.firstElementChild.classList.contains(
       'sg-popup-menu--elements-spaced'
     )

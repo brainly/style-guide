@@ -170,12 +170,12 @@ export function createEffect({
  */
 function mergeDeepEffects<T extends {}>(target: T, source: T): T {
   Object.keys(source).forEach(key => {
-    // @ts-expect-error TS7053
+    // @ts-ignore TS7053
     if (typeof target[key] === 'object') {
-      // @ts-expect-error TS7053
+      // @ts-ignore TS7053
       target[key] = mergeDeepEffects(target[key], source[key]);
     } else {
-      // @ts-expect-error TS7053
+      // @ts-ignore TS7053
       target[key] = source[key];
     }
   });

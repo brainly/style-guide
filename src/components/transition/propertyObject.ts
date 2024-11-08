@@ -127,7 +127,7 @@ export function parsePropertyObject({
   };
 }
 
-// @ts-expect-error TS7006
+// @ts-ignore TS7006
 function getDurationValue(duration) {
   if (duration === undefined) {
     return DEFAULT_DURATION_VALUE;
@@ -137,26 +137,26 @@ function getDurationValue(duration) {
     return `${duration}ms`;
   }
 
-  // @ts-expect-error TS7053
+  // @ts-ignore TS7053
   if (DURATION_VALUES[duration] !== undefined) {
-    // @ts-expect-error TS7053
+    // @ts-ignore TS7053
     return DURATION_VALUES[duration];
   }
 
   return DEFAULT_DURATION_VALUE;
 }
 
-// @ts-expect-error TS7006
+// @ts-ignore TS7006
 function getEasingValue(easing) {
   if (easing === undefined) {
     return DEFAULT_EASING_VALUE;
   }
 
-  // @ts-expect-error TS7053
+  // @ts-ignore TS7053
   return EASING_VALUES[easing];
 }
 
-// @ts-expect-error TS7006
+// @ts-ignore TS7006
 function getTranslateValue(translate) {
   if (translate === undefined) {
     return DEFAULT_TRANSLATE_VALUE;
@@ -167,36 +167,36 @@ function getTranslateValue(translate) {
   }
 
   // $FlowFixMe: could be TransitionTranslateType or a string
-  // @ts-expect-error TS7053
+  // @ts-ignore TS7053
   if (TRANSLATE_VALUES[translate] !== undefined) {
-    // @ts-expect-error TS7053
+    // @ts-ignore TS7053
     return TRANSLATE_VALUES[translate];
   }
 
   return translate;
 }
 
-// @ts-expect-error TS7006
+// @ts-ignore TS7006
 function getScaleValue(scale) {
   return scale === undefined ? DEFAULT_SCALE_VALUE : String(scale);
 }
 
-// @ts-expect-error TS7031
+// @ts-ignore TS7031
 function getTransformValue({translateX, translateY, scaleX, scaleY}) {
   return `translate3d(${translateX}, ${translateY}, 0px) scale3d(${scaleX}, ${scaleY}, 1)`;
 }
 
-// @ts-expect-error TS7006
+// @ts-ignore TS7006
 function getTransformOriginValue(transform) {
   return (transform && transform.origin) || DEFAULT_TRANSFORM_ORIGIN_VALUE;
 }
 
-// @ts-expect-error TS7006
+// @ts-ignore TS7006
 function getOpacityValue(opacity) {
   return opacity === undefined ? DEFAULT_OPACITY_VALUE : String(opacity);
 }
 
-// @ts-expect-error TS7006
+// @ts-ignore TS7006
 function getWidthHeightValue(widthHeight) {
   if (widthHeight === undefined) {
     return DEFAULT_WIDTH_HEIGHT_VALUE;

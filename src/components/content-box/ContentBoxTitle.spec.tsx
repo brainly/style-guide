@@ -8,7 +8,7 @@ describe('<ContentBoxTitle />', () => {
     const testBox = render(<ContentBoxTitle>test</ContentBoxTitle>);
 
     expect(
-      // @ts-expect-error TS18047
+      // @ts-ignore TS18047
       testBox.container.firstElementChild.classList.contains(
         'sg-content-box__title'
       )
@@ -20,7 +20,7 @@ describe('<ContentBoxTitle />', () => {
     );
 
     expect(
-      // @ts-expect-error TS18047
+      // @ts-ignore TS18047
       testBox.container.firstElementChild.classList.contains(
         'sg-content-box__title--with-centered-elements'
       )
@@ -33,13 +33,13 @@ describe('<ContentBoxTitle />', () => {
     );
 
     expect(
-      // @ts-expect-error TS18047
+      // @ts-ignore TS18047
       testBox.container.firstElementChild.classList.contains(
         'sg-content-box__title--spaced'
       )
     ).toEqual(true);
     expect(
-      // @ts-expect-error TS18047
+      // @ts-ignore TS18047
       testBox2.container.firstElementChild.classList.contains(
         'sg-content-box__title--spaced-small'
       )
@@ -51,13 +51,13 @@ describe('<ContentBoxTitle />', () => {
     );
 
     expect(
-      // @ts-expect-error TS18047
+      // @ts-ignore TS18047
       testBox.container.firstElementChild.classList.contains(
         'sg-content-box__title--spaced-top'
       )
     ).toBeTruthy();
     expect(
-      // @ts-expect-error TS18047
+      // @ts-ignore TS18047
       testBox.container.firstElementChild.classList.contains(
         'sg-content-box__title--spaced-top-normal'
       )
@@ -69,7 +69,7 @@ describe('<ContentBoxTitle />', () => {
     );
 
     expect(
-      // @ts-expect-error TS18047
+      // @ts-ignore TS18047
       testBox.container.firstElementChild.classList.contains(
         'sg-content-box__title--spaced-top-xsmall'
       )
@@ -81,13 +81,13 @@ describe('<ContentBoxTitle />', () => {
     );
 
     expect(
-      // @ts-expect-error TS18047
+      // @ts-ignore TS18047
       testBox.container.firstElementChild.classList.contains(
         'sg-content-box__title--spaced-bottom'
       )
     ).toBeTruthy();
     expect(
-      // @ts-expect-error TS18047
+      // @ts-ignore TS18047
       testBox.container.firstElementChild.classList.contains(
         'sg-content-box__title--spaced-bottom-normal'
       )
@@ -99,7 +99,7 @@ describe('<ContentBoxTitle />', () => {
     );
 
     expect(
-      // @ts-expect-error TS18047
+      // @ts-ignore TS18047
       testBox.container.firstElementChild.classList.contains(
         'sg-content-box__title--spaced-bottom-xsmall'
       )

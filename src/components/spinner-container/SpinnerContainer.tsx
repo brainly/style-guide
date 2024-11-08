@@ -49,7 +49,7 @@ const SpinnerContainer = ({
     return React.Children.map(children, child => {
       if (React.isValidElement(child)) {
         return React.cloneElement(child, {
-          // @ts-expect-error ts migration
+          // @ts-ignore ts migration
           'aria-busy': loading,
         });
       }

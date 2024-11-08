@@ -217,7 +217,7 @@ const ButtonLite = ({
     );
   }
 
-  // @ts-expect-error TS7006
+  // @ts-ignore TS7006
   const onButtonClick = e => {
     if (isLink && isDisabled) {
       return;

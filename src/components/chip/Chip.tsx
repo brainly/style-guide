@@ -151,11 +151,11 @@ const Chip = ({
 
   const isControlled = checked !== undefined || isWithinChipGroup;
   const isChecked = isControlled
-    ? // @ts-expect-error TS2345
+    ? // @ts-ignore TS2345
       checked ?? isCheckedWithinGroup(chipGroupContext.groupValue, value)
     : undefined;
 
-  // @ts-expect-error TS7006
+  // @ts-ignore TS7006
   const onInputChange = e => {
     if (isWithinChipGroup) {
       chipGroupContext.onChipChange(e, value);

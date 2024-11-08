@@ -428,7 +428,7 @@ const Flex = React.forwardRef<HTMLElement, FlexPropsType>(
     );
 
     return (
-      // @ts-expect-error ts migration
+      // @ts-ignore ts migration
       <Container {...otherProps} className={flexClass} ref={ref}>
         {children}
       </Container>

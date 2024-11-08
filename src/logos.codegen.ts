@@ -8,7 +8,7 @@ const logos = glob
   .sync('images/logos/**/*.svg', {
     cwd: path.join(__dirname),
   })
-  // @ts-expect-error TS7006
+  // @ts-ignore TS7006
   .reduce((acc, next) => {
     const key = path.basename(next).split('.')[0];
 

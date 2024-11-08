@@ -6,12 +6,12 @@ const MOTION_MQ = {
   reduced: '(prefers-reduced-motion: reduce)',
   default: '(prefers-reduced-motion: default)',
 };
-// @ts-expect-error TS7034
+// @ts-ignore TS7034
 let matchMedia;
 
 describe('useReducedMotion', () => {
   afterEach(() => {
-    // @ts-expect-error TS7005
+    // @ts-ignore TS7005
     matchMedia.destroy();
   });
   it('returns true if user preference is to reduce motion', () => {
@@ -31,13 +31,13 @@ describe('useReducedMotion', () => {
     const {result} = renderHook(() => useReducedMotion());
 
     expect(result.current).toBe(false);
-    // @ts-expect-error TS7005
+    // @ts-ignore TS7005
     act(() => matchMedia.updateMediaQuery(MOTION_MQ.reduced));
     expect(result.current).toBe(true);
-    // @ts-expect-error TS7005
+    // @ts-ignore TS7005
     act(() => matchMedia.updateMediaQuery(MOTION_MQ.default));
     expect(result.current).toBe(false);
-    // @ts-expect-error TS7005
+    // @ts-ignore TS7005
     act(() => matchMedia.updateMediaQuery(MOTION_MQ.reduced));
     expect(result.current).toBe(true);
   });

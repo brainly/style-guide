@@ -92,7 +92,7 @@ const getGroupValue = (
 ) => {
   if (multiSelect) {
     if (Array.isArray(currentValue)) {
-      // @ts-expect-error TS2345
+      // @ts-ignore TS2345
       return currentValue.includes(toggledValue)
         ? currentValue.filter(v => v !== toggledValue)
         : [...currentValue, toggledValue];
@@ -123,13 +123,13 @@ const ChipGroup = ({
   const [selectedValue, setSelectedValue] = React.useState(value || null);
 
   React.useEffect(() => {
-    // @ts-expect-error TS2345
+    // @ts-ignore TS2345
     setSelectedValue(value);
   }, [value]);
 
-  // @ts-expect-error TS7006
+  // @ts-ignore TS7006
   const setValue = (event, chipValue) => {
-    // @ts-expect-error TS2345
+    // @ts-ignore TS2345
     setSelectedValue(getGroupValue(selectedValue, chipValue, multiSelect));
     if (onChange) onChange(event, chipValue);
   };

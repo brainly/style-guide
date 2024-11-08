@@ -6,7 +6,7 @@ import {
 import React from 'react';
 import TextBit, {TEXT_BIT_SIZE} from './TextBit';
 
-// @ts-expect-error TS7006
+// @ts-ignore TS7006
 export const ResponsiveProps = args => {
   return (
     <div>

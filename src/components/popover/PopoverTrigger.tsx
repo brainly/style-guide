@@ -3,7 +3,7 @@ import {useMergeRefs} from '@floating-ui/react';
 
 import usePopoverContext from './usePopoverContext';
 
-// @ts-expect-error TS7006
+// @ts-ignore TS7006
 function isReactForwardRefType(object) {
   const REACT_FORWARD_REF_TYPE = Symbol.for('react.forward_ref');
 
@@ -30,28 +30,28 @@ const PopoverTrigger = React.forwardRef<
   const context = usePopoverContext();
   const childrenRef = (children as any).ref;
   const triggerRef = useMergeRefs([
-    // @ts-expect-error TS18047
+    // @ts-ignore TS18047
     context.refs.setReference,
     ref,
     childrenRef,
   ]);
 
   const className = 'sg-popover-trigger';
-  // @ts-expect-error TS18047
+  // @ts-ignore TS18047
   const popoverId = context.getFloatingProps().id as string;
 
   // If children is valid element, i.e. <p>, <Checkbox> etc.
   // and if the element is forward ref type (otherwise we cannot pass ref).
   if (React.isValidElement(children) && isReactForwardRefType(children)) {
     return React.cloneElement(children, {
-      // @ts-expect-error TS18047
+      // @ts-ignore TS18047
       ...context.getReferenceProps({
         className,
         tabIndex: 0, // ensure the element tabindex is set, but allow overriding with children props
         ...rest,
         ...children.props,
         ref: triggerRef, // override forwarded ref with merged refs
-        // @ts-expect-error TS18047
+        // @ts-ignore TS18047
         'data-state': context.isOpen ? 'open' : 'closed',
       }),
     });
@@ -63,9 +63,9 @@ const PopoverTrigger = React.forwardRef<
       tabIndex={0} // ensure the element tabindex is set, but allow overriding with children props
       className={className}
       // The user can style the trigger based on the state
-      // @ts-expect-error TS18047
+      // @ts-ignore TS18047
       data-state={context.isOpen ? 'open' : 'closed'}
-      // @ts-expect-error TS18047
+      // @ts-ignore TS18047
       {...context.getReferenceProps(props)}
       aria-describedby={popoverId}
     >

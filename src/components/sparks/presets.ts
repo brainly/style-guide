@@ -213,7 +213,7 @@ const heartAnimationReduced: AnimationConfig = {
 };
 
 export const shapeAnimationMap: Record<
-  // @ts-expect-error TS2344
+  // @ts-ignore TS2344
   ParticleProps['shape'],
   {default: AnimationConfig; reduced: AnimationConfig}
 > = {
@@ -227,7 +227,7 @@ export const shapeAnimationMap: Record<
   },
 };
 
-// @ts-expect-error TS2344
+// @ts-ignore TS2344
 export const shapeColorMap: Record<ParticleProps['shape'], string[]> = {
   spark: [
     'var(--yellow-20)',

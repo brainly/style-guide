@@ -12,12 +12,12 @@ import {
   createVirtualTypeScriptEnvironment,
   VirtualTypeScriptEnvironment,
 } from '@typescript/vfs';
-// @ts-expect-error TS7016
+// @ts-ignore TS7016
 import lzstring from 'lz-string';
 import {useActiveCode, SandpackCodeEditor} from '@codesandbox/sandpack-react';
-// @ts-expect-error
+// @ts-ignore
 import styleguideTypeDefinitions from '!!raw-loader!../../../../dist/sandbox-types/brainly-style-guide-sandbox.d.ts';
-// @ts-expect-error
+// @ts-ignore
 import reactTypes from '!!raw-loader!../../../../node_modules/@types/react/index.d.ts';
 
 type CodeEditorPropsType = {
@@ -87,7 +87,7 @@ export const CodeEditor = ({code}: CodeEditorPropsType) => {
       ];
 
       setTsEnv(env);
-      // @ts-expect-error TS2345
+      // @ts-ignore TS2345
       setExtensions(extensions);
     };
 

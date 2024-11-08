@@ -19,7 +19,7 @@ describe('MenuList', () => {
     const menu = render(<MenuList items={menuItems} size={SIZE.SMALL} />);
 
     expect(
-      // @ts-expect-error TS18047
+      // @ts-ignore TS18047
       menu.container.firstElementChild.classList.contains('sg-menu-list--small')
     ).toEqual(true);
   });
@@ -28,7 +28,7 @@ describe('MenuList', () => {
     const menu = render(<MenuList items={menuItems} size={SIZE.LARGE} />);
 
     expect(
-      // @ts-expect-error TS18047
+      // @ts-ignore TS18047
       menu.container.firstElementChild.classList.contains('sg-menu-list--large')
     ).toEqual(true);
   });

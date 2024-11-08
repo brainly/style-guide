@@ -206,7 +206,7 @@ const Checkbox = ({
     }
   }, [checked, isControlled, isChecked]);
   const onInputChange = React.useCallback(
-    // @ts-expect-error TS7006
+    // @ts-ignore TS7006
     e => {
       if (!isControlled) {
         setIsChecked(val => !val);
@@ -301,7 +301,7 @@ const Checkbox = ({
           <div className="sg-checkbox__icon-wrapper">
             <span
               className={iconClass} // This element is purely decorative so
-              // @ts-expect-error TS2322
+              // @ts-ignore TS2322
               ref={checkboxIconRef}
               // we hide it for screen readers
               aria-hidden="true"
