@@ -16,12 +16,13 @@ export function useBodyNoScroll(overlayRef: {current: HTMLDivElement | null}) {
 
     const initialBodyClassList = body.classList.value;
     const initialBodyStyleTop = body.style.top;
+    const initialScrollY = window.scrollY;
 
     if (initialBodyClassList.includes(NO_SCROLL_CLASS)) {
       return;
     }
 
-    body.style.top = `-${window.scrollY}px`;
+    body.style.top = `-${initialScrollY}px`;
     body.classList.add(NO_SCROLL_CLASS);
 
     const cleanup = () => {
@@ -30,7 +31,7 @@ export function useBodyNoScroll(overlayRef: {current: HTMLDivElement | null}) {
 
       body.style.top = initialBodyStyleTop;
       body.className = initialBodyClassList;
-      window.scrollTo(0, scrollY);
+      window.scrollTo(0, initialScrollY);
     };
 
     // @ts-ignore TS2322
