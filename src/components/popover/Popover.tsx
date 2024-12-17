@@ -40,13 +40,21 @@ export type PopoverPropsType = {
 
   /**
    * Determine if hover should affect popover visibility.
+   * @default true
    */
   useHover?: boolean;
 
   /**
    * Determine if click should affect popover visibility.
+   * @default true
    */
   useClick?: boolean;
+
+  /**
+   * Determine if focus should affect popover visibility.
+   * @default true
+   */
+  useFocus?: boolean;
 
   /**
    * Only controlled component. Handle Popover open state change.
@@ -63,6 +71,7 @@ const Popover = ({
   id,
   useHover,
   useClick,
+  useFocus,
   defaultOpen = false,
   open,
   role,
@@ -76,6 +85,7 @@ const Popover = ({
     onOpenChange,
     useHover,
     useClick,
+    useFocus,
     role,
   });
 

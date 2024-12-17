@@ -6,7 +6,7 @@ import {
   useClick as useFloatingClick,
   useHover as useFloatingHover,
   useRole,
-  useFocus,
+  useFocus as useFloatingFocus,
   offset,
   flip,
   arrow,
@@ -29,6 +29,7 @@ interface UsePopoverPropTypes {
   open?: boolean;
   useHover?: boolean;
   useClick?: boolean;
+  useFocus?: boolean;
   role?: PopoverRole;
   onOpenChange?: (arg0: boolean) => void;
 }
@@ -40,6 +41,7 @@ const usePopover = ({
   open,
   useHover = true,
   useClick = true,
+  useFocus = true,
   role = 'dialog',
   onOpenChange,
 }: UsePopoverPropTypes) => {
@@ -130,7 +132,9 @@ const usePopover = ({
       blockPointerEvents: true,
     }),
   });
-  const focus = useFocus(data.context);
+  const focus = useFloatingFocus(data.context, {
+    enabled: useFocus,
+  });
   const click = useFloatingClick(data.context, {
     enabled: useClick,
   });
