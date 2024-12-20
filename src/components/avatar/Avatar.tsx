@@ -23,6 +23,8 @@ export const ICON_SIZE = {
 } as const;
 
 export type AvatarPropsType = {
+  width?: number;
+  height?: number;
   size?: AvatarSizeType;
   border?: boolean;
   spaced?: boolean;
@@ -41,6 +43,8 @@ export type AvatarPropsType = {
   | 'link'
   | 'ariaLinkLabel'
   | 'alt'
+  | 'width'
+  | 'height'
 >;
 
 const Avatar = ({
