@@ -43,6 +43,7 @@ export function mergeResponsiveProps(
       return (prop.length > 4 ? prop.slice(0, 4) : prop).reduce(
         (acc, next, index) => {
           if (next !== null && next !== undefined) {
+            // @ts-ignore TS7005
             acc[breakpoints[index]] = next;
           }
 
