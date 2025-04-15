@@ -73,6 +73,7 @@ const iconMap = {
     'bookmark_outlined',
     'bookmark',
     'check',
+    'chat',
     'check_circle',
     'comment_outlined',
     'comment',
