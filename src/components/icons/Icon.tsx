@@ -40,6 +40,7 @@ export type IconTypeType =
   | 'caret_down'
   | 'caret_up'
   | 'chapter'
+  | 'chat'
   | 'check'
   | 'check_circle'
   | 'chevron_double_down'
@@ -254,6 +255,7 @@ export const TYPE = {
   CARET_UP: 'caret_up',
   CHAPTER: 'chapter',
   CHECK: 'check',
+  CHAT: 'chat',
   CHECK_CIRCLE: 'check_circle',
   CHEVRON_DOUBLE_DOWN: 'chevron_double_down',
   CHEVRON_DOUBLE_RIGHT: 'chevron_double_right',
