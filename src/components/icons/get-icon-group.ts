@@ -214,12 +214,14 @@ const iconMap = {
     'brainly_oval',
     'brainly_parallelogram',
     'facebook',
+    'discord',
     'google',
     'instagram',
     'linkedin',
     'medium',
     'twitter',
     'youtube',
+    'tiktok',
   ],
 };
 const groups = Object.keys(iconMap);
