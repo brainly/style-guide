@@ -73,11 +73,11 @@
 @mixin applyFocus() {
   transition: box-shadow $durationQuick1 $easingExit;
 
-  &:focus-visible {
+  &:focus-visible:not(.sg-no-focus-styles) {
     @include applyFocusStyle();
   }
 
-  &:focus {
+  &:focus:not(.sg-no-focus-styles) {
     @include applyFocusStyle();
   }
 
@@ -89,11 +89,11 @@
 }
 
 @mixin applyFocusText() {
-  &:focus-visible {
+  &:focus-visible:not(.sg-no-focus-styles) {
     @include applyFocusTextStyle();
   }
 
-  &:focus {
+  &:focus:not(.sg-no-focus-styles) {
     @include applyFocusTextStyle();
   }
 

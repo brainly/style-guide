@@ -51,11 +51,11 @@ $includeHtml: false !default;
     line-height: rhythm(1);
   }
 
-  *:not(a):not(.sg-no-focus-styles) {
+  *:not(a) {
     @include applyFocus();
   }
 
-  a:not(.sg-no-focus-styles) {
+  a {
     @include applyFocusText();
   }
 }
