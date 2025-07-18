@@ -12,6 +12,8 @@ export const accordionItemRules = [
   {
     pattern:
       '<b>Should</b> expend/collapse content by pressing <code>Space</code>/<code>Enter</code> and mouse click.',
+    comment: `Keyboard expansion can be disabled by setting <code>disableKeyboardExpansion</code> prop to <code>true</code>. 
+      Mouse click interaction will always work regardless of this setting.`,
     status: 'DONE',
     tests: 'DONE',
   },

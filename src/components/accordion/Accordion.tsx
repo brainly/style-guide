@@ -68,6 +68,7 @@ export type AccordionPropsType = Readonly<{
   expanded?: string | Array<string>;
   defaultExpanded?: string | Array<string>;
   onChange?: (arg0: string) => void;
+  disableKeyboardExpansion?: boolean;
   'aria-label'?: string;
   'aria-labelledby'?: string;
 }>;
@@ -90,6 +91,7 @@ const Accordion = ({
   defaultExpanded,
   expanded,
   onChange,
+  disableKeyboardExpansion = false,
   'aria-label': ariaLabel,
   'aria-labelledby': ariaLabelledby,
 }: AccordionPropsType) => {
@@ -178,9 +180,11 @@ const Accordion = ({
           event.preventDefault();
         }
 
-        dispatch({
-          type: 'accordion/KEYBOARD_SET_EXPANDED',
-        });
+        if (!disableKeyboardExpansion) {
+          dispatch({
+            type: 'accordion/KEYBOARD_SET_EXPANDED',
+          });
+        }
       }
     }
 
@@ -190,7 +194,7 @@ const Accordion = ({
       if (!wrapper) return;
       wrapper.removeEventListener('keydown', handleKeyDown);
     };
-  }, [state.focusedElementId]);
+  }, [state.focusedElementId, disableKeyboardExpansion]);
 
   function reducer(state: StateType, action: ActionType): StateType {
     switch (action.type) {
