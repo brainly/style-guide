@@ -76,6 +76,13 @@ const spacingOptions = [
         options: spacingOptions,
       },
     },
+    disableKeyboardExpansion: {
+      description:
+        'Disables expanding/collapsing accordion items using Space/Enter keys',
+      control: {
+        type: 'boolean',
+      },
+    },
   }}
   args={{
     allowMultiple: true,
@@ -142,6 +149,19 @@ const spacingOptions = [
 
 <Canvas>
   <Story name="ReducedMotion" args={{reduceMotion: true}}>
+    {args => <Accordion {...args} />}
+  </Story>
+</Canvas>
+
+### Disabled Keyboard Expansion
+
+When `disableKeyboardExpansion` is enabled, accordion items cannot be expanded/collapsed using Space or Enter keys. Mouse clicks will still work normally.
+
+<Canvas>
+  <Story
+    name="DisabledKeyboardExpansion"
+    args={{disableKeyboardExpansion: true}}
+  >
     {args => <Accordion {...args} />}
   </Story>
 </Canvas>

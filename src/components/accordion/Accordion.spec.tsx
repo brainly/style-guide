@@ -242,6 +242,39 @@ describe('<Accordion>', () => {
     expect(screen.queryByRole('region')).toBeNull();
   });
 
+  it('does not expand/collapse on keyboard when disableKeyboardExpansion is true', async () => {
+    const accordionId = 'id-1';
+
+    render(
+      <Accordion disableKeyboardExpansion reduceMotion>
+        <AccordionItem title={accordionId} id={accordionId} tabIndex={1}>
+          Accordion Item Description
+        </AccordionItem>
+      </Accordion>
+    );
+    const item = screen.getByRole('button');
+
+    expect(item.getAttribute('aria-expanded')).toEqual('false');
+    expect(screen.queryByRole('region')).toBeNull();
+
+    focusElement(item);
+
+    // Try to expand with Enter - should not work
+    fireEvent.keyDown(item, {key: 'Enter', keyCode: '13'});
+    expect(item.getAttribute('aria-expanded')).toEqual('false');
+    expect(screen.queryByRole('region')).toBeNull();
+
+    // Try to expand with Space - should not work
+    fireEvent.keyDown(item, {key: 'Space', keyCode: '32'});
+    expect(item.getAttribute('aria-expanded')).toEqual('false');
+    expect(screen.queryByRole('region')).toBeNull();
+
+    // But clicking should still work
+    fireEvent.click(item);
+    expect(item.getAttribute('aria-expanded')).toEqual('true');
+    expect(screen.getByRole('region')).toBeTruthy();
+  });
+
   it('has an accessible name', () => {
     const label = 'Accordion name';
     const accordion = render(<Accordion aria-label={label} />);
