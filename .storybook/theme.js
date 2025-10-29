@@ -7,7 +7,7 @@ export default create({
   colorSecondary: '#000000',
 
   // Typography
-  fontBase: '"ProximaNova", "Helvetica", "Arial", sans-serif',
+  fontBase: '"Figtree", "Helvetica", "Arial", sans-serif',
   fontCode: 'monospace',
   fontSize: '16px',
 

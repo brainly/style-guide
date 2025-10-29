@@ -1,5 +1,5 @@
 module.exports = {
-  sans: ['ProximaNova', 'Helvetica', 'Arial', 'sans-serif'],
+  sans: ['Figtree', 'Helvetica', 'Arial', 'sans-serif'],
   serif: ['UntitledSerif', 'serif'],
   mono: [
     'ui-monospace',
