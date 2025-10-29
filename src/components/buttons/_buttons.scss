@@ -122,12 +122,6 @@ $largeButtonSize: componentSize(l);
     .sg-button__hover-overlay {
       border-radius: var(--border-radius-m);
     }
-
-    // Proxima is broken
-    // Added to align text in the center for this font-size
-    .sg-button__text {
-      top: 1px;
-    }
   }
 
   &--reversed-order {

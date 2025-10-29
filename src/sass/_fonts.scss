@@ -1,37 +1,37 @@
 $includeHtml: false !default;
 $includeFonts: true !default;
-$proximaNovaRegularWoff2Path: $sgFontsPath + 'ProximaNova-Regular.woff2';
-$proximaNovaRegularWoffPath: $sgFontsPath + 'ProximaNova-Regular.woff';
-$proximaNovaBoldWoff2Path: $sgFontsPath + 'ProximaNova-Bold.woff2';
-$proximaNovaBoldWoffPath: $sgFontsPath + 'ProximaNova-Bold.woff';
-$proximaNovaBlackWoff2Path: $sgFontsPath + 'ProximaNova-Black.woff2';
-$proximaNovaBlackWoffPath: $sgFontsPath + 'ProximaNova-Black.woff';
+$figtreeRegularWoff2Path: $sgFontsPath + 'Figtree-Regular.woff2';
+$figtreeRegularWoffPath: $sgFontsPath + 'Figtree-Regular.woff';
+$figtreeBoldWoff2Path: $sgFontsPath + 'Figtree-Bold.woff2';
+$figtreeBoldWoffPath: $sgFontsPath + 'Figtree-Bold.woff';
+$figtreeBlackWoff2Path: $sgFontsPath + 'Figtree-Black.woff2';
+$figtreeBlackWoffPath: $sgFontsPath + 'Figtree-Black.woff';
 $untitledSerifRegularWoff2Path: $sgFontsPath + 'UntitledSerif-Regular.woff2';
 $untitledSerifRegularWoffPath: $sgFontsPath + 'UntitledSerif-Regular.woff';
 
 @if ($includeHtml and $includeFonts) {
   @font-face {
-    font-family: $fontFamilyProximaNova;
-    src: url($proximaNovaRegularWoff2Path) format('woff2'),
-      url($proximaNovaRegularWoffPath) format('woff');
+    font-family: $fontFamilyFigtree;
+    src: url($figtreeRegularWoff2Path) format('woff2'),
+      url($figtreeRegularWoffPath) format('woff');
     font-weight: $fontWeightNormal;
     font-style: normal;
     font-display: swap;
   }
 
   @font-face {
-    font-family: $fontFamilyProximaNova;
-    src: url($proximaNovaBoldWoff2Path) format('woff2'),
-      url($proximaNovaBoldWoffPath) format('woff');
+    font-family: $fontFamilyFigtree;
+    src: url($figtreeBoldWoff2Path) format('woff2'),
+      url($figtreeBoldWoffPath) format('woff');
     font-weight: $fontWeightBold;
     font-style: normal;
     font-display: swap;
   }
 
   @font-face {
-    font-family: $fontFamilyProximaNova;
-    src: url($proximaNovaBlackWoff2Path) format('woff2'),
-      url($proximaNovaBlackWoffPath) format('woff');
+    font-family: $fontFamilyFigtree;
+    src: url($figtreeBlackWoff2Path) format('woff2'),
+      url($figtreeBlackWoffPath) format('woff');
     font-weight: $fontWeightBlack;
     font-style: normal;
     font-display: swap;
