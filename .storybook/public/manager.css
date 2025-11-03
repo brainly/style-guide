@@ -12,6 +12,7 @@
 
 body {
   background-color: #f5f8fa;
+  font-feature-settings: 'ss01' 1; /* enables single-storey 'a' */
 }
 
 .sidebar-header img {
@@ -24,6 +25,7 @@ body {
 
 .sidebar-item {
   border-radius: 8px;
+  font-feature-settings: 'ss01' 1; /* enables single-storey 'a' */
 }
 
 .sidebar-container {

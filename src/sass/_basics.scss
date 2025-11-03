@@ -48,6 +48,7 @@ $includeHtml: false !default;
 
     font-size: fontSize(default);
     font-family: $fontFamilyPrimary;
+    font-feature-settings: $fontFeatureSettings;
     line-height: rhythm(1);
   }
 
