@@ -29,6 +29,7 @@ $bitSizes: (
     font-size: getBitSize(medium);
     line-height: getBitSize(medium);
     font-family: $fontFamilyPrimary;
+    font-feature-settings: $fontFeatureSettings;
     color: $text-green-40;
     font-weight: $fontWeightBlack;
     margin: 0;

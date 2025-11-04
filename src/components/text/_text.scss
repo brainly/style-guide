@@ -63,6 +63,7 @@ $bodyTextSizeRules: (
   .sg-text {
     @include bodyTextTypeSizeVariant(medium);
     font-family: $fontFamilyPrimary;
+    font-feature-settings: $fontFeatureSettings;
     font-weight: $fontWeightNormal;
     color: $text-black;
 
