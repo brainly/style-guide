@@ -6,8 +6,6 @@ $figtreeBoldWoff2Path: $sgFontsPath + 'Figtree-Bold.woff2';
 $figtreeBoldWoffPath: $sgFontsPath + 'Figtree-Bold.woff';
 $figtreeBlackWoff2Path: $sgFontsPath + 'Figtree-Black.woff2';
 $figtreeBlackWoffPath: $sgFontsPath + 'Figtree-Black.woff';
-$untitledSerifRegularWoff2Path: $sgFontsPath + 'UntitledSerif-Regular.woff2';
-$untitledSerifRegularWoffPath: $sgFontsPath + 'UntitledSerif-Regular.woff';
 
 @if ($includeHtml and $includeFonts) {
   @font-face {
@@ -33,15 +31,6 @@ $untitledSerifRegularWoffPath: $sgFontsPath + 'UntitledSerif-Regular.woff';
     src: url($figtreeBlackWoff2Path) format('woff2'),
       url($figtreeBlackWoffPath) format('woff');
     font-weight: $fontWeightBlack;
-    font-style: normal;
-    font-display: swap;
-  }
-
-  @font-face {
-    font-family: $fontFamilyUntitledSerif;
-    src: url($untitledSerifRegularWoff2Path) format('woff2'),
-      url($untitledSerifRegularWoffPath) format('woff');
-    font-weight: $fontWeightNormal;
     font-style: normal;
     font-display: swap;
   }
