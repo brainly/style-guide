@@ -182,7 +182,7 @@
     "run-metrics": "node ./bin/metrics/cli.js",
     "scss-lint": "stylelint 'src/**/*.scss'",
     "scss-unused-variables": "./scripts/find_scss_unused_variables.sh src/",
-    "storybook": "NODE_OPTIONS=\"--max_old_space_size=12288\" ./scripts/storybook.sh",
+    "storybook": "NODE_OPTIONS=\"--openssl-legacy-provider --max_old_space_size=12288\" ./scripts/storybook.sh",
     "storybook-chromatic": "STORYBOOK_ENV=chromatic ./scripts/storybook.sh",
     "test": "yarn run scss-lint && yarn run scss-unused-variables && yarn run ts-lint && yarn run ts-check && yarn run ts-buildtypes && yarn prettier-check && jest",
     "postinstall": "patch-package"
