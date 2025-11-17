@@ -409,7 +409,6 @@ const Button = React.forwardRef(
           />
         )}
         {ico}
-        {/* As soon as we have Proxima fixed, we could remove that span */}
         <span className="sg-button__text">
           {children}
           {target === '_blank' && (
