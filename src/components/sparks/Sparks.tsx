@@ -97,7 +97,7 @@ export interface SparksPropsType {
    * // This will move the sparks 8px outside the container top and bottom edge and 0px outside the container left and right edge.
    * <Sparks inset="-8 0" />
    * @example
-   * // this will move the sparks 16px outside the container top and bottom endge and 0px outside the container left and right edge.
+   * // this will move the sparks 16px outside the container top and bottom edge and 0px outside the container left and right edge.
    * <Sparks inset="-16 0" />
    **/
   placement?: React.CSSProperties['inset'];
@@ -205,7 +205,7 @@ const Sparks = React.forwardRef<HTMLDivElement, SparksPropsType>(
 
     const shapeColor = shapeColorMap[shape];
 
-    const componnetCssVariables = {
+    const componentCssVariables = {
       '--sparks-display': display,
       '--sparks-width': width,
       '--sparks-height': height,
@@ -220,7 +220,7 @@ const Sparks = React.forwardRef<HTMLDivElement, SparksPropsType>(
         className={cx('sg-sparks', className, {
           'sg-sparks--s': variant === 's',
         })}
-        style={{...style, ...componnetCssVariables}}
+        style={{...style, ...componentCssVariables}}
       >
         {children}
         <div

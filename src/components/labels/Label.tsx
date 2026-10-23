@@ -219,7 +219,7 @@ const Label = ({
   if (__DEV__) {
     invariant(
       !(!iconType && (iconAriaHidden || iconTitle)),
-      'You cannot hide an icon or name it, when `iconType` s not provided'
+      'You cannot hide an icon or name it, when `iconType` is not provided'
     );
     invariant(
       !(!onClose && closeButtonLabel), // eslint-disable-next-line max-len
